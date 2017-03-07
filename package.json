@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^0.15.3",
+    "coriolan-ui": "^0.1.19",
+    "normalize.css": "^5.0.0",
+    "nuxt": "^0.9.9"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.2"
+  },
+  "scripts": {
+    "start": "nuxt"
+  }
+}
