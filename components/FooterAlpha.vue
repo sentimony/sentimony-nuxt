@@ -1,10 +1,10 @@
 <template>
   <footer class='main-footer'>
     <div class='main-footer__copyright'>2007 - 2017 © Sentimony Records</div>
-    <div class='main-footer__rooster'>
-      <a href='https://ihororlovskyi.com' class='main-footer__rooster-link' target='_blank'>
-      <img class='main-footer__rooster-img' src="https://ihororlovskyi.com/assets/img/svg-icons/ihororlovskyi.svg">
-        <span class='main-footer__rooster-text'>Ihor<br>Orlovskyi</span>
+    <div class='main-footer__powered'>
+      <a class='main-footer__powered-link' href='https://ihororlovskyi.com' target='_blank'>
+      <img class='main-footer__powered-img' src="https://ihororlovskyi.com/assets/img/svg-icons/ihororlovskyi.svg">
+        <span class='main-footer__powered-text'>Ihor<br>Orlovskyi</span>
       </a>
     </div>
   </footer>
@@ -12,8 +12,6 @@
 
 <style lang="scss">
 .main-footer {
-  // background: rgba(#000,.5);
-  // background-color: rgba(#fff,.05);
   background-color: #000;
   padding: 1.2em .8em;
   position: relative;
@@ -24,7 +22,7 @@
     margin-bottom: .8em;
   }
 
-  &__rooster {
+  &__powered {
     text-align: center;
 
     &-link {
@@ -35,7 +33,7 @@
     }
 
     &-img {
-      max-width: 3em;
+      max-width: 1.6em;
     }
 
     &-text {
@@ -43,7 +41,6 @@
       font-size: .6em;
       font-weight: 300;
       padding-left: .8em;
-      text-transform: uppercase;
     }
   }
 }

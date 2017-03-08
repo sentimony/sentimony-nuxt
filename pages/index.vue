@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="home__icon" src="https://ihororlovskyi.com/assets/img/svg-icons/ihororlovskyi.svg">
+    <img class="home__logo" src="/svg-icons/sentimony-records-logo.svg">
     <h1 class="home__title">Sentimony Records</h1>
     <p class="home__subtitle">Electronic Music Label</p>
   </div>
@@ -11,37 +11,36 @@
 @import '../node_modules/coriolan-ui/mixins/media';
 
 .home {
+  padding-top: 4em;
 
-  &__icon {
+  &__logo {
     display: block;
-    max-width: 50px;
+    max-width: 130px;
     margin: 0 auto;
     position: relative;
   }
 
   &__title {
-    letter-spacing: 10px;
-    font-size: 30px;
-    margin: .3em 0;
-    position: relative;
+    margin: .2em 0;
     text-transform: uppercase;
-    color: #c3c3c3;
+    letter-spacing: 2px;
+    font-size: 2em;
 
     @include media(M) {
-      font-size: 50px;
+      letter-spacing: 3px;
+      font-size: 3em;
     }
   }
 
   &__subtitle {
-    letter-spacing: 2px;
-    font-size: 12px;
-    margin: .3em 0;
-    position: relative;
+    margin: .4em 0;
     text-transform: uppercase;
-    color: #c3c3c3;
+    letter-spacing: 4px;
+    font-size: .8em;
 
     @include media(M) {
-      font-size: 18px;
+      letter-spacing: 16px;
+      font-size: 1.2em;
     }
   }
 }
@@ -50,9 +49,9 @@
 <script>
 export default {
   head: {
-    title: 'Home',
+    title: 'About',
     meta: [
-      { name: 'description', content: 'Home page description' }
+      { name: 'description', content: 'About page description' }
     ]
   }
 }

@@ -18,7 +18,7 @@
 <style lang="scss">
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=cyrillic');
 @import '../node_modules/normalize.css/normalize.css';
-$text-color: #ccc;
+$text-color: #c3c3c3;
 $link-color: darken($text-color, 15%);
 $link-color-hover: lighten($link-color, 30%);
 

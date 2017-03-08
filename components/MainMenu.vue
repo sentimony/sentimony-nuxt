@@ -10,8 +10,9 @@
 
 <style lang="scss">
 .main-menu {
-  // background-color: rgba(#fff,.05);
   background-color: #000;
+  position: relative;
+  z-index: 100;
 
   &__list {
     max-width: 555px;
