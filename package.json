@@ -2,6 +2,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "coriolan-ui": "^0.1.19",
+    "lodash": "^4.17.4",
     "normalize.css": "^5.0.0",
     "nuxt": "^0.9.9"
   },

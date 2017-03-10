@@ -2,8 +2,17 @@
   <div class="releases">
     <h1>Releases</h1>
     <nav class="releases__list">
-      <div class="releases__item" v-for="(release, key) in releases">
-        <nuxt-link class="releases__link" :to="{ path: `/release/${key}`}">{{ release.title }}</nuxt-link>
+      <div class="releases__item" v-for="release in sortedReleases" v-if='!release.date'>
+        <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
+          <span class="releases__title">{{ release.title }}</span>
+          <span class="releases__date">Coming Soon</span>
+        </nuxt-link>
+      </div>
+      <div class="releases__item" v-for="release in sortedReleases" v-if='release.date'>
+        <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
+          <span class="releases__title">{{ release.title }}</span>
+          <span class="releases__date" v-if='release.date'>{{ release.date | year }}</span>
+        </nuxt-link>
       </div>
     </nav>
   </div>
@@ -69,11 +78,22 @@
       width: 100%;
     }
   }
+
+  &__title {
+    display: block;
+  }
+
+  &__date {
+    display: block;
+    // text-align: right;
+    font-size: .6em;
+  }
 }
 </style>
 
 <script>
 import axios from '~plugins/axios'
+import sortBy from 'lodash/sortBy'
 
 export default {
   head: {
@@ -86,6 +106,16 @@ export default {
     const { data } = await axios.get('releases.json')
     return {
       releases: data
+    }
+  },
+  computed: {
+    sortedReleases () {
+      return sortBy(this.releases, 'date').reverse()
+    }
+  },
+  filters: {
+    year (date) {
+      return date.split('-')[0]
     }
   }
 }

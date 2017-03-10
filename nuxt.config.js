@@ -21,7 +21,7 @@ releases = [
   { key: 'psyfactor-retro-scientific' },
   { key: 'va-gamayun-tale' },
   { key: 'tentura-beyond-illusion' },
-  { key: 'ufomatka-the-e-p' },
+  { key: 'ufomatka-the-ep' },
   { key: 'va-sentimony-10-years' },
   { key: 'zymosis-insight' }
 ]

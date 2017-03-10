@@ -2,8 +2,12 @@
   <div class="release">
     <h1>{{ release.title }}</h1>
     <div class="release__content">
-      <div class="release__bandcamp-container" v-if='release.bandcampId'>
-        <iframe class="release__iframe-bandcamp" :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.bandcampId + '/size=large/bgcol=222222/linkcol=4ec5ec/artwork=small/transparent=true/'" seamless></iframe>
+      <div class="release__bandcamp-container" v-if='release.bandcamp_id'>
+        <iframe class="release__iframe-bandcamp" :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.bandcamp_id + '/size=large/bgcol=222222/linkcol=4ec5ec/artwork=small/transparent=true/'" seamless></iframe>
+      </div>
+      <div v-if='release.date'>
+        Release Date:
+        {{ release.date | day }}
       </div>
       <div v-if='release.link_bandcamp'>
         bandcamp:
@@ -35,6 +39,7 @@
   }
 
   &__iframe-bandcamp {
+    opacity: .9;
     border: 0;
     width: 100%;
     height: 580px;
@@ -65,6 +70,11 @@ export default {
     const { data } = await axios.get(`releases/${key}.json`)
     return {
       release: data
+    }
+  },
+  filters: {
+    day (date) {
+      return date.split('T')[0]
     }
   }
 }
