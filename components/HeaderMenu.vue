@@ -1,15 +1,15 @@
 <template>
-  <header class="main-menu">
-    <nav class="main-menu__list">
-      <nuxt-link class="main-menu__link" to='/' exact>About</nuxt-link>
-      <nuxt-link class="main-menu__link" to='/releases'>Releases</nuxt-link>
-      <nuxt-link class="main-menu__link" to='/contacts'>Contacts</nuxt-link>
+  <header class="header-menu">
+    <nav class="header-menu__list">
+      <nuxt-link class="header-menu__link" to='/' exact>About</nuxt-link>
+      <nuxt-link class="header-menu__link" to='/releases'>Releases</nuxt-link>
+      <nuxt-link class="header-menu__link" to='/contacts'>Contacts</nuxt-link>
     </nav>
   </header>
 </template>
 
 <style lang="scss">
-.main-menu {
+.header-menu {
   background-color: #000;
   position: relative;
   z-index: 100;

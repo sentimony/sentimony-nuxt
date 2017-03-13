@@ -4,13 +4,13 @@
       <Fractal/>
     </div>
     <div class="flex-sticky__header">
-      <MainMenu/>
+      <HeaderMenu/>
     </div>
     <div class="flex-sticky__content">
       <nuxt/>
     </div>
     <div class="flex-sticky__footer">
-      <FooterAlpha/>
+      <FooterBlock/>
     </div>
   </div>
 </template>
@@ -107,14 +107,14 @@ body {
 
 <script>
 import Fractal from '~components/Fractal.vue'
-import MainMenu from '~components/MainMenu.vue'
-import FooterAlpha from '~components/FooterAlpha.vue'
+import HeaderMenu from '~components/HeaderMenu.vue'
+import FooterBlock from '~components/FooterBlock.vue'
 
 export default {
   components: {
     Fractal,
-    MainMenu,
-    FooterAlpha
+    HeaderMenu,
+    FooterBlock
   }
 }
 </script>
