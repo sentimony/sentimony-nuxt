@@ -22,7 +22,7 @@ releases = [
   { key: 'va-gamayun-tale' },
   { key: 'tentura-beyond-illusion' },
   { key: 'ufomatka-the-ep' },
-  { key: 'va-sentimony-10-years' },
+  { key: 'va-the-ten' },
   { key: 'zymosis-insight' }
 ]
 

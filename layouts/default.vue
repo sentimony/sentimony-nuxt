@@ -43,6 +43,10 @@ a {
   }
 }
 
+p {
+  margin: 0 0 .8em;
+}
+
 img {
   max-width: 100%;
 }

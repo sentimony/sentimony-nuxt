@@ -4,14 +4,24 @@
     <nav class="releases__list">
       <div class="releases__item" v-for="release in sortedReleases" v-if='!release.date'>
         <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
-          <span class="releases__title">{{ release.title }}</span>
-          <span class="releases__date">Coming Soon</span>
+          <div class="releases__thumb" v-if='release.cover_small'>
+            <img class="releases__cover" :src="release.cover_small" :alt="release.title">
+          </div>
+          <div class="releases__text">
+            <div class="releases__title">{{ release.title }}</div>
+            <div class="releases__date">Coming Soon</div>
+          </div>
         </nuxt-link>
       </div>
       <div class="releases__item" v-for="release in sortedReleases" v-if='release.date'>
         <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
-          <span class="releases__title">{{ release.title }}</span>
-          <span class="releases__date" v-if='release.date'>{{ release.date | year }}</span>
+          <div class="releases__thumb" v-if='release.cover_small'>
+            <img class="releases__cover" :src="release.cover_small" :alt="release.title">
+          </div>
+          <div class="releases__text">
+            <div class="releases__title">{{ release.title }}</div>
+            <div class="releases__date" v-if='release.date'>{{ release.date | year }}</div>
+          </div>
         </nuxt-link>
       </div>
     </nav>
@@ -66,8 +76,9 @@
 
   &__link {
     display: block;
-    padding: 2em .8em;
+    padding: .8em;
     position: relative;
+    display: flex;
 
     &:before {
       content: '';
@@ -79,13 +90,25 @@
     }
   }
 
-  &__title {
+  &__thumb {
+    max-width: 60px;
+    margin-right: .8em;
+  }
+
+  &__cover {
+    // opacity: .6;
     display: block;
   }
 
+  &__text {
+    text-align: left;
+  }
+
+  &__title {
+    font-size: .8em;
+  }
+
   &__date {
-    display: block;
-    // text-align: right;
     font-size: .6em;
   }
 }
