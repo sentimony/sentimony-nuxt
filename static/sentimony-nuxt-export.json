@@ -27,6 +27,9 @@
   },
   "releases" : {
     "va-fantazma" : {
+      "cat_no": "SENCD001",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD001-100.jpg?alt=media&token=c3f26af4-4348-4c00-ac52-34a203fe36e8",
       "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD001-350.jpg?alt=media&token=983cfa94-2151-4f16-94c1-5feb85a9e1f6",
       "cover_large" : "",
@@ -40,6 +43,9 @@
       "title" : "VA «Fantazma»"
     },
     "va-emtinesses" : {
+      "cat_no": "SENCD002",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD002-100.jpg?alt=media&token=ef38a32e-7d76-46e5-99b2-6f5c3e4c7fb6",
       "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD002-350.jpg?alt=media&token=96e574d2-c666-4d79-bf20-af460f104a8e",
       "cover_large" : "",
@@ -53,6 +59,9 @@
       "title" : "VA «Emtinesses»"
     },
     "sphingida-origin" : {
+      "cat_no": "SENCD003",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD003-100.jpg?alt=media&token=2b793ae1-01c0-475f-b50d-795abf8d9f63",
       "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD003-350.jpg?alt=media&token=8faf566c-41b7-4873-96df-7be01df500ea",
       "cover_large" : "",
@@ -66,6 +75,9 @@
       "title" : "Sphingida «Origin»"
     },
     "va-true-story" : {
+      "cat_no": "SENCD004",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD004-100.jpg?alt=media&token=56c1ea8e-32ba-4a42-942e-1d059c3ef108",
       "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD004-350.jpg?alt=media&token=29d2236c-d5dc-4223-b8b8-e0f39f46f3c8",
       "cover_large" : "",
@@ -79,6 +91,9 @@
       "title" : "VA «True Story»"
     },
     "spectrum-vision-lost-space-device" : {
+      "cat_no": "SENCD005",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -92,6 +107,9 @@
       "title" : "Spectrum Vision «Lost Space Device»"
     },
     "irukanji-z-lisu" : {
+      "cat_no": "SENCD006",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -105,6 +123,9 @@
       "title" : "Irukanji «Z Lisu»"
     },
     "va-ocean-scenes-higher-titans" : {
+      "cat_no": "SENCD008/ADCD01",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -118,6 +139,9 @@
       "title" : "VA «Ocean Scenes: Higher Titans»"
     },
     "senzar-before-the-morning-sun" : {
+      "cat_no": "SENCD017/LGCD01",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -131,6 +155,9 @@
       "title" : "Senzar ‎«Before The Morning Sun»"
     },
     "va-grower" : {
+      "cat_no": "SENCD018/LGCD02",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -144,6 +171,9 @@
       "title" : "VA «Grower»"
     },
     "va-time-loop-beyond-borders" : {
+      "cat_no": "SENCD007",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -157,6 +187,9 @@
       "title" : "VA «Time Loop: Beyond Borders»"
     },
     "unusual-cosmic-process-weightlessness" : {
+      "cat_no": "SENCD019/LGCD03",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -170,6 +203,9 @@
       "title" : "Unusual Cosmic Process ‎«Weightlessness»"
     },
     "va-tempo-syndicate" : {
+      "cat_no": "SENCD009",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -183,6 +219,9 @@
       "title" : "VA «Tempo Syndicate»"
     },
     "va-dancing-mavka" : {
+      "cat_no": "SENCD020/LGCD04",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -196,6 +235,9 @@
       "title" : "VA «Dansing Mavka»"
     },
     "va-absence-of-gravity" : {
+      "cat_no": "SENCD010",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -209,6 +251,9 @@
       "title" : "VA «Absence Of Gravity»"
     },
     "va-special-places" : {
+      "cat_no": "SENCD011",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -222,6 +267,9 @@
       "title" : "VA «Special Places»"
     },
     "hypnotriod-seven-heavenly-edges" : {
+      "cat_no": "SENCD012",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD012-100.jpg?alt=media&token=96da1311-4b99-41d4-a19c-303040755175",
       "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD012-350.jpg?alt=media&token=3ccd2e13-1d5b-4d3a-9044-063c8d8c79c9",
       "cover_large" : "",
@@ -235,6 +283,9 @@
       "title" : "Hypnotriod «Seven Heavenly Edges»"
     },
     "specialmind-the-missing-particle" : {
+      "cat_no": "SENCD013",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD013-100.jpg?alt=media&token=12dac13f-55f6-4316-88ad-cb53f08e0fa4",
       "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD013-350.jpg?alt=media&token=50801af1-335a-4334-986a-7896196d2e67",
       "cover_large" : "",
@@ -248,6 +299,9 @@
       "title" : "Specialmind «The Missing Particle»"
     },
     "tentura-aurora" : {
+      "cat_no": "SENCD014",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD014-100.jpg?alt=media&token=3933d6d2-f1b1-4511-b90b-82debc7ac73c",
       "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD014-350.jpg?alt=media&token=d2b55301-4634-4e05-b035-edd8e06d80df",
       "cover_large" : "",
@@ -261,6 +315,9 @@
       "title" : "Tentura «Aurora»"
     },
     "cifroteca-roof-raiser-wild-storm" : {
+      "cat_no": "SENCD015/ADCD02",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -274,6 +331,9 @@
       "title" : "Cifroteca & Roof Raiser «Wild Storm»"
     },
     "psyfactor-retro-scientific" : {
+      "cat_no": "SENCD016",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -287,6 +347,9 @@
       "title" : "Psyfactor «Retro Scientific»"
     },
     "va-gamayun-tale" : {
+      "cat_no": "SENCD021/LGCD05",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -300,6 +363,9 @@
       "title" : "VA «Gamayun Tale»"
     },
     "ufomatka-the-ep" : {
+      "cat_no": "SENCD022/LGCD06",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -313,6 +379,9 @@
       "title" : "Ufomatka «The E.P.»"
     },
     "tentura-beyond-illusion" : {
+      "cat_no": "SENCD023",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",
@@ -326,8 +395,11 @@
       "title" : "Tentura «Beyond Illusion»"
     },
     "va-the-ten" : {
-      "cover_small" : "",
-      "cover_medium" : "",
+      "cat_no": "SENCD024",
+      "design_by": "<a href='https://www.facebook.com/andytrootootoo' target='_blank'>Trootootoo</a>",
+      "mastering_by": "<a href='https://www.facebook.com/overdreamstudio' target='_blank'>Overdream Studio</a>",
+      "cover_small" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD024-100.jpg?alt=media&token=9f8e1296-448d-4501-b753-7fa77fce1b8f",
+      "cover_medium" : "https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/releases%2FSENCD024-350.jpg?alt=media&token=9f0afc31-7c05-4a53-830a-7a66fc871b1a",
       "cover_large" : "",
       "slug" : "va-the-ten",
       "date" : "",
@@ -339,6 +411,9 @@
       "title" : "VA «The Ten»"
     },
     "zymosis-insight" : {
+      "cat_no": "SENCD025",
+      "design_by": "",
+      "mastering_by": "",
       "cover_small" : "",
       "cover_medium" : "",
       "cover_large" : "",

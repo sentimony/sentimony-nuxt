@@ -24,10 +24,9 @@ $link-color-hover: lighten($link-color, 30%);
 
 body {
   // font-family: 'Open Sans', sans-serif;
-  font: 400 14px/1.5 "Lucida Grande","Tahoma","Verdana","Arial",sans-serif,"Roboto",Helvetica,Arial,sans-serif;
+  font: 400 15px/1.5 "Lucida Grande","Tahoma","Verdana","Arial",sans-serif,"Roboto",Helvetica,Arial,sans-serif;
   text-align: center;
   background-color: #111;
-  font-size: 16px;
   color: $text-color;
 }
 

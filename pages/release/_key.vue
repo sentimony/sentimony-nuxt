@@ -9,9 +9,22 @@
         <p v-if='release.link_bandcamp'>
           <a class="release__btn-bandcamp" :href="release.link_bandcamp + '?action=download'" target="_blank">Donate</a>
         </p>
-        <div v-if='release.date'>
-          Release Date:
-          {{ release.date | day }}
+        <div v-if='release.cat_no'>
+          Cat#:
+          <span>{{ release.cat_no }}</span>
+        </div>
+        <div>
+          Released:
+          <span v-if='release.date'>{{ release.date | day }}</span>
+          <span v-else>Coming Soon</span>
+        </div>
+        <div v-if='release.design_by'>
+          Design By:
+          <span v-html='release.design_by'></span>
+        </div>
+        <div v-if='release.mastering_by'>
+          Mastering By:
+          <span v-html='release.mastering_by'></span>
         </div>
         <br>
         <div v-if='release.link_ektoplazm'>
