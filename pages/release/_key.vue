@@ -3,8 +3,8 @@
     <h1>{{ release.title }}</h1>
     <div class="release__media">
       <div class="release__row">
-        <div class="release__thumb" v-if='release.cover_medium'>
-          <img class="release__cover" :src="release.cover_medium" :alt="release.title">
+        <div class="release__thumb" v-if='release.cover'>
+          <img class="release__cover" :src="'https://sentimony-content.netlify.com/assets/img/releases/medium/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
         </div>
         <p v-if='release.link_bandcamp'>
           <a class="release__btn-bandcamp" :href="release.link_bandcamp + '?action=download'" target="_blank">Donate</a>

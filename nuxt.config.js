@@ -1,6 +1,6 @@
 releases = [
   { key: 'va-fantazma' },
-  { key: 'va-emtinesses' },
+  { key: 'va-emptinesses' },
   { key: 'sphingida-origin' },
   { key: 'va-true-story' },
   { key: 'spectrum-vision-lost-space-device' },
@@ -32,11 +32,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/og-images%2Fhome.jpg?alt=media&token=bda45849-0d2c-4e98-8978-097e15443a48' }
+      { property: 'og:image', content: 'https://sentimony-content.netlify.com/assets/img/og-images/sentimony/home.jpg' }
     ],
     link: [
-      { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/favicons%2Ffavicon-32.png?alt=media&token=717dd3ad-b082-4abd-ad56-42dd501deec0' },
-      { rel: 'apple-touch-icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-nuxt.appspot.com/o/favicons%2Ffavicon-144.png?alt=media&token=d5fd00a3-aab1-4fe5-9c50-37bc19ba004f' }
+      { rel: 'shortcut icon', href: 'https://sentimony-content.netlify.com/assets/img/favicons/sentimony/favicon-32.png' },
+      { rel: 'apple-touch-icon', href: 'https://sentimony-content.netlify.com/assets/img/favicons/sentimony/favicon-144.png' }
     ]
   },
   loading: {

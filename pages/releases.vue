@@ -4,8 +4,8 @@
     <nav class="releases__list">
       <div class="releases__item" v-for="release in sortedReleases" v-if='!release.date'>
         <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
-          <div class="releases__thumb" v-if='release.cover_small'>
-            <img class="releases__cover" :src="release.cover_small" :alt="release.title">
+          <div class="releases__thumb" v-if='release.cover'>
+            <img class="releases__cover" :src="'https://sentimony-content.netlify.com/assets/img/releases/small/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
           </div>
           <div class="releases__text">
             <div class="releases__title">{{ release.title }}</div>
@@ -15,8 +15,8 @@
       </div>
       <div class="releases__item" v-for="release in sortedReleases" v-if='release.date'>
         <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
-          <div class="releases__thumb" v-if='release.cover_small'>
-            <img class="releases__cover" :src="release.cover_small" :alt="release.title">
+          <div class="releases__thumb" v-if='release.cover'>
+            <img class="releases__cover" :src="'https://sentimony-content.netlify.com/assets/img/releases/small/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
           </div>
           <div class="releases__text">
             <div class="releases__title">{{ release.title }}</div>
@@ -93,6 +93,7 @@
   &__thumb {
     max-width: 60px;
     margin-right: .8em;
+    position: relative;
   }
 
   &__cover {
@@ -102,6 +103,7 @@
 
   &__text {
     text-align: left;
+    position: relative;
   }
 
   &__title {
