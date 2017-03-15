@@ -11,7 +11,7 @@
         </p>
         <div v-if='release.cat_no'>
           Cat#:
-          <span>{{ release.cat_no }}</span>
+          <span>{{ release.cat_no.toUpperCase() }}</span>
         </div>
         <div>
           Released:

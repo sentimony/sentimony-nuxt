@@ -11,9 +11,9 @@
       </a>
     </div> -->
     <nav class='footer-block__versions'>
-      <a href="https://sentimony-nuxt.netlify.com" class="is-selected">nuxt</a>
-      <a href="https://sentimony-gatsby.netlify.com">gatsby</a>
-      <a href="https://sentimony-jekyll.netlify.com">jekyll</a>
+      <a href="https://sentimony.com" class="is-selected">nuxt</a>
+      <a href="https://gatsby.sentimony.com">gatsby</a>
+      <a href="https://jekyll.sentimony.com">jekyll</a>
     </nav>
   </footer>
 </template>

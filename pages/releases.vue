@@ -91,7 +91,7 @@
   }
 
   &__thumb {
-    max-width: 60px;
+    flex-basis: 25%;
     margin-right: .8em;
     position: relative;
   }
@@ -102,6 +102,7 @@
   }
 
   &__text {
+    flex-basis: 75%;
     text-align: left;
     position: relative;
   }
