@@ -5,7 +5,7 @@
       <div class="releases__item" v-for="release in sortedReleases" v-if='!release.date'>
         <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
           <div class="releases__thumb" v-if='release.cover'>
-            <img class="releases__cover" :src="'https://sentimony-content.netlify.com/assets/img/releases/small/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
+            <img class="releases__cover" :src="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
           </div>
           <div class="releases__text">
             <div class="releases__title">{{ release.title }}</div>
@@ -16,7 +16,7 @@
       <div class="releases__item" v-for="release in sortedReleases" v-if='release.date'>
         <nuxt-link class="releases__link" :to="{ path: `/release/${release.slug}`}">
           <div class="releases__thumb" v-if='release.cover'>
-            <img class="releases__cover" :src="'https://sentimony-content.netlify.com/assets/img/releases/small/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
+            <img class="releases__cover" :src="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
           </div>
           <div class="releases__text">
             <div class="releases__title">{{ release.title }}</div>

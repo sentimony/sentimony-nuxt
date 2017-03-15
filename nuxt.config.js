@@ -32,11 +32,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { property: 'og:image', content: 'https://sentimony-content.netlify.com/assets/img/og-images/sentimony/home.jpg' }
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
     ],
     link: [
-      { rel: 'shortcut icon', href: 'https://sentimony-content.netlify.com/assets/img/favicons/sentimony/favicon-32.png' },
-      { rel: 'apple-touch-icon', href: 'https://sentimony-content.netlify.com/assets/img/favicons/sentimony/favicon-144.png' }
+      { rel: 'shortcut icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-32.png' },
+      { rel: 'apple-touch-icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-144.png' }
     ]
   },
   loading: {
