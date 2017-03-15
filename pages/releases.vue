@@ -45,9 +45,9 @@
   }
 
   &__item {
+    position: relative;
     background-color: rgba(#fff,.05);
     flex-basis: (100% / 2);
-    position: relative;
 
     @include media(M) {
       flex-basis: (100% / 3);
@@ -91,7 +91,7 @@
   }
 
   &__thumb {
-    flex-basis: 25%;
+    // flex-basis: 50px;
     margin-right: .8em;
     position: relative;
   }
@@ -102,7 +102,7 @@
   }
 
   &__text {
-    flex-basis: 75%;
+    flex-basis: 100%;
     text-align: left;
     position: relative;
   }

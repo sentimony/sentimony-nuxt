@@ -4,9 +4,11 @@
     <div class="release__media">
       <div class="release__row">
         <div class="release__thumb" v-if='release.cover'>
-          <img class="release__cover" :src="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
+          <a :href="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'">
+            <img class="release__cover" :src="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
+          </a>
         </div>
-        <p v-if='release.link_bandcamp'>
+        <p v-if='release.bandcamp_id'>
           <a class="release__btn-bandcamp" :href="release.link_bandcamp + '?action=download'" target="_blank">Donate</a>
         </p>
         <div v-if='release.cat_no'>
@@ -18,20 +20,17 @@
           <span v-if='release.date'>{{ release.date | day }}</span>
           <span v-else>Coming Soon</span>
         </div>
-        <div v-if='release.design_by'>
-          Design By:
-          <span v-html='release.design_by'></span>
+        <div v-if='release.compiled_by'>
+          Compiled By:
+          <span v-html='release.compiled_by'></span>
         </div>
-        <div v-if='release.mastering_by'>
-          Mastering By:
-          <span v-html='release.mastering_by'></span>
+        <div v-if='release.artwork_by'>
+          Artwork:
+          <span v-html='release.artwork_by'></span>
         </div>
-        <br>
-        <div v-if='release.link_ektoplazm'>
-          <a :href="release.link_ektoplazm" target="_blank">Ektoplazm</a>
-        </div>
-        <div v-if='release.link_discogs'>
-          <a :href="release.link_discogs" target="_blank">Discogs</a>
+        <div v-if='release.mastered_by'>
+          Mastering:
+          <span v-html='release.mastered_by'></span>
         </div>
       </div>
       <div class="release__row">
@@ -41,6 +40,14 @@
       </div>
     </div>
     <div class="release__content">
+      <div class="release__info" v-if='release.info' v-html='release.info'></div>
+      <!-- <div>Links:</div> -->
+      <div v-if='release.link_ektoplazm'>
+        <a :href="release.link_ektoplazm" target="_blank">Ektoplazm</a>
+      </div>
+      <div v-if='release.link_discogs'>
+        <a :href="release.link_discogs" target="_blank">Discogs</a>
+      </div>
     </div>
   </div>
 </template>
