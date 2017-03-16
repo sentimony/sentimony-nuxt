@@ -79,6 +79,8 @@
     padding: .8em;
     position: relative;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
     &:before {
       content: '';

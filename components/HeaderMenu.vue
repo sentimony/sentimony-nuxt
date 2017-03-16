@@ -6,6 +6,7 @@
       <nuxt-link class="header-menu__link" to='/contacts'>Contacts</nuxt-link>
       <a class="header-menu__link" href="https://sentimony.bandcamp.com" target="_blank">Bandcamp</a>
       <a class="header-menu__link" href="https://www.facebook.com/sentimony.records" target="_blank">Facebook</a>
+      <a class="header-menu__link" href="https://www.youtube.com/channel/UCMvuVxLPE5VBjw0YH1uE4ig" target="_blank">YouTube</a>
     </nav>
   </header>
 </template>
@@ -17,7 +18,7 @@
   z-index: 100;
 
   &__list {
-    max-width: 666px;
+    max-width: 888px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -28,7 +29,7 @@
     font-weight: 600;
     text-transform: uppercase;
     padding: 1em 0;
-    flex-basis: (100% / 5);
+    flex-basis: (100% / 7);
     transition: background-color .2s ease-in-out, color .2s ease-in-out;
 
     &.nuxt-link-active {
