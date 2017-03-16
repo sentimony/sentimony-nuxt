@@ -16,15 +16,14 @@
 </template>
 
 <style lang="scss">
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '../node_modules/normalize.css/normalize.css';
 $text-color: #c3c3c3;
 $link-color: darken($text-color, 15%);
 $link-color-hover: lighten($link-color, 30%);
 
 body {
-  // font-family: 'Open Sans', sans-serif;
-  font: 400 15px/1.5 "Lucida Grande","Tahoma","Verdana","Arial",sans-serif,"Roboto",Helvetica,Arial,sans-serif;
+  font: 400 15px/1.5 'Montserrat', sans-serif;
   text-align: center;
   background-color: #111;
   color: $text-color;
@@ -66,6 +65,8 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  max-width: 975px;
+  margin: 0 auto;
 
   &__fractal {
   }

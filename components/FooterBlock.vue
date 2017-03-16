@@ -1,5 +1,8 @@
 <template>
   <footer class='footer-block'>
+    <div>
+      <nuxt-link to='/contacts'>Contacts</nuxt-link>
+    </div>
     <div class='footer-block__copyright'>
       <div>2006 - 2017 © Sentimony Records</div>
       <div>All Rights Reserved</div>

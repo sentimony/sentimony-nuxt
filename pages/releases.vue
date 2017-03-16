@@ -35,7 +35,7 @@
 .releases {
   // background-color: rgba(#000,.05);
   margin: 0 auto;
-  max-width: 999px;
+  // max-width: 975px;
 
   &__list {
     display: flex;

@@ -61,7 +61,7 @@
   box-sizing: border-box;
 
   &__media {
-    max-width: 777px;
+    // max-width: 700px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
