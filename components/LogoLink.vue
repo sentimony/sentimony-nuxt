@@ -1,15 +1,15 @@
 <template>
-  <div class='logo-link'>
-    <img class="logo-link__img" src="/svg-icons/sentimony-records-logo.svg">
-    <div class="logo-link__text">
-      <div class="logo-link__title">Sentimony Records</div>
-      <div class="logo-link__subtitle">Electronic Music Label</div>
+  <div class='logolink'>
+    <img class="logolink__img" src="/svg-icons/sentimony-records-logo.svg">
+    <div class="logolink__text">
+      <div class="logolink__title">Sentimony Records</div>
+      <div class="logolink__subtitle">Electronic Music Label</div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.logo-link {
+.logolink {
   display: flex;
   align-items: center;
 
