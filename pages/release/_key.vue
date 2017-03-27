@@ -20,6 +20,10 @@
           <span v-if='release.date'>{{ release.date | day }}</span>
           <span v-else>Coming Soon</span>
         </div>
+        <div v-if='release.style'>
+          Style:
+          <span v-html='release.style'></span>
+        </div>
         <div v-if='release.compiled_by'>
           Compiled By:
           <span v-html='release.compiled_by'></span>
