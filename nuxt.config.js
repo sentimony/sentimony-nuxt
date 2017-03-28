@@ -1,31 +1,3 @@
-releases = [
-  { key: 'va-fantazma' },
-  { key: 'va-emptinesses' },
-  { key: 'sphingida-origin' },
-  { key: 'va-true-story' },
-  { key: 'spectrum-vision-lost-space-device' },
-  { key: 'irukanji-z-lisu' },
-  { key: 'va-ocean-scenes-higher-titans' },
-  { key: 'senzar-before-the-morning-sun' },
-  { key: 'va-grower' },
-  { key: 'va-time-loop-beyond-borders' },
-  { key: 'unusual-cosmic-process-weightlessness' },
-  { key: 'va-tempo-syndicate' },
-  { key: 'va-dancing-mavka' },
-  { key: 'va-absence-of-gravity' },
-  { key: 'va-special-places' },
-  { key: 'hypnotriod-seven-heavenly-edges' },
-  { key: 'specialmind-the-missing-particle' },
-  { key: 'tentura-aurora' },
-  { key: 'cifroteca-roof-raiser-wild-storm' },
-  { key: 'psyfactor-retro-scientific' },
-  { key: 'va-gamayun-tale' },
-  { key: 'tentura-beyond-illusion' },
-  { key: 'ufomatka-the-ep' },
-  { key: 'va-the-ten' },
-  { key: 'zymosis-insight' }
-]
-
 module.exports = {
   head: {
     titleTemplate: '%s | Sentimony Records',
@@ -50,8 +22,32 @@ module.exports = {
     vendor: ['axios']
   },
   generate: {
-    routeParams: {
-      '/release/:key': releases
-    }
+    routes: [
+      '/release/va-fantazma',
+      '/release/va-emptinesses',
+      '/release/sphingida-origin',
+      '/release/va-true-story',
+      '/release/spectrum-vision-lost-space-device',
+      '/release/irukanji-z-lisu',
+      '/release/va-ocean-scenes-higher-titans',
+      '/release/senzar-before-the-morning-sun',
+      '/release/va-grower',
+      '/release/va-time-loop-beyond-borders',
+      '/release/unusual-cosmic-process-weightlessness',
+      '/release/va-tempo-syndicate',
+      '/release/va-dancing-mavka',
+      '/release/va-absence-of-gravity',
+      '/release/va-special-places',
+      '/release/hypnotriod-seven-heavenly-edges',
+      '/release/specialmind-the-missing-particle',
+      '/release/tentura-aurora',
+      '/release/cifroteca-roof-raiser-wild-storm',
+      '/release/psyfactor-retro-scientific',
+      '/release/va-gamayun-tale',
+      '/release/tentura-beyond-illusion',
+      '/release/ufomatka-the-ep',
+      '/release/va-the-ten',
+      '/release/zymosis-insight'
+    ]
   }
 }

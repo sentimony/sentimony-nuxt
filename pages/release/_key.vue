@@ -139,7 +139,7 @@ export default {
       { name: 'description', content: 'Release description' }
     ]
   },
-  async data({ route }) {
+  async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`releases/${key}.json`)
     return {

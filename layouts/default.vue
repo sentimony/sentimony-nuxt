@@ -23,6 +23,7 @@ $link-color: darken($text-color, 15%);
 $link-color-hover: lighten($link-color, 30%);
 
 body {
+  margin: 0;
   font: 400 15px/1.5 'Montserrat', sans-serif;
   text-align: center;
   background-color: #111;

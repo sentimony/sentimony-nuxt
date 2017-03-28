@@ -130,7 +130,7 @@ export default {
       { name: 'description', content: 'Releases page description' }
     ]
   },
-  async data() {
+  async asyncData() {
     const { data } = await axios.get('releases.json')
     return {
       releases: data
