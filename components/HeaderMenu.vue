@@ -26,9 +26,9 @@
 
   &__list {
     // max-width: 975px;
-    margin: 0 auto;
-    border-bottom: 1px solid rgba(#fff,.3);
+    // margin: 0 auto;
     height: 75px;
+    border-bottom: 1px solid rgba(#fff,.3);
     box-sizing: border-box;
     display: flex;
     // flex-wrap: wrap;

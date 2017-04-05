@@ -20,6 +20,10 @@
           <span v-if='release.date'>{{ release.date | day }}</span>
           <span v-else>Coming Soon</span>
         </div>
+        <div v-if='release.style'>
+          Style:
+          <span v-html='release.style'></span>
+        </div>
         <div v-if='release.compiled_by'>
           Compiled By:
           <span v-html='release.compiled_by'></span>
@@ -135,7 +139,7 @@ export default {
       { name: 'description', content: 'Release description' }
     ]
   },
-  async data({ route }) {
+  async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`releases/${key}.json`)
     return {
