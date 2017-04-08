@@ -1,11 +1,11 @@
 <template>
-  <div class='logolink'>
-    <img class="logolink__img" src="/svg-icons/sentimony-records-logo.svg">
+  <nuxt-link class='logolink' to='/' exact>
+    <img class="logolink__logo" src="/svg-icons/sentimony-records-logo.svg">
     <div class="logolink__text">
       <div class="logolink__title">Sentimony Records</div>
-      <div class="logolink__subtitle">Electronic Music Label</div>
+      <div class="logolink__subtitle">Psychill Music Label</div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <style lang="scss">
@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
 
-  &__img {
+  &__logo {
     width: 40px;
     display: block;
     margin-right: 24px;

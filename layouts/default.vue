@@ -4,7 +4,7 @@
       <Fractal/>
     </div>
     <div class="flex-sticky__header">
-      <HeaderMenu/>
+      <MainMenu/>
     </div>
     <div class="flex-sticky__content">
       <nuxt/>
@@ -15,47 +15,66 @@
   </div>
 </template>
 
+<script>
+import Fractal from '~components/Fractal.vue'
+import MainMenu from '~components/MainMenu.vue'
+import FooterBlock from '~components/FooterBlock.vue'
+
+export default {
+  components: {
+    Fractal,
+    MainMenu,
+    FooterBlock
+  }
+}
+</script>
+
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '../node_modules/normalize.css/normalize.css';
-$text-color: #c3c3c3;
-$link-color: darken($text-color, 15%);
-$link-color-hover: lighten($link-color, 30%);
+@import '../node_modules/coriolan-ui/tools/variables';
+html {
+  position: relative;
+  height: 100%;
+}
 
 body {
   margin: 0;
+  background-color: #8f0100;
+  background-image:  url(https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   font: 400 15px/1.5 'Montserrat', sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  position: relative;
+  height: 100%;
   text-align: center;
-  background-color: #111;
-  color: $text-color;
+  min-width: $XS;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: 400;
+  margin: .5em 0;
 }
 
 a {
-  color: $link-color;
+  display: inline-block;
+  color: #fff;
   text-decoration: none;
-  outline: 0;
-  transition: color .2s ease-in-out;
-
-  &:hover,
-  &:focus {
-      color: $link-color-hover;
-  }
-}
-
-p {
-  margin: 0 0 .8em;
 }
 
 img {
   max-width: 100%;
+  display: inline-block;
 }
 
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
+hr {
+  border: solid rgba(#000,.3);
+  border-width: 1px 0 0;
+  margin: 1em 0;
 }
 
 #__nuxt {
@@ -66,7 +85,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 975px;
+  // max-width: 975px;
   margin: 0 auto;
 
   &__fractal {
@@ -109,17 +128,3 @@ body {
   -webkit-tap-highlight-color: $selection-color;
 }
 </style>
-
-<script>
-import Fractal from '~components/Fractal.vue'
-import HeaderMenu from '~components/HeaderMenu.vue'
-import FooterBlock from '~components/FooterBlock.vue'
-
-export default {
-  components: {
-    Fractal,
-    HeaderMenu,
-    FooterBlock
-  }
-}
-</script>

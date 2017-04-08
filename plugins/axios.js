@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://sentimony-db.firebaseio.com/'
+  baseURL: 'https://sentimony-db.firebaseio.com'
 })

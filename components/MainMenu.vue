@@ -1,28 +1,29 @@
 <template>
-  <header class="header-menu">
-    <nav class="header-menu__list">
-      <nuxt-link class="header-menu__link header-menu__link--logo" to='/' exact>
-        <LogoLink/>
-      </nuxt-link>
+  <header class="main-menu">
+    <nav class="main-menu__list">
+
+      <LogoLink/>
+
       <nav>
-        <nuxt-link class="header-menu__link" to='/releases'>Releases</nuxt-link>
-        <nuxt-link class="header-menu__link" to='/artists'>Artists</nuxt-link>
-        <nuxt-link class="header-menu__link" to='/events'>Events</nuxt-link>
+        <nuxt-link class="main-menu__link" to='/releases'>Releases</nuxt-link>
+        <!-- <nuxt-link class="main-menu__link" to='/artists'>Artists</nuxt-link> -->
+        <!-- <nuxt-link class="main-menu__link" to='/events'>Events</nuxt-link> -->
       </nav>
       <nav>
-        <a class="header-menu__link header-menu__link--soc" href="https://sentimony.bandcamp.com" target="_blank">Bandcamp</a>
-        <a class="header-menu__link header-menu__link--soc" href="https://www.facebook.com/sentimony.records" target="_blank">Facebook</a>
-        <a class="header-menu__link header-menu__link--soc" href="https://www.youtube.com/channel/UCMvuVxLPE5VBjw0YH1uE4ig" target="_blank">YouTube</a>
+        <a class="main-menu__link main-menu__link--soc" href="https://sentimony.bandcamp.com" target="_blank">Bandcamp</a>
+        <a class="main-menu__link main-menu__link--soc" href="https://www.facebook.com/sentimony.records" target="_blank">Facebook</a>
+        <a class="main-menu__link main-menu__link--soc" href="https://www.youtube.com/channel/UCMvuVxLPE5VBjw0YH1uE4ig" target="_blank">YouTube</a>
       </nav>
     </nav>
   </header>
 </template>
 
 <style lang="scss">
-.header-menu {
-  // background-color: #000;
+.main-menu {
   position: relative;
   z-index: 100;
+  max-width: 1270px;
+  margin: 0 auto;
 
   &__list {
     // max-width: 975px;

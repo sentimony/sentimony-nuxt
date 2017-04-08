@@ -2,7 +2,7 @@
   <div class="home">
     <img class="home__logo" src="/svg-icons/sentimony-records-logo.svg">
     <h1 class="home__title">Sentimony Records</h1>
-    <p class="home__subtitle">Electronic Music Label</p>
+    <p class="home__subtitle">Psychill Music Label</p>
   </div>
 </template>
 
