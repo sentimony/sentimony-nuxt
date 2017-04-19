@@ -11,6 +11,9 @@
         <p v-if='release.bandcamp_id'>
           <a class="release__btn-bandcamp" :href="release.link_bandcamp" target="_blank">Bandcamp</a>
         </p>
+        <p v-if='release.youtube_id'>
+          <a class="release__btn-bandcamp" :href="'https://www.youtube.com/watch?v=' + release.youtube_id" target="_blank">Youtube</a>
+        </p>
         <div v-if='release.cat_no'>
           Cat#:
           <span>{{ release.cat_no.toUpperCase() }}</span>
@@ -50,7 +53,7 @@
         <a :href="release.link_ektoplazm" target="_blank">Ektoplazm</a>
       </div>
       <div v-if='release.link_discogs'>
-        <a :href="release.link_discogs" target="_blank">Discogs</a>
+        <a :href="'https://www.discogs.com/master/view/' + release.link_discogs" target="_blank">Discogs</a>
       </div>
     </div>
   </div>
