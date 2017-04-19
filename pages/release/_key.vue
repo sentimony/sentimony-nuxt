@@ -9,7 +9,7 @@
           </a>
         </div>
         <p v-if='release.bandcamp_id'>
-          <a class="release__btn-bandcamp" :href="release.link_bandcamp + '?action=download'" target="_blank">Donate</a>
+          <a class="release__btn-bandcamp" :href="release.link_bandcamp" target="_blank">Bandcamp</a>
         </p>
         <div v-if='release.cat_no'>
           Cat#:
