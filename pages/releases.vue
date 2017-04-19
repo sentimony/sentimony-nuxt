@@ -35,7 +35,7 @@
 .releases {
   // background-color: rgba(#000,.05);
   margin: 0 auto;
-  // max-width: 975px;
+  max-width: 444px;
 
   &__list {
     display: flex;
@@ -47,15 +47,16 @@
   &__item {
     position: relative;
     background-color: rgba(#fff,.05);
-    flex-basis: (100% / 2);
+    // flex-basis: (100% / 2);
+    flex-basis: (100% / 1);
 
-    @include media(M) {
-      flex-basis: (100% / 3);
-    }
+    // @include media(M) {
+    //   flex-basis: (100% / 3);
+    // }
 
-    @include media(L) {
-      flex-basis: (100% / 4);
-    }
+    // @include media(L) {
+    //   flex-basis: (100% / 4);
+    // }
 
     &:before {
       content: '';
