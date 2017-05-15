@@ -18,6 +18,6 @@ Content for import into firebase here: [sentimony-db.json](https://github.com/se
 
 `npm i`
 
-`npm start`
+`nuxt` or `npm run develop`
 
 #### Have fun! :)
