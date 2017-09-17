@@ -47,7 +47,9 @@ module.exports = {
       '/release/tentura-beyond-illusion',
       '/release/ufomatka-the-ep',
       '/release/va-the-ten',
-      '/release/zymosis-insight'
+      '/release/zymosis-insight',
+      '/release/overdream-beautiful-thinking',
+      '/release/ufomatka-altering-the-synaptic-controllers'
     ]
   }
 }
