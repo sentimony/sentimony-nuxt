@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import Fractal from '~components/Fractal.vue'
-import MainMenu from '~components/MainMenu.vue'
-import FooterBlock from '~components/FooterBlock.vue'
+import Fractal from '~/components/Fractal.vue'
+import MainMenu from '~/components/MainMenu.vue'
+import FooterBlock from '~/components/FooterBlock.vue'
 
 export default {
   components: {

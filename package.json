@@ -1,14 +1,14 @@
 {
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.16.2",
     "coriolan-ui": "^0.1.19",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
-    "nuxt": "^0.10.7"
+    "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {
-    "node-sass": "^4.5.2",
-    "sass-loader": "^6.0.5"
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
   },
   "scripts": {
     "develop": "nuxt"

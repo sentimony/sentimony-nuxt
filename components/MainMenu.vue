@@ -18,6 +18,16 @@
   </header>
 </template>
 
+<script>
+import LogoLink from '~/components/LogoLink.vue'
+
+export default {
+  components: {
+    LogoLink
+  }
+}
+</script>
+
 <style lang="scss">
 .main-menu {
   position: relative;
@@ -72,14 +82,3 @@
   }
 }
 </style>
-
-
-<script>
-import LogoLink from '~components/LogoLink.vue'
-
-export default {
-  components: {
-    LogoLink
-  }
-}
-</script>

@@ -6,18 +6,22 @@ Content for import into firebase here: [sentimony-db.json](https://github.com/se
 
 ### Used
 
-[Nuxt.js](https://nuxtjs.org) - framework for server-rendered [Vue.js](https://vuejs.org) applications
+[NuxtJS](https://nuxtjs.org) - framework for server-rendered [VueJS](https://vuejs.org) applications
 
-[Firebase](https://firebase.google.com) - free realtime database by [Google](https://developers.google.com)
+[Firebase](https://firebase.google.com) - realtime database by [Google](https://developers.google.com)
 
 [Coriolan UI](https://coriolan-ui.github.io) - [Sass](http://sass-lang.com) mixins pack
 
 [Netlify](https://www.netlify.com) - automatic deploy & free hosting platform
 
+### Content
+
+[https://sentimony-db.firebaseio.com/.json](https://sentimony-db.firebaseio.com/.json)
+
 ### Run
 
 `npm i`
 
-`nuxt` or `npm run develop`
+`npm run develop`
 
 #### Have fun! :)

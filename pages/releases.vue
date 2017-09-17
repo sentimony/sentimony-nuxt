@@ -28,6 +28,36 @@
   </div>
 </template>
 
+<script>
+import axios from '~/plugins/axios'
+import sortBy from 'lodash/sortBy'
+
+export default {
+  head: {
+    title: 'Releases',
+    meta: [
+      { name: 'description', content: 'Releases page description' }
+    ]
+  },
+  async asyncData() {
+    const { data } = await axios.get('releases.json')
+    return {
+      releases: data
+    }
+  },
+  computed: {
+    sortedReleases () {
+      return sortBy(this.releases, 'date').reverse()
+    }
+  },
+  filters: {
+    year (date) {
+      return date.split('-')[0]
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 @import '../node_modules/coriolan-ui/tools/variables';
 @import '../node_modules/coriolan-ui/mixins/media';
@@ -119,33 +149,3 @@
   }
 }
 </style>
-
-<script>
-import axios from '~plugins/axios'
-import sortBy from 'lodash/sortBy'
-
-export default {
-  head: {
-    title: 'Releases',
-    meta: [
-      { name: 'description', content: 'Releases page description' }
-    ]
-  },
-  async asyncData() {
-    const { data } = await axios.get('releases.json')
-    return {
-      releases: data
-    }
-  },
-  computed: {
-    sortedReleases () {
-      return sortBy(this.releases, 'date').reverse()
-    }
-  },
-  filters: {
-    year (date) {
-      return date.split('-')[0]
-    }
-  }
-}
-</script>

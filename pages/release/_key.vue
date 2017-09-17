@@ -59,6 +59,31 @@
   </div>
 </template>
 
+<script>
+import axios from '~/plugins/axios'
+
+export default {
+  head: {
+    title: 'Release',
+    meta: [
+      { name: 'description', content: 'Release description' }
+    ]
+  },
+  async asyncData({ route }) {
+    const { key } = route.params
+    const { data } = await axios.get(`releases/${key}.json`)
+    return {
+      release: data
+    }
+  },
+  filters: {
+    day (date) {
+      return date.split('T')[0]
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 @import '../../node_modules/coriolan-ui/mixins/ratio';
 
@@ -131,28 +156,3 @@
   }
 }
 </style>
-
-<script>
-import axios from '~plugins/axios'
-
-export default {
-  head: {
-    title: 'Release',
-    meta: [
-      { name: 'description', content: 'Release description' }
-    ]
-  },
-  async asyncData({ route }) {
-    const { key } = route.params
-    const { data } = await axios.get(`releases/${key}.json`)
-    return {
-      release: data
-    }
-  },
-  filters: {
-    day (date) {
-      return date.split('T')[0]
-    }
-  }
-}
-</script>

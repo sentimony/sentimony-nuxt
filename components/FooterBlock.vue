@@ -14,12 +14,15 @@
       </a>
     </div> -->
     <nav class='footer-block__versions'>
-      <a href="https://sentimony.com">jekyll</a>
+      <a href="https://sentimony.com">vue</a>
       <a href="https://nuxt.sentimony.com" class="is-selected">nuxt</a>
       <a href="https://gatsby.sentimony.com">gatsby</a>
     </nav>
   </footer>
 </template>
+
+<script>
+</script>
 
 <style lang="scss">
 .footer-block {
