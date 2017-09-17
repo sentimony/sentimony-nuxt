@@ -8,6 +8,12 @@
             <img class="release__cover" :src="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
           </a>
         </div>
+        <p v-if='release.link_applemusic'>
+          <a class="release__btn-bandcamp" :href="release.link_applemusic" target="_blank">Apple Music</a>
+        </p>
+        <p v-if='release.link_googleplay'>
+          <a class="release__btn-bandcamp" :href="release.link_googleplay" target="_blank">Google Play</a>
+        </p>
         <p v-if='release.bandcamp_id'>
           <a class="release__btn-bandcamp" :href="release.link_bandcamp" target="_blank">Bandcamp</a>
         </p>
