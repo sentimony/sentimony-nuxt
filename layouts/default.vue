@@ -4,7 +4,7 @@
       <Fractal/>
     </div>
     <div class="flex-sticky__header">
-      <MainMenu/>
+      <Headr/>
     </div>
     <div class="flex-sticky__content">
       <nuxt/>
@@ -17,13 +17,13 @@
 
 <script>
 import Fractal from '~/components/Fractal.vue'
-import MainMenu from '~/components/MainMenu.vue'
+import Headr from '~/components/Headr.vue'
 import FooterBlock from '~/components/FooterBlock.vue'
 
 export default {
   components: {
     Fractal,
-    MainMenu,
+    Headr,
     FooterBlock
   }
 }
@@ -33,6 +33,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '../node_modules/normalize.css/normalize.css';
 @import '../node_modules/coriolan-ui/tools/variables';
+
 html {
   position: relative;
   height: 100%;

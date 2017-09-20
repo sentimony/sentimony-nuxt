@@ -1,6 +1,6 @@
 <template>
-  <div class="events">
-    <h1>Events</h1>
+  <div class="news">
+    <h1>News</h1>
     <p>Coming Soon</p>
   </div>
 </template>
@@ -11,6 +11,6 @@ export default {
 </script>
 
 <style lang="scss">
-.events {
+.news {
 }
 </style>
