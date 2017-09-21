@@ -1,5 +1,5 @@
 <template>
-  <header class="headr">
+  <div class="headr">
     <div class="headr__container">
 
       <LogoLink/>
@@ -29,11 +29,11 @@
       </nav>
 
       <nuxt-link to="/releases/" class="headr__mob-menu-button">
-        <img class="headr__mob-menu-button-img" src="/assets/img/svg-icons/menu.svg">
+        <img class="headr__mob-menu-button-img" src="https://sentimony.com/assets/img/svg-icons/menu.svg">
       </nuxt-link>
 
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
