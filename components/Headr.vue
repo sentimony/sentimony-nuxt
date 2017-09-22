@@ -49,8 +49,7 @@ export default {
 <style lang="scss">
 @import '../node_modules/coriolan-ui/tools/variables';
 @import '../node_modules/coriolan-ui/mixins/media';
-
-$colorBgLight: rgba(#ccc,.4);
+@import '../assets/variables';
 
 .headr {
   position: relative;

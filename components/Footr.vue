@@ -2,7 +2,7 @@
   <div class="footr">
 
     <MenuMain/>
-    <!-- <MenuSocial/> -->
+    <MenuSocial/>
 
     <div class="footr__copyright">
       <div>2006 - 2017 © Sentimony Records</div>
@@ -22,12 +22,12 @@
 
 <script>
 import MenuMain from '~/components/MenuMain.vue'
-// import MenuSocial from '~/components/MenuSocial.vue'
+import MenuSocial from '~/components/MenuSocial.vue'
 
 export default {
   components: {
     MenuMain,
-    // MenuSocial
+    MenuSocial
   }
 }
 </script>

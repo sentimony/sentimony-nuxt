@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-$colorBgLight: rgba(#ccc,.4);
+@import '../assets/variables';
 
 .headr__main-menu-link {
   padding: .938em .938em*1.5;

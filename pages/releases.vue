@@ -41,9 +41,7 @@ export default {
   },
   async asyncData() {
     const { data } = await axios.get('releases.json')
-    return {
-      releases: data
-    }
+    return { releases: data }
   },
   computed: {
     sortedReleases () {
