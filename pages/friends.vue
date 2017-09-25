@@ -7,6 +7,12 @@
 
 <script>
 export default {
+  head: {
+    title: 'Friends',
+    meta: [
+      { name: 'description', content: 'Friends page description' }
+    ]
+  }
 }
 </script>
 

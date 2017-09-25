@@ -7,6 +7,12 @@
 
 <script>
 export default {
+  head: {
+    title: 'News',
+    meta: [
+      { name: 'description', content: 'News page description' }
+    ]
+  }
 }
 </script>
 

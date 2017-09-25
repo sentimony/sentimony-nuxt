@@ -7,6 +7,12 @@
 
 <script>
 export default {
+  head: {
+    title: 'Artists',
+    meta: [
+      { name: 'description', content: 'Artists of Sentimony Records' }
+    ]
+  }
 }
 </script>
 

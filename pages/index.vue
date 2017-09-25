@@ -9,9 +9,9 @@
 <script>
 export default {
   head: {
-    title: 'About',
+    title: 'Home',
     meta: [
-      { name: 'description', content: 'About page description' }
+      { name: 'description', content: 'Home of Sentimony Records' }
     ]
   }
 }

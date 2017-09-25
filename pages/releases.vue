@@ -36,7 +36,7 @@ export default {
   head: {
     title: 'Releases',
     meta: [
-      { name: 'description', content: 'Releases page description' }
+      { name: 'description', content: 'Releases of Sentimony Records' }
     ]
   },
   async asyncData() {

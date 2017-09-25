@@ -3,6 +3,7 @@
     "axios": "^0.16.2",
     "coriolan-ui": "^0.1.19",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc11"
   },
