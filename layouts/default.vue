@@ -1,8 +1,8 @@
 <template>
   <div class="flex-sticky">
-    <div class="flex-sticky__fractal">
+    <!-- <div class="flex-sticky__fractal">
       <Fractal/>
-    </div>
+    </div> -->
     <div class="flex-sticky__header">
       <Headr/>
     </div>
@@ -17,14 +17,14 @@
 </template>
 
 <script>
-import Fractal from '~/components/Fractal.vue'
+// import Fractal from '~/components/Fractal.vue'
 import Headr from '~/components/Headr.vue'
 import Donate from '~/components/Donate.vue'
 import Footr from '~/components/Footr.vue'
 
 export default {
   components: {
-    Fractal,
+    // Fractal,
     Headr,
     Donate,
     Footr
@@ -95,11 +95,10 @@ hr {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  // max-width: 975px;
   margin: 0 auto;
 
-  &__fractal {
-  }
+  // &__fractal {
+  // }
 
   &__header {
   }

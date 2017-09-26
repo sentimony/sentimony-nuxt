@@ -21,9 +21,7 @@ export default {
   },
   async asyncData() {
     const { data } = await axios.get('contacts.json')
-    return {
-      contacts: data
-    }
+    return { contacts: data }
   }
 }
 </script>
