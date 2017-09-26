@@ -49,7 +49,14 @@ module.exports = {
       '/release/va-the-ten',
       '/release/zymosis-insight',
       '/release/overdream-beautiful-thinking',
-      '/release/ufomatka-altering-the-synaptic-controllers'
+      '/release/ufomatka-altering-the-synaptic-controllers',
+      '/release/zymosis-eve',
+
+      '/event/shift-space',
+      '/event/alt-space',
+      '/event/water-marks',
+      '/event/home-space',
+      '/event/five-years'
     ]
   }
 }
