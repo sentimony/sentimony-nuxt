@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import '../node_modules/normalize.css/normalize.css';
 @import '../node_modules/coriolan-ui/tools/variables';
 
@@ -105,7 +105,7 @@ hr {
 
   &__content {
     flex: 1;
-    padding: 2em .6em;
+    // padding: 2em .6em;
     position: relative;
     // background-color: #000;
   }
@@ -114,15 +114,14 @@ hr {
   }
 }
 
-// selection color
-$selection-color: #8e44ad;
+$selectionColor: rgba(#ffd700,.5);
 
 ::selection {
-  background: $selection-color;
+  background: $selectionColor;
 }
 
 ::-moz-selection {
-  background: $selection-color;
+  background: $selectionColor;
 }
 
 img::selection {
@@ -134,6 +133,6 @@ img::-moz-selection {
 }
 
 body {
-  -webkit-tap-highlight-color: $selection-color;
+  -webkit-tap-highlight-color: transparent;
 }
 </style>

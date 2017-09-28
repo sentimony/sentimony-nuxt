@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img class="home__logo" src="https://sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg">
-    <h1 class="home__title">Sentimony Records</h1>
-    <p class="home__subtitle">Psychill Music Label</p>
+    <Hero/>
+    <About/>
   </div>
 </template>
 
 <script>
+import Hero from '~/components/Hero.vue'
+import About from '~/components/About.vue'
+
 export default {
   head: {
     title: 'Home',
     meta: [
       { name: 'description', content: 'Home of Sentimony Records' }
     ]
+  },
+  components: {
+    Hero,
+    About
   }
 }
 </script>

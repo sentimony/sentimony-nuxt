@@ -16,7 +16,7 @@ module.exports = {
     height: '4px'
   },
   plugins: [
-    '~plugins/google-analytics.js'
+    '~/plugins/google-analytics.js'
   ],
   build: {
     vendor: ['axios']
