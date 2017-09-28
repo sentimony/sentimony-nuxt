@@ -1,14 +1,15 @@
 <template>
   <div class="release">
     <h1>{{ event.title }}</h1>
-    <p v-if="event.date">Date: {{ event.date | formatDate }}</p>
+    <p v-if="event.date"><!-- Date:  -->{{ event.date | formatDate }}</p>
+    <p v-if="event.location"><!-- Location:  -->{{ event.location }}</p>
     <hr>
     <p>Artists:</p>
     <p v-for="i in event.lineup">{{ i.musician }}</p>
     <hr>
     <p>Links:</p>
-    <p v-if="event.links.psyshine">
-      <a :href="event.links.psyshine" target="_blank" rel="noopener">psyshine</a>
+    <p v-for="i in event.links">
+      <a v-if="i.url" :href="i.url" target="_blank" rel="noopener">{{ i.id }}</a>
     </p>
   </div>
 </template>
