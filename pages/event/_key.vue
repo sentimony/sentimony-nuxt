@@ -2,7 +2,14 @@
   <div class="release">
     <h1>{{ event.title }}</h1>
     <p v-if="event.date">Date: {{ event.date | formatDate }}</p>
+    <hr>
+    <p>Artists:</p>
     <p v-for="i in event.lineup">{{ i.musician }}</p>
+    <hr>
+    <p>Links:</p>
+    <p v-if="event.links.psyshine">
+      <a :href="event.links.psyshine" target="_blank" rel="noopener">psyshine</a>
+    </p>
   </div>
 </template>
 
