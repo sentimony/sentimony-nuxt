@@ -19,7 +19,6 @@ export default {
 <style lang="scss">
 @import '../node_modules/coriolan-ui/tools/variables';
 @import '../node_modules/coriolan-ui/mixins/media';
-@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
 
 .hero {
   position: relative;

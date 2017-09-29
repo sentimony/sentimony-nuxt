@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss">
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @import '../node_modules/normalize.css/normalize.css';
 @import '../node_modules/coriolan-ui/tools/variables';
 

@@ -80,7 +80,7 @@ export default {
     }
   },
   head: {
-    title: release.title,
+    title: 'Release',
     meta: [
       { name: 'description', content: 'Release description' }
     ]
