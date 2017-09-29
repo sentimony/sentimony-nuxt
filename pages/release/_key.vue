@@ -79,11 +79,13 @@ export default {
       return date.split('T')[0]
     }
   },
-  head: {
-    title: 'Release',
-    meta: [
-      { name: 'description', content: 'Release description' }
-    ]
+  head () {
+    return {
+      title: this.release.title,
+      meta: [
+        { name: 'description', content: this.release.title + ' description' }
+      ]
+    }
   }
 }
 </script>

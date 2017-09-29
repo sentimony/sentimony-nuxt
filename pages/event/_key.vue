@@ -32,11 +32,13 @@ export default {
       }
     }
   },
-  head: {
-    title: 'Event',
-    meta: [
-      { name: 'description', content: 'Event description' }
-    ]
+  head () {
+    return {
+      title: this.event.title,
+      meta: [
+        { name: 'description', content: this.event.title + ' description' }
+      ]
+    }
   }
 }
 </script>

@@ -13,11 +13,13 @@ export default {
     const { data } = await axios.get(`artists/${key}.json`)
     return { artist: data }
   },
-  head: {
-    title: 'Artist',
-    meta: [
-      { name: 'description', content: 'Artist description' }
-    ]
+  head () {
+    return {
+      title: this.artist.title,
+      meta: [
+        { name: 'description', content: this.artist.title + ' description' }
+      ]
+    }
   }
 }
 </script>
