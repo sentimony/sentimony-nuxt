@@ -13,15 +13,15 @@
 import axios from '~/plugins/axios'
 
 export default {
+  async asyncData() {
+    const { data } = await axios.get('contacts.json')
+    return { contacts: data }
+  },
   head: {
     title: 'Contacts',
     meta: [
       { name: 'description', content: 'Contacts page description' }
     ]
-  },
-  async asyncData() {
-    const { data } = await axios.get('contacts.json')
-    return { contacts: data }
   }
 }
 </script>

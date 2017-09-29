@@ -10,15 +10,15 @@ import Hero from '~/components/Hero.vue'
 import About from '~/components/About.vue'
 
 export default {
+  components: {
+    Hero,
+    About
+  },
   head: {
     title: 'Home',
     meta: [
       { name: 'description', content: 'Home of Sentimony Records' }
     ]
-  },
-  components: {
-    Hero,
-    About
   }
 }
 </script>

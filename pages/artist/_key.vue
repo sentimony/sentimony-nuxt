@@ -8,16 +8,16 @@
 import axios from '~/plugins/axios'
 
 export default {
+  async asyncData({ route }) {
+    const { key } = route.params
+    const { data } = await axios.get(`artists/${key}.json`)
+    return { artist: data }
+  },
   head: {
     title: 'Artist',
     meta: [
       { name: 'description', content: 'Artist description' }
     ]
-  },
-  async asyncData({ route }) {
-    const { key } = route.params
-    const { data } = await axios.get(`artists/${key}.json`)
-    return { artist: data }
   }
 }
 </script>

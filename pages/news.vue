@@ -15,12 +15,6 @@ import sortBy from 'lodash/sortBy'
 import moment from 'moment'
 
 export default {
-  head: {
-    title: 'News',
-    meta: [
-      { name: 'description', content: 'News page description' }
-    ]
-  },
   async asyncData() {
     const { data } = await axios.get('news.json')
     return { news: data }
@@ -31,6 +25,12 @@ export default {
         return moment(String(date)).format('DD MMM YYYY');
       }
     }
+  },
+  head: {
+    title: 'News',
+    meta: [
+      { name: 'description', content: 'News page description' }
+    ]
   }
 }
 </script>

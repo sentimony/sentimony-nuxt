@@ -33,12 +33,6 @@ import axios from '~/plugins/axios'
 import sortBy from 'lodash/sortBy'
 
 export default {
-  head: {
-    title: 'Releases',
-    meta: [
-      { name: 'description', content: 'Releases of Sentimony Records' }
-    ]
-  },
   async asyncData() {
     const { data } = await axios.get('releases.json')
     return { releases: data }
@@ -52,6 +46,12 @@ export default {
     year (date) {
       return date.split('-')[0]
     }
+  },
+  head: {
+    title: 'Releases',
+    meta: [
+      { name: 'description', content: 'Releases of Sentimony Records' }
+    ]
   }
 }
 </script>

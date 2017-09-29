@@ -13,15 +13,15 @@
 import axios from '~/plugins/axios'
 
 export default {
+  async asyncData() {
+    const { data } = await axios.get('artists.json')
+    return { artists: data }
+  },
   head: {
     title: 'Artists',
     meta: [
       { name: 'description', content: 'Artists of Sentimony Records' }
     ]
-  },
-  async asyncData() {
-    const { data } = await axios.get('artists.json')
-    return { artists: data }
   }
 }
 </script>

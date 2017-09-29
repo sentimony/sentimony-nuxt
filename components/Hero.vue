@@ -10,8 +10,8 @@
 <script>
 export default {
   data: () => ({
-      siteTitle: 'Sentimony Records',
-      siteDescription: 'Psychedelic Music Label'
+    siteTitle: 'Sentimony Records',
+    siteDescription: 'Psychedelic Music Label'
   })
 }
 </script>
@@ -19,7 +19,7 @@ export default {
 <style lang="scss">
 @import '../node_modules/coriolan-ui/tools/variables';
 @import '../node_modules/coriolan-ui/mixins/media';
-@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
 
 .hero {
   position: relative;

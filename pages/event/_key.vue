@@ -19,18 +19,10 @@ import axios from '~/plugins/axios'
 import moment from 'moment'
 
 export default {
-  head: {
-    title: 'Event',
-    meta: [
-      { name: 'description', content: 'Event description' }
-    ]
-  },
   async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`events/${key}.json`)
-    return {
-      event: data
-    }
+    return { event: data }
   },
   filters: {
     formatDate: function (date) {
@@ -39,6 +31,12 @@ export default {
         return moment(String(date)).format('DD MMM YYYY');
       }
     }
+  },
+  head: {
+    title: 'Event',
+    meta: [
+      { name: 'description', content: 'Event description' }
+    ]
   }
 }
 </script>

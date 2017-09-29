@@ -69,23 +69,21 @@
 import axios from '~/plugins/axios'
 
 export default {
-  head: {
-    title: 'Release',
-    meta: [
-      { name: 'description', content: 'Release description' }
-    ]
-  },
   async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`releases/${key}.json`)
-    return {
-      release: data
-    }
+    return { release: data }
   },
   filters: {
     day (date) {
       return date.split('T')[0]
     }
+  },
+  head: {
+    title: release.title,
+    meta: [
+      { name: 'description', content: 'Release description' }
+    ]
   }
 }
 </script>

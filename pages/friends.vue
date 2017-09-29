@@ -17,15 +17,15 @@
 import axios from '~/plugins/axios'
 
 export default {
+  async asyncData() {
+    const { data } = await axios.get('friends.json')
+    return { friends: data }
+  },
   head: {
     title: 'Friends',
     meta: [
       { name: 'description', content: 'Friends page description' }
     ]
-  },
-  async asyncData() {
-    const { data } = await axios.get('friends.json')
-    return { friends: data }
   }
 }
 </script>
