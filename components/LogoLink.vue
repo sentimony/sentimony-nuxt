@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/variables';
+@import '../assets/scss/main';
 
 .headr__main-menu-link {
   padding: .938em .938em*1.5;
