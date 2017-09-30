@@ -28,7 +28,7 @@
         </a>
       </nav>
 
-      <nuxt-link to="/releases/" class="headr__mob-menu-button">
+      <nuxt-link to="/mobmenu/" class="headr__mob-menu-button">
         <img class="headr__mob-menu-button-img" src="https://sentimony.com/assets/img/svg-icons/menu.svg">
       </nuxt-link>
 
