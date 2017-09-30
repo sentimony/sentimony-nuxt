@@ -57,93 +57,93 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../node_modules/coriolan-ui/tools/variables';
-@import '../node_modules/coriolan-ui/mixins/media';
+// @import '../node_modules/coriolan-ui/tools/variables';
+// @import '../node_modules/coriolan-ui/mixins/media';
 
-.releases {
-  // background-color: rgba(#000,.05);
-  margin: 0 auto;
-  max-width: 444px;
+// .releases {
+//   // background-color: rgba(#000,.05);
+//   margin: 0 auto;
+//   max-width: 444px;
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: flex-start;
-    // align-items: center;
-  }
+//   &__list {
+//     display: flex;
+//     flex-wrap: wrap;
+//     // justify-content: flex-start;
+//     // align-items: center;
+//   }
 
-  &__item {
-    position: relative;
-    background-color: rgba(#fff,.05);
-    // flex-basis: (100% / 2);
-    flex-basis: (100% / 1);
+//   &__item {
+//     position: relative;
+//     background-color: rgba(#fff,.05);
+//     // flex-basis: (100% / 2);
+//     flex-basis: (100% / 1);
 
-    // @include media(M) {
-    //   flex-basis: (100% / 3);
-    // }
+//     // @include media(M) {
+//     //   flex-basis: (100% / 3);
+//     // }
 
-    // @include media(L) {
-    //   flex-basis: (100% / 4);
-    // }
+//     // @include media(L) {
+//     //   flex-basis: (100% / 4);
+//     // }
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-image: repeating-linear-gradient(135deg, rgba(#fff,.0), rgba(#fff,.0) 4px, rgba(#fff,.1) 4px, rgba(#fff,.1) 8px);
-      opacity: 0;
-      transition: opacity .2s ease-in-out;
-    }
+//     &:before {
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       height: 100%;
+//       width: 100%;
+//       background-image: repeating-linear-gradient(135deg, rgba(#fff,.0), rgba(#fff,.0) 4px, rgba(#fff,.1) 4px, rgba(#fff,.1) 8px);
+//       opacity: 0;
+//       transition: opacity .2s ease-in-out;
+//     }
 
-    &:hover:before {
-      opacity: 1;
-    }
-  }
+//     &:hover:before {
+//       opacity: 1;
+//     }
+//   }
 
-  &__link {
-    display: block;
-    padding: .8em;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+//   &__link {
+//     display: block;
+//     padding: .8em;
+//     position: relative;
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-    }
-  }
+//     &:before {
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       height: 100%;
+//       width: 100%;
+//     }
+//   }
 
-  &__thumb {
-    // flex-basis: 50px;
-    margin-right: .8em;
-    position: relative;
-  }
+//   &__thumb {
+//     // flex-basis: 50px;
+//     margin-right: .8em;
+//     position: relative;
+//   }
 
-  &__cover {
-    // opacity: .6;
-    display: block;
-  }
+//   &__cover {
+//     // opacity: .6;
+//     display: block;
+//   }
 
-  &__text {
-    flex-basis: 100%;
-    text-align: left;
-    position: relative;
-  }
+//   &__text {
+//     flex-basis: 100%;
+//     text-align: left;
+//     position: relative;
+//   }
 
-  &__title {
-    font-size: .8em;
-  }
+//   &__title {
+//     font-size: .8em;
+//   }
 
-  &__date {
-    font-size: .6em;
-  }
-}
+//   &__date {
+//     font-size: .6em;
+//   }
+// }
 </style>
