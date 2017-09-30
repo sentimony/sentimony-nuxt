@@ -12,6 +12,7 @@
     "sass-loader": "^6.0.6"
   },
   "scripts": {
-    "develop": "nuxt"
+    "develop": "nuxt",
+    "dev": "npm run develop"
   }
 }
