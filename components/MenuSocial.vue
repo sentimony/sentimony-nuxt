@@ -1,24 +1,33 @@
 <template>
-  <!-- <div class="menu-social">
+  <div class="menu-social">
     <div class="menu-social__caption">{{ social.follow }}</div>
     <div class="menu-social__list">
       <a v-for="i in social.data" v-if="i.isVisible" class="menu-social__link" :href="i.url" target="_blank" rel="noopener">
-        <img class="menu-social__icon" :src="'/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+        <img class="menu-social__icon" :src="'https://sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
         <span class="menu-social__tooltip">{{ i.title }}</span>
       </a>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script>
-// import axios from '~/plugins/axios'
+import axios from 'axios'
 
-// export default {
-//   async asyncData() {
-//     const { data } = await axios.get('social.json')
-//     return { social: data }
-//   }
-// }
+export default {
+  data () {
+    return {
+      social: []
+    }
+  },
+  mounted () {
+    return axios({
+      url: 'https://sentimony-db.firebaseio.com/social.json'
+    })
+    .then((res) => {
+      this.social = res.data;
+    })
+  }
+};
 </script>
 
 <style lang="scss">
