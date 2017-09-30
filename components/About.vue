@@ -11,7 +11,7 @@
 <script>
 export default {
   data: () => ({
-      aboutDescription: "The main label's mission is to contribute the growth of the psychedelic chillout and trance scenes."
+    aboutDescription: "The main label's mission is to contribute the growth of the psychedelic chillout and trance scenes."
   })
 }
 </script>
