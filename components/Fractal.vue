@@ -50,9 +50,9 @@
       width: 125px;
       height: 250px;
       background: radial-gradient(ellipse at 50% 0,
-        rgba(43,111,169, .5) 0%,
-        rgba(164,232,58, 0) 50%,
-        rgba(#1a96bc, .5) 100%);
+        rgba(#fff, .15) 0%,
+        rgba(#8a0202, 0) 50%,
+        rgba(#000, .15) 100%);
       border-radius: 50%;
       position: absolute;
       transition: all 5.25s ease-in-out;

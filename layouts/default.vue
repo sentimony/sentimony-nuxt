@@ -1,8 +1,9 @@
 <template>
   <div class="flex-sticky">
-    <!-- <div class="flex-sticky__fractal">
+    <BaseBg/>
+    <div class="flex-sticky__fractal">
       <Fractal/>
-    </div> -->
+    </div>
     <div class="flex-sticky__header">
       <Headr/>
     </div>
@@ -17,14 +18,16 @@
 </template>
 
 <script>
-// import Fractal from '~/components/Fractal.vue'
+import BaseBg from '~/components/BaseBg.vue'
+import Fractal from '~/components/Fractal.vue'
 import Headr from '~/components/Headr.vue'
 import Donate from '~/components/Donate.vue'
 import Footr from '~/components/Footr.vue'
 
 export default {
   components: {
-    // Fractal,
+    BaseBg,
+    Fractal,
     Headr,
     Donate,
     Footr
