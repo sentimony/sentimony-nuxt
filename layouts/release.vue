@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import BaseBg from '~/components/BaseBg.vue'
 import Fractal from '~/components/Fractal.vue'
 import Headr from '~/components/Headr.vue'
 import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
@@ -27,6 +28,7 @@ import Footr from '~/components/Footr.vue'
 
 export default {
   components: {
+    BaseBg,
     Fractal,
     Headr,
     SwiperReleaseList,
