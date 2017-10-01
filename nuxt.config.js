@@ -52,12 +52,6 @@ module.exports = {
       '/release/ufomatka-altering-the-synaptic-controllers',
       '/release/zymosis-eve',
 
-      '/event/shift-space',
-      '/event/alt-space',
-      '/event/water-marks',
-      '/event/home-space',
-      '/event/five-years',
-
       '/artist/alexander-daf',
       '/artist/already-maged',
       '/artist/astropilot',
@@ -97,7 +91,21 @@ module.exports = {
       '/artist/unstable-elements',
       '/artist/unusual-cosmic-process',
       '/artist/vonoom',
-      '/artist/zymosis'
+      '/artist/zymosis',
+
+      '/event/shift-space',
+      '/event/alt-space',
+      '/event/water-marks',
+      '/event/home-space',
+      '/event/five-years',
+
+      '/freind/another-dimension',
+      '/freind/clocktail',
+      '/freind/moon-koradji',
+      '/freind/parvati',
+      '/freind/space-baby',
+      '/freind/treetrolla',
+      '/freind/zenon'
     ]
   }
 }
