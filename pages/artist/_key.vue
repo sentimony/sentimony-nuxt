@@ -8,6 +8,7 @@
 import axios from '~/plugins/axios'
 
 export default {
+  layout: 'artist',
   async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`artists/${key}.json`)

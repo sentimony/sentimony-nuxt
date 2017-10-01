@@ -55,7 +55,7 @@ export default {
 <style lang="scss">
 @import '../node_modules/coriolan-ui/tools/variables';
 @import '../node_modules/coriolan-ui/mixins/media';
-@import '../assets/scss/main';
+@import '../assets/scss/variables';
 
 .headr {
   position: relative;

@@ -1,0 +1,26 @@
+#__nuxt {
+  height: 100%;
+}
+
+.flex-sticky {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  // &__fractal {
+  // }
+
+  &__header {
+  }
+
+  &__content {
+    flex: 1;
+    // padding: 2em .6em;
+    position: relative;
+    // background-color: #000;
+  }
+
+  &__footer {
+  }
+}

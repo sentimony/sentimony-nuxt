@@ -1,8 +1,5 @@
 <template>
   <div class="release">
-
-    <!-- <SwiperReleaseList/> -->
-
     <h1>{{ release.title }}</h1>
     <div class="release__media">
       <div class="release__row">
@@ -69,13 +66,10 @@
 </template>
 
 <script>
-// import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
 import axios from '~/plugins/axios'
 
 export default {
-  // components: {
-  //   SwiperReleaseList
-  // },
+  layout: 'release',
   async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`releases/${key}.json`)

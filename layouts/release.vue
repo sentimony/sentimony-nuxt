@@ -7,6 +7,7 @@
       <Headr/>
     </div>
     <div class="flex-sticky__content">
+      <SwiperReleaseList/>
       <nuxt/>
     </div>
     <div class="flex-sticky__footer">
@@ -19,6 +20,7 @@
 <script>
 // import Fractal from '~/components/Fractal.vue'
 import Headr from '~/components/Headr.vue'
+import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
 import Donate from '~/components/Donate.vue'
 import Footr from '~/components/Footr.vue'
 
@@ -26,6 +28,7 @@ export default {
   components: {
     // Fractal,
     Headr,
+    SwiperReleaseList,
     Donate,
     Footr
   }
