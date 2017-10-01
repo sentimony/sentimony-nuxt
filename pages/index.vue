@@ -1,18 +1,24 @@
 <template>
   <div class="home">
     <Hero/>
+    <SwiperReleaseList/>
     <About/>
+    <SwiperArtistList/>
   </div>
 </template>
 
 <script>
 import Hero from '~/components/Hero.vue'
+import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
 import About from '~/components/About.vue'
+import SwiperArtistList from '~/components/SwiperArtistList.vue'
 
 export default {
   components: {
     Hero,
-    About
+    SwiperReleaseList,
+    About,
+    SwiperArtistList
   },
   head: {
     title: 'Home',
