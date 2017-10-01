@@ -1,5 +1,5 @@
 <template>
-  <div class="release">
+  <div class="event">
     <h1>{{ event.title }}</h1>
     <p v-if="event.date"><!-- Date:  -->{{ event.date | formatDate }}</p>
     <p v-if="event.location"><!-- Location:  -->{{ event.location }}</p>
