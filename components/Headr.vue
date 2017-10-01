@@ -14,17 +14,9 @@
       </nav>
 
       <nav class="headr__social-menu">
-        <a class="headr__social-menu-link" href="https://sentimony.bandcamp.com" target="_blank" rel="noopener">
-          <img class="headr__social-menu-link-img" src="https://sentimony.com/assets/img/svg-icons/bandcamp.svg" alt="Bandcamp Icon">
-          <span class="headr__social-menu-link-tooltip">bandcamp</span>
-        </a>
-        <a class="headr__social-menu-link" href="https://www.facebook.com/sentimony.records" target="_blank" rel="noopener">
-          <img class="headr__social-menu-link-img" src="https://sentimony.com/assets/img/svg-icons/facebook.svg" alt="Facebook Icon">
-          <span class="headr__social-menu-link-tooltip">facebook</span>
-        </a>
-        <a class="headr__social-menu-link" href="https://www.youtube.com/c/SentimonyRecordsOfficial" target="_blank" rel="noopener">
-          <img class="headr__social-menu-link-img" src="https://sentimony.com/assets/img/svg-icons/youtube.svg" alt="YouTube Icon">
-          <span class="headr__social-menu-link-tooltip">youtube</span>
+        <a v-for="i in social.data" v-if="i.isVisibleHeadr" class="headr__social-menu-link" :href="i.url" target="_blank" rel="noopener">
+          <img class="headr__social-menu-link-img" :src="'https://sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+          <span class="headr__social-menu-link-tooltip">{{ i.title }}</span>
         </a>
       </nav>
 
@@ -38,10 +30,24 @@
 
 <script>
 import LogoLink from '~/components/LogoLink.vue'
+import axios from 'axios'
 
 export default {
   components: {
     LogoLink
+  },
+  data () {
+    return {
+      social: []
+    }
+  },
+  mounted () {
+    return axios({
+      url: 'https://sentimony-db.firebaseio.com/social.json'
+    })
+    .then((res) => {
+      this.social = res.data;
+    })
   }
 }
 </script>

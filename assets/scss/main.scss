@@ -2,3 +2,5 @@
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 
 $colorBgLight: rgba(#ccc,.4);
+$text-color: #ccc;
+$accent-color: lighten($text-color, 10%);
