@@ -1,0 +1,73 @@
+@mixin btn {
+  display: inline-block;
+  color: #fff;
+  border-radius: 6px;
+  padding: 7px .9em;
+  font-size: 16px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  margin-right: .7em;
+  transition: background-color .2s ease;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: $colorBgLight;
+  }
+
+  &.is-disabled {
+    opacity: .2;
+    cursor: default;
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+}
+
+@mixin btn__img {
+  height: 20px;
+  transform: translate3d(0,4px,0);
+}
+
+@mixin btn__text {
+  font-size: 12px;
+  margin-left: .4em;
+
+  @include media(S) {
+    display: inline-block;
+    font-size: inherit;
+  }
+}
+
+.btn {
+  @include btn;
+}
+
+.btn__img {
+  @include btn__img;
+}
+
+.btn__text {
+  @include btn__text;
+}
+
+@mixin btn-social {
+  color: #fff !important;
+  font-size: 1em;
+  padding: .8em 1.2em;
+  min-width: 75px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+  }
+}
+
+.btn-social {
+  @include btn-social;
+}
