@@ -1,24 +1,29 @@
 <template>
   <div class="swiper-release-list">
     <div class="title">Releases</div>
-    <div class="list">
-      <div v-for="i in sortByDate" class="item">
-        <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
-          <div class="item__wrapper">
-            <div class="item__cover">
-              <img v-if="i.cover" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-else class="item__soon">Artwork<br>in progress</div>
+    <div v-swiper:mySwiper="swiperOption">
+      <div class="swiper-wrapper">
+        <div v-for="i in sortByDate" class="swiper-slide item">
+          <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
+            <div class="item__wrapper">
+              <div class="item__cover">
+                <img v-if="i.cover" class="item__img"
+                  :src="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg'"
+                  :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
+                  :alt="i.title + ' Small Thumbnail'"
+                >
+                <div v-else class="item__soon">Artwork<br>in progress</div>
+              </div>
+              <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
+              <div v-if="i.new" class="item__status--red">New</div>
             </div>
-            <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
-            <div v-if="i.new" class="item__status--red">New</div>
-          </div>
-          <div class="item__title">{{ i.title }}</div>
-        </router-link>
+            <div class="item__title">{{ i.title }}</div>
+          </router-link>
+        </div>
       </div>
+      <div class="swiper-release-list__prev js-swiper-release-list__prev"></div>
+      <div class="swiper-release-list__next js-swiper-release-list__next"></div>
+      <div class="swiper-scrollbar swiper-release-list__scrollbar js-swiper-release-list__scrollbar"></div>
     </div>
   </div>
 </template>
@@ -30,7 +35,16 @@ import sortBy from 'lodash/sortBy'
 export default {
   data () {
     return {
-      releases: []
+      releases: [],
+      swiperOption: {
+        nextButton: '.js-swiper-release-list__next',
+        prevButton: '.js-swiper-release-list__prev',
+        scrollbar: '.js-swiper-release-list__scrollbar',
+        mousewheelControl: true,
+        mousewheelForceToAxis: true,
+        freeMode: true,
+        slidesPerView: 'auto'
+      }
     }
   },
   mounted () {

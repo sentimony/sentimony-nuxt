@@ -1,22 +1,27 @@
 <template>
   <div class="swiper-artist-list">
     <div class="title">Artists</div>
-    <div class="list">
-      <div v-for="i in artists" class="item">
-        <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
-          <div class="item__wrapper">
-            <div class="item__cover">
-              <img v-if="i.photo" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-else class="item__soon">Photo<br>coming soon</div>
+    <div v-swiper:mySwiper="swiperOption">
+      <div class="swiper-wrapper">
+        <div v-for="i in artists" class="swiper-slide item">
+          <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
+            <div class="item__wrapper">
+              <div class="item__cover">
+                <img v-if="i.photo" class="item__img"
+                  :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
+                  :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
+                  :alt="i.title + ' Small Thumbnail'"
+                >
+                <div v-else class="item__soon">Photo<br>coming soon</div>
+              </div>
             </div>
-          </div>
-          <div class="item__title">{{ i.title }}</div>
-        </router-link>
+            <div class="item__title">{{ i.title }}</div>
+          </router-link>
+        </div>
       </div>
+      <div class="swiper-artist-list__prev js-swiper-artist-list__prev"></div>
+      <div class="swiper-artist-list__next js-swiper-artist-list__next"></div>
+      <div class="swiper-scrollbar swiper-artist-list__scrollbar js-swiper-artist-list__scrollbar"></div>
     </div>
   </div>
 </template>
@@ -27,7 +32,16 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      artists: []
+      artists: [],
+      swiperOption: {
+        nextButton: '.js-swiper-artist-list__next',
+        prevButton: '.js-swiper-artist-list__prev',
+        scrollbar: '.js-swiper-artist-list__scrollbar',
+        mousewheelControl: true,
+        mousewheelForceToAxis: true,
+        freeMode: true,
+        slidesPerView: 'auto'
+      }
     }
   },
   mounted () {

@@ -14,11 +14,16 @@ module.exports = {
     ]
   },
   loading: {
-    color: '#666',
-    height: '4px'
+    color: '#fff',
+    height: '5px'
   },
   plugins: [
-    '~/plugins/google-analytics.js'
+    '~/plugins/google-analytics.js',
+    { src: '~/plugins/swiper.js', ssr: false }
+  ],
+  css: [
+    'normalize.css/normalize.css',
+    'swiper/dist/css/swiper.css'
   ],
   build: {
     vendor: ['axios']

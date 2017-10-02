@@ -5,7 +5,8 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
-    "nuxt": "^1.0.0-rc11"
+    "nuxt": "^1.0.0-rc11",
+    "vue-awesome-swiper": "^2.6.5"
   },
   "devDependencies": {
     "node-sass": "^4.5.3",
