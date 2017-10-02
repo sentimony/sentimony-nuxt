@@ -19,11 +19,13 @@ module.exports = {
   },
   plugins: [
     '~/plugins/google-analytics.js',
-    { src: '~/plugins/swiper.js', ssr: false }
+    { src: '~/plugins/swiper.js', ssr: false },
+    '~/plugins/vue-tabs.js'
   ],
   css: [
     'normalize.css/normalize.css',
-    'swiper/dist/css/swiper.css'
+    'swiper/dist/css/swiper.css',
+    // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
   build: {
     vendor: ['axios']
