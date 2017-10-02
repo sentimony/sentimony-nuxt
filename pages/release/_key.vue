@@ -1,83 +1,114 @@
 <template>
-  <div class="release">
-    <h1>{{ release.title }}</h1>
-    <div class="release__media">
-      <div class="release__row">
-        <div class="release__thumb" v-if='release.cover'>
-          <a :href="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'">
-            <img class="release__cover" :src="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no.substr(0,8) + '/' + release.slug + '.jpg'" :alt="release.title">
-          </a>
+  <div class="release-page">
+
+    <div class="page-release">
+      <SvgTriangle/>
+      <div class="page-release__wrapper">
+
+        <div class="page-release__media">
+          <div class="page-release__cover">
+            <a v-if="release.cover" class="page-release__cover-link" :href="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no + '/' + release.slug +'.jpg'">
+              <img class="page-release__cover-img"
+                :src="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no + '/' + release.slug +'.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
+                :alt="release.title + 'Medium Thumbnail'" 
+              >
+            </a>
+            <div v-else class="page-release__cover-coming">Artwork<br>in progress</div>
+          </div>
+          <div class="page-release__info">
+            <div class="page-release__small-info">
+              <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
+              <span v-if="release.coming_soon"> | Coming at 2017</span>
+              <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
+            </div>
+            <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
+            <div v-if="release.style" class="page-release__small-info">{{ release.style }}</div>
+            <div v-if="release.link_applemusic" class="page-release__small-info">Get it:</div>
+            <div>
+              <a v-if="release.link_applemusic" class="page-release__applemusic-btn"
+                :href="release.link_applemusic"
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__applemusic-btn-img" src="https://sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
+                <span class="page-release__applemusic-btn-text">Apple Music</span>
+              </a>
+              <a v-if="release.link_googleplay" class="page-release__googlemusic-btn"
+                :href="release.link_googleplay"
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__googlemusic-btn-img" src="https://sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="Google Play Icon">
+                <span class="page-release__googlemusic-btn-text">Google Play</span>
+              </a>
+            </div>
+          </div>
         </div>
-        <p v-if='release.link_applemusic'>
-          <a class="release__btn-bandcamp" :href="release.link_applemusic" target="_blank">Apple Music</a>
-        </p>
-        <p v-if='release.link_googleplay'>
-          <a class="release__btn-bandcamp" :href="release.link_googleplay" target="_blank">Google Play</a>
-        </p>
-        <p v-if='release.bandcamp_id'>
-          <a class="release__btn-bandcamp" :href="release.link_bandcamp" target="_blank">Bandcamp</a>
-        </p>
-        <p v-if='release.youtube_id'>
-          <a class="release__btn-bandcamp" :href="'https://www.youtube.com/watch?v=' + release.youtube_id" target="_blank">Youtube</a>
-        </p>
-        <div v-if='release.cat_no'>
-          Cat#:
-          <span>{{ release.cat_no.toUpperCase() }}</span>
+
+        <div class="page-release__player-tabs">
+          <vue-tabs>
+
+            <v-tab title="Bandcamp" icon="icon-bandcamp">
+              <div class="page-release__bandcamp-player">
+                <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">Music<br>is coming</div>
+                <iframe
+                  v-if="release.bandcamp_id"
+                  class="page-release__bandcamp-player-iframe"
+                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.bandcamp_id + '/size=large/bgcol=333333/linkcol=4ec5ec/artwork=none/transparent=true/'"
+                  seamless
+                  :title="release.title + ' Bandcamp Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
+            <v-tab v-if="release.youtube_playlist_id" title="YouTube" icon="icon-youtube">
+              <div class="page-release__youtube-player">
+                <iframe
+                  class="page-release__youtube-player-iframe"
+                  :src="'https://www.youtube.com/embed/videoseries?list=' + release.youtube_playlist_id"
+                  :title="release.title + ' YouTube Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
+          </vue-tabs>
         </div>
-        <div>
-          Released:
-          <span v-if='release.date'>{{ release.date | day }}</span>
-          <span v-else>Coming Soon</span>
-        </div>
-        <div v-if='release.style'>
-          Style:
-          <span v-html='release.style'></span>
-        </div>
-        <div v-if='release.compiled_by'>
-          Compiled By:
-          <span v-html='release.compiled_by'></span>
-        </div>
-        <div v-if='release.artwork_by'>
-          Artwork:
-          <span v-html='release.artwork_by'></span>
-        </div>
-        <div v-if='release.mastered_by'>
-          Mastering:
-          <span v-html='release.mastered_by'></span>
-        </div>
-      </div>
-      <div class="release__row">
-        <div class="release__bandcamp-container" v-if='release.bandcamp_id'>
-          <iframe class="release__bandcamp-iframe" :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.bandcamp_id + '/size=large/bgcol=222222/linkcol=1a96bc/artwork=false/transparent=true/'" seamless></iframe>
-        </div>
+
       </div>
     </div>
-    <div class="release__content">
-      <div class="release__info" v-if='release.info' v-html='release.info'></div>
-      <!-- <div>Links:</div> -->
-      <div v-if='release.link_ektoplazm'>
-        <a :href="release.link_ektoplazm" target="_blank">Ektoplazm</a>
-      </div>
-      <div v-if='release.link_discogs'>
-        <a :href="'https://www.discogs.com/master/view/' + release.link_discogs" target="_blank">Discogs</a>
+
+    <div class="page-release-content">
+      <div class="page-release-content__wrapper">
       </div>
     </div>
+
+    <div class="page-release-content">
+      <div class="page-release-content__wrapper">
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
+import SvgTriangle from '~/components/SvgTriangle.vue'
 import axios from '~/plugins/axios'
 
 export default {
   layout: 'release',
+  components: {
+    SvgTriangle
+  },
   async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`releases/${key}.json`)
     return { release: data }
   },
   filters: {
-    day (date) {
-      return date.split('T')[0]
+    formatDate: function (date) {
+      var moment = require('moment');
+      if (date) {
+        return moment(String(date)).format('DD MMM YYYY');
+      }
     }
   },
   head () {
@@ -92,75 +123,210 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../node_modules/coriolan-ui/tools/variables';
+@import '../../node_modules/coriolan-ui/mixins/media';
 @import '../../node_modules/coriolan-ui/mixins/ratio';
+@import '../../assets/scss/variables';
+@import '../../assets/scss/buttons';
+@import '../../assets/scss/vue-tabs-restyle';
 
-.release {
-  border-top: 1px solid rgba(#fff,.3);
-  width: 100%;
-  padding: 0 .8em;
-  box-sizing: border-box;
+.page-release {
+  position: relative;
+  padding: 0 .6em;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 1278px;
+    text-align: left;
+    border-top: 1px solid rgba(#fff,.3);
+    padding: 1.8em 0 1.8em;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 40;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include media(L) {
+      flex-direction: row;
+      padding-top: 40px;
+    }
+  }
 
   &__media {
-    // max-width: 700px;
-    margin: 0 auto;
+    margin-bottom: 1em;
+    width: 100%;
+    position: relative;
     display: flex;
-    justify-content: center;
-    text-align: left;
-  }
+    align-items: flex-start;
+    justify-content: space-between;
 
-  &__row {
-    margin-left: .4em;
-    margin-right: .4em;
-    &:first-child {
-      flex-basis: 40%;
+    @include media(L) {
+      margin-top: 62px;
+      margin-bottom: 6em;
+      width: auto;
     }
-    &:nth-child(2) {
-      flex-basis: 60%;
-    }
-  }
-
-  &__content {
-    max-width: 555px;
-    text-align: left;
-    margin: 0 auto;
-  }
-
-  &__thumb {
-    // order: 2;
   }
 
   &__cover {
-    width: 100%;
-    // opacity: .6;
+    min-width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 1.4em;
+    background-color: $colorBgBlack;
+    display: flex;
+    align-items: stretch;
+    box-shadow: $shadow;
+
+    @include media(M) {
+      min-width: 190px;
+      height: 190px;
+    }
+
+    &-link {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    &-img {
+      display: block;
+      width: 100%;
+      max-width: 100px;
+      box-shadow: $shadow;
+
+      @include media(M) {
+        max-width: 190px;
+      }
+    }
+
+    &-coming {
+      padding: 1em 1.2em;
+      font-size: 10px;
+      color: rgba(#fff,.5);
+
+      @include media(M) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__info {
     display: block;
-    margin-bottom: .8em;
-  }
-
-  &__bandcamp-container {
-    // order: 1;
-    flex-basis: 450px;
-    padding: .8em;
-    background: rgba(#fff,.1);
-    border-radius: .6em;
-    box-sizing: border-box;
-    margin-bottom: 2em;
-  }
-
-  &__bandcamp-iframe {
-    opacity: .9;
-    border: 0;
     width: 100%;
-    height: 580px;
-    // background: #303030;
-    background-image: repeating-linear-gradient(135deg, rgba(#fff,.0), rgba(#fff,.0) 4px, rgba(#fff,.1) 4px, rgba(#fff,.1) 8px);
+    box-sizing: border-box;
+    padding-right: 1.1em;
   }
 
-  &__btn-bandcamp {
-    padding: .8em 1.4em;
-    background-color: #1a96bc;
-    display: inline-block;
+  &__small-info {
+    font-size: 10px;
+    color: rgba(#fff,.5);
+
+    @include media(S) {
+      font-size: 14px;
+    }
+  }
+
+  &__catalog-number {
     text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 0 0 .1em;
     color: #fff;
+    text-transform: capitalize;
+
+    @include media(S) {
+      font-size: 2em;
+    }
+  }
+
+  // &__bandcamp-btn,
+  // &__junodownload-btn,
+  &__applemusic-btn,
+  &__googlemusic-btn {
+    @extend .btn;
+    margin-top: .5em;
+
+    &-img {
+      @extend .btn__img;
+      height: 18px;
+    }
+
+    &-text {
+      @extend .btn__text;
+    }
+  }
+
+  &__player-tabs {
+    min-width: 100%;
+
+    @include media(M) {
+      min-width: 540px;
+    }
+  }
+
+  &__bandcamp-player {
+    display: block;
+    width: 100%;
+    max-width: 540px;
+    box-shadow: $shadow;
+    background-color: $colorBgBlack;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    height: (537px + 25px);
+
+    @include media(S) {
+      height: 537px;
+    }
+
+    &-coming {
+      padding: 1em 1.2em;
+      font-size: 14px;
+      color: rgba(#fff,.5);
+    }
+
+    &-iframe {
+      border-radius: 6px;
+      border: none;
+      overflow: hidden;
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      margin: 0 auto;
+
+      max-width: 540px;
+      height: (537px + 25px);
+
+      @include media(S) {
+        height: 537px;
+      }
+    }
+  }
+
+  &__youtube-player {
+    @include ratio(100%,16,9);
+    box-shadow: $shadow;
+    background-color: $colorBgBlack;
+    overflow: hidden;
+    border-radius: 6px;
+
+    &-iframe {
+      border-radius: 6px;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 143%;
+      height: 143%;
+      transform: scale(.7);
+      transform-origin: top left;
+    }
   }
 }
 </style>
