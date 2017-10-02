@@ -27,5 +27,6 @@ export default {
 
 <style lang="scss">
 .artist {
+  border-top: 1px solid rgba(#fff,.3);
 }
 </style>

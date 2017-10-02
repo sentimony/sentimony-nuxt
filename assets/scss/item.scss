@@ -6,7 +6,7 @@
   position: relative;
   width: 90px;
   box-sizing: border-box;
-  padding: 2px 3px;
+  padding: 0 3px;
 
   @include media(M) {
     width: 180px;
@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto 4px;
     transition: background-color .2s ease-in-out;
 
     @include media(M) {

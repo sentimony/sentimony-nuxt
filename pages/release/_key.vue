@@ -95,6 +95,7 @@ export default {
 @import '../../node_modules/coriolan-ui/mixins/ratio';
 
 .release {
+  border-top: 1px solid rgba(#fff,.3);
   width: 100%;
   padding: 0 .8em;
   box-sizing: border-box;

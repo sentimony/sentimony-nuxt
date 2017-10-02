@@ -21,9 +21,9 @@
           </router-link>
         </div>
       </div>
-      <div class="swiper-release-list__prev js-swiper-release-list__prev"></div>
-      <div class="swiper-release-list__next js-swiper-release-list__next"></div>
-      <div class="swiper-scrollbar swiper-release-list__scrollbar js-swiper-release-list__scrollbar"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <!-- <div class="swiper-scrollbar"></div> -->
     </div>
   </div>
 </template>
@@ -37,9 +37,9 @@ export default {
     return {
       releases: [],
       swiperOption: {
-        nextButton: '.js-swiper-release-list__next',
-        prevButton: '.js-swiper-release-list__prev',
-        scrollbar: '.js-swiper-release-list__scrollbar',
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+        // scrollbar: '.swiper-scrollbar',
         mousewheelControl: true,
         mousewheelForceToAxis: true,
         freeMode: true,
@@ -68,5 +68,5 @@ export default {
 @import '../node_modules/coriolan-ui/mixins/media';
 @import '../assets/scss/item';
 @import '../assets/scss/title';
-@import '../assets/scss/list';
+@import '../assets/scss/swiper';
 </style>
