@@ -1,8 +1,23 @@
 <template>
   <div class="swiper-release-list">
-    <div class="swiper-release-list__wrapper">
-      <div v-for="i in releases" class="swiper-release-list__item">
-        <nuxt-link class="" :to="'/release/' + i.slug">{{ i.title }}</nuxt-link>
+    <div class="title">Releases</div>
+    <div class="list">
+      <div v-for="i in sortByDate" class="item">
+        <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
+          <div class="item__wrapper">
+            <div class="item__cover">
+              <img v-if="i.cover" class="item__img"
+                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <div v-else class="item__soon">Artwork<br>in progress</div>
+            </div>
+            <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
+            <div v-if="i.new" class="item__status--red">New</div>
+          </div>
+          <div class="item__title">{{ i.title }}</div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -10,6 +25,7 @@
 
 <script>
 import axios from 'axios'
+import sortBy from 'lodash/sortBy'
 
 export default {
   data () {
@@ -24,23 +40,19 @@ export default {
     .then((res) => {
       this.releases = res.data;
     })
+  },
+  computed: {
+    sortByDate () {
+      return sortBy(this.releases, 'date').reverse()
+    }
   }
 }
 </script>
 
 <style lang="scss">
-.swiper-release-list {
-  width: 100%;
-  overflow-x: scroll;
-
-  &__wrapper {
-    padding: 20px 0;
-    display: flex;
-  }
-
-  &__item {
-    padding: 20px;
-    max-width: 80px;
-  }
-}
+@import '../node_modules/coriolan-ui/tools/variables';
+@import '../node_modules/coriolan-ui/mixins/media';
+@import '../assets/scss/item';
+@import '../assets/scss/title';
+@import '../assets/scss/list';
 </style>

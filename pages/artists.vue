@@ -1,20 +1,21 @@
 <template>
   <div class="artists">
     <h1>Artists</h1>
-    <div class="artists__list">
-      <div v-for="i in artists" class="artists__item">
-        <p v-if="i.slug">
-          <router-link :to="'/artist/' + i.slug + '/'" class="artists__link">
-            <img class="artists__photo"
-              :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
-              :alt="i.title + ' Small Thumbnail'"
-            >
-          </router-link>
-        </p>
-        <p class="artists__title">
-          <router-link :to="'/artist/' + i.slug + '/'">{{ i.title }}</router-link>
-        </p>
+    <div class="list">
+      <div v-for="i in artists" class="item">
+        <router-link :to="'/artist/' + i.slug + '/'" class="item__link">
+          <div class="item__wrapper">
+            <div class="item__cover">
+              <img v-if="i.photo" class="item__img"
+                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <div v-else class="item__soon">Photo<br>coming soon</div>
+            </div>
+          </div>
+          <div class="item__title">{{ i.title }}</div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -38,34 +39,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/scss/variables';
+@import '../assets/scss/item';
+@import '../assets/scss/list';
 
 .artists {
   max-width: 1278px;
   margin: 0 auto;
-
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  &__item,
-  &__link {
-    width: 120px;
-  }
-
-  &__photo {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-    box-shadow: $shadow;
-    border-radius: 8px;
-  }
-
-  &__title {
-    min-height: 44px;
-  }
 }
 </style>

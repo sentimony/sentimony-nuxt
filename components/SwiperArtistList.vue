@@ -1,8 +1,21 @@
 <template>
   <div class="swiper-artist-list">
-    <div class="swiper-artist-list__wrapper">
-      <div v-for="i in artists" class="swiper-artist-list__item">
-        <nuxt-link class="" :to="'/artist/' + i.slug">{{ i.title }}</nuxt-link>
+    <div class="title">Artists</div>
+    <div class="list">
+      <div v-for="i in artists" class="item">
+        <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
+          <div class="item__wrapper">
+            <div class="item__cover">
+              <img v-if="i.photo" class="item__img"
+                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <div v-else class="item__soon">Photo<br>coming soon</div>
+            </div>
+          </div>
+          <div class="item__title">{{ i.title }}</div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -29,18 +42,9 @@ export default {
 </script>
 
 <style lang="scss">
-.swiper-artist-list {
-  width: 100%;
-  overflow-x: scroll;
-
-  &__wrapper {
-    padding: 20px 0;
-    display: flex;
-  }
-
-  &__item {
-    padding: 20px;
-    max-width: 80px;
-  }
-}
+@import '../node_modules/coriolan-ui/tools/variables';
+@import '../node_modules/coriolan-ui/mixins/media';
+@import '../assets/scss/item';
+@import '../assets/scss/title';
+@import '../assets/scss/list';
 </style>
