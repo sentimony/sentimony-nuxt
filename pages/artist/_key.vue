@@ -2,7 +2,7 @@
   <div class="artist-page">
 
     <div class="page-artist">
-      <!-- <svg-triangle></svg-triangle> -->
+      <SvgTriangle/>
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
@@ -88,9 +88,13 @@
 
 <script>
 import axios from '~/plugins/axios'
+import SvgTriangle from '~/components/SvgTriangle.vue'
 
 export default {
   layout: 'artist',
+  components: {
+    SvgTriangle
+  },
   async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`artists/${key}.json`)
