@@ -36,7 +36,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../node_modules/normalize.css/normalize.css';
 @import '../node_modules/coriolan-ui/tools/variables';
 @import '../assets/scss/variables';
 @import '../assets/scss/flex-sticky';
