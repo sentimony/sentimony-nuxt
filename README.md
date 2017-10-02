@@ -6,7 +6,7 @@ _Web development of Sentimony Records site_
 
 [NuxtJS](https://nuxtjs.org) - framework for server-rendered [VueJS](https://vuejs.org) applications
 
-[Firebase](https://firebase.google.com) - realtime database by [Google](https://developers.google.com)
+[Firebase](https://firebase.google.com) - realtime database by [Google Developers](https://developers.google.com)
 
 [Coriolan UI](https://coriolan-ui.github.io) - [Sass](http://sass-lang.com) mixins pack
 
