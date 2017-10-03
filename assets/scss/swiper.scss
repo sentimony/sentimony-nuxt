@@ -45,6 +45,7 @@
 
   &.swiper-button-disabled {
     opacity: .2;
+    pointer-events: visible;
   }
 }
 
