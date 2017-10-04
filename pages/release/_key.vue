@@ -78,25 +78,28 @@
 
     <div class="page-release-content">
       <div class="page-release-content__wrapper">
+        <Disqus shortname="sentimony" :identifier="release.slug" :url="'https://sentimony.com/release/' + release.slug"></Disqus>
       </div>
     </div>
 
-    <div class="page-release-content">
+    <!-- <div class="page-release-content">
       <div class="page-release-content__wrapper">
       </div>
-    </div>
+    </div> -->
 
   </div>
 </template>
 
 <script>
 import SvgTriangle from '~/components/SvgTriangle.vue'
+import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 
 export default {
   layout: 'release',
   components: {
-    SvgTriangle
+    SvgTriangle,
+    Disqus
   },
   async asyncData({ route }) {
     const { key } = route.params
