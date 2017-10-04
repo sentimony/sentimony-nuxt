@@ -12,8 +12,8 @@
       <a v-if="i.url" :href="i.url" target="_blank" rel="noopener">{{ i.id }}</a>
     </p>
 
-    <div class="page-release-content">
-      <div class="page-release-content__wrapper">
+    <div class="content">
+      <div class="content__wrapper">
         <Disqus shortname="sentimony" :identifier="event.slug" :url="'https://sentimony.com/event/' + event.slug"></Disqus>
       </div>
     </div>
@@ -55,6 +55,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/scss/content';
+
 .event {
 }
 </style>

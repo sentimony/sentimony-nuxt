@@ -77,8 +77,8 @@
       </div>
     </div>
 
-    <div class="page-artist-content">
-      <div class="page-artist-content__wrapper">
+    <div class="content">
+      <div class="content__wrapper">
         <Disqus shortname="sentimony" :identifier="artist.slug" :url="'https://sentimony.com/artist/' + artist.slug"></Disqus>
       </div>
     </div>
@@ -120,6 +120,7 @@ export default {
 @import '../../assets/scss/variables';
 @import '../../assets/scss/buttons';
 @import '../../assets/scss/vue-tabs-restyle';
+@import '../../assets/scss/content';
 
 .page-artist {
   position: relative;

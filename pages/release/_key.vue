@@ -76,8 +76,8 @@
       </div>
     </div>
 
-    <div class="page-release-content">
-      <div class="page-release-content__wrapper">
+    <div class="content">
+      <div class="content__wrapper">
         <Disqus shortname="sentimony" :identifier="release.slug" :url="'https://sentimony.com/release/' + release.slug"></Disqus>
       </div>
     </div>
@@ -132,6 +132,7 @@ export default {
 @import '../../assets/scss/variables';
 @import '../../assets/scss/buttons';
 @import '../../assets/scss/vue-tabs-restyle';
+@import '../../assets/scss/content';
 
 .page-release {
   position: relative;
