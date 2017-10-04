@@ -78,14 +78,49 @@
 
     <div class="content">
       <div class="content__wrapper">
+
+        <div v-if="release.info">
+          <div v-if="release.info" v-html="release.info"></div>
+        </div>
+
+        <div v-if="release.trackist">
+          <hr>
+          <p>Trackist:</p>
+          <div v-if="release.trackist" v-html="release.trackist"></div>
+        </div>
+
+        <div v-if="release.mastered_by">
+          <hr>
+          <p>Credits:</p>
+        </div>
+
+        <p v-if="release.written_by" v-html="'Written & Prodused By ' + release.written_by"></p>
+        <p v-if="release.compiled_by" v-html="'Compiled By ' + release.compiled_by"></p>
+        <p v-if="release.artwork_by" v-html="'Artwork By ' + release.artwork_by"></p>
+        <p v-if="release.mastered_by" v-html="'Mastered By ' + release.mastered_by"></p>
+
+        <div v-if="release.link_discogs">
+          <hr>
+          <p>Links:</p>
+        </div>
+
+        <p v-if="release.link_beatspace">
+          <a :href="release.link_beatspace" target="_blank" rel="noopener">Beatspace</a>
+        </p>
+
+        <p v-if="release.link_ektoplazm">
+          <a :href="release.link_ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
+        </p>
+
+        <p v-if="release.link_discogs">
+          <a :href="release.link_discogs" target="_blank" rel="noopener">Discogs</a>
+        </p>
+
+        <hr>
         <Disqus shortname="sentimony" :identifier="release.slug" :url="'https://sentimony.com/release/' + release.slug"></Disqus>
+
       </div>
     </div>
-
-    <!-- <div class="page-release-content">
-      <div class="page-release-content__wrapper">
-      </div>
-    </div> -->
 
   </div>
 </template>
