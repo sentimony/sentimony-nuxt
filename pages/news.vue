@@ -1,11 +1,11 @@
 <template>
   <div class="news">
     <h1>News</h1>
-    <div class="news__list">
-      <p v-for="i in news" class="news__item">
-        <router-link :to="i.url" class="news__link" v-if="i.date" v-html="">{{ i.date | formatDate }} @ {{ i.title }}</router-link>
-      </p>
-    </div>
+    <p v-for="i in news">
+      <span v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</span> | 
+      <router-link :to="i.url">Reed More</router-link>
+      <hr>
+    </p>
   </div>
 </template>
 
