@@ -77,23 +77,25 @@
       </div>
     </div>
 
-    <!-- <div class="page-artist-content">
-      <div class="page-artist-content__wrapper">
-        <disqus-comments></disqus-comments>
+    <div class="content">
+      <div class="content__wrapper">
+        <Disqus shortname="sentimony" :identifier="artist.slug" :url="'https://sentimony.com/artist/' + artist.slug"></Disqus>
       </div>
-    </div> -->
+    </div>
 
   </div>
 </template>
 
 <script>
 import SvgTriangle from '~/components/SvgTriangle.vue'
+import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 
 export default {
   layout: 'artist',
   components: {
-    SvgTriangle
+    SvgTriangle,
+    Disqus
   },
   async asyncData({ route }) {
     const { key } = route.params
@@ -118,6 +120,7 @@ export default {
 @import '../../assets/scss/variables';
 @import '../../assets/scss/buttons';
 @import '../../assets/scss/vue-tabs-restyle';
+@import '../../assets/scss/content';
 
 .page-artist {
   position: relative;

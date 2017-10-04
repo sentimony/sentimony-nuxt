@@ -76,27 +76,30 @@
       </div>
     </div>
 
-    <div class="page-release-content">
-      <div class="page-release-content__wrapper">
+    <div class="content">
+      <div class="content__wrapper">
+        <Disqus shortname="sentimony" :identifier="release.slug" :url="'https://sentimony.com/release/' + release.slug"></Disqus>
       </div>
     </div>
 
-    <div class="page-release-content">
+    <!-- <div class="page-release-content">
       <div class="page-release-content__wrapper">
       </div>
-    </div>
+    </div> -->
 
   </div>
 </template>
 
 <script>
 import SvgTriangle from '~/components/SvgTriangle.vue'
+import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 
 export default {
   layout: 'release',
   components: {
-    SvgTriangle
+    SvgTriangle,
+    Disqus
   },
   async asyncData({ route }) {
     const { key } = route.params
@@ -129,6 +132,7 @@ export default {
 @import '../../assets/scss/variables';
 @import '../../assets/scss/buttons';
 @import '../../assets/scss/vue-tabs-restyle';
+@import '../../assets/scss/content';
 
 .page-release {
   position: relative;

@@ -11,14 +11,25 @@
     <p v-for="i in event.links">
       <a v-if="i.url" :href="i.url" target="_blank" rel="noopener">{{ i.id }}</a>
     </p>
+
+    <div class="content">
+      <div class="content__wrapper">
+        <Disqus shortname="sentimony" :identifier="event.slug" :url="'https://sentimony.com/event/' + event.slug"></Disqus>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
+import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 import moment from 'moment'
 
 export default {
+  components: {
+    Disqus
+  },
   async asyncData({ route }) {
     const { key } = route.params
     const { data } = await axios.get(`events/${key}.json`)
@@ -44,6 +55,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/scss/content';
+
 .event {
 }
 </style>
