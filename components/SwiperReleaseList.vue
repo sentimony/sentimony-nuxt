@@ -3,7 +3,7 @@
     <div class="title">Releases</div>
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="i in sortByDate" class="swiper-slide item">
+        <div v-for="i in sortByDate" v-if="i.coming_soon !== true" class="swiper-slide item">
           <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
@@ -15,7 +15,7 @@
                 <div v-else class="item__soon">Artwork<br>in progress</div>
               </div>
               <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
-              <div v-if="i.new" class="item__status--red">New</div>
+              <div v-if="i.new" class="item__status--red">Fresh</div>
             </div>
             <div class="item__title">{{ i.title }}</div>
           </router-link>
