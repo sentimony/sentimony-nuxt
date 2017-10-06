@@ -211,7 +211,7 @@ export default {
   &__cover {
     min-width: 100px;
     height: 100px;
-    border-radius: 8px;
+    border-radius: 2px;
     overflow: hidden;
     margin-right: 1.4em;
     background-color: $colorBgBlack;

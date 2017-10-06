@@ -3,7 +3,7 @@
     <div class="title">Artists</div>
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="i in artists" class="swiper-slide item">
+        <div v-for="i in sortByCategoryId" v-if="i.category_id" class="swiper-slide item">
           <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
@@ -28,6 +28,7 @@
 
 <script>
 import axios from 'axios'
+import sortBy from 'lodash/sortBy'
 
 export default {
   data () {
@@ -51,6 +52,11 @@ export default {
     .then((res) => {
       this.artists = res.data;
     })
+  },
+  computed: {
+    sortByCategoryId () {
+      return sortBy(this.artists, 'category_id')
+    }
   }
 }
 </script>

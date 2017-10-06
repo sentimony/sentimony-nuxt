@@ -2,7 +2,7 @@
   <div class="artists">
     <h1>Artists</h1>
     <div class="list">
-      <div v-for="i in artists" class="item">
+      <div v-for="i in sortByCategoryId" v-if="i.category_id" class="item">
         <router-link :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
@@ -23,17 +23,23 @@
 
 <script>
 import axios from '~/plugins/axios'
+import sortBy from 'lodash/sortBy'
 
 export default {
-  async asyncData() {
-    const { data } = await axios.get('artists.json')
-    return { artists: data }
-  },
   head: {
     title: 'Artists',
     meta: [
       { name: 'description', content: 'Artists of Sentimony Records' }
     ]
+  },
+  async asyncData() {
+    const { data } = await axios.get('artists.json')
+    return { artists: data }
+  },
+  computed: {
+    sortByCategoryId () {
+      return sortBy(this.artists, 'category_id')
+    }
   }
 }
 </script>

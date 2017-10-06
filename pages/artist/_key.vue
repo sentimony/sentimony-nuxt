@@ -164,7 +164,7 @@ export default {
   &__photo {
     background-color: $colorBgBlack;
     box-shadow: $shadow;
-    border-radius: 8px;
+    border-radius: 2px;
     min-width: 100px;
     height: 100px;
     overflow: hidden;
@@ -187,7 +187,7 @@ export default {
       display: block;
       width: 100px;
       height: auto;
-      border-radius: 8px;
+      border-radius: 2px;
 
       @include media(M) {
         width: 190px;
