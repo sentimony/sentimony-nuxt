@@ -2,7 +2,7 @@
   <div class="menu-main">
     <div class="menu-main__wrapper">
       <div class="menu-main__list">
-        <router-link to="/" class="menu-main__link" exact-active-class="is-selected" exact>Home</router-link>
+        <router-link to="/" class="menu-main__link" active-class="is-selected" exact>Home</router-link>
         <router-link to="/news/" class="menu-main__link" active-class="is-selected">News</router-link>
         <router-link to="/releases/" class="menu-main__link" active-class="is-selected">Releases</router-link>
         <router-link to="/artists/" class="menu-main__link" active-class="is-selected">Artists</router-link>
