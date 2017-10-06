@@ -159,7 +159,7 @@ export default {
     return {
       title: this.release.title,
       meta: [
-        { name: 'description', content: this.release.title + ' description' }
+        { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.format + ', ' + this.release.date }
       ]
     }
   }
