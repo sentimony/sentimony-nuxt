@@ -83,10 +83,16 @@
           <div v-if="release.info" v-html="release.info"></div>
         </div>
 
-        <div v-if="release.trackist">
+        <div v-if="release.tracklist">
           <hr>
           <p>Trackist:</p>
-          <div v-if="release.trackist" v-html="release.trackist"></div>
+          <p v-for="i in release.tracklist.tracks">
+            <span>{{ i.number }}. </span>
+            <span>{{ i.artist }}</span> - 
+            <span>{{ i.title }}</span> | 
+            <span>{{ i.bpm }}</span>
+          </p>
+          <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
 
         <div v-if="release.mastered_by">

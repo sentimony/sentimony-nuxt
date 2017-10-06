@@ -101,6 +101,7 @@ module.exports = {
       '/artist/unusual-cosmic-process',
       '/artist/vonoom',
       '/artist/zymosis',
+      '/artist/psydewise',
 
       '/event/shift-space',
       '/event/alt-space',

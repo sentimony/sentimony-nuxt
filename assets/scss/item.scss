@@ -73,10 +73,10 @@
     position: absolute;
     top: -5px;
     right: -5px;
-    font-size: 8px;
+    font-size: 7px;
     z-index: 40;
     padding: .2em .8em;
-    border-radius: 0 8px 0 8px;
+    border-radius: 0 2px;
     box-shadow: $shadow;
 
     @include media(M) {
