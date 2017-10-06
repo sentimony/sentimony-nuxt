@@ -159,7 +159,8 @@ export default {
     return {
       title: this.release.title,
       meta: [
-        { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.format + ', ' + this.release.date }
+        { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
       ]
     }
   }
