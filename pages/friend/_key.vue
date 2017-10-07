@@ -22,7 +22,8 @@ export default {
     return {
       title: this.friend.title,
       meta: [
-        { name: 'description', content: this.friend.title + ' description' }
+        { name: 'description', content: this.friend.title + ' description' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
       ]
     }
   }

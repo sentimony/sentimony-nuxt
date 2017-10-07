@@ -26,12 +26,6 @@ import axios from '~/plugins/axios'
 import sortBy from 'lodash/sortBy'
 
 export default {
-  head: {
-    title: 'Artists',
-    meta: [
-      { name: 'description', content: 'Artists of Sentimony Records' }
-    ]
-  },
   async asyncData() {
     const { data } = await axios.get('artists.json')
     return { artists: data }
@@ -40,6 +34,13 @@ export default {
     sortByCategoryId () {
       return sortBy(this.artists, 'category_id')
     }
+  },
+  head: {
+    title: 'Artists',
+    meta: [
+      { name: 'description', content: 'Artists of Sentimony Records' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+    ]
   }
 }
 </script>

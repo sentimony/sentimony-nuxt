@@ -106,7 +106,8 @@ export default {
     return {
       title: this.artist.title,
       meta: [
-        { name: 'description', content: this.artist.title + ' description' }
+        { name: 'description', content: this.artist.title + ' description' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
       ]
     }
   }

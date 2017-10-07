@@ -20,7 +20,8 @@ export default {
   head: {
     title: 'Friends',
     meta: [
-      { name: 'description', content: 'Friends page description' }
+      { name: 'description', content: 'Friends page description' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
     ]
   }
 }
