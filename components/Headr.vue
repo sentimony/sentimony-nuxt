@@ -11,12 +11,12 @@
       </nuxt-link>
 
       <nav class="headr__main-menu">
-        <nuxt-link to="/news/" class="headr__main-menu-link" active-class="is-selected">News</nuxt-link>
+        <!-- <nuxt-link to="/news/" class="headr__main-menu-link" active-class="is-selected">News</nuxt-link> -->
         <nuxt-link to="/releases/" class="headr__main-menu-link" active-class="is-selected">Releases</nuxt-link>
         <nuxt-link to="/artists/" class="headr__main-menu-link" active-class="is-selected">Artists</nuxt-link>
-        <nuxt-link to="/events/" class="headr__main-menu-link" active-class="is-selected">Events</nuxt-link>
-        <nuxt-link to="/friends/" class="headr__main-menu-link" active-class="is-selected">Friends</nuxt-link>
-        <nuxt-link to="/contacts/" class="headr__main-menu-link" active-class="is-selected">Contacts</nuxt-link>
+        <!-- <nuxt-link to="/events/" class="headr__main-menu-link" active-class="is-selected">Events</nuxt-link> -->
+        <!-- <nuxt-link to="/friends/" class="headr__main-menu-link" active-class="is-selected">Friends</nuxt-link> -->
+        <!-- <nuxt-link to="/contacts/" class="headr__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
       </nav>
 
       <nav class="headr__social-menu">
