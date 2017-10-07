@@ -21,7 +21,7 @@ export default {
   position: relative;
   color: #000;
   background-color: #fff;
-  background-image: url(https://sentimony.com/assets/img/backgrounds/donate.svg);
+  background-image: url(https://content.sentimony.com/assets/img/backgrounds/donate.svg);
   background-position: center bottom;
   background-repeat: no-repeat;
 

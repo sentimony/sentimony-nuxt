@@ -7,7 +7,7 @@
     <p class="contacts__title">{{ social.follow }}</p>
     <p v-for="i in social.data" v-if="i.isVisibleContacts">
       <a class="contacts__link" :href="i.url" target="_blank" rel="noopener">
-        <img class="contacts__icon" :src="'https://sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+        <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
         <span>{{ i.title }}</span>
       </a>
     </p>

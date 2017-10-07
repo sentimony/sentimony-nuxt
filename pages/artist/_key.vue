@@ -67,7 +67,7 @@
             </v-tab>
             <v-tab v-if="artist.discogs" title="Discography" icon="icon-discogs">
               <a :href="artist.discogs" target="_blank" rel="noopener" style="display:flex;align-items:center">
-                <img src="https://sentimony.com/assets/img/svg-icons/discogs.svg" style="width:20px;margin-right:.4em">
+                <img src="https://content.sentimony.com/assets/img/svg-icons/discogs.svg" style="width:20px;margin-right:.4em">
                 <span>Discogs</span>
               </a>
             </v-tab>

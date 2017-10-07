@@ -3,7 +3,7 @@
     <div class="headr__container">
 
       <nuxt-link to="/" class="logolink" active-class="is-selected" exact>
-        <img class="logolink__logo" src="https://sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" :alt="siteTitle + 'Logo SVG'">
+        <img class="logolink__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" :alt="siteTitle + 'Logo SVG'">
         <div class="logolink__text">
           <div class="logolink__title">{{ siteTitle }}</div>
           <div class="logolink__description">{{ siteDescription }}</div>
@@ -21,13 +21,13 @@
 
       <nav class="headr__social-menu">
         <a v-for="i in social.data" v-if="i.isVisibleHeadr" class="headr__social-menu-link" :href="i.url" target="_blank" rel="noopener">
-          <img class="headr__social-menu-link-img" :src="'https://sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+          <img class="headr__social-menu-link-img" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
           <span class="headr__social-menu-link-tooltip">{{ i.title }}</span>
         </a>
       </nav>
 
       <nuxt-link to="/mobmenu/" class="headr__mob-menu-button">
-        <img class="headr__mob-menu-button-img" src="https://sentimony.com/assets/img/svg-icons/menu.svg">
+        <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
       </nuxt-link>
 
     </div>

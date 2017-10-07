@@ -30,14 +30,14 @@
                 :href="release.link_applemusic"
                 target="_blank" rel="noopener"
               >
-                <img class="page-release__applemusic-btn-img" src="https://sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
+                <img class="page-release__applemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
                 <span class="page-release__applemusic-btn-text">Apple Music</span>
               </a>
               <a v-if="release.link_googleplay" class="page-release__googlemusic-btn"
                 :href="release.link_googleplay"
                 target="_blank" rel="noopener"
               >
-                <img class="page-release__googlemusic-btn-img" src="https://sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="Google Play Icon">
+                <img class="page-release__googlemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="Google Play Icon">
                 <span class="page-release__googlemusic-btn-text">Google Play</span>
               </a>
             </div>
