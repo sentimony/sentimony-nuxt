@@ -28,6 +28,9 @@
 </template>
 
 <style lang="scss">
+@import '../node_modules/coriolan-ui/tools/variables';
+@import '../node_modules/coriolan-ui/mixins/media';
+
 .fractal {
   overflow: hidden;
   position: fixed;
@@ -35,6 +38,11 @@
   left: 0;
   width: 100%;
   height: 100%;
+  display: none;
+
+  @include media(M) {
+    display: block;
+  }
 
   &__petal {
     transform: translate3d(-50%,-50%,0);
