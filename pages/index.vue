@@ -54,7 +54,23 @@ export default {
 .hero {
   position: relative;
   background: linear-gradient(to bottom, transparent 0%, rgba(#000,.5) 100%);
-  padding: 12.5em 0;
+  padding: 7.5em 0;
+
+  @include media(S) {
+    padding: 8.5em 0;
+  }
+
+  @include media(M) {
+    padding: 9.5em 0;
+  }
+
+  @include media(L) {
+    padding: 10.5em 0;
+  }
+
+  @include media(XL) {
+    padding: 11.5em 0;
+  }
 
   &__wrapper {
     max-width: 777px;
