@@ -99,6 +99,7 @@
   &__title {
     color: #fff;
     font-size: 14px;
+    height: 42px;
     display: none;
 
     @include media(M) {

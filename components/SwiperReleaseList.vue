@@ -3,7 +3,7 @@
     <div class="title">Releases</div>
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="i in sortByDate" v-if="i.cover" class="swiper-slide item">
+        <div v-for="i in sortByDate" class="swiper-slide item">
           <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
@@ -68,5 +68,9 @@ export default {
 @import '../node_modules/coriolan-ui/mixins/media';
 @import '../assets/scss/item';
 @import '../assets/scss/title';
-@import '../assets/scss/swiper';
+@import '../assets/scss/swiper-restyle';
+
+.swiper-release-list {
+  position: relative;
+}
 </style>

@@ -66,5 +66,9 @@ export default {
 @import '../node_modules/coriolan-ui/mixins/media';
 @import '../assets/scss/item';
 @import '../assets/scss/title';
-@import '../assets/scss/swiper';
+@import '../assets/scss/swiper-restyle';
+
+.swiper-artist-list {
+  position: relative;
+}
 </style>
