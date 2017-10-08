@@ -13,7 +13,7 @@
     </div>
 
     <div class="footr__powered">
-      <div>Design by <a href="https://rooster-chess.netlify.com" target="_blank" rel="noopener">Anton Pivniuk</a></div>
+      <div>Design by <a href="https://www.facebook.com/apivniuk" target="_blank" rel="noopener">Anton Pivniuk</a></div>
       <div>Development by <a href="https://ihororlovskyi.com" target="_blank" rel="noopener">Ihor Orlovskyi</a></div>
     </div>
 
