@@ -83,7 +83,7 @@
       <div class="content__wrapper">
 
         <div v-if="release.info">
-          <div v-if="release.info" v-html="release.info"></div>
+          <p v-for="i in release.info" v-html="i.p"></p>
         </div>
 
         <div v-if="release.tracklist">
