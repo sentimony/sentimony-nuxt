@@ -1,0 +1,60 @@
+@import '../../node_modules/coriolan-ui/tools/variables';
+@import '../../node_modules/coriolan-ui/mixins/media';
+
+.page-release__bandcamp-player {
+  &.tracks-4 {
+    height: (273px + 25px);
+
+    @include media(S) {
+      height: 273px;
+    }
+  }
+
+  &.tracks-5 {
+    height: (306px + 25px);
+
+    @include media(S) {
+      height: 306px;
+    }
+  }
+
+  &.tracks-7 {
+    height: (372px + 25px);
+
+    @include media(S) {
+      height: 372px;
+    }
+  }
+
+  &.tracks-9 {
+    height: (438px + 25px);
+
+    @include media(S) {
+      height: 438px;
+    }
+  }
+
+  .tracks-10 {
+    height: (471px + 25px);
+
+    @include media(S) {
+      height: 471px;
+    }
+  }
+
+  .tracks-11 {
+    height: (504px + 25px);
+
+    @include media(S) {
+      height: 504px;
+    }
+  }
+
+  .tracks-12 {
+    height: (537px + 25px);
+
+    @include media(S) {
+      height: 537px;
+    }
+  }
+}

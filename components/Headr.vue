@@ -153,7 +153,7 @@ export default {
   &__logo {
     width: 40px;
     display: block;
-    margin-right: .792em;
+    margin-right: 12px;
   }
 
   &__text {

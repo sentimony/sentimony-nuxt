@@ -56,6 +56,7 @@
         .title {
           font-family: 'Montserrat', sans-serif;
           font-size: 0;
+          padding: 0;
 
           @include media(L) {
             font-size: 12px;

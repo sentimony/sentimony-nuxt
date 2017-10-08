@@ -50,8 +50,8 @@
         <div class="page-release__player-tabs">
           <vue-tabs>
 
-            <v-tab title="Bandcamp" icon="icon-bandcamp">
-              <div class="page-release__bandcamp-player">
+            <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
+              <div :class="'page-release__bandcamp-player tracks-' + release.tracks_number">
                 <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">Music<br>is coming</div>
                 <iframe
                   v-if="release.bandcamp_id"
@@ -63,7 +63,7 @@
               </div>
             </v-tab>
 
-            <v-tab v-if="release.youtube_playlist_id" title="YouTube" icon="icon-youtube">
+            <v-tab v-if="release.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
               <div class="page-release__youtube-player">
                 <iframe
                   class="page-release__youtube-player-iframe"
@@ -178,6 +178,8 @@ export default {
 @import '../../assets/scss/buttons';
 @import '../../assets/scss/vue-tabs-restyle';
 @import '../../assets/scss/content';
+@import '../../assets/scss/page';
+@import '../../assets/scss/iframe-size';
 
 .page-release {
   position: relative;
