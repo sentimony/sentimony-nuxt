@@ -34,7 +34,7 @@
     }
   }
 
-  .tracks-10 {
+  &.tracks-10 {
     height: (471px + 25px);
 
     @include media(S) {
@@ -42,7 +42,7 @@
     }
   }
 
-  .tracks-11 {
+  &.tracks-11 {
     height: (504px + 25px);
 
     @include media(S) {
@@ -50,7 +50,7 @@
     }
   }
 
-  .tracks-12 {
+  &.tracks-12 {
     height: (537px + 25px);
 
     @include media(S) {
