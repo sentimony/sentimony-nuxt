@@ -79,6 +79,10 @@
 
     <div class="content">
       <div class="content__wrapper">
+
+        <p v-if="artist.releases">Releases:</p>
+        <p v-if="artist.releases" v-html="artist.releases.title"></p>
+
         <Disqus shortname="sentimony" :identifier="artist.slug" :url="'https://sentimony.com/artist/' + artist.slug"></Disqus>
       </div>
     </div>
