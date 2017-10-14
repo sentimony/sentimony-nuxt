@@ -81,7 +81,7 @@
       <div class="content__wrapper">
 
         <p v-if="artist.releases">Releases:</p>
-        <p v-if="artist.releases" v-html="artist.releases.title"></p>
+        <p v-if="artist.releases" v-for="i in artist.releases" v-html="i.title"></p>
 
         <Disqus shortname="sentimony" :identifier="artist.slug" :url="'https://sentimony.com/artist/' + artist.slug"></Disqus>
       </div>
