@@ -2,6 +2,8 @@
 @import '../../node_modules/coriolan-ui/mixins/media';
 
 .page-release__bandcamp-player {
+  transition: height .2s ease;
+
   &.tracks-4 {
     height: (273px + 25px);
 
