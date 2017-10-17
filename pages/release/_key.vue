@@ -121,6 +121,14 @@
           <a :href="release.link_ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
         </p>
 
+        <p v-if="release.link_beatport">
+          <a :href="release.link_beatport" target="_blank" rel="noopener">Beatport</a>
+        </p>
+
+        <p v-if="release.link_junodownload">
+          <a :href="release.link_junodownload" target="_blank" rel="noopener">Juno Download</a>
+        </p>
+
         <p v-if="release.link_discogs">
           <a :href="release.link_discogs" target="_blank" rel="noopener">Discogs</a>
         </p>
