@@ -117,6 +117,10 @@
           <a :href="release.link_beatspace" target="_blank" rel="noopener">Beatspace</a>
         </p>
 
+        <p v-if="release.link_psyshop">
+          <a :href="release.link_psyshop" target="_blank" rel="noopener">Psyshop</a>
+        </p>
+
         <p v-if="release.link_ektoplazm">
           <a :href="release.link_ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
         </p>
