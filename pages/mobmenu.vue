@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  layout: 'mobmenu',
   head: {
     title: 'MobMenu',
     meta: [
