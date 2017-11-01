@@ -11,8 +11,8 @@
 export default {
   data: () => ({
     baseBgSrc: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg',
-    baseBgSrc1x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red@1x.jpg 1x',
-    baseBgSrc2x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red@2x.jpg 2x',
+    baseBgSrc1x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg 1x',
+    baseBgSrc2x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg 2x',
     baseBgAlt: 'Sombrero Red Background'
   })
 }
