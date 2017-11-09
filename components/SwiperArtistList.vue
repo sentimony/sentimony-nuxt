@@ -7,7 +7,8 @@
           <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
-                <img v-if="i.photo" class="item__img"
+                <div v-if="i.photo" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                <img v-if="i.photo" class="item__img swiper-lazy"
                   :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
                   :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
                   :alt="i.title + ' Small Thumbnail'"
@@ -35,6 +36,7 @@ export default {
     return {
       artists: [],
       swiperOption: {
+        lazy: true,
         prevButton: '.swiper-button-prev',
         nextButton: '.swiper-button-next',
         // scrollbar: '.swiper-scrollbar',

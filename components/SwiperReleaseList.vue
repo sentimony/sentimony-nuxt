@@ -7,9 +7,9 @@
           <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
-                <img v-if="i.cover" class="item__img"
+                <div v-if="i.cover" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                <img v-if="i.cover" class="item__img swiper-lazy"
                   :src="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg'"
-                  :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
                   :alt="i.title + ' Small Thumbnail'"
                 >
                 <div v-else class="item__soon">Artwork<br>in progress</div>
@@ -37,6 +37,7 @@ export default {
     return {
       releases: [],
       swiperOption: {
+        lazy: true,
         prevButton: '.swiper-button-prev',
         nextButton: '.swiper-button-next',
         // scrollbar: '.swiper-scrollbar',

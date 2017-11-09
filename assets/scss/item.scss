@@ -55,6 +55,8 @@
     height: auto;
     border-radius: 2px;
     display: block;
+    z-index: 30;
+    position: relative;
   }
 
   &__soon {
