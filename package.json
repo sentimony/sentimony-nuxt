@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.1",
     "coriolan-ui": "^0.1.19",
     "lodash": "^4.17.4",
-    "moment": "^2.19.1",
+    "moment": "^2.19.2",
     "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc11",
     "vue-awesome-swiper": "^2.6.7",
@@ -11,7 +11,7 @@
     "vue-nav-tabs": "^0.5.4"
   },
   "devDependencies": {
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.6.1",
     "sass-loader": "^6.0.6"
   },
   "scripts": {
