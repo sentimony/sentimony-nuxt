@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@nuxtjs/pwa": "^1.0.2",
     "axios": "^0.17.1",
     "coriolan-ui": "^0.1.19",
     "lodash": "^4.17.4",
