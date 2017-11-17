@@ -16,6 +16,13 @@ module.exports = {
     color: '#fff',
     height: '5px'
   },
+  modules: [
+    ['@nuxtjs/pwa', { icon: false }]
+  ],
+  manifest: {
+    name: 'Sentimony App',
+    lang: 'en'
+  },
   plugins: [
     '~/plugins/google-analytics.js',
     { src: '~/plugins/swiper.js', ssr: false },
