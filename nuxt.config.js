@@ -109,13 +109,13 @@ module.exports = {
       '/event/home-space',
       '/event/five-years',
 
-      '/freind/another-dimension',
-      '/freind/clocktail',
-      '/freind/moon-koradji',
-      '/freind/parvati',
-      '/freind/space-baby',
-      '/freind/treetrolla',
-      '/freind/zenon'
+      '/friend/another-dimension',
+      '/friend/clocktail',
+      '/friend/moon-koradji',
+      '/friend/parvati',
+      '/friend/space-baby',
+      '/friend/treetrolla',
+      '/friend/zenon'
     ]
   }
 }
