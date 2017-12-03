@@ -121,6 +121,10 @@
           <a :href="release.link_junodownload" target="_blank" rel="noopener">Juno Download</a>
         </p>
 
+        <p v-if="release.link_spotify">
+          <a :href="release.link_spotify" target="_blank" rel="noopener">Spotify</a>
+        </p>
+
         <p v-if="release.link_beatspace">
           <a :href="release.link_beatspace" target="_blank" rel="noopener">Beatspace</a>
         </p>
