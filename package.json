@@ -8,11 +8,11 @@
     "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc11",
     "vue-awesome-swiper": "^2.6.7",
-    "vue-disqus": "^2.0.3",
-    "vue-nav-tabs": "^0.5.4"
+    "vue-disqus": "^2.0.4",
+    "vue-nav-tabs": "^0.5.5"
   },
   "devDependencies": {
-    "node-sass": "^4.6.1",
+    "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6"
   },
   "scripts": {
