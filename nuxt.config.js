@@ -58,6 +58,7 @@ module.exports = {
       '/release/zymosis-insight',
       '/release/overdream-beautiful-thinking',
       '/release/ufomatka-altering-the-synaptic-controllers',
+      '/release/omnisound-destiny',
       '/release/zymosis-eve',
 
       '/artist/alexander-daf',
