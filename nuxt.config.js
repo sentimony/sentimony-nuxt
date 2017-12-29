@@ -17,7 +17,7 @@ module.exports = {
     height: '5px'
   },
   plugins: [
-    '~/plugins/google-analytics.js',
+    { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     '~/plugins/vue-tabs.js'
   ],
@@ -58,6 +58,7 @@ module.exports = {
       '/release/zymosis-insight',
       '/release/overdream-beautiful-thinking',
       '/release/ufomatka-altering-the-synaptic-controllers',
+      '/release/omnisound-destiny',
       '/release/zymosis-eve',
 
       '/artist/alexander-daf',
