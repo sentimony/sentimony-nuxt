@@ -22,7 +22,10 @@
               <span v-if="release.coming_soon"> | Coming at 2018</span>
               <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
             </div>
-            <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
+            <h1 v-if="release.title" class="page-release__title">
+              {{ release.title }}
+              <span v-if="release.format == 'EP'">{{ release.format }}</span>
+            </h1>
             <div v-if="release.style" class="page-release__small-info">
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
