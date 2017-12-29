@@ -24,7 +24,7 @@ module.exports = {
     lang: 'en'
   },
   plugins: [
-    '~/plugins/google-analytics.js',
+    { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     '~/plugins/vue-tabs.js'
   ],
