@@ -16,7 +16,10 @@
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
           </div>
-          <div class="item__title">{{ i.title }}</div>
+          <div class="item__title">
+            {{ i.title }}
+            <span v-if="i.format == 'EP'">{{ i.format }}</span>
+          </div>
         </router-link>
       </div>
     </div>
