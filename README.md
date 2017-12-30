@@ -22,6 +22,6 @@ _Web development of Sentimony Records site_
 
 `npm i`
 
-`npm run develop`
+`npm run dev`
 
 #### Have fun! :)
