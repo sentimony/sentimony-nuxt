@@ -27,7 +27,7 @@
       </div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-      <!-- <div class="swiper-scrollbar"></div> -->
+      <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
     </div>
   </div>
 </template>
@@ -42,9 +42,14 @@ export default {
       releases: [],
       swiperOption: {
         lazy: true,
-        prevButton: '.swiper-button-prev',
-        nextButton: '.swiper-button-next',
-        // scrollbar: '.swiper-scrollbar',
+        navigation: {
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next'
+        },
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        //   hide: true
+        // },
         mousewheelControl: true,
         mousewheelForceToAxis: true,
         freeMode: true,
