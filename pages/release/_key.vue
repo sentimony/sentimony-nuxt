@@ -30,8 +30,9 @@
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
             </div>
-            <div v-if="release.link_applemusic" class="page-release__small-info">Get it:</div>
+            <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div>
+
               <a v-if="release.link_applemusic" class="page-release__applemusic-btn"
                 :href="release.link_applemusic"
                 target="_blank" rel="noopener"
@@ -39,6 +40,7 @@
                 <img class="page-release__applemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
                 <span class="page-release__applemusic-btn-text">Apple Music</span>
               </a>
+
               <a v-if="release.link_googleplay" class="page-release__googlemusic-btn"
                 :href="release.link_googleplay"
                 target="_blank" rel="noopener"
@@ -46,6 +48,15 @@
                 <img class="page-release__googlemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="Google Play Icon">
                 <span class="page-release__googlemusic-btn-text">Google Play</span>
               </a>
+
+              <a v-if="release.link_bandcamp" class="page-release__googlemusic-btn"
+                :href="release.link_bandcamp"
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__bandcamp-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01" alt="Bandcamp Icon">
+                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+              </a>
+
             </div>
           </div>
         </div>
@@ -315,8 +326,8 @@ export default {
     }
   }
 
-  // &__bandcamp-btn,
   // &__junodownload-btn,
+  &__bandcamp-btn,
   &__applemusic-btn,
   &__googlemusic-btn {
     @extend .btn;
