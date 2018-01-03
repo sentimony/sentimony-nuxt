@@ -112,15 +112,15 @@
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
 
-        <div v-if="release.mastered_by">
+        <div v-if="release.artwork_by">
           <hr>
           <p>Credits:</p>
+          <p v-if="release.written_and_prodused_by" v-html="'Written & Prodused By ' + release.written_and_prodused_by"></p>
+          <p v-if="release.compiled_by" v-html="'Compiled By ' + release.compiled_by"></p>
+          <p v-if="release.artwork_by" v-html="'Artwork By ' + release.artwork_by"></p>
+          <p v-if="release.mastered_by" v-html="'Mastered By ' + release.mastered_by"></p>
+          <p v-if="release.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.mixed_and_mastered_by"></p>
         </div>
-
-        <p v-if="release.written_by" v-html="'Written & Prodused By ' + release.written_by"></p>
-        <p v-if="release.compiled_by" v-html="'Compiled By ' + release.compiled_by"></p>
-        <p v-if="release.artwork_by" v-html="'Artwork By ' + release.artwork_by"></p>
-        <p v-if="release.mastered_by" v-html="'Mastered By ' + release.mastered_by"></p>
 
         <div v-if="release.link_discogs">
           <hr>
