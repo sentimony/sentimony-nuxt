@@ -7,6 +7,7 @@
     "moment": "^2.20.1",
     "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc11",
+    "v-img": "^0.1.9",
     "vue-awesome-swiper": "^3.0.7",
     "vue-disqus": "^2.0.4",
     "vue-nav-tabs": "^0.5.6",
