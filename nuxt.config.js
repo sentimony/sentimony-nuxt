@@ -19,7 +19,8 @@ module.exports = {
   plugins: [
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
-    '~/plugins/vue-tabs.js'
+    '~/plugins/vue-tabs.js',
+    '~/plugins/v-img.js'
   ],
   css: [
     'normalize.css/normalize.css',
