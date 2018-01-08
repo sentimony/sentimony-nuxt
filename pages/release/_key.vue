@@ -10,7 +10,7 @@
             <img v-if="release.cover" v-img class="page-release__cover-img"
               :src="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no + '/' + release.slug +'.jpg'"
               :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
-              :alt="release.title + ' Medium Thumbnail'" 
+              :alt="release.title + ' Medium Thumbnail'"
             >
             <div v-else class="page-release__cover-coming">Artwork<br>in progress</div>
           </div>
