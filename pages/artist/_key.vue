@@ -7,13 +7,11 @@
 
         <div class="page-artist__media">
           <div class="page-artist__photo">
-            <a v-if="artist.photo" class="page-artist__photo-link" :href="'https://content.sentimony.com/assets/img/artists/large/' + artist.slug + '.jpg'">
-              <img class="page-artist__photo-img"
-                :src="'https://content.sentimony.com/assets/img/artists/small/' + artist.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/artists/medium/' + artist.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/medium-retina/' + artist.slug + '.jpg 2x'"
-                :alt="artist.title + ' Medium Thumbnail'"
-              >
-            </a>
+            <img v-if="artist.photo" v-img class="page-artist__photo-img"
+              :src="'https://content.sentimony.com/assets/img/artists/large/' + artist.slug + '.jpg'"
+              :srcset="'https://content.sentimony.com/assets/img/artists/medium/' + artist.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/medium-retina/' + artist.slug + '.jpg 2x'"
+              :alt="artist.title + ' Medium Thumbnail'"
+            >
             <div v-else class="page-artist__photo-coming">Photo<br>coming soon</div>
           </div>
           <div class="page-artist__info">
