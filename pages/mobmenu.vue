@@ -23,12 +23,18 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/main-menu-link';
+
 .mobmenu {
   padding: 20px 0;
 
   &__link {
     display: block;
     padding: 20px 0;
+
+    &:hover {
+      background-color: $colorBgLight;
+    }
   }
 }
 </style>
