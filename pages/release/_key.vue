@@ -30,8 +30,9 @@
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
             </div>
-            <div v-if="release.link_applemusic" class="page-release__small-info">Get it:</div>
+            <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div>
+
               <a v-if="release.link_applemusic" class="page-release__applemusic-btn"
                 :href="release.link_applemusic"
                 target="_blank" rel="noopener"
@@ -39,6 +40,7 @@
                 <img class="page-release__applemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
                 <span class="page-release__applemusic-btn-text">Apple Music</span>
               </a>
+
               <a v-if="release.link_googleplay" class="page-release__googlemusic-btn"
                 :href="release.link_googleplay"
                 target="_blank" rel="noopener"
@@ -46,6 +48,15 @@
                 <img class="page-release__googlemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="Google Play Icon">
                 <span class="page-release__googlemusic-btn-text">Google Play</span>
               </a>
+
+              <a v-if="release.link_bandcamp" class="page-release__googlemusic-btn"
+                :href="release.link_bandcamp"
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__bandcamp-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01" alt="Bandcamp Icon">
+                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+              </a>
+
             </div>
           </div>
         </div>
@@ -101,15 +112,15 @@
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
 
-        <div v-if="release.mastered_by">
+        <div v-if="release.artwork_by">
           <hr>
           <p>Credits:</p>
+          <p v-if="release.written_and_prodused_by" v-html="'Written & Prodused By ' + release.written_and_prodused_by"></p>
+          <p v-if="release.compiled_by" v-html="'Compiled By ' + release.compiled_by"></p>
+          <p v-if="release.artwork_by" v-html="'Artwork By ' + release.artwork_by"></p>
+          <p v-if="release.mastered_by" v-html="'Mastered By ' + release.mastered_by"></p>
+          <p v-if="release.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.mixed_and_mastered_by"></p>
         </div>
-
-        <p v-if="release.written_by" v-html="'Written & Prodused By ' + release.written_by"></p>
-        <p v-if="release.compiled_by" v-html="'Compiled By ' + release.compiled_by"></p>
-        <p v-if="release.artwork_by" v-html="'Artwork By ' + release.artwork_by"></p>
-        <p v-if="release.mastered_by" v-html="'Mastered By ' + release.mastered_by"></p>
 
         <div v-if="release.link_discogs">
           <hr>
@@ -315,8 +326,8 @@ export default {
     }
   }
 
-  // &__bandcamp-btn,
   // &__junodownload-btn,
+  &__bandcamp-btn,
   &__applemusic-btn,
   &__googlemusic-btn {
     @extend .btn;
