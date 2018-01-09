@@ -25,8 +25,8 @@
           </router-link>
         </div>
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
       <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
     </div>
   </div>
@@ -37,7 +37,7 @@ import axios from 'axios'
 import sortBy from 'lodash/sortBy'
 
 export default {
-  data () {
+  data() {
     return {
       releases: [],
       swiperOption: {
@@ -53,7 +53,9 @@ export default {
         mousewheelControl: true,
         mousewheelForceToAxis: true,
         freeMode: true,
-        slidesPerView: 'auto'
+        slidesPerView: 'auto',
+        slideToClickedSlide: true,
+        centeredSlides: true
       }
     }
   },
