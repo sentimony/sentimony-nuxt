@@ -38,7 +38,7 @@
 import axios from 'axios'
 
 export default {
-  data () {
+  data() {
     return {
       siteTitle: 'Sentimony Records',
       siteDescription: 'Psychedelic Music Label',
