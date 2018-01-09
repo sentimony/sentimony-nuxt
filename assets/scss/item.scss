@@ -5,14 +5,13 @@
 .item {
   position: relative;
   width: 90px;
-  box-sizing: border-box;
-  padding: 0 3px;
 
   @include media(M) {
     width: 180px;
   }
 
   &__link {
+    display: block;
   }
 
   &__wrapper {
@@ -100,12 +99,14 @@
 
   &__title {
     color: #fff;
-    font-size: 14px;
+    font-size: 8px;
     height: 42px;
-    display: none;
+    // display: none;
+    padding: 0 2px;
 
     @include media(M) {
-      display: block;
+      // display: block;
+      font-size: 14px;
     }
   }
 }
