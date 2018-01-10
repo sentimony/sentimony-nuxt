@@ -13,7 +13,7 @@ module.exports = {
     ]
   },
   loading: {
-    color: '#fff',
+    color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
   modules: [
@@ -26,12 +26,14 @@ module.exports = {
   plugins: [
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
-    '~/plugins/vue-tabs.js',
-    '~/plugins/v-img.js'
+    { src: '~/plugins/vue-tabs.js', ssr: false },
+    { src: '~/plugins/v-img.js', ssr: false },
+    { src: '~/plugins/vue-touch-ripple.js', ssr: false }
   ],
   css: [
     'normalize.css/normalize.css',
     'swiper/dist/css/swiper.css',
+    'vue-touch-ripple/component.css'
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
   build: {

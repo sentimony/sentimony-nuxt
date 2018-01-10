@@ -2,13 +2,13 @@
   <div class="menu-main">
     <div class="menu-main__wrapper">
       <div class="menu-main__list">
-        <router-link to="/" class="menu-main__link" active-class="is-selected" exact>Home</router-link>
-        <router-link to="/news/" class="menu-main__link" active-class="is-selected">News</router-link>
-        <router-link to="/releases/" class="menu-main__link" active-class="is-selected">Releases</router-link>
-        <router-link to="/artists/" class="menu-main__link" active-class="is-selected">Artists</router-link>
-        <router-link to="/events/" class="menu-main__link" active-class="is-selected">Events</router-link>
-        <router-link to="/friends/" class="menu-main__link" active-class="is-selected">Friends</router-link>
-        <router-link to="/contacts/" class="menu-main__link" active-class="is-selected">Contacts</router-link>
+        <router-link v-touch-ripple to="/" class="menu-main__link" active-class="is-selected" exact>Home</router-link>
+        <router-link v-touch-ripple to="/news/" class="menu-main__link" active-class="is-selected">News</router-link>
+        <router-link v-touch-ripple to="/releases/" class="menu-main__link" active-class="is-selected">Releases</router-link>
+        <router-link v-touch-ripple to="/artists/" class="menu-main__link" active-class="is-selected">Artists</router-link>
+        <router-link v-touch-ripple to="/events/" class="menu-main__link" active-class="is-selected">Events</router-link>
+        <router-link v-touch-ripple to="/friends/" class="menu-main__link" active-class="is-selected">Friends</router-link>
+        <router-link v-touch-ripple to="/contacts/" class="menu-main__link" active-class="is-selected">Contacts</router-link>
       </div>
     </div>
   </div>

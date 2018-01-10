@@ -12,6 +12,7 @@
     "vue-awesome-swiper": "^3.1.0",
     "vue-disqus": "^2.0.4",
     "vue-nav-tabs": "^0.5.6",
+    "vue-touch-ripple": "^2.4.0",
     "vuetify": "^0.17.6"
   },
   "devDependencies": {
