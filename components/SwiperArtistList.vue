@@ -49,6 +49,8 @@ export default {
         mousewheelForceToAxis: true,
         freeMode: true,
         slidesPerView: 'auto',
+        speed: 350,
+        // slidesPerGroup: 2,
         slideToClickedSlide: true,
         centeredSlides: true
       }
