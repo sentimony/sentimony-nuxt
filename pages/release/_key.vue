@@ -209,10 +209,11 @@ export default {
 @import '../../assets/scss/page';
 @import '../../assets/scss/iframe-size';
 @import '../../assets/scss/v-img-restyle';
+@import '../../assets/scss/page';
 
 .page-release {
+  @extend .page;
   position: relative;
-  padding: 0 .6em;
 
   &__wrapper {
     margin: 0 auto;

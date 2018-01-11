@@ -33,9 +33,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/page';
 // @import '../assets/scss/variables';
 
 .contacts {
+  @extend .page;
 
   &__link {
     display: flex;

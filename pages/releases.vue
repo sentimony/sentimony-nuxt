@@ -3,7 +3,7 @@
     <h1>Releases</h1>
     <div class="list">
       <div v-for="i in sortByDate" class="item">
-        <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
+        <router-link v-touch-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
               <img v-if="i.cover" class="item__img"
@@ -56,10 +56,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/page';
 @import '../assets/scss/item';
 @import '../assets/scss/list';
 
 .releases {
+  @extend .page;
   max-width: 1278px;
   margin: 0 auto;
 }
