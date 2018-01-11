@@ -3,8 +3,7 @@
     <h1>News</h1>
     <p v-for="i in news">
       <span v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</span> | 
-      <router-link :to="i.url">Reed More</router-link>
-      <hr>
+      <router-link v-touch-ripple :to="i.url">Reed More</router-link>
     </p>
   </div>
 </template>
@@ -37,6 +36,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/page';
+
 .news {
+  @extend .page;
 }
 </style>

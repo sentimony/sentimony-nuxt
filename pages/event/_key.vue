@@ -56,8 +56,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/scss/page';
 @import '../../assets/scss/content';
 
 .event {
+  @extend .page;
 }
 </style>

@@ -3,7 +3,7 @@
     <h1>Events</h1>
     <div class="events__list">
       <p v-for="i in sortByDate" class="events__item">
-        <router-link :to="'/event/' + i.slug" class="events__link" v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</router-link>
+        <router-link v-touch-ripple :to="'/event/' + i.slug" class="events__link" v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</router-link>
       </p>
     </div>
   </div>
@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/page';
+
 .events {
+  @extend .page;
 }
 </style>

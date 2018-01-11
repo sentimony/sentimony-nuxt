@@ -2,6 +2,8 @@
 @import '../../node_modules/coriolan-ui/mixins/media';
 
 .page {
+  padding: 0 .6em;
+
   &__icon {
     width: 20px;
     background-repeat: no-repeat;
