@@ -19,6 +19,16 @@ module.exports = {
   modules: [
     ['@nuxtjs/pwa', { icon: false }]
   ],
+  workbox: {
+    runtimeCaching: [{
+      urlPattern: 'https://content.sentimony.com/.*',
+      handler: 'cacheFirst',
+      method: 'GET'
+    }],
+    importScripts: [
+        'custom-sw.js'
+    ],
+  },
   manifest: {
     name: 'Sentimony App',
     lang: 'en'
