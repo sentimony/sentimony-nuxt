@@ -7,7 +7,7 @@
 
         <div class="page-release__media">
           <div class="page-release__cover">
-            <img v-if="release.cover" v-img class="page-release__cover-img"
+            <img v-img v-if="release.cover" class="page-release__cover-img"
               :src="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no + '/' + release.slug +'.jpg'"
               :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
               :alt="release.title"
