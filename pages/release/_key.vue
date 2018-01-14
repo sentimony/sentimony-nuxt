@@ -31,24 +31,24 @@
             <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div>
 
-              <a v-if="release.links.link_applemusic" class="page-release__applemusic-btn"
-                :href="release.links.link_applemusic"
+              <a v-if="release.links.applemusic" class="page-release__applemusic-btn"
+                :href="release.links.applemusic"
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__applemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
                 <span class="page-release__applemusic-btn-text">Apple Music</span>
               </a>
 
-              <a v-if="release.links.link_googleplay" class="page-release__googlemusic-btn"
-                :href="release.links.link_googleplay"
+              <a v-if="release.links.googleplay" class="page-release__googlemusic-btn"
+                :href="release.links.googleplay"
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__googlemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="Google Play Icon">
                 <span class="page-release__googlemusic-btn-text">Google Play</span>
               </a>
 
-              <a v-if="release.links.link_bandcamp" class="page-release__googlemusic-btn"
-                :href="release.links.link_bandcamp"
+              <a v-if="release.links.bandcamp" class="page-release__googlemusic-btn"
+                :href="release.links.bandcamp"
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__bandcamp-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01" alt="Bandcamp Icon">
@@ -120,37 +120,37 @@
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
         </div>
 
-        <div v-if="release.links.link_discogs">
+        <div v-if="release.links.discogs">
           <hr>
           <p>Links:</p>
         </div>
 
-        <p v-if="release.links.link_beatport">
-          <a :href="release.links.link_beatport" target="_blank" rel="noopener">Beatport</a>
+        <p v-if="release.links.beatport">
+          <a :href="release.links.beatport" target="_blank" rel="noopener">Beatport</a>
         </p>
 
-        <p v-if="release.links.link_junodownload">
-          <a :href="release.links.link_junodownload" target="_blank" rel="noopener">Juno Download</a>
+        <p v-if="release.links.junodownload">
+          <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
         </p>
 
-        <p v-if="release.links.link_spotify">
-          <a :href="release.links.link_spotify" target="_blank" rel="noopener">Spotify</a>
+        <p v-if="release.links.spotify">
+          <a :href="release.links.spotify" target="_blank" rel="noopener">Spotify</a>
         </p>
 
-        <p v-if="release.links.link_beatspace">
-          <a :href="release.links.link_beatspace" target="_blank" rel="noopener">Beatspace</a>
+        <p v-if="release.links.beatspace">
+          <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
         </p>
 
-        <p v-if="release.links.link_psyshop">
-          <a :href="release.links.link_psyshop" target="_blank" rel="noopener">Psyshop</a>
+        <p v-if="release.links.psyshop">
+          <a :href="release.links.psyshop" target="_blank" rel="noopener">Psyshop</a>
         </p>
 
-        <p v-if="release.links.link_ektoplazm">
-          <a :href="release.links.link_ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
+        <p v-if="release.links.ektoplazm">
+          <a :href="release.links.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
         </p>
 
-        <p v-if="release.links.link_discogs">
-          <a :href="release.links.link_discogs" target="_blank" rel="noopener">Discogs</a>
+        <p v-if="release.links.discogs">
+          <a :href="release.links.discogs" target="_blank" rel="noopener">Discogs</a>
         </p>
 
         <hr>
