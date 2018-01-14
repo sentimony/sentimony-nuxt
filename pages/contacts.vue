@@ -3,7 +3,6 @@
     <h1 class="contacts__caption">Contacts</h1>
     <p class="contacts__title">{{ social.touch }}</p>
     <p><a href="mailto:sentimony@gmail.com?subject=Hello, Sentimony Records">sentimony@gmail.com</a></p>
-    <hr>
     <p class="contacts__title">{{ social.follow }}</p>
     <p v-for="i in social.data" v-if="i.isVisibleContacts">
       <a class="contacts__link" :href="i.url" target="_blank" rel="noopener">
