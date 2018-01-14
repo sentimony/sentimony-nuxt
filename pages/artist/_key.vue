@@ -245,15 +245,8 @@ export default {
   }
 
   &__player-tabs {
-    min-width: 100%;
-
-    @include media(M) {
-      min-width: 560px;
-    }
-
-    @include media(XL) {
-      min-width: 660px;
-    }
+    width: 100%;
+    max-width: 540px;
   }
 
   .iframe-holder {

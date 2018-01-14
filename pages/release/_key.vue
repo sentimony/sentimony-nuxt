@@ -321,7 +321,7 @@ export default {
     color: #fff;
     text-transform: capitalize;
 
-    @include media(S) {
+    @include media(M) {
       font-size: 2em;
     }
   }
@@ -344,11 +344,8 @@ export default {
   }
 
   &__player-tabs {
-    min-width: 100%;
-
-    @include media(M) {
-      min-width: 540px;
-    }
+    width: 100%;
+    max-width: 540px;
   }
 
   &__bandcamp-player {
