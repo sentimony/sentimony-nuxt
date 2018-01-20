@@ -51,5 +51,10 @@
       @extend .page__tab__icon;
       background-image: url(https://content.sentimony.com/assets/img/svg-icons/discogs.svg);
     }
+
+    &--spotify {
+      @extend .page__tab__icon;
+      background-image: url(https://content.sentimony.com/assets/img/svg-icons/spotify.svg);
+    }
   }
 }
