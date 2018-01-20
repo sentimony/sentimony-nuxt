@@ -63,12 +63,12 @@
           <vue-tabs>
 
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
-              <div :class="'page-release__bandcamp-player tracks-' + release.tracks_number">
+              <div class="page-release__bandcamp-player">
                 <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">Music<br>is coming</div>
                 <iframe
                   v-if="release.links.bandcamp_id"
-                  class="page-release__bandcamp-player-iframe"
-                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=333333/linkcol=4ec5ec/artwork=none/transparent=true/'"
+                  :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
+                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
                 ></iframe>
@@ -83,6 +83,14 @@
                   :title="release.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
+            </v-tab>
+
+            <v-tab v-if="release.links.spotify" title="Spotify" icon="page__tab__icon--spotify">
+              <iframe
+                :src="release.links.spotify | spotifyEmbed"
+                :class="'page-release__spotify-player-iframe tracks-' + release.tracks_number"
+                :title="release.title + ' Spotify Iframe'"
+              ></iframe>
             </v-tab>
 
           </vue-tabs>
@@ -183,6 +191,12 @@ export default {
       var moment = require('moment');
       if (date) {
         return moment(String(date)).format('DD MMM YYYY');
+      }
+    },
+    spotifyEmbed (spotify) {
+      if (spotify) {
+        let s = spotify.replace('https://open.spotify.com/album/', '');
+        return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
       }
     }
   },
@@ -349,19 +363,7 @@ export default {
   }
 
   &__bandcamp-player {
-    display: block;
-    width: 100%;
-    max-width: 540px;
-    box-shadow: $shadow;
-    background-color: $colorBgBlack;
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-    height: (537px + 25px);
-
-    @include media(S) {
-      height: 537px;
-    }
+    @extend .sentimony-iframe;
 
     &-coming {
       padding: 1em 1.2em;
@@ -370,29 +372,14 @@ export default {
     }
 
     &-iframe {
-      border-radius: 6px;
-      border: none;
-      overflow: hidden;
-      display: block;
-      width: 100%;
-      overflow: hidden;
       margin: 0 auto;
-
       max-width: 540px;
-      height: (537px + 25px);
-
-      @include media(S) {
-        height: 537px;
-      }
     }
   }
 
   &__youtube-player {
     @include ratio(100%,16,9);
-    box-shadow: $shadow;
-    background-color: $colorBgBlack;
-    overflow: hidden;
-    border-radius: 6px;
+    @extend .sentimony-iframe;
 
     &-iframe {
       border-radius: 6px;
@@ -405,6 +392,10 @@ export default {
       transform: scale(.7);
       transform-origin: top left;
     }
+  }
+
+  &__spotify-player-iframe {
+    @extend .sentimony-iframe;
   }
 }
 </style>
