@@ -43,7 +43,7 @@ module.exports = {
   css: [
     'normalize.css/normalize.css',
     'swiper/dist/css/swiper.css',
-    'vue-touch-ripple/component.css'
+    'vue-touch-ripple/dist/vue-touch-ripple.css'
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
   build: {
