@@ -2,13 +2,15 @@
   <div class="headr">
     <div class="headr__container">
 
-      <nuxt-link v-touch-ripple to="/" class="logolink" active-class="is-selected" exact>
-        <img class="logolink__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" :alt="siteTitle + 'Logo SVG'">
-        <div class="logolink__text">
-          <div class="logolink__title">{{ siteTitle }}</div>
-          <div class="logolink__description">{{ siteDescription }}</div>
-        </div>
-      </nuxt-link>
+      <touch-ripple>
+        <nuxt-link to="/" class="logolink" active-class="is-selected" exact>
+          <img class="logolink__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" :alt="siteTitle + 'Logo SVG'">
+          <div class="logolink__text">
+            <div class="logolink__title">{{ siteTitle }}</div>
+            <div class="logolink__description">{{ siteDescription }}</div>
+          </div>
+        </nuxt-link>
+      </touch-ripple>
 
       <nav class="headr__main-menu">
         <!-- <nuxt-link to="/news/" class="headr__main-menu-link" active-class="is-selected">News</nuxt-link> -->
