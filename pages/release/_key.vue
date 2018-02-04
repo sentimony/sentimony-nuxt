@@ -31,8 +31,8 @@
             <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div>
 
-              <a v-if="release.links.applemusic" class="page-release__applemusic-btn"
-                :href="release.links.applemusic"
+              <a v-if="release.links.itunes" class="page-release__applemusic-btn"
+                :href="release.links.itunes"
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__applemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
@@ -47,8 +47,8 @@
                 <span class="page-release__googlemusic-btn-text">Google Play</span>
               </a>
 
-              <a v-if="release.links.bandcamp" class="page-release__googlemusic-btn"
-                :href="release.links.bandcamp"
+              <a v-if="release.links.bandcamp.url" class="page-release__googlemusic-btn"
+                :href="release.links.bandcamp.url"
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__bandcamp-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01" alt="Bandcamp Icon">
@@ -66,9 +66,9 @@
               <div class="page-release__bandcamp-player">
                 <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">Music<br>is coming</div>
                 <iframe
-                  v-if="release.links.bandcamp_id"
+                  v-if="release.links.bandcamp.id"
                   :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
-                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
+                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp.id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
                 ></iframe>
