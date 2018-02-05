@@ -35,24 +35,32 @@
                 :href="release.links.itunes"
                 target="_blank" rel="noopener"
               >
-                <img class="page-release__applemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="Apple Music Icon">
-                <span class="page-release__applemusic-btn-text">Apple Music</span>
+                <img class="page-release__applemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01" alt="iTunes Icon">
+                <span class="page-release__applemusic-btn-text">iTunes</span>
               </a>
 
               <a v-if="release.links.googleplay" class="page-release__googlemusic-btn"
                 :href="release.links.googleplay"
                 target="_blank" rel="noopener"
               >
-                <img class="page-release__googlemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="Google Play Icon">
-                <span class="page-release__googlemusic-btn-text">Google Play</span>
+                <img class="page-release__googlemusic-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01" alt="GooglePlay Icon">
+                <span class="page-release__googlemusic-btn-text">GooglePlay</span>
               </a>
 
-              <a v-if="release.links.bandcamp.url" class="page-release__googlemusic-btn"
+              <a v-if="release.links.bandcamp.url" class="page-release__bandcamp-btn"
                 :href="release.links.bandcamp.url"
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__bandcamp-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01" alt="Bandcamp Icon">
                 <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+              </a>
+
+              <a v-if="release.links.beatport" class="page-release__beatport-btn"
+                :href="release.links.beatport"
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__beatport-btn-img" src="https://content.sentimony.com/assets/img/svg-icons/beatport.svg?01" alt="Beatport Icon">
+                <span class="page-release__beatport-btn-text">Beatport</span>
               </a>
 
             </div>
@@ -132,10 +140,6 @@
           <hr>
           <p>Links:</p>
         </div>
-
-        <p v-if="release.links.beatport">
-          <a :href="release.links.beatport" target="_blank" rel="noopener">Beatport</a>
-        </p>
 
         <p v-if="release.links.junodownload">
           <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
@@ -341,6 +345,7 @@ export default {
   }
 
   // &__junodownload-btn,
+  &__beatport-btn,
   &__bandcamp-btn,
   &__applemusic-btn,
   &__googlemusic-btn {
