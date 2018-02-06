@@ -4,7 +4,7 @@
     "axios": "^0.17.1",
     "coriolan-ui": "^0.1.19",
     "lazysizes": "^4.0.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.5",
     "moment": "^2.20.1",
     "normalize.css": "^7.0.0",
     "nuxt": "^1.3.0",
