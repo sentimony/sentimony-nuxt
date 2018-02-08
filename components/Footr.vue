@@ -5,7 +5,7 @@
     <MenuSocial/>
 
     <div class="footr__copyright">
-      <div>2006 - 2018 © Sentimony Records</div>
+      <div>2006 - {{ new Date().getFullYear() }} © Sentimony Records</div>
       <div>All Rights Reserved</div>
       <div>
         <img class="footr__copyright-logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" alt="Sentimony Records Logo SVG">
