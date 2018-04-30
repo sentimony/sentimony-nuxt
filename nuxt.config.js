@@ -79,7 +79,7 @@ module.exports = {
       '/release/overdream-beautiful-thinking',
       '/release/ufomatka-altering-the-synaptic-controllers',
       '/release/omnisound-destiny',
-      '/release/zymosis-nichna-ep',
+      '/release/zymosis-nichna',
 
       '/artist/alexander-daf',
       '/artist/already-maged',
