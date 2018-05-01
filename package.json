@@ -20,5 +20,9 @@
   },
   "scripts": {
     "dev": "nuxt"
+  },
+  "engines": {
+    "node": ">=9.5",
+    "npm": ">=5.6"
   }
 }
