@@ -19,7 +19,8 @@
     "sass-loader": "^6.0.7"
   },
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt generate"
   },
   "engines": {
     "node": ">=9.5",
