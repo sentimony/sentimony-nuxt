@@ -1,3 +1,6 @@
+// const axios = require('axios')
+// const lodash = require('lodash')
+
 module.exports = {
   head: {
     titleTemplate: '%s | Sentimony Records',
@@ -49,6 +52,16 @@ module.exports = {
   build: {
     vendor: ['axios']
   },
+  // generate: {
+  //   routes: function() {
+  //     return axios.get('https://sentimony-db.firebaseio.com/releases.json')
+  //         .then((res) => {
+  //           return lodash.map(res.data, function(release, key) {
+  //             return `/release/${release.slug}`
+  //           })
+  //         })
+  //   }
+  // }
   generate: {
     routes: [
       '/release/va-fantazma',
