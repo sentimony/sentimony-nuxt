@@ -15,7 +15,7 @@
     "vue-touch-ripple": "^2.4.0"
   },
   "devDependencies": {
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.9.0",
     "sass-loader": "^6.0.7"
   },
   "scripts": {
