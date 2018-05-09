@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.9.0",
-    "sass-loader": "^6.0.7"
+    "sass-loader": "^7.0.1"
   },
   "scripts": {
     "dev": "nuxt",
