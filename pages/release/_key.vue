@@ -119,8 +119,8 @@
           <p>Trackist:</p>
           <p v-for="i in release.tracklist.tracks">
             <span>{{ i.number }}. </span>
-            <span>{{ i.artist }}</span> - 
-            <span>{{ i.title }}</span> | 
+            <span>{{ i.artist }}</span> -
+            <span>{{ i.title }}</span> |
             <span>{{ i.bpm }}</span>
           </p>
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
@@ -130,6 +130,7 @@
           <hr>
           <p>Credits:</p>
           <p v-if="release.credits.written_and_prodused_by" v-html="'Written & Prodused By ' + release.credits.written_and_prodused_by"></p>
+          <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p>
           <p v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></p>
           <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
           <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
