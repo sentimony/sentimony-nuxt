@@ -116,7 +116,7 @@
 
         <div v-if="release.tracklist">
           <hr>
-          <p>Trackist:</p>
+          <p>Tracklist:</p>
           <p v-for="i in release.tracklist.tracks">
             <span>{{ i.number }}. </span>
             <span>{{ i.artist }}</span> -
