@@ -16,23 +16,23 @@ module.exports = {
     color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
-  modules: [
-    ['@nuxtjs/pwa', { icon: false }]
-  ],
-  workbox: {
-    runtimeCaching: [{
-      urlPattern: 'https://content.sentimony.com/.*',
-      handler: 'cacheFirst',
-      method: 'GET'
-    }],
-    importScripts: [
-        'custom-sw.js'
-    ],
-  },
-  manifest: {
-    name: 'Sentimony App',
-    lang: 'en'
-  },
+  // modules: [
+  //   ['@nuxtjs/pwa', { icon: false }]
+  // ],
+  // workbox: {
+  //   runtimeCaching: [{
+  //     urlPattern: 'https://content.sentimony.com/.*',
+  //     handler: 'cacheFirst',
+  //     method: 'GET'
+  //   }],
+  //   importScripts: [
+  //       'custom-sw.js'
+  //   ],
+  // },
+  // manifest: {
+  //   name: 'Sentimony App',
+  //   lang: 'en'
+  // },
   plugins: [
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
