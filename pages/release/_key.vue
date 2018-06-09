@@ -57,6 +57,7 @@
                 >
                 <span class="page-release__applemusic-btn-text">iTunes</span>
               </span>
+              <!-- itunes btn -->
 
               <!-- googleplay btn -->
               <a v-if="release.links.googleplay"
@@ -81,6 +82,7 @@
                 >
                 <span class="page-release__googlemusic-btn-text">GooglePlay</span>
               </span>
+              <!-- googleplay btn -->
 
               <!-- bandcamp btn -->
               <a v-if="release.links.bandcamp.url"
@@ -105,6 +107,7 @@
                 >
                 <span class="page-release__bandcamp-btn-text">Bandcamp</span>
               </span>
+              <!-- bandcamp btn -->
 
               <!-- beatport btn -->
               <a v-if="release.links.beatport"
@@ -129,6 +132,7 @@
                 >
                 <span class="page-release__beatport-btn-text">Beatport</span>
               </span>
+              <!-- beatport btn -->
 
             </div>
           </div>
@@ -136,21 +140,6 @@
 
         <div class="page-release__player-tabs">
           <vue-tabs>
-
-            <v-tab v-if="release.links.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
-              <div class="page-release__youtube-player">
-                <!-- <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
-                  Music<br>
-                  on YouTube<br>
-                  is coming soon
-                </div> -->
-                <iframe
-                  class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?list=' + release.links.youtube_playlist_id"
-                  :title="release.title + ' YouTube Iframe'"
-                ></iframe>
-              </div>
-            </v-tab>
 
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
               <div class="page-release__bandcamp-player">
@@ -165,6 +154,21 @@
                   :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp.id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
+            <v-tab v-if="release.links.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
+              <div class="page-release__youtube-player">
+                <!-- <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
+                  Music<br>
+                  on YouTube<br>
+                  is coming soon
+                </div> -->
+                <iframe
+                  class="page-release__youtube-player-iframe"
+                  :src="'https://www.youtube.com/embed/videoseries?list=' + release.links.youtube_playlist_id"
+                  :title="release.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
             </v-tab>
