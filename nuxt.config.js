@@ -80,6 +80,7 @@ module.exports = {
       '/release/ufomatka-altering-the-synaptic-controllers',
       '/release/omnisound-destiny',
       '/release/zymosis-nichna',
+      '/release/va-futured-vol-1',
 
       '/artist/alexander-daf',
       '/artist/already-maged',
