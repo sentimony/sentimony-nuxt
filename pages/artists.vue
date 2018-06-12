@@ -3,7 +3,7 @@
     <h1>Artists</h1>
     <div class="list">
       <div v-for="i in sortByCategoryId" v-if="i.category_id" class="item">
-        <router-link :to="'/artist/' + i.slug + '/'" class="item__link">
+        <router-link v-touch-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
               <img v-if="i.photo" class="item__img"
@@ -46,10 +46,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/page';
 @import '../assets/scss/item';
 @import '../assets/scss/list';
 
 .artists {
+  @extend .page;
   max-width: 1278px;
   margin: 0 auto;
 }

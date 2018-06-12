@@ -3,7 +3,7 @@
     <div class="title">Artists</div>
     <swiper :options="swiperOption" ref="swiperArtistList">
       <swiper-slide v-for="i in sortByCategoryId" v-if="i.category_id" class="item" :key="i.slug">
-        <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
+        <router-link v-touch-ripple :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
           <div class="item__wrapper">
             <div class="item__cover">
               <div v-if="i.photo" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -47,6 +47,8 @@ export default {
         mousewheelForceToAxis: true,
         freeMode: true,
         slidesPerView: 'auto',
+        speed: 350,
+        // slidesPerGroup: 2,
         slideToClickedSlide: true,
         centeredSlides: true
       }
