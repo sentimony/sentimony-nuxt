@@ -3,7 +3,7 @@
     <div class="title">Releases</div>
     <swiper :options="swiperOption" ref="swiperReleaseList">
       <swiper-slide v-for="i in sortByDate" class="item" :key="i.slug">
-        <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
+        <router-link v-touch-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
           <div class="item__wrapper">
             <div class="item__cover">
               <div v-if="i.cover" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -52,6 +52,8 @@ export default {
         mousewheelForceToAxis: true,
         freeMode: true,
         slidesPerView: 'auto',
+        speed: 350,
+        // slidesPerGroup: 2,
         slideToClickedSlide: true,
         centeredSlides: true
       }

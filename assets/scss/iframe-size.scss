@@ -1,62 +1,102 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 @import '../../node_modules/coriolan-ui/mixins/media';
+@import 'variables';
 
-.page-release__bandcamp-player {
-  transition: height .2s ease;
+.sentimony-iframe {
+  box-shadow: $shadow;
+  background-color: $colorBgBlack;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.page-release__bandcamp-player-iframe {
+  // transition: height .2s ease;
 
   &.tracks-4 {
-    height: (273px + 25px);
+    height: (274px + 25px);
 
     @include media(S) {
-      height: 273px;
+      height: 274px;
     }
   }
 
   &.tracks-5 {
-    height: (306px + 25px);
+    height: (307px + 25px);
 
     @include media(S) {
-      height: 306px;
+      height: 307px;
     }
   }
 
   &.tracks-7 {
-    height: (372px + 25px);
+    height: (373px + 25px);
 
     @include media(S) {
-      height: 372px;
+      height: 373px;
     }
   }
 
   &.tracks-9 {
-    height: (438px + 25px);
+    height: (439px + 25px);
 
     @include media(S) {
-      height: 438px;
+      height: 439px;
     }
   }
 
   &.tracks-10 {
-    height: (471px + 25px);
+    height: (472px + 25px);
 
     @include media(S) {
-      height: 471px;
+      height: 472px;
     }
   }
 
   &.tracks-11 {
-    height: (504px + 25px);
+    height: (505px + 25px);
 
     @include media(S) {
-      height: 504px;
+      height: 505px;
     }
   }
 
   &.tracks-12 {
-    height: (537px + 25px);
+    height: (538px + 25px);
 
     @include media(S) {
-      height: 537px;
+      height: 538px;
     }
+  }
+}
+
+.page-release__spotify-player-iframe {
+  // transition: height .2s ease;
+
+  &.tracks-4 {
+    height: 280px;
+  }
+
+  &.tracks-5 {
+    height: 306px;
+  }
+
+  &.tracks-7 {
+    height: 396px;
+  }
+
+  &.tracks-9 {
+    height: 486px;
+  }
+
+  &.tracks-10 {
+    height: 531px;
+  }
+
+  &.tracks-11 {
+    height: 576px;
+  }
+
+  &.tracks-12 {
+    height: 621px;
   }
 }

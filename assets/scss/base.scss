@@ -42,6 +42,12 @@ img {
   line-height: 1;
 }
 
+iframe {
+  width: 100%;
+  display: block;
+  border: none;
+}
+
 hr {
   border: solid rgba(#000,.3);
   border-width: 1px 0 0;

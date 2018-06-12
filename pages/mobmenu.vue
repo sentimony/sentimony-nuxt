@@ -1,17 +1,16 @@
 <template>
   <div class="mobmenu">
-    <nuxt-link to="/news/" class="mobmenu__link">News</nuxt-link>
-    <nuxt-link to="/releases/" class="mobmenu__link">Releases</nuxt-link>
-    <nuxt-link to="/artists/" class="mobmenu__link">Artists</nuxt-link>
-    <nuxt-link to="/events/" class="mobmenu__link">Events</nuxt-link>
-    <nuxt-link to="/friends/" class="mobmenu__link">Friends</nuxt-link>
-    <nuxt-link to="/contacts/" class="mobmenu__link">Contacts</nuxt-link>
+    <nuxt-link v-touch-ripple to="/news/" class="mobmenu__link">News</nuxt-link>
+    <nuxt-link v-touch-ripple to="/releases/" class="mobmenu__link">Releases</nuxt-link>
+    <nuxt-link v-touch-ripple to="/artists/" class="mobmenu__link">Artists</nuxt-link>
+    <nuxt-link v-touch-ripple to="/events/" class="mobmenu__link">Events</nuxt-link>
+    <nuxt-link v-touch-ripple to="/friends/" class="mobmenu__link">Friends</nuxt-link>
+    <nuxt-link v-touch-ripple to="/contacts/" class="mobmenu__link">Contacts</nuxt-link>
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'mobmenu',
   head: {
     title: 'MobMenu',
     meta: [
@@ -23,14 +22,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/page';
 @import '../assets/scss/main-menu-link';
 
 .mobmenu {
-  padding: 20px 0;
+  @extend .page;
 
   &__link {
+    @extend .main-menu-link;
     display: block;
-    padding: 20px 0;
+    // padding: 20px 0;
 
     &:hover {
       background-color: $colorBgLight;

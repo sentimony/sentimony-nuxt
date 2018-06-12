@@ -1,9 +1,9 @@
 <template>
   <div class="flex-sticky">
     <BaseBg/>
-    <div class="flex-sticky__fractal">
+    <!-- <div class="flex-sticky__fractal">
       <Fractal/>
-    </div>
+    </div> -->
     <div class="flex-sticky__header">
       <Headr/>
     </div>

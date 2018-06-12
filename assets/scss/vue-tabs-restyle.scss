@@ -11,9 +11,9 @@
       transition: opacity .2s ease;
       margin-left: .4em;
 
-      @include media(L) {
-        margin-left: .8em;
-      }
+      // @include media(L) {
+      //   margin-left: .8em;
+      // }
 
       &:first-child {
         margin-left: 0;
@@ -29,8 +29,8 @@
         a {
           cursor: default;
 
-          .title {
-          }
+          // .title {
+          // }
         }
       }
 

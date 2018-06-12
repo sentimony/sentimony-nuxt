@@ -10,7 +10,7 @@
             <img v-if="artist.photo" v-img class="page-artist__photo-img"
               :src="'https://content.sentimony.com/assets/img/artists/large/' + artist.slug + '.jpg'"
               :srcset="'https://content.sentimony.com/assets/img/artists/medium/' + artist.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/medium-retina/' + artist.slug + '.jpg 2x'"
-              :alt="artist.title + ' Medium Thumbnail'"
+              :alt="artist.title"
             >
             <div v-else class="page-artist__photo-coming">Photo<br>coming soon</div>
           </div>
@@ -81,7 +81,12 @@
         <p v-if="artist.releases">Releases:</p>
         <p v-if="artist.releases" v-for="i in artist.releases" v-html="i.title"></p>
 
-        <Disqus shortname="sentimony" :identifier="artist.slug" :url="'https://sentimony.com/artist/' + artist.slug"></Disqus>
+        <VueDisqus
+          shortname="sentimony"
+          :identifier="artist.slug"
+          :url="'https://sentimony.com/artist/' + artist.slug"
+        />
+
       </div>
     </div>
 
@@ -90,14 +95,12 @@
 
 <script>
 import SvgTriangle from '~/components/SvgTriangle.vue'
-import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 
 export default {
   layout: 'artist',
   components: {
-    SvgTriangle,
-    Disqus
+    SvgTriangle
   },
   async asyncData({ route }) {
     const { key } = route.params
@@ -125,10 +128,12 @@ export default {
 @import '../../assets/scss/vue-tabs-restyle';
 @import '../../assets/scss/content';
 @import '../../assets/scss/page';
+@import '../../assets/scss/v-img-restyle';
+@import '../../assets/scss/page';
 
 .page-artist {
+  @extend .page;
   position: relative;
-  padding: 0 .6em;
 
   &__wrapper {
     margin: 0 auto;
@@ -243,15 +248,8 @@ export default {
   }
 
   &__player-tabs {
-    min-width: 100%;
-
-    @include media(M) {
-      min-width: 560px;
-    }
-
-    @include media(XL) {
-      min-width: 660px;
-    }
+    width: 100%;
+    max-width: 540px;
   }
 
   .iframe-holder {
