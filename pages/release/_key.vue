@@ -255,7 +255,11 @@
         </p>
 
         <hr>
-        <Disqus shortname="sentimony" :identifier="release.slug" :url="'https://sentimony.com/release/' + release.slug"></Disqus>
+        <VueDisqus
+          shortname="sentimony"
+          :identifier="release.slug"
+          :url="'https://sentimony.com/release/' + release.slug"
+        />
 
       </div>
     </div>
@@ -265,14 +269,12 @@
 
 <script>
 import SvgTriangle from '~/components/SvgTriangle.vue'
-import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 
 export default {
   layout: 'release',
   components: {
-    SvgTriangle,
-    Disqus
+    SvgTriangle
   },
   async asyncData({ route }) {
     const { key } = route.params

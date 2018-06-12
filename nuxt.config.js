@@ -38,7 +38,8 @@ module.exports = {
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
-    { src: '~/plugins/vue-touch-ripple.js', ssr: false }
+    { src: '~/plugins/vue-touch-ripple.js', ssr: false },
+    { src: '~/plugins/vue-disqus', ssr: false }
   ],
   css: [
     'normalize.css/normalize.css',

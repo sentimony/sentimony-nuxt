@@ -81,7 +81,12 @@
         <p v-if="artist.releases">Releases:</p>
         <p v-if="artist.releases" v-for="i in artist.releases" v-html="i.title"></p>
 
-        <Disqus shortname="sentimony" :identifier="artist.slug" :url="'https://sentimony.com/artist/' + artist.slug"></Disqus>
+        <VueDisqus
+          shortname="sentimony"
+          :identifier="artist.slug"
+          :url="'https://sentimony.com/artist/' + artist.slug"
+        />
+
       </div>
     </div>
 
@@ -90,14 +95,12 @@
 
 <script>
 import SvgTriangle from '~/components/SvgTriangle.vue'
-import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 
 export default {
   layout: 'artist',
   components: {
-    SvgTriangle,
-    Disqus
+    SvgTriangle
   },
   async asyncData({ route }) {
     const { key } = route.params
