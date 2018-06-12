@@ -14,7 +14,13 @@
 
     <div class="content">
       <div class="content__wrapper">
-        <Disqus shortname="sentimony" :identifier="event.slug" :url="'https://sentimony.com/event/' + event.slug"></Disqus>
+
+        <VueDisqus
+          shortname="sentimony"
+          :identifier="event.slug"
+          :url="'https://sentimony.com/event/' + event.slug"
+        />
+
       </div>
     </div>
   </div>
@@ -22,13 +28,11 @@
 </template>
 
 <script>
-import Disqus from 'vue-disqus/VueDisqus.vue'
 import axios from '~/plugins/axios'
 import moment from 'moment'
 
 export default {
   components: {
-    Disqus
   },
   async asyncData({ route }) {
     const { key } = route.params
