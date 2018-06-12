@@ -19,29 +19,30 @@ module.exports = {
     color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
-  modules: [
-    ['@nuxtjs/pwa', { icon: false }]
-  ],
-  workbox: {
-    runtimeCaching: [{
-      urlPattern: 'https://content.sentimony.com/.*',
-      handler: 'cacheFirst',
-      method: 'GET'
-    }],
-    importScripts: [
-        'custom-sw.js'
-    ],
-  },
-  manifest: {
-    name: 'Sentimony App',
-    lang: 'en'
-  },
+  // modules: [
+  //   ['@nuxtjs/pwa', { icon: false }]
+  // ],
+  // workbox: {
+  //   runtimeCaching: [{
+  //     urlPattern: 'https://content.sentimony.com/.*',
+  //     handler: 'cacheFirst',
+  //     method: 'GET'
+  //   }],
+  //   importScripts: [
+  //       'custom-sw.js'
+  //   ],
+  // },
+  // manifest: {
+  //   name: 'Sentimony App',
+  //   lang: 'en'
+  // },
   plugins: [
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
-    { src: '~/plugins/vue-touch-ripple.js', ssr: false }
+    { src: '~/plugins/vue-touch-ripple.js', ssr: false },
+    { src: '~/plugins/vue-disqus', ssr: false }
   ],
   css: [
     'normalize.css/normalize.css',
@@ -93,6 +94,7 @@ module.exports = {
       '/release/ufomatka-altering-the-synaptic-controllers',
       '/release/omnisound-destiny',
       '/release/zymosis-nichna',
+      '/release/va-futured-vol-1',
 
       '/artist/alexander-daf',
       '/artist/already-maged',
