@@ -7,8 +7,12 @@
       </g>
     </svg>
     <div class="donate__wrapper">
-      <p>Recently all Sentimony Records releases available for free download.<br>We will be grateful for your feedback at <a href="https://sentimony.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>.</p>
+      <p>Recently all Sentimony Records releases available for FREE DOWNLOAD at <a href="https://sentimony.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>.</p>
+      <br>
       <p>Donations are very welcome!<br>It is not an easy mission to keep the free music flowing.</p>
+      <br>
+      <p>Also we will be grateful for your feedback via COMMENTS on our <a href="https://www.youtube.com/c/SentimonyRecordsOfficial" target="_blank" rel="noopener">YouTube</a> and on our website.</p>
+      <br>
       <p>{{ donateThanks }}</p>
     </div>
   </div>
@@ -37,7 +41,7 @@ export default {
   }
 
   &__wrapper {
-    max-width: 555px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 5em 10px;
     box-sizing: border-box;
