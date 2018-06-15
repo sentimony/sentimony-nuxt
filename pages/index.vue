@@ -17,7 +17,6 @@
         <p>{{ aboutDescription }}</p>
       </div>
     </div>
-
     <SwiperArtistList/>
 
   </div>
@@ -35,7 +34,7 @@ export default {
   data: () => ({
     siteTitle: 'Sentimony Records',
     siteDescription: 'Psychedelic Music Label',
-    aboutDescription: "The main label's mission is to contribute the growth of the psychedelic chillout and trance scenes."
+    aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes."
   }),
   head: {
     title: 'Home',
