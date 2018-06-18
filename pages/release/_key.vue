@@ -22,7 +22,7 @@
             </div>
             <h1 v-if="release.title" class="page-release__title">
               {{ release.title }}
-              <span v-if="release.format == 'EP'">{{ release.format }}</span>
+              <!-- <span v-if="release.format == 'EP'">{{ release.format }}</span> -->
             </h1>
             <div v-if="release.style" class="page-release__small-info">
               <span>{{ release.style }}</span>
