@@ -124,6 +124,7 @@ module.exports = {
       '/artist/vonoom',
       '/artist/zymosis',
       '/artist/psydewise',
+      '/artist/kabi',
       '/artist/erot',
 
       '/event/shift-space',
