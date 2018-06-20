@@ -33,6 +33,31 @@
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
 
+              <!-- bandcamp btn -->
+              <a v-if="release.links.bandcamp.url"
+                class="page-release__bandcamp-btn"
+                :href="release.links.bandcamp.url"
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__bandcamp-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
+                  alt="Bandcamp Icon"
+                >
+                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+              </a>
+
+              <span v-else
+                class="page-release__bandcamp-btn is-disabled"
+              >
+                <img
+                  class="page-release__bandcamp-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
+                  alt="Bandcamp Icon"
+                >
+                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+              </span>
+              <!-- bandcamp btn -->
+
               <!-- itunes btn -->
               <a v-if="release.links.itunes"
                 class="page-release__applemusic-btn"
@@ -83,31 +108,6 @@
                 <span class="page-release__googlemusic-btn-text">GooglePlay</span>
               </span>
               <!-- googleplay btn -->
-
-              <!-- bandcamp btn -->
-              <a v-if="release.links.bandcamp.url"
-                class="page-release__bandcamp-btn"
-                :href="release.links.bandcamp.url"
-                target="_blank" rel="noopener"
-              >
-                <img class="page-release__bandcamp-btn-img"
-                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
-                  alt="Bandcamp Icon"
-                >
-                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
-              </a>
-
-              <span v-else
-                class="page-release__bandcamp-btn is-disabled"
-              >
-                <img
-                  class="page-release__bandcamp-btn-img"
-                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
-                  alt="Bandcamp Icon"
-                >
-                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
-              </span>
-              <!-- bandcamp btn -->
 
               <!-- beatport btn -->
               <a v-if="release.links.beatport"
@@ -218,14 +218,15 @@
           <hr>
           <p>Credits:</p>
           <p v-if="release.credits.written_and_prodused_by" v-html="'Written & Prodused By ' + release.credits.written_and_prodused_by"></p>
-          <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p>
+          <p v-if="release.credits.tracks_by" v-html="release.credits.tracks_by"></p>
+          <!-- <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p> -->
           <p v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></p>
           <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
           <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
         </div>
 
-        <div v-if="release.links.discogs">
+        <div v-if="release.links.spotify">
           <hr>
           <p>Links:</p>
         </div>
