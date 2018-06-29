@@ -3,9 +3,9 @@
     <h1>YouTube</h1>
     <div>
       <div v-for="i in sortByDate" v-if="!i.coming_soon">
+        <span>{{ i.upc }} | </span>
         <router-link v-touch-ripple :to="'/yt/' + i.slug + '/'">
           <span style="text-transform:uppercase;">{{ i.cat_no }}:</span>
-          <span style="text-transform:uppercase;">({{ i.upc }})</span>
           {{ i.title }}
           <!-- <span v-if="i.format == 'EP'">{{ i.format }}</span> -->
         </router-link>
