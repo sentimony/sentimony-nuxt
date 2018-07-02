@@ -18,7 +18,7 @@
           </div>
           <div class="item__title">
             {{ i.title }}
-            <span v-if="i.format == 'EP'">{{ i.format }}</span>
+            <!-- <span v-if="i.format == 'EP'">{{ i.format }}</span> -->
           </div>
         </router-link>
       </div>
