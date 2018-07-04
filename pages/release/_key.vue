@@ -434,7 +434,7 @@ export default {
     width: 100%;
     box-sizing: border-box;
 
-    @include media(S) {
+    @include media(L) {
       padding-right: 1.1em;
     }
   }
@@ -486,6 +486,7 @@ export default {
   &__player-tabs {
     width: 100%;
     max-width: 540px;
+    margin: 0 auto;
   }
 
   &__bandcamp-player {
