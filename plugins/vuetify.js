@@ -4,12 +4,13 @@ import {
   VApp,
   VCard,
   VNavigationDrawer,
-  VFooter,
   VList,
   VBtn,
   VIcon,
   VGrid,
-  VToolbar
+  VToolbar,
+  VTextField,
+  VAlert
 } from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -17,11 +18,12 @@ Vue.use(Vuetify, {
     VApp,
     VCard,
     VNavigationDrawer,
-    VFooter,
     VList,
     VBtn,
     VIcon,
     VGrid,
-    VToolbar
+    VToolbar,
+    VTextField,
+    VAlert
   }
 })

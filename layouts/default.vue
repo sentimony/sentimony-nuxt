@@ -30,9 +30,14 @@
       </v-toolbar-side-icon>
 
       <v-toolbar-items class="main-menu hidden-xs-only">
-        <v-btn flat :to="registerBtn.url">
-          <v-icon>{{ registerBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ registerBtn.title }}</span>
+        <v-btn flat :to="signInBtn.url">
+          <v-icon>{{ signInBtn.icon }}</v-icon>
+          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ signInBtn.title }}</span>
+        </v-btn>
+
+        <v-btn flat :to="signUpBtn.url">
+          <v-icon>{{ signUpBtn.icon }}</v-icon>
+          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ signUpBtn.title }}</span>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -78,12 +83,21 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list-tile :to="registerBtn.url">
+        <v-list-tile :to="signInBtn.url">
           <v-list-tile-action>
-            <v-icon>{{ registerBtn.icon }}</v-icon>
+            <v-icon>{{ signInBtn.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>{{ registerBtn.title }}</v-list-tile-title>
+            <v-list-tile-title>{{ signInBtn.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-tile :to="signUpBtn.url">
+          <v-list-tile-action>
+            <v-icon>{{ signUpBtn.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ signUpBtn.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
@@ -101,7 +115,8 @@
         homeBtn: {title: 'Sentimony Records', icon: 'mdi-robot', url: '/'},
         releasesBtn: {title: 'Releases', icon: 'mdi-yin-yang', url: '/releases'},
         artistsBtn: {title: 'Artists', icon: 'mdi-headset', url: '/artists'},
-        registerBtn: {title: 'Sign Up', icon: 'mdi-account-plus', url: '/user/signup'}
+        signInBtn: {title: 'Sign In', icon: 'mdi-key', url: '/user/signin'},
+        signUpBtn: {title: 'Sign Up', icon: 'mdi-account-plus', url: '/user/signup'}
       }
     }
   }

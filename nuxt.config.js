@@ -6,7 +6,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'sentimony-nuxt-vuetify',
+    title: 'Sentimony Records',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,7 +18,10 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://cdn.materialdesignicons.com/2.2.43/css/materialdesignicons.min.css' }
     ]
   },
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: [
+    '~/plugins/vuetify.js',
+    '~/plugins/firebase.js'
+  ],
   css: [
     '~/assets/style/app.styl'
   ],
@@ -41,7 +44,8 @@ module.exports = {
       ]
     },
     vendor: [
-      '~/plugins/vuetify.js'
+      '~/plugins/vuetify.js',
+      '~/plugins/firebase.js'
     ],
     extractCSS: true,
     /*
