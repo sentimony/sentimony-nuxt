@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex xs12 sm6 offset-sm3 lg4 offset-lg4>
 
-      <app-alert v-if="error" @dismissed="onDismissed" :text="error.message"/>
+      <alert v-if="error" @dismissed="onDismissed" :text="error.message"/>
 
       <v-card>
 
@@ -39,12 +39,12 @@
                 :loading="loading"
                 :disabled="loading"
                 type="submit"
-              >Зарегистрироваться</v-btn>
+              >Sign Up</v-btn>
             </div>
           </form>
 
           <br>
-          <router-link to="/user/signin">Уже есть аккаунт?</router-link>
+          <router-link to="/user/signin">Already have an account?</router-link>
 
         </v-card-text>
       </v-card>
@@ -54,7 +54,12 @@
 </template>
 
 <script>
+  import Alert from '~/components/Alert'
+
   export default {
+    components: {
+      Alert
+    },
     data () {
       return {
         email: '',
