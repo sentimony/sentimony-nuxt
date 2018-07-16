@@ -76,6 +76,10 @@ export const actions = {
       email: payload.email
     })
   },
+  logout ({commit}) {
+    firebase.auth().signOut()
+    commit('setUser', null)
+  },
   clearError ({commit}) {
     commit('clearError')
   }

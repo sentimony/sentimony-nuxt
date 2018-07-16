@@ -37,7 +37,7 @@ if (!firebase.apps.length) {
 //   const {store} = context
 //
 //   return new Promise((resolve, reject) => {
-//     auth.onAuthStateChanged(user => {
+//     firebase.onAuthStateChanged(user => {
 //       store.commit('setUser', user)
 //       resolve()
 //     })
