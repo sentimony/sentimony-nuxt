@@ -380,7 +380,7 @@ export default {
 
     @include media(L) {
       margin-top: 62px;
-      margin-bottom: 6em;
+      margin-bottom: 10em;
       width: auto;
     }
   }
