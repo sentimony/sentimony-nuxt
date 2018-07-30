@@ -82,7 +82,8 @@ module.exports = {
       '/release/omnisound-destiny',
       '/release/zymosis-nichna',
       '/release/va-futured-vol-1',
-
+      '/release/psydewise-synaptic-elastic',
+      
       '/artist/alexander-daf',
       '/artist/already-maged',
       '/artist/astropilot',
