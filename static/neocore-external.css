@@ -1,0 +1,12 @@
+.altchat-conversation-errorZaglushka {
+  color: #f44336;
+  background-color: #f4f7f9;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  font-family: Arial;
+  padding: 12px 10px;
+  border-radius: 6px;
+  display: none;
+  /* display: block; */
+}
