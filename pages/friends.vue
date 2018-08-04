@@ -3,7 +3,7 @@
     <h1>Friends</h1>
     <div class="friends__list">
       <p v-for="i in friends" class="friends__item">
-        <router-link v-touch-ripple :to="'/friend/' + i.slug" class="friends__link" v-if="i.title">{{ i.title }}</router-link>
+        <router-link v-ripple :to="'/friend/' + i.slug" class="friends__link" v-if="i.title">{{ i.title }}</router-link>
       </p>
     </div>
   </div>
