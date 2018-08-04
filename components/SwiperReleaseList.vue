@@ -4,7 +4,7 @@
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
         <div v-for="i in sortByDate" class="swiper-slide item">
-          <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
+          <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
                 <div v-if="i.cover" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>

@@ -4,7 +4,7 @@
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
         <div v-for="i in sortByCategoryId" v-if="i.category_id" class="swiper-slide item">
-          <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
+          <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
                 <div v-if="i.photo" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
