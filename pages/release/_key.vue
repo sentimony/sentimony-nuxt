@@ -134,6 +134,31 @@
               </span>
               <!-- beatport btn -->
 
+              <!-- spotify btn -->
+              <a v-if="release.links.spotify"
+                class="page-release__spotify-btn"
+                :href="release.links.spotify"
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__spotify-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
+                  alt="Beatport Icon"
+                >
+                <span class="page-release__spotify-btn-text">Spotify</span>
+              </a>
+
+              <span v-else
+                class="page-release__spotify-btn is-disabled"
+              >
+                <img
+                  class="page-release__spotify-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
+                  alt="Beatport Icon"
+                >
+                <span class="page-release__spotify-btn-text">Spotify</span>
+              </span>
+              <!-- spotify btn -->
+
             </div>
           </div>
         </div>
@@ -235,9 +260,9 @@
           <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
         </p>
 
-        <p v-if="release.links.spotify">
+        <!-- <p v-if="release.links.spotify">
           <a :href="release.links.spotify" target="_blank" rel="noopener">Spotify</a>
-        </p>
+        </p> -->
 
         <p v-if="release.links.beatspace">
           <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
@@ -355,7 +380,7 @@ export default {
 
     @include media(L) {
       margin-top: 62px;
-      margin-bottom: 6em;
+      margin-bottom: 10em;
       width: auto;
     }
   }
@@ -408,7 +433,10 @@ export default {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    padding-right: 1.1em;
+
+    @include media(L) {
+      padding-right: 1.1em;
+    }
   }
 
   &__small-info {
@@ -440,7 +468,8 @@ export default {
   &__beatport-btn,
   &__bandcamp-btn,
   &__applemusic-btn,
-  &__googlemusic-btn {
+  &__googlemusic-btn,
+  &__spotify-btn {
     @extend .btn;
     margin-top: .5em;
 
@@ -457,6 +486,7 @@ export default {
   &__player-tabs {
     width: 100%;
     max-width: 540px;
+    margin: 0 auto;
   }
 
   &__bandcamp-player {
