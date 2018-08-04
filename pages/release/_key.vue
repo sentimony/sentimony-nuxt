@@ -37,6 +37,7 @@
               <a v-if="release.links.bandcamp.url"
                 class="page-release__bandcamp-btn"
                 :href="release.links.bandcamp.url"
+                v-ripple
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__bandcamp-btn-img"
@@ -62,6 +63,7 @@
               <a v-if="release.links.itunes"
                 class="page-release__applemusic-btn"
                 :href="release.links.itunes"
+                v-ripple
                 target="_blank" rel="noopener"
               >
                 <img
@@ -88,6 +90,7 @@
               <a v-if="release.links.googleplay"
                 class="page-release__googlemusic-btn"
                 :href="release.links.googleplay"
+                v-ripple
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__googlemusic-btn-img"
@@ -113,6 +116,7 @@
               <a v-if="release.links.beatport"
                 class="page-release__beatport-btn"
                 :href="release.links.beatport"
+                v-ripple
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__beatport-btn-img"
@@ -138,6 +142,7 @@
               <a v-if="release.links.spotify"
                 class="page-release__spotify-btn"
                 :href="release.links.spotify"
+                v-ripple
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__spotify-btn-img"
