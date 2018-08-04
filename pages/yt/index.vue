@@ -4,7 +4,7 @@
     <div>
       <div v-for="i in sortByDate" v-if="!i.coming_soon">
         <span>{{ i.upc }} | </span>
-        <router-link v-touch-ripple :to="'/yt/' + i.slug + '/'">
+        <router-link v-ripple :to="'/yt/' + i.slug + '/'">
           <span style="text-transform:uppercase;">{{ i.cat_no }}:</span>
           {{ i.title }}
           <!-- <span v-if="i.format == 'EP'">{{ i.format }}</span> -->

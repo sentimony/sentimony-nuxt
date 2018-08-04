@@ -3,7 +3,7 @@
     <h1>News</h1>
     <p v-for="i in news">
       <span v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</span> | 
-      <router-link v-touch-ripple :to="i.url">Reed More</router-link>
+      <router-link v-ripple :to="i.url">Reed More</router-link>
     </p>
   </div>
 </template>
