@@ -2,26 +2,18 @@
   <div class="headr">
     <div class="headr__container">
 
-      <div>
-        <touch-ripple>
-          <nuxt-link to="/" class="logolink" active-class="is-selected" exact>
-            <img class="logolink__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" :alt="siteTitle + 'Logo SVG'">
-            <div class="logolink__text">
-              <div class="logolink__title">{{ siteTitle }}</div>
-              <div class="logolink__description">{{ siteDescription }}</div>
-            </div>
-          </nuxt-link>
-        </touch-ripple>
-      </div>
+      <nuxt-link v-touch-ripple to="/" class="logolink" active-class="is-selected" exact>
+        <img class="logolink__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" :alt="siteTitle + 'Logo SVG'">
+        <div class="logolink__text">
+          <div class="logolink__title">{{ siteTitle }}</div>
+          <div class="logolink__description">{{ siteDescription }}</div>
+        </div>
+      </nuxt-link>
 
       <nav class="headr__main-menu">
         <!-- <nuxt-link to="/news/" class="headr__main-menu-link" active-class="is-selected">News</nuxt-link> -->
-        <touch-ripple>
-          <nuxt-link v-touch-ripple to="/releases/" class="headr__main-menu-link" active-class="is-selected">Releases</nuxt-link>
-        </touch-ripple>
-        <touch-ripple>
-          <nuxt-link v-touch-ripple to="/artists/" class="headr__main-menu-link" active-class="is-selected">Artists</nuxt-link>
-        </touch-ripple>
+        <nuxt-link v-touch-ripple to="/releases/" class="headr__main-menu-link" active-class="is-selected">Releases</nuxt-link>
+        <nuxt-link v-touch-ripple to="/artists/" class="headr__main-menu-link" active-class="is-selected">Artists</nuxt-link>
         <!-- <nuxt-link to="/events/" class="headr__main-menu-link" active-class="is-selected">Events</nuxt-link> -->
         <!-- <nuxt-link to="/friends/" class="headr__main-menu-link" active-class="is-selected">Friends</nuxt-link> -->
         <!-- <nuxt-link to="/contacts/" class="headr__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
