@@ -2,7 +2,7 @@
   <div class="headr">
     <div class="headr__container">
 
-      <nuxt-link v-touch-ripple to="/" class="logolink" active-class="is-selected" exact>
+      <nuxt-link v-ripple to="/" class="logolink" active-class="is-selected" exact>
         <img class="logolink__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" :alt="siteTitle + 'Logo SVG'">
         <div class="logolink__text">
           <div class="logolink__title">{{ siteTitle }}</div>
@@ -12,21 +12,21 @@
 
       <nav class="headr__main-menu">
         <!-- <nuxt-link to="/news/" class="headr__main-menu-link" active-class="is-selected">News</nuxt-link> -->
-        <nuxt-link v-touch-ripple to="/releases/" class="headr__main-menu-link" active-class="is-selected">Releases</nuxt-link>
-        <nuxt-link v-touch-ripple to="/artists/" class="headr__main-menu-link" active-class="is-selected">Artists</nuxt-link>
+        <nuxt-link v-ripple to="/releases/" class="headr__main-menu-link" active-class="is-selected">Releases</nuxt-link>
+        <nuxt-link v-ripple to="/artists/" class="headr__main-menu-link" active-class="is-selected">Artists</nuxt-link>
         <!-- <nuxt-link to="/events/" class="headr__main-menu-link" active-class="is-selected">Events</nuxt-link> -->
         <!-- <nuxt-link to="/friends/" class="headr__main-menu-link" active-class="is-selected">Friends</nuxt-link> -->
         <!-- <nuxt-link to="/contacts/" class="headr__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
       </nav>
 
       <nav class="headr__social-menu">
-        <a v-touch-ripple v-for="i in social.data" v-if="i.isVisibleHeadr" class="headr__social-menu-link" :href="i.url" target="_blank" rel="noopener">
+        <a v-ripple v-for="i in social.data" v-if="i.isVisibleHeadr" class="headr__social-menu-link" :href="i.url" target="_blank" rel="noopener">
           <img class="headr__social-menu-link-img" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
           <span class="headr__social-menu-link-tooltip">{{ i.title }}</span>
         </a>
       </nav>
 
-      <nuxt-link v-touch-ripple to="/mobmenu/" class="headr__mob-menu-button">
+      <nuxt-link v-ripple to="/mobmenu/" class="headr__mob-menu-button">
         <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
       </nuxt-link>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="youtube-page">
 
-    <router-link v-touch-ripple to="/yt">Back to list</router-link><br>
+    <router-link v-ripple to="/yt">Back to list</router-link><br>
     <br>
     ===<br>
     <br>

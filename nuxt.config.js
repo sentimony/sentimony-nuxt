@@ -16,35 +16,17 @@ module.exports = {
     color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
-  // modules: [
-  //   ['@nuxtjs/pwa', { icon: false }]
-  // ],
-  // workbox: {
-  //   runtimeCaching: [{
-  //     urlPattern: 'https://content.sentimony.com/.*',
-  //     handler: 'cacheFirst',
-  //     method: 'GET'
-  //   }],
-  //   importScripts: [
-  //       'custom-sw.js'
-  //   ],
-  // },
-  // manifest: {
-  //   name: 'Sentimony App',
-  //   lang: 'en'
-  // },
   plugins: [
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
-    { src: '~/plugins/vue-touch-ripple.js', ssr: false },
+    { src: '~/plugins/vue-ripple-directive.js', ssr: false },
     { src: '~/plugins/vue-disqus', ssr: false }
   ],
   css: [
     'normalize.css/normalize.css',
     'swiper/dist/css/swiper.css',
-    'vue-touch-ripple/component.css'
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
   build: {
@@ -83,7 +65,7 @@ module.exports = {
       '/release/zymosis-nichna',
       '/release/va-futured-vol-1',
       '/release/psydewise-synaptic-elastic',
-      
+
       '/artist/alexander-daf',
       '/artist/already-maged',
       '/artist/astropilot',
