@@ -109,6 +109,10 @@ module.exports = {
       '/artist/psydewise',
       '/artist/kabi',
       '/artist/erot',
+      '/artist/omnisound/',
+      '/artist/juelz/',
+      '/artist/eleexr/',
+      '/artist/exolt/',
 
       '/event/shift-space',
       '/event/alt-space',
