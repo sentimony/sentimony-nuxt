@@ -7,6 +7,6 @@
   font-family: Arial !important;
   padding: 12px 10px !important;
   border-radius: 6px !important;
-  display: none !important;
-  /* display: block !important; */
+  /* display: none !important; */
+  display: block !important;
 }
