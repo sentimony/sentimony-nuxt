@@ -1,7 +1,14 @@
 <template>
   <v-app>
 
-    <v-toolbar>
+    <v-toolbar dense>
+
+      <v-toolbar-items class="main-menu hidden-xs-only">
+        <v-btn flat :to="homeBtn.url">
+          <v-icon>{{ homeBtn.icon }}</v-icon>
+          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ homeBtn.title }}</span>
+        </v-btn>
+      </v-toolbar-items>
 
       <v-spacer/>
 
@@ -31,8 +38,8 @@
           <v-icon>{{ profileBtn.icon }}</v-icon>
           <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ profileBtn.title }}</span>
         </v-btn>
-
       </v-toolbar-items>
+
     </v-toolbar>
 
     <v-content>
@@ -40,7 +47,6 @@
         <nuxt/>
       </v-container>
     </v-content>
-
 
     <v-navigation-drawer
       fixed
@@ -99,6 +105,7 @@
     data () {
       return {
         sideNav: null,
+        homeBtn: {title: 'Home', icon: 'mdi-home', url: '/'},
         signInBtn: {title: 'Sign In', icon: 'mdi-key', url: '/user/register'},
         signUpBtn: {title: 'Sign Up', icon: 'mdi-account-plus', url: '/user/login'},
         profileBtn: {title: 'Profile', icon: 'mdi-account', url: '/user/profile'},
