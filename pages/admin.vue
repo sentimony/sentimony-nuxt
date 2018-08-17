@@ -21,6 +21,13 @@
 <script>
   export default {
     layout: 'admin',
+    head: {
+      title: 'Admin',
+      meta: [
+        { name: 'description', content: 'Admin of Sentimony Records' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
+    }
   }
 </script>
 
