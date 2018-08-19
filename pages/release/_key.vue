@@ -34,9 +34,9 @@
             <div>
 
               <!-- bandcamp btn -->
-              <a v-if="release.links.bandcamp.url"
+              <a v-if="release.links.bandcamp.origin"
                 class="page-release__bandcamp-btn"
-                :href="release.links.bandcamp.url"
+                :href="release.links.bandcamp.origin"
                 v-ripple
                 target="_blank" rel="noopener"
               >
