@@ -10,3 +10,18 @@
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+  export default {
+    head: {
+      title: 'Releases',
+      meta: [
+        { name: 'description', content: 'Releases of Sentimony Records' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
+    }
+  }
+</script>
+
+<style>
+</style>
