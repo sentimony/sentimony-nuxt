@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "firebase": "5.4.1",
+    "firebase": "5.4.2",
     "nuxt": "^1.4.2",
     "vuetify": "^1.2.1"
   },
