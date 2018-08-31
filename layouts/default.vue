@@ -36,6 +36,7 @@
       </v-container>
       <donate/>
     </v-content>
+    <foot-one/>
 
 
     <v-navigation-drawer
@@ -80,11 +81,13 @@
 </template>
 
 <script>
-  import Donate from '~/components/Donate'
+import Donate from '~/components/Donate'
+import FootOne from '~/components/FootOne'
 
   export default {
     components: {
-      Donate
+      Donate,
+      FootOne
     },
     data () {
       return {
