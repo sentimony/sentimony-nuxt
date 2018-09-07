@@ -94,209 +94,209 @@
 </template>
 
 <script>
-import SvgTriangle from '~/components/SvgTriangle.vue'
-import axios from '~/plugins/axios'
+  import SvgTriangle from '~/components/SvgTriangle.vue'
+  import axios from '~/plugins/axios'
 
-export default {
-  layout: 'artist',
-  components: {
-    SvgTriangle
-  },
-  async asyncData({ route }) {
-    const { key } = route.params
-    const { data } = await axios.get(`artists/${key}.json`)
-    return { artist: data }
-  },
-  head () {
-    return {
-      title: this.artist.title,
-      meta: [
-        { name: 'description', content: this.artist.title + ' description' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg' }
-      ]
+  export default {
+    // layout: 'artist',
+    components: {
+      SvgTriangle
+    },
+    async asyncData({ route }) {
+      const { key } = route.params
+      const { data } = await axios.get(`artists/${key}.json`)
+      return { artist: data }
+    },
+    head () {
+      return {
+        title: this.artist.title,
+        meta: [
+          { name: 'description', content: this.artist.title + ' description' },
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg' }
+        ]
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
-@import '../../node_modules/coriolan-ui/tools/variables';
-@import '../../node_modules/coriolan-ui/mixins/media';
-@import '../../node_modules/coriolan-ui/mixins/ratio';
-@import '../../assets/scss/variables';
-@import '../../assets/scss/buttons';
-@import '../../assets/scss/vue-tabs-restyle';
-@import '../../assets/scss/content';
-@import '../../assets/scss/page';
-@import '../../assets/scss/v-img-restyle';
-@import '../../assets/scss/page';
+  @import '../../node_modules/coriolan-ui/tools/variables';
+  @import '../../node_modules/coriolan-ui/mixins/media';
+  @import '../../node_modules/coriolan-ui/mixins/ratio';
+  @import '../../assets/scss/variables';
+  @import '../../assets/scss/buttons';
+  @import '../../assets/scss/vue-tabs-restyle';
+  @import '../../assets/scss/content';
+  @import '../../assets/scss/page';
+  @import '../../assets/scss/v-img-restyle';
+  @import '../../assets/scss/page';
 
-.page-artist {
-  @extend .page;
-  position: relative;
-
-  &__wrapper {
-    margin: 0 auto;
-    max-width: 1278px;
-    text-align: left;
-    border-top: 1px solid rgba(#fff,.3);
-    padding: 1.8em 0 1.8em;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 40;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: column;
-
-    @include media(L) {
-      flex-direction: row;
-      padding-top: 40px;
-    }
-  }
-
-  &__media {
-    margin-bottom: 1em;
-    width: 100%;
-    position: relative;
-    display: flex;
-    // align-items: flex-start;
-    // justify-content: space-between;
-
-    @include media(L) {
-      margin-top: 62px;
-      margin-bottom: 6em;
-      width: auto;
-    }
-  }
-
-  &__photo {
-    background-color: $colorBgBlack;
-    box-shadow: $shadow;
-    border-radius: 2px;
-    min-width: 100px;
-    height: 100px;
-    overflow: hidden;
-    margin-right: 1.4em;
+  .page-artist {
+    @extend .page;
     position: relative;
 
-    @include media(M) {
-      min-width: 190px;
-      height: 190px;
-    }
+    &__wrapper {
+      margin: 0 auto;
+      max-width: 1278px;
+      text-align: left;
+      border-top: 1px solid rgba(#fff,.3);
+      padding: 1.8em 0 1.8em;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 40;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: column;
 
-    &-link {
-    }
-
-    &-img {
-      // position: absolute;
-      // top: 50%;
-      // left: 50%;
-      // transform: translate3d(-50%,-50%,0);
-      display: block;
-      width: 100px;
-      height: auto;
-      border-radius: 2px;
-
-      @include media(M) {
-        width: 190px;
+      @include media(L) {
+        flex-direction: row;
+        padding-top: 40px;
       }
     }
 
-    &-coming {
-      padding: 1em 1.2em;
+    &__media {
+      margin-bottom: 1em;
+      width: 100%;
+      position: relative;
+      display: flex;
+      // align-items: flex-start;
+      // justify-content: space-between;
+
+      @include media(L) {
+        margin-top: 62px;
+        margin-bottom: 6em;
+        width: auto;
+      }
+    }
+
+    &__photo {
+      background-color: $colorBgBlack;
+      box-shadow: $shadow;
+      border-radius: 2px;
+      min-width: 100px;
+      height: 100px;
+      overflow: hidden;
+      margin-right: 1.4em;
+      position: relative;
+
+      @include media(M) {
+        min-width: 190px;
+        height: 190px;
+      }
+
+      &-link {
+      }
+
+      &-img {
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate3d(-50%,-50%,0);
+        display: block;
+        width: 100px;
+        height: auto;
+        border-radius: 2px;
+
+        @include media(M) {
+          width: 190px;
+        }
+      }
+
+      &-coming {
+        padding: 1em 1.2em;
+        font-size: 10px;
+        color: rgba(#fff,.5);
+
+        @include media(M) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__info {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding-right: 1.1em;
+    }
+
+    &__small-info {
       font-size: 10px;
       color: rgba(#fff,.5);
 
-      @include media(M) {
+      @include media(S) {
         font-size: 14px;
+      }
+    }
+
+    &__style {
+      display: inline-block;
+      text-transform: capitalize;
+    }
+
+    &__title {
+      font-size: 18px;
+      line-height: 1.2;
+      margin: 0 0 .1em;
+      color: #fff;
+      text-transform: capitalize;
+
+      @include media(S) {
+        font-size: 2em;
+      }
+    }
+
+    &__player-tabs {
+      width: 100%;
+      max-width: 540px;
+    }
+
+    .iframe-holder {
+      max-width: 777px;
+      margin-left: auto;
+      margin-right: auto;
+
+      &__ratio {
+        position: relative;
+        @include ratio(100%,16,9);
+      }
+
+      &__iframe {
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
     }
   }
 
-  &__info {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding-right: 1.1em;
-  }
+  .facebook-widget {
+    border: none;
+    overflow: hidden;
+    margin: 0 auto;
+    height: 214px;
 
-  &__small-info {
-    font-size: 10px;
-    color: rgba(#fff,.5);
-
-    @include media(S) {
-      font-size: 14px;
-    }
-  }
-
-  &__style {
-    display: inline-block;
-    text-transform: capitalize;
-  }
-
-  &__title {
-    font-size: 18px;
-    line-height: 1.2;
-    margin: 0 0 .1em;
-    color: #fff;
-    text-transform: capitalize;
-
-    @include media(S) {
-      font-size: 2em;
-    }
-  }
-
-  &__player-tabs {
-    width: 100%;
-    max-width: 540px;
-  }
-
-  .iframe-holder {
-    max-width: 777px;
-    margin-left: auto;
-    margin-right: auto;
-
-    &__ratio {
-      position: relative;
-      @include ratio(100%,16,9);
-    }
-
-    &__iframe {
-      border: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-.facebook-widget {
-  border: none;
-  overflow: hidden;
-  margin: 0 auto;
-  height: 214px;
-
-  &--size-s {
-    display: block;
-    width: 287px;
-
-    @include media(M) {
-      display: none;
-    }
-  }
-
-  &--size-m {
-    display: none;
-    width: 500px;
-
-    @include media(M) {
+    &--size-s {
       display: block;
+      width: 287px;
+
+      @include media(M) {
+        display: none;
+      }
+    }
+
+    &--size-m {
+      display: none;
+      width: 500px;
+
+      @include media(M) {
+        display: block;
+      }
     }
   }
-}
 </style>

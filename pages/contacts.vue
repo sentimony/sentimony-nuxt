@@ -14,53 +14,53 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
+  import axios from '~/plugins/axios'
 
-export default {
-  async asyncData() {
-    const { data } = await axios.get('social.json')
-    return { social: data }
-  },
-  head: {
-    title: 'Contacts',
-    meta: [
-      { name: 'description', content: 'Contacts page description' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
-    ]
+  export default {
+    async asyncData() {
+      const { data } = await axios.get('social.json')
+      return { social: data }
+    },
+    head: {
+      title: 'Contacts',
+      meta: [
+        { name: 'description', content: 'Contacts page description' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
+    }
   }
-}
 </script>
 
 <style lang="scss">
-@import '../assets/scss/page';
-// @import '../assets/scss/variables';
+  @import '../assets/scss/page';
+  // @import '../assets/scss/variables';
 
-.contacts {
-  @extend .page;
+  .contacts {
+    @extend .page;
 
-  &__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    // &__title {
+    //   color: $accent-color;
+    //   font-weight: 700;
+    //   text-transform: uppercase;
+    // }
+    //
+    // nav {
+    //   a {
+    //     display: inline-block;
+    //     padding: 1em;
+    //   }
+    // }
   }
-
-  &__icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-
-//   &__title {
-//     color: $accent-color;
-//     font-weight: 700;
-//     text-transform: uppercase;
-//   }
-
-//   nav {
-//     a {
-//       display: inline-block;
-//       padding: 1em;
-//     }
-//   }
-}
 </style>
