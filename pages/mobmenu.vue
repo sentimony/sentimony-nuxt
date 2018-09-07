@@ -10,32 +10,32 @@
 </template>
 
 <script>
-export default {
-  head: {
-    title: 'MobMenu',
-    meta: [
-      { name: 'description', content: 'MobMenu description' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
-    ]
+  export default {
+    head: {
+      title: 'MobMenu',
+      meta: [
+        { name: 'description', content: 'MobMenu description' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
+    }
   }
-}
 </script>
 
 <style lang="scss">
-@import '../assets/scss/page';
-@import '../assets/scss/main-menu-link';
+  @import '../assets/scss/page';
+  @import '../assets/scss/main-menu-link';
 
-.mobmenu {
-  @extend .page;
+  .mobmenu {
+    @extend .page;
 
-  &__link {
-    @extend .main-menu-link;
-    display: block;
-    // padding: 20px 0;
+    &__link {
+      @extend .main-menu-link;
+      display: block;
+      // padding: 20px 0;
 
-    &:hover {
-      background-color: $colorBgLight;
+      &:hover {
+        background-color: $colorBgLight;
+      }
     }
   }
-}
 </style>

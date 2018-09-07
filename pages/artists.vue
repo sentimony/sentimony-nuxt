@@ -22,37 +22,37 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-import sortBy from 'lodash/sortBy'
+  import axios from '~/plugins/axios'
+  import sortBy from 'lodash/sortBy'
 
-export default {
-  async asyncData() {
-    const { data } = await axios.get('artists.json')
-    return { artists: data }
-  },
-  computed: {
-    sortByCategoryId () {
-      return sortBy(this.artists, 'category_id')
+  export default {
+    async asyncData() {
+      const { data } = await axios.get('artists.json')
+      return { artists: data }
+    },
+    computed: {
+      sortByCategoryId () {
+        return sortBy(this.artists, 'category_id')
+      }
+    },
+    head: {
+      title: 'Artists',
+      meta: [
+        { name: 'description', content: 'Artists of Sentimony Records' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
     }
-  },
-  head: {
-    title: 'Artists',
-    meta: [
-      { name: 'description', content: 'Artists of Sentimony Records' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
-    ]
   }
-}
 </script>
 
 <style lang="scss">
-@import '../assets/scss/page';
-@import '../assets/scss/item';
-@import '../assets/scss/list';
+  @import '../assets/scss/page';
+  @import '../assets/scss/item';
+  @import '../assets/scss/list';
 
-.artists {
-  @extend .page;
-  max-width: 1278px;
-  margin: 0 auto;
-}
+  .artists {
+    @extend .page;
+    max-width: 1278px;
+    margin: 0 auto;
+  }
 </style>
