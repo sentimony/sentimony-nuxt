@@ -303,7 +303,7 @@ import SvgTriangle from '~/components/SvgTriangle.vue'
 import axios from '~/plugins/axios'
 
 export default {
-  layout: 'release',
+  // layout: 'release',
   components: {
     SvgTriangle
   },
