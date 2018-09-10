@@ -17,6 +17,7 @@ module.exports = {
     height: '5px'
   },
   plugins: [
+    // '~/plugins/fireauth.js',
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
@@ -30,7 +31,10 @@ module.exports = {
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
   build: {
-    vendor: ['axios']
+    vendor: [
+      'firebase',
+      'axios'
+    ]
   },
   generate: {
     routes: [

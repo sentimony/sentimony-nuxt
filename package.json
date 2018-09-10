@@ -2,6 +2,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "coriolan-ui": "^0.1.19",
+    "firebase": "5.4.2",
     "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
     "nuxt": "^1.4.2",
