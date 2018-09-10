@@ -5,10 +5,11 @@ import firebase, {auth, GoogleProvider, DB} from '@/services/fireinit.js'
 
 const createStore = () => {
   return new Vuex.Store({
+
     state: {
-      loading: false,
       user: null,
-      loadedItems: []
+      loadedReleases: [],
+      loading: false
     },
 
     mutations: {
@@ -18,8 +19,11 @@ const createStore = () => {
       setUser (state, payload) {
         state.user = payload
       },
-      setLoadedItems (state, payload) {
-        state.loadedItems = payload
+      setLoadedReleases (state, payload) {
+        state.loadedReleases = payload
+      },
+      createRelease (state, payload) {
+        state.loadedReleases.push(payload)
       }
     },
 
@@ -37,28 +41,20 @@ const createStore = () => {
         auth.signOut()
         commit('setUser', null)
       },
-      loadItems ({commit}) {
+      loadReleases ({commit}) {
         commit('setLoading', true)
-        DB.ref('items').once('value')
+        firebase.database().ref('releases2').once('value')
           .then((data) => {
-            const items = []
+            const releases = []
             const obj = data.val()
             for (let key in obj) {
-              items.push({
+              releases.push({
                 id: key,
-                slug: obj[key].slug,
                 title: obj[key].title,
-                // creatorId: obj[key].creatorId,
-                // imageUrl: obj[key].imageUrl,
-                // date: obj[key].date,
-                // lotteryId: obj[key].lotteryId,
-                // isWinnerWeek: obj[key].isWinnerWeek,
-                // isWinnerMonth: obj[key].isWinnerMonth,
-                // isWinnerContest: obj[key].isWinnerContest,
-                // isModerated: obj[key].isModerated
+                date: obj[key].date
               })
             }
-            commit('setLoadedItems', items)
+            commit('setLoadedReleases', releases)
             commit('setLoading', false)
           })
           .catch(
@@ -68,6 +64,27 @@ const createStore = () => {
             }
           )
       },
+      createRelease ({commit, getters}, payload) {
+        const release = {
+          title: payload.title,
+          date: payload.date.toISOString()
+        }
+        let key
+        firebase.database().ref('releases2').push(release)
+          .then((data) => {
+            key = data.key
+            return key
+          })
+          .then(() => {
+            commit('createRelease', {
+              ...release,
+              id: key
+            })
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+        }
     },
 
     getters: {
@@ -83,10 +100,11 @@ const createStore = () => {
       userIsAuthenticated (state, getters) {
         return !!getters.user
       },
-      loadedItems (state) {
-        return state.loadedItems
+      loadedReleases (state) {
+        return state.loadedReleases
       }
     }
+
   })
 }
 

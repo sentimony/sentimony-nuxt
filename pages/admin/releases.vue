@@ -8,27 +8,25 @@
         {{ createReleaseBtn.title }}
       </v-btn>
 
-
       <v-progress-circular
         v-if="loading"
         indeterminate
         :size="40"
         color="amber"
       />
+
       <div v-else>
-        <div v-for="(i, key) in items" :key="i.slug">{{ i.title }}</div>
+        <div v-for="i in releases" :key="i.id">
+          {{ i.title }} | {{ i.date }} | {{ i.id }}
+        </div>
       </div>
+
     </div>
   </section>
 </template>
 
 <script>
   export default {
-    // data () {
-    //   return {
-    //     id: this.item.id
-    //   }
-    // },
     data () {
       return {
         createReleaseBtn: {title: 'Add new release', icon: 'mdi-plus', url: '/admin/create/release'}
@@ -38,8 +36,8 @@
       loading () {
         return this.$store.getters.loading
       },
-      items () {
-        return this.$store.getters.loadedItems
+      releases () {
+        return this.$store.getters.loadedReleases.reverse()
       }
     }
   }

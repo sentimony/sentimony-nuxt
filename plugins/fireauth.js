@@ -8,5 +8,6 @@ export default (context) => {
       store.commit('setUser', user)
       resolve()
     })
+    store.dispatch('loadReleases')
   })
 }
