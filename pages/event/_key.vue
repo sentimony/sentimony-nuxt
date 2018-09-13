@@ -52,7 +52,7 @@ export default {
       title: this.event.title,
       meta: [
         { name: 'description', content: this.event.title + ' description' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
       ]
     }
   }
