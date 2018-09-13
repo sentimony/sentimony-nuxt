@@ -29,7 +29,7 @@ export default {
     title: 'News',
     meta: [
       { name: 'description', content: 'News page description' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
     ]
   }
 }

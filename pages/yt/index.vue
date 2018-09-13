@@ -32,7 +32,7 @@
       title: 'For YouTube',
       meta: [
         { name: 'description', content: 'For YouTube of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
       ]
     }
   }

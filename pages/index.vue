@@ -40,7 +40,7 @@ export default {
     title: 'Home',
     meta: [
       { name: 'description', content: 'Home of Sentimony Records' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
     ]
   }
 }
