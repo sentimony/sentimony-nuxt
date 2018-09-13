@@ -8,16 +8,16 @@ const createStore = () => {
 
     state: {
       user: null,
-      loadedReleases: [],
-      loading: false
+      loading: false,
+      loadedReleases: []
     },
 
     mutations: {
-      setLoading (state, payload) {
-        state.loading = payload
-      },
       setUser (state, payload) {
         state.user = payload
+      },
+      setLoading (state, payload) {
+        state.loading = payload
       },
       setLoadedReleases (state, payload) {
         state.loadedReleases = payload
