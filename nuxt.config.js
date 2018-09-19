@@ -20,10 +20,7 @@ module.exports = {
     color: 'rgba(0,0,0,0.5)',
     height: '5px'
   },
-  // modules: [
-  //   '@nuxtjs/pwa'
-  // ],
-  mode: 'spa',
+  // mode: 'spa',
   plugins: [
     {src: '~/plugins/vuetify.js'},
     '~/plugins/fireauth.js'
@@ -41,7 +38,7 @@ module.exports = {
   ],
   build: {
     extend (config, ctx) {
-      if (ctx.dev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient) {
         // config.module.rules.push({
         //   enforce: 'pre',
         //   test: /\.(js|vue)$/,
