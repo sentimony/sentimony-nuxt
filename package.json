@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "firebase": "5.4.2",
+    "firebase": "5.5.0",
     "nuxt": "^1.4.2",
-    "vuetify": "^1.2.3"
+    "vuetify": "^1.2.4"
   },
   "devDependencies": {
     "stylus": "^0.54.5",
