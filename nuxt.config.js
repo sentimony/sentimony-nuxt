@@ -30,7 +30,10 @@ module.exports = {
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
   build: {
-    vendor: ['axios']
+    vendor: ['axios'],
+    analyze: {
+      analyzerMode: 'static'
+    }
   },
   generate: {
     routes: [
