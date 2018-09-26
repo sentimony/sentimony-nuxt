@@ -3,42 +3,42 @@
 
     <v-toolbar dense>
 
-      <v-toolbar-items class="main-menu hidden-xs-only">
-        <v-btn flat :to="homeBtn.url">
-          <v-icon>{{ homeBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ homeBtn.title }}</span>
+      <v-toolbar-items class="main-menu">
+        <v-btn flat :to="siteBtn.url">
+          <v-icon>{{ siteBtn.icon }}</v-icon>
+          <span class="ml-2 hidden-sm-and-down">{{ siteBtn.title }}</span>
         </v-btn>
       </v-toolbar-items>
 
       <v-spacer/>
 
-      <v-spacer/>
-
-      <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up">
-        <v-icon>mdi-menu</v-icon>
-      </v-toolbar-side-icon>
-
-      <v-toolbar-items class="main-menu hidden-xs-only">
+      <v-toolbar-items class="main-menu">
         <v-btn flat v-if="!userIsAuthenticated" :to="signInBtn.url">
           <v-icon>{{ signInBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ signInBtn.title }}</span>
+          <span class="ml-2 hidden-sm-and-down">{{ signInBtn.title }}</span>
         </v-btn>
 
         <v-btn flat v-if="!userIsAuthenticated" :to="signUpBtn.url">
           <v-icon>{{ signUpBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ signUpBtn.title }}</span>
+          <span class="ml-2 hidden-sm-and-down">{{ signUpBtn.title }}</span>
         </v-btn>
 
         <v-btn flat v-if="userIsAuthenticated" :to="adminBtn.url">
           <v-icon>{{ adminBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ adminBtn.title }}</span>
+          <span class="ml-2 hidden-sm-and-down">{{ adminBtn.title }}</span>
         </v-btn>
 
         <v-btn flat v-if="userIsAuthenticated" :to="profileBtn.url">
           <v-icon>{{ profileBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ profileBtn.title }}</span>
+          <span class="ml-2 hidden-sm-and-down">{{ profileBtn.title }}</span>
         </v-btn>
       </v-toolbar-items>
+
+      <v-spacer class="hidden-sm-and-up"/>
+
+      <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up">
+        <v-icon>mdi-menu</v-icon>
+      </v-toolbar-side-icon>
 
     </v-toolbar>
 
@@ -99,13 +99,11 @@
 </template>
 
 <script>
-  import Donate from '~/components/Donate'
-
   export default {
     data () {
       return {
         sideNav: null,
-        homeBtn: {title: 'Home', icon: 'mdi-home', url: '/'},
+        siteBtn: {title: 'Site', icon: 'mdi-earth', url: '/'},
         signInBtn: {title: 'Sign In', icon: 'mdi-key', url: '/user/register'},
         signUpBtn: {title: 'Sign Up', icon: 'mdi-account-plus', url: '/user/login'},
         profileBtn: {title: 'Profile', icon: 'mdi-account', url: '/user/profile'},

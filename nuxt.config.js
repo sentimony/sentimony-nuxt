@@ -7,13 +7,12 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Psychedelic Music Label' }
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'shortcut icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-32.png' },
       { rel: 'apple-touch-icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-144.png' },
       // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
       // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Julius+Sans+One' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
-      { rel: 'stylesheet', href: 'https://cdn.materialdesignicons.com/2.2.43/css/materialdesignicons.min.css' }
+      { rel: 'stylesheet', href: 'https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css' }
     ]
   },
   loading: {
@@ -22,7 +21,8 @@ module.exports = {
   },
   // mode: 'spa',
   plugins: [
-    {src: '~/plugins/vuetify.js'},
+    { src: '~plugins/google-analytics.js', ssr: false },
+    '~/plugins/vuetify.js',
     '~/plugins/fireauth.js'
   ],
   css: [

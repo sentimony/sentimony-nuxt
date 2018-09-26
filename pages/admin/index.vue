@@ -1,8 +1,9 @@
 <template>
-  <section class="">
-    <h2 class="title">Admin Dashboard for Child Routes</h2>
-    <h5 class="subheading">The index page inside the admin folder</h5>
-  </section>
+  <v-card>
+    <v-card-text>
+      <h1 class="title">Dashboard</h1>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

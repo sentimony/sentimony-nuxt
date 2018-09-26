@@ -1,7 +1,5 @@
 import Vuex from 'vuex'
 import firebase, {auth, GoogleProvider, DB} from '@/services/fireinit.js'
-// import * as firebase from 'firebase'
-// import {DB} from '@/services/fireinit.js'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -9,7 +7,7 @@ const createStore = () => {
     state: {
       user: null,
       loading: false,
-      loadedReleases: []
+      loadedPages: []
     },
 
     mutations: {
@@ -19,11 +17,11 @@ const createStore = () => {
       setLoading (state, payload) {
         state.loading = payload
       },
-      setLoadedReleases (state, payload) {
-        state.loadedReleases = payload
+      setLoadedPages (state, payload) {
+        state.loadedPages = payload
       },
-      createRelease (state, payload) {
-        state.loadedReleases.push(payload)
+      createPage (state, payload) {
+        state.loadedPages.push(payload)
       }
     },
 
@@ -41,20 +39,21 @@ const createStore = () => {
         auth.signOut()
         commit('setUser', null)
       },
-      loadReleases ({commit}) {
+      loadPages ({commit}) {
         commit('setLoading', true)
-        firebase.database().ref('releases2').once('value')
+        firebase.database().ref('pages').once('value')
           .then((data) => {
-            const releases = []
+            const pages = []
             const obj = data.val()
             for (let key in obj) {
-              releases.push({
+              pages.push({
                 id: key,
+                date: obj[key].date,
                 title: obj[key].title,
-                date: obj[key].date
+                slug: obj[key].slug
               })
             }
-            commit('setLoadedReleases', releases)
+            commit('setLoadedPages', pages)
             commit('setLoading', false)
           })
           .catch(
@@ -64,20 +63,21 @@ const createStore = () => {
             }
           )
       },
-      createRelease ({commit, getters}, payload) {
-        const release = {
+      createPage ({commit, getters}, payload) {
+        const page = {
+          date: payload.date.toISOString(),
           title: payload.title,
-          date: payload.date.toISOString()
+          slug: payload.slug
         }
         let key
-        firebase.database().ref('releases2').push(release)
+        firebase.database().ref('pages').push(page)
           .then((data) => {
             key = data.key
             return key
           })
           .then(() => {
-            commit('createRelease', {
-              ...release,
+            commit('createPage', {
+              ...page,
               id: key
             })
           })
@@ -91,17 +91,22 @@ const createStore = () => {
       loading (state) {
         return state.loading
       },
-      // activeUser: (state, getters) => {
-      //   return state.user
-      // },
       user (state) {
         return state.user
       },
       userIsAuthenticated (state, getters) {
         return !!getters.user
       },
-      loadedReleases (state) {
-        return state.loadedReleases
+      loadedPages (state) {
+
+          return state.loadedPages
+      },
+      loadedPage (state) {
+        return (id) => {
+          return state.loadedPages.find((page) => {
+            return page.id === id
+          }) || {}
+        }
       }
     }
 
