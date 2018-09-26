@@ -2,7 +2,7 @@
   <v-card>
     <form @submit.prevent="onCreatePage">
       <v-card-text>
-        <h1 class="title">Create New Page</h1>
+        <h1 class="headline">Create New Page</h1>
         <v-text-field
           name="title"
           label="Title"

@@ -46,7 +46,7 @@
         menu: [
           {title: 'Dashboard', icon: 'mdi-view-dashboard', url: '/admin'},
           {title: 'Pages', icon: 'mdi-book-open-page-variant', url: '/admin/pages'},
-          {title: 'Releases', icon: 'mdi-disc', url: '/admin/releases'},
+          {title: 'Releases', icon: 'mdi-yin-yang', url: '/admin/releases'},
           {title: 'Artists', icon: 'mdi-headset', url: '/admin/artists'}
         ]
       }

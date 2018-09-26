@@ -2,7 +2,7 @@
   <v-card>
     <v-card-text>
       <!-- <v-flex> -->
-        <h1 class="title">Pages</h1>
+        <h1 class="headline">Pages</h1>
         <!-- <v-spacer/> -->
         <v-btn color="success" class="ml-0" :to="createPageBtn.url">
           <v-icon left>{{ createPageBtn.icon }}</v-icon>
@@ -19,10 +19,10 @@
 
       <div v-else>
         <div v-for="i in pages" :key="i.id">
-          {{ i.title }}
-          <v-btn small flat icon @click="onLoadPage(i.id)">
+          <a @click="onLoadPage(i.id)">{{ i.title }}</a>
+          <!-- <v-btn small flat icon @click="onEditPage(i.id)" :page="i.id">
             <v-icon small>mdi-pencil</v-icon>
-          </v-btn>
+          </v-btn> -->
           <!-- <v-icon small>mdi-delete</v-icon> -->
         </div>
       </div>
@@ -50,8 +50,11 @@
     },
     methods: {
       onLoadPage (id) {
-        this.$router.push('/admin/pages/edit/' + id)
-      }
+        this.$router.push('/admin/pages/' + id)
+      },
+      // onEditPage (id) {
+      //   this.$router.push('/admin/pages/edit/' + id)
+      // }
     }
   }
 </script>

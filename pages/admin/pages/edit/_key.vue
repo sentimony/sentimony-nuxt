@@ -1,7 +1,9 @@
 <template>
   <v-card>
     <v-card-text>
-      <h1 class="title">Edit Page</h1>
+      <h1 class="headline">Edit Page</h1>
+      <div>title: {{ page.title }}</div>
+      <div>slug: {{ page.slug }}</div>
 
       <!-- <v-progress-circular
         v-if="loading"
@@ -11,10 +13,6 @@
       /> -->
 
     <!-- <section v-else> -->
-      <!-- id: {{ page.id }}<br> -->
-      <!-- key: {{ page.key }}<br> -->
-      <p>title: {{ page.title }}</p>
-      <p>slug: {{ page.slug }}</p>
       <!-- <h1>Create Page</h1>
       <v-text-field
         name="title"
@@ -52,11 +50,12 @@
   export default {
     // data () {
     //   return {
-    //     editedTitle: this.page.title,
-    //     editedSlug: this.page.slug
+    //     editedTitle: this.id.title,
+    //     editedSlug: this.id.slug
     //   }
     // },
-    // props: ['id'],
+    // props: ['page'],
+
     computed: {
       loading () {
         return this.$store.getters.loading
@@ -65,6 +64,7 @@
         return this.$store.getters.loadedPage(this.$route.params.key)
       }
     },
+
     // methods: {
     //   onSaveChanges () {
     //     const pageData = {
