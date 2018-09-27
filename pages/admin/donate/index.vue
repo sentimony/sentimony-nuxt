@@ -2,7 +2,7 @@
   <v-card>
     <v-card-text>
       <!-- <v-flex> -->
-        <h1 class="headline">Pages</h1>
+        <h1 class="headline">Donate Section</h1>
         <!-- <v-spacer/> -->
         <v-btn color="success" class="ml-0" :to="createPageBtn.url">
           <v-icon left>{{ createPageBtn.icon }}</v-icon>
@@ -18,8 +18,8 @@
       />
 
       <div v-else>
-        <div v-for="i in pages" :key="i.id">
-          <a @click="onLoadPage(i.id)">{{ i.title }}</a>
+        <div v-for="i in doanteSections" :key="i.id">
+          <a @click="onLoadPage(i.id)">{{ i.data }}</a>
           <!-- <v-btn small flat icon @click="onEditPage(i.id)" :page="i.id">
             <v-icon small>mdi-pencil</v-icon>
           </v-btn> -->
@@ -37,20 +37,20 @@
   export default {
     data () {
       return {
-        createPageBtn: {title: 'Create New Page', icon: 'mdi-plus', url: '/admin/pages/create'}
+        createPageBtn: {title: 'Create Donate Section', icon: 'mdi-plus', url: '/admin/donate/create'}
       }
     },
     computed: {
       loading () {
         return this.$store.getters.loading
       },
-      pages () {
-        return this.$store.getters.loadedPages
+      doanteSections () {
+        return this.$store.getters.loadedDoanteSections
       }
     },
     methods: {
       onLoadPage (id) {
-        this.$router.push('/admin/pages/' + id)
+        this.$router.push('/admin/donate/' + id)
       },
       // onEditPage (id) {
       //   this.$router.push('/admin/pages/edit/' + id)

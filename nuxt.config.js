@@ -9,7 +9,7 @@ module.exports = {
     link: [
       { rel: 'shortcut icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-32.png' },
       { rel: 'apple-touch-icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-144.png' },
-      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
       // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Julius+Sans+One' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
       { rel: 'stylesheet', href: 'https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css' }

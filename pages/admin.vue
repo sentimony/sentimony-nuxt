@@ -43,12 +43,27 @@
     layout: 'admin',
     data () {
       return {
-        menu: [
-          {title: 'Dashboard', icon: 'mdi-view-dashboard', url: '/admin'},
-          {title: 'Pages', icon: 'mdi-book-open-page-variant', url: '/admin/pages'},
-          {title: 'Releases', icon: 'mdi-yin-yang', url: '/admin/releases'},
-          {title: 'Artists', icon: 'mdi-headset', url: '/admin/artists'}
-        ]
+        menu: [{
+          title: 'Dashboard',
+          icon: 'mdi-view-dashboard',
+          url: '/admin'
+        }, {
+          title: 'Pages',
+          icon: 'mdi-book-open-page-variant',
+          url: '/admin/pages'
+        }, {
+          title: 'Releases',
+          icon: 'mdi-yin-yang',
+          url: '/admin/releases'
+        }, {
+          title: 'Artists',
+          icon: 'mdi-headset',
+          url: '/admin/artists'
+        }, {
+          title: 'Donate Section',
+          icon: 'mdi-cash',
+          url: '/admin/donate'
+        }]
       }
     },
     head: {
