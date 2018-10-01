@@ -29,8 +29,20 @@ module.exports = {
     'swiper/dist/css/swiper.css',
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
+  modules: [
+    'nuxt-facebook-pixel-module'
+  ],
+  facebook: {
+    track: 'PageView',
+    pixelId: 168167750758036,
+    version: '2.0',
+    disabled: false
+  },
   build: {
-    vendor: ['axios']
+    vendor: ['axios'],
+    analyze: {
+      analyzerMode: 'static'
+    }
   },
   generate: {
     routes: [
