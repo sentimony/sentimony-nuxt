@@ -73,6 +73,13 @@
         this.$store.dispatch('logOut')
         this.$router.push('/')
       }
+    },
+    head: {
+      title: 'Profile',
+      meta: [
+        { name: 'description', content: '' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
     }
   }
 </script>
