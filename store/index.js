@@ -1,27 +1,28 @@
 import Vuex from 'vuex'
-import firebase, {auth, GoogleProvider} from '@/services/fireinit.js'
+import firebase, {auth, GoogleProvider, DB} from '@/services/fireinit.js'
+
+import pages from './pages'
+import donate from './donate'
 
 const createStore = () => {
   return new Vuex.Store({
-    state: {
-      user: null
+
+    modules: {
+      pages: pages,
+      donate: donate
     },
 
-    getters: {
-      // activeUser: (state, getters) => {
-      //   return state.user
-      // },
-      user (state) {
-        return state.user
-      },
-      userIsAuthenticated (state, getters) {
-        return !!getters.user
-      }
+    state: {
+      user: null,
+      loading: false
     },
 
     mutations: {
       setUser (state, payload) {
         state.user = payload
+      },
+      setLoading (state, payload) {
+        state.loading = payload
       }
     },
 
@@ -29,19 +30,30 @@ const createStore = () => {
       autoSignIn ({commit}, payload) {
         commit('setUser', payload)
       },
-
       signInWithGoogle ({commit}) {
         return new Promise((resolve, reject) => {
           auth.signInWithRedirect(GoogleProvider)
           resolve()
         })
       },
-
       logOut ({commit}) {
-        firebase.auth().signOut()
+        auth.signOut()
         commit('setUser', null)
       }
+    },
+
+    getters: {
+      loading (state) {
+        return state.loading
+      },
+      user (state) {
+        return state.user
+      },
+      userIsAuthenticated (state, getters) {
+        return !!getters.user
+      }
     }
+
   })
 }
 

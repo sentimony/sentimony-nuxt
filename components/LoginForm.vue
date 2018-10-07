@@ -21,18 +21,18 @@ export default {
     }
   },
   methods: {
-    emailLogin () {
-      this.$store.dispatch('signInWithEmail', {
-        email: this.formEmail,
-        password: this.formPassword
-      }).then(() => {
-        this.formEmail = ''
-        this.formPassword = ''
-
-      }).catch((e) => {
-        console.log(e.message);
-      })
-    },
+    // emailLogin () {
+    //   this.$store.dispatch('signInWithEmail', {
+    //     email: this.formEmail,
+    //     password: this.formPassword
+    //   }).then(() => {
+    //     this.formEmail = ''
+    //     this.formPassword = ''
+    //
+    //   }).catch((e) => {
+    //     console.log(e.message);
+    //   })
+    // },
     googleSignUp () {
       this.$store.dispatch('signInWithGoogle').then(() => {
         console.log('inside then statement on login');

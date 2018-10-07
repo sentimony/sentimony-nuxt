@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-text>
-      <h1 class="headline">Dashboard</h1>
+      <h1 class="headline">Artists</h1>
     </v-card-text>
   </v-card>
 </template>
