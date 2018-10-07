@@ -1,29 +1,34 @@
 import Vue from 'vue'
-import {
-  Vuetify,
-  VApp,
-  VCard,
-  VNavigationDrawer,
-  VList,
-  VBtn,
-  VIcon,
-  VGrid,
-  VToolbar,
-  VTextField,
-  VAlert
-} from 'vuetify'
+import Vuetify from 'vuetify'
 
-Vue.use(Vuetify, {
-  components: {
-    VApp,
-    VCard,
-    VNavigationDrawer,
-    VList,
-    VBtn,
-    VIcon,
-    VGrid,
-    VToolbar,
-    VTextField,
-    VAlert
-  }
-})
+Vue.use(Vuetify)
+
+// import Vue from 'vue'
+// import {
+//   Vuetify,
+//   VApp,
+//   VCard,
+//   VNavigationDrawer,
+//   VList,
+//   VBtn,
+//   VIcon,
+//   VGrid,
+//   VToolbar,
+//   VTextField,
+//   VAlert
+// } from 'vuetify'
+//
+// Vue.use(Vuetify, {
+//   components: {
+//     VApp,
+//     VCard,
+//     VNavigationDrawer,
+//     VList,
+//     VBtn,
+//     VIcon,
+//     VGrid,
+//     VToolbar,
+//     VTextField,
+//     VAlert
+//   }
+// })

@@ -1,6 +1,6 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
+  <v-layout>
+    <v-flex xs12 sm8 offset-sm2>
       <v-card>
         <v-card-title class="headline">Artists</v-card-title>
         <v-card-text>
@@ -10,3 +10,18 @@
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+  export default {
+    head: {
+      title: 'Artists',
+      meta: [
+        { name: 'description', content: 'Artists of Sentimony Records' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
+    }
+  }
+</script>
+
+<style>
+</style>

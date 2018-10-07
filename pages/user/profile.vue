@@ -4,7 +4,7 @@
       <v-card>
         <v-card-title class="headline">Profile</v-card-title>
         <v-card-text>
-          <v-progress-circular
+          <!-- <v-progress-circular
             v-if="loading"
             indeterminate
             :size="40"
@@ -13,14 +13,41 @@
           <div v-else>
             <p>Your ID: <i>{{ $store.getters.user.id }}</i></p>
             <p>Your Email: <i>{{ $store.getters.user.email }}</i></p>
-          </div>
+          </div> -->
 
-          <v-flex xs12 class="text-xs-right">
+          <!-- <v-flex xs12 class="text-xs-right">
             <v-btn flat class="mx-0" @click="onLogout">
               <v-icon left>{{ logoutBtn.icon }}</v-icon>
               {{ logoutBtn.title }}
             </v-btn>
-          </v-flex>
+          </v-flex> -->
+
+
+          <!-- <v-card> -->
+            <v-list v-if="userIsAuthenticated">
+              <v-list-tile avatar>
+                <v-list-tile-avatar>
+                  <img :src="$store.state.user.photoURL" alt="John">
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title v-if="$store.state.user.displayName">{{$store.state.user.displayName}}</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+
+              <v-divider></v-divider>
+
+              <v-list-tile>
+                <v-spacer></v-spacer>
+                <v-list-tile-action>
+                  <v-btn flat class="mt-2" @click.native="onLogout">
+                    <v-icon left>{{ logoutBtn.icon }}</v-icon>
+                    {{ logoutBtn.title }}
+                  </v-btn>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          <!-- </v-card> -->
+
 
         </v-card-text>
       </v-card>
@@ -30,24 +57,29 @@
 
 <script>
   export default {
+    layout: 'admin',
     data () {
       return {
         logoutBtn: {title: 'Logout', icon: 'mdi-exit-to-app'}
       }
     },
     computed: {
-      user () {
-        return this.$store.getters.user
-      },
-      loading () {
-        return this.$store.getters.loading
+      userIsAuthenticated () {
+        return this.$store.getters.userIsAuthenticated
       }
     },
     methods: {
       onLogout () {
-        this.$store.dispatch('logout')
+        this.$store.dispatch('logOut')
         this.$router.push('/')
       }
+    },
+    head: {
+      title: 'Profile',
+      meta: [
+        { name: 'description', content: '' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+      ]
     }
   }
 </script>

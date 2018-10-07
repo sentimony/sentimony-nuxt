@@ -28,35 +28,16 @@
       <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up">
         <v-icon>mdi-menu</v-icon>
       </v-toolbar-side-icon>
-
-      <v-toolbar-items class="main-menu hidden-xs-only">
-        <v-btn flat v-if="!userIsAuthenticated" :to="signInBtn.url">
-          <v-icon>{{ signInBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ signInBtn.title }}</span>
-        </v-btn>
-
-        <v-btn flat v-if="!userIsAuthenticated" :to="signUpBtn.url">
-          <v-icon>{{ signUpBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ signUpBtn.title }}</span>
-        </v-btn>
-
-        <v-btn flat v-if="userIsAdmin" :to="adminBtn.url">
-          <v-icon>{{ adminBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ adminBtn.title }}</span>
-        </v-btn>
-
-        <v-btn flat v-if="userIsAuthenticated" :to="profileBtn.url">
-          <v-icon>{{ profileBtn.icon }}</v-icon>
-          <span style="margin-left: 16px;" class="hidden-sm-and-down">{{ profileBtn.title }}</span>
-        </v-btn>
-      </v-toolbar-items>
     </v-toolbar>
 
     <v-content>
       <v-container>
         <nuxt/>
       </v-container>
+      <donate/>
     </v-content>
+    <foot-one/>
+
 
     <v-navigation-drawer
       fixed
@@ -93,42 +74,6 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list-tile v-if="!userIsAuthenticated" :to="signInBtn.url">
-          <v-list-tile-action>
-            <v-icon>{{ signInBtn.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{ signInBtn.title }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-tile v-if="!userIsAuthenticated" :to="signUpBtn.url">
-          <v-list-tile-action>
-            <v-icon>{{ signUpBtn.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{ signUpBtn.title }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-tile v-if="userIsAdmin" :to="adminBtn.url">
-          <v-list-tile-action>
-            <v-icon>{{ adminBtn.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{ adminBtn.title }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-tile v-if="userIsAuthenticated" :to="profileBtn.url">
-          <v-list-tile-action>
-            <v-icon>{{ profileBtn.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{ profileBtn.title }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-
       </v-list>
     </v-navigation-drawer>
 
@@ -136,25 +81,20 @@
 </template>
 
 <script>
+import Donate from '~/components/Donate'
+import FootOne from '~/components/FootOne'
+
   export default {
+    components: {
+      Donate,
+      FootOne
+    },
     data () {
       return {
         sideNav: null,
         homeBtn: {title: 'Sentimony Records', icon: 'mdi-robot', url: '/'},
         releasesBtn: {title: 'Releases', icon: 'mdi-yin-yang', url: '/releases'},
-        artistsBtn: {title: 'Artists', icon: 'mdi-headset', url: '/artists'},
-        signInBtn: {title: 'Sign In', icon: 'mdi-key', url: '/user/signin'},
-        signUpBtn: {title: 'Sign Up', icon: 'mdi-account-plus', url: '/user/signup'},
-        profileBtn: {title: 'Profile', icon: 'mdi-account', url: '/user/profile'},
-        adminBtn: {title: 'Админ', icon: 'mdi-security', url: '/admin'}
-      }
-    },
-    computed: {
-      userIsAuthenticated () {
-        return this.$store.getters.userIsAuthenticated
-      },
-      userIsAdmin () {
-        return this.$store.getters.userIsAdmin
+        artistsBtn: {title: 'Artists', icon: 'mdi-headset', url: '/artists'}
       }
     }
   }

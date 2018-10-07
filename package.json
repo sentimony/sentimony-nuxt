@@ -1,32 +1,19 @@
 {
-  "name": "sentimony-nuxt-vuetify",
-  "version": "1.0.0",
-  "description": "Nuxt.js + Vuetify.js project",
-  "author": "Ihor Orlovskyi <ihororlovskyi@gmail.com>",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
   "dependencies": {
-    "firebase": "^5.0.3",
-    "nuxt": "^1.0.0",
-    "vuetify": "^1.0.0"
+    "firebase": "5.5.3",
+    "nuxt": "^1.4.2",
+    "vuetify": "^1.2.6"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-transform-imports": "^1.4.1",
-    "eslint": "^4.3.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1"
+    "stylus-loader": "^3.0.2"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt generate"
+  },
+  "engines": {
+    "node": ">=9.5",
+    "npm": ">=5.6"
   }
 }
