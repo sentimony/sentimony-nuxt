@@ -77,6 +77,8 @@ module.exports = {
       '/release/zymosis-nichna',
       '/release/va-futured-vol-1',
       '/release/psydewise-synaptic-elastic',
+      '/release/u-wave-autumn-discovery',
+      '/release/va-futured-vol-2',
 
       '/artist/irukanji',
       '/artist/zymosis',
