@@ -1,20 +1,29 @@
 import Vuex from 'vuex'
-// import firebase, {auth, GoogleProvider, DB} from '@/services/fireinit.js'
-import * as firebase from 'firebase'
 
 import pages from './pages'
+// import releases from './artists'
+// import artists from './artists'
+// import news from './news'
+// import events from './events'
+// import friends from './friends'
 import donate from './donate'
 import user from './user'
-import shared from './shared'
+import loading from './loading'
 
 const createStore = () => {
   return new Vuex.Store({
 
     modules: {
       pages: pages,
+      // releases: releases,
+      // artists: artists,
+      // news: news,
+      // events: events,
+      // friends: friends,
+      // error: error,
       donate: donate,
       user: user,
-      shared: shared
+      loading: loading
     }
 
   })

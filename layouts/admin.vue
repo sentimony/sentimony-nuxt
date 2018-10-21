@@ -103,11 +103,31 @@
     data () {
       return {
         sideNav: null,
-        siteBtn: {title: 'Site', icon: 'mdi-earth', url: '/'},
-        signInBtn: {title: 'Sign In', icon: 'mdi-key', url: '/user/register'},
-        signUpBtn: {title: 'Sign Up', icon: 'mdi-account-plus', url: '/user/login'},
-        profileBtn: {title: 'Profile', icon: 'mdi-account', url: '/user/profile'},
-        adminBtn: {title: 'Админ', icon: 'mdi-security', url: '/admin'}
+        siteBtn: {
+          title: 'Site',
+          icon: 'mdi-earth',
+          url: '/'
+        },
+        signInBtn: {
+          title: 'Sign In',
+          icon: 'mdi-key',
+          url: '/admin/user/register'
+        },
+        signUpBtn: {
+          title: 'Sign Up',
+          icon: 'mdi-account-plus',
+          url: '/admin/user/login'
+        },
+        profileBtn: {
+          title: 'Profile',
+          icon: 'mdi-account',
+          url: '/admin/user/profile'
+        },
+        adminBtn: {
+          title: 'Админ',
+          icon: 'mdi-security',
+          url: '/admin/admin'
+        }
       }
     },
     computed: {

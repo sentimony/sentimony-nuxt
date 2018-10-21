@@ -11,10 +11,10 @@
       LoginForm
     },
     head: {
-      title: 'Registeration',
+      title: 'Login',
       meta: [
         { name: 'description', content: '' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+        { property: 'og:image', content: '' }
       ]
     }
   }

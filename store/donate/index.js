@@ -1,4 +1,4 @@
-import firebase, {DB} from '@/services/fireinit.js'
+import firebase, { DB } from '@/services/fireinit.js'
 
 export default {
 

@@ -71,14 +71,14 @@
     methods: {
       onLogout () {
         this.$store.dispatch('logOut')
-        this.$router.push('/')
+        this.$router.push('/admin/')
       }
     },
     head: {
       title: 'Profile',
       meta: [
         { name: 'description', content: '' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+        { property: 'og:image', content: '' }
       ]
     }
   }
