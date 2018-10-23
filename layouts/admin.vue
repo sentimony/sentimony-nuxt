@@ -3,7 +3,7 @@
 
     <v-toolbar dense>
 
-      <v-toolbar-items class="main-menu">
+      <v-toolbar-items>
         <v-btn flat :to="siteBtn.url">
           <v-icon>{{ siteBtn.icon }}</v-icon>
           <span class="ml-2 hidden-sm-and-down">{{ siteBtn.title }}</span>
@@ -12,7 +12,7 @@
 
       <v-spacer/>
 
-      <v-toolbar-items class="main-menu">
+      <v-toolbar-items>
         <v-btn flat v-if="!userIsAuthenticated" :to="signInBtn.url">
           <v-icon>{{ signInBtn.icon }}</v-icon>
           <span class="ml-2 hidden-sm-and-down">{{ signInBtn.title }}</span>
@@ -23,7 +23,7 @@
           <span class="ml-2 hidden-sm-and-down">{{ signUpBtn.title }}</span>
         </v-btn>
 
-        <v-btn flat v-if="userIsAuthenticated" :to="adminBtn.url">
+        <v-btn flat v-if="userIsAuthenticated" :to="adminBtn.url" exact>
           <v-icon>{{ adminBtn.icon }}</v-icon>
           <span class="ml-2 hidden-sm-and-down">{{ adminBtn.title }}</span>
         </v-btn>
@@ -74,7 +74,7 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list-tile :to="adminBtn.url">
+        <v-list-tile :to="adminBtn.url" exact>
           <v-list-tile-action>
             <v-icon>{{ adminBtn.icon }}</v-icon>
           </v-list-tile-action>
@@ -109,14 +109,14 @@
           url: '/'
         },
         signInBtn: {
-          title: 'Sign In',
+          title: 'Login',
           icon: 'mdi-key',
-          url: '/admin/user/register'
+          url: '/admin/user/login'
         },
         signUpBtn: {
-          title: 'Sign Up',
+          title: 'Registration',
           icon: 'mdi-account-plus',
-          url: '/admin/user/login'
+          url: '/admin/user/register'
         },
         profileBtn: {
           title: 'Profile',
@@ -126,7 +126,7 @@
         adminBtn: {
           title: 'Админ',
           icon: 'mdi-security',
-          url: '/admin/admin'
+          url: '/admin'
         }
       }
     },

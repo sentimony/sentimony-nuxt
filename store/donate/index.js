@@ -18,7 +18,7 @@ export default {
   actions: {
     loadDonateSections ({commit}) {
       commit('setLoading', true)
-      firebase.database().ref('donateSection').once('value')
+      firebase.database().ref('donate').once('value')
         .then((data) => {
           const donateSections = []
           const obj = data.val()
@@ -41,7 +41,7 @@ export default {
         data: payload.data
       }
       let key
-      firebase.database().ref('donateSection').push(donateSection)
+      firebase.database().ref('donate').push(donateSection)
         .then((data) => {
           key = data.key
           return key

@@ -60,7 +60,7 @@
           icon: 'mdi-headset',
           url: '/admin/artists'
         }, {
-          title: 'Donate Section',
+          title: 'Donate',
           icon: 'mdi-cash',
           url: '/admin/donate'
         }]
@@ -70,7 +70,7 @@
       title: 'Admin',
       meta: [
         { name: 'description', content: '' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+        { property: 'og:image', content: '' }
       ]
     }
   }

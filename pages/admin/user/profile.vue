@@ -4,52 +4,32 @@
       <v-card>
         <v-card-title class="headline">Profile</v-card-title>
         <v-card-text>
-          <!-- <v-progress-circular
+
+          <v-progress-circular
             v-if="loading"
             indeterminate
             :size="40"
             color="amber"
           />
+
           <div v-else>
-            <p>Your ID: <i>{{ $store.getters.user.id }}</i></p>
-            <p>Your Email: <i>{{ $store.getters.user.email }}</i></p>
-          </div> -->
-
-          <!-- <v-flex xs12 class="text-xs-right">
-            <v-btn flat class="mx-0" @click="onLogout">
-              <v-icon left>{{ logoutBtn.icon }}</v-icon>
-              {{ logoutBtn.title }}
-            </v-btn>
-          </v-flex> -->
-
-
-          <!-- <v-card> -->
-            <v-list v-if="userIsAuthenticated">
-              <v-list-tile avatar>
-                <v-list-tile-avatar>
-                  <img :src="$store.state.user.photoURL" alt="John">
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title v-if="$store.state.user.displayName">{{$store.state.user.displayName}}</v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-
-              <v-divider></v-divider>
-
-              <v-list-tile>
-                <v-spacer></v-spacer>
-                <v-list-tile-action>
-                  <v-btn flat class="mt-2" @click.native="onLogout">
-                    <v-icon left>{{ logoutBtn.icon }}</v-icon>
-                    {{ logoutBtn.title }}
-                  </v-btn>
-                </v-list-tile-action>
-              </v-list-tile>
-            </v-list>
-          <!-- </v-card> -->
-
+            <p>Your ID:<br><i>{{ user.uid }}</i></p>
+            <p>Your Email:<br><i>{{ user.email }}</i></p>
+          </div>
 
         </v-card-text>
+
+        <v-card-actions>
+
+          <v-spacer/>
+
+          <v-btn @click="onLogout">
+            <v-icon left>{{ logoutBtn.icon }}</v-icon>
+            {{ logoutBtn.title }}
+          </v-btn>
+
+        </v-card-actions>
+
       </v-card>
     </v-flex>
   </v-layout>
@@ -60,18 +40,24 @@
     layout: 'admin',
     data () {
       return {
-        logoutBtn: {title: 'Logout', icon: 'mdi-exit-to-app'}
+        logoutBtn: {
+          title: 'Logout',
+          icon: 'mdi-exit-to-app'
+        }
       }
     },
     computed: {
-      userIsAuthenticated () {
-        return this.$store.getters.userIsAuthenticated
+      user () {
+        return this.$store.getters.user
+      },
+      loading () {
+        return this.$store.getters.loading
       }
     },
     methods: {
       onLogout () {
         this.$store.dispatch('logOut')
-        this.$router.push('/admin/')
+        this.$router.push('/admin')
       }
     },
     head: {

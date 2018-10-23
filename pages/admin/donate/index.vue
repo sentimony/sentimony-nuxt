@@ -2,7 +2,7 @@
   <v-card>
     <v-card-text>
       <!-- <v-flex> -->
-        <h1 class="headline">Donate Section</h1>
+        <h1 class="headline">Donate</h1>
         <!-- <v-spacer/> -->
         <v-btn color="success" class="ml-0" :to="createPageBtn.url">
           <v-icon left>{{ createPageBtn.icon }}</v-icon>
@@ -18,7 +18,7 @@
       />
 
       <div v-else>
-        <div v-for="i in doanteSections" :key="i.id">
+        <div v-for="i in doante" :key="i.id">
           <a @click="onLoadPage(i.id)">{{ i.data }}</a>
           <!-- <v-btn small flat icon @click="onEditPage(i.id)" :page="i.id">
             <v-icon small>mdi-pencil</v-icon>
@@ -37,14 +37,14 @@
   export default {
     data () {
       return {
-        createPageBtn: {title: 'Create Donate Section', icon: 'mdi-plus', url: '/admin/donate/create'}
+        createPageBtn: {title: 'Create Donate', icon: 'mdi-plus', url: '/admin/donate/create'}
       }
     },
     computed: {
       loading () {
         return this.$store.getters.loading
       },
-      doanteSections () {
+      doante () {
         return this.$store.getters.loadedDoanteSections
       }
     },
