@@ -2,7 +2,7 @@
   <div class="news">
     <h1>News</h1>
     <p v-for="i in news">
-      <span v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</span> | 
+      <span v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</span> |
       <router-link v-ripple :to="i.url">Reed More</router-link>
     </p>
   </div>
@@ -28,8 +28,7 @@ export default {
   head: {
     title: 'News',
     meta: [
-      { name: 'description', content: 'News page description' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+      { name: 'description', content: 'News of Sentimony Records' }
     ]
   }
 }

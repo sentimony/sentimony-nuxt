@@ -14,8 +14,7 @@ export default {
   head: {
     title: 'MobMenu',
     meta: [
-      { name: 'description', content: 'MobMenu description' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+      { name: 'description', content: 'MobMenu description' }
     ]
   }
 }
