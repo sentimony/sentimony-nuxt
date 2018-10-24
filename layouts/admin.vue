@@ -190,9 +190,7 @@
       }
     },
     head: {
-      meta: [
-        { name: 'description', content: 'Admin' }
-      ],
+      title: 'Admin',
       link: [
         { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-32-admin.png?alt=media&token=56c839db-f0ee-424f-ab36-5445d4488281' }
       ]
