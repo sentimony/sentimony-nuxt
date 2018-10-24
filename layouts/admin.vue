@@ -1,7 +1,24 @@
 <template>
   <v-app>
 
-    <v-toolbar dense>
+    <v-navigation-drawer
+      app
+      fixed
+    >
+      <v-list>
+        <v-list-tile v-for="i in menu" :key="i.url" :to="i.url" exact>
+          <v-list-tile-action>
+            <v-icon>{{ i.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>{{ i.title }}</v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-toolbar
+      app
+      dense
+    >
 
       <v-toolbar-items>
         <v-btn flat :to="siteBtn.url">
@@ -105,7 +122,7 @@
         sideNav: null,
         siteBtn: {
           title: 'Site',
-          icon: 'mdi-earth',
+          icon: 'mdi-yin-yang',
           url: '/'
         },
         signInBtn: {
@@ -127,7 +144,44 @@
           title: 'Админ',
           icon: 'mdi-security',
           url: '/admin'
-        }
+        },
+        menu: [{
+          title: 'Dashboard',
+          icon: 'mdi-view-dashboard',
+          url: '/admin'
+        }, {
+          title: 'Pages',
+          icon: 'mdi-book-open-page-variant',
+          url: '/admin/pages'
+        }, {
+          title: 'Releases',
+          icon: 'mdi-headset',
+          url: '/admin/releases'
+        }, {
+          title: 'Artists',
+          icon: 'mdi-alien',
+          url: '/admin/artists'
+        }, {
+          title: 'News',
+          icon: 'mdi-newspaper',
+          url: '/admin/news'
+        }, {
+          title: 'Events',
+          icon: 'mdi-calendar',
+          url: '/admin/events'
+        }, {
+          title: 'Friends',
+          icon: 'mdi-human-greeting',
+          url: '/admin/friends'
+        }, {
+          title: 'Contacts',
+          icon: 'mdi-at',
+          url: '/admin/contacts'
+        }, {
+          title: 'Donate',
+          icon: 'mdi-cash-multiple',
+          url: '/admin/donate'
+        }]
       }
     },
     computed: {
@@ -135,13 +189,13 @@
         return this.$store.getters.userIsAuthenticated
       }
     },
-    methods: {
-      logout () {
-        this.$store.dispatch('signOut').then(() => {
-          alert('logged out!')
-          this.$router.push('/')
-        })
-      }
+    head: {
+      meta: [
+        { name: 'description', content: 'Admin' }
+      ],
+      link: [
+        { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-32-admin.png?alt=media&token=56c839db-f0ee-424f-ab36-5445d4488281' }
+      ]
     }
   }
 </script>
