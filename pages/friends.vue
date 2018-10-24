@@ -20,8 +20,7 @@ export default {
   head: {
     title: 'Friends',
     meta: [
-      { name: 'description', content: 'Friends page description' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+      { name: 'description', content: 'Friends of Sentimony Records' }
     ]
   }
 }

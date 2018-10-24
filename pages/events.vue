@@ -37,8 +37,7 @@ export default {
   head: {
     title: 'Events',
     meta: [
-      { name: 'description', content: 'Events of Sentimony Records' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+      { name: 'description', content: 'Events of Sentimony Records' }
     ]
   }
 }

@@ -24,8 +24,7 @@ export default {
   head: {
     title: 'Contacts',
     meta: [
-      { name: 'description', content: 'Contacts page description' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+      { name: 'description', content: 'Contacts of Sentimony Records' }
     ]
   }
 }
