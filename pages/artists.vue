@@ -22,26 +22,27 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-import sortBy from 'lodash/sortBy'
+  import axios from '~/plugins/axios'
+  import sortBy from 'lodash/sortBy'
 
-export default {
-  async asyncData() {
-    const { data } = await axios.get('artists.json')
-    return { artists: data }
-  },
-  computed: {
-    sortByCategoryId () {
-      return sortBy(this.artists, 'category_id')
+  export default {
+    async asyncData() {
+      const { data } = await axios.get('artists.json')
+      return { artists: data }
+    },
+    computed: {
+      sortByCategoryId () {
+        return sortBy(this.artists, 'category_id')
+      }
+    },
+    head: {
+      title: 'Artists',
+      meta: [
+        { name: 'description', content: 'Artists of Sentimony Records' },
+        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+      ]
     }
-  },
-  head: {
-    title: 'Artists',
-    meta: [
-      { name: 'description', content: 'Artists of Sentimony Records' }
-    ]
   }
-}
 </script>
 
 <style lang="scss">
