@@ -299,235 +299,235 @@
 </template>
 
 <script>
-import SvgTriangle from '~/components/SvgTriangle.vue'
-import axios from '~/plugins/axios'
+  import SvgTriangle from '~/components/SvgTriangle.vue'
+  import axios from '~/plugins/axios'
 
-export default {
-  layout: 'release',
-  components: {
-    SvgTriangle
-  },
-  async asyncData({ route }) {
-    const { key } = route.params
-    const { data } = await axios.get(`releases/${key}.json`)
-    return { release: data }
-  },
-  filters: {
-    formatDate: function (date) {
-      var moment = require('moment');
-      if (date) {
-        return moment(String(date)).format('DD MMM YYYY');
+  export default {
+    layout: 'release',
+    components: {
+      SvgTriangle
+    },
+    async asyncData({ route }) {
+      const { key } = route.params
+      const { data } = await axios.get(`releases/${key}.json`)
+      return { release: data }
+    },
+    filters: {
+      formatDate: function (date) {
+        var moment = require('moment');
+        if (date) {
+          return moment(String(date)).format('DD MMM YYYY');
+        }
+      },
+      spotifyEmbed (spotify) {
+        if (spotify) {
+          let s = spotify.replace('https://open.spotify.com/album/', '');
+          return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
+        }
       }
     },
-    spotifyEmbed (spotify) {
-      if (spotify) {
-        let s = spotify.replace('https://open.spotify.com/album/', '');
-        return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
+    head () {
+      return {
+        title: this.release.title,
+        meta: [
+          { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
+        ]
       }
     }
-  },
-  head () {
-    return {
-      title: this.release.title,
-      meta: [
-        { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
-      ]
-    }
   }
-}
 </script>
 
 <style lang="scss">
-@import '../../node_modules/coriolan-ui/tools/variables';
-@import '../../node_modules/coriolan-ui/mixins/media';
-@import '../../node_modules/coriolan-ui/mixins/ratio';
-@import '../../assets/scss/variables';
-@import '../../assets/scss/buttons';
-@import '../../assets/scss/vue-tabs-restyle';
-@import '../../assets/scss/content';
-@import '../../assets/scss/page';
-@import '../../assets/scss/iframe-size';
-@import '../../assets/scss/v-img-restyle';
-@import '../../assets/scss/page';
+  @import '../../node_modules/coriolan-ui/tools/variables';
+  @import '../../node_modules/coriolan-ui/mixins/media';
+  @import '../../node_modules/coriolan-ui/mixins/ratio';
+  @import '../../assets/scss/variables';
+  @import '../../assets/scss/buttons';
+  @import '../../assets/scss/vue-tabs-restyle';
+  @import '../../assets/scss/content';
+  @import '../../assets/scss/page';
+  @import '../../assets/scss/iframe-size';
+  @import '../../assets/scss/v-img-restyle';
+  @import '../../assets/scss/page';
 
-.page-release {
-  @extend .page;
-  position: relative;
-
-  &__wrapper {
-    margin: 0 auto;
-    max-width: 1278px;
-    text-align: left;
-    border-top: 1px solid rgba(#fff,.3);
-    padding: 1.8em 0 1.8em;
-    box-sizing: border-box;
+  .page-release {
+    @extend .page;
     position: relative;
-    z-index: 40;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: column;
 
-    @include media(L) {
-      flex-direction: row;
-      padding-top: 40px;
-    }
-  }
+    &__wrapper {
+      margin: 0 auto;
+      max-width: 1278px;
+      text-align: left;
+      border-top: 1px solid rgba(#fff,.3);
+      padding: 1.8em 0 1.8em;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 40;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: column;
 
-  &__media {
-    margin-bottom: 1em;
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    @include media(L) {
-      margin-top: 62px;
-      margin-bottom: 10em;
-      width: auto;
-    }
-  }
-
-  &__cover {
-    min-width: 100px;
-    height: 100px;
-    border-radius: 2px;
-    overflow: hidden;
-    margin-right: 1.4em;
-    background-color: $colorBgBlack;
-    display: flex;
-    align-items: stretch;
-    box-shadow: $shadow;
-
-    @include media(M) {
-      min-width: 190px;
-      height: 190px;
+      @include media(L) {
+        flex-direction: row;
+        padding-top: 40px;
+      }
     }
 
-    &-link {
+    &__media {
+      margin-bottom: 1em;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      @include media(L) {
+        margin-top: 62px;
+        margin-bottom: 10em;
+        width: auto;
+      }
+    }
+
+    &__cover {
+      min-width: 100px;
+      height: 100px;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-right: 1.4em;
+      background-color: $colorBgBlack;
       display: flex;
       align-items: stretch;
-      width: 100%;
-    }
-
-    &-img {
-      display: block;
-      width: 100%;
-      max-width: 100px;
       box-shadow: $shadow;
 
       @include media(M) {
-        max-width: 190px;
+        min-width: 190px;
+        height: 190px;
+      }
+
+      &-link {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      &-img {
+        display: block;
+        width: 100%;
+        max-width: 100px;
+        box-shadow: $shadow;
+
+        @include media(M) {
+          max-width: 190px;
+        }
+      }
+
+      &-coming {
+        padding: 1em 1.2em;
+        font-size: 10px;
+        color: rgba(#fff,.5);
+
+        @include media(M) {
+          font-size: 14px;
+        }
       }
     }
 
-    &-coming {
-      padding: 1em 1.2em;
+    &__info {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+
+      @include media(L) {
+        padding-right: 1.1em;
+      }
+    }
+
+    &__small-info {
       font-size: 10px;
       color: rgba(#fff,.5);
 
-      @include media(M) {
+      @include media(S) {
         font-size: 14px;
       }
     }
-  }
 
-  &__info {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-
-    @include media(L) {
-      padding-right: 1.1em;
-    }
-  }
-
-  &__small-info {
-    font-size: 10px;
-    color: rgba(#fff,.5);
-
-    @include media(S) {
-      font-size: 14px;
-    }
-  }
-
-  &__catalog-number {
-    text-transform: uppercase;
-  }
-
-  &__title {
-    font-size: 18px;
-    line-height: 1.2;
-    margin: 0 0 .1em;
-    color: #fff;
-    text-transform: capitalize;
-
-    @include media(M) {
-      font-size: 2em;
-    }
-  }
-
-  // &__junodownload-btn,
-  &__beatport-btn,
-  &__bandcamp-btn,
-  &__applemusic-btn,
-  &__googlemusic-btn,
-  &__spotify-btn {
-    @extend .btn;
-    margin-top: .5em;
-
-    &-img {
-      @extend .btn__img;
-      height: 18px;
+    &__catalog-number {
+      text-transform: uppercase;
     }
 
-    &-text {
-      @extend .btn__text;
-    }
-  }
+    &__title {
+      font-size: 18px;
+      line-height: 1.2;
+      margin: 0 0 .1em;
+      color: #fff;
+      text-transform: capitalize;
 
-  &__player-tabs {
-    width: 100%;
-    max-width: 540px;
-    margin: 0 auto;
-  }
-
-  &__bandcamp-player {
-    @extend .sentimony-iframe;
-
-    &-coming {
-      padding: 1em 1.2em;
-      font-size: 14px;
-      color: rgba(#fff,.5);
+      @include media(M) {
+        font-size: 2em;
+      }
     }
 
-    &-iframe {
-      margin: 0 auto;
+    // &__junodownload-btn,
+    &__beatport-btn,
+    &__bandcamp-btn,
+    &__applemusic-btn,
+    &__googlemusic-btn,
+    &__spotify-btn {
+      @extend .btn;
+      margin-top: .5em;
+
+      &-img {
+        @extend .btn__img;
+        height: 18px;
+      }
+
+      &-text {
+        @extend .btn__text;
+      }
+    }
+
+    &__player-tabs {
+      width: 100%;
       max-width: 540px;
+      margin: 0 auto;
+    }
+
+    &__bandcamp-player {
+      @extend .sentimony-iframe;
+
+      &-coming {
+        padding: 1em 1.2em;
+        font-size: 14px;
+        color: rgba(#fff,.5);
+      }
+
+      &-iframe {
+        margin: 0 auto;
+        max-width: 540px;
+      }
+    }
+
+    &__youtube-player {
+      @include ratio(100%,16,9);
+      @extend .sentimony-iframe;
+
+      &-iframe {
+        border-radius: 6px;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 143%;
+        height: 143%;
+        transform: scale(.7);
+        transform-origin: top left;
+      }
+    }
+
+    &__spotify-player-iframe {
+      @extend .sentimony-iframe;
     }
   }
-
-  &__youtube-player {
-    @include ratio(100%,16,9);
-    @extend .sentimony-iframe;
-
-    &-iframe {
-      border-radius: 6px;
-      border: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 143%;
-      height: 143%;
-      transform: scale(.7);
-      transform-origin: top left;
-    }
-  }
-
-  &__spotify-player-iframe {
-    @extend .sentimony-iframe;
-  }
-}
 </style>

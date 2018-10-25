@@ -18,30 +18,30 @@
 </script>
 
 <style lang="scss">
-.menu-main {
-  margin: 0 auto 2em;
+  .menu-main {
+    margin: 0 auto 2em;
 
-  &__wrapper {
-    display: inline-block;
-  }
+    &__wrapper {
+      display: inline-block;
+    }
 
-  &__list {
-    border: 1px solid rgba(#fff,.1);
-    border-width: 1px 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+    &__list {
+      border: 1px solid rgba(#fff,.1);
+      border-width: 1px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-  &__link {
-    padding: .6em;
-    background-color: rgba(#fff,.0);
-    transition: background-color .2s ease;
+    &__link {
+      padding: .6em;
+      background-color: rgba(#fff,.0);
+      transition: background-color .2s ease;
 
-    &.is-selected,
-    &:hover {
-      background-color: rgba(#fff,.1);
+      &.is-selected,
+      &:hover {
+        background-color: rgba(#fff,.1);
+      }
     }
   }
-}
 </style>
