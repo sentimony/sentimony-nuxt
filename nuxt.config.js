@@ -22,7 +22,7 @@ module.exports = {
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
     { src: '~/plugins/vue-ripple-directive.js', ssr: false },
-    { src: '~/plugins/vue-disqus', ssr: false }
+    { src: '~/plugins/vue-disqus', ssr: true }
   ],
   css: [
     'normalize.css/normalize.css',
