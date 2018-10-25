@@ -35,139 +35,139 @@
 </template>
 
 <script>
-import axios from 'axios'
+  import axios from 'axios'
 
-export default {
-  data() {
-    return {
-      siteTitle: 'Sentimony Records',
-      siteDescription: 'Psychedelic Music Label',
-      social: []
+  export default {
+    data() {
+      return {
+        siteTitle: 'Sentimony Records',
+        siteDescription: 'Psychedelic Music Label',
+        social: []
+      }
+    },
+    mounted () {
+      return axios({
+        url: 'https://sentimony-db.firebaseio.com/social.json'
+      })
+      .then((res) => {
+        this.social = res.data;
+      })
     }
-  },
-  mounted () {
-    return axios({
-      url: 'https://sentimony-db.firebaseio.com/social.json'
-    })
-    .then((res) => {
-      this.social = res.data;
-    })
   }
-}
 </script>
 
 <style lang="scss">
-@import '../node_modules/coriolan-ui/tools/variables';
-@import '../node_modules/coriolan-ui/mixins/media';
-@import '../assets/scss/variables';
-@import '../assets/scss/main-menu-link';
+  @import '../node_modules/coriolan-ui/tools/variables';
+  @import '../node_modules/coriolan-ui/mixins/media';
+  @import '../assets/scss/variables';
+  @import '../assets/scss/main-menu-link';
 
-.headr {
-  position: relative;
-  z-index: 1000;
-  padding: 0 .6em;
+  .headr {
+    position: relative;
+    z-index: 1000;
+    padding: 0 .6em;
 
-  &__container {
-    max-width: 1278px;
-    margin: 0 auto;
-    height: 75px;
-    border-bottom: 1px solid rgba(#fff,.3);
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__main-menu {
-    display: none;
-
-    @include media(M) {
-      display: flex;
-    }
-
-    &-link {
-      @extend .main-menu-link;
-    }
-  }
-
-  &__social-menu {
-    display: none;
-
-    @include media(S) {
-      display: flex;
-    }
-
-    @include media(M) {
-      justify-content: flex-end;
-      width: 232px;
-    }
-
-    &-link {
-      @extend .main-menu-link;
-      font-size: 16px;
-      color: #fff;
-      padding: .938em;
+    &__container {
+      max-width: 1278px;
+      margin: 0 auto;
+      height: 75px;
+      border-bottom: 1px solid rgba(#fff,.3);
       box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__main-menu {
+      display: none;
+
+      @include media(M) {
+        display: flex;
+      }
+
+      &-link {
+        @extend .main-menu-link;
+      }
+    }
+
+    &__social-menu {
+      display: none;
+
+      @include media(S) {
+        display: flex;
+      }
+
+      @include media(M) {
+        justify-content: flex-end;
+        width: 232px;
+      }
+
+      &-link {
+        @extend .main-menu-link;
+        font-size: 16px;
+        color: #fff;
+        padding: .938em;
+        box-sizing: border-box;
+
+        &-img {
+          display: block;
+          width: auto;
+          height: 24px;
+          margin: 0 auto;
+        }
+
+        &-tooltip {
+          display: none;
+        }
+      }
+    }
+
+    &__mob-menu-button {
+      @extend .main-menu-link;
+      display: block;
+      padding: 1.063em;
+      margin-left: 0;
+
+      @include media(M) {
+        display: none;
+      }
 
       &-img {
         display: block;
         width: auto;
-        height: 24px;
+        height: 20px;
         margin: 0 auto;
       }
-
-      &-tooltip {
-        display: none;
-      }
     }
   }
 
-  &__mob-menu-button {
+  .logolink {
     @extend .main-menu-link;
-    display: block;
-    padding: 1.063em;
-    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 232px;
+    height: 54px;
+    padding: 0;
 
-    @include media(M) {
-      display: none;
-    }
-
-    &-img {
+    &__logo {
+      width: 40px;
       display: block;
-      width: auto;
-      height: 20px;
-      margin: 0 auto;
+      margin-right: 12px;
+    }
+
+    &__text {
+      text-align: left;
+    }
+
+    &__title {
+      color: #fff;
+    }
+
+    &__description {
+      font-size: 12px;
+      color: rgba(#fff,.4);
+      letter-spacing: .4px;
     }
   }
-}
-
-.logolink {
-  @extend .main-menu-link;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 232px;
-  height: 54px;
-  padding: 0;
-
-  &__logo {
-    width: 40px;
-    display: block;
-    margin-right: 12px;
-  }
-
-  &__text {
-    text-align: left;
-  }
-
-  &__title {
-    color: #fff;
-  }
-
-  &__description {
-    font-size: 12px;
-    color: rgba(#fff,.4);
-    letter-spacing: .4px;
-  }
-}
 </style>
