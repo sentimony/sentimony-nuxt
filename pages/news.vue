@@ -28,8 +28,8 @@
     head: {
       title: 'News',
       meta: [
-        { name: 'description', content: 'News page description' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
+        { name: 'description', content: 'News of Sentimony Records' },
+        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
       ]
     }
   }

@@ -302,40 +302,40 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import axios from '~/plugins/axios'
 
-  export default {
-    // layout: 'release',
-    components: {
-      SvgTriangle
-    },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const { data } = await axios.get(`releases/${key}.json`)
-      return { release: data }
-    },
-    filters: {
-      formatDate: function (date) {
-        var moment = require('moment');
-        if (date) {
-          return moment(String(date)).format('DD MMM YYYY');
-        }
-      },
-      spotifyEmbed (spotify) {
-        if (spotify) {
-          let s = spotify.replace('https://open.spotify.com/album/', '');
-          return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
-        }
+export default {
+  //layout: 'release',
+  components: {
+    SvgTriangle
+  },
+  async asyncData({ route }) {
+    const { key } = route.params
+    const { data } = await axios.get(`releases/${key}.json`)
+    return { release: data }
+  },
+  filters: {
+    formatDate: function (date) {
+      var moment = require('moment');
+      if (date) {
+        return moment(String(date)).format('DD MMM YYYY');
       }
     },
-    head () {
-      return {
-        title: this.release.title,
-        meta: [
-          { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
-        ]
+    spotifyEmbed (spotify) {
+      if (spotify) {
+        let s = spotify.replace('https://open.spotify.com/album/', '');
+        return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
       }
     }
+  },
+  head () {
+    return {
+      title: this.release.title,
+      meta: [
+        { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
+      ]
+    }
   }
+}
 </script>
 
 <style lang="scss">
