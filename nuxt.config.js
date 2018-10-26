@@ -8,8 +8,8 @@ module.exports = {
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Julius+Sans+One' },
-      { rel: 'shortcut icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-32.png' },
-      { rel: 'apple-touch-icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-144.png' }
+      { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-32-site.png?alt=media&token=a060a2ba-68f7-4b4e-b0e4-e04dd2cf7de3' },
+      { rel: 'apple-touch-icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-144.jpg?alt=media&token=763f1846-67b5-494e-a980-7c0eb218d28f' }
     ]
   },
   loading: {
@@ -23,18 +23,30 @@ module.exports = {
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
     { src: '~/plugins/vue-ripple-directive.js', ssr: false },
-    { src: '~/plugins/vue-disqus', ssr: false }
+    { src: '~/plugins/vue-disqus', ssr: true }
   ],
   css: [
     'normalize.css/normalize.css',
     'swiper/dist/css/swiper.css',
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
+  modules: [
+    'nuxt-facebook-pixel-module'
+  ],
+  facebook: {
+    track: 'PageView',
+    pixelId: 168167750758036,
+    version: '2.0',
+    disabled: false
+  },
   build: {
     vendor: [
       'firebase',
       'axios'
-    ]
+    ],
+    analyze: {
+      analyzerMode: 'static'
+    }
   },
   generate: {
     routes: [
@@ -69,6 +81,8 @@ module.exports = {
       '/release/zymosis-nichna',
       '/release/va-futured-vol-1',
       '/release/psydewise-synaptic-elastic',
+      '/release/u-wave-autumn-discovery',
+      '/release/va-futured-vol-2',
 
       '/artist/irukanji',
       '/artist/zymosis',

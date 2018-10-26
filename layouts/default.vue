@@ -1,9 +1,9 @@
 <template>
   <div class="flex-sticky">
     <BaseBg/>
-    <!-- <div class="flex-sticky__fractal">
-      <Fractal/>
-    </div> -->
+    <div class="flex-sticky__fractal">
+      <Fractal :fractal="fractal"/>
+    </div>
     <div class="flex-sticky__header">
       <Headr/>
     </div>
@@ -23,7 +23,7 @@
 
 <script>
   import BaseBg from '~/components/BaseBg.vue'
-  // import Fractal from '~/components/Fractal.vue'
+  import Fractal from '~/components/Fractal.vue'
   import Headr from '~/components/Headr.vue'
   import Hero from '~/components/Hero.vue'
   import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
@@ -33,9 +33,12 @@
   import Footr from '~/components/Footr.vue'
 
   export default {
+    // props: [
+    //   'fractal'
+    // ],
     components: {
       BaseBg,
-      // Fractal,
+      Fractal,
       Headr,
       Hero,
       SwiperReleaseList,
@@ -43,7 +46,10 @@
       SwiperArtistList,
       Donate,
       Footr
-    }
+    },
+    data: () => ({
+      fractal: true
+    })
   }
 </script>
 
