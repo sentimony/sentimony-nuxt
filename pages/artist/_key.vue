@@ -97,26 +97,26 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import axios from '~/plugins/axios'
 
-  export default {
-    // layout: 'artist',
-    components: {
-      SvgTriangle
-    },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const { data } = await axios.get(`artists/${key}.json`)
-      return { artist: data }
-    },
-    head () {
-      return {
-        title: this.artist.title,
-        meta: [
-          { name: 'description', content: this.artist.title + ' description' },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg' }
-        ]
-      }
+export default {
+  //layout: 'artist',
+  components: {
+    SvgTriangle
+  },
+  async asyncData({ route }) {
+    const { key } = route.params
+    const { data } = await axios.get(`artists/${key}.json`)
+    return { artist: data }
+  },
+  head () {
+    return {
+      title: this.artist.title,
+      meta: [
+        { name: 'description', content: this.artist.title + ' description' },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg' }
+      ]
     }
   }
+}
 </script>
 
 <style lang="scss">

@@ -23,36 +23,38 @@
 </template>
 
 <script>
-  // import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
-  // import SwiperArtistList from '~/components/SwiperArtistList.vue'
+//import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
+//import SwiperArtistList from '~/components/SwiperArtistList.vue'
 
-  export default {
-    // components: {
-    //   SwiperReleaseList,
-    //   SwiperArtistList
-    // },
-    // data: () => ({
-    //   siteTitle: 'Sentimony Records',
-    //   siteDescription: 'Psychedelic Music Label',
-    //   aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes."
-    // }),
-    head: {
-      title: 'Home',
-      meta: [
-        { name: 'description', content: 'Home of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
-      ]
-    }
+export default {
+  //components: {
+    //SwiperReleaseList,
+    //SwiperArtistList
+  //},
+  data: () => ({
+    // fractal: true
+      //siteTitle: 'Sentimony Records',
+    //siteDescription: 'Psychedelic Music Label',
+    //aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes."
+  }),
+  head: {
+    title: 'Home',
+    meta: [
+      { name: 'description', content: 'Home of Sentimony Records' },
+      { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+    ]
   }
+}
 </script>
 
 <style lang="scss">
-  // @import '../node_modules/coriolan-ui/tools/variables';
-  // @import '../node_modules/coriolan-ui/mixins/media';
+//@import '../node_modules/coriolan-ui/tools/variables';
+//@import '../node_modules/coriolan-ui/mixins/media';
 
-  // .hero {
+
+//.hero {
   //   position: relative;
-  //   background: linear-gradient(to bottom, transparent 0%, rgba(#000,.5) 100%);
+  //background: linear-gradient(to bottom, transparent 0%, rgba(#000,.5)100%);
   //   padding: 7.5em 0;
   //
   //   @include media(S) {
@@ -142,31 +144,31 @@
   //   background-color: rgba(#000,.5);
   //   position: relative;
   //
-  //   &__logo {
-  //     display: block;
-  //     width: 60px;
-  //     height: auto;
-  //     margin: 0 auto;
-  //   }
-  //
-  //   &__wrapper {
-  //     max-width: 460px;
-  //     margin: 0 auto;
-  //     padding: 5em 10px;
-  //     box-sizing: border-box;
-  //
-  //     p {
-  //
-  //       a {
-  //         color: #ff595e;
-  //
-  //         &:hover {
-  //           color: red;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  //&__logo {
+  //  display: block;
+  //  width: 60px;
+  //  height: auto;
+  //  margin: 0 auto;
+  //}
+//
+  //&__wrapper {
+  //  max-width: 460px;
+  //  margin: 0 auto;
+  //  padding: 5em 10px;
+  //  box-sizing: border-box;
+//
+  //  p {
+//
+  //    a {
+  //      color: #ff595e;
+//
+  //      &:hover {
+  //        color: red;
+  //      }
+  //    }
+  //  }
+  //}
+//}
 
   // @import '../node_modules/coriolan-ui/tools/variables';
   // @import '../node_modules/coriolan-ui/mixins/media';
