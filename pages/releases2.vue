@@ -2,14 +2,14 @@
   <div class="releases">
     <h1>Releases 2</h1>
     <div class="list">
-      <div class="item">
+      <!-- <div class="item">
         Release Title Static
-      </div>
+      </div> -->
       <div v-if="loading">loading...</div>
       <div v-else v-for="i in releases" :key="i.id" class="item">
-        id: {{ i.id }}<br>
-        key: {{ i.key }}<br>
-        title: {{ i.title }}
+        <!-- id: {{ i.id }}<br> -->
+        <!-- key: {{ i.key }}<br> -->
+        <nuxt-link :to="i.slug">{{ i.title }}</nuxt-link>
       </div>
     </div>
   </div>

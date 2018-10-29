@@ -1,16 +1,10 @@
 <template>
   <div class="releases">
     <h1>Pages</h1>
-    <div class="list">
-      <!-- <div class="item">
-        Release Title Static
-      </div> -->
+    <div>
       <div v-if="loading">loading...</div>
-      <div v-else v-for="i in pages" :key="i.id" class="item">
-        <!-- id: {{ i.id }}<br>
-        key: {{ i.key }}<br>
-        title:  -->
-        {{ i.title }}
+      <div v-else v-for="i in pages" :key="i.id">
+        <nuxt-link :to="i.slug">{{ i.title }}</nuxt-link>
       </div>
     </div>
   </div>

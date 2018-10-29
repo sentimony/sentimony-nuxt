@@ -2,16 +2,18 @@
   <div class="flex-sticky">
     <BaseBg/>
     <div class="flex-sticky__fractal">
-      <Fractal :fractal="fractal"/>
+      <!-- <Fractal :fractal="fractal"/> -->
     </div>
     <div class="flex-sticky__header">
-      <Headr/>
+      <!-- <Headr/> -->
     </div>
     <div class="flex-sticky__content">
-      <Hero/>
-      <SwiperReleaseList/>
-      <About/>
-      <SwiperArtistList/>
+      <div>Page: {{ pages.title }}</div>
+      <div>Route: {{ this.$route.name }}</div>
+      <!-- <Hero/> -->
+      <!-- <SwiperReleaseList/> -->
+      <!-- <About/> -->
+      <!-- <SwiperArtistList/> -->
       <nuxt/>
     </div>
     <div class="flex-sticky__footer">
@@ -47,9 +49,20 @@
       Donate,
       Footr
     },
-    data: () => ({
-      fractal: true
-    })
+    // data: () => ({
+    //   fractal: true
+    // })
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      page () {
+        return this.$store.getters.loadedPage
+      },
+      pages () {
+        return this.$store.getters.loadedPages
+      }
+    }
   }
 </script>
 
