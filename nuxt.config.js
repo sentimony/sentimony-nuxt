@@ -41,7 +41,7 @@ module.exports = {
   },
   build: {
     vendor: [
-      'firebase',
+      // 'firebase',
       'axios'
     ],
     analyze: {
