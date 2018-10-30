@@ -4,9 +4,6 @@
   </svg>
 </template>
 
-<script>
-</script>
-
 <style lang="scss">
   .svg-triangle {
     position: absolute;

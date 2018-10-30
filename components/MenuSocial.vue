@@ -28,9 +28,9 @@
       })
     }
   }
-</script>
+  </script>
 
-<style lang="scss">
+  <style lang="scss">
   .menu-social {
     margin: 0 auto 2em;
 
