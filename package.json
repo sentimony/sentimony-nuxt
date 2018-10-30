@@ -2,10 +2,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "coriolan-ui": "^0.1.19",
-    "firebase": "5.5.6",
     "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
-    "nuxt": "^1.4.4",
+    "nuxt": "^1.4.2",
     "nuxt-facebook-pixel-module": "^1.0.1",
     "v-img": "^0.2.0",
     "vue-awesome-swiper": "^3.1.3",

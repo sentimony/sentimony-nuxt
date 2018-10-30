@@ -17,7 +17,6 @@ module.exports = {
     height: '5px'
   },
   plugins: [
-    // '~/plugins/fireauth.js',
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
@@ -40,10 +39,7 @@ module.exports = {
     disabled: false
   },
   build: {
-    vendor: [
-      // 'firebase',
-      'axios'
-    ],
+    vendor: ['axios'],
     analyze: {
       analyzerMode: 'static'
     }

@@ -50,17 +50,17 @@
       margin-right: 10px;
     }
 
-//   &__title {
-//     color: $accent-color;
-//     font-weight: 700;
-//     text-transform: uppercase;
-//   }
-//
-//   nav {
-//     a {
-//       display: inline-block;
-//       padding: 1em;
-//     }
-//   }
-}
+  //   &__title {
+  //     color: $accent-color;
+  //     font-weight: 700;
+  //     text-transform: uppercase;
+  //   }
+
+  //   nav {
+  //     a {
+  //       display: inline-block;
+  //       padding: 1em;
+  //     }
+  //   }
+  }
 </style>

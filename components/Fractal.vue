@@ -1,5 +1,5 @@
 <template>
-  <div v-if="fractal" class="fractal">
+  <div class="fractal">
     <div class="fractal__petal"></div>
     <div class="fractal__petal"></div>
     <div class="fractal__petal"></div>
@@ -28,11 +28,6 @@
 </template>
 
 <script>
-  export default {
-    props: [
-      'fractal'
-    ]
-  }
 </script>
 
 <style lang="scss">
