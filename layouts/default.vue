@@ -31,6 +31,11 @@
       Headr,
       Donate,
       Footr
+    },
+    head: {
+      link: [
+        { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-32-site.png?alt=media&token=a060a2ba-68f7-4b4e-b0e4-e04dd2cf7de3' }
+      ]
     }
   }
 </script>
