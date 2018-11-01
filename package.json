@@ -2,7 +2,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "coriolan-ui": "^0.1.19",
-    "lazysizes": "^4.1.0",
+    "lazysizes": "^4.1.4",
     "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
     "nuxt": "^1.4.4",
