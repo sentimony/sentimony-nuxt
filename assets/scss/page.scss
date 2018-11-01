@@ -1,0 +1,60 @@
+@import '../../node_modules/coriolan-ui/tools/variables';
+@import '../../node_modules/coriolan-ui/mixins/media';
+
+.page {
+  padding: 0 .6em;
+
+  &__icon {
+    width: 20px;
+    background-repeat: no-repeat;
+    height: 20px;
+    background-size: cover;
+    display: block;
+
+    @include media(L) {
+      margin-right: 6px;
+    }
+  }
+
+  &__tab__icon {
+    width: 20px;
+    background-repeat: no-repeat;
+    height: 20px;
+    background-size: cover;
+    display: block;
+
+    @include media(L) {
+      margin-right: 6px;
+    }
+
+    &--bandcamp {
+      @extend .page__tab__icon;
+      background-image: url(https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg);
+    }
+
+    &--youtube {
+      @extend .page__tab__icon;
+      background-image: url(https://content.sentimony.com/assets/img/svg-icons/youtube.svg);
+    }
+
+    &--soundcloud {
+      @extend .page__tab__icon;
+      background-image: url(https://content.sentimony.com/assets/img/svg-icons/soundcloud.svg);
+    }
+
+    &--facebook {
+      @extend .page__tab__icon;
+      background-image: url(https://content.sentimony.com/assets/img/svg-icons/facebook.svg);
+    }
+
+    &--discogs {
+      @extend .page__tab__icon;
+      background-image: url(https://content.sentimony.com/assets/img/svg-icons/discogs.svg);
+    }
+
+    &--spotify {
+      @extend .page__tab__icon;
+      background-image: url(https://content.sentimony.com/assets/img/svg-icons/spotify.svg);
+    }
+  }
+}

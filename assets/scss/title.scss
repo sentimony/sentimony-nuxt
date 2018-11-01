@@ -1,0 +1,15 @@
+@import '../node_modules/coriolan-ui/tools/variables';
+@import '../node_modules/coriolan-ui/mixins/media';
+
+.title {
+  text-align: left;
+  max-width: 1270px;
+  margin: .5em auto;
+  font-size: 18px;
+  padding: 0 10px;
+  box-sizing: border-box;
+
+  @include media(M) {
+    font-size: 32px;
+  }
+}

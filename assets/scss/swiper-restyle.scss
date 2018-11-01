@@ -1,0 +1,70 @@
+@import '../../node_modules/coriolan-ui/tools/variables';
+@import '../../node_modules/coriolan-ui/mixins/media';
+
+// custom
+.swiper-artist-list,
+.swiper-release-list {
+  overflow: hidden;
+  height: 161px;
+
+  @include media(M) {
+    height: 286px;
+  }
+}
+
+// restyle
+.swiper-container {
+  overflow: visible;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none;
+  background-color: #fff;
+  background-position: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 900;
+  top: 28%;
+  margin-top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: opacity .2s ease;
+  opacity: .7;
+
+  @include media(M) {
+    display: block;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.swiper-button-disabled {
+    opacity: .2;
+    pointer-events: visible;
+  }
+}
+
+.swiper-button-prev {
+  left: 5px;
+  background-image: url(https://content.sentimony.com/assets/img/svg-icons/arrow-left.svg);
+}
+
+.swiper-button-next {
+  right: 5px;
+  background-image: url(https://content.sentimony.com/assets/img/svg-icons/arrow-right.svg);
+}
+
+// .swiper-container-horizontal > .swiper-scrollbar {
+//   left: 4.5%;
+//   width: 91%;
+//   bottom: -12px;
+// }
+
+// .swiper-scrollbar-drag {
+//   background-color: rgba(#fff,.3);
+// }
