@@ -7,52 +7,56 @@
       </g>
     </svg>
     <div class="donate__wrapper">
-      <p>Recently all Sentimony Records releases available for free download.<br>We will be grateful for your feedback at <a href="https://sentimony.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>.</p>
+      <p>Recently all Sentimony Records releases are available for FREE DOWNLOAD at <a href="http://bit.ly/sen-bc" target="_blank" rel="noopener">Bandcamp</a>.</p>
+      <br>
       <p>Donations are very welcome!<br>It is not an easy mission to keep the free music flowing.</p>
+      <br>
+      <p>Also we will be grateful for your feedback via likes, comments and shares on our <a href="http://bit.ly/sen-yt" target="_blank" rel="noopener">YouTube</a> and <a href="http://bit.ly/sen-fb" target="_blank" rel="noopener">Facebook</a>.</p>
+      <br>
       <p>{{ donateThanks }}</p>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  data: () => ({
-    donateThanks: 'Huge Thanks for Support!'
-  })
-}
+  export default {
+    data: () => ({
+      donateThanks: 'Huge Thanks for Support!'
+    })
+  }
 </script>
 
 <style lang="scss">
-.donate {
-  position: relative;
-  color: #000;
-  background-color: #fff;
-  overflow: hidden;
-
-  &__bg {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &__wrapper {
-    max-width: 555px;
-    margin: 0 auto;
-    padding: 5em 10px;
-    box-sizing: border-box;
+  .donate {
     position: relative;
+    color: #000;
+    background-color: #fff;
+    overflow: hidden;
 
-    p {
-        text-shadow: 0 2px 2px #fff,
-                     0 -2px 2px #fff,
-                     2px 0 2px #fff,
-                     -2px 0 2px #fff;
+    &__bg {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-      a {
-        color: #0046ff;
+    &__wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 5em 10px;
+      box-sizing: border-box;
+      position: relative;
+
+      p {
+          text-shadow: 0 2px 2px #fff,
+                       0 -2px 2px #fff,
+                       2px 0 2px #fff,
+                       -2px 0 2px #fff;
+
+        a {
+          color: #0046ff;
+        }
       }
     }
   }
-}
 </style>

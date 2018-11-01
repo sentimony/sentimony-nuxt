@@ -5,11 +5,11 @@
 </template>
 
 <style lang="scss">
-.svg-triangle {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 30;
-}
+  .svg-triangle {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 30;
+  }
 </style>
