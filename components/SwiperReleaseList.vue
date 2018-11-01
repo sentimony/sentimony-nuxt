@@ -33,58 +33,58 @@
 </template>
 
 <script>
-import axios from 'axios'
-import sortBy from 'lodash/sortBy'
+  import axios from 'axios'
+  import sortBy from 'lodash/sortBy'
 
-export default {
-  data() {
-    return {
-      releases: [],
-      swiperOption: {
-        lazy: true,
-        navigation: {
-          prevEl: '.swiper-button-prev',
-          nextEl: '.swiper-button-next'
-        },
-        // scrollbar: {
-        //   el: '.swiper-scrollbar',
-        //   hide: true
-        // },
-        mousewheelControl: true,
-        mousewheelForceToAxis: true,
-        freeMode: true,
-        slidesPerView: 'auto',
-        speed: 350,
-        // slidesPerGroup: 2,
-        slideToClickedSlide: true,
-        centeredSlides: true
+  export default {
+    data() {
+      return {
+        releases: [],
+        swiperOption: {
+          lazy: true,
+          navigation: {
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next'
+          },
+          // scrollbar: {
+          //   el: '.swiper-scrollbar',
+          //   hide: true
+          // },
+          mousewheelControl: true,
+          mousewheelForceToAxis: true,
+          freeMode: true,
+          slidesPerView: 'auto',
+          speed: 350,
+          // slidesPerGroup: 2,
+          slideToClickedSlide: true,
+          centeredSlides: true
+        }
+      }
+    },
+    mounted () {
+      return axios({
+        url: 'https://sentimony-db.firebaseio.com/releases.json'
+      })
+      .then((res) => {
+        this.releases = res.data;
+      })
+    },
+    computed: {
+      sortByDate () {
+        return sortBy(this.releases, 'date').reverse()
       }
     }
-  },
-  mounted () {
-    return axios({
-      url: 'https://sentimony-db.firebaseio.com/releases.json'
-    })
-    .then((res) => {
-      this.releases = res.data;
-    })
-  },
-  computed: {
-    sortByDate () {
-      return sortBy(this.releases, 'date').reverse()
-    }
   }
-}
 </script>
 
 <style lang="scss">
-@import '../node_modules/coriolan-ui/tools/variables';
-@import '../node_modules/coriolan-ui/mixins/media';
-@import '../assets/scss/item';
-@import '../assets/scss/title';
-@import '../assets/scss/swiper-restyle';
+  @import '../node_modules/coriolan-ui/tools/variables';
+  @import '../node_modules/coriolan-ui/mixins/media';
+  @import '../assets/scss/item';
+  @import '../assets/scss/title';
+  @import '../assets/scss/swiper-restyle';
 
-.swiper-release-list {
-  position: relative;
-}
+  .swiper-release-list {
+    position: relative;
+  }
 </style>

@@ -5,15 +5,16 @@
     "lazysizes": "^4.1.0",
     "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
-    "nuxt": "^1.4.2",
+    "nuxt": "^1.4.4",
+    "nuxt-facebook-pixel-module": "^1.0.1",
     "v-img": "^0.2.0",
     "vue-awesome-swiper": "^3.1.3",
-    "vue-disqus": "^3.0.4",
+    "vue-disqus": "^3.0.5",
     "vue-nav-tabs": "^0.5.7",
     "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0"
   },
   "scripts": {
