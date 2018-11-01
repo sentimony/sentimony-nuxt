@@ -11,47 +11,41 @@ module.exports = {
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Julius+Sans+One' },
-      { rel: 'shortcut icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-32.png' },
-      { rel: 'apple-touch-icon', href: 'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-144.png' }
+      { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-32-site.png?alt=media&token=a060a2ba-68f7-4b4e-b0e4-e04dd2cf7de3' },
+      { rel: 'apple-touch-icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-144.jpg?alt=media&token=763f1846-67b5-494e-a980-7c0eb218d28f' }
     ]
   },
   loading: {
     color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
-  // modules: [
-  //   ['@nuxtjs/pwa', { icon: false }]
-  // ],
-  // workbox: {
-  //   runtimeCaching: [{
-  //     urlPattern: 'https://content.sentimony.com/.*',
-  //     handler: 'cacheFirst',
-  //     method: 'GET'
-  //   }],
-  //   importScripts: [
-  //       'custom-sw.js'
-  //   ],
-  // },
-  // manifest: {
-  //   name: 'Sentimony App',
-  //   lang: 'en'
-  // },
   plugins: [
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
-    { src: '~/plugins/vue-touch-ripple.js', ssr: false },
-    { src: '~/plugins/vue-disqus', ssr: false }
+    { src: '~/plugins/vue-ripple-directive.js', ssr: false },
+    { src: '~/plugins/vue-disqus', ssr: true }
   ],
   css: [
     'normalize.css/normalize.css',
     'swiper/dist/css/swiper.css',
-    'vue-touch-ripple/component.css'
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
   ],
+  modules: [
+    'nuxt-facebook-pixel-module'
+  ],
+  facebook: {
+    track: 'PageView',
+    pixelId: 168167750758036,
+    version: '2.0',
+    disabled: false
+  },
   build: {
-    vendor: ['axios']
+    vendor: ['axios'],
+    analyze: {
+      analyzerMode: 'static'
+    }
   },
   // generate: {
   //   routes: function() {
@@ -84,10 +78,10 @@ module.exports = {
       '/release/specialmind-the-missing-particle',
       '/release/tentura-aurora',
       '/release/cifroteca-roof-raiser-wild-storm',
-      '/release/psyfactor-retro-scientific',
       '/release/va-gamayun-tale',
-      '/release/tentura-beyond-illusion',
+      '/release/psyfactor-retro-scientific',
       '/release/ufomatka-the-ep',
+      '/release/tentura-beyond-illusion',
       '/release/va-the-ten',
       '/release/zymosis-insight',
       '/release/overdream-beautiful-thinking',
@@ -95,7 +89,21 @@ module.exports = {
       '/release/omnisound-destiny',
       '/release/zymosis-nichna',
       '/release/va-futured-vol-1',
+      '/release/psydewise-synaptic-elastic',
+      '/release/u-wave-autumn-discovery',
+      '/release/va-futured-vol-2',
 
+      '/artist/irukanji',
+      '/artist/zymosis',
+      '/artist/overdream',
+      '/artist/psydewise',
+      '/artist/omnisound',
+      '/artist/tentura',
+      '/artist/juelz',
+      '/artist/eleexr',
+      '/artist/exolt',
+      '/artist/kabi',
+      '/artist/erot',
       '/artist/alexander-daf',
       '/artist/already-maged',
       '/artist/astropilot',
@@ -111,11 +119,9 @@ module.exports = {
       '/artist/harax',
       '/artist/heinali',
       '/artist/hypnotriod',
-      '/artist/irukanji',
       '/artist/katya-chilly',
       '/artist/magmadivers',
       '/artist/neirula',
-      '/artist/overdream',
       '/artist/psyfactor',
       '/artist/roof-raiser',
       '/artist/saikozaurus',
@@ -129,15 +135,11 @@ module.exports = {
       '/artist/spectrum-vision',
       '/artist/sphingida',
       '/artist/sygnals',
-      '/artist/tentura',
       '/artist/tookytooky',
       '/artist/ufomatka',
       '/artist/unstable-elements',
       '/artist/unusual-cosmic-process',
       '/artist/vonoom',
-      '/artist/zymosis',
-      '/artist/psydewise',
-      '/artist/erot',
 
       '/event/shift-space',
       '/event/alt-space',

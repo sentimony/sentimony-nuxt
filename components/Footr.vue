@@ -14,46 +14,46 @@
 
     <div class="footr__powered">
       <div>Design by <a href="https://www.facebook.com/apivniuk" target="_blank" rel="noopener">Anton Pivniuk</a></div>
-      <div>Development by <a href="https://ihororlovskyi.com" target="_blank" rel="noopener">Ihor Orlovskyi</a></div>
+      <div>Development by <a href="https://www.facebook.com/ihororlovskyi" target="_blank" rel="noopener">Ihor Orlovskyi</a></div>
     </div>
 
   </div>
 </template>
 
 <script>
-import MenuMain from '~/components/MenuMain.vue'
-import MenuSocial from '~/components/MenuSocial.vue'
+  import MenuMain from '~/components/MenuMain.vue'
+  import MenuSocial from '~/components/MenuSocial.vue'
 
-export default {
-  components: {
-    MenuMain,
-    MenuSocial
+  export default {
+    components: {
+      MenuMain,
+      MenuSocial
+    }
   }
-}
 </script>
 
 <style lang="scss">
-.footr {
-  padding: 100px .6em;
-  background-color: #000;
-  font-size: 12px;
-  color: rgba(#fff,.5);
-  position: relative;
+  .footr {
+    padding: 100px .6em;
+    background-color: #000;
+    font-size: 12px;
+    color: rgba(#fff,.5);
+    position: relative;
 
-  &__copyright {
-    margin: 0 auto 2em;
+    &__copyright {
+      margin: 0 auto 2em;
 
-    &-logo {
-      display: block;
-      margin: .5em auto 0;
-      max-width: 30px;
-      height: auto;
+      &-logo {
+        display: block;
+        margin: .5em auto 0;
+        max-width: 30px;
+        height: auto;
+      }
+    }
+
+    &__powered {
+      margin: 0 auto 2em;
+      font-size: 10px;
     }
   }
-
-  &__powered {
-    margin: 0 auto 2em;
-    font-size: 10px;
-  }
-}
 </style>
