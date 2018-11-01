@@ -3,51 +3,51 @@
     <h1>Events</h1>
     <div class="events__list">
       <p v-for="i in sortByDate" class="events__item">
-        <router-link v-touch-ripple :to="'/event/' + i.slug" class="events__link" v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</router-link>
+        <router-link v-ripple :to="'/event/' + i.slug" class="events__link" v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</router-link>
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
-import sortBy from 'lodash/sortBy'
-import moment from 'moment'
+  import axios from '~/plugins/axios'
+  import sortBy from 'lodash/sortBy'
+  import moment from 'moment'
 
-export default {
-  async asyncData() {
-    const { data } = await axios.get('events.json')
-    return { events: data }
-  },
-  computed: {
-    sortByDate () {
-      return sortBy(this.events, 'date').reverse()
-    }
-  },
-  filters: {
-    year (date) {
-      return date.split('-')[0]
+  export default {
+    async asyncData() {
+      const { data } = await axios.get('events.json')
+      return { events: data }
     },
-    formatDate: function (date) {
-      if (date) {
-        return moment(String(date)).format('DD MMM YYYY');
+    computed: {
+      sortByDate () {
+        return sortBy(this.events, 'date').reverse()
       }
+    },
+    filters: {
+      year (date) {
+        return date.split('-')[0]
+      },
+      formatDate: function (date) {
+        if (date) {
+          return moment(String(date)).format('DD MMM YYYY');
+        }
+      }
+    },
+    head: {
+      title: 'Events',
+      meta: [
+        { name: 'description', content: 'Events of Sentimony Records' },
+        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+      ]
     }
-  },
-  head: {
-    title: 'Events',
-    meta: [
-      { name: 'description', content: 'Events of Sentimony Records' },
-      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/home.jpg' }
-    ]
   }
-}
 </script>
 
 <style lang="scss">
-@import '../assets/scss/page';
+  @import '../assets/scss/page';
 
-.events {
-  @extend .page;
-}
+  .events {
+    @extend .page;
+  }
 </style>
