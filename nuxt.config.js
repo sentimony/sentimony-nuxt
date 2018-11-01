@@ -3,7 +3,7 @@ module.exports = {
     titleTemplate: '%s | Sentimony Records',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
@@ -14,7 +14,7 @@ module.exports = {
     ]
   },
   loading: {
-    color: 'rgba(0,0,0,0.5)',
+    color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
   // mode: 'spa',
