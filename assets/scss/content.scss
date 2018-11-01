@@ -1,0 +1,30 @@
+@import '../../node_modules/coriolan-ui/tools/variables';
+@import '../../node_modules/coriolan-ui/mixins/media';
+
+.content {
+  text-align: left;
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  padding: .5em .6em;
+
+  &__wrapper {
+    max-width: 600px;
+    position: relative;
+    z-index: 40;
+    margin: 0 auto;
+
+    @include media(L) {
+      margin: 0 auto;
+    }
+  }
+
+  a {
+    color: #0046ff;
+  }
+
+  // ol {
+  //   margin: 0;
+  //   padding: 0 0 0 2em;
+  // }
+}

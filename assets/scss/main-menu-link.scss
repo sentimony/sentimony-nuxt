@@ -1,0 +1,19 @@
+@import 'variables';
+
+.main-menu-link {
+  padding: .938em .938em*1.5;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 2px;
+  transition: background-color .2s ease-in-out;
+  margin-left: .2em;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.is-selected,
+  &:hover {
+    background-color: $colorBgLight;
+  }
+}
