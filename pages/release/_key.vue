@@ -169,7 +169,29 @@
         </div>
 
         <div class="page-release__player-tabs">
-          <vue-tabs>
+
+          <!--
+          <div class="" @click="showIframe.bandcamp = true">Bandcamp</div>
+          <div class="" @click="showYoutubeIframe">YouTube</div>
+          <div class="" @click="showIframe.spotify = true">Spotify</div>
+          <br>
+          <div class="" v-if="showIframe.bandcamp">Bandcamp</div>
+          <div class="" v-if="showIframe.youtube">YouTube</div>
+          <div class="" v-if="showIframe.spotify">Spotify</div>
+          -->
+
+          <div>
+            <div v-for="(frame, index) in frames" :key="frame.title" @click="chooseFrame(index)">
+              {{frame.title}}
+            </div>
+            <br>
+            <div class="">
+              {{frames[currentFrame].frame}}
+            </div>
+
+          </div>
+
+          <!-- <vue-tabs>
 
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
               <div class="page-release__bandcamp-player">
@@ -188,14 +210,15 @@
               </div>
             </v-tab>
 
-            <v-tab v-if="release.links.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
+            <v-tab title="YouTube" icon="page__tab__icon--youtube">
               <div class="page-release__youtube-player">
-                <!-- <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
+                <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
                   Music<br>
                   on YouTube<br>
                   is coming soon
-                </div> -->
+                </div>
                 <iframe
+                  v-if="release.links.youtube_playlist_id"
                   class="page-release__youtube-player-iframe"
                   :src="'https://www.youtube.com/embed/videoseries?list=' + release.links.youtube_playlist_id"
                   :title="release.title + ' YouTube Iframe'"
@@ -219,7 +242,7 @@
               </div>
             </v-tab>
 
-          </vue-tabs>
+          </vue-tabs> -->
         </div>
 
       </div>
@@ -306,6 +329,24 @@
     layout: 'release',
     components: {
       SvgTriangle
+    },
+    data: () => ({
+      currentFrame : 0,
+      frames: [{
+        title : 'bandcamp',
+        frame : '#1'
+      }, {
+        title : 'youtube',
+        frame : '#2'
+      }, {
+        title : 'spotify',
+        frame : '#3'
+      }]
+    }),
+    methods: {
+      chooseFrame (index) {
+        this.currentFrame = index
+      }
     },
     async asyncData({ route }) {
       const { key } = route.params
