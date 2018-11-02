@@ -2,8 +2,9 @@
   <div class="releases">
     <h1>Releases</h1>
     <div class="list">
-      <div v-for="i in sortByDate" class="item">
-        <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
+      <div v-if="loading">Loading...</div>
+      <div v-else v-for="i in releasesStore" class="item">
+        <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
               <img v-if="i.cover" class="item__img"
@@ -18,7 +19,6 @@
           </div>
           <div class="item__title">
             {{ i.title }}
-            <!-- <span v-if="i.format == 'EP'">{{ i.format }}</span> -->
           </div>
         </router-link>
       </div>
@@ -27,24 +27,18 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
-  import sortBy from 'lodash/sortBy'
+  // import axios from '~/plugins/axios'
+  // import sortBy from 'lodash/sortBy'
 
   export default {
-    async asyncData() {
-      const { data } = await axios.get('releases.json')
-      return { releases: data }
-    },
     computed: {
-      sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
+      loading () {
+        return this.$store.getters.loading
+      },
+      releasesStore () {
+        return this.$store.getters.loadedReleasesSortedByDate
       }
     },
-    // filters: {
-    //   year (date) {
-    //     return date.split('-')[0]
-    //   }
-    // },
     head: {
       title: 'Releases',
       meta: [
