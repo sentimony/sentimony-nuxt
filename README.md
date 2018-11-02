@@ -4,11 +4,15 @@ _Web development of Sentimony Records site_
 
 ### Used
 
-[NuxtJS](https://nuxtjs.org) - framework for server-rendered [VueJS](https://vuejs.org) applications
+[VueJS](https://vuejs.org) - progressive javascript framework
 
-[Firebase](https://firebase.google.com) - realtime database by [Google Developers](https://developers.google.com)
+[NuxtJS](https://nuxtjs.org) - framework for server-rendered VueJS applications
 
-[Coriolan UI](https://coriolan-ui.github.io) - [Sass](http://sass-lang.com) mixins pack
+[VuetifyJS](https://vuetifyjs.com) - material component framework for VueJS
+
+[Firebase](https://firebase.google.com) - realtime database by Google Developers
+
+[Coriolan UI](https://coriolan-ui.github.io) - Sass mixins pack
 
 [Disqus](https://disqus.com) - comments
 

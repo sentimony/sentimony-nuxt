@@ -8,7 +8,8 @@ module.exports = {
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Julius+Sans+One' },
-      { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-32-site.png?alt=media&token=a060a2ba-68f7-4b4e-b0e4-e04dd2cf7de3' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Material+Icons' },
+      { rel: 'stylesheet', href: 'https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css' },
       { rel: 'apple-touch-icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-144.jpg?alt=media&token=763f1846-67b5-494e-a980-7c0eb218d28f' }
     ]
   },
@@ -16,7 +17,10 @@ module.exports = {
     color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
+  // mode: 'spa',
   plugins: [
+    { src: '~/plugins/vuetify.js', ssr: false },
+    { src: '~/plugins/fireauth.js', ssr: false },
     { src: '~plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
@@ -28,18 +32,38 @@ module.exports = {
     'normalize.css/normalize.css',
     'swiper/dist/css/swiper.css',
     // 'vue-nav-tabs/dist/vue-tabs.min.css'
+    { src: '~/assets/css/main.css', lang: 'css'},
+    { src: '~/assets/css/app.styl', lang: 'styl'}
   ],
   modules: [
-    'nuxt-facebook-pixel-module'
-  ],
-  facebook: {
-    track: 'PageView',
-    pixelId: 168167750758036,
-    version: '2.0',
-    disabled: false
+      'nuxt-facebook-pixel-module'
+    ],
+    facebook: {
+      track: 'PageView',
+      pixelId: 168167750758036,
+      version: '2.0',
+      disabled: false
+    },
+  router: {
+    middleware: 'router-auth'
   },
   build: {
-    vendor: ['axios'],
+    extend (config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
+        // config.module.rules.push({
+        //   enforce: 'pre',
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /(node_modules)/
+        // })
+      }
+    },
+    vendor: [
+      'axios',
+      'firebase',
+      'vuetify'
+    ],
+    extractCSS: true,
     analyze: {
       analyzerMode: 'static'
     }
