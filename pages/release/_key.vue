@@ -1,6 +1,8 @@
 <template>
   <div class="release-page">
 
+    <!-- <SwiperReleaseList/> -->
+
     <div class="page-release">
       <SvgTriangle/>
       <div class="page-release__wrapper">
@@ -24,6 +26,10 @@
               {{ release.title }}
               <!-- <span v-if="release.format == 'EP'">{{ release.format }}</span> -->
             </h1>
+
+            <div v-if="loading">Loading...</div>
+            <div v-else>{{ releaseStore }}</div>
+
             <div v-if="release.style" class="page-release__small-info">
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
@@ -185,7 +191,7 @@
               {{frame.title}}
             </div>
             <br>
-            <div class="">
+            <div>
               {{frames[currentFrame].frame}}
             </div>
 
@@ -322,12 +328,14 @@
 </template>
 
 <script>
+  // import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import axios from '~/plugins/axios'
 
   export default {
     layout: 'release',
     components: {
+      // SwiperReleaseList,
       SvgTriangle
     },
     data: () => ({
@@ -352,6 +360,14 @@
       const { key } = route.params
       const { data } = await axios.get(`releases/${key}.json`)
       return { release: data }
+    },
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      releaseStore () {
+        return this.$store.getters.loadedRelease(this.$route.params.key)
+      }
     },
     filters: {
       formatDate: function (date) {
