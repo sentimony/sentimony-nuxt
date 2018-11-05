@@ -37,6 +37,7 @@ export default {
               info: obj[key].info,
               credits: obj[key].credits,
               links: obj[key].links,
+              frames: obj[key].frames,
               tracklist: obj[key].tracklist
             })
           }

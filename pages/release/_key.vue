@@ -175,26 +175,20 @@
         </div>
 
         <div class="page-release__player-tabs">
-
-          <!--
-          <div class="" @click="showIframe.bandcamp = true">Bandcamp</div>
-          <div class="" @click="showYoutubeIframe">YouTube</div>
-          <div class="" @click="showIframe.spotify = true">Spotify</div>
-          <br>
-          <div class="" v-if="showIframe.bandcamp">Bandcamp</div>
-          <div class="" v-if="showIframe.youtube">YouTube</div>
-          <div class="" v-if="showIframe.spotify">Spotify</div>
-          -->
-
-          <div>
-            <div v-for="(frame, index) in frames" :key="frame.title" @click="chooseFrame(index)">
-              {{frame.title}}
+          <div v-if="loading">Loading...</div>
+          <div v-else-if="releaseStore.frames">
+            <div>
+              <span v-for="(i, index) in releaseStore.frames" :key="i.title" @click="chooseFrame(index)"
+                class="tab"
+                :class="{isActive : currentFrameStore == index}"
+              >
+                {{ i.title }}
+              </span>
             </div>
             <br>
             <div>
-              {{frames[currentFrame].frame}}
+              <iframe :src="releaseStore.frames[currentFrameStore].frame"/>
             </div>
-
           </div>
 
           <!-- <vue-tabs>
@@ -339,23 +333,18 @@
       SvgTriangle
     },
     data: () => ({
-      currentFrame : 0,
-      frames: [{
-        title : 'bandcamp',
-        frame : '#1'
-      }, {
-        title : 'youtube',
-        frame : '#2'
-      }, {
-        title : 'spotify',
-        frame : '#3'
-      }]
+    //   currentFrame : 0,
+    //   frames: [{
+    //     title : 'bandcamp',
+    //     frame : '#1'
+    //   }, {
+    //     title : 'youtube',
+    //     frame : '#2'
+    //   }, {
+    //     title : 'spotify',
+    //     frame : '#3'
+    //   }]
     }),
-    methods: {
-      chooseFrame (index) {
-        this.currentFrame = index
-      }
-    },
     async asyncData({ route }) {
       const { key } = route.params
       const { data } = await axios.get(`releases/${key}.json`)
@@ -367,7 +356,16 @@
       },
       releaseStore () {
         return this.$store.getters.loadedRelease(this.$route.params.key)
+      },
+      currentFrameStore () {
+        return this.$store.getters.currentFrame
       }
+    },
+    methods: {
+      chooseFrame (index) {
+        this.selected == index
+        this.$store.dispatch('updateCurrentFrame', index)
+      },
     },
     filters: {
       formatDate: function (date) {
@@ -585,6 +583,13 @@
 
     &__spotify-player-iframe {
       @extend .sentimony-iframe;
+    }
+  }
+
+  .tab {
+    cursor: pointer;
+    &.isActive {
+      font-weight: bold;
     }
   }
 </style>
