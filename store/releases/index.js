@@ -22,11 +22,19 @@ export default {
           for (let key in obj) {
             release.push({
               id: key,
-              title: obj[key].title,
-              date: obj[key].date,
               slug: obj[key].slug,
+              title: obj[key].title,
               cat_no: obj[key].cat_no,
-              cover: obj[key].cover
+              coming_soon: obj[key].coming_soon,
+              cover: obj[key].cover,
+              new: obj[key].new,
+              style: obj[key].style,
+              tracks_number: obj[key].tracks_number,
+              total_time: obj[key].total_time,
+              format: obj[key].format,
+              date: obj[key].date,
+              upc: obj[key].upc,
+              info: obj[key].info
             })
           }
           commit('setLoadedReleases', release)
