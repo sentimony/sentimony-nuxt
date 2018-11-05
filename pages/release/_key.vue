@@ -27,8 +27,8 @@
               <!-- <span v-if="release.format == 'EP'">{{ release.format }}</span> -->
             </h1>
 
-            <div v-if="loading">Loading...</div>
-            <div v-else>{{ releaseStore }}</div>
+            <!-- <div v-if="loading">Loading...</div>
+            <div v-else>{{ releaseStore }}</div> -->
 
             <div v-if="release.style" class="page-release__small-info">
               <span>{{ release.style }}</span>
@@ -178,20 +178,25 @@
           <div v-if="loading">Loading...</div>
           <div v-else-if="releaseStore.frames">
             <div>
-              <span v-for="(i, index) in releaseStore.frames" :key="i.title" @click="chooseFrame(index)"
-                class="tab"
+              <span
+                v-for="(i, index) in releaseStore.frames"
+                :key="i.title"
+                @click="chooseFrame(index)"
+                class="mytab"
                 :class="{isActive : currentFrameStore == index}"
               >
                 {{ i.title }}
               </span>
             </div>
-            <br>
-            <div>
-              <iframe :src="releaseStore.frames[currentFrameStore].frame"/>
+            <div class="mytab__content">
+              <iframe
+                :src="releaseStore.frames[currentFrameStore].frame"
+                style="display:block;"
+              />
             </div>
           </div>
 
-          <!-- <vue-tabs>
+          <vue-tabs>
 
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
               <div class="page-release__bandcamp-player">
@@ -242,7 +247,7 @@
               </div>
             </v-tab>
 
-          </vue-tabs> -->
+          </vue-tabs>
         </div>
 
       </div>
@@ -586,10 +591,27 @@
     }
   }
 
-  .tab {
+  .mytab {
     cursor: pointer;
+    font-size: 12px;
+    opacity: .5;
+    padding: 0 .8em;
+    background-color: rgba(204, 204, 204, .4);
+    margin-left: .4em;
+    border-radius: 6px 6px 0 0;
+    line-height: 48px;
+    display: inline-block;
+    &:first-child {
+      margin-left: 0;
+    }
     &.isActive {
-      font-weight: bold;
+      opacity: 1;
+    }
+
+    &__content {
+      padding: .8em;
+      background-color: rgba(204, 204, 204, .4);
+      border-radius: 0 9px 9px 9px;
     }
   }
 </style>
