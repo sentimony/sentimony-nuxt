@@ -34,7 +34,10 @@ export default {
               format: obj[key].format,
               date: obj[key].date,
               upc: obj[key].upc,
-              info: obj[key].info
+              info: obj[key].info,
+              credits: obj[key].credits,
+              links: obj[key].links,
+              tracklist: obj[key].tracklist
             })
           }
           commit('setLoadedReleases', release)
