@@ -175,6 +175,12 @@
         </div>
 
         <div class="page-release__player-tabs">
+
+
+
+
+
+
           <div v-if="loading">Loading...</div>
           <div v-else-if="releaseStore.frames">
             <div>
@@ -189,12 +195,18 @@
               </span>
             </div>
             <div class="mytab__content">
-              <iframe
-                :src="releaseStore.frames[currentFrameStore].frame"
-                style="display:block;"
-              />
+              <div :class="'mytab__content__frame-holder mytab__content__frame-holder--' + releaseStore.frames[currentFrameStore].title">
+                <iframe
+                  :class="'mytab__content__frame-holder__iframe tracks-' + releaseStore.tracks_number"
+                  :src="releaseStore.frames[currentFrameStore].frame"
+                />
+              </div>
             </div>
           </div>
+
+
+
+
 
           <vue-tabs>
 
@@ -601,9 +613,11 @@
     border-radius: 6px 6px 0 0;
     line-height: 48px;
     display: inline-block;
+
     &:first-child {
       margin-left: 0;
     }
+
     &.isActive {
       opacity: 1;
     }
@@ -612,6 +626,52 @@
       padding: .8em;
       background-color: rgba(204, 204, 204, .4);
       border-radius: 0 9px 9px 9px;
+
+      &__frame-holder {
+        background-color: rgba(#000, .5);
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px 0 rgba(#000, .5);
+
+        &__iframe {
+          display: block;
+          border: 0;
+        }
+
+        &--Bandcamp {
+          & .tracks- {
+            &4 {height: 274px;}
+            &5 {height: 307px;}
+            &7 {height: 373px;}
+            &9 {height: 439px;}
+            &10 {height: 472px;}
+            &11 {height: 505px;}
+            &12 {height: 538px;}
+          }
+        }
+        &--YouTube {
+          @include ratio(100%,16,9);
+
+          & .mytab__content__frame-holder__iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &--Spotify {
+          & .tracks- {
+            &4 {height: 274px;}
+            &5 {height: 307px;}
+            &7 {height: 373px;}
+            &9 {height: 439px;}
+            &10 {height: 472px;}
+            &11 {height: 505px;}
+            &12 {height: 538px;}
+          }
+        }
+      }
     }
   }
 </style>
