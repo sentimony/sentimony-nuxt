@@ -1,9 +1,10 @@
 <template>
   <div class="swiper-release-list">
     <div class="title">Releases</div>
-    <div v-swiper:mySwiper="swiperOption">
+    <div v-if="loading">Loading...</div>
+    <div v-else v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="i in sortByDate" class="swiper-slide item">
+        <div v-for="i in releasesStore" class="swiper-slide item">
           <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
@@ -61,19 +62,27 @@
         }
       }
     },
-    mounted () {
-      return axios({
-        url: 'https://sentimony-db.firebaseio.com/releases.json'
-      })
-      .then((res) => {
-        this.releases = res.data;
-      })
-    },
     computed: {
-      sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
+      loading () {
+        return this.$store.getters.loading
+      },
+      releasesStore () {
+        return this.$store.getters.loadedReleasesSortedByDate
       }
-    }
+    },
+    // mounted () {
+    //   return axios({
+    //     url: 'https://sentimony-db.firebaseio.com/releases.json'
+    //   })
+    //   .then((res) => {
+    //     this.releases = res.data;
+    //   })
+    // },
+    // computed: {
+    //   sortByDate () {
+    //     return sortBy(this.releases, 'date').reverse()
+    //   }
+    // }
   }
 </script>
 
