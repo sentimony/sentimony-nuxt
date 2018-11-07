@@ -2,7 +2,7 @@ import Vuex from 'vuex'
  // import pages from './pages'
 import releases from './releases'
 import frame from './frame'
-// import artists from './artists'
+import artists from './artists'
 // import news from './news'
 // import events from './events'
 // import friends from './friends'
@@ -16,7 +16,7 @@ const createStore = () => {
       // pages: pages,
       releases: releases,
       frame: frame,
-      // artists: artists,
+      artists: artists,
       // news: news,
       // events: events,
       // friends: friends,
