@@ -3,7 +3,7 @@
     <h1>Artists</h1>
     <div class="list">
       <div v-if="loading">Loading...</div>
-      <div v-for="i in artistsStore" v-if="i.category_id" class="item">
+      <div v-for="i in artistsStore" v-if="i.visible" class="item">
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
