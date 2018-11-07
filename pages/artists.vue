@@ -46,13 +46,13 @@
 </script>
 
 <style lang="scss">
-@import '../assets/scss/page';
-@import '../assets/scss/item';
-@import '../assets/scss/list';
+  @import '../assets/scss/page';
+  @import '../assets/scss/item';
+  @import '../assets/scss/list';
 
-.artists {
-  @extend .page;
-  max-width: 1278px;
-  margin: 0 auto;
-}
+  .artists {
+    @extend .page;
+    max-width: 1278px;
+    margin: 0 auto;
+  }
 </style>
