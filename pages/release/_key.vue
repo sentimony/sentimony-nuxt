@@ -628,10 +628,10 @@
       border-radius: 0 9px 9px 9px;
 
       &__frame-holder {
-        background-color: rgba(#000, .5);
         border-radius: 6px;
         overflow: hidden;
-        box-shadow: 0 2px 10px 0 rgba(#000, .5);
+        box-shadow: $shadow;
+        background-color: $colorBgBlack;
 
         &__iframe {
           display: block;
