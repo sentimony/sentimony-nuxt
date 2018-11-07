@@ -22,6 +22,8 @@ export default {
           for (let key in obj) {
             artist.push({
               id: key,
+              date: obj[key].date,
+              visible: obj[key].visible,
               category_id: obj[key].category_id,
               bandcamp: obj[key].bandcamp,
               discogs: obj[key].discogs,
@@ -35,6 +37,7 @@ export default {
               title: obj[key].title,
               website: obj[key].website,
               youtube_id: obj[key].youtube_id,
+              frames: obj[key].frames,
               releases: obj[key].releases
             })
           }
@@ -52,14 +55,11 @@ export default {
     loadedArtists (state) {
       return state.loadedArtists
     },
-    loadedArtistsSortedByDate (state) {
-      return state.loadedArtists.reverse()
+    loadedArtistsSortedByDate (state, getters) {
+      return getters.loadedArtists.sort((itemA, itemB) => {
+        return new Date(itemA.date) - new Date(itemB.date)
+      }) || {}
     },
-    // loadedArtistsSortedByDate (state, getters) {
-    //   return getters.loadedArtists.sort((itemA, itemB) => {
-    //     return new Date(itemA.date) - new Date(itemB.date)
-    //   }).reverse() || {}
-    // },
     loadedArtist (state) {
       return (id) => {
         return state.loadedArtists.find((page) => {

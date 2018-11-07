@@ -25,6 +25,42 @@
         </div>
 
         <div class="page-artist__player-tabs">
+
+
+
+          <FrameTabs :typeStore="artistStore"/>
+
+
+
+          <!-- <div v-if="loading">Loading...</div>
+          <div v-else-if="artistStore.frames">
+            <div>
+              <span
+                v-for="(i, index) in artistStore.frames"
+                :key="i.title"
+                @click="chooseFrame(index)"
+                class="mytab"
+                :class="{isActive : currentFrameStore == index}"
+              >
+                {{ i.title }}
+              </span>
+            </div>
+            <div class="mytab__content">
+              <div :class="'mytab__content__frame-holder mytab__content__frame-holder--' + artistStore.frames[currentFrameStore].title">
+                <iframe
+                  :class="'mytab__content__frame-holder__iframe tracks-' + artistStore.tracks_number"
+                  :src="artistStore.frames[currentFrameStore].frame"
+                />
+              </div>
+            </div>
+          </div> -->
+
+
+
+
+
+
+
           <vue-tabs>
             <v-tab v-if="artist.youtube_id" title="YouTube" icon="page__tab__icon--youtube">
               <div class="iframe-holder">
@@ -70,8 +106,8 @@
               </a>
             </v-tab>
           </vue-tabs>
-        </div>
 
+        </div>
       </div>
     </div>
 
@@ -96,16 +132,35 @@
 <script>
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import axios from '~/plugins/axios'
+  import FrameTabs from '~/components/FrameTabs.vue'
 
   export default {
     layout: 'artist',
     components: {
-      SvgTriangle
+      SvgTriangle,
+      FrameTabs
     },
     async asyncData({ route }) {
       const { key } = route.params
       const { data } = await axios.get(`artists/${key}.json`)
       return { artist: data }
+    },
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      artistStore () {
+        return this.$store.getters.loadedArtist(this.$route.params.key)
+      },
+      currentFrameStore () {
+        return this.$store.getters.currentFrame
+      }
+    },
+    methods: {
+      chooseFrame (index) {
+        this.selected == index
+        this.$store.dispatch('updateCurrentFrame', index)
+      },
     },
     head () {
       return {
