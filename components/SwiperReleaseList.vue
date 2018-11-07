@@ -34,13 +34,13 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import sortBy from 'lodash/sortBy'
+  // import axios from 'axios'
+  // import sortBy from 'lodash/sortBy'
 
   export default {
     data() {
       return {
-        releases: [],
+        // releases: [],
         swiperOption: {
           lazy: true,
           navigation: {
@@ -58,7 +58,7 @@
           speed: 350,
           // slidesPerGroup: 2,
           slideToClickedSlide: true,
-          centeredSlides: true
+          // centeredSlides: true
         }
       }
     },

@@ -3,6 +3,7 @@
 export default (context) => {
   const {store} = context
   store.dispatch('loadReleases')
+  store.dispatch('loadArtists')
 
   // return new Promise((resolve, reject) => {
   //   auth.onAuthStateChanged(user => {

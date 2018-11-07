@@ -1,9 +1,10 @@
 <template>
   <div class="swiper-artist-list">
     <div class="title">Artists</div>
-    <div v-swiper:mySwiper="swiperOption">
+    <div v-if="loading">Loading...</div>
+    <div v-else v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="i in sortByCategoryId" v-if="i.category_id" class="swiper-slide item">
+        <div v-for="i in artistsStore" v-if="i.category_id" class="swiper-slide item">
           <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">
@@ -28,13 +29,13 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import sortBy from 'lodash/sortBy'
+  // import axios from 'axios'
+  // import sortBy from 'lodash/sortBy'
 
   export default {
     data() {
       return {
-        artists: [],
+        // artists: [],
         swiperOption: {
           lazy: true,
           navigation: {
@@ -52,23 +53,31 @@
           speed: 350,
           // slidesPerGroup: 2,
           slideToClickedSlide: true,
-          centeredSlides: true
+          // centeredSlides: true
         }
       }
     },
-    mounted () {
-      return axios({
-        url: 'https://sentimony-db.firebaseio.com/artists.json'
-      })
-      .then((res) => {
-        this.artists = res.data;
-      })
-    },
     computed: {
-      sortByCategoryId () {
-        return sortBy(this.artists, 'category_id')
+      loading () {
+        return this.$store.getters.loading
+      },
+      artistsStore () {
+        return this.$store.getters.loadedArtistsSortedByDate
       }
-    }
+    },
+    // mounted () {
+    //   return axios({
+    //     url: 'https://sentimony-db.firebaseio.com/artists.json'
+    //   })
+    //   .then((res) => {
+    //     this.artists = res.data;
+    //   })
+    // },
+    // computed: {
+    //   sortByCategoryId () {
+    //     return sortBy(this.artists, 'category_id')
+    //   }
+    // }
   }
 </script>
 

@@ -2,7 +2,8 @@
   <div class="artists">
     <h1>Artists</h1>
     <div class="list">
-      <div v-for="i in sortByCategoryId" v-if="i.category_id" class="item">
+      <div v-if="loading">Loading...</div>
+      <div v-for="i in artistsStore" v-if="i.category_id" class="item">
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
@@ -22,17 +23,13 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
-  import sortBy from 'lodash/sortBy'
-
   export default {
-    async asyncData() {
-      const { data } = await axios.get('artists.json')
-      return { artists: data }
-    },
     computed: {
-      sortByCategoryId () {
-        return sortBy(this.artists, 'category_id')
+      loading () {
+        return this.$store.getters.loading
+      },
+      artistsStore () {
+        return this.$store.getters.loadedArtistsSortedByDate
       }
     },
     head: {
