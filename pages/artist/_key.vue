@@ -114,9 +114,18 @@
     <div class="content">
       <div class="content__wrapper">
 
-        <p v-if="artist.releases">Releases:</p>
-        <p v-if="artist.releases" v-for="i in artist.releases" v-html="i.title"></p>
+        <div v-if="artist.releases">
+          <p>Releases:</p>
+          <p v-for="i in artist.releases" v-html="i.title"></p>
+        </div>
 
+        <div v-if="artist.discogs">
+          <hr>
+          <p>Links:</p>
+          <p><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
+        </div>
+
+        <hr>
         <VueDisqus
           shortname="sentimony"
           :identifier="artist.slug"
