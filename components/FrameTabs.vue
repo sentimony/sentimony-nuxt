@@ -7,16 +7,16 @@
           v-for="(i, index) in typeStore.frames"
           :key="i.title"
           @click="chooseFrame(index)"
-          class="mytab"
+          class="frame-tab"
           :class="{isActive : currentFrameStore == index}"
         >
           {{ i.title }}
         </span>
       </div>
-      <div class="mytab__content">
-        <div :class="'mytab__content__frame-holder mytab__content__frame-holder--' + typeStore.frames[currentFrameStore].title">
+      <div class="frame-tab__content">
+        <div :class="'frame-tab__content__frame-holder frame-tab__content__frame-holder--' + typeStore.frames[currentFrameStore].title">
           <iframe
-            :class="'mytab__content__frame-holder__iframe tracks-' + typeStore.tracks_number"
+            :class="'frame-tab__content__frame-holder__iframe tracks-' + typeStore.tracks_number"
             :src="typeStore.frames[currentFrameStore].frame"
           />
         </div>
@@ -54,7 +54,7 @@
   @import '../assets/scss/variables';
   @import '../node_modules/coriolan-ui/mixins/ratio';
 
-  .mytab {
+  .frame-tab {
     cursor: pointer;
     font-size: 12px;
     opacity: .5;
@@ -103,12 +103,16 @@
         &--YouTube {
           @include ratio(100%,16,9);
 
-          & .mytab__content__frame-holder__iframe {
+          & .frame-tab__content__frame-holder__iframe {
+            border-radius: 6px;
+            border: none;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 143%;
+            height: 143%;
+            transform: scale(.7);
+            transform-origin: top left;
           }
         }
         &--Spotify {
@@ -121,6 +125,9 @@
             &11 {height: 505px;}
             &12 {height: 538px;}
           }
+        }
+        &--SoundCloud {
+          & iframe {height: 500px;}
         }
       }
     }
