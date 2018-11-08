@@ -2,22 +2,20 @@
   <div>
     <div v-if="loading">Loading...</div>
     <div v-else-if="typeStore.frames">
-      <div>
-        <span
-          v-for="(i, index) in typeStore.frames"
-          :key="i.title"
-          @click="chooseFrame(index)"
-          class="frame-tab"
-          :class="{isActive : currentFrameStore == index}"
-        >
-          {{ i.title }}
-        </span>
+      <div
+        v-for="(i, index) in typeStore.frames"
+        :key="i.title"
+        @click="chooseFrame(index)"
+        class="frame-tab"
+        :class="{isActive : currentFrameStore == index}"
+      >
+        {{ i.title | filteredTitle }}
       </div>
       <div class="frame-tab__content">
         <div :class="'frame-tab__content__frame-holder frame-tab__content__frame-holder--' + typeStore.frames[currentFrameStore].title">
           <iframe
             :class="'frame-tab__content__frame-holder__iframe tracks-' + typeStore.tracks_number"
-            :src="typeStore.frames[currentFrameStore].frame"
+            :src="typeStore.frames[currentFrameStore].frame | filteredFrame"
           />
         </div>
       </div>
@@ -34,11 +32,31 @@
       loading () {
         return this.$store.getters.loading
       },
-      // releaseStore () {
-      //   return this.$store.getters.loadedRelease(this.$route.params.key)
-      // },
       currentFrameStore () {
         return this.$store.getters.currentFrame
+      }
+    },
+    filters: {
+      filteredTitle (title) {
+        if (title == 'Spotify') {
+          return title + 'Spotify'
+        }
+        return title + '112'
+      },
+      filteredFrame (frame) {
+        if (frame.length == 10) {
+          return 'https://bandcamp.com/EmbeddedPlayer/album=' + frame + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'
+        }
+        if (frame.length == 22) {
+          return 'https://open.spotify.com/embed?uri=spotify:album:' + frame
+        }
+        if (frame.length == 34) {
+          return 'https://www.youtube.com/embed/videoseries?list=' + frame
+        }
+        if (frame.length == 7) {
+          return 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + frame + '&color=00aabb&hide_related=true&show_comments=true&show_user=false&sharing=false&show_bpm=true'
+        }
+        return frame
       }
     },
     methods: {
@@ -117,7 +135,7 @@
         }
         &--Spotify {
           & .tracks- {
-            &4 {height: 274px;}
+            &4 {height: 212px;}
             &5 {height: 307px;}
             &7 {height: 373px;}
             &9 {height: 439px;}
