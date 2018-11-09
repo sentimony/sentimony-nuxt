@@ -53,7 +53,7 @@
         if (frame.length == 34) {
           return 'https://www.youtube.com/embed/videoseries?list=' + frame
         }
-        if (frame.length == 7) {
+        if (frame.length == 6 || frame.length == 7 || frame.length == 8 || frame.length == 9) {
           return 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + frame + '&color=00aabb&hide_related=true&show_comments=true&show_user=false&sharing=false&show_bpm=true'
         }
         return frame
