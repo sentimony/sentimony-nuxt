@@ -7,35 +7,36 @@
       <SvgTriangle/>
       <div class="page-release__wrapper">
 
-        <div class="page-release__media">
+        <div v-if="loading">Loading...</div>
+        <div v-else class="page-release__media">
           <div class="page-release__cover">
-            <img v-img v-if="release.cover" class="page-release__cover-img"
-              :src="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no + '/' + release.slug +'.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
-              :alt="release.title"
+            <img v-img v-if="releaseStore.cover" class="page-release__cover-img"
+              :src="'https://content.sentimony.com/assets/img/releases/large/' + releaseStore.cat_no + '/' + releaseStore.slug +'.jpg'"
+              :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + releaseStore.cat_no + '/' + releaseStore.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + releaseStore.cat_no + '/' + releaseStore.slug +'.jpg 2x'"
+              :alt="releaseStore.title"
             >
             <div v-else class="page-release__cover-coming">Artwork<br>in progress</div>
           </div>
           <div class="page-release__info">
             <div class="page-release__small-info">
-              <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-              <span v-if="release.coming_soon"> | Coming at 2018</span>
-              <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
+              <span v-if="releaseStore.cat_no" class="page-release__catalog-number">{{ releaseStore.cat_no }}</span>
+              <span v-if="releaseStore.coming_soon"> | Coming at 2018</span>
+              <span v-else-if="releaseStore.date"> | {{ releaseStore.date | formatDate }}</span>
             </div>
-            <h1 v-if="release.title" class="page-release__title">
-              {{ release.title }}
-              <!-- <span v-if="release.format == 'EP'">{{ release.format }}</span> -->
+            <h1 v-if="releaseStore.title" class="page-release__title">
+              {{ releaseStore.title }}
+              <!-- <span v-if="releaseStore.format == 'EP'">{{ releaseStore.format }}</span> -->
             </h1>
 
             <!-- <div v-if="loading">Loading...</div>
             <div v-else>{{ releaseStore }}</div> -->
 
-            <div v-if="release.style" class="page-release__small-info">
-              <span>{{ release.style }}</span>
-              <span v-if="release.total_time"> | {{ release.total_time }}</span>
+            <div v-if="releaseStore.style" class="page-release__small-info">
+              <span>{{ releaseStore.style }}</span>
+              <span v-if="releaseStore.total_time"> | {{ releaseStore.total_time }}</span>
             </div>
 
-            <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
+            <div v-if="releaseStore.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
 
@@ -182,7 +183,7 @@
 
 
 
-          <vue-tabs>
+          <!-- <vue-tabs>
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
               <div class="page-release__bandcamp-player">
                 <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
@@ -229,14 +230,15 @@
                 ></iframe>
               </div>
             </v-tab>
-          </vue-tabs>
+          </vue-tabs> -->
 
         </div>
       </div>
     </div>
 
     <div class="content">
-      <div class="content__wrapper">
+      <div v-if="loading">Loading...</div>
+      <div v-else class="content__wrapper">
 
         <div v-if="release.info">
           <p v-for="i in release.info" v-html="i.p"></p>
