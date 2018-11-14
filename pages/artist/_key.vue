@@ -32,7 +32,7 @@
 
 
 
-          <vue-tabs>
+          <!-- <vue-tabs>
             <v-tab v-if="artist.youtube_id" title="YouTube" icon="page__tab__icon--youtube">
               <div class="iframe-holder">
                 <div class="iframe-holder__ratio">
@@ -52,7 +52,6 @@
               ></iframe>
             </v-tab>
             <v-tab v-if="artist.facebook" title="Facebook" icon="page__tab__icon--facebook">
-              <!-- TODO: What is appId ??? -->
               <iframe
                 class="facebook-widget facebook-widget--size-s"
                 :src="'https://www.facebook.com/plugins/page.php?href=' + artist.facebook + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
@@ -76,7 +75,7 @@
                 <span>Discogs</span>
               </a>
             </v-tab>
-          </vue-tabs>
+          </vue-tabs> -->
 
         </div>
       </div>
