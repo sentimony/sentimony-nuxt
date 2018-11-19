@@ -251,7 +251,7 @@
             <span v-if="i.number">{{ i.number }}. </span>
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
-            <span v-if="i.bpm"> | {{ i.bpm }}</span>
+            <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
           </p>
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
