@@ -32,7 +32,8 @@
 
   export default {
     data: () => ({
-      youtubeIdPlaylistAllTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn'
+      youtubeIdPlaylistAllTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn',
+      ytNeedToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
     }),
     async asyncData() {
       const { data } = await axios.get('releases.json')
