@@ -219,7 +219,7 @@
                 </div> -->
                 <iframe
                   class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?list=' + release.links.youtube_playlist_id"
+                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
                   :title="release.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
