@@ -17,7 +17,7 @@
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-              <span v-if="release.coming_soon"> | Coming at 2018</span>
+              <span v-if="release.coming_soon"> | Coming at 2019</span>
               <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
             </div>
             <h1 v-if="release.title" class="page-release__title">
@@ -147,7 +147,7 @@
               >
                 <img class="page-release__spotify-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
-                  alt="Beatport Icon"
+                  alt="Spotify Icon"
                 >
                 <span class="page-release__spotify-btn-text">Spotify</span>
               </a>
@@ -158,9 +158,35 @@
                 <img
                   class="page-release__spotify-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
-                  alt="Beatport Icon"
+                  alt="Spotify Icon"
                 >
                 <span class="page-release__spotify-btn-text">Spotify</span>
+              </span>
+              <!-- spotify btn -->
+
+              <!-- junodownload btn -->
+              <a v-if="release.links.junodownload"
+                class="page-release__junodownload-btn"
+                :href="release.links.junodownload"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__junodownload-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
+                  alt="JunoDownload Icon"
+                >
+                <span class="page-release__junodownload-btn-text">JunoDownload</span>
+              </a>
+
+              <span v-else
+                class="page-release__junodownload-btn is-disabled"
+              >
+                <img
+                  class="page-release__junodownload-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
+                  alt="Beatport Icon"
+                >
+                <span class="page-release__junodownload-btn-text">JunoDownload</span>
               </span>
               <!-- spotify btn -->
 
@@ -256,14 +282,14 @@
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
         </div>
 
-        <div v-if="release.links.spotify">
+        <div v-if="release.links.discogs">
           <hr>
           <p>Links:</p>
         </div>
 
-        <p v-if="release.links.junodownload">
+        <!-- <p v-if="release.links.junodownload">
           <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
-        </p>
+        </p> -->
 
         <!-- <p v-if="release.links.spotify">
           <a :href="release.links.spotify" target="_blank" rel="noopener">Spotify</a>
@@ -469,7 +495,7 @@
       }
     }
 
-    // &__junodownload-btn,
+    &__junodownload-btn,
     &__beatport-btn,
     &__bandcamp-btn,
     &__applemusic-btn,
