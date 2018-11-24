@@ -4,8 +4,8 @@
     <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
-        v-if="youtubePlaylistIdAllTracks"
-        :src="'https://www.youtube.com/embed/videoseries?list=' + youtubePlaylistIdAllTracks"
+        v-if="youtubeIdPlaylistAllTracks"
+        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeIdPlaylistAllTracks"
         title="YouTube playlist frame'"
       />
     </div>
@@ -32,7 +32,7 @@
 
   export default {
     data: () => ({
-      youtubePlaylistIdAllTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn'
+      youtubeIdPlaylistAllTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn'
     }),
     async asyncData() {
       const { data } = await axios.get('releases.json')
