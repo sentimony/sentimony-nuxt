@@ -20,15 +20,11 @@
               <span v-if="release.coming_soon"> | Coming at 2019</span>
               <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
             </div>
-            <h1 v-if="release.title" class="page-release__title">
-              {{ release.title }}
-              <!-- <span v-if="release.format == 'EP'">{{ release.format }}</span> -->
-            </h1>
+            <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
             <div v-if="release.style" class="page-release__small-info">
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
             </div>
-
             <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
@@ -282,7 +278,7 @@
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
         </div>
 
-        <div v-if="release.links.discogs">
+        <div v-if="release.links.spotify">
           <hr>
           <p>Links:</p>
         </div>
