@@ -4,8 +4,16 @@
     <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
-        v-if="youtubeIdPlaylistAllTracks"
-        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeIdPlaylistAllTracks"
+        v-if="youtubeFrames.allTracks"
+        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeFrames.allTracks"
+        title="YouTube playlist frame'"
+      />
+    </div>
+    <div class="youtube-page__frame-holder">
+      <iframe
+        class="youtube-page__frame"
+        v-if="youtubeFrames.needToWatch"
+        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeFrames.needToWatch"
         title="YouTube playlist frame'"
       />
     </div>
@@ -32,8 +40,10 @@
 
   export default {
     data: () => ({
-      youtubeIdPlaylistAllTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn',
-      ytNeedToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
+      youtubeFrames: {
+        allTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn',
+        needToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
+      }
     }),
     async asyncData() {
       const { data } = await axios.get('releases.json')
@@ -53,7 +63,7 @@
       }
     },
     head: {
-      title: 'For YouTube',
+      title: 'YouTube',
       meta: [
         { name: 'description', content: '' },
         { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
