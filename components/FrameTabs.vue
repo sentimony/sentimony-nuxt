@@ -18,7 +18,7 @@
         <div :class="'frame-tab__content__frame-holder frame-tab__content__frame-holder--' + typeStore.frames[currentFrameStore].title">
           <iframe
             :class="'frame-tab__content__frame-holder__iframe tracks-' + typeStore.tracks_number"
-            :src="typeStore.frames[currentFrameStore].frame | filteredFrame"
+            :src="typeStore.frames[currentFrameStore].frame | filteredFrameByLength"
           />
         </div>
       </div>
@@ -40,9 +40,9 @@
       }
     },
     filters: {
-      filteredFrame (frame) {
-        if (frame.length == 10) {
-          return 'https://bandcamp.com/EmbeddedPlayer/album=' + frame + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'
+      filteredFrameByLength (frame) {
+        if (frame.length == 14 || frame.length == 15 || frame.length == 16) {
+          return 'https://bandcamp.com/EmbeddedPlayer/' + frame + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=false/transparent=true/'
         }
         if (frame.length == 22) {
           return 'https://open.spotify.com/embed?uri=spotify:album:' + frame
