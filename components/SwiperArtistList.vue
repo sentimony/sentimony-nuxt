@@ -53,7 +53,7 @@
           speed: 350,
           // slidesPerGroup: 2,
           slideToClickedSlide: true,
-          // centeredSlides: true
+          centeredSlides: true
         }
       }
     },
