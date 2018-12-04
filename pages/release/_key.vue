@@ -20,22 +20,14 @@
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="releaseStore.cat_no" class="page-release__catalog-number">{{ releaseStore.cat_no }}</span>
-              <span v-if="releaseStore.coming_soon"> | Coming at 2018</span>
+              <span v-if="releaseStore.coming_soon"> | Coming at 2019</span>
               <span v-else-if="releaseStore.date"> | {{ releaseStore.date | formatDate }}</span>
             </div>
-            <h1 v-if="releaseStore.title" class="page-release__title">
-              {{ releaseStore.title }}
-              <!-- <span v-if="releaseStore.format == 'EP'">{{ releaseStore.format }}</span> -->
-            </h1>
-
-            <!-- <div v-if="loading">Loading...</div>
-            <div v-else>{{ releaseStore }}</div> -->
-
+            <h1 v-if="releaseStore.title" class="page-release__title">{{ releaseStore.title }}</h1>
             <div v-if="releaseStore.style" class="page-release__small-info">
               <span>{{ releaseStore.style }}</span>
               <span v-if="releaseStore.total_time"> | {{ releaseStore.total_time }}</span>
             </div>
-
             <div v-if="releaseStore.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
@@ -154,7 +146,7 @@
               >
                 <img class="page-release__spotify-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
-                  alt="Beatport Icon"
+                  alt="Spotify Icon"
                 >
                 <span class="page-release__spotify-btn-text">Spotify</span>
               </a>
@@ -165,9 +157,35 @@
                 <img
                   class="page-release__spotify-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
-                  alt="Beatport Icon"
+                  alt="Spotify Icon"
                 >
                 <span class="page-release__spotify-btn-text">Spotify</span>
+              </span>
+              <!-- spotify btn -->
+
+              <!-- junodownload btn -->
+              <a v-if="release.links.junodownload"
+                class="page-release__junodownload-btn"
+                :href="release.links.junodownload"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__junodownload-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
+                  alt="JunoDownload Icon"
+                >
+                <span class="page-release__junodownload-btn-text">JunoDownload</span>
+              </a>
+
+              <span v-else
+                class="page-release__junodownload-btn is-disabled"
+              >
+                <img
+                  class="page-release__junodownload-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
+                  alt="Beatport Icon"
+                >
+                <span class="page-release__junodownload-btn-text">JunoDownload</span>
               </span>
               <!-- spotify btn -->
 
@@ -210,7 +228,7 @@
                 <iframe
                   v-if="release.links.youtube_playlist_id"
                   class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?list=' + release.links.youtube_playlist_id"
+                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
                   :title="release.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
@@ -273,9 +291,9 @@
           <p>Links:</p>
         </div>
 
-        <p v-if="release.links.junodownload">
+        <!-- <p v-if="release.links.junodownload">
           <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
-        </p>
+        </p> -->
 
         <!-- <p v-if="release.links.spotify">
           <a :href="release.links.spotify" target="_blank" rel="noopener">Spotify</a>
@@ -515,7 +533,7 @@
       }
     }
 
-    // &__junodownload-btn,
+    &__junodownload-btn,
     &__beatport-btn,
     &__bandcamp-btn,
     &__applemusic-btn,
