@@ -5,14 +5,14 @@ export default {
   },
 
   mutations: {
-    updateGameData (state, payload) {
+    updateCurrentFrame (state, payload) {
       state.currentFrame = payload
     }
   },
 
   actions: {
     updateCurrentFrame ({commit}, payload) {
-      commit('updateGameData', payload)
+      commit('updateCurrentFrame', payload)
     }
   },
 
