@@ -1,7 +1,8 @@
 <template>
   <nav class="headr-social-menu">
-    <a class="headr-social-menu__link"
-      v-for="i in social.data"
+    <div v-if="loading">Loading...</div>
+    <a v-else class="headr-social-menu__link"
+      v-for="i in socialStore"
       :key="i.title"
       v-if="i.isVisibleHeadr"
       :href="i.url"
@@ -24,22 +25,30 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  // import axios from 'axios'
 
   export default {
     data() {
       return {
-        social: [],
+        // social: [],
         free: 'FREE or Donate'
       }
     },
-    mounted () {
-      return axios({
-        url: 'https://sentimony-db.firebaseio.com/social.json'
-      })
-      .then((res) => {
-        this.social = res.data;
-      })
+    // mounted () {
+    //   return axios({
+    //     url: 'https://sentimony-db.firebaseio.com/social.json'
+    //   })
+    //   .then((res) => {
+    //     this.social = res.data;
+    //   })
+    // },
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      socialStore () {
+        return this.$store.getters.loadedSocial
+      }
     }
   }
 </script>
@@ -59,7 +68,7 @@
 
     @include media(M) {
       justify-content: flex-end;
-      max-width: 232px;
+      width: 232px;
     }
 
     &__link {
