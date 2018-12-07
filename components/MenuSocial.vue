@@ -17,6 +17,7 @@
   export default {
     data() {
       return {
+        follow: 'Follow Us:',
         social: []
       }
     },
