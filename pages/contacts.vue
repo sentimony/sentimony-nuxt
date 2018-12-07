@@ -4,7 +4,8 @@
     <p class="contacts__title">{{ touch }}</p>
     <p><a :href="mailtoUrl">{{ email }}</a></p>
     <p class="contacts__title">{{ follow }}</p>
-    <p v-for="i in social" v-if="i.isVisibleContacts">
+    <p v-if="loading">Loading...</p>
+    <p v-else v-for="i in socialStore" v-if="i.isVisibleContacts">
       <a class="contacts__link" :href="i.url" target="_blank" rel="noopener">
         <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
         <span>{{ i.title }}</span>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  // import axios from '~/plugins/axios'
 
   export default {
     data() {
@@ -25,9 +26,17 @@
         follow: 'Follow Us:'
       }
     },
-    async asyncData() {
-      const { data } = await axios.get('social.json')
-      return { social: data }
+    // async asyncData() {
+    //   const { data } = await axios.get('social.json')
+    //   return { social: data }
+    // },
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      socialStore () {
+        return this.$store.getters.loadedSocial
+      }
     },
     head: {
       title: 'Contacts',
