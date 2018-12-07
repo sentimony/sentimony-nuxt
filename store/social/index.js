@@ -15,7 +15,7 @@ export default {
   actions: {
     loadSocial ({commit}) {
       commit('setLoading', true)
-      firebase.database().ref('social/data').once('value')
+      firebase.database().ref('social').once('value')
         .then((data) => {
           const social = []
           const obj = data.val()
