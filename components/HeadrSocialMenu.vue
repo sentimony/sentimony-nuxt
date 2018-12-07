@@ -1,7 +1,7 @@
 <template>
   <nav class="headr-social-menu">
     <a class="headr-social-menu__link"
-      v-for="i in social.data"
+      v-for="i in social"
       :key="i.title"
       v-if="i.isVisibleHeadr"
       :href="i.url"
