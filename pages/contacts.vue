@@ -5,18 +5,22 @@
     <p><a :href="mailtoUrl">{{ email }}</a></p>
     <p class="contacts__title">{{ follow }}</p>
     <p v-if="loading">Loading...</p>
-    <p v-else v-for="i in socialStore" v-if="i.isVisibleContacts">
-      <a class="contacts__link" :href="i.url" target="_blank" rel="noopener">
-        <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
-        <span>{{ i.title }}</span>
-      </a>
-    </p>
+    <div v-else>
+      <p v-for="i in socialStore" :key="i.title" v-if="i.isVisibleContacts">
+        <a class="contacts__link"
+          :href="i.url"
+          target="_blank"
+          rel="noopener"
+        >
+          <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+          <span>{{ i.title }}</span>
+        </a>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-  // import axios from '~/plugins/axios'
-
   export default {
     data() {
       return {
@@ -26,10 +30,6 @@
         follow: 'Follow Us:'
       }
     },
-    // async asyncData() {
-    //   const { data } = await axios.get('social.json')
-    //   return { social: data }
-    // },
     computed: {
       loading () {
         return this.$store.getters.loading
