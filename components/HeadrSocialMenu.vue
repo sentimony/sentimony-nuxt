@@ -1,36 +1,35 @@
 <template>
-  <nav class="headr-social-menu">
+  <div>
     <div v-if="loading">Loading...</div>
-    <a v-else class="headr-social-menu__link"
-      v-for="i in socialStore"
-      :key="i.title"
-      v-if="i.isVisibleHeadr"
-      :href="i.url"
-      target="_blank"
-      rel="noopener"
-      v-ripple
-    >
-      <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
-        v-if="i.title == 'Bandcamp'"
-        v-html="free"
-      />
-      <img class="headr-social-menu__link__img"
-        :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
-      />
-      <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom"
-        v-html="i.title"
-      />
-    </a>
-  </nav>
+    <nav v-else class="headr-social-menu">
+      <a class="headr-social-menu__link"
+        v-for="i in socialStore"
+        :key="i.title"
+        v-if="i.isVisibleHeadr"
+        :href="i.url"
+        v-ripple
+        target="_blank"
+        rel="noopener"
+      >
+        <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
+          v-if="i.title == 'Bandcamp'"
+          v-html="free"
+        />
+        <img class="headr-social-menu__link__img"
+          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
+        />
+        <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom"
+          v-html="i.title"
+        />
+      </a>
+    </nav>
+  </div>
 </template>
 
 <script>
-  // import axios from 'axios'
-
   export default {
     data() {
       return {
-        // social: [],
         free: 'FREE or Donate'
       }
     },
