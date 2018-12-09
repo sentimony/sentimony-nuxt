@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <no-ssr>
     <div v-if="loading">Loading...</div>
     <nav v-else class="headr-social-menu">
       <a class="headr-social-menu__link"
@@ -23,7 +23,7 @@
         />
       </a>
     </nav>
-  </div>
+  </no-ssr>
 </template>
 
 <script>
@@ -33,14 +33,6 @@
         free: 'FREE or Donate'
       }
     },
-    // mounted () {
-    //   return axios({
-    //     url: 'https://sentimony-db.firebaseio.com/social.json'
-    //   })
-    //   .then((res) => {
-    //     this.social = res.data;
-    //   })
-    // },
     computed: {
       loading () {
         return this.$store.getters.loading
