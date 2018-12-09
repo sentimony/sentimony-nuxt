@@ -11,7 +11,10 @@
         target="_blank"
         rel="noopener"
       >
-        <img class="menu-social__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+        <img class="menu-social__icon"
+          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'"
+          :alt="i.title + ' Icon'"
+        />
         <span class="menu-social__tooltip">{{ i.title }}</span>
       </a>
     </div>
