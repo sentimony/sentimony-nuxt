@@ -7,6 +7,14 @@
       v-if="release.links.youtube_playlist_id"
       :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
       :title="release.title + ' YouTube Iframe'"
+      style="background:#000;"
+    ></iframe>
+    <br>
+    <iframe
+      v-if="release.ytb"
+      :src="'https://ytuber.ru/task/done_recalc/' + release.ytb"
+      title="frame"
+      style="background:#ccc;"
     ></iframe>
     <br>
     Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>
@@ -22,10 +30,13 @@
     <br>
     <span v-for="i in release.tracklist.tracks">
       <!-- <span>{{ i.cue_time }} ► </span> -->
-      <span>{{ i.number }}. </span>
-      <span>{{ i.artist }} - </span>
-      <span>{{ i.title }} | </span>
-      <span>{{ i.bpm }}bpm</span><br>
+      <span>{{ i.number }}</span>.
+      <span>{{ i.artist }}</span> -
+      <span>{{ i.title }}</span> |
+      <span>{{ i.bpm }}bpm</span> |
+      <a :href="'https://ytuber.ru/task/done_recalc/' + i.ytb" target="_blank">link</a> |
+      <router-link v-ripple :to="'/yt/' + release.slug + '/track/' + i.ytb">track</router-link>
+      <br>
     </span>
     <span v-if="release.tracklist.note" v-html="release.tracklist.note"></span>
     <br v-if="release.tracklist.note">
@@ -82,12 +93,6 @@
         var moment = require('moment');
         if (date) {
           return moment(String(date)).format('YYYY');
-        }
-      },
-      spotifyEmbed (spotify) {
-        if (spotify) {
-          let s = spotify.replace('https://open.spotify.com/album/', '');
-          return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
         }
       }
     },
