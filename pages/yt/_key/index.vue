@@ -34,12 +34,14 @@
       <span>{{ i.artist }}</span> -
       <span>{{ i.title }}</span> |
       <span>{{ i.bpm }}bpm</span> |
-      <a :href="'https://ytuber.ru/task/done_recalc/' + i.ytb" target="_blank">link</a> |
-      <router-link v-ripple :to="'/yt/' + release.slug + '/track/' + i.ytb">track</router-link>
+      <a v-if="i.ytb" :href="'https://ytuber.ru/task/done_recalc/' + i.ytb" target="_blank">link</a> |
+      <router-link v-if="i.ytb" v-ripple :to="'/yt/' + release.slug + '/' + i.ytb">track</router-link> |
+      <a v-if="i.ytb" @click="onLoadPage(release.slug, i.ytb)">push</a>
       <br>
     </span>
     <span v-if="release.tracklist.note" v-html="release.tracklist.note"></span>
     <br v-if="release.tracklist.note">
+
     <br>
 
     <span v-if="release.credits.written_and_prodused_by" v-html="'Written & Prodused By ' + release.credits.written_and_prodused_by"></span>
@@ -94,6 +96,11 @@
         if (date) {
           return moment(String(date)).format('YYYY');
         }
+      }
+    },
+    methods: {
+      onLoadPage (slug, ytb) {
+        this.$router.push('/yt/' + slug + '/' + ytb)
       }
     },
     head () {

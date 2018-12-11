@@ -1,75 +1,11 @@
 <template>
   <div class="youtube-page">
-    <h1>YouTube</h1>
-    <div class="youtube-page__frame-holder">
-      <iframe
-        class="youtube-page__frame"
-        v-if="youtubeFrames.allTracks"
-        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeFrames.allTracks"
-        title="YouTube playlist frame'"
-      />
-    </div>
-    <div class="youtube-page__frame-holder">
-      <iframe
-        class="youtube-page__frame"
-        v-if="youtubeFrames.needToWatch"
-        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeFrames.needToWatch"
-        title="YouTube playlist frame'"
-      />
-    </div>
-    <table>
-      <tr>
-        <th>UPC</th>
-        <th>Date</th>
-        <th>Cat.No</th>
-        <th>Title</th>
-      </tr>
-      <tr v-for="i in sortByDate" v-if="i.upc">
-        <td>{{ i.upc }}</td>
-        <td>{{ i.date | formatDate }}</td>
-        <td style="text-transform:uppercase;">{{ i.cat_no }}:</td>
-        <td><router-link v-ripple :to="'/yt/' + i.slug + '/'">{{ i.title }}</router-link></td>
-      </tr>
-    </table>
+    <h1>index</h1>
   </div>
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
-  import sortBy from 'lodash/sortBy'
 
-  export default {
-    data: () => ({
-      youtubeFrames: {
-        allTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn',
-        needToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
-      }
-    }),
-    async asyncData() {
-      const { data } = await axios.get('releases.json')
-      return { releases: data }
-    },
-    computed: {
-      sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
-      }
-    },
-    filters: {
-      formatDate: function (date) {
-        var moment = require('moment');
-        if (date) {
-          return moment(String(date)).format('YYYY-MM-DD');
-        }
-      }
-    },
-    head: {
-      title: 'YouTube',
-      meta: [
-        { name: 'description', content: '' },
-        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
-      ]
-    }
-  }
 </script>
 
 <style lang="scss">
