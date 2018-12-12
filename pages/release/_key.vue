@@ -30,9 +30,9 @@
             <div>
 
               <!-- bandcamp btn -->
-              <a v-if="release.links.bandcamp.origin"
+              <a v-if="release.links.bandcamp_url"
                 class="page-release__bandcamp-btn"
-                :href="release.links.bandcamp.origin"
+                :href="release.links.bandcamp_url"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -201,9 +201,9 @@
                   is coming soon
                 </div>
                 <iframe
-                  v-if="release.links.bandcamp.id"
+                  v-if="release.links.bandcamp_id"
                   :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
-                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp.id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
+                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
                 ></iframe>
