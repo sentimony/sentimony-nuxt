@@ -79,6 +79,7 @@ module.exports = {
       '/release/psydewise-synaptic-elastic',
       '/release/u-wave-autumn-discovery',
       '/release/va-futured-vol-2',
+      '/release/juelz-trust-me-ep',
 
       '/artist/irukanji',
       '/artist/zymosis',
