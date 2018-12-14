@@ -12,7 +12,11 @@
               :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
               :alt="release.title"
             >
-            <div v-else class="page-release__cover-coming">Artwork<br>in progress</div>
+            <div v-else class="page-release__cover-coming">
+              Artwork<br>
+              in<br>
+              progress
+            </div>
           </div>
           <div class="page-release__info">
             <div class="page-release__small-info">
@@ -197,8 +201,8 @@
               <div class="page-release__bandcamp-player">
                 <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
                   Music<br>
-                  on Bandcamp<br>
-                  is coming soon
+                  is<br>
+                  coming
                 </div>
                 <iframe
                   v-if="release.links.bandcamp_id"
@@ -225,13 +229,13 @@
               </div>
             </v-tab>
 
-            <v-tab title="Spotify" icon="page__tab__icon--spotify">
+            <v-tab v-if="release.links.spotify" title="Spotify" icon="page__tab__icon--spotify">
               <div class="page-release__bandcamp-player">
-                <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
+                <!-- <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
                   Music<br>
                   on Spotify<br>
                   is coming soon
-                </div>
+                </div> -->
                 <iframe
                   v-if="release.links.spotify"
                   :class="'page-release__spotify-player-iframe tracks-' + release.tracks_number"
