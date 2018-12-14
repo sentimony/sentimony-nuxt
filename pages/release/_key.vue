@@ -269,7 +269,7 @@
         <div v-if="release.credits.artwork_by">
           <hr>
           <p>Credits:</p>
-          <p v-if="release.credits.written_and_prodused_by" v-html="'Written & Produced By ' + release.credits.written_and_prodused_by"></p>
+          <p v-if="release.credits.written_and_produced_by" v-html="'Written & Produced By ' + release.credits.written_and_produced_by"></p>
           <p v-if="release.credits.tracks_by" v-html="release.credits.tracks_by"></p>
           <!-- <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p> -->
           <p v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></p>
