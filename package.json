@@ -3,10 +3,10 @@
     "axios": "^0.18.0",
     "coriolan-ui": "^0.1.19",
     "firebase": "^5.7.0",
-    "moment": "^2.22.2",
+    "moment": "^2.23.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^1.4.5",
-    "nuxt-facebook-pixel-module": "^1.0.1",
+    "nuxt-facebook-pixel-module": "^1.1.0",
     "v-img": "^0.2.0",
     "vue-awesome-swiper": "^3.1.3",
     "vue-disqus": "^3.0.5",
@@ -14,7 +14,7 @@
     "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   },
   "scripts": {

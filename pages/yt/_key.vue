@@ -31,8 +31,8 @@
     <br v-if="release.tracklist.note">
     <br>
 
-    <span v-if="release.credits.written_and_prodused_by" v-html="'Written & Prodused By ' + release.credits.written_and_prodused_by"></span>
-    <br v-if="release.credits.written_and_prodused_by">
+    <span v-if="release.credits.written_and_produced_by" v-html="'Written & Prodused By ' + release.credits.written_and_produced_by"></span>
+    <br v-if="release.credits.written_and_produced_by">
     <span v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></span>
     <br v-if="release.credits.compiled_by">
     <span v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></span>
