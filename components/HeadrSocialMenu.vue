@@ -59,7 +59,7 @@
 
     @include media(M) {
       justify-content: flex-end;
-      width: 232px;
+      // width: 232px;
     }
 
     &__link {
