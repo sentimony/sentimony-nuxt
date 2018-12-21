@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dev": "cd src; nuxt",
+    "build": "cd src; nuxt build",
+    "deploy": "cp -R functions/nuxt/dist public; firebase deploy"
+  }
+}

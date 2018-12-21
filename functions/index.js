@@ -8,7 +8,7 @@ const config = {
   dev: false,
   buildDir: 'nuxt',
   build: {
-    publicPath: '/public/'
+    publicPath: '/'
   }
 }
 

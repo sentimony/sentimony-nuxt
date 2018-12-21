@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+const _845fa828 = () => import('../../src/pages/release/_key.vue' /* webpackChunkName: "pages/release/_key" */).then(m => m.default || m)
 const _a5133d84 = () => import('../../src/pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
 
@@ -63,6 +64,11 @@ export function createRouter () {
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
     routes: [
+		{
+			path: "/release/:key?",
+			component: _845fa828,
+			name: "release-key"
+		},
 		{
 			path: "/",
 			component: _a5133d84,

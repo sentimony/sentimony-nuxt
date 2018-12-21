@@ -1,19 +1,23 @@
 <template>
   <ul>
-    <!-- <li v-for="i in news" :key="i.slug">{{ i.title }}</li> -->
+    <li v-for="i in releases" :key="i.slug">
+      <router-link :to="'/release/' + i.slug + '/'">
+        {{ i.title }}
+      </router-link>
+    </li>
   </ul>
 </template>
 
 <script>
-  // import fetch from 'isomorphic-fetch'
+  import fetch from 'isomorphic-fetch'
 
-  // export default {
-  //   async asyncData() {
-  //     const response = await fetch('https://sentimony-db.firebaseio.com/news.json')
-  //     const news = await response.json()
-  //     return { news }
-  //   }
-  // }
+  export default {
+    async asyncData() {
+      const response = await fetch('https://sentimony-db.firebaseio.com/releases.json')
+      const releases = await response.json()
+      return { releases }
+    }
+  }
 </script>
 
 <style>
