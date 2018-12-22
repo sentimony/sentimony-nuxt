@@ -1,0 +1,15 @@
+{
+  "name": "functions",
+  "description": "Nuxt-SSR-Firebase: Nuxt.js with Firebase Functions Production Setup",
+  "dependencies": {
+    "express": "^4.15.3",
+    "firebase-admin": "~5.13.1",
+    "firebase-functions": "^2.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "nuxt": "^1.0.0"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "private": true
+}

@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "prod/client",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "nuxtssr"
+      }
+    ]
+  },
+  "functions": {
+    "source": "prod/server"
+  }
+}
