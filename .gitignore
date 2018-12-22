@@ -1,7 +1,6 @@
 node_modules/
-.nuxt/
-dist/
-public/
-firebase-debug.log
 .firebase/
-functions/nuxt/
+.nuxt/
+nuxt/
+dist/
+client/
