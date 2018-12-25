@@ -85,6 +85,7 @@ module.exports = {
       '/release/u-wave-autumn-discovery',
       '/release/va-futured-vol-2',
       '/release/juelz-dependence-ep',
+      '/release/aesthesia-perception-ep',
 
       '/artist/irukanji',
       '/artist/zymosis',
