@@ -15,7 +15,7 @@
         />
       </div>
     </div>
-    <h1>{{ release.title }} at {{ title }}</h1>
+    <h1>{{ release.title }} on {{ title }}</h1>
     <div class="DdosguardText">
       Redirecting
       <span v-if="!redirect"> . . . {{ counter }} sec</span>
