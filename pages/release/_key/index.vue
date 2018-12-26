@@ -34,9 +34,9 @@
             <div>
 
               <!-- bandcamp btn -->
-              <a v-if="release.links.bandcamp_url"
+              <router-link v-if="release.links.bandcamp_url"
                 class="page-release__bandcamp-btn"
-                :href="release.links.bandcamp_url"
+                :to="'bandcamp'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -45,7 +45,7 @@
                   alt="Bandcamp Icon"
                 >
                 <span class="page-release__bandcamp-btn-text">Bandcamp</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__bandcamp-btn is-disabled"
@@ -60,9 +60,9 @@
               <!-- bandcamp btn -->
 
               <!-- itunes btn -->
-              <a v-if="release.links.itunes"
+              <router-link v-if="release.links.itunes"
                 class="page-release__applemusic-btn"
-                :href="release.links.itunes"
+                :to="'itunes'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -72,7 +72,7 @@
                   alt="iTunes Icon"
                 >
                 <span class="page-release__applemusic-btn-text">iTunes</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__applemusic-btn is-disabled"
@@ -87,9 +87,9 @@
               <!-- itunes btn -->
 
               <!-- googleplay btn -->
-              <a v-if="release.links.googleplay"
+              <router-link v-if="release.links.googleplay"
                 class="page-release__googlemusic-btn"
-                :href="release.links.googleplay"
+                :to="'googleplay'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -98,7 +98,7 @@
                   alt="GooglePlay Icon"
                 >
                 <span class="page-release__googlemusic-btn-text">GooglePlay</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__googlemusic-btn is-disabled"
@@ -113,9 +113,9 @@
               <!-- googleplay btn -->
 
               <!-- beatport btn -->
-              <a v-if="release.links.beatport"
+              <router-link v-if="release.links.beatport"
                 class="page-release__beatport-btn"
-                :href="release.links.beatport"
+                :to="'beatport'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -124,7 +124,7 @@
                   alt="Beatport Icon"
                 >
                 <span class="page-release__beatport-btn-text">Beatport</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__beatport-btn is-disabled"
@@ -165,9 +165,9 @@
               <!-- spotify btn -->
 
               <!-- junodownload btn -->
-              <a v-if="release.links.junodownload"
+              <router-link v-if="release.links.junodownload"
                 class="page-release__junodownload-btn"
-                :href="release.links.junodownload"
+                :to="'junodownload'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -176,7 +176,7 @@
                   alt="JunoDownload Icon"
                 >
                 <span class="page-release__junodownload-btn-text">JunoDownload</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__junodownload-btn is-disabled"
