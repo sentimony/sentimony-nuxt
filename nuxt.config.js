@@ -47,6 +47,11 @@ module.exports = {
       analyzerMode: 'static'
     }
   },
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
+  },
   // generate: {
   //   routes: function() {
   //     return axios.get('https://sentimony-db.firebaseio.com/releases.json')
@@ -92,6 +97,8 @@ module.exports = {
       '/release/psydewise-synaptic-elastic',
       '/release/u-wave-autumn-discovery',
       '/release/va-futured-vol-2',
+      '/release/juelz-dependence',
+      '/release/aesthesia-perception',
 
       '/artist/irukanji',
       '/artist/zymosis',
