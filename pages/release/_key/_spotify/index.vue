@@ -12,10 +12,9 @@
         :alt="release.title"
       />
     </div>
-    <h1>{{ release.title }}</h1>
-    <div>
-      Redirecting to
-      <b>Spotify</b  > . . .
+    <h1>{{ release.title }} on Spotify</h1>
+    <div class="text">
+      Redirecting . . .
       <span v-if="!redirect">{{ counter }} sec</span>
     </div>
   </section>
@@ -53,6 +52,15 @@
     mounted() {
       this.timeout()
       this.interval()
+    },
+    head () {
+      return {
+        title: this.release.title + ' on Spotify',
+        meta: [
+          { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
+        ]
+      }
     }
   }
 </script>
