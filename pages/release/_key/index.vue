@@ -139,9 +139,9 @@
               <!-- beatport btn -->
 
               <!-- spotify btn -->
-              <a v-if="release.links.spotify"
+              <router-link v-if="release.links.spotify"
                 class="page-release__spotify-btn"
-                :href="release.links.spotify"
+                :to="'spotify'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -150,7 +150,7 @@
                   alt="Spotify Icon"
                 >
                 <span class="page-release__spotify-btn-text">Spotify</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__spotify-btn is-disabled"
@@ -191,6 +191,7 @@
               <!-- spotify btn -->
 
             </div>
+
           </div>
         </div>
 
@@ -352,6 +353,12 @@
         }
       }
     },
+    methods: {
+      onLoad ({ route }) {
+        const { key } = route.params
+        console.log(key)
+      }
+    },
     head () {
       return {
         title: this.release.title,
@@ -365,17 +372,17 @@
 </script>
 
 <style lang="scss">
-  @import '../../node_modules/coriolan-ui/tools/variables';
-  @import '../../node_modules/coriolan-ui/mixins/media';
-  @import '../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../assets/scss/variables';
-  @import '../../assets/scss/buttons';
-  @import '../../assets/scss/vue-tabs-restyle';
-  @import '../../assets/scss/content';
-  @import '../../assets/scss/page';
-  @import '../../assets/scss/iframe-size';
-  @import '../../assets/scss/v-img-restyle';
-  @import '../../assets/scss/page';
+  @import '../../../node_modules/coriolan-ui/tools/variables';
+  @import '../../../node_modules/coriolan-ui/mixins/media';
+  @import '../../../node_modules/coriolan-ui/mixins/ratio';
+  @import '../../../assets/scss/variables';
+  @import '../../../assets/scss/buttons';
+  @import '../../../assets/scss/vue-tabs-restyle';
+  @import '../../../assets/scss/content';
+  @import '../../../assets/scss/page';
+  @import '../../../assets/scss/iframe-size';
+  @import '../../../assets/scss/v-img-restyle';
+  @import '../../../assets/scss/page';
 
   .page-release {
     @extend .page;
