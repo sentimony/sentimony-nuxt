@@ -13,7 +13,12 @@
                   :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
                   :alt="i.title + ' Small Thumbnail'"
                 >
-                <div v-else class="item__soon">Artwork<br>in progress</div>
+                <div v-else class="item__soon">
+                  Artwork
+                  <br>
+                  in<br>
+                  progress
+                </div>
               </div>
               <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
               <div v-if="i.new" class="item__status--red">Out Now</div>
