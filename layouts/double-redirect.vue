@@ -8,8 +8,8 @@
     font-size: 18px
     line-height: 1.5
     font-family: 'Montserrat', sans-serif
-    background-color: #f5f5f5
-    color: #262626
+    background-color: #eee
+    color: #333
 
     section
       position: absolute
@@ -19,6 +19,16 @@
       justify-content: center
       align-items: center
       flex-direction: column
+      padding: 20px
+      box-sizing: border-box
+
+      // .siteFrame
+      //   border: none
+      //   width: 100%
+      //   height: 100%
+      //   position: absolute
+      //   top: 0
+      //   left: 0
 
       .anim
         position: relative
@@ -38,19 +48,40 @@
           animation: 2s ease infinite pulse
           box-shadow: 0 0 0
 
+        &:after
+          position: absolute
+          content: ''
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          border-radius: 50%
+          animation: 2s ease .5s infinite pulse
+          box-shadow: 0 0 0
+
       img
         display: block
         border-radius: 500px
         width: 120px
         height: 120px
+        border: 2px solid #999
+        box-sizing: border-box
 
       h1
         font-size: 30px
+        background-color: rgba(#fff,.5)
+        position: relative
+        padding: 0 .75em
+
+      .text
+        position: relative
+        background-color: rgba(#fff,.5)
+        padding: 0 .75em
 
   @keyframes pulse
     0%
-      box-shadow: 0 0 0 0 rgba(#1565c0, 1)
+      box-shadow: 0 0 0 0 rgba(#999, 1)
     100%
-      box-shadow: 0 0 0 180px rgba(#1565c0, 0)
+      box-shadow: 0 0 0 280px rgba(#999, 0)
 
 </style>
