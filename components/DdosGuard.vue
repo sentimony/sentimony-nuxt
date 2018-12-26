@@ -16,9 +16,10 @@
       </div>
     </div>
     <h1>{{ release.title }} at {{ title }}</h1>
-    <div class="DdosguardText" v-if="!redirect">Redirecting . . . {{ counter }} sec</div>
-    <div class="DdosguardText" v-if="redirect">
-      <a :href="link">{{ link }}</a>
+    <div class="DdosguardText">
+      Redirecting
+      <span v-if="!redirect"> . . . {{ counter }} sec</span>
+      <span v-if="redirect"> to <a :href="link">{{ link }}</a></span>
     </div>
   </section>
 </template>
