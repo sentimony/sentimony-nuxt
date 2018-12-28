@@ -19,12 +19,7 @@
         <!-- <nuxt-link to="/contacts/" class="headr__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
       </nav>
 
-      <nav class="headr__social-menu">
-        <a v-ripple v-for="i in social.data" v-if="i.isVisibleHeadr" class="headr__social-menu-link" :href="i.url" target="_blank" rel="noopener">
-          <img class="headr__social-menu-link-img" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
-          <span class="headr__social-menu-link-tooltip">{{ i.title }}</span>
-        </a>
-      </nav>
+      <HeadrSocialMenu/>
 
       <nuxt-link v-ripple to="/mobmenu/" class="headr__mob-menu-button">
         <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
@@ -35,23 +30,17 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import HeadrSocialMenu from '~/components/HeadrSocialMenu.vue'
 
   export default {
+    components: {
+      HeadrSocialMenu
+    },
     data() {
       return {
         siteTitle: 'Sentimony Records',
-        siteDescription: 'Psychedelic Music Label',
-        social: []
+        siteDescription: 'Psychedelic Music Label'
       }
-    },
-    mounted () {
-      return axios({
-        url: 'https://sentimony-db.firebaseio.com/social.json'
-      })
-      .then((res) => {
-        this.social = res.data;
-      })
     }
   }
 </script>
@@ -61,6 +50,36 @@
   @import '../node_modules/coriolan-ui/mixins/media';
   @import '../assets/scss/variables';
   @import '../assets/scss/main-menu-link';
+
+  .logolink {
+    @extend .main-menu-link;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 232px;
+    height: 54px;
+    padding: 0;
+
+    &__logo {
+      width: 40px;
+      display: block;
+      margin-right: 12px;
+    }
+
+    &__text {
+      text-align: left;
+    }
+
+    &__title {
+      color: #fff;
+    }
+
+    &__description {
+      font-size: 12px;
+      color: rgba(#fff,.4);
+      letter-spacing: .4px;
+    }
+  }
 
   .headr {
     position: relative;
@@ -90,38 +109,6 @@
       }
     }
 
-    &__social-menu {
-      display: none;
-
-      @include media(S) {
-        display: flex;
-      }
-
-      @include media(M) {
-        justify-content: flex-end;
-        width: 232px;
-      }
-
-      &-link {
-        @extend .main-menu-link;
-        font-size: 16px;
-        color: #fff;
-        padding: .938em;
-        box-sizing: border-box;
-
-        &-img {
-          display: block;
-          width: auto;
-          height: 24px;
-          margin: 0 auto;
-        }
-
-        &-tooltip {
-          display: none;
-        }
-      }
-    }
-
     &__mob-menu-button {
       @extend .main-menu-link;
       display: block;
@@ -138,36 +125,6 @@
         height: 20px;
         margin: 0 auto;
       }
-    }
-  }
-
-  .logolink {
-    @extend .main-menu-link;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 232px;
-    height: 54px;
-    padding: 0;
-
-    &__logo {
-      width: 40px;
-      display: block;
-      margin-right: 12px;
-    }
-
-    &__text {
-      text-align: left;
-    }
-
-    &__title {
-      color: #fff;
-    }
-
-    &__description {
-      font-size: 12px;
-      color: rgba(#fff,.4);
-      letter-spacing: .4px;
     }
   }
 </style>

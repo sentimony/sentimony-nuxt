@@ -13,7 +13,11 @@
                   :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
                   :alt="i.title + ' Small Thumbnail'"
                 >
-                <div v-else class="item__soon">Photo<br>coming soon</div>
+                <div v-else class="item__soon">
+                  Photo<br>
+                  coming<br>
+                  soon
+                </div>
               </div>
             </div>
             <div class="item__title">{{ i.title }}</div>

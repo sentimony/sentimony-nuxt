@@ -12,7 +12,11 @@
               :srcset="'https://content.sentimony.com/assets/img/artists/medium/' + artist.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/medium-retina/' + artist.slug + '.jpg 2x'"
               :alt="artist.title"
             >
-            <div v-else class="page-artist__photo-coming">Photo<br>coming soon</div>
+            <div v-else class="page-artist__photo-coming">
+              Photo<br>
+              is<br>
+              coming
+            </div>
           </div>
           <div class="page-artist__info">
             <div v-if="artist.style" class="page-artist__small-info">
@@ -31,7 +35,7 @@
                 <div class="iframe-holder__ratio">
                   <iframe
                     class="iframe-holder__iframe"
-                    :src="'https://www.youtube.com/embed/videoseries?list=' + artist.youtube_id"
+                    :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + artist.youtube_id"
                     :title="artist.title + ' YouTube Iframe'"
                   ></iframe>
                 </div>
@@ -269,8 +273,10 @@
         left: 0;
         right: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 143%;
+        height: 143%;
+        transform: scale(.7);
+        transform-origin: top left;
       }
     }
   }
