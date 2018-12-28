@@ -1,9 +1,13 @@
 <template>
-  <div class="youtube-page">
+  <div class="youtube-page-item">
 
-    <router-link v-ripple to="/yt">Back to list</router-link><br>
+    <router-link v-ripple to="/yt">Back to YT page</router-link><br>
     <br>
-    ===<br>
+    <iframe
+      v-if="release.links.youtube_playlist_id"
+      :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
+      :title="release.title + ' YouTube Iframe'"
+    ></iframe>
     <br>
     Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>
     iTunes: http://bit.ly/{{ release.cat_no }}-itunes<br>
@@ -12,9 +16,8 @@
     Spotify: http://bit.ly/{{ release.cat_no }}-spotify<br>
     Official release page: http://bit.ly/{{ release.cat_no }}<br>
     <br>
-    <span style="text-transform:uppercase;">{{ release.cat_no }}:</span>
-    {{ release.title }}
-    <span v-if="release.format == 'EP'">{{ release.format }}</span>
+    <span style="text-transform:uppercase;">{{ release.cat_no }}: </span>
+    <span>{{ release.title }}</span>
     (Sentimony Records, {{ release.date | formatDate }})<br>
     <br>
     <span v-for="i in release.tracklist.tracks">
@@ -22,14 +25,14 @@
       <span>{{ i.number }}. </span>
       <span>{{ i.artist }} - </span>
       <span>{{ i.title }} | </span>
-      <span>{{ i.bpm }}</span><br>
+      <span>{{ i.bpm }}bpm</span><br>
     </span>
     <span v-if="release.tracklist.note" v-html="release.tracklist.note"></span>
     <br v-if="release.tracklist.note">
     <br>
 
-    <span v-if="release.credits.written_and_prodused_by" v-html="'Written & Prodused By ' + release.credits.written_and_prodused_by"></span>
-    <br v-if="release.credits.written_and_prodused_by">
+    <span v-if="release.credits.written_and_produced_by" v-html="'Written & Prodused By ' + release.credits.written_and_produced_by"></span>
+    <br v-if="release.credits.written_and_produced_by">
     <span v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></span>
     <br v-if="release.credits.compiled_by">
     <span v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></span>
@@ -101,7 +104,7 @@
 </script>
 
 <style lang="scss">
-  .youtube-page {
+  .youtube-page-item {
     padding: 2em 0;
     max-width: 400px;
     margin: 0 auto;
