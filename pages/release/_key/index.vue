@@ -12,31 +12,31 @@
               :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
               :alt="release.title"
             >
-            <div v-else class="page-release__cover-coming">Artwork<br>in progress</div>
+            <div v-else class="page-release__cover-coming">
+              Artwork<br>
+              in<br>
+              progress
+            </div>
           </div>
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-              <span v-if="release.coming_soon"> | Coming at 2018</span>
+              <span v-if="release.coming_soon"> | Coming at 2019</span>
               <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
             </div>
-            <h1 v-if="release.title" class="page-release__title">
-              {{ release.title }}
-              <!-- <span v-if="release.format == 'EP'">{{ release.format }}</span> -->
-            </h1>
+            <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
             <div v-if="release.style" class="page-release__small-info">
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
             </div>
-
             <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
 
               <!-- bandcamp btn -->
-              <a v-if="release.links.bandcamp.origin"
+              <router-link v-if="release.links.bandcamp_url"
                 class="page-release__bandcamp-btn"
-                :href="release.links.bandcamp.origin"
+                :to="'bandcamp'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -45,7 +45,7 @@
                   alt="Bandcamp Icon"
                 >
                 <span class="page-release__bandcamp-btn-text">Bandcamp</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__bandcamp-btn is-disabled"
@@ -60,9 +60,9 @@
               <!-- bandcamp btn -->
 
               <!-- itunes btn -->
-              <a v-if="release.links.itunes"
+              <router-link v-if="release.links.itunes"
                 class="page-release__applemusic-btn"
-                :href="release.links.itunes"
+                :to="'itunes'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -72,7 +72,7 @@
                   alt="iTunes Icon"
                 >
                 <span class="page-release__applemusic-btn-text">iTunes</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__applemusic-btn is-disabled"
@@ -87,9 +87,9 @@
               <!-- itunes btn -->
 
               <!-- googleplay btn -->
-              <a v-if="release.links.googleplay"
+              <router-link v-if="release.links.googleplay"
                 class="page-release__googlemusic-btn"
-                :href="release.links.googleplay"
+                :to="'googleplay'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -98,7 +98,7 @@
                   alt="GooglePlay Icon"
                 >
                 <span class="page-release__googlemusic-btn-text">GooglePlay</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__googlemusic-btn is-disabled"
@@ -113,9 +113,9 @@
               <!-- googleplay btn -->
 
               <!-- beatport btn -->
-              <a v-if="release.links.beatport"
+              <router-link v-if="release.links.beatport"
                 class="page-release__beatport-btn"
-                :href="release.links.beatport"
+                :to="'beatport'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -124,7 +124,7 @@
                   alt="Beatport Icon"
                 >
                 <span class="page-release__beatport-btn-text">Beatport</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__beatport-btn is-disabled"
@@ -139,18 +139,18 @@
               <!-- beatport btn -->
 
               <!-- spotify btn -->
-              <a v-if="release.links.spotify"
+              <router-link v-if="release.links.spotify"
                 class="page-release__spotify-btn"
-                :href="release.links.spotify"
+                :to="'spotify'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
                 <img class="page-release__spotify-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
-                  alt="Beatport Icon"
+                  alt="Spotify Icon"
                 >
                 <span class="page-release__spotify-btn-text">Spotify</span>
-              </a>
+              </router-link>
 
               <span v-else
                 class="page-release__spotify-btn is-disabled"
@@ -158,13 +158,40 @@
                 <img
                   class="page-release__spotify-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01"
-                  alt="Beatport Icon"
+                  alt="Spotify Icon"
                 >
                 <span class="page-release__spotify-btn-text">Spotify</span>
               </span>
               <!-- spotify btn -->
 
+              <!-- junodownload btn -->
+              <router-link v-if="release.links.junodownload"
+                class="page-release__junodownload-btn"
+                :to="'junodownload'"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__junodownload-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
+                  alt="JunoDownload Icon"
+                >
+                <span class="page-release__junodownload-btn-text">JunoDownload</span>
+              </router-link>
+
+              <span v-else
+                class="page-release__junodownload-btn is-disabled"
+              >
+                <img
+                  class="page-release__junodownload-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
+                  alt="Beatport Icon"
+                >
+                <span class="page-release__junodownload-btn-text">JunoDownload</span>
+              </span>
+              <!-- spotify btn -->
+
             </div>
+
           </div>
         </div>
 
@@ -175,13 +202,13 @@
               <div class="page-release__bandcamp-player">
                 <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
                   Music<br>
-                  on Bandcamp<br>
-                  is coming soon
+                  is<br>
+                  coming
                 </div>
                 <iframe
-                  v-if="release.links.bandcamp.id"
+                  v-if="release.links.bandcamp_id"
                   :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
-                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp.id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
+                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
                 ></iframe>
@@ -197,19 +224,19 @@
                 </div> -->
                 <iframe
                   class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?list=' + release.links.youtube_playlist_id"
+                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
                   :title="release.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
             </v-tab>
 
-            <v-tab title="Spotify" icon="page__tab__icon--spotify">
+            <v-tab v-if="release.links.spotify" title="Spotify" icon="page__tab__icon--spotify">
               <div class="page-release__bandcamp-player">
-                <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
+                <!-- <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
                   Music<br>
                   on Spotify<br>
                   is coming soon
-                </div>
+                </div> -->
                 <iframe
                   v-if="release.links.spotify"
                   :class="'page-release__spotify-player-iframe tracks-' + release.tracks_number"
@@ -239,7 +266,7 @@
             <span v-if="i.number">{{ i.number }}. </span>
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
-            <span v-if="i.bpm"> | {{ i.bpm }}</span>
+            <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
           </p>
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
@@ -247,7 +274,7 @@
         <div v-if="release.credits.artwork_by">
           <hr>
           <p>Credits:</p>
-          <p v-if="release.credits.written_and_prodused_by" v-html="'Written & Prodused By ' + release.credits.written_and_prodused_by"></p>
+          <p v-if="release.credits.written_and_produced_by" v-html="'Written & Produced By ' + release.credits.written_and_produced_by"></p>
           <p v-if="release.credits.tracks_by" v-html="release.credits.tracks_by"></p>
           <!-- <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p> -->
           <p v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></p>
@@ -261,9 +288,9 @@
           <p>Links:</p>
         </div>
 
-        <p v-if="release.links.junodownload">
+        <!-- <p v-if="release.links.junodownload">
           <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
-        </p>
+        </p> -->
 
         <!-- <p v-if="release.links.spotify">
           <a :href="release.links.spotify" target="_blank" rel="noopener">Spotify</a>
@@ -326,6 +353,12 @@
         }
       }
     },
+    methods: {
+      onLoad ({ route }) {
+        const { key } = route.params
+        console.log(key)
+      }
+    },
     head () {
       return {
         title: this.release.title,
@@ -339,17 +372,17 @@
 </script>
 
 <style lang="scss">
-  @import '../../node_modules/coriolan-ui/tools/variables';
-  @import '../../node_modules/coriolan-ui/mixins/media';
-  @import '../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../assets/scss/variables';
-  @import '../../assets/scss/buttons';
-  @import '../../assets/scss/vue-tabs-restyle';
-  @import '../../assets/scss/content';
-  @import '../../assets/scss/page';
-  @import '../../assets/scss/iframe-size';
-  @import '../../assets/scss/v-img-restyle';
-  @import '../../assets/scss/page';
+  @import '../../../node_modules/coriolan-ui/tools/variables';
+  @import '../../../node_modules/coriolan-ui/mixins/media';
+  @import '../../../node_modules/coriolan-ui/mixins/ratio';
+  @import '../../../assets/scss/variables';
+  @import '../../../assets/scss/buttons';
+  @import '../../../assets/scss/vue-tabs-restyle';
+  @import '../../../assets/scss/content';
+  @import '../../../assets/scss/page';
+  @import '../../../assets/scss/iframe-size';
+  @import '../../../assets/scss/v-img-restyle';
+  @import '../../../assets/scss/page';
 
   .page-release {
     @extend .page;
@@ -469,7 +502,7 @@
       }
     }
 
-    // &__junodownload-btn,
+    &__junodownload-btn,
     &__beatport-btn,
     &__bandcamp-btn,
     &__applemusic-btn,

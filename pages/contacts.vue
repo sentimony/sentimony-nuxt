@@ -1,10 +1,10 @@
 <template>
   <div class="contacts">
     <h1 class="contacts__caption">Contacts</h1>
-    <p class="contacts__title">{{ social.touch }}</p>
-    <p><a href="mailto:sentimony@gmail.com?subject=Hello, Sentimony Records">sentimony@gmail.com</a></p>
-    <p class="contacts__title">{{ social.follow }}</p>
-    <p v-for="i in social.data" v-if="i.isVisibleContacts">
+    <p class="contacts__title">{{ touch }}</p>
+    <p><a :href="mailtoUrl">{{ email }}</a></p>
+    <p class="contacts__title">{{ follow }}</p>
+    <p v-for="i in social" v-if="i.isVisibleContacts">
       <a class="contacts__link" :href="i.url" target="_blank" rel="noopener">
         <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
         <span>{{ i.title }}</span>
@@ -17,6 +17,14 @@
   import axios from '~/plugins/axios'
 
   export default {
+    data() {
+      return {
+        touch: "Let's be in touch:",
+        mailtoUrl: 'mailto:sentimony@gmail.com?subject=Hello, Sentimony Records',
+        email: 'sentimony@gmail.com',
+        follow: 'Follow Us:'
+      }
+    },
     async asyncData() {
       const { data } = await axios.get('social.json')
       return { social: data }
