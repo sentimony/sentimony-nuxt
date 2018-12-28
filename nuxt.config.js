@@ -1,4 +1,5 @@
-import routes from './assets/json/routes.js'
+// import routes from './assets/json/routes.js'
+// const routes = require('./assets/json/routes.js')
 
 module.exports = {
   head: {
@@ -42,9 +43,9 @@ module.exports = {
   },
   build: {
     // vendor: ['axios'],
-    analyze: {
-      analyzerMode: 'static'
-    }
+    // analyze: {
+    //   analyzerMode: 'static'
+    // }
   },
   router: {
     scrollBehavior: function (to, from, savedPosition) {
@@ -52,6 +53,9 @@ module.exports = {
     }
   },
   generate: {
-    routes: routes
+      // routes: routes
+      routes: [
+      '/release/va-fantazma',
+    ]
   }
 }
