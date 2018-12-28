@@ -4,7 +4,7 @@
     "coriolan-ui": "^0.1.20",
     "moment": "^2.23.0",
     "normalize.css": "^8.0.1",
-    "nuxt": "^1.4.5",
+    "nuxt": "^2.3.4",
     "nuxt-facebook-pixel-module": "^1.1.0",
     "v-img": "^0.2.0",
     "vue-awesome-swiper": "^3.1.3",

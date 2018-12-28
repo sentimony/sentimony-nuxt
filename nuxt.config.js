@@ -41,7 +41,7 @@ module.exports = {
     disabled: false
   },
   build: {
-    vendor: ['axios'],
+    // vendor: ['axios'],
     analyze: {
       analyzerMode: 'static'
     }
