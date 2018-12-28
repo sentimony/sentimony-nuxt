@@ -51,24 +51,26 @@ module.exports = {
   },
   generate: {
     routes: [
-      'https://sentimony.com/release/va-fantazma/',
-      'https://sentimony.com/release/va-fantazma/official/',
-      'https://sentimony.com/release/va-fantazma/bandcamp/',
-      'https://sentimony.com/release/va-fantazma/itunes/',
-      'https://sentimony.com/release/va-fantazma/googleplay/',
-      'https://sentimony.com/release/va-fantazma/beatport/',
-      'https://sentimony.com/release/va-fantazma/spotify/',
-      'https://sentimony.com/release/va-fantazma/junodownload/',
-      'https://sentimony.com/release/va-fantazma/youtube/',
-      'https://sentimony.com/release/va-emptinesses/',
-      'https://sentimony.com/release/va-emptinesses/official/',
-      'https://sentimony.com/release/va-emptinesses/bandcamp/',
-      'https://sentimony.com/release/va-emptinesses/itunes/',
-      'https://sentimony.com/release/va-emptinesses/googleplay/',
-      'https://sentimony.com/release/va-emptinesses/beatport/',
-      'https://sentimony.com/release/va-emptinesses/spotify/',
-      'https://sentimony.com/release/va-emptinesses/junodownload/',
-      'https://sentimony.com/release/va-emptinesses/youtube/',
+      '/release/va-fantazma',
+      '/release/va-fantazma/official',
+      '/release/va-fantazma/bandcamp',
+      '/release/va-fantazma/itunes',
+      '/release/va-fantazma/googleplay',
+      '/release/va-fantazma/beatport',
+      '/release/va-fantazma/spotify',
+      '/release/va-fantazma/junodownload',
+      '/release/va-fantazma/youtube',
+
+      '/release/va-emptinesses',
+      '/release/va-emptinesses/official',
+      '/release/va-emptinesses/bandcamp',
+      '/release/va-emptinesses/itunes',
+      '/release/va-emptinesses/googleplay',
+      '/release/va-emptinesses/beatport',
+      '/release/va-emptinesses/spotify',
+      '/release/va-emptinesses/junodownload',
+      '/release/va-emptinesses/youtube',
+
       'https://sentimony.com/release/sphingida-origin/',
       'https://sentimony.com/release/sphingida-origin/official/',
       'https://sentimony.com/release/sphingida-origin/bandcamp/',
@@ -78,6 +80,7 @@ module.exports = {
       'https://sentimony.com/release/sphingida-origin/spotify/',
       'https://sentimony.com/release/sphingida-origin/junodownload/',
       'https://sentimony.com/release/sphingida-origin/youtube/',
+
       'https://sentimony.com/release/va-true-story/',
       'https://sentimony.com/release/va-true-story/official/',
       'https://sentimony.com/release/va-true-story/bandcamp/',
@@ -87,6 +90,7 @@ module.exports = {
       'https://sentimony.com/release/va-true-story/spotify/',
       'https://sentimony.com/release/va-true-story/junodownload/',
       'https://sentimony.com/release/va-true-story/youtube/',
+
       'https://sentimony.com/release/spectrum-vision-lost-space-device/',
       'https://sentimony.com/release/spectrum-vision-lost-space-device/official/',
       'https://sentimony.com/release/spectrum-vision-lost-space-device/bandcamp/',
@@ -96,6 +100,7 @@ module.exports = {
       'https://sentimony.com/release/spectrum-vision-lost-space-device/spotify/',
       'https://sentimony.com/release/spectrum-vision-lost-space-device/junodownload/',
       'https://sentimony.com/release/spectrum-vision-lost-space-device/youtube/',
+
       'https://sentimony.com/release/irukanji-z-lisu/',
       'https://sentimony.com/release/irukanji-z-lisu/official/',
       'https://sentimony.com/release/irukanji-z-lisu/bandcamp/',
@@ -105,6 +110,7 @@ module.exports = {
       'https://sentimony.com/release/irukanji-z-lisu/spotify/',
       'https://sentimony.com/release/irukanji-z-lisu/junodownload/',
       'https://sentimony.com/release/irukanji-z-lisu/youtube/',
+
       'https://sentimony.com/release/va-ocean-scenes-higher-titans/',
       'https://sentimony.com/release/va-ocean-scenes-higher-titans/official/',
       'https://sentimony.com/release/va-ocean-scenes-higher-titans/bandcamp/',
@@ -114,6 +120,7 @@ module.exports = {
       'https://sentimony.com/release/va-ocean-scenes-higher-titans/spotify/',
       'https://sentimony.com/release/va-ocean-scenes-higher-titans/junodownload/',
       'https://sentimony.com/release/va-ocean-scenes-higher-titans/youtube/',
+
       'https://sentimony.com/release/senzar-before-the-morning-sun/',
       'https://sentimony.com/release/senzar-before-the-morning-sun/official/',
       'https://sentimony.com/release/senzar-before-the-morning-sun/bandcamp/',
@@ -123,6 +130,7 @@ module.exports = {
       'https://sentimony.com/release/senzar-before-the-morning-sun/spotify/',
       'https://sentimony.com/release/senzar-before-the-morning-sun/junodownload/',
       'https://sentimony.com/release/senzar-before-the-morning-sun/youtube/',
+
       'https://sentimony.com/release/va-grower/',
       'https://sentimony.com/release/va-grower/official/',
       'https://sentimony.com/release/va-grower/bandcamp/',
@@ -132,6 +140,7 @@ module.exports = {
       'https://sentimony.com/release/va-grower/spotify/',
       'https://sentimony.com/release/va-grower/junodownload/',
       'https://sentimony.com/release/va-grower/youtube/',
+
       'https://sentimony.com/release/va-time-loop-beyond-borders/',
       'https://sentimony.com/release/va-time-loop-beyond-borders/official/',
       'https://sentimony.com/release/va-time-loop-beyond-borders/bandcamp/',
@@ -141,6 +150,7 @@ module.exports = {
       'https://sentimony.com/release/va-time-loop-beyond-borders/spotify/',
       'https://sentimony.com/release/va-time-loop-beyond-borders/junodownload/',
       'https://sentimony.com/release/va-time-loop-beyond-borders/youtube/',
+
       'https://sentimony.com/release/unusual-cosmic-process-weightlessness/',
       'https://sentimony.com/release/unusual-cosmic-process-weightlessness/official/',
       'https://sentimony.com/release/unusual-cosmic-process-weightlessness/bandcamp/',
@@ -150,6 +160,7 @@ module.exports = {
       'https://sentimony.com/release/unusual-cosmic-process-weightlessness/spotify/',
       'https://sentimony.com/release/unusual-cosmic-process-weightlessness/junodownload/',
       'https://sentimony.com/release/unusual-cosmic-process-weightlessness/youtube/',
+
       'https://sentimony.com/release/va-tempo-syndicate/',
       'https://sentimony.com/release/va-tempo-syndicate/official/',
       'https://sentimony.com/release/va-tempo-syndicate/bandcamp/',
@@ -159,6 +170,7 @@ module.exports = {
       'https://sentimony.com/release/va-tempo-syndicate/spotify/',
       'https://sentimony.com/release/va-tempo-syndicate/junodownload/',
       'https://sentimony.com/release/va-tempo-syndicate/youtube/',
+
       'https://sentimony.com/release/va-dancing-mavka/',
       'https://sentimony.com/release/va-dancing-mavka/official/',
       'https://sentimony.com/release/va-dancing-mavka/bandcamp/',
@@ -168,6 +180,7 @@ module.exports = {
       'https://sentimony.com/release/va-dancing-mavka/spotify/',
       'https://sentimony.com/release/va-dancing-mavka/junodownload/',
       'https://sentimony.com/release/va-dancing-mavka/youtube/',
+
       'https://sentimony.com/release/va-absence-of-gravity/',
       'https://sentimony.com/release/va-absence-of-gravity/official/',
       'https://sentimony.com/release/va-absence-of-gravity/bandcamp/',
@@ -177,6 +190,7 @@ module.exports = {
       'https://sentimony.com/release/va-absence-of-gravity/spotify/',
       'https://sentimony.com/release/va-absence-of-gravity/junodownload/',
       'https://sentimony.com/release/va-absence-of-gravity/youtube/',
+
       'https://sentimony.com/release/va-special-places/',
       'https://sentimony.com/release/va-special-places/official/',
       'https://sentimony.com/release/va-special-places/bandcamp/',
@@ -186,6 +200,7 @@ module.exports = {
       'https://sentimony.com/release/va-special-places/spotify/',
       'https://sentimony.com/release/va-special-places/junodownload/',
       'https://sentimony.com/release/va-special-places/youtube/',
+
       'https://sentimony.com/release/hypnotriod-seven-heavenly-edges/',
       'https://sentimony.com/release/hypnotriod-seven-heavenly-edges/official/',
       'https://sentimony.com/release/hypnotriod-seven-heavenly-edges/bandcamp/',
@@ -195,6 +210,7 @@ module.exports = {
       'https://sentimony.com/release/hypnotriod-seven-heavenly-edges/spotify/',
       'https://sentimony.com/release/hypnotriod-seven-heavenly-edges/junodownload/',
       'https://sentimony.com/release/hypnotriod-seven-heavenly-edges/youtube/',
+
       'https://sentimony.com/release/specialmind-the-missing-particle/',
       'https://sentimony.com/release/specialmind-the-missing-particle/official/',
       'https://sentimony.com/release/specialmind-the-missing-particle/bandcamp/',
@@ -204,6 +220,7 @@ module.exports = {
       'https://sentimony.com/release/specialmind-the-missing-particle/spotify/',
       'https://sentimony.com/release/specialmind-the-missing-particle/junodownload/',
       'https://sentimony.com/release/specialmind-the-missing-particle/youtube/',
+
       'https://sentimony.com/release/tentura-aurora/',
       'https://sentimony.com/release/tentura-aurora/official/',
       'https://sentimony.com/release/tentura-aurora/bandcamp/',
@@ -213,6 +230,7 @@ module.exports = {
       'https://sentimony.com/release/tentura-aurora/spotify/',
       'https://sentimony.com/release/tentura-aurora/junodownload/',
       'https://sentimony.com/release/tentura-aurora/youtube/',
+
       'https://sentimony.com/release/cifroteca-roof-raiser-wild-storm/',
       'https://sentimony.com/release/cifroteca-roof-raiser-wild-storm/official/',
       'https://sentimony.com/release/cifroteca-roof-raiser-wild-storm/bandcamp/',
@@ -222,6 +240,7 @@ module.exports = {
       'https://sentimony.com/release/cifroteca-roof-raiser-wild-storm/spotify/',
       'https://sentimony.com/release/cifroteca-roof-raiser-wild-storm/junodownload/',
       'https://sentimony.com/release/cifroteca-roof-raiser-wild-storm/youtube/',
+
       'https://sentimony.com/release/va-gamayun-tale/',
       'https://sentimony.com/release/va-gamayun-tale/official/',
       'https://sentimony.com/release/va-gamayun-tale/bandcamp/',
@@ -231,6 +250,7 @@ module.exports = {
       'https://sentimony.com/release/va-gamayun-tale/spotify/',
       'https://sentimony.com/release/va-gamayun-tale/junodownload/',
       'https://sentimony.com/release/va-gamayun-tale/youtube/',
+
       'https://sentimony.com/release/psyfactor-retro-scientific/',
       'https://sentimony.com/release/psyfactor-retro-scientific/official/',
       'https://sentimony.com/release/psyfactor-retro-scientific/bandcamp/',
@@ -240,6 +260,7 @@ module.exports = {
       'https://sentimony.com/release/psyfactor-retro-scientific/spotify/',
       'https://sentimony.com/release/psyfactor-retro-scientific/junodownload/',
       'https://sentimony.com/release/psyfactor-retro-scientific/youtube/',
+
       'https://sentimony.com/release/ufomatka-the-ep/',
       'https://sentimony.com/release/ufomatka-the-ep/official/',
       'https://sentimony.com/release/ufomatka-the-ep/bandcamp/',
@@ -249,6 +270,7 @@ module.exports = {
       'https://sentimony.com/release/ufomatka-the-ep/spotify/',
       'https://sentimony.com/release/ufomatka-the-ep/junodownload/',
       'https://sentimony.com/release/ufomatka-the-ep/youtube/',
+
       'https://sentimony.com/release/tentura-beyond-illusion/',
       'https://sentimony.com/release/tentura-beyond-illusion/official/',
       'https://sentimony.com/release/tentura-beyond-illusion/bandcamp/',
@@ -258,6 +280,7 @@ module.exports = {
       'https://sentimony.com/release/tentura-beyond-illusion/spotify/',
       'https://sentimony.com/release/tentura-beyond-illusion/junodownload/',
       'https://sentimony.com/release/tentura-beyond-illusion/youtube/',
+
       'https://sentimony.com/release/va-the-ten/',
       'https://sentimony.com/release/va-the-ten/official/',
       'https://sentimony.com/release/va-the-ten/bandcamp/',
@@ -267,15 +290,17 @@ module.exports = {
       'https://sentimony.com/release/va-the-ten/spotify/',
       'https://sentimony.com/release/va-the-ten/junodownload/',
       'https://sentimony.com/release/va-the-ten/youtube/',
-      'https://sentimony.com/release/zymosis-insight/',
-      'https://sentimony.com/release/zymosis-insight/official/',
-      'https://sentimony.com/release/zymosis-insight/bandcamp/',
-      'https://sentimony.com/release/zymosis-insight/itunes/',
-      'https://sentimony.com/release/zymosis-insight/googleplay/',
-      'https://sentimony.com/release/zymosis-insight/beatport/',
-      'https://sentimony.com/release/zymosis-insight/spotify/',
-      'https://sentimony.com/release/zymosis-insight/junodownload/',
-      'https://sentimony.com/release/zymosis-insight/youtube/',
+
+      '/release/zymosis-insight',
+      '/release/zymosis-insight/official',
+      '/release/zymosis-insight/bandcamp',
+      '/release/zymosis-insight/itunes',
+      '/release/zymosis-insight/googleplay',
+      '/release/zymosis-insight/beatport',
+      '/release/zymosis-insight/spotify',
+      '/release/zymosis-insight/junodownload',
+      '/release/zymosis-insight/youtube',
+
       'https://sentimony.com/release/overdream-beautiful-thinking/',
       'https://sentimony.com/release/overdream-beautiful-thinking/official/',
       'https://sentimony.com/release/overdream-beautiful-thinking/bandcamp/',
@@ -285,6 +310,7 @@ module.exports = {
       'https://sentimony.com/release/overdream-beautiful-thinking/spotify/',
       'https://sentimony.com/release/overdream-beautiful-thinking/junodownload/',
       'https://sentimony.com/release/overdream-beautiful-thinking/youtube/',
+
       'https://sentimony.com/release/ufomatka-altering-the-synaptic-controllers/',
       'https://sentimony.com/release/ufomatka-altering-the-synaptic-controllers/official/',
       'https://sentimony.com/release/ufomatka-altering-the-synaptic-controllers/bandcamp/',
@@ -294,6 +320,7 @@ module.exports = {
       'https://sentimony.com/release/ufomatka-altering-the-synaptic-controllers/spotify/',
       'https://sentimony.com/release/ufomatka-altering-the-synaptic-controllers/junodownload/',
       'https://sentimony.com/release/ufomatka-altering-the-synaptic-controllers/youtube/',
+
       'https://sentimony.com/release/omnisound-destiny/',
       'https://sentimony.com/release/omnisound-destiny/official/',
       'https://sentimony.com/release/omnisound-destiny/bandcamp/',
@@ -303,15 +330,17 @@ module.exports = {
       'https://sentimony.com/release/omnisound-destiny/spotify/',
       'https://sentimony.com/release/omnisound-destiny/junodownload/',
       'https://sentimony.com/release/omnisound-destiny/youtube/',
-      'https://sentimony.com/release/zymosis-nichna/',
-      'https://sentimony.com/release/zymosis-nichna/official/',
-      'https://sentimony.com/release/zymosis-nichna/bandcamp/',
-      'https://sentimony.com/release/zymosis-nichna/itunes/',
-      'https://sentimony.com/release/zymosis-nichna/googleplay/',
-      'https://sentimony.com/release/zymosis-nichna/beatport/',
-      'https://sentimony.com/release/zymosis-nichna/spotify/',
-      'https://sentimony.com/release/zymosis-nichna/junodownload/',
-      'https://sentimony.com/release/zymosis-nichna/youtube/',
+
+      '/release/zymosis-nichna',
+      '/release/zymosis-nichna/official',
+      '/release/zymosis-nichna/bandcamp',
+      '/release/zymosis-nichna/itunes',
+      '/release/zymosis-nichna/googleplay',
+      '/release/zymosis-nichna/beatport',
+      '/release/zymosis-nichna/spotify',
+      '/release/zymosis-nichna/junodownload',
+      '/release/zymosis-nichna/youtube',
+
       'https://sentimony.com/release/va-futured-vol-1/',
       'https://sentimony.com/release/va-futured-vol-1/official/',
       'https://sentimony.com/release/va-futured-vol-1/bandcamp/',
@@ -321,6 +350,7 @@ module.exports = {
       'https://sentimony.com/release/va-futured-vol-1/spotify/',
       'https://sentimony.com/release/va-futured-vol-1/junodownload/',
       'https://sentimony.com/release/va-futured-vol-1/youtube/',
+
       'https://sentimony.com/release/psydewise-synaptic-elastic/',
       'https://sentimony.com/release/psydewise-synaptic-elastic/official/',
       'https://sentimony.com/release/psydewise-synaptic-elastic/bandcamp/',
@@ -330,6 +360,7 @@ module.exports = {
       'https://sentimony.com/release/psydewise-synaptic-elastic/spotify/',
       'https://sentimony.com/release/psydewise-synaptic-elastic/junodownload/',
       'https://sentimony.com/release/psydewise-synaptic-elastic/youtube/',
+
       'https://sentimony.com/release/u-wave-autumn-discovery/',
       'https://sentimony.com/release/u-wave-autumn-discovery/official/',
       'https://sentimony.com/release/u-wave-autumn-discovery/bandcamp/',
@@ -339,6 +370,7 @@ module.exports = {
       'https://sentimony.com/release/u-wave-autumn-discovery/spotify/',
       'https://sentimony.com/release/u-wave-autumn-discovery/junodownload/',
       'https://sentimony.com/release/u-wave-autumn-discovery/youtube/',
+
       'https://sentimony.com/release/va-futured-vol-2/',
       'https://sentimony.com/release/va-futured-vol-2/official/',
       'https://sentimony.com/release/va-futured-vol-2/bandcamp/',
@@ -348,6 +380,7 @@ module.exports = {
       'https://sentimony.com/release/va-futured-vol-2/spotify/',
       'https://sentimony.com/release/va-futured-vol-2/junodownload/',
       'https://sentimony.com/release/va-futured-vol-2/youtube/',
+
       'https://sentimony.com/release/juelz-dependence/',
       'https://sentimony.com/release/juelz-dependence/official/',
       'https://sentimony.com/release/juelz-dependence/bandcamp/',
@@ -357,6 +390,7 @@ module.exports = {
       'https://sentimony.com/release/juelz-dependence/spotify/',
       'https://sentimony.com/release/juelz-dependence/junodownload/',
       'https://sentimony.com/release/juelz-dependence/youtube/',
+
       'https://sentimony.com/release/aesthesia-perception/',
       'https://sentimony.com/release/aesthesia-perception/official/',
       'https://sentimony.com/release/aesthesia-perception/bandcamp/',
