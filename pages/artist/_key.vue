@@ -12,7 +12,11 @@
               :srcset="'https://content.sentimony.com/assets/img/artists/medium/' + artist.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/medium-retina/' + artist.slug + '.jpg 2x'"
               :alt="artist.title"
             >
-            <div v-else class="page-artist__photo-coming">Photo<br>coming soon</div>
+            <div v-else class="page-artist__photo-coming">
+              Photo<br>
+              is<br>
+              coming
+            </div>
           </div>
           <div class="page-artist__info">
             <div v-if="artist.style" class="page-artist__small-info">
