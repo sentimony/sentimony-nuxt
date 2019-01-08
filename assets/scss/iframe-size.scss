@@ -36,6 +36,14 @@
     }
   }
 
+  &.tracks-8 {
+    height: (406px + 25px);
+
+    @include media(S) {
+      height: 406px;
+    }
+  }
+
   &.tracks-9 {
     height: (439px + 25px);
 
@@ -84,6 +92,7 @@
     height: 396px;
   }
 
+  &.tracks-8,
   &.tracks-9 {
     height: 486px;
   }
