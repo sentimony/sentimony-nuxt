@@ -2,7 +2,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "coriolan-ui": "^0.1.20",
-    "moment": "^2.23.0",
+    "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^1.4.5",
     "nuxt-facebook-pixel-module": "^1.1.0",
