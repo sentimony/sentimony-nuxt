@@ -19,7 +19,7 @@
         <!-- <nuxt-link to="/contacts/" class="headr__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
       </nav>
 
-      <HeadrSocialMenu/>
+      <HeadrSocialMenu style="width:232px;"/>
 
       <nuxt-link v-ripple to="/mobmenu/" class="headr__mob-menu-button">
         <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
