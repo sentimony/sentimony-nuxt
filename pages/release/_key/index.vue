@@ -267,6 +267,8 @@
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
             <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
+            <br v-if="i.credits">
+            <span v-if="i.credits" class="sen-fs11 sen-ml18 sen-db">{{ i.credits }}</span>
           </p>
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
@@ -283,7 +285,7 @@
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
         </div>
 
-        <div v-if="release.links.spotify">
+        <div v-if="release.links.discogs">
           <hr>
           <p>Links:</p>
         </div>
