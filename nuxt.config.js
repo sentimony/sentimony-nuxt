@@ -21,6 +21,7 @@ module.exports = {
     { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
+    { src: '~/plugins/fireauth.js', ssr: false },
     { src: '~/plugins/vue-ripple-directive.js', ssr: false },
     { src: '~/plugins/vue-disqus', ssr: true }
   ],
