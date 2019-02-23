@@ -1,9 +1,20 @@
 <template>
   <div class="menu-social">
     <div class="menu-social__caption">{{ follow }}</div>
-    <div class="menu-social__list">
-      <a v-for="i in social" v-if="i.isVisibleFootr" class="menu-social__link" :href="i.url" target="_blank" rel="noopener">
-        <img class="menu-social__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+    <div v-if="loading">Loading...</div>
+    <div v-else class="menu-social__list">
+      <a class="menu-social__link"
+        v-for="i in socialStore"
+        :key="i.title"
+        v-if="i.isVisibleFootr"
+        :href="i.url"
+        target="_blank"
+        rel="noopener"
+      >
+        <img class="menu-social__icon"
+          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'"
+          :alt="i.title + ' Icon'"
+        />
         <span class="menu-social__tooltip">{{ i.title }}</span>
       </a>
     </div>
@@ -11,22 +22,19 @@
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     data() {
       return {
-        follow: 'Follow Us:',
-        social: []
+        follow: 'Follow Us:'
       }
     },
-    mounted () {
-      return axios({
-        url: 'https://sentimony-db.firebaseio.com/social.json'
-      })
-      .then((res) => {
-        this.social = res.data;
-      })
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      socialStore () {
+        return this.$store.getters.loadedSocial
+      }
     }
   }
 </script>

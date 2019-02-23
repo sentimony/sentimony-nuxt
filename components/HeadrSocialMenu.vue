@@ -1,45 +1,45 @@
 <template>
-  <nav class="headr-social-menu">
-    <a class="headr-social-menu__link"
-      v-for="i in social"
-      :key="i.title"
-      v-if="i.isVisibleHeadr"
-      :href="i.url"
-      target="_blank"
-      rel="noopener"
-      v-ripple
-    >
-      <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
-        v-if="i.title == 'Bandcamp'"
-        v-html="free"
-      />
-      <img class="headr-social-menu__link__img"
-        :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
-      />
-      <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom"
-        v-html="i.title"
-      />
-    </a>
-  </nav>
+  <no-ssr>
+    <div v-if="loading">Loading...</div>
+    <nav v-else class="headr-social-menu">
+      <a class="headr-social-menu__link"
+        v-for="i in socialStore"
+        :key="i.title"
+        v-if="i.isVisibleHeadr"
+        :href="i.url"
+        v-ripple
+        target="_blank"
+        rel="noopener"
+      >
+        <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
+          v-if="i.title == 'Bandcamp'"
+          v-html="free"
+        />
+        <img class="headr-social-menu__link__img"
+          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
+        />
+        <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom"
+          v-html="i.title"
+        />
+      </a>
+    </nav>
+  </no-ssr>
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     data() {
       return {
-        social: [],
         free: 'FREE or Donate'
       }
     },
-    mounted () {
-      return axios({
-        url: 'https://sentimony-db.firebaseio.com/social.json'
-      })
-      .then((res) => {
-        this.social = res.data;
-      })
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      socialStore () {
+        return this.$store.getters.loadedSocial
+      }
     }
   }
 </script>
@@ -59,7 +59,7 @@
 
     @include media(M) {
       justify-content: flex-end;
-      // max-width: 232px;
+      // width: 232px;
     }
 
     &__link {
