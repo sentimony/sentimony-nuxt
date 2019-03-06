@@ -49,24 +49,16 @@
 </template>
 
 <script>
-import Sidebar from '~/components/sidebar.vue'
-import SidebarToggle from '~/components/sidebarToggle.vue'
+  import Sidebar from '~/components/sidebar.vue'
+  import SidebarToggle from '~/components/sidebarToggle.vue'
 
-export default {
-  name: 'app',
-  components: {
-    Sidebar, SidebarToggle
+  export default {
+    name: 'app',
+    components: {
+      Sidebar, SidebarToggle
+    }
   }
-}
 </script>
 
-<style>
-  .container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: red;
-  }
+<style lang="scss">
 </style>
