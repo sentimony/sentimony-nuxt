@@ -10,29 +10,12 @@
 </template>
 
 <script>
-  // import {TweenMax, Power4} from 'gsap'
-
   export default {
-    // name: 'sidebar',
-    // mounted () {
-    //   TweenMax.set(this.$el, {
-    //     x: this.$el.offsetWidth
-    //   })
-    // },
     computed: {
       sidebarOpen () {
         return this.$store.state.mobmenu.sidebarOpen
       }
-    },
-    // watch: {
-      // sidebarOpen: function (sidebarOpen) {
-        // const dX = sidebarOpen ? 0 : this.$el.offsetWidth
-        // TweenMax.to(this.$el, 0.6, {
-        //   x: dX,
-        //   ease: Power4.easeOut
-        // })
-      // }
-    // }
+    }
   }
 </script>
 
@@ -46,10 +29,11 @@
     height: 100vh;
     max-width: 90vw;
     background-color: #000;
-    transition: transform .1s ease;
-  }
-  .sidebar.is-open {
-    transform: translateX(-100%);
+    transition: transform .3s ease;
+
+    &.is-open {
+      transform: translateX(-100%);
+    }
   }
 
   @import '../assets/scss/page';
