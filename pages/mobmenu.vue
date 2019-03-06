@@ -42,10 +42,7 @@
 
 
 <template>
-  <div id="app">
-    <div :class="$style.container">
-
-    </div>
+  <div>
     <sidebar/>
     <sidebar-toggle/>
   </div>
@@ -64,25 +61,12 @@ export default {
 </script>
 
 <style>
-  :root{
-    --accent-color: #FFCB08;
-    --primary-color: #820263;
-    --dark-color: #2E294E;
-  }
-
-  *{
-    box-sizing: border-box;
-  }
-
-</style>
-
-<style module>
-  .container{
+  .container {
     position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
     width: 100vw;
-    background-color: var(--primary-color);
+    background-color: red;
   }
 </style>
