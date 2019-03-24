@@ -61,6 +61,7 @@ module.exports = {
       '/release/va-fantazma/spotify',
       '/release/va-fantazma/junodownload',
       '/release/va-fantazma/youtube',
+
       '/release/va-emptinesses',
       '/release/va-emptinesses/official',
       '/release/va-emptinesses/bandcamp',
@@ -70,6 +71,7 @@ module.exports = {
       '/release/va-emptinesses/spotify',
       '/release/va-emptinesses/junodownload',
       '/release/va-emptinesses/youtube',
+
       '/release/sphingida-origin',
       '/release/sphingida-origin/official',
       '/release/sphingida-origin/bandcamp',
@@ -79,6 +81,7 @@ module.exports = {
       '/release/sphingida-origin/spotify',
       '/release/sphingida-origin/junodownload',
       '/release/sphingida-origin/youtube',
+
       '/release/va-true-story',
       '/release/va-true-story/official',
       '/release/va-true-story/bandcamp',
@@ -88,6 +91,7 @@ module.exports = {
       '/release/va-true-story/spotify',
       '/release/va-true-story/junodownload',
       '/release/va-true-story/youtube',
+
       '/release/spectrum-vision-lost-space-device',
       '/release/spectrum-vision-lost-space-device/official',
       '/release/spectrum-vision-lost-space-device/bandcamp',
@@ -97,6 +101,7 @@ module.exports = {
       '/release/spectrum-vision-lost-space-device/spotify',
       '/release/spectrum-vision-lost-space-device/junodownload',
       '/release/spectrum-vision-lost-space-device/youtube',
+
       '/release/irukanji-z-lisu',
       '/release/irukanji-z-lisu/official',
       '/release/irukanji-z-lisu/bandcamp',
@@ -106,6 +111,7 @@ module.exports = {
       '/release/irukanji-z-lisu/spotify',
       '/release/irukanji-z-lisu/junodownload',
       '/release/irukanji-z-lisu/youtube',
+
       '/release/va-ocean-scenes-higher-titans',
       '/release/va-ocean-scenes-higher-titans/official',
       '/release/va-ocean-scenes-higher-titans/bandcamp',
@@ -115,6 +121,7 @@ module.exports = {
       '/release/va-ocean-scenes-higher-titans/spotify',
       '/release/va-ocean-scenes-higher-titans/junodownload',
       '/release/va-ocean-scenes-higher-titans/youtube',
+
       '/release/senzar-before-the-morning-sun',
       '/release/senzar-before-the-morning-sun/official',
       '/release/senzar-before-the-morning-sun/bandcamp',
@@ -124,6 +131,7 @@ module.exports = {
       '/release/senzar-before-the-morning-sun/spotify',
       '/release/senzar-before-the-morning-sun/junodownload',
       '/release/senzar-before-the-morning-sun/youtube',
+
       '/release/va-grower',
       '/release/va-grower/official',
       '/release/va-grower/bandcamp',
@@ -133,6 +141,7 @@ module.exports = {
       '/release/va-grower/spotify',
       '/release/va-grower/junodownload',
       '/release/va-grower/youtube',
+
       '/release/va-time-loop-beyond-borders',
       '/release/va-time-loop-beyond-borders/official',
       '/release/va-time-loop-beyond-borders/bandcamp',
@@ -142,6 +151,7 @@ module.exports = {
       '/release/va-time-loop-beyond-borders/spotify',
       '/release/va-time-loop-beyond-borders/junodownload',
       '/release/va-time-loop-beyond-borders/youtube',
+
       '/release/unusual-cosmic-process-weightlessness',
       '/release/unusual-cosmic-process-weightlessness/official',
       '/release/unusual-cosmic-process-weightlessness/bandcamp',
@@ -151,6 +161,7 @@ module.exports = {
       '/release/unusual-cosmic-process-weightlessness/spotify',
       '/release/unusual-cosmic-process-weightlessness/junodownload',
       '/release/unusual-cosmic-process-weightlessness/youtube',
+
       '/release/va-tempo-syndicate',
       '/release/va-tempo-syndicate/official',
       '/release/va-tempo-syndicate/bandcamp',
@@ -160,6 +171,7 @@ module.exports = {
       '/release/va-tempo-syndicate/spotify',
       '/release/va-tempo-syndicate/junodownload',
       '/release/va-tempo-syndicate/youtube',
+
       '/release/va-dancing-mavka',
       '/release/va-dancing-mavka/official',
       '/release/va-dancing-mavka/bandcamp',
@@ -169,6 +181,7 @@ module.exports = {
       '/release/va-dancing-mavka/spotify',
       '/release/va-dancing-mavka/junodownload',
       '/release/va-dancing-mavka/youtube',
+
       '/release/va-absence-of-gravity',
       '/release/va-absence-of-gravity/official',
       '/release/va-absence-of-gravity/bandcamp',
@@ -178,6 +191,7 @@ module.exports = {
       '/release/va-absence-of-gravity/spotify',
       '/release/va-absence-of-gravity/junodownload',
       '/release/va-absence-of-gravity/youtube',
+
       '/release/va-special-places',
       '/release/va-special-places/official',
       '/release/va-special-places/bandcamp',
@@ -187,6 +201,7 @@ module.exports = {
       '/release/va-special-places/spotify',
       '/release/va-special-places/junodownload',
       '/release/va-special-places/youtube',
+
       '/release/hypnotriod-seven-heavenly-edges',
       '/release/hypnotriod-seven-heavenly-edges/official',
       '/release/hypnotriod-seven-heavenly-edges/bandcamp',
@@ -196,6 +211,7 @@ module.exports = {
       '/release/hypnotriod-seven-heavenly-edges/spotify',
       '/release/hypnotriod-seven-heavenly-edges/junodownload',
       '/release/hypnotriod-seven-heavenly-edges/youtube',
+
       '/release/specialmind-the-missing-particle',
       '/release/specialmind-the-missing-particle/official',
       '/release/specialmind-the-missing-particle/bandcamp',
@@ -205,6 +221,7 @@ module.exports = {
       '/release/specialmind-the-missing-particle/spotify',
       '/release/specialmind-the-missing-particle/junodownload',
       '/release/specialmind-the-missing-particle/youtube',
+
       '/release/tentura-aurora',
       '/release/tentura-aurora/official',
       '/release/tentura-aurora/bandcamp',
@@ -214,6 +231,7 @@ module.exports = {
       '/release/tentura-aurora/spotify',
       '/release/tentura-aurora/junodownload',
       '/release/tentura-aurora/youtube',
+
       '/release/cifroteca-roof-raiser-wild-storm',
       '/release/cifroteca-roof-raiser-wild-storm/official',
       '/release/cifroteca-roof-raiser-wild-storm/bandcamp',
@@ -223,6 +241,7 @@ module.exports = {
       '/release/cifroteca-roof-raiser-wild-storm/spotify',
       '/release/cifroteca-roof-raiser-wild-storm/junodownload',
       '/release/cifroteca-roof-raiser-wild-storm/youtube',
+
       '/release/va-gamayun-tale',
       '/release/va-gamayun-tale/official',
       '/release/va-gamayun-tale/bandcamp',
@@ -232,6 +251,7 @@ module.exports = {
       '/release/va-gamayun-tale/spotify',
       '/release/va-gamayun-tale/junodownload',
       '/release/va-gamayun-tale/youtube',
+
       '/release/psyfactor-retro-scientific',
       '/release/psyfactor-retro-scientific/official',
       '/release/psyfactor-retro-scientific/bandcamp',
@@ -241,6 +261,7 @@ module.exports = {
       '/release/psyfactor-retro-scientific/spotify',
       '/release/psyfactor-retro-scientific/junodownload',
       '/release/psyfactor-retro-scientific/youtube',
+
       '/release/ufomatka-the-ep',
       '/release/ufomatka-the-ep/official',
       '/release/ufomatka-the-ep/bandcamp',
@@ -250,6 +271,7 @@ module.exports = {
       '/release/ufomatka-the-ep/spotify',
       '/release/ufomatka-the-ep/junodownload',
       '/release/ufomatka-the-ep/youtube',
+
       '/release/tentura-beyond-illusion',
       '/release/tentura-beyond-illusion/official',
       '/release/tentura-beyond-illusion/bandcamp',
@@ -259,6 +281,7 @@ module.exports = {
       '/release/tentura-beyond-illusion/spotify',
       '/release/tentura-beyond-illusion/junodownload',
       '/release/tentura-beyond-illusion/youtube',
+
       '/release/va-the-ten',
       '/release/va-the-ten/official',
       '/release/va-the-ten/bandcamp',
@@ -268,6 +291,7 @@ module.exports = {
       '/release/va-the-ten/spotify',
       '/release/va-the-ten/junodownload',
       '/release/va-the-ten/youtube',
+
       '/release/zymosis-insight',
       '/release/zymosis-insight/official',
       '/release/zymosis-insight/bandcamp',
@@ -277,6 +301,7 @@ module.exports = {
       '/release/zymosis-insight/spotify',
       '/release/zymosis-insight/junodownload',
       '/release/zymosis-insight/youtube',
+
       '/release/overdream-beautiful-thinking',
       '/release/overdream-beautiful-thinking/official',
       '/release/overdream-beautiful-thinking/bandcamp',
@@ -286,6 +311,7 @@ module.exports = {
       '/release/overdream-beautiful-thinking/spotify',
       '/release/overdream-beautiful-thinking/junodownload',
       '/release/overdream-beautiful-thinking/youtube',
+
       '/release/ufomatka-altering-the-synaptic-controllers',
       '/release/ufomatka-altering-the-synaptic-controllers/official',
       '/release/ufomatka-altering-the-synaptic-controllers/bandcamp',
@@ -295,6 +321,7 @@ module.exports = {
       '/release/ufomatka-altering-the-synaptic-controllers/spotify',
       '/release/ufomatka-altering-the-synaptic-controllers/junodownload',
       '/release/ufomatka-altering-the-synaptic-controllers/youtube',
+
       '/release/omnisound-destiny',
       '/release/omnisound-destiny/official',
       '/release/omnisound-destiny/bandcamp',
@@ -304,6 +331,7 @@ module.exports = {
       '/release/omnisound-destiny/spotify',
       '/release/omnisound-destiny/junodownload',
       '/release/omnisound-destiny/youtube',
+
       '/release/zymosis-nichna',
       '/release/zymosis-nichna/official',
       '/release/zymosis-nichna/bandcamp',
@@ -313,6 +341,7 @@ module.exports = {
       '/release/zymosis-nichna/spotify',
       '/release/zymosis-nichna/junodownload',
       '/release/zymosis-nichna/youtube',
+
       '/release/va-futured-vol-1',
       '/release/va-futured-vol-1/official',
       '/release/va-futured-vol-1/bandcamp',
@@ -322,6 +351,7 @@ module.exports = {
       '/release/va-futured-vol-1/spotify',
       '/release/va-futured-vol-1/junodownload',
       '/release/va-futured-vol-1/youtube',
+
       '/release/psydewise-synaptic-elastic',
       '/release/psydewise-synaptic-elastic/official',
       '/release/psydewise-synaptic-elastic/bandcamp',
@@ -331,6 +361,7 @@ module.exports = {
       '/release/psydewise-synaptic-elastic/spotify',
       '/release/psydewise-synaptic-elastic/junodownload',
       '/release/psydewise-synaptic-elastic/youtube',
+
       '/release/u-wave-autumn-discovery',
       '/release/u-wave-autumn-discovery/official',
       '/release/u-wave-autumn-discovery/bandcamp',
@@ -340,6 +371,7 @@ module.exports = {
       '/release/u-wave-autumn-discovery/spotify',
       '/release/u-wave-autumn-discovery/junodownload',
       '/release/u-wave-autumn-discovery/youtube',
+
       '/release/va-futured-vol-2',
       '/release/va-futured-vol-2/official',
       '/release/va-futured-vol-2/bandcamp',
@@ -349,6 +381,7 @@ module.exports = {
       '/release/va-futured-vol-2/spotify',
       '/release/va-futured-vol-2/junodownload',
       '/release/va-futured-vol-2/youtube',
+
       '/release/aesthesia-perception',
       '/release/aesthesia-perception/official',
       '/release/aesthesia-perception/bandcamp',
@@ -358,7 +391,8 @@ module.exports = {
       '/release/aesthesia-perception/spotify',
       '/release/aesthesia-perception/junodownload',
       '/release/aesthesia-perception/youtube',
-      '/release/juelz-dependence',
+
+        '/release/juelz-dependence',
       '/release/juelz-dependence/official',
       '/release/juelz-dependence/bandcamp',
       '/release/juelz-dependence/itunes',
@@ -367,6 +401,26 @@ module.exports = {
       '/release/juelz-dependence/spotify',
       '/release/juelz-dependence/junodownload',
       '/release/juelz-dependence/youtube',
+
+      '/release/unusual-cosmic-process-brain-channel',
+      '/release/unusual-cosmic-process-brain-channel/official',
+      '/release/unusual-cosmic-process-brain-channel/bandcamp',
+      '/release/unusual-cosmic-process-brain-channel/itunes',
+      '/release/unusual-cosmic-process-brain-channel/googleplay',
+      '/release/unusual-cosmic-process-brain-channel/beatport',
+      '/release/unusual-cosmic-process-brain-channel/spotify',
+      '/release/unusual-cosmic-process-brain-channel/junodownload',
+      '/release/unusual-cosmic-process-brain-channel/youtube',
+
+      '/release/psydewise-radio-dystopia',
+      '/release/psydewise-radio-dystopia/official',
+      '/release/psydewise-radio-dystopia/bandcamp',
+      '/release/psydewise-radio-dystopia/itunes',
+      '/release/psydewise-radio-dystopia/googleplay',
+      '/release/psydewise-radio-dystopia/beatport',
+      '/release/psydewise-radio-dystopia/spotify',
+      '/release/psydewise-radio-dystopia/junodownload',
+      '/release/psydewise-radio-dystopia/youtube',
 
       '/artist/irukanji',
       '/artist/zymosis',
