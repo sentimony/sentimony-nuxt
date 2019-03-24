@@ -165,7 +165,7 @@
               <!-- spotify btn -->
 
               <!-- junodownload btn -->
-              <router-link v-if="release.links.junodownload"
+              <!-- <router-link v-if="release.links.junodownload"
                 class="page-release__junodownload-btn"
                 :to="'junodownload'"
                 v-ripple
@@ -187,8 +187,8 @@
                   alt="Beatport Icon"
                 >
                 <span class="page-release__junodownload-btn-text">JunoDownload</span>
-              </span>
-              <!-- spotify btn -->
+              </span> -->
+              <!-- junodownload btn -->
 
             </div>
 
