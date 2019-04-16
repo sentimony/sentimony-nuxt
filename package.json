@@ -1,8 +1,9 @@
 {
   "dependencies": {
     "axios": "^0.18.0",
+    "core-js": "^2.6.5",
     "coriolan-ui": "^0.1.20",
-    "firebase": "^5.9.2",
+    "firebase": "^5.9.4",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^1.4.5",
