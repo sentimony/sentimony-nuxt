@@ -1,28 +1,30 @@
 <template>
   <no-ssr>
-    <div v-if="loading">Loading...</div>
-    <nav v-else class="headr-social-menu">
-      <a class="headr-social-menu__link"
-        v-for="i in socialStore"
-        :key="i.title"
-        v-if="i.isVisibleHeadr"
-        :href="i.url"
-        v-ripple
-        target="_blank"
-        rel="noopener"
-      >
-        <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
-          v-if="i.title == 'Bandcamp'"
-          v-html="free"
-        />
-        <img class="headr-social-menu__link__img"
-          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
-        />
-        <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom"
-          v-html="i.title"
-        />
-      </a>
-    </nav>
+    <div class="headr-social-menu">
+      <div v-if="loading">Loading...</div>
+      <nav v-else class="headr-social-menu__container">
+        <a class="headr-social-menu__link"
+          v-for="i in socialStore"
+          :key="i.title"
+          v-if="i.isVisibleHeadr"
+          :href="i.url"
+          v-ripple
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
+            v-if="i.title == 'Bandcamp'"
+            v-html="free"
+          />
+          <img class="headr-social-menu__link__img"
+            :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
+          />
+          <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom"
+            v-html="i.title"
+          />
+        </a>
+      </nav>
+    </div>
   </no-ssr>
 </template>
 
@@ -54,12 +56,12 @@
     display: none;
 
     @include media(M) {
-      display: flex;
+      display: block;
     }
 
-    @include media(M) {
+    &__container {
+      display: flex;
       justify-content: flex-end;
-      // width: 232px;
     }
 
     &__link {
