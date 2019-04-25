@@ -5,7 +5,7 @@
       <Fractal/>
     </div> -->
     <div class="flex-sticky__header">
-      <Headr/>
+      <header-main/>
     </div>
     <div class="flex-sticky__content">
       <SwiperArtistList/>
@@ -20,8 +20,8 @@
 
 <script>
   import BaseBg from '~/components/BaseBg.vue'
-  import Fractal from '~/components/Fractal.vue'
-  import Headr from '~/components/Headr.vue'
+  // import Fractal from '~/components/Fractal.vue'
+  import HeaderMain from '~/components/HeaderMain.vue'
   import SwiperArtistList from '~/components/SwiperArtistList.vue'
   import Donate from '~/components/Donate.vue'
   import Footr from '~/components/Footr.vue'
@@ -29,8 +29,8 @@
   export default {
     components: {
       BaseBg,
-      Fractal,
-      Headr,
+      // Fractal,
+      HeaderMain,
       SwiperArtistList,
       Donate,
       Footr
