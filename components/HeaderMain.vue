@@ -15,8 +15,8 @@
 
       <header-social-menu style="width:232px"/>
 
-      <nuxt-link v-ripple to="/mobmenu/" class="header-main__mob-menu-button">
-        <img class="header-main__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
+      <nuxt-link v-ripple :to="btnMobmenu.url" class="header-main__mob-menu-button">
+        <img class="header-main__mob-menu-button-img" :src="btnMobmenu.icon"/>
       </nuxt-link>
 
     </div>
@@ -31,6 +31,14 @@
     components: {
       HeaderLogolink,
       HeaderSocialMenu
+    },
+    data() {
+      return {
+        btnMobmenu: {
+          url: '/mobmenu',
+          icon: 'https://content.sentimony.com/assets/img/svg-icons/menu.svg'
+        }
+      }
     }
   }
 </script>
