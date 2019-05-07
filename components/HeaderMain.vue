@@ -4,7 +4,7 @@
 
       <header-logolink style="width:232px"/>
 
-      <nav class="header-main__main-menu">
+      <nav class="header-main__main-menu" v-if="$mq === 'lg'">
         <!-- <nuxt-link to="/news/" class="header-main__main-menu-link" active-class="is-selected">News</nuxt-link> -->
         <nuxt-link v-ripple to="/releases/" class="header-main__main-menu-link" active-class="is-selected">Releases</nuxt-link>
         <nuxt-link v-ripple to="/artists/" class="header-main__main-menu-link" active-class="is-selected">Artists</nuxt-link>
@@ -13,9 +13,9 @@
         <!-- <nuxt-link to="/contacts/" class="header-main__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
       </nav>
 
-      <header-social-menu style="width:232px"/>
+      <header-social-menu style="width:232px" v-if="$mq === 'lg'"/>
 
-      <nuxt-link v-ripple to="/mobmenu/" class="header-main__mob-menu-button">
+      <nuxt-link v-ripple to="/mobmenu/" class="header-main__mob-menu-button" v-if="$mq !== 'lg'">
         <img class="header-main__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
       </nuxt-link>
 
@@ -58,11 +58,11 @@
     }
 
     &__main-menu {
-      display: none;
-
-      @include media(M) {
-        display: flex;
-      }
+      // display: none;
+      //
+      // @include media(M) {
+      //   display: flex;
+      // }
 
       &-link {
         @extend .main-menu-link;
@@ -71,13 +71,13 @@
 
     &__mob-menu-button {
       @extend .main-menu-link;
-      display: block;
       padding: 1.063em;
       margin-left: 0;
-
-      @include media(M) {
-        display: none;
-      }
+      // display: block;
+      //
+      // @include media(M) {
+      //   display: none;
+      // }
 
       &-img {
         display: block;
