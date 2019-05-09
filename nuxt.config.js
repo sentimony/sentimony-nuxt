@@ -23,7 +23,7 @@ module.exports = {
     { src: '~/plugins/v-img.js', ssr: false },
     { src: '~/plugins/fireauth.js', ssr: false },
     { src: '~/plugins/vue-ripple-directive.js', ssr: false },
-    { src: '~/plugins/vue-mq.js', ssr: false },
+    { src: '~/plugins/vue-mq.js', ssr: true },
     { src: '~/plugins/vue-disqus', ssr: true }
   ],
   css: [
