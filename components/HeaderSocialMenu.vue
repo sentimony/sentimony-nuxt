@@ -53,11 +53,11 @@
   @import '../assets/scss/main-menu-link';
 
   .headr-social-menu {
-    display: none;
-
-    @include media(M) {
-      display: block;
-    }
+    // display: none;
+    //
+    // @include media(M) {
+    //   display: block;
+    // }
 
     &__container {
       display: flex;
