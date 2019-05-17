@@ -33,10 +33,10 @@
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
 
-              <!-- bandcamp btn -->
-              <router-link v-if="release.links.bandcamp_url"
+              <!-- bandcamp 24bit btn -->
+              <router-link v-if="release.links.bandcamp24_url"
                 class="page-release__bandcamp-btn"
-                :to="'bandcamp'"
+                :to="'bandcamp24'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -44,7 +44,7 @@
                   src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
                   alt="Bandcamp Icon"
                 >
-                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+                <span class="page-release__bandcamp-btn-text">Bandcamp 24bit</span>
               </router-link>
 
               <span v-else
@@ -55,9 +55,35 @@
                   src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
                   alt="Bandcamp Icon"
                 >
-                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+                <span class="page-release__bandcamp-btn-text">Bandcamp 24bit</span>
               </span>
-              <!-- bandcamp btn -->
+              <!-- bandcamp 24bit btn -->
+
+              <!-- bandcamp 16bit btn -->
+              <router-link v-if="release.links.bandcamp_url"
+                class="page-release__bandcamp-btn"
+                :to="'bandcamp'"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__bandcamp-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
+                  alt="Bandcamp Icon"
+                >
+                <span class="page-release__bandcamp-btn-text">Bandcamp 16bit</span>
+              </router-link>
+
+              <span v-else
+                class="page-release__bandcamp-btn is-disabled"
+              >
+                <img
+                  class="page-release__bandcamp-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
+                  alt="Bandcamp Icon"
+                >
+                <span class="page-release__bandcamp-btn-text">Bandcamp 16bit</span>
+              </span>
+              <!-- bandcamp 16bit btn -->
 
               <!-- itunes btn -->
               <router-link v-if="release.links.itunes"
