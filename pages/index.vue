@@ -13,7 +13,7 @@
     <div class="about">
       <div class="about__wrapper">
         <p><img class="about__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" alt="Sentimony Records Logo SVG"></p>
-        <p>Sentimony Records is an independent record label started in Kyiv, Ukraine during the autumn 2006 by Ihor Orlovskyi also known as <router-link to="/artist/irukanji/">Irukanji</router-link>.</p>
+        <p>Sentimony Records is an independent record label started in Kyiv, Ukraine during the autumn 2006 by Ihor Orlovskyi also known as <router-link to="/artist/irukanji/">Irukanji</router-link>. At spring 2019 label was relocated into Riga, Latvia.</p>
         <p>{{ aboutDescription }}</p>
       </div>
     </div>
