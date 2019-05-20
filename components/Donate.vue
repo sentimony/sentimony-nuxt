@@ -7,7 +7,7 @@
       </g>
     </svg>
     <div class="donate__wrapper">
-      <p>Recently all Sentimony Records releases are available for FREE DOWNLOAD at <a href="http://bit.ly/sen-bc" target="_blank" rel="noopener">Bandcamp</a>.</p>
+      <p>Recently all Sentimony Records 16bit releases are available for FREE DOWNLOAD at <a href="http://bit.ly/sen-bc" target="_blank" rel="noopener">Bandcamp</a>.</p>
       <br>
       <p>Donations are very welcome!<br>It is not an easy mission to keep the free music flowing.</p>
       <br>
