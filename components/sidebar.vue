@@ -1,5 +1,6 @@
 <template>
   <div class="sidebar" :class="sidebarOpen ? 'is-open' : ''">
+    <nuxt-link v-ripple to="/" class="mobmenu__link">Home</nuxt-link>
     <nuxt-link v-ripple to="/news/" class="mobmenu__link">News</nuxt-link>
     <nuxt-link v-ripple to="/releases/" class="mobmenu__link">Releases</nuxt-link>
     <nuxt-link v-ripple to="/artists/" class="mobmenu__link">Artists</nuxt-link>
@@ -30,6 +31,9 @@
     max-width: 90vw;
     background-color: #000;
     transition: transform .3s ease;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 
     &.is-open {
       transform: translateX(-100%);
