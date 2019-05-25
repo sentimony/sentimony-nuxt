@@ -38,7 +38,7 @@
     },
     computed: {
       sortByDate () {
-        return sortBy(this.playlists, 'date').reverse()
+        return sortBy(this.playlists, 'date').reverse().reverse()
       }
     },
     // filters: {
