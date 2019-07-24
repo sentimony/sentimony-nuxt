@@ -226,13 +226,13 @@
 
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
               <div class="page-release__bandcamp-player">
-                <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
+                <div v-if="!release.links.bandcamp_id" class="page-release__bandcamp-player-coming">
                   Music<br>
                   is<br>
                   coming
                 </div>
                 <iframe
-                  v-if="release.links.bandcamp_id"
+                  v-else
                   :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
                   :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                   seamless
