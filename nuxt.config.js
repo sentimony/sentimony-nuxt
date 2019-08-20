@@ -493,6 +493,17 @@ module.exports = {
       '/release/va-futured-vol-3/junodownload',
       '/release/va-futured-vol-3/youtube',
 
+      '/release/va-chillme-vol-1',
+      '/release/va-chillme-vol-1/official',
+      '/release/va-chillme-vol-1/bandcamp',
+      '/release/va-chillme-vol-1/bandcamp24',
+      '/release/va-chillme-vol-1/itunes',
+      '/release/va-chillme-vol-1/googleplay',
+      '/release/va-chillme-vol-1/beatport',
+      '/release/va-chillme-vol-1/spotify',
+      '/release/va-chillme-vol-1/junodownload',
+      '/release/va-chillme-vol-1/youtube',
+
       '/artist/irukanji',
       '/artist/zymosis',
       '/artist/overdream',
