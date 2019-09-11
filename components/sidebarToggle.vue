@@ -25,7 +25,7 @@
     z-index: 2000;
     top: 12px;
     right: 11px;
-    padding: 0;
+    padding: 12px;
     height: 50px;
     width: 50px;
     border: 3px solid transparent;
