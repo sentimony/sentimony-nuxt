@@ -43,19 +43,20 @@
 
 <template>
   <div>
-    <sidebar/>
+    <sidebar-menu/>
     <sidebar-toggle/>
   </div>
 </template>
 
 <script>
-  import Sidebar from '~/components/sidebar.vue'
-  import SidebarToggle from '~/components/sidebarToggle.vue'
+  import SidebarMenu from '~/components/SidebarMenu.vue'
+  import SidebarToggle from '~/components/SidebarToggle.vue'
 
   export default {
     name: 'app',
     components: {
-      Sidebar, SidebarToggle
+      SidebarMenu,
+      SidebarToggle
     }
   }
 </script>
