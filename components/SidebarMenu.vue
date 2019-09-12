@@ -8,6 +8,7 @@
     <nuxt-link v-ripple to="/friends/" class="mobmenu__link">Friends</nuxt-link>
     <nuxt-link v-ripple to="/contacts/" class="mobmenu__link">Contacts</nuxt-link>
     <nuxt-link v-ripple to="/mobmenu/" class="mobmenu__link">Mobmenu</nuxt-link>
+    <nuxt-link v-ripple to="/Mobmenu2/" class="mobmenu__link">Mobmenu2</nuxt-link>
   </div>
 </template>
 
