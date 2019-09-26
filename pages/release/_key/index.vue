@@ -311,18 +311,14 @@
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
         </div>
 
-        <div v-if="release.links.discogs">
+        <div v-if="release.links.junodownload || release.links.beatspace || release.links.psyshop || release.links.ektoplazm || release.links.discogs">
           <hr>
           <p>Links:</p>
         </div>
 
-        <!-- <p v-if="release.links.junodownload">
-          <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
-        </p> -->
-
-        <!-- <p v-if="release.links.spotify">
-          <a :href="release.links.spotify" target="_blank" rel="noopener">Spotify</a>
-        </p> -->
+        <p v-if="release.links.junodownload">
+          <a :href="release.links.junodownload" target="_blank" rel="noopener">JunoDownload</a>
+        </p>
 
         <p v-if="release.links.beatspace">
           <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
