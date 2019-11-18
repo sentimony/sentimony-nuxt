@@ -309,6 +309,7 @@
           <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
           <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
+          <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
         </div>
 
         <div v-if="release.links.junodownload || release.links.beatspace || release.links.psyshop || release.links.ektoplazm || release.links.discogs">
