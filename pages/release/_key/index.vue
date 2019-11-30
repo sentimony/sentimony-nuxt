@@ -21,7 +21,7 @@
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-              <span v-if="release.coming_soon"> | Coming at 2019</span>
+              <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
               <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
             </div>
             <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
