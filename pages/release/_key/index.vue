@@ -289,7 +289,7 @@
           <hr>
           <p>Tracklist:</p>
           <p v-for="i in release.tracklist.tracks">
-            <span v-if="i.number">{{ i.number }}. </span>
+            <span v-if="i.number">{{ i.number }} </span>
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
             <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
