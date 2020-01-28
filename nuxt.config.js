@@ -526,6 +526,17 @@ module.exports = {
       '/release/gaz-mask-quetzalcoatl/junodownload',
       '/release/gaz-mask-quetzalcoatl/youtube',
 
+      '/release/boketto-yugen',
+      '/release/boketto-yugen/official',
+      '/release/boketto-yugen/bandcamp',
+      '/release/boketto-yugen/bandcamp24',
+      '/release/boketto-yugen/itunes',
+      '/release/boketto-yugen/googleplay',
+      '/release/boketto-yugen/beatport',
+      '/release/boketto-yugen/spotify',
+      '/release/boketto-yugen/junodownload',
+      '/release/boketto-yugen/youtube',
+
       '/artist/irukanji',
       '/artist/zymosis',
       '/artist/overdream',
