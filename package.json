@@ -24,7 +24,7 @@
     "build": "nuxt generate"
   },
   "engines": {
-    "node": "8.15.0",
-    "npm": "6.4.1"
+    "node": "12.16.1",
+    "npm": "6.13.4"
   }
 }
