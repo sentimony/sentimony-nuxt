@@ -21,7 +21,7 @@
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-              <span v-if="release.coming_soon"> | Coming at 2019</span>
+              <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
               <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
             </div>
             <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
@@ -289,7 +289,7 @@
           <hr>
           <p>Tracklist:</p>
           <p v-for="i in release.tracklist.tracks">
-            <span v-if="i.number">{{ i.number }}. </span>
+            <span v-if="i.number">{{ i.number }} </span>
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
             <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
@@ -309,6 +309,7 @@
           <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
           <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
+          <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
         </div>
 
         <div v-if="release.links.junodownload || release.links.beatspace || release.links.psyshop || release.links.ektoplazm || release.links.discogs">
