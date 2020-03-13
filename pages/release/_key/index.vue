@@ -216,31 +216,31 @@
               </span> -->
               <!-- junodownload btn -->
 
-              <!-- youtubeMusic btn -->
-              <router-link v-if="release.links.youtubeMusic"
-                class="page-release__youtubeMusic-btn"
+              <!-- youtubemusic btn -->
+              <router-link v-if="release.links.youtube_music"
+                class="page-release__youtubemusic-btn"
                 :to="'youtubemusic'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
-                <img class="page-release__youtubeMusic-btn-img"
-                  src="https://content.sentimony.com/assets/img/svg-icons/youtube.svg?01"
+                <img class="page-release__youtubemusic-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01"
                   alt="YouTube Music Icon"
                 >
-                <span class="page-release__youtubeMusic-btn-text">YouTube Music</span>
+                <span class="page-release__youtubemusic-btn-text">YouTube Music</span>
               </router-link>
 
               <span v-else
-                class="page-release__youtubeMusic-btn is-disabled"
+                class="page-release__youtubemusic-btn is-disabled"
               >
                 <img
-                  class="page-release__youtubeMusic-btn-img"
-                  src="https://content.sentimony.com/assets/img/svg-icons/youtube.svg?01"
+                  class="page-release__youtubemusic-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01"
                   alt="Beatport Icon"
                 >
-                <span class="page-release__youtubeMusic-btn-text">YouTube Music</span>
+                <span class="page-release__youtubemusic-btn-text">YouTube Music</span>
               </span>
-              <!-- youtubeMusic btn -->
+              <!-- youtubemusic btn -->
 
             </div>
 
@@ -553,7 +553,7 @@
       }
     }
 
-    &__youtubeMusic-btn,
+    &__youtubemusic-btn,
     &__junodownload-btn,
     &__beatport-btn,
     &__bandcamp-btn,
