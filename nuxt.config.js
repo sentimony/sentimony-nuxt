@@ -610,6 +610,7 @@ module.exports = {
       '/artist/overdream',
       '/artist/psydewise',
       '/artist/vorg',
+      '/artist/boketto'
       '/artist/space-organ',
       '/artist/gojja',
       '/artist/gaz-mask',
