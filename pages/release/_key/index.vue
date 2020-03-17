@@ -546,7 +546,6 @@
       line-height: 1.2;
       margin: 0 0 .1em;
       color: #fff;
-      text-transform: capitalize;
 
       @include media(M) {
         font-size: 2em;
