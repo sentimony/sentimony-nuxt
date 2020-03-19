@@ -593,6 +593,18 @@ module.exports = {
       '/release/kabi-mboko/youtube',
       '/release/kabi-mboko/youtubemusic',
 
+      '/release/zymosis-timeless',
+      '/release/zymosis-timeless/official',
+      '/release/zymosis-timeless/bandcamp',
+      '/release/zymosis-timeless/bandcamp24',
+      '/release/zymosis-timeless/itunes',
+      '/release/zymosis-timeless/googleplay',
+      '/release/zymosis-timeless/beatport',
+      '/release/zymosis-timeless/spotify',
+      '/release/zymosis-timeless/junodownload',
+      '/release/zymosis-timeless/youtube',
+      '/release/zymosis-timeless/youtubemusic',
+
       '/release/vorg-echoes',
       '/release/vorg-echoes/official',
       '/release/vorg-echoes/bandcamp',
