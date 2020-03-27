@@ -3,7 +3,7 @@
     <ddos-guard
       :release="release"
       :title="title"
-      :link="release.links.youtubeMusic"
+      :link="release.links.youtube_music"
     />
   </section>
 </template>

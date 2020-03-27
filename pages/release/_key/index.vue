@@ -216,31 +216,31 @@
               </span> -->
               <!-- junodownload btn -->
 
-              <!-- youtubeMusic btn -->
-              <router-link v-if="release.links.youtubeMusic"
-                class="page-release__youtubeMusic-btn"
+              <!-- youtubemusic btn -->
+              <router-link v-if="release.links.youtube_music"
+                class="page-release__youtubemusic-btn"
                 :to="'youtubemusic'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
-                <img class="page-release__youtubeMusic-btn-img"
-                  src="https://content.sentimony.com/assets/img/svg-icons/youtube.svg?01"
+                <img class="page-release__youtubemusic-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01"
                   alt="YouTube Music Icon"
                 >
-                <span class="page-release__youtubeMusic-btn-text">YouTube Music</span>
+                <span class="page-release__youtubemusic-btn-text">YouTube Music</span>
               </router-link>
 
               <span v-else
-                class="page-release__youtubeMusic-btn is-disabled"
+                class="page-release__youtubemusic-btn is-disabled"
               >
                 <img
-                  class="page-release__youtubeMusic-btn-img"
-                  src="https://content.sentimony.com/assets/img/svg-icons/youtube.svg?01"
+                  class="page-release__youtubemusic-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01"
                   alt="Beatport Icon"
                 >
-                <span class="page-release__youtubeMusic-btn-text">YouTube Music</span>
+                <span class="page-release__youtubemusic-btn-text">YouTube Music</span>
               </span>
-              <!-- youtubeMusic btn -->
+              <!-- youtubemusic btn -->
 
             </div>
 
@@ -319,6 +319,7 @@
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
             <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
+            <span v-if="i.note"> {{ i.note }}</span>
             <br v-if="i.credits">
             <span v-if="i.credits" class="sen-fs11 sen-ml18 sen-db">{{ i.credits }}</span>
           </p>
@@ -414,7 +415,7 @@
       return {
         title: this.release.title,
         meta: [
-          { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
+          { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
           { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
         ]
       }
@@ -546,14 +547,13 @@
       line-height: 1.2;
       margin: 0 0 .1em;
       color: #fff;
-      text-transform: capitalize;
 
       @include media(M) {
         font-size: 2em;
       }
     }
 
-    &__youtubeMusic-btn,
+    &__youtubemusic-btn,
     &__junodownload-btn,
     &__beatport-btn,
     &__bandcamp-btn,
