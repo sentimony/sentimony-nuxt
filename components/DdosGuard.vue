@@ -1,10 +1,5 @@
 <template>
   <section class="Ddosguard">
-    <meta
-      v-if="redirect"
-      http-equiv="refresh"
-      :content="'0; URL=' + link"
-    />
     <div class="DdosguardTitle">DDoS Guard</div>
     <div class="DdosguardAnimation">
       <div class="DdosguardCoverholder">
@@ -42,13 +37,14 @@
       timeout() {
         setTimeout( ()=> {
            this.redirect = true
+           window.location.href = this.link
         }, 3000)
       },
       interval() {
         setInterval(() => {
           this.counter--
         }, 1000)
-      }
+      },
     },
     mounted() {
       this.timeout()
