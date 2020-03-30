@@ -593,6 +593,18 @@ module.exports = {
       '/release/kabi-mboko/youtube',
       '/release/kabi-mboko/youtubemusic',
 
+      '/release/boketto-outer',
+      '/release/boketto-outer/official',
+      '/release/boketto-outer/bandcamp',
+      '/release/boketto-outer/bandcamp24',
+      '/release/boketto-outer/itunes',
+      '/release/boketto-outer/googleplay',
+      '/release/boketto-outer/beatport',
+      '/release/boketto-outer/spotify',
+      '/release/boketto-outer/junodownload',
+      '/release/boketto-outer/youtube',
+      '/release/boketto-outer/youtubemusic',
+
       '/release/zymosis-timeless',
       '/release/zymosis-timeless/official',
       '/release/zymosis-timeless/bandcamp',
