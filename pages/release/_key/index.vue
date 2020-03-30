@@ -210,7 +210,7 @@
                 <img
                   class="page-release__junodownload-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
-                  alt="Beatport Icon"
+                  alt="JunoDownload Icon"
                 >
                 <span class="page-release__junodownload-btn-text">JunoDownload</span>
               </span> -->
@@ -236,12 +236,37 @@
                 <img
                   class="page-release__youtubemusic-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01"
-                  alt="Beatport Icon"
+                  alt="YouTube Music Icon"
                 >
                 <span class="page-release__youtubemusic-btn-text">YouTube Music</span>
               </span>
               <!-- youtubemusic btn -->
 
+              <!-- deezer btn -->
+              <router-link v-if="release.links.deezer"
+                class="page-release__deezer-btn"
+                :to="'deezer'"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__deezer-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01"
+                  alt="Deezer Icon"
+                >
+                <span class="page-release__deezer-btn-text">Deezer</span>
+              </router-link>
+
+              <span v-else
+                class="page-release__deezer-btn is-disabled"
+              >
+                <img
+                  class="page-release__deezer-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01"
+                  alt="Deezer Icon"
+                >
+                <span class="page-release__deezer-btn-text">Deezer</span>
+              </span>
+              <!-- deezer btn -->
             </div>
 
           </div>
@@ -553,6 +578,7 @@
       }
     }
 
+    &__deezer-btn,
     &__youtubemusic-btn,
     &__junodownload-btn,
     &__beatport-btn,
