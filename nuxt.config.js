@@ -64,6 +64,7 @@ module.exports = {
       '/release/va-fantazma/junodownload',
       '/release/va-fantazma/youtube',
       '/release/va-fantazma/youtubemusic',
+      '/release/va-fantazma/deezer',
 
       '/release/va-emptinesses',
       '/release/va-emptinesses/official',
@@ -76,6 +77,7 @@ module.exports = {
       '/release/va-emptinesses/junodownload',
       '/release/va-emptinesses/youtube',
       '/release/va-emptinesses/youtubemusic',
+      '/release/va-emptinesses/deezer',
 
       '/release/sphingida-origin',
       '/release/sphingida-origin/official',
@@ -88,6 +90,7 @@ module.exports = {
       '/release/sphingida-origin/junodownload',
       '/release/sphingida-origin/youtube',
       '/release/sphingida-origin/youtubemusic',
+      '/release/sphingida-origin/deezer',
 
       '/release/va-true-story',
       '/release/va-true-story/official',
@@ -100,6 +103,7 @@ module.exports = {
       '/release/va-true-story/junodownload',
       '/release/va-true-story/youtube',
       '/release/va-true-story/youtubemusic',
+      '/release/va-true-story/deezer',
 
       '/release/spectrum-vision-lost-space-device',
       '/release/spectrum-vision-lost-space-device/official',
@@ -112,6 +116,7 @@ module.exports = {
       '/release/spectrum-vision-lost-space-device/junodownload',
       '/release/spectrum-vision-lost-space-device/youtube',
       '/release/spectrum-vision-lost-space-device/youtubemusic',
+      '/release/spectrum-vision-lost-space-device/deezer',
 
       '/release/irukanji-z-lisu',
       '/release/irukanji-z-lisu/official',
@@ -124,6 +129,7 @@ module.exports = {
       '/release/irukanji-z-lisu/junodownload',
       '/release/irukanji-z-lisu/youtube',
       '/release/irukanji-z-lisu/youtubemusic',
+      '/release/irukanji-z-lisu/deezer',
 
       '/release/va-ocean-scenes-higher-titans',
       '/release/va-ocean-scenes-higher-titans/official',
@@ -136,6 +142,7 @@ module.exports = {
       '/release/va-ocean-scenes-higher-titans/junodownload',
       '/release/va-ocean-scenes-higher-titans/youtube',
       '/release/va-ocean-scenes-higher-titans/youtubemusic',
+      '/release/va-ocean-scenes-higher-titans/deezer',
 
       '/release/senzar-before-the-morning-sun',
       '/release/senzar-before-the-morning-sun/official',
@@ -148,6 +155,7 @@ module.exports = {
       '/release/senzar-before-the-morning-sun/junodownload',
       '/release/senzar-before-the-morning-sun/youtube',
       '/release/senzar-before-the-morning-sun/youtubemusic',
+      '/release/senzar-before-the-morning-sun/deezer',
 
       '/release/va-grower',
       '/release/va-grower/official',
@@ -160,6 +168,7 @@ module.exports = {
       '/release/va-grower/junodownload',
       '/release/va-grower/youtube',
       '/release/va-grower/youtubemusic',
+      '/release/va-grower/deezer',
 
       '/release/va-time-loop-beyond-borders',
       '/release/va-time-loop-beyond-borders/official',
@@ -172,6 +181,7 @@ module.exports = {
       '/release/va-time-loop-beyond-borders/junodownload',
       '/release/va-time-loop-beyond-borders/youtube',
       '/release/va-time-loop-beyond-borders/youtubemusic',
+      '/release/va-time-loop-beyond-borders/deezer',
 
       '/release/unusual-cosmic-process-weightlessness',
       '/release/unusual-cosmic-process-weightlessness/official',
@@ -184,6 +194,7 @@ module.exports = {
       '/release/unusual-cosmic-process-weightlessness/junodownload',
       '/release/unusual-cosmic-process-weightlessness/youtube',
       '/release/unusual-cosmic-process-weightlessness/youtubemusic',
+      '/release/unusual-cosmic-process-weightlessness/deezer',
 
       '/release/va-tempo-syndicate',
       '/release/va-tempo-syndicate/official',
@@ -196,6 +207,7 @@ module.exports = {
       '/release/va-tempo-syndicate/junodownload',
       '/release/va-tempo-syndicate/youtube',
       '/release/va-tempo-syndicate/youtubemusic',
+      '/release/va-tempo-syndicate/deezer',
 
       '/release/va-dancing-mavka',
       '/release/va-dancing-mavka/official',
@@ -208,6 +220,7 @@ module.exports = {
       '/release/va-dancing-mavka/junodownload',
       '/release/va-dancing-mavka/youtube',
       '/release/va-dancing-mavka/youtubemusic',
+      '/release/va-dancing-mavka/deezer',
 
       '/release/va-absence-of-gravity',
       '/release/va-absence-of-gravity/official',
@@ -220,6 +233,7 @@ module.exports = {
       '/release/va-absence-of-gravity/junodownload',
       '/release/va-absence-of-gravity/youtube',
       '/release/va-absence-of-gravity/youtubemusic',
+      '/release/va-absence-of-gravity/deezer',
 
       '/release/va-special-places',
       '/release/va-special-places/official',
@@ -232,6 +246,7 @@ module.exports = {
       '/release/va-special-places/junodownload',
       '/release/va-special-places/youtube',
       '/release/va-special-places/youtubemusic',
+      '/release/va-special-places/deezer',
 
       '/release/hypnotriod-seven-heavenly-edges',
       '/release/hypnotriod-seven-heavenly-edges/official',
@@ -244,6 +259,7 @@ module.exports = {
       '/release/hypnotriod-seven-heavenly-edges/junodownload',
       '/release/hypnotriod-seven-heavenly-edges/youtube',
       '/release/hypnotriod-seven-heavenly-edges/youtubemusic',
+      '/release/hypnotriod-seven-heavenly-edges/deezer',
 
       '/release/specialmind-the-missing-particle',
       '/release/specialmind-the-missing-particle/official',
@@ -256,6 +272,7 @@ module.exports = {
       '/release/specialmind-the-missing-particle/junodownload',
       '/release/specialmind-the-missing-particle/youtube',
       '/release/specialmind-the-missing-particle/youtubemusic',
+      '/release/specialmind-the-missing-particle/deezer',
 
       '/release/tentura-aurora',
       '/release/tentura-aurora/official',
@@ -268,6 +285,7 @@ module.exports = {
       '/release/tentura-aurora/junodownload',
       '/release/tentura-aurora/youtube',
       '/release/tentura-aurora/youtubemusic',
+      '/release/tentura-aurora/deezer',
 
       '/release/cifroteca-roof-raiser-wild-storm',
       '/release/cifroteca-roof-raiser-wild-storm/official',
@@ -280,6 +298,7 @@ module.exports = {
       '/release/cifroteca-roof-raiser-wild-storm/junodownload',
       '/release/cifroteca-roof-raiser-wild-storm/youtube',
       '/release/cifroteca-roof-raiser-wild-storm/youtubemusic',
+      '/release/cifroteca-roof-raiser-wild-storm/deezer',
 
       '/release/va-gamayun-tale',
       '/release/va-gamayun-tale/official',
@@ -292,6 +311,7 @@ module.exports = {
       '/release/va-gamayun-tale/junodownload',
       '/release/va-gamayun-tale/youtube',
       '/release/va-gamayun-tale/youtubemusic',
+      '/release/va-gamayun-tale/deezer',
 
       '/release/psyfactor-retro-scientific',
       '/release/psyfactor-retro-scientific/official',
@@ -304,6 +324,7 @@ module.exports = {
       '/release/psyfactor-retro-scientific/junodownload',
       '/release/psyfactor-retro-scientific/youtube',
       '/release/psyfactor-retro-scientific/youtubemusic',
+      '/release/psyfactor-retro-scientific/deezer',
 
       '/release/ufomatka-the-ep',
       '/release/ufomatka-the-ep/official',
@@ -316,6 +337,7 @@ module.exports = {
       '/release/ufomatka-the-ep/junodownload',
       '/release/ufomatka-the-ep/youtube',
       '/release/ufomatka-the-ep/youtubemusic',
+      '/release/ufomatka-the-ep/deezer',
 
       '/release/tentura-beyond-illusion',
       '/release/tentura-beyond-illusion/official',
@@ -328,6 +350,7 @@ module.exports = {
       '/release/tentura-beyond-illusion/junodownload',
       '/release/tentura-beyond-illusion/youtube',
       '/release/tentura-beyond-illusion/youtubemusic',
+      '/release/tentura-beyond-illusion/deezer',
 
       '/release/va-the-ten',
       '/release/va-the-ten/official',
@@ -340,6 +363,7 @@ module.exports = {
       '/release/va-the-ten/junodownload',
       '/release/va-the-ten/youtube',
       '/release/va-the-ten/youtubemusic',
+      '/release/va-the-ten/deezer',
 
       '/release/zymosis-insight',
       '/release/zymosis-insight/official',
@@ -352,6 +376,7 @@ module.exports = {
       '/release/zymosis-insight/junodownload',
       '/release/zymosis-insight/youtube',
       '/release/zymosis-insight/youtubemusic',
+      '/release/zymosis-insight/deezer',
 
       '/release/overdream-beautiful-thinking',
       '/release/overdream-beautiful-thinking/official',
@@ -364,6 +389,7 @@ module.exports = {
       '/release/overdream-beautiful-thinking/junodownload',
       '/release/overdream-beautiful-thinking/youtube',
       '/release/overdream-beautiful-thinking/youtubemusic',
+      '/release/overdream-beautiful-thinking/deezer',
 
       '/release/ufomatka-altering-the-synaptic-controllers',
       '/release/ufomatka-altering-the-synaptic-controllers/official',
@@ -376,6 +402,7 @@ module.exports = {
       '/release/ufomatka-altering-the-synaptic-controllers/junodownload',
       '/release/ufomatka-altering-the-synaptic-controllers/youtube',
       '/release/ufomatka-altering-the-synaptic-controllers/youtubemusic',
+      '/release/ufomatka-altering-the-synaptic-controllers/deezer',
 
       '/release/omnisound-destiny',
       '/release/omnisound-destiny/official',
@@ -388,6 +415,7 @@ module.exports = {
       '/release/omnisound-destiny/junodownload',
       '/release/omnisound-destiny/youtube',
       '/release/omnisound-destiny/youtubemusic',
+      '/release/omnisound-destiny/deezer',
 
       '/release/zymosis-nichna',
       '/release/zymosis-nichna/official',
@@ -400,6 +428,7 @@ module.exports = {
       '/release/zymosis-nichna/junodownload',
       '/release/zymosis-nichna/youtube',
       '/release/zymosis-nichna/youtubemusic',
+      '/release/zymosis-nichna/deezer',
 
       '/release/va-futured-vol-1',
       '/release/va-futured-vol-1/official',
@@ -412,6 +441,7 @@ module.exports = {
       '/release/va-futured-vol-1/junodownload',
       '/release/va-futured-vol-1/youtube',
       '/release/va-futured-vol-1/youtubemusic',
+      '/release/va-futured-vol-1/deezer',
 
       '/release/psydewise-synaptic-elastic',
       '/release/psydewise-synaptic-elastic/official',
@@ -424,6 +454,7 @@ module.exports = {
       '/release/psydewise-synaptic-elastic/junodownload',
       '/release/psydewise-synaptic-elastic/youtube',
       '/release/psydewise-synaptic-elastic/youtubemusic',
+      '/release/psydewise-synaptic-elastic/deezer',
 
       '/release/u-wave-autumn-discovery',
       '/release/u-wave-autumn-discovery/official',
@@ -436,6 +467,7 @@ module.exports = {
       '/release/u-wave-autumn-discovery/junodownload',
       '/release/u-wave-autumn-discovery/youtube',
       '/release/u-wave-autumn-discovery/youtubemusic',
+      '/release/u-wave-autumn-discovery/deezer',
 
       '/release/va-futured-vol-2',
       '/release/va-futured-vol-2/official',
@@ -448,6 +480,7 @@ module.exports = {
       '/release/va-futured-vol-2/junodownload',
       '/release/va-futured-vol-2/youtube',
       '/release/va-futured-vol-2/youtubemusic',
+      '/release/va-futured-vol-2/deezer',
 
       '/release/juelz-dependence',
       '/release/juelz-dependence/official',
@@ -460,6 +493,7 @@ module.exports = {
       '/release/juelz-dependence/junodownload',
       '/release/juelz-dependence/youtube',
       '/release/juelz-dependence/youtubemusic',
+      '/release/juelz-dependence/deezer',
 
       '/release/aesthesia-perception',
       '/release/aesthesia-perception/official',
@@ -472,6 +506,7 @@ module.exports = {
       '/release/aesthesia-perception/junodownload',
       '/release/aesthesia-perception/youtube',
       '/release/aesthesia-perception/youtubemusic',
+      '/release/aesthesia-perception/deezer',
 
       '/release/unusual-cosmic-process-brain-channel',
       '/release/unusual-cosmic-process-brain-channel/official',
@@ -484,6 +519,7 @@ module.exports = {
       '/release/unusual-cosmic-process-brain-channel/junodownload',
       '/release/unusual-cosmic-process-brain-channel/youtube',
       '/release/unusual-cosmic-process-brain-channel/youtubemusic',
+      '/release/unusual-cosmic-process-brain-channel/deezer',
 
       '/release/space-organ-deep-impressions',
       '/release/space-organ-deep-impressions/official',
@@ -496,6 +532,7 @@ module.exports = {
       '/release/space-organ-deep-impressions/junodownload',
       '/release/space-organ-deep-impressions/youtube',
       '/release/space-organ-deep-impressions/youtubemusic',
+      '/release/space-organ-deep-impressions/deezer',
 
       '/release/psydewise-radio-dystopia',
       '/release/psydewise-radio-dystopia/official',
@@ -508,6 +545,7 @@ module.exports = {
       '/release/psydewise-radio-dystopia/junodownload',
       '/release/psydewise-radio-dystopia/youtube',
       '/release/psydewise-radio-dystopia/youtubemusic',
+      '/release/psydewise-radio-dystopia/deezer',
 
       '/release/artech-stringer-mode',
       '/release/artech-stringer-mode/official',
@@ -520,6 +558,7 @@ module.exports = {
       '/release/artech-stringer-mode/junodownload',
       '/release/artech-stringer-mode/youtube',
       '/release/artech-stringer-mode/youtubemusic',
+      '/release/artech-stringer-mode/deezer',
 
       '/release/va-futured-vol-3',
       '/release/va-futured-vol-3/official',
@@ -532,6 +571,7 @@ module.exports = {
       '/release/va-futured-vol-3/junodownload',
       '/release/va-futured-vol-3/youtube',
       '/release/va-futured-vol-3/youtubemusic',
+      '/release/va-futured-vol-3/deezer',
 
       '/release/va-gatekey-vol-1',
       '/release/va-gatekey-vol-1/official',
@@ -544,6 +584,7 @@ module.exports = {
       '/release/va-gatekey-vol-1/junodownload',
       '/release/va-gatekey-vol-1/youtube',
       '/release/va-gatekey-vol-1/youtubemusic',
+      '/release/va-gatekey-vol-1/deezer',
 
       '/release/gojja-amber-current',
       '/release/gojja-amber-current/official',
@@ -556,6 +597,7 @@ module.exports = {
       '/release/gojja-amber-current/junodownload',
       '/release/gojja-amber-current/youtube',
       '/release/gojja-amber-current/youtubemusic',
+      '/release/gojja-amber-current/deezer',
 
       '/release/gaz-mask-quetzalcoatl',
       '/release/gaz-mask-quetzalcoatl/official',
@@ -568,6 +610,7 @@ module.exports = {
       '/release/gaz-mask-quetzalcoatl/junodownload',
       '/release/gaz-mask-quetzalcoatl/youtube',
       '/release/gaz-mask-quetzalcoatl/youtubemusic',
+      '/release/gaz-mask-quetzalcoatl/deezer',
 
       '/release/boketto-yugen',
       '/release/boketto-yugen/official',
@@ -580,6 +623,7 @@ module.exports = {
       '/release/boketto-yugen/junodownload',
       '/release/boketto-yugen/youtube',
       '/release/boketto-yugen/youtubemusic',
+      '/release/boketto-yugen/deezer',
 
       '/release/kabi-mboko',
       '/release/kabi-mboko/official',
@@ -592,6 +636,7 @@ module.exports = {
       '/release/kabi-mboko/junodownload',
       '/release/kabi-mboko/youtube',
       '/release/kabi-mboko/youtubemusic',
+      '/release/kabi-mboko/deezer',
 
       '/release/boketto-outer',
       '/release/boketto-outer/official',
@@ -616,6 +661,7 @@ module.exports = {
       '/release/zymosis-timeless/junodownload',
       '/release/zymosis-timeless/youtube',
       '/release/zymosis-timeless/youtubemusic',
+      '/release/zymosis-timeless/deezer',
 
       '/release/vorg-echoes',
       '/release/vorg-echoes/official',
@@ -628,6 +674,7 @@ module.exports = {
       '/release/vorg-echoes/junodownload',
       '/release/vorg-echoes/youtube',
       '/release/vorg-echoes/youtubemusic',
+      '/release/vorg-echoes/deezer',
 
       '/artist/irukanji',
       '/artist/zymosis',
