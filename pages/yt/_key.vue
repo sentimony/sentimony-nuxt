@@ -1,13 +1,25 @@
 <template>
   <div class="youtube-page-item">
 
-    <router-link v-ripple to="/yt">Back to YT page</router-link><br>
+    <router-link v-ripple to="/yt">◄ Back to YouTube Page</router-link><br>
     <br>
-    <iframe
-      v-if="release.links.youtube_playlist_id"
-      :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
-      :title="release.title + ' YouTube Iframe'"
-    ></iframe>
+    <div class="youtube-page-item__frame-holder">
+      <iframe
+        class="youtube-page-item__frame"
+        v-if="release.links.youtube_playlist_id"
+        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
+        :title="release.title + ' YouTube Iframe'"
+      ></iframe>
+    </div>
+    <br>
+    <div class="youtube-page-item__frame-holder">
+      <iframe
+        class="youtube-page-item__frame"
+        v-if="release.links.youtubeMusic"
+        :src="release.links.youtubeMusic | youtubeMusicEmbed"
+        :title="release.title + ' YouTube Music Iframe'"
+      ></iframe>
+    </div>
     <br>
     Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>
     iTunes: http://bit.ly/{{ release.cat_no }}-itunes<br>
@@ -84,10 +96,10 @@
           return moment(String(date)).format('YYYY');
         }
       },
-      spotifyEmbed (spotify) {
-        if (spotify) {
-          let s = spotify.replace('https://open.spotify.com/album/', '');
-          return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
+      youtubeMusicEmbed (youtubeMusic) {
+        if (youtubeMusic) {
+          let ym = youtubeMusic.replace('https://music.youtube.com/playlist?list=', '');
+          return 'https://www.youtube.com/embed/videoseries?loop=1&list=' + ym;
         }
       }
     },
@@ -104,6 +116,9 @@
 </script>
 
 <style lang="scss">
+  @import '../../node_modules/coriolan-ui/mixins/ratio';
+  @import '../../assets/scss/iframe-size';
+
   .youtube-page-item {
     padding: 2em 0;
     max-width: 400px;
@@ -113,5 +128,23 @@
     text-align: left;
     font-family: Roboto, Arial, sans-serif;
     font-weight: 400;
+
+    &__frame-holder {
+      @include ratio(100%,16,9);
+      @extend .sentimony-iframe;
+      margin-bottom: 20px;
+    }
+
+    &__frame {
+      border-radius: 6px;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 143%;
+      height: 143%;
+      transform: scale(.7);
+      transform-origin: top left;
+    }
   }
 </style>

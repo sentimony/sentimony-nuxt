@@ -3,7 +3,7 @@
     <ddos-guard
       :release="release"
       :title="title"
-      :link="release.links.bandcamp_url"
+      :link="release.links.youtube_music"
     />
   </section>
 </template>
@@ -17,7 +17,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'Bandcamp (16bit)'
+        title: 'YouTube Music'
       }
     },
     async asyncData({ route }) {
