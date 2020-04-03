@@ -36,6 +36,14 @@
     }
   }
 
+  &.tracks-8 {
+    height: (406px + 25px);
+
+    @include media(S) {
+      height: 406px;
+    }
+  }
+
   &.tracks-9 {
     height: (439px + 25px);
 
@@ -67,6 +75,14 @@
       height: 538px;
     }
   }
+
+  &.tracks-25 {
+    height: (967px + 25px);
+
+    @include media(S) {
+      height: 967px;
+    }
+  }
 }
 
 .page-release__spotify-player-iframe {
@@ -84,6 +100,7 @@
     height: 396px;
   }
 
+  &.tracks-8,
   &.tracks-9 {
     height: 486px;
   }
@@ -98,5 +115,9 @@
 
   &.tracks-12 {
     height: 621px;
+  }
+
+  &.tracks-25 {
+    height: 855px;
   }
 }

@@ -11,7 +11,11 @@
                 :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-else class="item__soon">Photo<br>coming soon</div>
+              <div v-else class="item__soon">
+                Photo<br>
+                coming<br>
+                soon
+              </div>
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -39,7 +43,7 @@
       title: 'Artists',
       meta: [
         { name: 'description', content: 'Artists of Sentimony Records' },
-        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
       ]
     }
   }
