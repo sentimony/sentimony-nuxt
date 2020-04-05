@@ -1,6 +1,6 @@
 <template>
   <div class="youtube-page">
-    <h1>YouTube</h1>
+    <h1>YouTube Page</h1>
     <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
@@ -9,14 +9,14 @@
         title="YouTube playlist frame'"
       />
     </div>
-    <div class="youtube-page__frame-holder">
+    <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
         v-if="youtubeFrames.needToWatch"
         :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeFrames.needToWatch"
         title="YouTube playlist frame'"
       />
-    </div>
+    </div> -->
     <table>
       <tr>
         <th>UPC</th>
@@ -24,7 +24,7 @@
         <th>Cat.No</th>
         <th>Title</th>
       </tr>
-      <tr v-for="i in sortByDate" v-if="i.upc">
+      <tr v-for="i in sortByDate">
         <td>{{ i.upc }}</td>
         <td>{{ i.date | formatDate }}</td>
         <td style="text-transform:uppercase;">{{ i.cat_no }}:</td>
@@ -63,7 +63,7 @@
       }
     },
     head: {
-      title: 'YouTube',
+      title: 'YouTube Page',
       meta: [
         { name: 'description', content: '' },
         { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
