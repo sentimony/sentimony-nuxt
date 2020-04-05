@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" :class="sidebarOpen ? 'is-open' : ''">
+  <div class="sidebar" :class="sidebarOpen ? 'is-open' : ''" @click="handleClick">
     <nuxt-link v-ripple to="/" class="mobmenu__link" exact>Home</nuxt-link>
     <nuxt-link v-ripple to="/news/" class="mobmenu__link">News</nuxt-link>
     <nuxt-link v-ripple to="/releases/" class="mobmenu__link">Releases</nuxt-link>
@@ -7,8 +7,6 @@
     <nuxt-link v-ripple to="/events/" class="mobmenu__link">Events</nuxt-link>
     <nuxt-link v-ripple to="/friends/" class="mobmenu__link">Friends</nuxt-link>
     <nuxt-link v-ripple to="/contacts/" class="mobmenu__link">Contacts</nuxt-link>
-    <nuxt-link v-ripple to="/mobmenu/" class="mobmenu__link">Mobmenu</nuxt-link>
-    <nuxt-link v-ripple to="/Mobmenu2/" class="mobmenu__link">Mobmenu2</nuxt-link>
   </div>
 </template>
 
@@ -17,6 +15,11 @@
     computed: {
       sidebarOpen () {
         return this.$store.state.mobmenu.sidebarOpen
+      }
+    },
+    methods: {
+      handleClick () {
+        this.$store.dispatch('toggleSidebar')
       }
     }
   }

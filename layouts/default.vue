@@ -6,6 +6,8 @@
     </div> -->
     <div class="flex-sticky__header">
       <header-main/>
+      <sidebar-menu/>
+      <sidebar-toggle/>
     </div>
     <div class="flex-sticky__content">
       <nuxt/>
@@ -21,6 +23,8 @@
   import BaseBg from '~/components/BaseBg.vue'
   // import Fractal from '~/components/Fractal.vue'
   import HeaderMain from '~/components/HeaderMain.vue'
+  import SidebarMenu from '~/components/SidebarMenu.vue'
+  import SidebarToggle from '~/components/SidebarToggle.vue'
   import Donate from '~/components/Donate.vue'
   import Footr from '~/components/Footr.vue'
 
@@ -29,6 +33,8 @@
       BaseBg,
       // Fractal,
       HeaderMain,
+      SidebarMenu,
+      SidebarToggle,
       Donate,
       Footr
     }
