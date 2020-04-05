@@ -46,7 +46,7 @@
     }
 
     &.is-active {
-      transform: rotate(180deg);
+      transform: rotate(90deg);
     }
 
     &.is-active:focus {
