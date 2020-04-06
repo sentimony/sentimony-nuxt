@@ -7,7 +7,7 @@
     <div class="flex-sticky__header">
       <header-main/>
       <sidebar-menu/>
-      <sidebar-toggle/>
+      <sidebar-btn/>
     </div>
     <div class="flex-sticky__content">
       <SwiperReleaseList/>
@@ -25,7 +25,7 @@
   // import Fractal from '~/components/Fractal.vue'
   import HeaderMain from '~/components/HeaderMain.vue'
   import SidebarMenu from '~/components/SidebarMenu.vue'
-  import SidebarToggle from '~/components/SidebarToggle.vue'
+  import SidebarBtn from '~/components/SidebarBtn.vue'
   import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
   import Donate from '~/components/Donate.vue'
   import Footr from '~/components/Footr.vue'
@@ -36,7 +36,7 @@
       // Fractal,
       HeaderMain,
       SidebarMenu,
-      SidebarToggle,
+      SidebarBtn,
       SwiperReleaseList,
       Donate,
       Footr
