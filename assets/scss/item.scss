@@ -101,11 +101,10 @@
     color: #fff;
     font-size: 8px;
     height: 42px;
-    // display: none;
     padding: 0 2px;
+    margin-bottom: 4px;
 
     @include media(M) {
-      // display: block;
       font-size: 14px;
     }
   }
