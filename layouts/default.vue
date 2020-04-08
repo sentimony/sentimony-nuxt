@@ -10,6 +10,7 @@
       <sidebar-btn/>
     </div>
     <div class="flex-sticky__content">
+      <swiper-release-list/>
       <nuxt/>
     </div>
     <div class="flex-sticky__footer">
@@ -25,6 +26,7 @@
   import HeaderMain from '~/components/HeaderMain.vue'
   import SidebarMenu from '~/components/SidebarMenu.vue'
   import SidebarBtn from '~/components/SidebarBtn.vue'
+  import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
   import Donate from '~/components/Donate.vue'
   import Footr from '~/components/Footr.vue'
 
@@ -35,6 +37,7 @@
       HeaderMain,
       SidebarMenu,
       SidebarBtn,
+      SwiperReleaseList,
       Donate,
       Footr
     }

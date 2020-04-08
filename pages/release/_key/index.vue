@@ -193,7 +193,7 @@
   import axios from '~/plugins/axios'
 
   export default {
-    layout: 'release',
+    // layout: 'release',
     components: {
       SvgTriangle,
       SenBtn
@@ -259,12 +259,12 @@
         }
       }
     },
-    methods: {
-      onLoad ({ route }) {
-        const { key } = route.params
-        console.log(key)
-      }
-    },
+    // methods: {
+    //   onLoad ({ route }) {
+    //     const { key } = route.params
+    //     console.log(key)
+    //   }
+    // },
     head () {
       return {
         title: this.release.title,
