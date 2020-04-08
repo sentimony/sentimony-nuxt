@@ -12,10 +12,10 @@
           target="_blank"
           rel="noopener"
         >
-          <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
+          <!-- <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--top"
             v-if="i.title == 'Bandcamp'"
             v-html="free"
-          />
+          /> -->
           <img class="headr-social-menu__link__img"
             :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
           />
@@ -30,11 +30,11 @@
 
 <script>
   export default {
-    data() {
-      return {
-        free: 'FREE or Donate'
-      }
-    },
+    // data() {
+    //   return {
+    //     free: 'FREE or Donate'
+    //   }
+    // },
     computed: {
       loading () {
         return this.$store.getters.loading
