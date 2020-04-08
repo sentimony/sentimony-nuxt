@@ -1,8 +1,9 @@
 {
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.2",
+    "core-js": "^2.6.9",
     "coriolan-ui": "^0.1.20",
-    "firebase": "^5.8.4",
+    "firebase": "^6.1.0",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^1.4.5",
@@ -15,7 +16,7 @@
     "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^7.1.0"
   },
   "scripts": {
@@ -23,7 +24,7 @@
     "build": "nuxt generate"
   },
   "engines": {
-    "node": "8.15.0",
-    "npm": "6.4.1"
+    "node": "12.16.1",
+    "npm": "6.13.4"
   }
 }
