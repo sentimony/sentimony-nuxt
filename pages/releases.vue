@@ -7,8 +7,8 @@
           <div class="item__wrapper">
             <div class="item__cover">
               <img v-if="i.cover" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
+                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
               <div v-else class="item__soon">
