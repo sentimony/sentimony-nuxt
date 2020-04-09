@@ -743,6 +743,11 @@ module.exports = {
       '/artist/unusual-cosmic-process',
       '/artist/vonoom',
 
+      'playlist/sentimony-official',
+      'playlist/psychill-psybient',
+      'playlist/dark-prog-zenonesque',
+      'playlist/goa-trance',
+
       '/event/shift-space',
       '/event/alt-space',
       '/event/water-marks',
