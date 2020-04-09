@@ -649,6 +649,7 @@ module.exports = {
       '/release/boketto-outer/junodownload',
       '/release/boketto-outer/youtube',
       '/release/boketto-outer/youtubemusic',
+      '/release/boketto-outer/deezer',
 
       '/release/zymosis-timeless',
       '/release/zymosis-timeless/official',
