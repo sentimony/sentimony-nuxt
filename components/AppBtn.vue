@@ -1,28 +1,28 @@
 <template>
-  <span class="sen-btn">
+  <span class="app-btn">
 
     <router-link v-if="url !== ''"
-      class="sen-btn__btn"
+      class="app-btn__btn"
       :to="route"
       v-ripple
       target="_blank" rel="noopener"
     >
-      <img class="sen-btn__btn-img"
+      <img class="app-btn__btn-img"
         :src="icon"
         :alt="title + ' Icon'"
       >
-      <span class="sen-btn__btn-text">{{ title }}</span>
+      <span class="app-btn__btn-text">{{ title }}</span>
     </router-link>
 
     <span v-else
-      class="sen-btn__btn is-disabled"
+      class="app-btn__btn is-disabled"
     >
       <img
-        class="sen-btn__btn-img"
+        class="app-btn__btn-img"
         :src="icon"
         :alt="title + ' Icon'"
       >
-      <span class="sen-btn__btn-text">{{ title }}</span>
+      <span class="app-btn__btn-text">{{ title }}</span>
     </span>
 
   </span>
@@ -40,7 +40,7 @@
   @import '../assets/scss/variables';
   @import '../assets/scss/buttons';
 
-  .sen-btn {
+  .app-btn {
     margin-right: .7em;
 
     &__btn {

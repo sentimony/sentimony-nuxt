@@ -29,15 +29,15 @@
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
 
-              <sen-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-              <sen-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-              <sen-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-              <sen-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.apple_music" :icon="icons.apple_music"/>
-              <sen-btn :url="release.links.googleplay" :route="routes.google_play" :title="titles.google_play" :icon="icons.google_play"/>
-              <sen-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-              <!-- <sen-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/> -->
-              <sen-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-              <sen-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+              <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+              <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+              <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+              <app-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.apple_music" :icon="icons.apple_music"/>
+              <app-btn :url="release.links.googleplay" :route="routes.google_play" :title="titles.google_play" :icon="icons.google_play"/>
+              <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
+              <!-- <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/> -->
+              <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+              <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
 
             </div>
 
@@ -181,7 +181,7 @@
 <script>
   import SvgTriangle from '~/components/SvgTriangle'
   import AppCover from '~/components/AppCover'
-  import SenBtn from '~/components/SenBtn'
+  import AppBtn from '~/components/AppBtn'
   import axios from '~/plugins/axios'
 
   export default {
@@ -189,7 +189,7 @@
     components: {
       SvgTriangle,
       AppCover,
-      SenBtn
+      AppBtn
     },
     data () {
       return {
