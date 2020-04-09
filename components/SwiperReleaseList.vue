@@ -9,8 +9,8 @@
               <div class="item__cover">
                 <div v-if="i.cover" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 <img v-if="i.cover" class="item__img swiper-lazy"
-                  :src="'https://content.sentimony.com/assets/img/releases/small/' + '/' + i.slug + '.jpg'"
-                  :srcset="'https://content.sentimony.com/assets/img/releases/small/' + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + '/' + i.slug + '.jpg 2x'"
+                  :src="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg'"
+                  :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.slug + '.jpg 2x'"
                   :alt="i.title + ' Small Thumbnail'"
                 >
                 <div v-else class="item__soon">
