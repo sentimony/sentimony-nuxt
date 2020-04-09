@@ -6,23 +6,14 @@
       <div class="page-release__wrapper">
 
         <div class="page-release__media">
-          <div class="page-release__cover">
-            <img v-if="release.cover" class="page-release__cover-bg"
-              :src="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no + '/' + release.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no + '/' + release.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + release.cat_no + '/' + release.slug + '.jpg 2x'"
-              :alt="release.title + ' Small Thumbnail'"
-            >
-            <img v-img v-if="release.cover" class="page-release__cover-img"
-              :src="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no + '/' + release.slug +'.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
-              :alt="release.title"
-            >
-            <div v-if="!release.cover" class="page-release__cover-coming">
-              Artwork<br>
-              in<br>
-              progress
-            </div>
-          </div>
+
+          <app-cover
+            :cover="release.cover"
+            :category="'releases'"
+            :slug="release.slug"
+            :title="release.title"
+          />
+
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
@@ -188,14 +179,16 @@
 </template>
 
 <script>
-  import SenBtn from '~/components/SenBtn'
   import SvgTriangle from '~/components/SvgTriangle'
+  import AppCover from '~/components/AppCover'
+  import SenBtn from '~/components/SenBtn'
   import axios from '~/plugins/axios'
 
   export default {
     layout: 'release',
     components: {
       SvgTriangle,
+      AppCover,
       SenBtn
     },
     data () {
@@ -270,7 +263,7 @@
         title: this.release.title,
         meta: [
           { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' +  this.release.slug + '.jpg' }
         ]
       }
     }
@@ -326,58 +319,6 @@
         margin-top: 62px;
         margin-bottom: 10em;
         width: auto;
-      }
-    }
-
-    &__cover {
-      min-width: 100px;
-      height: 100px;
-      border-radius: 2px;
-      overflow: hidden;
-      margin-right: 1.4em;
-      background-color: $colorBgBlack;
-      display: flex;
-      align-items: stretch;
-      box-shadow: $shadow;
-      position: relative;
-
-      @include media(M) {
-        min-width: 190px;
-        height: 190px;
-      }
-
-      // &-link {
-      //   display: flex;
-      //   align-items: stretch;
-      //   width: 100%;
-      // }
-
-      &-bg {
-        position: absolute;
-        width: 100%;
-        height: auto;
-      }
-
-      &-img {
-        display: block;
-        width: 100%;
-        max-width: 100px;
-        box-shadow: $shadow;
-        position: relative;
-
-        @include media(M) {
-          max-width: 190px;
-        }
-      }
-
-      &-coming {
-        padding: 1em 1.2em;
-        font-size: 10px;
-        color: rgba(#fff,.5);
-
-        @include media(M) {
-          font-size: 14px;
-        }
       }
     }
 

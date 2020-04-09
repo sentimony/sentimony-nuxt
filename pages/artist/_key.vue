@@ -6,18 +6,14 @@
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
-          <div class="page-artist__photo">
-            <img v-if="artist.photo" v-img class="page-artist__photo-img"
-              :src="'https://content.sentimony.com/assets/img/artists/large/' + artist.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/artists/medium/' + artist.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/medium-retina/' + artist.slug + '.jpg 2x'"
-              :alt="artist.title"
-            >
-            <div v-else class="page-artist__photo-coming">
-              Photo<br>
-              is<br>
-              coming
-            </div>
-          </div>
+
+          <app-cover
+            :cover="artist.photo"
+            :category="'artists'"
+            :slug="artist.slug"
+            :title="artist.title"
+          />
+
           <div class="page-artist__info">
             <div v-if="artist.style" class="page-artist__small-info">
               <div class="page-artist__style">{{ artist.style }}</div>
@@ -99,12 +95,14 @@
 
 <script>
   import SvgTriangle from '~/components/SvgTriangle.vue'
+  import AppCover from '~/components/AppCover'
   import axios from '~/plugins/axios'
 
   export default {
     layout: 'artist',
     components: {
-      SvgTriangle
+      SvgTriangle,
+      AppCover
     },
     async asyncData({ route }) {
       const { key } = route.params
