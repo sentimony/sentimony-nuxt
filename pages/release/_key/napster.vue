@@ -3,7 +3,7 @@
     <ddos-guard
       :release="release"
       :title="title"
-      :link="release.links.googleplay_music"
+      :link="release.links.napster"
     />
   </section>
 </template>
@@ -17,7 +17,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'GooglePlay Music'
+        title: 'Napster'
       }
     },
     async asyncData({ route }) {
