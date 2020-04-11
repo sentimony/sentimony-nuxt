@@ -25,21 +25,27 @@
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
             </div>
-            <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
-            <div v-else class="page-release__small-info">Get it soon:</div>
-            <div>
 
-              <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-              <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-              <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-              <app-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.apple_music" :icon="icons.apple_music"/>
-              <app-btn :url="release.links.googleplay" :route="routes.google_play" :title="titles.google_play" :icon="icons.google_play"/>
-              <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-              <!-- <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/> -->
-              <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-              <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+            <div v-if="release.coming_soon !== true" class="page-release__small-info">Downloat it:</div>
+            <div v-else class="page-release__small-info">Downloat it soon:</div>
 
-            </div>
+            <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+            <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+            <app-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.itunes" :icon="icons.apple_music"/>
+            <app-btn :url="release.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/>
+            <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
+            <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
+
+            <div v-if="release.coming_soon !== true" class="page-release__small-info">Stream it:</div>
+            <div v-else class="page-release__small-info">Stream it soon:</div>
+
+            <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+            <app-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.apple_music" :icon="icons.apple_music"/>
+            <app-btn :url="release.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/>
+            <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+            <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+            <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
+            <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
 
           </div>
         </div>
@@ -197,33 +203,42 @@
           bandcamp_24: 'bandcamp24',
           bandcamp_16: 'bandcamp',
           apple_music: 'itunes',
-          google_play: 'googleplay',
+          googleplay_market: 'googleplaymarket',
+          googleplay_music: 'googleplay',
           beatport: 'beatport',
           spotify: 'spotify',
           junodownload: 'junodownload',
           youtube_music: 'youtubemusic',
-          deezer: 'deezer'
+          deezer: 'deezer',
+          tidal: 'tidal',
+          napster: 'napster'
         },
         titles: {
           bandcamp_24: 'Bandcamp 24bit',
           bandcamp_16: 'Bandcamp 16bit',
           apple_music: 'Apple Music',
-          google_play: 'Google Play',
+          itunes: 'iTunes',
+          googleplay_music: 'GooglePlay Music',
+          googleplay_market: 'GooglePlay Market',
           beatport: 'Beatport',
           spotify: 'Spotify',
           junodownload: 'JunoDownload',
           youtube_music: 'YouTube Music',
-          deezer: 'Deezer'
+          deezer: 'Deezer',
+          tidal: 'Tidal',
+          napster: 'Napster'
         },
         icons: {
           bandcamp: 'https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01',
           apple_music: 'https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01',
-          google_play: 'https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01',
+          googleplay: 'https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01',
           beatport: 'https://content.sentimony.com/assets/img/svg-icons/beatport.svg?01',
           spotify: 'https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01',
           junodownload: 'https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01',
           youtube_music: 'https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01',
-          deezer: 'https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01'
+          deezer: 'https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01',
+          tidal: 'https://content.sentimony.com/assets/img/svg-icons/tidal.svg?01',
+          napster: 'https://content.sentimony.com/assets/img/svg-icons/napster.svg?01'
         }
       }
     },
@@ -335,6 +350,7 @@
     &__small-info {
       font-size: 10px;
       color: rgba(#fff,.5);
+      margin-bottom: .5em;
 
       @include media(S) {
         font-size: 14px;

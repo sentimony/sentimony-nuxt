@@ -42,10 +42,12 @@
 
   .app-btn {
     margin-right: .7em;
+    display: inline-block;
+    // margin-top: .5em;
+    margin-bottom: .5em;
 
     &__btn {
       @extend .btn;
-      margin-top: .5em;
 
       &-img {
         @extend .btn__img;
