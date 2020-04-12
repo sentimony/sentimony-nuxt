@@ -17,6 +17,7 @@
         <p>{{ aboutDescription }}</p>
       </div>
     </div>
+    
     <SwiperArtistList/>
 
   </div>

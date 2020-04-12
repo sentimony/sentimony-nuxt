@@ -4,8 +4,8 @@
     <div v-if="loading">Loading...</div>
     <div v-else class="menu-social__list">
       <a class="menu-social__link"
-        v-for="i in socialStore"
-        :key="i.title"
+        v-for="(i, index) in socialStore"
+        :key="index"
         v-if="i.isVisibleFootr"
         :href="i.url"
         target="_blank"

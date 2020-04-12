@@ -2,7 +2,10 @@
   <div class="releases">
     <h1>Releases</h1>
     <div class="list">
-      <div v-for="i in sortByDate" class="item">
+      <div class="item"
+        v-for="(i, index) in sortByDate"
+        :key="index"
+      >
         <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">

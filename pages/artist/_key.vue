@@ -78,8 +78,14 @@
     <div class="content">
       <div class="content__wrapper">
 
-        <p v-if="artist.releases">Releases:</p>
-        <p v-if="artist.releases" v-for="i in artist.releases" v-html="i.title"></p>
+        <div v-if="artist.releases">
+          <p>Releases:</p>
+          <p
+            v-for="(i, index) in artist.releases"
+            :key="index"
+            v-html="i.title"
+          ></p>
+        </div>
 
         <VueDisqus
           shortname="sentimony"
