@@ -2,7 +2,11 @@
   <div class="artists">
     <h1>Artists</h1>
     <div class="list">
-      <div v-for="i in sortByCategoryId" v-if="i.category_id" class="item">
+      <div class="item"
+        v-for="(i, index) in sortByCategoryId"
+        :key="index"
+        v-if="i.category_id"
+      >
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">

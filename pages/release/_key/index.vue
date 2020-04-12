@@ -111,13 +111,20 @@
       <div class="content__wrapper">
 
         <div v-if="release.info">
-          <p v-for="i in release.info" v-html="i.p"></p>
+          <p
+            v-for="(i, index) in release.info"
+            :key="index"
+            v-html="i.p"
+          />
         </div>
 
         <div v-if="release.tracklist">
           <hr>
           <p>Tracklist:</p>
-          <p v-for="i in release.tracklist.tracks">
+          <p
+            v-for="(i, index) in release.tracklist.tracks"
+            :key="index"
+          >
             <span v-if="i.number">{{ i.number }} </span>
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
@@ -142,14 +149,14 @@
           <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
         </div>
 
-        <div v-if="release.links.youtube || release.links.junodownload || release.links.beatspace || release.links.psyshop || release.links.ektoplazm || release.links.discogs">
+        <div v-if="release.links.youtube">
           <hr>
           <p>Links:</p>
         </div>
 
-        <p v-if="release.links.junodownload">
+        <!-- <p v-if="release.links.junodownload">
           <a :href="release.links.junodownload" target="_blank" rel="noopener">JunoDownload</a>
-        </p>
+        </p> -->
 
         <p v-if="release.links.beatspace">
           <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
@@ -164,7 +171,7 @@
         </p>
 
         <p v-if="release.links.youtube && release.coming_soon == false">
-          <a :href="release.links.youtube | YouTubeFullReleases" target="_blank" rel="noopener">YouTube Full Release</a>
+          <a :href="release.links.youtube | YouTubeFullReleases" target="_blank" rel="noopener">YouTube [Full Release]</a>
         </p>
 
         <p v-if="release.links.discogs">
@@ -289,7 +296,7 @@
   @import '../../../node_modules/coriolan-ui/tools/variables';
   @import '../../../node_modules/coriolan-ui/mixins/media';
   @import '../../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../../assets/scss/variables';
+  // @import '../../../assets/scss/variables';
   @import '../../../assets/scss/buttons';
   @import '../../../assets/scss/vue-tabs-restyle';
   @import '../../../assets/scss/content';

@@ -2,7 +2,10 @@
   <div class="friend">
     <h1>{{ friend.title }}</h1>
     <p>Links:</p>
-    <p v-for="i in friend.links">
+    <p
+      v-for="(i, index) in friend.links"
+      :key="index"
+    >
       <a v-if="i.url" :href="i.url" target="_blank" rel="noopener">{{ i.id }}</a>
     </p>
   </div>

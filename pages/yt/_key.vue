@@ -15,24 +15,27 @@
     <div class="youtube-page-item__frame-holder">
       <iframe
         class="youtube-page-item__frame"
-        v-if="release.links.youtubeMusic"
-        :src="release.links.youtubeMusic | youtubeMusicEmbed"
+        v-if="release.links.youtube_music"
+        :src="release.links.youtube_music | youtubeMusicEmbed"
         :title="release.title + ' YouTube Music Iframe'"
       ></iframe>
     </div>
-    <br>
+    <!-- <br>
     Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>
     iTunes: http://bit.ly/{{ release.cat_no }}-itunes<br>
     GooglePlay: http://bit.ly/{{ release.cat_no }}-google<br>
     Beatport: http://bit.ly/{{ release.cat_no }}-beatport<br>
     Spotify: http://bit.ly/{{ release.cat_no }}-spotify<br>
-    Official release page: http://bit.ly/{{ release.cat_no }}<br>
+    Official release page: http://bit.ly/{{ release.cat_no }}<br> -->
     <br>
     <span style="text-transform:uppercase;">{{ release.cat_no }}: </span>
     <span>{{ release.title }}</span>
     (Sentimony Records, {{ release.date | formatDate }})<br>
     <br>
-    <span v-for="i in release.tracklist.tracks">
+    <span
+      v-for="(i, index) in release.tracklist.tracks"
+      :key="index"
+    >
       <!-- <span>{{ i.cue_time }} ► </span> -->
       <span>{{ i.number }}. </span>
       <span>{{ i.artist }} - </span>
@@ -54,7 +57,7 @@
     <span v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></span>
     <br v-if="release.credits.mixed_and_mastered_by">
 
-    <br>
+    <!-- <br>
     ===<br>
     <br>
     Recently all Sentimony Records releases available for FREE DOWNLOAD at Bandcamp.<br>
@@ -75,7 +78,7 @@
     Facebook: http://bit.ly/facebook-sentimony<br>
     SoundCloud https://soundcloud.com/sentimony<br>
     Twitter: https://twitter.com/sentimony<br>
-    GooglePlus: http://bit.ly/googleplus-sentimomy<br>
+    GooglePlus: http://bit.ly/googleplus-sentimomy<br> -->
 
   </div>
 </template>

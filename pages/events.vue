@@ -2,7 +2,10 @@
   <div class="events">
     <h1>Events</h1>
     <div class="events__list">
-      <p v-for="i in sortByDate" class="events__item">
+      <p class="events__item"
+        v-for="(i, index) in sortByDate"
+        :key="index"
+      >
         <router-link v-ripple :to="'/event/' + i.slug" class="events__link" v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</router-link>
       </p>
     </div>
