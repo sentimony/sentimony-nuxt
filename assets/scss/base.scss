@@ -1,5 +1,9 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 
+.__nuxt-error-page {
+  position: relative !important;
+}
+
 html {
   position: relative;
   height: 100%;
