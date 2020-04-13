@@ -45,7 +45,6 @@
               ></iframe>
             </v-tab>
             <v-tab v-if="artist.facebook" title="Facebook" icon="page__tab__icon--facebook">
-              <!-- TODO: What is appId ??? -->
               <iframe
                 class="facebook-widget facebook-widget--size-s"
                 :src="'https://www.facebook.com/plugins/page.php?href=' + artist.facebook + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
@@ -63,12 +62,12 @@
                 allowTransparency="true"
               ></iframe>
             </v-tab>
-            <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
+            <!-- <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
               <a :href="artist.discogs" target="_blank" rel="noopener" style="display:flex;align-items:center">
                 <img src="https://content.sentimony.com/assets/img/svg-icons/discogs.svg" style="width:20px;margin-right:.4em">
                 <span>Discogs</span>
               </a>
-            </v-tab>
+            </v-tab> -->
           </vue-tabs>
         </div>
 
@@ -78,14 +77,23 @@
     <div class="content">
       <div class="content__wrapper">
 
-        <div v-if="artist.releases">
-          <p>Releases:</p>
-          <p
-            v-for="(i, index) in artist.releases"
-            :key="index"
-            v-html="i.title"
-          ></p>
-        </div>
+        <p>Releases:</p>
+        <p
+          v-for="(i, index) in releasesSortByDate"
+          :key="index"
+          v-if="i.artists.includes(artist.slug)"
+        >
+        {{ i.date | year }}
+        @
+        {{ i.title }}
+          |
+          <router-link v-ripple :to="'../../release/' + i.slug">Reed More</router-link>
+        </p>
+        <hr>
+
+        <p v-if="artist.discogs">Links:</p>
+        <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
+        <hr v-if="artist.discogs">
 
         <VueDisqus
           shortname="sentimony"
@@ -103,6 +111,8 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import axios from '~/plugins/axios'
+  import sortBy from 'lodash/sortBy'
+  import moment from 'moment'
 
   export default {
     layout: 'artist',
@@ -114,6 +124,28 @@
       const { key } = route.params
       const { data } = await axios.get(`artists/${key}.json`)
       return { artist: data }
+    },
+    async asyncData({ route }) {
+      const { key } = route.params
+      const [artistRes, releasesRes] = await Promise.all([
+        axios.get(`artists/${key}.json`),
+        axios.get('releases.json')
+      ]);
+      const artist = artistRes.data
+      const releases = releasesRes.data
+      return { artist, releases }
+    },
+    computed: {
+      releasesSortByDate() {
+        return sortBy(this.releases, 'date').reverse()
+      }
+    },
+    filters: {
+      year: function (date) {
+        if (date) {
+          return moment(String(date)).format('YYYY');
+        }
+      }
     },
     head () {
       return {
