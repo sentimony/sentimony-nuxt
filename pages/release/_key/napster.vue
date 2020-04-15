@@ -3,7 +3,7 @@
     <ddos-guard
       :release="release"
       :title="title"
-      :link="release.links.youtube"
+      :link="release.links.napster"
     />
   </section>
 </template>
@@ -17,7 +17,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'YouTube'
+        title: 'Napster'
       }
     },
     async asyncData({ route }) {

@@ -6,7 +6,11 @@
     <p class="contacts__title">{{ follow }}</p>
     <p v-if="loading">Loading...</p>
     <div v-else>
-      <p v-for="i in socialStore" :key="i.title" v-if="i.isVisibleContacts">
+      <p
+        v-for="(i, index) in socialStore"
+        :key="index"
+        v-if="i.isVisibleContacts"
+      >
         <a class="contacts__link"
           :href="i.url"
           target="_blank"
