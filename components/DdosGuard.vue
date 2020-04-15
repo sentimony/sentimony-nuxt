@@ -9,8 +9,8 @@
     <div class="DdosguardAnimation">
       <div class="DdosguardCoverholder">
         <img
-          :src="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no + '/' + release.slug +'.jpg'"
-          :srcset="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
+          :src="'https://content.sentimony.com/assets/img/releases/small/' + release.slug +'.jpg'"
+          :srcset="'https://content.sentimony.com/assets/img/releases/small/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + release.slug +'.jpg 2x'"
           :alt="release.title"
         />
       </div>

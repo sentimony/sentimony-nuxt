@@ -3,7 +3,11 @@
     <div class="title">Artists</div>
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="i in sortByCategoryId" v-if="i.category_id" class="swiper-slide item">
+        <div class="swiper-slide item"
+          v-for="(i, index) in sortByCategoryId"
+          :key="index"
+          v-if="i.category_id"
+        >
           <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
               <div class="item__cover">

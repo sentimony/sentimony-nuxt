@@ -6,23 +6,14 @@
       <div class="page-release__wrapper">
 
         <div class="page-release__media">
-          <div class="page-release__cover">
-            <img v-if="release.cover" class="page-release__cover-bg"
-              :src="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no + '/' + release.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/releases/small/' + release.cat_no + '/' + release.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + release.cat_no + '/' + release.slug + '.jpg 2x'"
-              :alt="release.title + ' Small Thumbnail'"
-            >
-            <img v-img v-if="release.cover" class="page-release__cover-img"
-              :src="'https://content.sentimony.com/assets/img/releases/large/' + release.cat_no + '/' + release.slug +'.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/releases/medium/' + release.cat_no + '/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/medium-retina/' + release.cat_no + '/' + release.slug +'.jpg 2x'"
-              :alt="release.title"
-            >
-            <div v-if="!release.cover" class="page-release__cover-coming">
-              Artwork<br>
-              in<br>
-              progress
-            </div>
-          </div>
+
+          <app-cover
+            :cover="release.cover"
+            :category="'releases'"
+            :slug="release.slug"
+            :title="release.title"
+          />
+
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
@@ -34,21 +25,27 @@
               <span>{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
             </div>
-            <div v-if="release.coming_soon !== true" class="page-release__small-info">Get it:</div>
-            <div v-else class="page-release__small-info">Get it soon:</div>
-            <div>
 
-              <sen-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-              <sen-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-              <sen-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-              <sen-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.apple_music" :icon="icons.apple_music"/>
-              <sen-btn :url="release.links.googleplay" :route="routes.google_play" :title="titles.google_play" :icon="icons.google_play"/>
-              <sen-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-              <!-- <sen-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/> -->
-              <sen-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-              <sen-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+            <div v-if="release.coming_soon !== true" class="page-release__small-info">Downloat it:</div>
+            <div v-else class="page-release__small-info">Downloat it soon:</div>
 
-            </div>
+            <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+            <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+            <app-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.itunes" :icon="icons.apple_music"/>
+            <app-btn :url="release.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/>
+            <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
+            <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
+
+            <div v-if="release.coming_soon !== true" class="page-release__small-info">Stream it:</div>
+            <div v-else class="page-release__small-info">Stream it soon:</div>
+
+            <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+            <app-btn :url="release.links.itunes" :route="routes.apple_music" :title="titles.apple_music" :icon="icons.apple_music"/>
+            <app-btn :url="release.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/>
+            <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+            <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+            <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
+            <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
 
           </div>
         </div>
@@ -114,13 +111,20 @@
       <div class="content__wrapper">
 
         <div v-if="release.info">
-          <p v-for="i in release.info" v-html="i.p"></p>
+          <p
+            v-for="(i, index) in release.info"
+            :key="index"
+            v-html="i.p"
+          />
         </div>
 
         <div v-if="release.tracklist">
           <hr>
           <p>Tracklist:</p>
-          <p v-for="i in release.tracklist.tracks">
+          <p
+            v-for="(i, index) in release.tracklist.tracks"
+            :key="index"
+          >
             <span v-if="i.number">{{ i.number }} </span>
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
@@ -145,14 +149,14 @@
           <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
         </div>
 
-        <div v-if="release.links.junodownload || release.links.beatspace || release.links.psyshop || release.links.ektoplazm || release.links.discogs">
+        <div v-if="release.links.youtube">
           <hr>
           <p>Links:</p>
         </div>
 
-        <p v-if="release.links.junodownload">
+        <!-- <p v-if="release.links.junodownload">
           <a :href="release.links.junodownload" target="_blank" rel="noopener">JunoDownload</a>
-        </p>
+        </p> -->
 
         <p v-if="release.links.beatspace">
           <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
@@ -167,7 +171,7 @@
         </p>
 
         <p v-if="release.links.youtube && release.coming_soon == false">
-          <a :href="release.links.youtube | YouTubeFullReleases" target="_blank" rel="noopener">YouTube Full Release</a>
+          <a :href="release.links.youtube | YouTubeFullReleases" target="_blank" rel="noopener">YouTube [Full Release]</a>
         </p>
 
         <p v-if="release.links.discogs">
@@ -188,15 +192,17 @@
 </template>
 
 <script>
-  import SenBtn from '~/components/SenBtn'
   import SvgTriangle from '~/components/SvgTriangle'
+  import AppCover from '~/components/AppCover'
+  import AppBtn from '~/components/AppBtn'
   import axios from '~/plugins/axios'
 
   export default {
     layout: 'release',
     components: {
       SvgTriangle,
-      SenBtn
+      AppCover,
+      AppBtn
     },
     data () {
       return {
@@ -204,33 +210,42 @@
           bandcamp_24: 'bandcamp24',
           bandcamp_16: 'bandcamp',
           apple_music: 'itunes',
-          google_play: 'googleplay',
+          googleplay_market: 'googleplaymarket',
+          googleplay_music: 'googleplay',
           beatport: 'beatport',
           spotify: 'spotify',
           junodownload: 'junodownload',
           youtube_music: 'youtubemusic',
-          deezer: 'deezer'
+          deezer: 'deezer',
+          tidal: 'tidal',
+          napster: 'napster'
         },
         titles: {
           bandcamp_24: 'Bandcamp 24bit',
           bandcamp_16: 'Bandcamp 16bit',
           apple_music: 'Apple Music',
-          google_play: 'Google Play',
+          itunes: 'iTunes',
+          googleplay_music: 'GooglePlay Music',
+          googleplay_market: 'GooglePlay Market',
           beatport: 'Beatport',
           spotify: 'Spotify',
           junodownload: 'JunoDownload',
           youtube_music: 'YouTube Music',
-          deezer: 'Deezer'
+          deezer: 'Deezer',
+          tidal: 'Tidal',
+          napster: 'Napster'
         },
         icons: {
           bandcamp: 'https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01',
           apple_music: 'https://content.sentimony.com/assets/img/svg-icons/apple-music.svg?01',
-          google_play: 'https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01',
+          googleplay: 'https://content.sentimony.com/assets/img/svg-icons/google-play.svg?01',
           beatport: 'https://content.sentimony.com/assets/img/svg-icons/beatport.svg?01',
           spotify: 'https://content.sentimony.com/assets/img/svg-icons/spotify.svg?01',
           junodownload: 'https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01',
           youtube_music: 'https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01',
-          deezer: 'https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01'
+          deezer: 'https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01',
+          tidal: 'https://content.sentimony.com/assets/img/svg-icons/tidal.svg?01',
+          napster: 'https://content.sentimony.com/assets/img/svg-icons/napster.svg?01'
         }
       }
     },
@@ -270,7 +285,7 @@
         title: this.release.title,
         meta: [
           { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' +  this.release.slug + '.jpg' }
         ]
       }
     }
@@ -281,7 +296,7 @@
   @import '../../../node_modules/coriolan-ui/tools/variables';
   @import '../../../node_modules/coriolan-ui/mixins/media';
   @import '../../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../../assets/scss/variables';
+  // @import '../../../assets/scss/variables';
   @import '../../../assets/scss/buttons';
   @import '../../../assets/scss/vue-tabs-restyle';
   @import '../../../assets/scss/content';
@@ -329,58 +344,6 @@
       }
     }
 
-    &__cover {
-      min-width: 100px;
-      height: 100px;
-      border-radius: 2px;
-      overflow: hidden;
-      margin-right: 1.4em;
-      background-color: $colorBgBlack;
-      display: flex;
-      align-items: stretch;
-      box-shadow: $shadow;
-      position: relative;
-
-      @include media(M) {
-        min-width: 190px;
-        height: 190px;
-      }
-
-      // &-link {
-      //   display: flex;
-      //   align-items: stretch;
-      //   width: 100%;
-      // }
-
-      &-bg {
-        position: absolute;
-        width: 100%;
-        height: auto;
-      }
-
-      &-img {
-        display: block;
-        width: 100%;
-        max-width: 100px;
-        box-shadow: $shadow;
-        position: relative;
-
-        @include media(M) {
-          max-width: 190px;
-        }
-      }
-
-      &-coming {
-        padding: 1em 1.2em;
-        font-size: 10px;
-        color: rgba(#fff,.5);
-
-        @include media(M) {
-          font-size: 14px;
-        }
-      }
-    }
-
     &__info {
       display: block;
       width: 100%;
@@ -394,6 +357,7 @@
     &__small-info {
       font-size: 10px;
       color: rgba(#fff,.5);
+      margin-bottom: .5em;
 
       @include media(S) {
         font-size: 14px;
