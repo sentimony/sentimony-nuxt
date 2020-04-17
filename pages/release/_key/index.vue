@@ -202,7 +202,7 @@
     components: {
       SvgTriangle,
       AppCover,
-      AppBtn
+      AppBtn,
     },
     data () {
       return {
@@ -218,7 +218,7 @@
           youtube_music: 'youtubemusic',
           deezer: 'deezer',
           tidal: 'tidal',
-          napster: 'napster'
+          napster: 'napster',
         },
         titles: {
           bandcamp_24: 'Bandcamp 24bit',
@@ -233,7 +233,7 @@
           youtube_music: 'YouTube Music',
           deezer: 'Deezer',
           tidal: 'Tidal',
-          napster: 'Napster'
+          napster: 'Napster',
         },
         icons: {
           bandcamp: 'https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01',
@@ -245,7 +245,7 @@
           youtube_music: 'https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01',
           deezer: 'https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01',
           tidal: 'https://content.sentimony.com/assets/img/svg-icons/tidal.svg?01',
-          napster: 'https://content.sentimony.com/assets/img/svg-icons/napster.svg?01'
+          napster: 'https://content.sentimony.com/assets/img/svg-icons/napster.svg?01',
         }
       }
     },
