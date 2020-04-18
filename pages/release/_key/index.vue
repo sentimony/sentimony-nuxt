@@ -170,7 +170,7 @@
           <a :href="release.links.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
         </p>
 
-        <p v-if="release.links.youtube && release.coming_soon == false">
+        <p v-if="release.links.youtube">
           <a :href="release.links.youtube | YouTubeFullReleases" target="_blank" rel="noopener">YouTube [Full Release]</a>
         </p>
 
