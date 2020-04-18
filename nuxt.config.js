@@ -3,18 +3,18 @@ module.exports = {
     titleTemplate: '%s | Sentimony Records',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Julius+Sans+One' },
       { rel: 'shortcut icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-32-site.png?alt=media&token=a060a2ba-68f7-4b4e-b0e4-e04dd2cf7de3' },
-      { rel: 'apple-touch-icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-144.jpg?alt=media&token=763f1846-67b5-494e-a980-7c0eb218d28f' }
+      { rel: 'apple-touch-icon', href: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/favi%2Ffavicon-144.jpg?alt=media&token=763f1846-67b5-494e-a980-7c0eb218d28f' },
     ]
   },
   loading: {
     color: 'rgba(255,255,255,0.5)',
-    height: '5px'
+    height: '5px',
   },
   plugins: [
     { src: '~plugins/google-analytics.js', ssr: false },
@@ -24,21 +24,21 @@ module.exports = {
     { src: '~/plugins/fireauth.js', ssr: false },
     { src: '~/plugins/vue-ripple-directive.js', ssr: false },
     { src: '~/plugins/vue-mq.js', ssr: true },
-    { src: '~/plugins/vue-disqus', ssr: true }
+    { src: '~/plugins/vue-disqus', ssr: true },
   ],
   css: [
     'normalize.css/normalize.css',
     'swiper/dist/css/swiper.css',
-    // 'vue-nav-tabs/dist/vue-tabs.min.css'
+    // 'vue-nav-tabs/dist/vue-tabs.min.css',
   ],
   modules: [
-    'nuxt-facebook-pixel-module'
+    'nuxt-facebook-pixel-module',
   ],
   facebook: {
     track: 'PageView',
     pixelId: 168167750758036,
     version: '2.0',
-    disabled: false
+    disabled: false,
   },
   build: {
     vendor: ['axios'],
@@ -891,10 +891,49 @@ module.exports = {
       '/artist/unusual-cosmic-process',
       '/artist/vonoom',
 
-      'playlist/sentimony-official',
-      'playlist/psychill-psybient',
-      'playlist/dark-prog-zenonesque',
-      'playlist/goa-trance',
+      '/playlist/sentimony-official',
+      '/playlist/sentimony-official/official',
+      '/playlist/sentimony-official/itunes',
+      '/playlist/sentimony-official/googleplay',
+      '/playlist/sentimony-official/spotify',
+      '/playlist/sentimony-official/youtube',
+      '/playlist/sentimony-official/youtubemusic',
+      '/playlist/sentimony-official/deezer',
+      '/playlist/sentimony-official/tidal',
+      '/playlist/sentimony-official/napster',
+
+      '/playlist/psychill-psybient',
+      '/playlist/psychill-psybient/official',
+      '/playlist/psychill-psybient/itunes',
+      '/playlist/psychill-psybient/googleplay',
+      '/playlist/psychill-psybient/spotify',
+      '/playlist/psychill-psybient/youtube',
+      '/playlist/psychill-psybient/youtubemusic',
+      '/playlist/psychill-psybient/deezer',
+      '/playlist/psychill-psybient/tidal',
+      '/playlist/psychill-psybient/napster',
+
+      '/playlist/dark-prog-zenonesque',
+      '/playlist/dark-prog-zenonesque/official',
+      '/playlist/dark-prog-zenonesque/itunes',
+      '/playlist/dark-prog-zenonesque/googleplay',
+      '/playlist/dark-prog-zenonesque/spotify',
+      '/playlist/dark-prog-zenonesque/youtube',
+      '/playlist/dark-prog-zenonesque/youtubemusic',
+      '/playlist/dark-prog-zenonesque/deezer',
+      '/playlist/dark-prog-zenonesque/tidal',
+      '/playlist/dark-prog-zenonesque/napster',
+
+      '/playlist/goa-trance',
+      '/playlist/goa-trance/official',
+      '/playlist/goa-trance/itunes',
+      '/playlist/goa-trance/googleplay',
+      '/playlist/goa-trance/spotify',
+      '/playlist/goa-trance/youtube',
+      '/playlist/goa-trance/youtubemusic',
+      '/playlist/goa-trance/deezer',
+      '/playlist/goa-trance/tidal',
+      '/playlist/goa-trance/napster',
 
       '/event/shift-space',
       '/event/alt-space',
@@ -908,7 +947,7 @@ module.exports = {
       '/friend/parvati',
       '/friend/space-baby',
       '/friend/treetrolla',
-      '/friend/zenon'
+      '/friend/zenon',
     ]
   }
 }

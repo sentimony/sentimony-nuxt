@@ -22,15 +22,16 @@
               <span v-if="playlist.total_time">{{ playlist.total_time }}</span>
             </div>
 
-            <!-- <div class="page-playlist__small-info">Stream it:</div> -->
+            <div class="page-playlist__small-info">Stream it:</div>
 
-            <!-- <app-btn :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-            <app-btn :url="playlist.links.itunes" :route="routes.apple_music" :title="titles.apple_music" :icon="icons.apple_music"/>
-            <app-btn :url="playlist.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/>
+            <app-btn :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+            <app-btn :url="playlist.links.itunes" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
+            <app-btn :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/>
+            <app-btn :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/>
             <app-btn :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
             <app-btn :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
             <app-btn :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
-            <app-btn :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/> -->
+            <app-btn :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
 
           </div>
         </div>
@@ -61,10 +62,12 @@
 </template>
 
 <script>
+  import axios from '~/plugins/axios'
+  import AppContent from '~/plugins/app-content'
+
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
-  import axios from '~/plugins/axios'
 
   export default {
     // layout: 'playlist',
@@ -72,6 +75,13 @@
       SvgTriangle,
       AppCover,
       AppBtn,
+    },
+    data () {
+      return {
+        routes: AppContent.routes,
+        titles: AppContent.titles,
+        icons: AppContent.icons,
+      }
     },
     async asyncData({ route }) {
       const { key } = route.params

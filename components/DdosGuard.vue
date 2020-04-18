@@ -6,16 +6,16 @@
       :content="'0; URL=' + link"
     />
     <div class="DdosguardTitle">DDoS Guard</div>
-    <div class="DdosguardAnimation">
+    <div v-if="item.cover" class="DdosguardAnimation">
       <div class="DdosguardCoverholder">
         <img
-          :src="'https://content.sentimony.com/assets/img/releases/small/' + release.slug +'.jpg'"
-          :srcset="'https://content.sentimony.com/assets/img/releases/small/' + release.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + release.slug +'.jpg 2x'"
-          :alt="release.title"
+          :src="'https://content.sentimony.com/assets/img/items/small/' + item.slug +'.jpg'"
+          :srcset="'https://content.sentimony.com/assets/img/releases/small/' + item.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + item.slug +'.jpg 2x'"
+          :alt="item.title"
         />
       </div>
     </div>
-    <h1>{{ release.title }} on {{ title }}</h1>
+    <h1>{{ item.title }} on {{ title }}</h1>
     <div class="DdosguardText">
       Redirecting
       <span v-if="!redirect"> . . . {{ counter }} sec</span>
@@ -28,14 +28,14 @@
 <script>
   export default {
     props: [
-      'release',
+      'item',
       'title',
       'link'
     ],
     data () {
       return {
         counter: 3,
-        redirect: false
+        redirect: false,
       }
     },
     methods: {

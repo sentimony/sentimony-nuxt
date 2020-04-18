@@ -1,7 +1,7 @@
 <template>
   <section>
     <ddos-guard
-      :release="release"
+      :item="release"
       :title="title"
       :link="release.links.youtube_music"
     />
