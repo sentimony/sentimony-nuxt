@@ -18,7 +18,7 @@
 
             <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
             <div v-if="playlist.style" class="page-playlist__small-info">
-              <!-- <span>{{ playlist.style }} | </span> -->
+              <span>{{ playlist.style }} | </span>
               <span v-if="playlist.total_time">{{ playlist.total_time }}</span>
             </div>
 
@@ -37,7 +37,17 @@
         </div>
 
         <div class="page-playlist__player-tabs">
-
+          <vue-tabs>
+            <v-tab v-if="playlist.links.youtube" title="YouTube" icon="page__tab__icon--youtube">
+              <div class="page-playlist__youtube-player">
+                <iframe
+                  class="page-playlist__youtube-player-iframe"
+                  :src="playlist.links.youtube | YouTubeEmbed"
+                  :title="playlist.title + ' YouTube Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+          </vue-tabs>
         </div>
 
       </div>
@@ -89,23 +99,17 @@
       return { playlist: data }
     },
     filters: {
-      formatDate: function (date) {
-        var moment = require('moment');
-        if (date) {
-          return moment(String(date)).format('DD MMM YYYY');
+      // formatDate: function (date) {
+      //   var moment = require('moment');
+      //   if (date) {
+      //     return moment(String(date)).format('DD MMM YYYY');
+      //   }
+      // },
+      YouTubeEmbed (youtube) {
+        if (youtube) {
+          let y = youtube.replace('https://www.youtube.com/playlist?list=', '');
+          return 'https://www.youtube.com/embed/videoseries?list=' + y + '&loop=1';
         }
-      },
-      spotifyEmbed (spotify) {
-        if (spotify) {
-          let s = spotify.replace('https://open.spotify.com/album/', '');
-          return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
-        }
-      }
-    },
-    methods: {
-      onLoad ({ route }) {
-        const { key } = route.params
-        console.log(key)
       }
     },
     head () {
@@ -123,8 +127,12 @@
 <style lang="scss">
   @import '../../../node_modules/coriolan-ui/tools/variables';
   @import '../../../node_modules/coriolan-ui/mixins/media';
+  @import '../../../node_modules/coriolan-ui/mixins/ratio';
+  @import '../../../assets/scss/vue-tabs-restyle';
   @import '../../../assets/scss/content';
   @import '../../../assets/scss/page';
+  @import '../../../assets/scss/iframe-size';
+  @import '../../../assets/scss/v-img-restyle';
 
   .page-playlist {
     @extend .page;
@@ -204,6 +212,23 @@
       width: 100%;
       max-width: 540px;
       margin: 0 auto;
+    }
+
+    &__youtube-player {
+      @include ratio(100%,16,9);
+      @extend .sentimony-iframe;
+
+      &-iframe {
+        border-radius: 6px;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 143%;
+        height: 143%;
+        transform: scale(.7);
+        transform-origin: top left;
+      }
     }
   }
 </style>
