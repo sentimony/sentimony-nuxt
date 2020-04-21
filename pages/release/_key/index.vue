@@ -22,7 +22,7 @@
             </div>
             <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
             <div v-if="release.style" class="page-release__small-info">
-              <span>{{ release.style }}</span>
+              <span v-if="release.style">{{ release.style }}</span>
               <span v-if="release.total_time"> | {{ release.total_time }}</span>
             </div>
 
@@ -260,14 +260,11 @@
   @import '../../../node_modules/coriolan-ui/tools/variables';
   @import '../../../node_modules/coriolan-ui/mixins/media';
   @import '../../../node_modules/coriolan-ui/mixins/ratio';
-  // @import '../../../assets/scss/variables';
-  @import '../../../assets/scss/buttons';
   @import '../../../assets/scss/vue-tabs-restyle';
   @import '../../../assets/scss/content';
   @import '../../../assets/scss/page';
   @import '../../../assets/scss/iframe-size';
   @import '../../../assets/scss/v-img-restyle';
-  @import '../../../assets/scss/page';
 
   .page-release {
     @extend .page;
