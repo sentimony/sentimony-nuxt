@@ -1,9 +1,9 @@
 <template>
   <section>
     <ddos-guard
-      :item="release"
+      :item="playlist"
       :title="title"
-      :link="release.links.official"
+      :link="playlist.links.official"
     />
   </section>
 </template>
@@ -22,15 +22,15 @@
     },
     async asyncData({ route }) {
       const { key } = route.params
-      const { data } = await axios.get(`releases/${key}.json`)
-      return { release: data }
+      const { data } = await axios.get(`playlists/${key}.json`)
+      return { playlist: data }
     },
     head () {
       return {
-        title: this.release.title + ' on ' + this.title,
+        title: this.playlist.title + ' on ' + this.title,
         meta: [
-          { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.slug + '.jpg' }
+          // { name: 'description', content: this.playlist.tracks_number + ' tracks ' + this.playlist.style + ' ' + this.playlist.format + ', ' + this.playlist.date.split('-')[0] },
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg' }
         ]
       }
     }
