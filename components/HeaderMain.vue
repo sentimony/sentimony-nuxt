@@ -16,10 +16,6 @@
 
       <header-social-menu style="width:232px" v-if="$mq === 'lg'"/>
 
-      <nuxt-link v-ripple :to="btnMobmenu.url" class="header-main__mob-menu-button" v-if="$mq !== 'lg'">
-        <img class="header-main__mob-menu-button-img" :src="btnMobmenu.icon"/>
-      </nuxt-link>
-
     </div>
   </div>
 </template>
@@ -31,16 +27,8 @@
   export default {
     components: {
       HeaderLogolink,
-      HeaderSocialMenu
+      HeaderSocialMenu,
     },
-    data() {
-      return {
-        btnMobmenu: {
-          url: '/mobmenu',
-          icon: 'https://content.sentimony.com/assets/img/svg-icons/menu.svg'
-        }
-      }
-    }
   }
 </script>
 
@@ -75,24 +63,6 @@
 
       &-link {
         @extend .main-menu-link;
-      }
-    }
-
-    &__mob-menu-button {
-      @extend .main-menu-link;
-      padding: 1.063em;
-      margin-left: 0;
-      // display: block;
-      //
-      // @include media(M) {
-      //   display: none;
-      // }
-
-      &-img {
-        display: block;
-        width: auto;
-        height: 20px;
-        margin: 0 auto;
       }
     }
   }
