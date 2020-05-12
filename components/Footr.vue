@@ -8,7 +8,7 @@
       <div>2006 - {{ new Date().getFullYear() }} © Sentimony Records</div>
       <div>All Rights Reserved</div>
       <div>
-        <img class="footr__copyright-logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01" alt="Sentimony Records Logo SVG">
+        <img class="footr__copyright-logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01" alt="Sentimony Records Logo SVG">
       </div>
     </div>
 
