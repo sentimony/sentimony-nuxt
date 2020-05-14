@@ -8,6 +8,13 @@
     <nuxt-link v-ripple to="/events/" class="mobmenu__link">Events</nuxt-link>
     <nuxt-link v-ripple to="/friends/" class="mobmenu__link">Friends</nuxt-link>
     <nuxt-link v-ripple to="/contacts/" class="mobmenu__link">Contacts</nuxt-link>
+
+    <hr style="border-color:#fff;opacity:.3;">
+
+    <div style="text-align:center;margin-top:20px;">
+      <iframe scrolling="no" style="border:0;width:168px;height:33px;display:inline-block;" src="https://bandcamp.com/band_follow_button_classic/3534082844"></iframe>
+    </div>
+
   </div>
 </template>
 
