@@ -76,6 +76,14 @@
     }
   }
 
+  &.tracks-22 {
+    height: (868px + 25px);
+
+    @include media(S) {
+      height: 868px;
+    }
+  }
+
   &.tracks-25 {
     height: (967px + 25px);
 
@@ -115,6 +123,10 @@
 
   &.tracks-12 {
     height: 621px;
+  }
+
+  &.tracks-22 {
+    height: 762px;
   }
 
   &.tracks-25 {
