@@ -13,17 +13,27 @@
       :alt="title"
     >
     <div v-if="!cover"
-      class="app-cover__coming">
-      Artwork<br>
-      in<br>
-      progress
-    </div>
+      class="app-cover__coming"
+      v-html="coming()"
+    />
   </div>
 </template>
 
 <script>
+  import AppContent from '~/plugins/app-content'
+
   export default {
-    props: ['cover', 'category', 'slug', 'title']
+    props: ['cover', 'category', 'slug', 'title'],
+    data () {
+      return {
+        texts: AppContent.texts,
+      }
+    },
+    methods : {
+      coming(category) {
+        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingArtwork
+      }
+    }
   }
 </script>
 

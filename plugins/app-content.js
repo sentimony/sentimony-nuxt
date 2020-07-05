@@ -45,4 +45,8 @@ export default {
     tidal: 'Tidal',
     napster: 'Napster',
   },
+  texts: {
+    comingPhoto: 'Photo<br>coming<br>soon',
+    comingArtwork: 'Artwork<br>in<br>progress',
+  }
 }
