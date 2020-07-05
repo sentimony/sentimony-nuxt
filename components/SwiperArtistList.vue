@@ -6,7 +6,7 @@
         <div class="swiper-slide item"
           v-for="(i, index) in sortByCategoryId"
           :key="index"
-          v-if="i.category_id"
+          v-if="i.visible"
         >
           <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
             <div class="item__wrapper">
