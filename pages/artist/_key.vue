@@ -83,16 +83,11 @@
           :key="index"
           v-if="i.artists.includes(artist.slug)"
         >
-          <!-- Удалить одтин из img когда появится micro-retina -->
           <img style="width:11px;height:auto;"
-            :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
-            :alt="i.title"
-          >
-          <!-- <img style="width:11px;height:auto;"
             :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
             :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
             :alt="i.title"
-          > -->
+          >
           |
           {{ i.title }}
           |
