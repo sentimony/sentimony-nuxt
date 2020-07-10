@@ -5,7 +5,9 @@
       <Fractal/>
     </div> -->
     <div class="flex-sticky__header">
-      <Headr/>
+      <header-main/>
+      <sidebar-menu/>
+      <sidebar-btn/>
     </div>
     <div class="flex-sticky__content">
       <nuxt/>
@@ -20,7 +22,9 @@
 <script>
   import BaseBg from '~/components/BaseBg.vue'
   // import Fractal from '~/components/Fractal.vue'
-  import Headr from '~/components/Headr.vue'
+  import HeaderMain from '~/components/HeaderMain.vue'
+  import SidebarMenu from '~/components/SidebarMenu.vue'
+  import SidebarBtn from '~/components/SidebarBtn.vue'
   import Donate from '~/components/Donate.vue'
   import Footr from '~/components/Footr.vue'
 
@@ -28,7 +32,9 @@
     components: {
       BaseBg,
       // Fractal,
-      Headr,
+      HeaderMain,
+      SidebarMenu,
+      SidebarBtn,
       Donate,
       Footr
     }

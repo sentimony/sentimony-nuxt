@@ -4,18 +4,27 @@
     <p class="contacts__title">{{ touch }}</p>
     <p><a :href="mailtoUrl">{{ email }}</a></p>
     <p class="contacts__title">{{ follow }}</p>
-    <p v-for="i in social" v-if="i.isVisibleContacts">
-      <a class="contacts__link" :href="i.url" target="_blank" rel="noopener">
-        <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
-        <span>{{ i.title }}</span>
-      </a>
-    </p>
+    <p v-if="loading">Loading...</p>
+    <div v-else>
+      <p
+        v-for="(i, index) in socialStore"
+        :key="index"
+        v-if="i.isVisibleContacts"
+      >
+        <a class="contacts__link"
+          :href="i.url"
+          target="_blank"
+          rel="noopener"
+        >
+          <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+          <span>{{ i.title }}</span>
+        </a>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
-
   export default {
     data() {
       return {
@@ -25,15 +34,19 @@
         follow: 'Follow Us:'
       }
     },
-    async asyncData() {
-      const { data } = await axios.get('social.json')
-      return { social: data }
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      socialStore () {
+        return this.$store.getters.loadedSocial
+      }
     },
     head: {
       title: 'Contacts',
       meta: [
         { name: 'description', content: 'Contacts of Sentimony Records' },
-        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
       ]
     }
   }

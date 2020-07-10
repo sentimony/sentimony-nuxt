@@ -1,26 +1,41 @@
 <template>
   <div class="youtube-page-item">
 
-    <router-link v-ripple to="/yt">Back to YT page</router-link><br>
+    <router-link v-ripple to="/yt">◄ Back to YouTube Page</router-link><br>
     <br>
-    <iframe
-      v-if="release.links.youtube_playlist_id"
-      :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
-      :title="release.title + ' YouTube Iframe'"
-    ></iframe>
+    <div class="youtube-page-item__frame-holder">
+      <iframe
+        class="youtube-page-item__frame"
+        v-if="release.links.youtube_playlist_id"
+        :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
+        :title="release.title + ' YouTube Iframe'"
+      ></iframe>
+    </div>
     <br>
+    <div class="youtube-page-item__frame-holder">
+      <iframe
+        class="youtube-page-item__frame"
+        v-if="release.links.youtube_music"
+        :src="release.links.youtube_music | youtubeMusicEmbed"
+        :title="release.title + ' YouTube Music Iframe'"
+      ></iframe>
+    </div>
+    <!-- <br>
     Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>
     iTunes: http://bit.ly/{{ release.cat_no }}-itunes<br>
     GooglePlay: http://bit.ly/{{ release.cat_no }}-google<br>
     Beatport: http://bit.ly/{{ release.cat_no }}-beatport<br>
     Spotify: http://bit.ly/{{ release.cat_no }}-spotify<br>
-    Official release page: http://bit.ly/{{ release.cat_no }}<br>
+    Official release page: http://bit.ly/{{ release.cat_no }}<br> -->
     <br>
     <span style="text-transform:uppercase;">{{ release.cat_no }}: </span>
     <span>{{ release.title }}</span>
     (Sentimony Records, {{ release.date | formatDate }})<br>
     <br>
-    <span v-for="i in release.tracklist.tracks">
+    <span
+      v-for="(i, index) in release.tracklist.tracks"
+      :key="index"
+    >
       <!-- <span>{{ i.cue_time }} ► </span> -->
       <span>{{ i.number }}. </span>
       <span>{{ i.artist }} - </span>
@@ -42,7 +57,7 @@
     <span v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></span>
     <br v-if="release.credits.mixed_and_mastered_by">
 
-    <br>
+    <!-- <br>
     ===<br>
     <br>
     Recently all Sentimony Records releases available for FREE DOWNLOAD at Bandcamp.<br>
@@ -63,7 +78,7 @@
     Facebook: http://bit.ly/facebook-sentimony<br>
     SoundCloud https://soundcloud.com/sentimony<br>
     Twitter: https://twitter.com/sentimony<br>
-    GooglePlus: http://bit.ly/googleplus-sentimomy<br>
+    GooglePlus: http://bit.ly/googleplus-sentimomy<br> -->
 
   </div>
 </template>
@@ -84,10 +99,10 @@
           return moment(String(date)).format('YYYY');
         }
       },
-      spotifyEmbed (spotify) {
-        if (spotify) {
-          let s = spotify.replace('https://open.spotify.com/album/', '');
-          return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
+      youtubeMusicEmbed (youtubeMusic) {
+        if (youtubeMusic) {
+          let ym = youtubeMusic.replace('https://music.youtube.com/playlist?list=', '');
+          return 'https://www.youtube.com/embed/videoseries?loop=1&list=' + ym;
         }
       }
     },
@@ -96,7 +111,7 @@
         title: this.release.title,
         meta: [
           { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + '/' + this.release.slug + '.jpg' }
         ]
       }
     }
@@ -104,6 +119,9 @@
 </script>
 
 <style lang="scss">
+  @import '../../node_modules/coriolan-ui/mixins/ratio';
+  @import '../../assets/scss/iframe-size';
+
   .youtube-page-item {
     padding: 2em 0;
     max-width: 400px;
@@ -113,5 +131,23 @@
     text-align: left;
     font-family: Roboto, Arial, sans-serif;
     font-weight: 400;
+
+    &__frame-holder {
+      @include ratio(100%,16,9);
+      @extend .sentimony-iframe;
+      margin-bottom: 20px;
+    }
+
+    &__frame {
+      border-radius: 6px;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 143%;
+      height: 143%;
+      transform: scale(.7);
+      transform-origin: top left;
+    }
   }
 </style>
