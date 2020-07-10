@@ -1,5 +1,9 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 
+.__nuxt-error-page {
+  position: relative !important;
+}
+
 html {
   position: relative;
   height: 100%;
@@ -52,4 +56,17 @@ hr {
   border: solid rgba(#000,.3);
   border-width: 1px 0 0;
   margin: 1em 0;
+}
+
+// Sentimony UI
+.sen-fs11 {
+  font-size: 11px;
+}
+
+.sen-ml18 {
+  margin-left: 18px;
+}
+
+.sen-db {
+  display: block;
 }

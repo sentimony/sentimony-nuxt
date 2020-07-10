@@ -1,6 +1,6 @@
 <template>
   <div class="youtube-page">
-    <h1>YouTube</h1>
+    <h1>YouTube Page</h1>
     <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
@@ -9,26 +9,31 @@
         title="YouTube playlist frame'"
       />
     </div>
-    <div class="youtube-page__frame-holder">
+    <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
         v-if="youtubeFrames.needToWatch"
         :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeFrames.needToWatch"
         title="YouTube playlist frame'"
       />
-    </div>
+    </div> -->
     <table>
       <tr>
-        <th>UPC</th>
+        <!-- <th>UPC</th> -->
         <th>Date</th>
-        <th>Cat.No</th>
+        <!-- <th>Cat.No</th> -->
         <th>Title</th>
+        <th>YouTube Full Release</th>
       </tr>
-      <tr v-for="i in sortByDate" v-if="i.upc">
-        <td>{{ i.upc }}</td>
+      <tr
+        v-for="(i, index) in sortByDate"
+        :key="index"
+      >
+        <!-- <td>{{ i.upc }}</td> -->
         <td>{{ i.date | formatDate }}</td>
-        <td style="text-transform:uppercase;">{{ i.cat_no }}:</td>
+        <!-- <td style="text-transform:uppercase;">{{ i.cat_no }}:</td> -->
         <td><router-link v-ripple :to="'/yt/' + i.slug + '/'">{{ i.title }}</router-link></td>
+        <td>{{ i.links.youtube }}</td>
       </tr>
     </table>
   </div>
@@ -51,22 +56,24 @@
     },
     computed: {
       sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
+        return sortBy(this.releases, 'date')
+        // return sortBy(this.releases, 'date').reverse()
       }
     },
     filters: {
       formatDate: function (date) {
         var moment = require('moment');
         if (date) {
-          return moment(String(date)).format('YYYY-MM-DD');
+          return moment(String(date)).format('YYYY');
+          // return moment(String(date)).format('YYYY-MM-DD');
         }
       }
     },
     head: {
-      title: 'YouTube',
+      title: 'YouTube Page',
       meta: [
         { name: 'description', content: '' },
-        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
       ]
     }
   }
