@@ -6,14 +6,14 @@
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
-          <div class="page-artist__photo">
-            <img v-if="artist.photo" v-img class="page-artist__photo-img"
-              :src="'https://content.sentimony.com/assets/img/artists/large/' + artist.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/artists/medium/' + artist.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/medium-retina/' + artist.slug + '.jpg 2x'"
-              :alt="artist.title"
-            >
-            <div v-else class="page-artist__photo-coming">Photo<br>coming soon</div>
-          </div>
+
+          <app-cover
+            :cover="artist.photo"
+            :category="'artists'"
+            :slug="artist.slug"
+            :title="artist.title"
+          />
+
           <div class="page-artist__info">
             <div v-if="artist.style" class="page-artist__small-info">
               <div class="page-artist__style">{{ artist.style }}</div>
@@ -69,14 +69,13 @@
                 allowTransparency="true"
               ></iframe>
             </v-tab>
-            <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
+              <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
               <a :href="artist.discogs" target="_blank" rel="noopener" style="display:flex;align-items:center">
                 <img src="https://content.sentimony.com/assets/img/svg-icons/discogs.svg" style="width:20px;margin-right:.4em">
                 <span>Discogs</span>
               </a>
             </v-tab>
           </vue-tabs> -->
-
         </div>
       </div>
     </div>
@@ -84,10 +83,29 @@
     <div class="content">
       <div class="content__wrapper">
 
-        <div v-if="artist.releases">
-          <p>Releases:</p>
-          <p v-for="i in artist.releases" v-html="i.title"></p>
-        </div>
+        <p>Releases:</p>
+        <p
+          v-for="(i, index) in releasesSortByDate"
+          :key="index"
+          v-if="i.artists.includes(artist.slug)"
+        >
+          <img style="width:11px;height:auto;"
+            :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
+            :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
+            :alt="i.title"
+          >
+          |
+          {{ i.title }}
+          |
+          {{ i.date | year }}
+          |
+          <router-link v-ripple :to="'../../release/' + i.slug">Reed More</router-link>
+        </p>
+        <hr>
+
+        <p v-if="artist.discogs">Links:</p>
+        <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
+        <hr v-if="artist.discogs">
 
         <div v-if="artist.discogs">
           <hr>
@@ -110,14 +128,18 @@
 
 <script>
   import SvgTriangle from '~/components/SvgTriangle.vue'
+  import AppCover from '~/components/AppCover'
   import axios from '~/plugins/axios'
   import FrameTabs from '~/components/FrameTabs.vue'
+  import sortBy from 'lodash/sortBy'
+  import moment from 'moment'
 
   export default {
     layout: 'artist',
     components: {
       SvgTriangle,
       FrameTabs
+      AppCover
     },
     async asyncData({ route }) {
       const { key } = route.params
@@ -140,6 +162,28 @@
         this.selected == index
         this.$store.dispatch('updateCurrentFrame', index)
       },
+    },
+    async asyncData({ route }) {
+      const { key } = route.params
+      const [artistRes, releasesRes] = await Promise.all([
+        axios.get(`artists/${key}.json`),
+        axios.get('releases.json')
+      ]);
+      const artist = artistRes.data
+      const releases = releasesRes.data
+      return { artist, releases }
+    },
+    computed: {
+      releasesSortByDate() {
+        return sortBy(this.releases, 'date').reverse()
+      }
+    },
+    filters: {
+      year: function (date) {
+        if (date) {
+          return moment(String(date)).format('YYYY');
+        }
+      }
     },
     head () {
       return {
@@ -274,7 +318,6 @@
       line-height: 1.2;
       margin: 0 0 .1em;
       color: #fff;
-      text-transform: capitalize;
 
       @include media(S) {
         font-size: 2em;
