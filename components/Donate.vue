@@ -7,13 +7,13 @@
       </g>
     </svg>
     <div class="donate__wrapper">
-      <p>Recently all Sentimony Records releases are available for FREE DOWNLOAD at <a href="http://bit.ly/sen-bc" target="_blank" rel="noopener">Bandcamp</a>.</p>
+      <!-- <p v-html="donateBandcamp16bitIsFree"/>
       <br>
-      <p>Donations are very welcome!<br>It is not an easy mission to keep the free music flowing.</p>
+      <p v-html="donateDonationsWelcome"/>
       <br>
-      <p>Also we will be grateful for your feedback via likes, comments and shares on our <a href="http://bit.ly/sen-yt" target="_blank" rel="noopener">YouTube</a> and <a href="http://bit.ly/sen-fb" target="_blank" rel="noopener">Facebook</a>.</p>
-      <br>
-      <p>{{ donateThanks }}</p>
+      <p v-html="donateFeedback"/>
+      <br> -->
+      <p v-html="donateThanks"/>
     </div>
   </div>
 </template>
@@ -21,7 +21,10 @@
 <script>
   export default {
     data: () => ({
-      donateThanks: 'Huge Thanks for Support!'
+      donateBandcamp16bitIsFree: 'Recently all Sentimony Records 16bit releases are available for FREE DOWNLOAD at <a href="http://bit.ly/sen-bc" target="_blank" rel="noopener">Bandcamp</a>.',
+      donateDonationsWelcome: 'Donations are very welcome!<br>It is not an easy mission to keep the free music flowing.',
+      donateFeedback: 'Also we will be grateful for your feedback via likes, comments and shares on our <a href="http://bit.ly/sen-yt" target="_blank" rel="noopener">YouTube</a> and <a href="http://bit.ly/sen-fb" target="_blank" rel="noopener">Facebook</a>.',
+      donateThanks: 'Huge Thanks for your Support!'
     })
   }
 </script>
