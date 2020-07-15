@@ -28,7 +28,7 @@
 
 
 
-          <FrameTabs :typeStore="artistStore"/>
+          <!-- <FrameTabs :typeStore="artistStore"/> -->
 
 
 
@@ -138,31 +138,14 @@
     layout: 'artist',
     components: {
       SvgTriangle,
-      FrameTabs
+      FrameTabs,
       AppCover
     },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const { data } = await axios.get(`artists/${key}.json`)
-      return { artist: data }
-    },
-    computed: {
-      loading () {
-        return this.$store.getters.loading
-      },
-      artistStore () {
-        return this.$store.getters.loadedArtist(this.$route.params.key)
-      },
-      currentFrameStore () {
-        return this.$store.getters.currentFrame
-      }
-    },
-    methods: {
-      chooseFrame (index) {
-        this.selected == index
-        this.$store.dispatch('updateCurrentFrame', index)
-      },
-    },
+    // async asyncData({ route }) {
+    //   const { key } = route.params
+    //   const { data } = await axios.get(`artists/${key}.json`)
+    //   return { artist: data }
+    // },
     async asyncData({ route }) {
       const { key } = route.params
       const [artistRes, releasesRes] = await Promise.all([
@@ -173,7 +156,22 @@
       const releases = releasesRes.data
       return { artist, releases }
     },
-    computed: {
+    // computed: {
+    //   loading() {
+    //     return this.$store.getters.loading
+    //   },
+    //   artistStore() {
+    //     return this.$store.getters.loadedArtist(this.$route.params.key)
+    //   },
+    //   currentFrameStore() {
+    //     return this.$store.getters.currentFrame
+    //   }
+    // },
+    methods: {
+      chooseFrame(index) {
+        this.selected == index
+        this.$store.dispatch('updateCurrentFrame', index)
+      },
       releasesSortByDate() {
         return sortBy(this.releases, 'date').reverse()
       }

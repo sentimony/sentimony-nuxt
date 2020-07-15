@@ -3,7 +3,6 @@
     "axios": "^0.19.2",
     "core-js": "^2.6.9",
     "coriolan-ui": "^0.1.20",
-    "firebase": "^6.1.0",
     "firebase": "^6.0.2",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
