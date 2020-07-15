@@ -5,7 +5,7 @@
       <div v-if="loading">Loading...</div>
       <div v-else
         class="item"
-        v-for="(i, index) in sortByCategoryId"
+        v-for="(i, index) in artistsStore"
         :key="index"
         v-if="i.visible"
       >
@@ -43,10 +43,10 @@
       return { artists: data }
     },
     computed: {
-      loading () {
+      loading() {
         return this.$store.getters.loading
       },
-      artistsStore () {
+      artistsStore() {
         return this.$store.getters.loadedArtistsSortedByDate
       }
     },

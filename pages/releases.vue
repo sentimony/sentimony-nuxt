@@ -5,11 +5,9 @@
       <div v-if="loading">Loading...</div>
       <div v-else
         class="item"
-        v-for="(i, index) in sortByDate"
+        v-for="(i, index) in releasesStore"
         :key="index"
       >
-        <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
-      <div v-else v-for="i in releasesStore" class="item">
         <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
@@ -48,10 +46,10 @@
       return { releases: data }
     },
     computed: {
-      loading () {
+      loading() {
         return this.$store.getters.loading
       },
-      releasesStore () {
+      releasesStore() {
         return this.$store.getters.loadedReleasesSortedByDate
       }
     },
