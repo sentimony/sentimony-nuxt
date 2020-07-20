@@ -19,7 +19,15 @@ body {
   height: 100%;
   text-align: center;
   min-width: $XS;
+
   background-color: #8a0202;
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg');
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg');
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1,
