@@ -1,6 +1,28 @@
 <template>
   <div class="swiper-release-list">
     <div class="title">Releases</div>
+    <swiper :options="swiperOption" ref="swiperReleaseList">
+      <swiper-slide v-for="i in sortByDate" class="item" :key="i.slug">
+        <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
+          <div class="item__wrapper">
+            <div class="item__cover">
+              <div v-if="i.cover" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+              <img v-if="i.cover" class="item__img swiper-lazy"
+                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <div v-else class="item__soon">Artwork<br>in progress</div>
+            </div>
+            <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
+            <div v-if="i.new" class="item__status--red">Out Now</div>
+          </div>
+          <div class="item__title">
+            {{ i.title }}
+            <!-- <span v-if="i.format == 'EP'">{{ i.format }}</span> -->
+          </div>
+        </router-link>
+      </swiper-slide>
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
         <div class="swiper-slide item"
@@ -33,7 +55,7 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
       <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
-    </div>
+    </swiper>
   </div>
 </template>
 
