@@ -2,7 +2,10 @@
   <div class="events">
     <h1>Events</h1>
     <div class="events__list">
-      <p v-for="i in sortByDate" class="events__item">
+      <p class="events__item"
+        v-for="(i, index) in sortByDate"
+        :key="index"
+      >
         <router-link v-ripple :to="'/event/' + i.slug" class="events__link" v-if="i.date">{{ i.date | formatDate }} @ {{ i.title }}</router-link>
       </p>
     </div>
@@ -38,7 +41,7 @@
       title: 'Events',
       meta: [
         { name: 'description', content: 'Events of Sentimony Records' },
-        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
       ]
     }
   }

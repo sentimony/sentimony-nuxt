@@ -1,5 +1,9 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 
+.__nuxt-error-page {
+  position: relative !important;
+}
+
 html {
   position: relative;
   height: 100%;
@@ -15,7 +19,15 @@ body {
   height: 100%;
   text-align: center;
   min-width: $XS;
+
   background-color: #8a0202;
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg');
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg');
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 h1,
@@ -52,4 +64,17 @@ hr {
   border: solid rgba(#000,.3);
   border-width: 1px 0 0;
   margin: 1em 0;
+}
+
+// Sentimony UI
+.sen-fs11 {
+  font-size: 11px;
+}
+
+.sen-ml18 {
+  margin-left: 18px;
+}
+
+.sen-db {
+  display: block;
 }

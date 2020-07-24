@@ -5,10 +5,17 @@
     <p v-if="event.location"><!-- Location:  -->{{ event.location }}</p>
     <hr>
     <p>Artists:</p>
-    <p v-for="i in event.lineup">{{ i.musician }}</p>
+    <p
+      v-for="(i, index) in event.lineup"
+      :key="index"
+      v-html="i.musician"
+    />
     <hr>
     <p>Links:</p>
-    <p v-for="i in event.links">
+    <p
+      v-for="(i, index) in event.links"
+      :key="index"
+    >
       <a v-if="i.url" :href="i.url" target="_blank" rel="noopener">{{ i.id }}</a>
     </p>
 
@@ -52,7 +59,7 @@
         title: this.event.title,
         meta: [
           { name: 'description', content: this.event.title + ' description' },
-          { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
         ]
       }
     }
