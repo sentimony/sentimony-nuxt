@@ -1,8 +1,13 @@
 <template>
   <div class="swiper-artist-list">
     <div class="title">Artists</div>
+
     <swiper :options="swiperOption" ref="swiperArtistList">
-      <swiper-slide v-for="i in sortByCategoryId" v-if="i.category_id" class="item" :key="i.slug">
+      <swiper-slide class="item"
+        v-for="(i, index) in sortByCategoryId"
+        :key="index"
+        v-if="i.visible"
+      >
         <router-link :to="'/artist/' + i.slug + '/'" class="item__link" active-class="is-selected">
           <div class="item__wrapper">
             <div class="item__cover">
@@ -12,12 +17,18 @@
                 :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-else class="item__soon">Photo<br>coming soon</div>
+              <div v-else class="item__soon">
+                Photo<br>
+                coming<br>
+                soon
+              </div>
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
         </router-link>
       </swiper-slide>
+    </swiper>
+
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
         <div class="swiper-slide item"
@@ -48,7 +59,8 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
       <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
-    </swiper>
+    </div>
+
   </div>
 </template>
 
