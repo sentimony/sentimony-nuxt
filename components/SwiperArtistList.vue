@@ -2,8 +2,9 @@
   <div class="swiper-artist-list">
     <div class="title">Artists</div>
 
-    <swiper :options="swiperOption" ref="swiperArtistList">
-      <swiper-slide class="item"
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide
+        class="item"
         v-for="(i, index) in sortByCategoryId"
         :key="index"
         v-if="i.visible"
@@ -26,10 +27,11 @@
           </div>
           <div class="item__title">{{ i.title }}</div>
         </router-link>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-        <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
       </swiper-slide>
+      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+      <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
     </swiper>
 
   </div>
@@ -45,10 +47,6 @@
         artists: [],
         swiperOption: {
           lazy: true,
-          navigation: {
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next'
-          },
           // scrollbar: {
           //   el: '.swiper-scrollbar',
           //   hide: true
@@ -60,7 +58,15 @@
           speed: 350,
           // slidesPerGroup: 2,
           slideToClickedSlide: true,
-          centeredSlides: true
+          centeredSlides: true,
+          //  pagination: {
+          //   el: '.swiper-pagination',
+          //   clickable: true
+          // },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          }
         }
       }
     },
