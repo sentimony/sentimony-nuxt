@@ -2,10 +2,12 @@
   <div class="swiper-release-list">
     <div class="title">Releases</div>
 
-    <swiper :options="swiperOption" ref="swiperReleaseList">
-      <swiper-slide class="item"
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide
+        class="item"
         v-for="(i, index) in sortByDate"
         :key="index"
+        v-if="i.visible"
       >
         <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
           <div class="item__wrapper">
@@ -17,8 +19,7 @@
                 :alt="i.title + ' Small Thumbnail'"
               >
               <div v-else class="item__soon">
-                Artwork
-                <br>
+                Artwork<br>
                 in<br>
                 progress
               </div>
@@ -28,10 +29,11 @@
           </div>
           <div class="item__title">{{ i.title }}</div>
         </router-link>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-        <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
       </swiper-slide>
+      <!-- <div class="swiper-pagination" slot="pagination"></div> -->
+      <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
     </swiper>
 
   </div>
@@ -47,10 +49,6 @@
         releases: [],
         swiperOption: {
           lazy: true,
-          navigation: {
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next'
-          },
           // scrollbar: {
           //   el: '.swiper-scrollbar',
           //   hide: true
@@ -62,7 +60,15 @@
           speed: 350,
           // slidesPerGroup: 2,
           slideToClickedSlide: true,
-          centeredSlides: true
+          centeredSlides: true,
+          //  pagination: {
+          //   el: '.swiper-pagination',
+          //   clickable: true
+          // },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          }
         }
       }
     },

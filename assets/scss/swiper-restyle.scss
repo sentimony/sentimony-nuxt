@@ -48,6 +48,10 @@
     opacity: .2;
     pointer-events: visible;
   }
+
+  &:after {
+    content: '';
+  }
 }
 
 .swiper-button-prev {
