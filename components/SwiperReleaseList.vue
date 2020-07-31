@@ -58,7 +58,7 @@
           freeMode: true,
           slidesPerView: 'auto',
           speed: 350,
-          // slidesPerGroup: 2,
+          // slidesPerGroup: 4,
           slideToClickedSlide: true,
           centeredSlides: true,
           //  pagination: {
