@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     { src: '~/plugins/google-analytics.js', ssr: false },
-    { src: '~/plugins/swiper.js', ssr: false },
+    { src: '~/plugins/vue-awesome-swiper.js', ssr: true },
     { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
     { src: '~/plugins/fireauth.js', ssr: false },
@@ -28,7 +28,8 @@ module.exports = {
   ],
   css: [
     'normalize.css/normalize.css',
-    'swiper/dist/css/swiper.css',
+    'swiper/css/swiper.css',
+    // 'swiper/swiper-bundle.css',
     // 'vue-nav-tabs/dist/vue-tabs.min.css',
   ],
   modules: [
