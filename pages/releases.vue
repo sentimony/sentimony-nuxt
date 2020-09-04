@@ -5,6 +5,7 @@
       <div class="item"
         v-for="(i, index) in sortByDate"
         :key="index"
+        v-if="i.visible"
       >
         <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
