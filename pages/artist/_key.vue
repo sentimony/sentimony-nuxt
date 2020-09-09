@@ -81,7 +81,7 @@
         <p
           v-for="(i, index) in releasesSortByDate"
           :key="index"
-          v-if="i.artists.includes(artist.slug)"
+          v-if="i.visible && i.artists.includes(artist.slug)"
         >
           <img style="width:11px;height:auto;"
             :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
@@ -143,7 +143,8 @@
     },
     computed: {
       releasesSortByDate() {
-        return sortBy(this.releases, 'date').reverse()
+        var releases = sortBy(this.releases, 'date').reverse()
+        return releases
       }
     },
     filters: {
