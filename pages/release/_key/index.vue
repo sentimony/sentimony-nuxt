@@ -110,6 +110,12 @@
     <div class="content">
       <div class="content__wrapper">
 
+        <div
+          v-if="release.information"
+          v-html="release.information"
+        />
+
+        <!-- TODO: Delete this div, when info migrate to information -->
         <div v-if="release.info">
           <p
             v-for="(i, index) in release.info"
