@@ -2,7 +2,11 @@
   <div class="artists">
     <h1>Artists</h1>
     <div class="list">
-      <div v-for="i in sortByCategoryId" v-if="i.category_id" class="item">
+      <div class="item"
+        v-for="(i, index) in sortByCategoryId"
+        :key="index"
+        v-if="i.visible"
+      >
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
@@ -11,11 +15,7 @@
                 :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-else class="item__soon">
-                Photo<br>
-                coming<br>
-                soon
-              </div>
+              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -28,8 +28,14 @@
 <script>
   import axios from '~/plugins/axios'
   import sortBy from 'lodash/sortBy'
+  import AppContent from '~/plugins/app-content'
 
   export default {
+    data () {
+      return {
+        texts: AppContent.texts,
+      }
+    },
     async asyncData() {
       const { data } = await axios.get('artists.json')
       return { artists: data }

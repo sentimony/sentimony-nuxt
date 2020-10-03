@@ -19,16 +19,21 @@
     </div> -->
     <table>
       <tr>
-        <th>UPC</th>
+        <!-- <th>UPC</th> -->
         <th>Date</th>
-        <th>Cat.No</th>
+        <!-- <th>Cat.No</th> -->
         <th>Title</th>
+        <th>YouTube Full Release</th>
       </tr>
-      <tr v-for="i in sortByDate">
-        <td>{{ i.upc }}</td>
+      <tr
+        v-for="(i, index) in sortByDate"
+        :key="index"
+      >
+        <!-- <td>{{ i.upc }}</td> -->
         <td>{{ i.date | formatDate }}</td>
-        <td style="text-transform:uppercase;">{{ i.cat_no }}:</td>
+        <!-- <td style="text-transform:uppercase;">{{ i.cat_no }}:</td> -->
         <td><router-link v-ripple :to="'/yt/' + i.slug + '/'">{{ i.title }}</router-link></td>
+        <td>{{ i.links.youtube }}</td>
       </tr>
     </table>
   </div>
@@ -51,14 +56,16 @@
     },
     computed: {
       sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
+        return sortBy(this.releases, 'date')
+        // return sortBy(this.releases, 'date').reverse()
       }
     },
     filters: {
       formatDate: function (date) {
         var moment = require('moment');
         if (date) {
-          return moment(String(date)).format('YYYY-MM-DD');
+          return moment(String(date)).format('YYYY');
+          // return moment(String(date)).format('YYYY-MM-DD');
         }
       }
     },
