@@ -4,8 +4,8 @@
       <div v-if="loading">Loading...</div>
       <nav v-else class="headr-social-menu__container">
         <a class="headr-social-menu__link"
-          v-for="i in socialStore"
-          :key="i.title"
+          v-for="(i, index) in socialStore"
+          :key="index"
           v-if="i.isVisibleHeadr"
           :href="i.url"
           v-ripple

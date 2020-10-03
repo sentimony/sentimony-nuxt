@@ -1,9 +1,11 @@
+@import 'variables';
+
 @mixin btn {
   display: inline-block;
   color: #fff;
   border-radius: 6px;
   padding: 7px .9em;
-  font-size: 16px;
+  font-size: 14px;
   border: 1px solid #fff;
   box-sizing: border-box;
   margin-right: .7em;

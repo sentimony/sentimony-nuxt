@@ -6,6 +6,7 @@
         <router-link v-ripple to="/news/" class="menu-main__link" active-class="is-selected">News</router-link>
         <router-link v-ripple to="/releases/" class="menu-main__link" active-class="is-selected">Releases</router-link>
         <router-link v-ripple to="/artists/" class="menu-main__link" active-class="is-selected">Artists</router-link>
+        <router-link v-ripple to="/playlists/" class="menu-main__link" active-class="is-selected">Playlists</router-link>
         <router-link v-ripple to="/events/" class="menu-main__link" active-class="is-selected">Events</router-link>
         <router-link v-ripple to="/friends/" class="menu-main__link" active-class="is-selected">Friends</router-link>
         <router-link v-ripple to="/contacts/" class="menu-main__link" active-class="is-selected">Contacts</router-link>

@@ -1,5 +1,6 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 @import '../../node_modules/coriolan-ui/mixins/media';
+// @import '../../node_modules/swiper/swiper-bundle.css';
 
 // custom
 .swiper-artist-list,
@@ -46,6 +47,10 @@
   &.swiper-button-disabled {
     opacity: .2;
     pointer-events: visible;
+  }
+
+  &:after {
+    content: '';
   }
 }
 
