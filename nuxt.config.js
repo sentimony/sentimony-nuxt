@@ -933,7 +933,7 @@ module.exports = {
 
       '/playlist/sentimony-official',
       '/playlist/sentimony-official/official',
-      '/playlist/sentimony-official/itunes',
+      '/playlist/sentimony-official/applemusic',
       '/playlist/sentimony-official/googleplaymusic',
       '/playlist/sentimony-official/spotify',
       '/playlist/sentimony-official/youtube',
@@ -944,7 +944,7 @@ module.exports = {
 
       '/playlist/psychill-psybient',
       '/playlist/psychill-psybient/official',
-      '/playlist/psychill-psybient/itunes',
+      '/playlist/psychill-psybient/applemusic',
       '/playlist/psychill-psybient/googleplaymusic',
       '/playlist/psychill-psybient/spotify',
       '/playlist/psychill-psybient/youtube',
@@ -955,7 +955,7 @@ module.exports = {
 
       '/playlist/dark-prog-zenonesque',
       '/playlist/dark-prog-zenonesque/official',
-      '/playlist/dark-prog-zenonesque/itunes',
+      '/playlist/dark-prog-zenonesque/applemusic',
       '/playlist/dark-prog-zenonesque/googleplaymusic',
       '/playlist/dark-prog-zenonesque/spotify',
       '/playlist/dark-prog-zenonesque/youtube',
@@ -966,7 +966,7 @@ module.exports = {
 
       '/playlist/goa-trance',
       '/playlist/goa-trance/official',
-      '/playlist/goa-trance/itunes',
+      '/playlist/goa-trance/applemusic',
       '/playlist/goa-trance/googleplaymusic',
       '/playlist/goa-trance/spotify',
       '/playlist/goa-trance/youtube',
