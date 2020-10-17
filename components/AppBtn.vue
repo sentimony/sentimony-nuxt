@@ -41,7 +41,7 @@
   @import '../assets/scss/buttons';
 
   .app-btn {
-    margin-right: .7em;
+    margin-right: .5em;
     display: inline-block;
     // margin-top: .5em;
     margin-bottom: .5em;
@@ -51,7 +51,13 @@
 
       &-img {
         @extend .btn__img;
-        height: 18px;
+        width: 16px;
+        height: 16px;
+
+        @include media(M) {
+          width: 18px;
+          height: 18px;
+        }
       }
 
       &-text {
