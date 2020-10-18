@@ -1,5 +1,6 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 @import '../../node_modules/coriolan-ui/mixins/media';
+@import 'selection-color';
 
 .__nuxt-error-page {
   position: relative !important;
@@ -44,7 +45,10 @@ h5,
 h6,
 p {
   font-weight: 400;
-  margin: 0 0 .5em;
+  margin: 0 0 .3rem;
+  @include media(M) {
+    margin-bottom: .5rem;
+  }
 }
 
 a {

@@ -288,8 +288,8 @@
       margin: 0 0 .1em;
       color: #fff;
 
-      @include media(S) {
-        font-size: 2em;
+      @include media(M) {
+        font-size: 30px;
       }
     }
 

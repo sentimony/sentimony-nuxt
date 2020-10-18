@@ -188,7 +188,7 @@
       color: #fff;
 
       @include media(M) {
-        font-size: 2em;
+        font-size: 30px;
       }
     }
 

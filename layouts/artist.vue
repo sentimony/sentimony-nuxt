@@ -49,5 +49,4 @@
   @import '../assets/scss/variables';
   @import '../assets/scss/flex-sticky';
   @import '../assets/scss/base';
-  @import '../assets/scss/selection-color';
 </style>
