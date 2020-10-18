@@ -16,11 +16,11 @@
       </div>
     </div>
     <h1>{{ item.title }} on {{ title }}</h1>
-    <div class="DdosguardText">
+    <p class="DdosguardText">
       Redirecting
       <span v-if="!redirect"> . . . {{ counter }} sec</span>
       <span v-if="redirect"> to <a :href="link">{{ link }}</a></span>
-    </div>
+    </p>
   </section>
 </template>
 
@@ -58,38 +58,52 @@
 </script>
 
 <style lang="sass">
+  @import '../node_modules/coriolan-ui/tools/variables'
+  @import '../node_modules/coriolan-ui/mixins/media'
+
+
   .Ddosguard
-    position: absolute
-    width: 100%
-    height: 70%
+    // position: absolute
+    // width: 100%
+    // height: 70%
     display: flex
-    justify-content: center
+    // justify-content: center
+    justify-content: flex-start
     align-items: center
     flex-direction: column
-    padding: 20px
+    padding: 1rem
     box-sizing: border-box
     text-align: center
-    font-size: 18px
-    line-height: 1.5
+    // font-size: 18px
+    // line-height: 1.5
     font-family: 'Montserrat', sans-serif
     // background-color: #eee
     color: #333
+    @include media(M)
+      padding-top: 8rem
 
     &Title
-      font-size: 40px
-      color: green
-      margin-bottom: 40px
+      font-size: 24px
+      line-height: 1.2
+      // color: green
+      margin-bottom: 1rem
       background-color: rgba(#fff,.5)
       position: relative
-      padding: 0 .75em
+      padding: 0 .5em
       position: relative
       z-index: 1
+      @include media(M)
+        font-size: 40px
 
     &Animation
       position: relative
       border-radius: 500px
-      width: 120px
-      height: 120px
+      width: 80px
+      height: 80px
+      margin-bottom: 1rem
+      @include media(M)
+        height: 120px
+        width: 120px
 
       &:before
         position: absolute
@@ -99,8 +113,9 @@
         width: 100%
         height: 100%
         border-radius: 50%
-        animation: 2s ease infinite pulseShadow
         box-shadow: 0 0 0
+        @include media(M)
+          animation: 2s ease infinite pulseShadow
 
       &:after
         position: absolute
@@ -110,36 +125,43 @@
         width: 100%
         height: 100%
         border-radius: 50%
-        animation: 2s ease-in-out .5s infinite pulseShadow
         box-shadow: 0 0 0
+        @include media(M)
+          animation: 2s ease-in-out .5s infinite pulseShadow
 
     &Coverholder
       overflow: hidden
       border-radius: 500px
-      height: 120px
-      width: 120px
+      height: 80px
+      width: 80px
       // border: 2px solid #999
       // background-color: #eee
-      background-color: #999
       box-sizing: border-box
+      @include media(M)
+        background-color: #999
+        height: 120px
+        width: 120px
 
     img
       display: block
       width: 100%
       height: auto
-      animation: 2s ease-in-out infinite pulseScale
       border-radius: 500px
+      animation: 2s ease-in-out infinite pulseScale
 
     h1
-      font-size: 30px
+      font-size: 18px
+      line-height: 1.2
       background-color: rgba(#fff,.5)
       position: relative
-      padding: 0 .75em
+      padding: 0 .5em
+      @include media(M)
+        font-size: 30px
 
     &Text
       position: relative
       background-color: rgba(#fff,.5)
-      padding: 0 .75em
+      padding: 0 .5em
 
   @keyframes pulseShadow
     0%
