@@ -301,7 +301,7 @@
       @include media(L) {
         margin-top: 62px;
         margin-bottom: 10em;
-        width: auto;
+        // width: auto;
       }
     }
 

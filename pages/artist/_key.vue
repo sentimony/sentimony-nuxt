@@ -6,7 +6,6 @@
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
-
           <app-cover
             :cover="artist.photo"
             :category="'artists'"
@@ -14,14 +13,12 @@
             :title="artist.title"
           />
 
-          <div class="page-artist__info">
-            <div v-if="artist.style" class="page-artist__small-info">
-              <div class="page-artist__style">{{ artist.style }}</div>
-            </div>
-            <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
-            <div v-if="artist.name" class="page-artist__small-info">Name: {{ artist.name }}</div>
-            <div v-if="artist.location" class="page-artist__small-info">Location: {{ artist.location }}</div>
-          </div>
+          <p v-if="artist.style" class="page-artist__small-info">
+            <span class="page-artist__style">{{ artist.style }}</span>
+          </p>
+          <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
+          <p v-if="artist.name" class="page-artist__small-info">Name: {{ artist.name }}</p>
+          <p v-if="artist.location" class="page-artist__small-info">Location: {{ artist.location }}</p>
         </div>
 
         <div class="page-artist__player-tabs">
@@ -206,14 +203,14 @@
       margin-bottom: 1em;
       width: 100%;
       position: relative;
-      display: flex;
+      // display: flex;
       // align-items: flex-start;
       // justify-content: space-between;
 
       @include media(L) {
         margin-top: 62px;
         margin-bottom: 6em;
-        width: auto;
+        // width: auto;
       }
     }
 
@@ -259,13 +256,6 @@
           font-size: 14px;
         }
       }
-    }
-
-    &__info {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      padding-right: 1.1em;
     }
 
     &__small-info {
