@@ -13,6 +13,7 @@
     position: relative;
     z-index: 40;
     margin: 0 auto;
+    padding-top: .5em;
 
     @include media(L) {
       margin: 0 auto;

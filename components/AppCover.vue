@@ -44,19 +44,23 @@
   @import '../assets/scss/v-img-restyle';
 
   .app-cover {
-    min-width: 100px;
+    // min-width: 100px;
+    // max-width: 100px;
+    width: 100px;
     height: 100px;
     border-radius: 2px;
     overflow: hidden;
     margin-right: 1.4em;
+    margin-bottom: .5em;
     background-color: $colorBgBlack;
-    display: flex;
-    align-items: stretch;
     box-shadow: $shadow;
     position: relative;
+    float: left;
 
     @include media(M) {
-      min-width: 190px;
+      // min-width: 190px;
+      // max-width: 190px;
+      width: 190px;
       height: 190px;
     }
 
