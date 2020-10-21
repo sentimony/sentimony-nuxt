@@ -6,7 +6,6 @@
       <div class="page-release__wrapper">
 
         <div class="page-release__media">
-
           <app-cover
             :cover="release.cover"
             :category="'releases'"
@@ -14,40 +13,35 @@
             :title="release.title"
           />
 
-          <div class="page-release__info">
-            <div class="page-release__small-info">
-              <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-              <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
-              <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
-            </div>
-            <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
-            <div v-if="release.style" class="page-release__small-info">
-              <span v-if="release.style">{{ release.style }}</span>
-              <span v-if="release.total_time"> | {{ release.total_time }}</span>
-            </div>
+          <p class="page-release__small-info">
+            <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
+            <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
+            <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
+          </p>
+          <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
+          <p v-if="release.style" class="page-release__small-info">
+            <span v-if="release.style">{{ release.style }}</span>
+            <span v-if="release.total_time"> | {{ release.total_time }}</span>
+          </p>
 
-            <div v-if="release.coming_soon !== true" class="page-release__small-info">Downloat it:</div>
-            <div v-else class="page-release__small-info">Downloat it soon:</div>
+          <p v-if="release.coming_soon !== true" class="page-release__small-info">Stream it:</p>
+          <p v-else class="page-release__small-info">Stream it soon:</p>
+          <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+          <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
+          <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+          <app-btn :url="release.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/>
+          <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+          <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
+          <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
 
-            <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-            <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-            <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/>
-            <app-btn :url="release.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/>
-            <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-            <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
-
-            <div v-if="release.coming_soon !== true" class="page-release__small-info">Stream it:</div>
-            <div v-else class="page-release__small-info">Stream it soon:</div>
-
-            <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-            <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
-            <app-btn :url="release.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/>
-            <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-            <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
-            <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
-            <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
-
-          </div>
+          <p v-if="release.coming_soon !== true" class="page-release__small-info">Downloat it:</p>
+          <p v-else class="page-release__small-info">Downloat it soon:</p>
+          <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+          <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+          <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/>
+          <!-- <app-btn :url="release.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/> -->
+          <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
+          <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
         </div>
 
         <div class="page-release__player-tabs">
@@ -300,33 +294,23 @@
       margin-bottom: 1em;
       width: 100%;
       position: relative;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      // display: flex;
+      // align-items: flex-start;
+      // justify-content: space-between;
 
       @include media(L) {
         margin-top: 62px;
         margin-bottom: 10em;
-        width: auto;
-      }
-    }
-
-    &__info {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-
-      @include media(L) {
-        padding-right: 1.1em;
+        // width: auto;
       }
     }
 
     &__small-info {
       font-size: 10px;
       color: rgba(#fff,.5);
-      margin-bottom: .5em;
+      // margin-bottom: .5em;
 
-      @include media(S) {
+      @include media(M) {
         font-size: 14px;
       }
     }
@@ -342,7 +326,7 @@
       color: #fff;
 
       @include media(M) {
-        font-size: 2em;
+        font-size: 30px;
       }
     }
 
