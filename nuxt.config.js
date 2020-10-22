@@ -887,6 +887,7 @@ module.exports = {
       '/artist/declaration-of-unity',
       '/artist/hardcore-buddhist',
       '/artist/kauyumari',
+      '/artist/paracozm',
       '/artist/mindex',
       '/artist/overdream',
       '/artist/tystix',
