@@ -136,7 +136,7 @@
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
 
-        <div v-if="release.credits.artwork_by">
+        <div v-if="release.credits.artwork_by || release.credits.written_and_produced_by || release.credits.mastered_by || release.credits.compiled_by">
           <hr>
           <p>Credits:</p>
           <p v-if="release.credits.written_and_produced_by" v-html="'Written & Produced By ' + release.credits.written_and_produced_by"></p>
