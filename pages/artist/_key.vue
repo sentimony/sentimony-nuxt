@@ -80,12 +80,14 @@
           :key="index"
           v-if="i.visible && i.artists.includes(artist.slug)"
         >
-          <img style="width:11px;height:auto;"
-            :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
-            :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
-            :alt="i.title"
-          >
-          |
+          <span v-if="i.cover">
+            <img style="width:11px;height:auto;"
+              :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
+              :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
+              :alt="i.title"
+            >
+            |
+          </span>
           {{ i.title }}
           |
           {{ i.date | year }}
