@@ -1,5 +1,6 @@
 <template>
-  <no-ssr>
+  <!-- <no-ssr> -->
+  <!-- <client-only> -->
     <div class="headr-social-menu">
       <div v-if="loading">Loading...</div>
       <nav v-else class="headr-social-menu__container">
@@ -25,7 +26,8 @@
         </a>
       </nav>
     </div>
-  </no-ssr>
+  <!-- </client-only> -->
+  <!-- </no-ssr> -->
 </template>
 
 <script>
