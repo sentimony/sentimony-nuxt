@@ -56,7 +56,7 @@
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
                 ></iframe>
-                <div v-if="!release.links.bandcamp_id" class="page-release__bandcamp-player-coming">
+                <div v-if="!release.links.bandcamp_id" class="page-release__player-coming">
                   Music<br>
                   is<br>
                   coming
@@ -64,13 +64,21 @@
               </div>
             </v-tab>
 
+            <v-tab v-if="release.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+              <div class="page-release__soundcloud-player">
+                <iframe
+                  :class="'page-release__soundcloud-player-iframe tracks-' + release.tracks_number"
+                  scrolling="no"
+                  height="450"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + release.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=true&show_teaser=false'"
+                  :title="release.title + ' SoundCloud Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
             <v-tab v-if="release.links.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
               <div class="page-release__youtube-player">
-                <!-- <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
-                  Music<br>
-                  on YouTube<br>
-                  is coming soon
-                </div> -->
                 <iframe
                   class="page-release__youtube-player-iframe"
                   :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
@@ -79,13 +87,8 @@
               </div>
             </v-tab>
 
-            <v-tab v-if="release.links.spotify" title="Spotify" icon="page__tab__icon--spotify">
+            <!-- <v-tab v-if="release.links.spotify" title="Spotify" icon="page__tab__icon--spotify">
               <div class="page-release__bandcamp-player">
-                <!-- <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
-                  Music<br>
-                  on Spotify<br>
-                  is coming soon
-                </div> -->
                 <iframe
                   v-if="release.links.spotify"
                   :class="'page-release__spotify-player-iframe tracks-' + release.tracks_number"
@@ -93,7 +96,7 @@
                   :title="release.title + ' Spotify Iframe'"
                 ></iframe>
               </div>
-            </v-tab>
+            </v-tab> -->
 
           </vue-tabs>
         </div>
@@ -336,9 +339,7 @@
       margin: 0 auto;
     }
 
-    &__bandcamp-player {
-      @extend .sentimony-iframe;
-
+    &__player {
       &-coming {
         padding: 1em 1.2em;
         font-size: 14px;
@@ -349,6 +350,10 @@
         margin: 0 auto;
         max-width: 540px;
       }
+    }
+
+    &__bandcamp-player {
+      @extend .sentimony-iframe;
     }
 
     &__youtube-player {
@@ -366,6 +371,11 @@
         transform: scale(.7);
         transform-origin: top left;
       }
+    }
+
+    &__soundcloud-player {
+      // @include ratio(100%,16,9);
+      @extend .sentimony-iframe;
     }
 
     &__spotify-player-iframe {
