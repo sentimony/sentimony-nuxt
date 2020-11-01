@@ -71,7 +71,7 @@
                   scrolling="no"
                   height="450"
                   allow="autoplay"
-                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + release.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=true&show_teaser=false'"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + release.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
                   :title="release.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
