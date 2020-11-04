@@ -89,12 +89,6 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
-  @import '../assets/scss/item';
-  @import '../assets/scss/title';
-  @import '../assets/scss/swiper-restyle';
-
   .swiper-release-list {
     position: relative;
   }

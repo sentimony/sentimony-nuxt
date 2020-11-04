@@ -93,83 +93,82 @@
   }
 }
 
-.page-release__spotify-player-iframe {
-  // transition: height .2s ease;
-
-  &.tracks-4 {
-    height: 204px;
-  }
-
-  &.tracks-5 {
-    height: 235px;
-  }
-
-  &.tracks-7 {
-    height: 297px;
-  }
-
-  &.tracks-8 {
-    height: 328px;
-  }
-
-  &.tracks-9 {
-    height: 359px;
-  }
-
-  &.tracks-10 {
-    height: 390px;
-  }
-
-  &.tracks-11 {
-    height: 421px;
-  }
-
-  &.tracks-12 {
-    height: 452px;
-  }
-
-  &.tracks-22 {
-    height: 762px;
-  }
-
-  &.tracks-25 {
-    height: 855px;
-  }
-}
+// .page-release__spotify-player-iframe {
+//
+//   &.tracks-4 {
+//     height: 204px;
+//   }
+//
+//   &.tracks-5 {
+//     height: 235px;
+//   }
+//
+//   &.tracks-7 {
+//     height: 297px;
+//   }
+//
+//   &.tracks-8 {
+//     height: 328px;
+//   }
+//
+//   &.tracks-9 {
+//     height: 359px;
+//   }
+//
+//   &.tracks-10 {
+//     height: 390px;
+//   }
+//
+//   &.tracks-11 {
+//     height: 421px;
+//   }
+//
+//   &.tracks-12 {
+//     height: 452px;
+//   }
+//
+//   &.tracks-22 {
+//     height: 762px;
+//   }
+//
+//   &.tracks-25 {
+//     height: 855px;
+//   }
+// }
 
 .page-release__soundcloud-player-iframe {
   // height: 450px;
 
   &.tracks-4 {
-    // height: 204px;
+    height: 400px;
   }
 
   &.tracks-5 {
-    // height: 235px;
+    height: 430px;
   }
 
   &.tracks-7 {
-    // height: 297px;
+    height: 500px;
   }
 
   &.tracks-8 {
-    // height: 328px;
+    height: 530px;
   }
 
   &.tracks-9 {
-    // height: 359px;
+    height: 560px;
   }
 
   &.tracks-10 {
-    // height: 390px;
+    height: 590px;
   }
 
   &.tracks-11 {
-    // height: 620px;
+    height: 620px;
   }
 
   &.tracks-12 {
-    // height: 452px;
+    height: 650px;
   }
 
   &.tracks-22 {
