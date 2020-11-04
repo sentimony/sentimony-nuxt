@@ -1,5 +1,5 @@
 <template>
-  <div class="playlists">
+  <div class="page">
     <h1>Playlists</h1>
     <div class="list">
       <div v-for="i in sortByDate" class="item">
@@ -59,13 +59,4 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
-  @import '../assets/scss/item';
-  @import '../assets/scss/list';
-
-  .playlists {
-    @extend .page;
-    max-width: 1278px;
-    margin: 0 auto;
-  }
 </style>

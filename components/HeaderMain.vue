@@ -33,9 +33,9 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
-  @import '../assets/scss/variables';
+  // @import '../node_modules/coriolan-ui/tools/variables';
+  // @import '../node_modules/coriolan-ui/mixins/media';
+  // @import '../assets/scss/variables';
   @import '../assets/scss/main-menu-link';
 
   .header-main {

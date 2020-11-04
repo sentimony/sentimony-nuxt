@@ -1,5 +1,5 @@
 <template>
-  <div class="news">
+  <div class="page">
     <h1>News</h1>
 
     <p
@@ -81,17 +81,6 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
-  @import '../assets/scss/buttons';
-
-  .news {
-    @extend .page;
-
-    // &__btn {
-    //   @extend .btn;
-    // }
-  }
-
   // $primary-color: #FF6B6B;
   // $primary-color-hover: scale-color($primary-color, $lightness: 32%);
   //

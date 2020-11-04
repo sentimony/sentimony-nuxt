@@ -1,5 +1,5 @@
 <template>
-  <div class="releases">
+  <div class="page">
     <h1>Releases</h1>
     <div class="list">
       <div class="item"
@@ -63,13 +63,4 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
-  @import '../assets/scss/item';
-  @import '../assets/scss/list';
-
-  .releases {
-    @extend .page;
-    max-width: 1278px;
-    margin: 0 auto;
-  }
 </style>

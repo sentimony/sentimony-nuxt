@@ -1,6 +1,19 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
+@import 'variables';
 @import '../../node_modules/coriolan-ui/mixins/media';
+@import 'buttons';
+@import 'content';
+@import 'flex-sticky';
+@import 'iframe-size';
+@import 'item';
+@import 'list';
+@import 'main-menu-link';
+@import 'page';
 @import 'selection-color';
+@import 'swiper-restyle';
+@import 'title';
+@import 'v-img-restyle';
+@import 'vue-tabs-restyle';
 
 .__nuxt-error-page {
   position: relative !important;
