@@ -12,6 +12,14 @@
 .page-release__bandcamp-player-iframe {
   // transition: height .2s ease;
 
+  &.tracks-3 {
+    height: (241px + 25px);
+
+    @include media(S) {
+      height: 241px;
+    }
+  }
+
   &.tracks-4 {
     height: (274px + 25px);
 
@@ -138,6 +146,10 @@
 
 .page-release__soundcloud-player-iframe {
   // height: 450px;
+
+  &.tracks-3 {
+    height: 360px;
+  }
 
   &.tracks-4 {
     height: 400px;
