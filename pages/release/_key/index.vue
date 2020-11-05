@@ -152,7 +152,7 @@
           <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
         </div>
 
-        <div v-if="release.links.youtube">
+        <div v-if="release.links.youtube || release.links.soundcloud">
           <hr>
           <p>Links:</p>
         </div>
