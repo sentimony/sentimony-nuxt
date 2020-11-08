@@ -1,5 +1,10 @@
 <template>
-  <button class="button" :class="sidebarOpen ? 'is-active' : ''" @click="handleClick">
+  <button
+    class="button"
+    :class="sidebarOpen ? 'is-active' : ''"
+    @click="handleClick"
+    v-if="$mq === 'sm' || $mq === 'md'"
+  >
     <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
   </button>
 </template>
