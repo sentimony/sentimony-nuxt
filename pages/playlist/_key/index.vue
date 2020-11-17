@@ -15,24 +15,39 @@
 
           <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
           <p v-if="playlist.style" class="page-playlist__small-info">
-            <span>{{ playlist.style }} | </span>
-            <span v-if="playlist.total_time">{{ playlist.total_time }}</span>
+            <span>{{ playlist.style }}</span>
+            <!-- <span v-if="playlist.total_time"> | {{ playlist.total_time }}</span> -->
           </p>
 
           <p class="page-playlist__small-info">Stream it:</p>
           <app-btn :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
           <app-btn :url="playlist.links.itunes" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
-          <app-btn :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
           <app-btn :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
           <!-- <app-btn :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
           <app-btn :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/>
           <app-btn :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
           <app-btn :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
           <app-btn :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
+          <app-btn :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
         </div>
 
         <div class="page-playlist__player-tabs">
+
           <vue-tabs>
+
+            <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+              <div class="playlist-release__soundcloud-player">
+                <iframe
+                  class="playlist-release__soundcloud-player-iframe"
+                  scrolling="no"
+                  height="450"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + playlist.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
+                  :title="playlist.title + ' SoundCloud Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
             <v-tab v-if="playlist.links.youtube" title="YouTube" icon="page__tab__icon--youtube">
               <div class="page-playlist__youtube-player">
                 <iframe
@@ -42,7 +57,9 @@
                 ></iframe>
               </div>
             </v-tab>
+
           </vue-tabs>
+
         </div>
 
       </div>
@@ -111,8 +128,8 @@
       return {
         title: this.playlist.title,
         meta: [
-          { name: 'description', content: this.playlist.tracks_number + ' tracks ' + this.playlist.style + ' ' + this.playlist.format + ', ' + this.playlist.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.cat_no + '/' + this.playlist.slug + '.jpg' }
+          { name: 'description', content: this.playlist.style + ', ' + this.playlist.date.split('-')[0] },
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg' }
         ]
       }
     }
