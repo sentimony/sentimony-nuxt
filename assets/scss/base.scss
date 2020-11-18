@@ -101,3 +101,12 @@ hr {
 .sen-db {
   display: block;
 }
+
+.small-info {
+  font-size: 10px;
+  color: rgba(#fff,.5);
+
+  @include media(S) {
+    font-size: 14px;
+  }
+}

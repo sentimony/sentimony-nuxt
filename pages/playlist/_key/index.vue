@@ -13,13 +13,13 @@
             :title="playlist.title"
           />
 
-          <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
-          <p v-if="playlist.style" class="page-playlist__small-info">
+          <p v-if="playlist.style" class="small-info">
             <span>{{ playlist.style }}</span>
             <!-- <span v-if="playlist.total_time"> | {{ playlist.total_time }}</span> -->
           </p>
+          <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
 
-          <p class="page-playlist__small-info">Stream it:</p>
+          <p class="small-info">Stream it:</p>
           <app-btn :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
           <app-btn :url="playlist.links.itunes" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
           <app-btn :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
@@ -182,16 +182,6 @@
         margin-top: 62px;
         margin-bottom: 10em;
         // width: auto;
-      }
-    }
-
-    &__small-info {
-      font-size: 10px;
-      color: rgba(#fff,.5);
-      // margin-bottom: .5em;
-
-      @include media(M) {
-        font-size: 14px;
       }
     }
 

@@ -13,19 +13,19 @@
             :title="release.title"
           />
 
-          <p class="page-release__small-info">
+          <p class="small-info">
             <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
             <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
             <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
           </p>
           <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
-          <p v-if="release.style" class="page-release__small-info">
+          <p v-if="release.style" class="small-info">
             <span v-if="release.style">{{ release.style }}</span>
             <span v-if="release.total_time"> | {{ release.total_time }}</span>
           </p>
 
-          <p v-if="release.coming_soon !== true" class="page-release__small-info">Stream it:</p>
-          <p v-else class="page-release__small-info">Stream it soon:</p>
+          <p v-if="release.coming_soon !== true" class="small-info">Stream it:</p>
+          <p v-else class="small-info">Stream it soon:</p>
           <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
           <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
           <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
@@ -35,8 +35,8 @@
           <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
           <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
 
-          <p v-if="release.coming_soon !== true" class="page-release__small-info">Downloat it:</p>
-          <p v-else class="page-release__small-info">Downloat it soon:</p>
+          <p v-if="release.coming_soon !== true" class="small-info">Downloat it:</p>
+          <p v-else class="small-info">Downloat it soon:</p>
           <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
           <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
           <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
@@ -310,16 +310,6 @@
         margin-top: 62px;
         margin-bottom: 10em;
         // width: auto;
-      }
-    }
-
-    &__small-info {
-      font-size: 10px;
-      color: rgba(#fff,.5);
-      // margin-bottom: .5em;
-
-      @include media(M) {
-        font-size: 14px;
       }
     }
 
