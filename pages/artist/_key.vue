@@ -27,8 +27,19 @@
         </div>
 
         <div class="page-artist__player-tabs">
-
           <vue-tabs>
+
+            <v-tab v-if="artist.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
+              <div class="iframe-holder">
+                <div class="iframe-holder__ratio">
+                  <iframe
+                    class="iframe-holder__iframe"
+                    :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + artist.youtube_playlist_id"
+                    :title="artist.title + ' YouTube Iframe'"
+                  ></iframe>
+                </div>
+              </div>
+            </v-tab>
 
             <v-tab v-if="artist.soundcloud_label_playlist_id" title="SC (Label)" icon="page__tab__icon--soundcloud">
               <div class="playlist-release__soundcloud-player">
@@ -43,18 +54,6 @@
               </div>
             </v-tab>
 
-            <v-tab v-if="artist.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
-              <div class="iframe-holder">
-                <div class="iframe-holder__ratio">
-                  <iframe
-                    class="iframe-holder__iframe"
-                    :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + artist.youtube_playlist_id"
-                    :title="artist.title + ' YouTube Iframe'"
-                  ></iframe>
-                </div>
-              </div>
-            </v-tab>
-
             <v-tab v-if="artist.soundcloud_artist_playlist_id" title="SC (Artist)" icon="page__tab__icon--soundcloud">
               <iframe
                 :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + artist.soundcloud_artist_playlist_id + '&amp;color=00aabb&amp;hide_related=true&amp;show_comments=true&amp;show_user=false&amp;sharing=false&amp;show_bpm=true'"
@@ -65,7 +64,8 @@
 
             <v-tab v-if="artist.facebook" title="Facebook" icon="page__tab__icon--facebook">
               <iframe
-                class="facebook-widget facebook-widget--size-s"
+                v-if="$mq === 'sm'"
+                class="facebook-widget facebook-widget--size-sm"
                 :src="'https://www.facebook.com/plugins/page.php?href=' + artist.facebook + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                 :title="artist.title + ' Facebook Mobile Iframe'"
                 scrolling="no"
@@ -73,7 +73,8 @@
                 allowTransparency="true"
               ></iframe>
               <iframe
-                class="facebook-widget facebook-widget--size-m"
+                v-if="$mq === 'md' || $mq === 'lg'"
+                class="facebook-widget facebook-widget--size-md"
                 :src="'https://www.facebook.com/plugins/page.php?href=' + artist.facebook + '%2F&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                 :title="artist.title + ' Facebook Desktop Iframe'"
                 scrolling="no"
@@ -349,22 +350,22 @@
     margin: 0 auto;
     height: 214px;
 
-    &--size-s {
-      display: block;
+    &--size-sm {
+      // display: block;
       width: 287px;
 
-      @include media(M) {
-        display: none;
-      }
+      // @include media(M) {
+      //   display: none;
+      // }
     }
 
-    &--size-m {
-      display: none;
+    &--size-md {
+      // display: none;
       width: 500px;
 
-      @include media(M) {
-        display: block;
-      }
+      // @include media(M) {
+      //   display: block;
+      // }
     }
   }
 </style>

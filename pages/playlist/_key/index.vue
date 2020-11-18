@@ -35,6 +35,16 @@
 
           <vue-tabs>
 
+            <v-tab v-if="playlist.links.youtube" title="YouTube" icon="page__tab__icon--youtube">
+              <div class="page-playlist__youtube-player">
+                <iframe
+                  class="page-playlist__youtube-player-iframe"
+                  :src="playlist.links.youtube | YouTubeEmbed"
+                  :title="playlist.title + ' YouTube Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
             <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
               <div class="playlist-release__soundcloud-player">
                 <iframe
@@ -44,16 +54,6 @@
                   allow="autoplay"
                   :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + playlist.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
                   :title="playlist.title + ' SoundCloud Iframe'"
-                ></iframe>
-              </div>
-            </v-tab>
-
-            <v-tab v-if="playlist.links.youtube" title="YouTube" icon="page__tab__icon--youtube">
-              <div class="page-playlist__youtube-player">
-                <iframe
-                  class="page-playlist__youtube-player-iframe"
-                  :src="playlist.links.youtube | YouTubeEmbed"
-                  :title="playlist.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
             </v-tab>
