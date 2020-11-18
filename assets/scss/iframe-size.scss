@@ -12,6 +12,14 @@
 .page-release__bandcamp-player-iframe {
   // transition: height .2s ease;
 
+  &.tracks-3 {
+    height: (241px + 25px);
+
+    @include media(S) {
+      height: 241px;
+    }
+  }
+
   &.tracks-4 {
     height: (274px + 25px);
 
@@ -93,43 +101,93 @@
   }
 }
 
-.page-release__spotify-player-iframe {
-  // transition: height .2s ease;
+// .page-release__spotify-player-iframe {
+//
+//   &.tracks-4 {
+//     height: 204px;
+//   }
+//
+//   &.tracks-5 {
+//     height: 235px;
+//   }
+//
+//   &.tracks-7 {
+//     height: 297px;
+//   }
+//
+//   &.tracks-8 {
+//     height: 328px;
+//   }
+//
+//   &.tracks-9 {
+//     height: 359px;
+//   }
+//
+//   &.tracks-10 {
+//     height: 390px;
+//   }
+//
+//   &.tracks-11 {
+//     height: 421px;
+//   }
+//
+//   &.tracks-12 {
+//     height: 452px;
+//   }
+//
+//   &.tracks-22 {
+//     height: 762px;
+//   }
+//
+//   &.tracks-25 {
+//     height: 855px;
+//   }
+// }
+
+.page-release__soundcloud-player-iframe {
+  // height: 450px;
+
+  &.tracks-3 {
+    height: 360px;
+  }
 
   &.tracks-4 {
-    height: 280px;
+    height: 400px;
   }
 
   &.tracks-5 {
-    height: 306px;
+    height: 430px;
   }
 
   &.tracks-7 {
-    height: 396px;
+    height: 500px;
   }
 
-  &.tracks-8,
+  &.tracks-8 {
+    height: 530px;
+  }
+
   &.tracks-9 {
-    height: 486px;
+    height: 560px;
   }
 
   &.tracks-10 {
-    height: 531px;
+    height: 590px;
   }
 
   &.tracks-11 {
-    height: 576px;
+    height: 620px;
   }
 
   &.tracks-12 {
-    height: 621px;
+    height: 650px;
   }
 
   &.tracks-22 {
-    height: 762px;
+    // height: 762px;
   }
 
   &.tracks-25 {
-    height: 855px;
+    // height: 855px;
   }
 }

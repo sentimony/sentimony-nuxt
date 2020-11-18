@@ -35,7 +35,7 @@
 <style lang="scss">
   @import '../node_modules/coriolan-ui/tools/variables';
   @import '../node_modules/coriolan-ui/mixins/media';
-  @import '../assets/scss/variables';
+  // @import '../assets/scss/variables';
   @import '../assets/scss/main-menu-link';
 
   .header-main {
@@ -63,6 +63,14 @@
 
       &-link {
         @extend .main-menu-link;
+        font-size: 14px;
+        // line-height: 16px;
+        padding: 16px;
+
+        @include media(L) {
+          font-size: 16px;
+          padding: 16px 16px*1.75;
+        }
       }
     }
   }

@@ -1,8 +1,15 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 @import '../../node_modules/coriolan-ui/mixins/media';
+@import 'title';
 
 .page {
   padding: 0 .6em;
+  max-width: 1278px;
+  margin: 0 auto;
+
+  h1 {
+    @extend .title;
+  }
 
   &__icon {
     width: 20px;

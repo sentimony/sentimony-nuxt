@@ -1,4 +1,4 @@
-import firebase, { DB } from '@/services/fireinit.js'
+import { DB } from '@/services/fireinit.js'
 
 export default {
 
@@ -15,7 +15,7 @@ export default {
   actions: {
     loadSocial ({commit}) {
       commit('setLoading', true)
-      firebase.database().ref('social').once('value')
+      DB.ref('social').once('value')
         .then((data) => {
           const social = []
           const obj = data.val()
