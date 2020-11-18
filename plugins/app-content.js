@@ -12,6 +12,7 @@ export default {
     tidal: 'https://content.sentimony.com/assets/img/svg-icons/tidal.svg?01',
     napster: 'https://content.sentimony.com/assets/img/svg-icons/napster.svg?01',
     soundcloud: 'https://content.sentimony.com/assets/img/svg-icons/soundcloud.svg?01',
+    discogs: 'https://content.sentimony.com/assets/img/svg-icons/discogs.svg?01',
   },
   routes: {
     bandcamp_24: 'bandcamp24',
@@ -30,6 +31,7 @@ export default {
     tidal: 'tidal',
     napster: 'napster',
     soundcloud: 'soundcloud',
+    discogs: 'discogs',
   },
   titles: {
     bandcamp_24: 'Bandcamp 24bit',
@@ -47,6 +49,7 @@ export default {
     tidal: 'Tidal',
     napster: 'Napster',
     soundcloud: 'SoundCloud',
+    discogs: 'Discogs',
   },
   texts: {
     comingPhoto: 'Photo<br>coming<br>soon',
