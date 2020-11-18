@@ -12,9 +12,21 @@
 
     <div class="about">
       <div class="about__wrapper">
-        <!-- <p><img class="about__logo" :src="logoOldUrl" alt="Sentimony Records Logo SVG"></p> -->
-        <p><img class="about__logo" :src="logoNewUrl" alt="Sentimony Records Logo v3.3 SVG"></p>
-        <p>Sentimony Records is an independent record label started in Kyiv, Ukraine during the autumn 2006 by Ihor Orlovskyi also known as <router-link to="/artist/irukanji/">Irukanji</router-link>. At spring 2019 label was relocated into Riga, Latvia.</p>
+        <!-- <p>
+          <img
+            class="about__logo"
+            :src="logoOldUrl"
+            :alt="logoOldAlt"
+          />
+        </p> -->
+        <p>
+          <img
+            class="about__logo"
+            :src="logoNewUrl"
+            :alt="logoNewAlt"
+          />
+        </p>
+        <p>Sentimony Records is an independent record label started in Kyiv, Ukraine during the autumn 2006 by Ihor Orlovskyi also known as <router-link to="/artist/irukanji/">Irukanji</router-link>. At spring 2019 label was relocated to Riga, Latvia. But in summer 2020 moved back to Kyiv, Ukraine.</p>
         <p>{{ aboutDescription }}</p>
       </div>
     </div>
@@ -35,7 +47,9 @@
     },
     data: () => ({
       logoOldUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg',
+      logoOldAlt: 'Sentimony Records Logo SVG',
       logoNewUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg',
+      logoNewAlt: 'Sentimony Records Logo v3.3 SVG',
       siteTitle: 'Sentimony Records',
       siteDescription: 'Psychedelic Music Label',
       aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes."

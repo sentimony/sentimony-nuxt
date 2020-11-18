@@ -6,7 +6,6 @@
       <div class="page-playlist__wrapper">
 
         <div class="page-playlist__media">
-
           <app-cover
             :cover="playlist.cover"
             :category="'playlists'"
@@ -14,30 +13,28 @@
             :title="playlist.title"
           />
 
-          <div class="page-playlist__info">
+          <p v-if="playlist.style" class="small-info">
+            <span>{{ playlist.style }}</span>
+            <!-- <span v-if="playlist.total_time"> | {{ playlist.total_time }}</span> -->
+          </p>
+          <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
 
-            <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
-            <div v-if="playlist.style" class="page-playlist__small-info">
-              <span>{{ playlist.style }} | </span>
-              <span v-if="playlist.total_time">{{ playlist.total_time }}</span>
-            </div>
-
-            <div class="page-playlist__small-info">Stream it:</div>
-
-            <app-btn :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-            <app-btn :url="playlist.links.itunes" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
-            <app-btn :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/>
-            <app-btn :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/>
-            <app-btn :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-            <app-btn :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
-            <app-btn :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
-            <app-btn :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
-
-          </div>
+          <p class="small-info">Stream it:</p>
+          <app-btn :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+          <app-btn :url="playlist.links.itunes" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
+          <app-btn :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+          <!-- <app-btn :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
+          <app-btn :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/>
+          <app-btn :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+          <app-btn :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
+          <app-btn :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
+          <app-btn :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
         </div>
 
         <div class="page-playlist__player-tabs">
+
           <vue-tabs>
+
             <v-tab v-if="playlist.links.youtube" title="YouTube" icon="page__tab__icon--youtube">
               <div class="page-playlist__youtube-player">
                 <iframe
@@ -47,7 +44,22 @@
                 ></iframe>
               </div>
             </v-tab>
+
+            <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+              <div class="playlist-release__soundcloud-player">
+                <iframe
+                  class="playlist-release__soundcloud-player-iframe"
+                  scrolling="no"
+                  height="450"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + playlist.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
+                  :title="playlist.title + ' SoundCloud Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
           </vue-tabs>
+
         </div>
 
       </div>
@@ -116,8 +128,8 @@
       return {
         title: this.playlist.title,
         meta: [
-          { name: 'description', content: this.playlist.tracks_number + ' tracks ' + this.playlist.style + ' ' + this.playlist.format + ', ' + this.playlist.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.cat_no + '/' + this.playlist.slug + '.jpg' }
+          { name: 'description', content: this.playlist.style + ', ' + this.playlist.date.split('-')[0] },
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg' }
         ]
       }
     }
@@ -162,34 +174,14 @@
       margin-bottom: 1em;
       width: 100%;
       position: relative;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      // display: flex;
+      // align-items: flex-start;
+      // justify-content: space-between;
 
       @include media(L) {
         margin-top: 62px;
         margin-bottom: 10em;
-        width: auto;
-      }
-    }
-
-    &__info {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-
-      @include media(L) {
-        padding-right: 1.1em;
-      }
-    }
-
-    &__small-info {
-      font-size: 10px;
-      color: rgba(#fff,.5);
-      margin-bottom: .5em;
-
-      @include media(S) {
-        font-size: 14px;
+        // width: auto;
       }
     }
 
@@ -204,7 +196,7 @@
       color: #fff;
 
       @include media(M) {
-        font-size: 2em;
+        font-size: 30px;
       }
     }
 

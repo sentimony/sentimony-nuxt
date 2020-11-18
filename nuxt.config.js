@@ -17,8 +17,8 @@ module.exports = {
     height: '5px',
   },
   plugins: [
-    { src: '~plugins/google-analytics.js', ssr: false },
-    { src: '~/plugins/swiper.js', ssr: false },
+    { src: '~/plugins/google-analytics.js', ssr: false },
+    { src: '~/plugins/vue-awesome-swiper.js', ssr: true },
     // { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
     { src: '~/plugins/fireauth.js', ssr: false },
@@ -28,7 +28,9 @@ module.exports = {
   ],
   css: [
     'normalize.css/normalize.css',
-    'swiper/dist/css/swiper.css',
+    'swiper/css/swiper.css',
+    'assets/scss/base.scss',
+    // 'swiper/swiper-bundle.css',
     // 'vue-nav-tabs/dist/vue-tabs.min.css',
   ],
   modules: [
@@ -68,6 +70,7 @@ module.exports = {
       '/release/va-fantazma/deezer',
       '/release/va-fantazma/tidal',
       '/release/va-fantazma/napster',
+      '/release/va-fantazma/soundcloud',
 
       '/release/va-emptinesses',
       '/release/va-emptinesses/official',
@@ -84,6 +87,7 @@ module.exports = {
       '/release/va-emptinesses/deezer',
       '/release/va-emptinesses/tidal',
       '/release/va-emptinesses/napster',
+      '/release/va-emptinesses/soundcloud',
 
       '/release/sphingida-origin',
       '/release/sphingida-origin/official',
@@ -100,6 +104,7 @@ module.exports = {
       '/release/sphingida-origin/deezer',
       '/release/sphingida-origin/tidal',
       '/release/sphingida-origin/napster',
+      '/release/sphingida-origin/soundcloud',
 
       '/release/va-true-story',
       '/release/va-true-story/official',
@@ -116,6 +121,7 @@ module.exports = {
       '/release/va-true-story/deezer',
       '/release/va-true-story/tidal',
       '/release/va-true-story/napster',
+      '/release/va-true-story/soundcloud',
 
       '/release/spectrum-vision-lost-space-device',
       '/release/spectrum-vision-lost-space-device/official',
@@ -132,6 +138,7 @@ module.exports = {
       '/release/spectrum-vision-lost-space-device/deezer',
       '/release/spectrum-vision-lost-space-device/tidal',
       '/release/spectrum-vision-lost-space-device/napster',
+      '/release/spectrum-vision-lost-space-device/soundcloud',
 
       '/release/irukanji-z-lisu',
       '/release/irukanji-z-lisu/official',
@@ -148,6 +155,7 @@ module.exports = {
       '/release/irukanji-z-lisu/deezer',
       '/release/irukanji-z-lisu/tidal',
       '/release/irukanji-z-lisu/napster',
+      '/release/irukanji-z-lisu/soundcloud',
 
       '/release/va-ocean-scenes-higher-titans',
       '/release/va-ocean-scenes-higher-titans/official',
@@ -164,6 +172,7 @@ module.exports = {
       '/release/va-ocean-scenes-higher-titans/deezer',
       '/release/va-ocean-scenes-higher-titans/tidal',
       '/release/va-ocean-scenes-higher-titans/napster',
+      '/release/va-ocean-scenes-higher-titans/soundcloud',
 
       '/release/senzar-before-the-morning-sun',
       '/release/senzar-before-the-morning-sun/official',
@@ -180,6 +189,7 @@ module.exports = {
       '/release/senzar-before-the-morning-sun/deezer',
       '/release/senzar-before-the-morning-sun/tidal',
       '/release/senzar-before-the-morning-sun/napster',
+      '/release/senzar-before-the-morning-sun/soundcloud',
 
       '/release/va-grower',
       '/release/va-grower/official',
@@ -196,6 +206,7 @@ module.exports = {
       '/release/va-grower/deezer',
       '/release/va-grower/tidal',
       '/release/va-grower/napster',
+      '/release/va-grower/soundcloud',
 
       '/release/va-time-loop-beyond-borders',
       '/release/va-time-loop-beyond-borders/official',
@@ -212,6 +223,7 @@ module.exports = {
       '/release/va-time-loop-beyond-borders/deezer',
       '/release/va-time-loop-beyond-borders/tidal',
       '/release/va-time-loop-beyond-borders/napster',
+      '/release/va-time-loop-beyond-borders/soundcloud',
 
       '/release/unusual-cosmic-process-weightlessness',
       '/release/unusual-cosmic-process-weightlessness/official',
@@ -228,6 +240,7 @@ module.exports = {
       '/release/unusual-cosmic-process-weightlessness/deezer',
       '/release/unusual-cosmic-process-weightlessness/tidal',
       '/release/unusual-cosmic-process-weightlessness/napster',
+      '/release/unusual-cosmic-process-weightlessness/soundcloud',
 
       '/release/va-tempo-syndicate',
       '/release/va-tempo-syndicate/official',
@@ -244,6 +257,7 @@ module.exports = {
       '/release/va-tempo-syndicate/deezer',
       '/release/va-tempo-syndicate/tidal',
       '/release/va-tempo-syndicate/napster',
+      '/release/va-tempo-syndicate/soundcloud',
 
       '/release/va-dancing-mavka',
       '/release/va-dancing-mavka/official',
@@ -260,6 +274,7 @@ module.exports = {
       '/release/va-dancing-mavka/deezer',
       '/release/va-dancing-mavka/tidal',
       '/release/va-dancing-mavka/napster',
+      '/release/va-dancing-mavka/soundcloud',
 
       '/release/va-absence-of-gravity',
       '/release/va-absence-of-gravity/official',
@@ -276,6 +291,7 @@ module.exports = {
       '/release/va-absence-of-gravity/deezer',
       '/release/va-absence-of-gravity/tidal',
       '/release/va-absence-of-gravity/napster',
+      '/release/va-absence-of-gravity/soundcloud',
 
       '/release/va-special-places',
       '/release/va-special-places/official',
@@ -292,6 +308,7 @@ module.exports = {
       '/release/va-special-places/deezer',
       '/release/va-special-places/tidal',
       '/release/va-special-places/napster',
+      '/release/va-special-places/soundcloud',
 
       '/release/hypnotriod-seven-heavenly-edges',
       '/release/hypnotriod-seven-heavenly-edges/official',
@@ -308,6 +325,7 @@ module.exports = {
       '/release/hypnotriod-seven-heavenly-edges/deezer',
       '/release/hypnotriod-seven-heavenly-edges/tidal',
       '/release/hypnotriod-seven-heavenly-edges/napster',
+      '/release/hypnotriod-seven-heavenly-edges/soundcloud',
 
       '/release/specialmind-the-missing-particle',
       '/release/specialmind-the-missing-particle/official',
@@ -324,6 +342,7 @@ module.exports = {
       '/release/specialmind-the-missing-particle/deezer',
       '/release/specialmind-the-missing-particle/tidal',
       '/release/specialmind-the-missing-particle/napster',
+      '/release/specialmind-the-missing-particle/soundcloud',
 
       '/release/tentura-aurora',
       '/release/tentura-aurora/official',
@@ -340,6 +359,7 @@ module.exports = {
       '/release/tentura-aurora/deezer',
       '/release/tentura-aurora/tidal',
       '/release/tentura-aurora/napster',
+      '/release/tentura-aurora/soundcloud',
 
       '/release/cifroteca-roof-raiser-wild-storm',
       '/release/cifroteca-roof-raiser-wild-storm/official',
@@ -356,6 +376,7 @@ module.exports = {
       '/release/cifroteca-roof-raiser-wild-storm/deezer',
       '/release/cifroteca-roof-raiser-wild-storm/tidal',
       '/release/cifroteca-roof-raiser-wild-storm/napster',
+      '/release/cifroteca-roof-raiser-wild-storm/soundcloud',
 
       '/release/va-gamayun-tale',
       '/release/va-gamayun-tale/official',
@@ -372,6 +393,7 @@ module.exports = {
       '/release/va-gamayun-tale/deezer',
       '/release/va-gamayun-tale/tidal',
       '/release/va-gamayun-tale/napster',
+      '/release/va-gamayun-tale/soundcloud',
 
       '/release/psyfactor-retro-scientific',
       '/release/psyfactor-retro-scientific/official',
@@ -388,6 +410,7 @@ module.exports = {
       '/release/psyfactor-retro-scientific/deezer',
       '/release/psyfactor-retro-scientific/tidal',
       '/release/psyfactor-retro-scientific/napster',
+      '/release/psyfactor-retro-scientific/soundcloud',
 
       '/release/ufomatka-the-ep',
       '/release/ufomatka-the-ep/official',
@@ -404,6 +427,7 @@ module.exports = {
       '/release/ufomatka-the-ep/deezer',
       '/release/ufomatka-the-ep/tidal',
       '/release/ufomatka-the-ep/napster',
+      '/release/ufomatka-the-ep/soundcloud',
 
       '/release/tentura-beyond-illusion',
       '/release/tentura-beyond-illusion/official',
@@ -420,6 +444,7 @@ module.exports = {
       '/release/tentura-beyond-illusion/deezer',
       '/release/tentura-beyond-illusion/tidal',
       '/release/tentura-beyond-illusion/napster',
+      '/release/tentura-beyond-illusion/soundcloud',
 
       '/release/va-the-ten',
       '/release/va-the-ten/official',
@@ -436,6 +461,7 @@ module.exports = {
       '/release/va-the-ten/deezer',
       '/release/va-the-ten/tidal',
       '/release/va-the-ten/napster',
+      '/release/va-the-ten/soundcloud',
 
       '/release/zymosis-insight',
       '/release/zymosis-insight/official',
@@ -452,6 +478,7 @@ module.exports = {
       '/release/zymosis-insight/deezer',
       '/release/zymosis-insight/tidal',
       '/release/zymosis-insight/napster',
+      '/release/zymosis-insight/soundcloud',
 
       '/release/overdream-beautiful-thinking',
       '/release/overdream-beautiful-thinking/official',
@@ -468,6 +495,7 @@ module.exports = {
       '/release/overdream-beautiful-thinking/deezer',
       '/release/overdream-beautiful-thinking/tidal',
       '/release/overdream-beautiful-thinking/napster',
+      '/release/overdream-beautiful-thinking/soundcloud',
 
       '/release/ufomatka-altering-the-synaptic-controllers',
       '/release/ufomatka-altering-the-synaptic-controllers/official',
@@ -484,6 +512,7 @@ module.exports = {
       '/release/ufomatka-altering-the-synaptic-controllers/deezer',
       '/release/ufomatka-altering-the-synaptic-controllers/tidal',
       '/release/ufomatka-altering-the-synaptic-controllers/napster',
+      '/release/ufomatka-altering-the-synaptic-controllers/soundcloud',
 
       '/release/omnisound-destiny',
       '/release/omnisound-destiny/official',
@@ -500,6 +529,7 @@ module.exports = {
       '/release/omnisound-destiny/deezer',
       '/release/omnisound-destiny/tidal',
       '/release/omnisound-destiny/napster',
+      '/release/omnisound-destiny/soundcloud',
 
       '/release/zymosis-nichna',
       '/release/zymosis-nichna/official',
@@ -516,6 +546,7 @@ module.exports = {
       '/release/zymosis-nichna/deezer',
       '/release/zymosis-nichna/tidal',
       '/release/zymosis-nichna/napster',
+      '/release/zymosis-nichna/soundcloud',
 
       '/release/va-futured-vol-1',
       '/release/va-futured-vol-1/official',
@@ -532,6 +563,7 @@ module.exports = {
       '/release/va-futured-vol-1/deezer',
       '/release/va-futured-vol-1/tidal',
       '/release/va-futured-vol-1/napster',
+      '/release/va-futured-vol-1/soundcloud',
 
       '/release/psydewise-synaptic-elastic',
       '/release/psydewise-synaptic-elastic/official',
@@ -548,6 +580,7 @@ module.exports = {
       '/release/psydewise-synaptic-elastic/deezer',
       '/release/psydewise-synaptic-elastic/tidal',
       '/release/psydewise-synaptic-elastic/napster',
+      '/release/psydewise-synaptic-elastic/soundcloud',
 
       '/release/u-wave-autumn-discovery',
       '/release/u-wave-autumn-discovery/official',
@@ -564,6 +597,7 @@ module.exports = {
       '/release/u-wave-autumn-discovery/deezer',
       '/release/u-wave-autumn-discovery/tidal',
       '/release/u-wave-autumn-discovery/napster',
+      '/release/u-wave-autumn-discovery/soundcloud',
 
       '/release/va-futured-vol-2',
       '/release/va-futured-vol-2/official',
@@ -580,6 +614,7 @@ module.exports = {
       '/release/va-futured-vol-2/deezer',
       '/release/va-futured-vol-2/tidal',
       '/release/va-futured-vol-2/napster',
+      '/release/va-futured-vol-2/soundcloud',
 
       '/release/aesthesia-perception',
       '/release/aesthesia-perception/official',
@@ -596,6 +631,7 @@ module.exports = {
       '/release/aesthesia-perception/deezer',
       '/release/aesthesia-perception/tidal',
       '/release/aesthesia-perception/napster',
+      '/release/aesthesia-perception/soundcloud',
 
       '/release/juelz-dependence',
       '/release/juelz-dependence/official',
@@ -612,6 +648,7 @@ module.exports = {
       '/release/juelz-dependence/deezer',
       '/release/juelz-dependence/tidal',
       '/release/juelz-dependence/napster',
+      '/release/juelz-dependence/soundcloud',
 
       '/release/unusual-cosmic-process-brain-channel',
       '/release/unusual-cosmic-process-brain-channel/official',
@@ -628,6 +665,7 @@ module.exports = {
       '/release/unusual-cosmic-process-brain-channel/deezer',
       '/release/unusual-cosmic-process-brain-channel/tidal',
       '/release/unusual-cosmic-process-brain-channel/napster',
+      '/release/unusual-cosmic-process-brain-channel/soundcloud',
 
       '/release/space-organ-deep-impressions',
       '/release/space-organ-deep-impressions/official',
@@ -644,6 +682,7 @@ module.exports = {
       '/release/space-organ-deep-impressions/deezer',
       '/release/space-organ-deep-impressions/tidal',
       '/release/space-organ-deep-impressions/napster',
+      '/release/space-organ-deep-impressions/soundcloud',
 
       '/release/psydewise-radio-dystopia',
       '/release/psydewise-radio-dystopia/official',
@@ -660,6 +699,7 @@ module.exports = {
       '/release/psydewise-radio-dystopia/deezer',
       '/release/psydewise-radio-dystopia/tidal',
       '/release/psydewise-radio-dystopia/napster',
+      '/release/psydewise-radio-dystopia/soundcloud',
 
       '/release/artech-stringer-mode',
       '/release/artech-stringer-mode/official',
@@ -676,6 +716,7 @@ module.exports = {
       '/release/artech-stringer-mode/deezer',
       '/release/artech-stringer-mode/tidal',
       '/release/artech-stringer-mode/napster',
+      '/release/artech-stringer-mode/soundcloud',
 
       '/release/va-futured-vol-3',
       '/release/va-futured-vol-3/official',
@@ -692,6 +733,7 @@ module.exports = {
       '/release/va-futured-vol-3/deezer',
       '/release/va-futured-vol-3/tidal',
       '/release/va-futured-vol-3/napster',
+      '/release/va-futured-vol-3/soundcloud',
 
       '/release/va-gatekey-vol-1',
       '/release/va-gatekey-vol-1/official',
@@ -708,6 +750,7 @@ module.exports = {
       '/release/va-gatekey-vol-1/deezer',
       '/release/va-gatekey-vol-1/tidal',
       '/release/va-gatekey-vol-1/napster',
+      '/release/va-gatekey-vol-1/soundcloud',
 
       '/release/gojja-amber-current',
       '/release/gojja-amber-current/official',
@@ -724,6 +767,7 @@ module.exports = {
       '/release/gojja-amber-current/deezer',
       '/release/gojja-amber-current/tidal',
       '/release/gojja-amber-current/napster',
+      '/release/gojja-amber-current/soundcloud',
 
       '/release/gaz-mask-quetzalcoatl',
       '/release/gaz-mask-quetzalcoatl/official',
@@ -740,6 +784,7 @@ module.exports = {
       '/release/gaz-mask-quetzalcoatl/deezer',
       '/release/gaz-mask-quetzalcoatl/tidal',
       '/release/gaz-mask-quetzalcoatl/napster',
+      '/release/gaz-mask-quetzalcoatl/soundcloud',
 
       '/release/boketto-yugen',
       '/release/boketto-yugen/official',
@@ -756,6 +801,7 @@ module.exports = {
       '/release/boketto-yugen/deezer',
       '/release/boketto-yugen/tidal',
       '/release/boketto-yugen/napster',
+      '/release/boketto-yugen/soundcloud',
 
       '/release/kabi-mboko',
       '/release/kabi-mboko/official',
@@ -772,6 +818,7 @@ module.exports = {
       '/release/kabi-mboko/deezer',
       '/release/kabi-mboko/tidal',
       '/release/kabi-mboko/napster',
+      '/release/kabi-mboko/soundcloud',
 
       '/release/boketto-outer',
       '/release/boketto-outer/official',
@@ -788,6 +835,7 @@ module.exports = {
       '/release/boketto-outer/deezer',
       '/release/boketto-outer/tidal',
       '/release/boketto-outer/napster',
+      '/release/boketto-outer/soundcloud',
 
       '/release/zymosis-timeless',
       '/release/zymosis-timeless/official',
@@ -804,6 +852,7 @@ module.exports = {
       '/release/zymosis-timeless/deezer',
       '/release/zymosis-timeless/tidal',
       '/release/zymosis-timeless/napster',
+      '/release/zymosis-timeless/soundcloud',
 
       '/release/va-futured-vol-4',
       '/release/va-futured-vol-4/official',
@@ -820,6 +869,75 @@ module.exports = {
       '/release/va-futured-vol-4/deezer',
       '/release/va-futured-vol-4/tidal',
       '/release/va-futured-vol-4/napster',
+      '/release/va-futured-vol-4/soundcloud',
+
+      '/release/exolt-noise-no-sleep',
+      '/release/exolt-noise-no-sleep/official',
+      '/release/exolt-noise-no-sleep/bandcamp',
+      '/release/exolt-noise-no-sleep/bandcamp24',
+      '/release/exolt-noise-no-sleep/itunes',
+      '/release/exolt-noise-no-sleep/googleplay',
+      '/release/exolt-noise-no-sleep/googleplaymarket',
+      '/release/exolt-noise-no-sleep/beatport',
+      '/release/exolt-noise-no-sleep/spotify',
+      '/release/exolt-noise-no-sleep/junodownload',
+      '/release/exolt-noise-no-sleep/youtube',
+      '/release/exolt-noise-no-sleep/youtubemusic',
+      '/release/exolt-noise-no-sleep/deezer',
+      '/release/exolt-noise-no-sleep/tidal',
+      '/release/exolt-noise-no-sleep/napster',
+      '/release/exolt-noise-no-sleep/soundcloud',
+
+      '/release/boketto-presence',
+      '/release/boketto-presence/official',
+      '/release/boketto-presence/bandcamp',
+      '/release/boketto-presence/bandcamp24',
+      '/release/boketto-presence/itunes',
+      '/release/boketto-presence/googleplay',
+      '/release/boketto-presence/googleplaymarket',
+      '/release/boketto-presence/beatport',
+      '/release/boketto-presence/spotify',
+      '/release/boketto-presence/junodownload',
+      '/release/boketto-presence/youtube',
+      '/release/boketto-presence/youtubemusic',
+      '/release/boketto-presence/deezer',
+      '/release/boketto-presence/tidal',
+      '/release/boketto-presence/napster',
+      '/release/boketto-presence/soundcloud',
+
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/official',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/bandcamp',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/bandcamp24',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/itunes',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/googleplay',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/googleplaymarket',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/beatport',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/spotify',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/junodownload',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/youtube',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/youtubemusic',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/deezer',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/tidal',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/napster',
+      '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/soundcloud',
+
+      '/release/va-gatekey-vol-2',
+      '/release/va-gatekey-vol-2/official',
+      '/release/va-gatekey-vol-2/bandcamp',
+      '/release/va-gatekey-vol-2/bandcamp24',
+      '/release/va-gatekey-vol-2/itunes',
+      '/release/va-gatekey-vol-2/googleplay',
+      '/release/va-gatekey-vol-2/googleplaymarket',
+      '/release/va-gatekey-vol-2/beatport',
+      '/release/va-gatekey-vol-2/spotify',
+      '/release/va-gatekey-vol-2/junodownload',
+      '/release/va-gatekey-vol-2/youtube',
+      '/release/va-gatekey-vol-2/youtubemusic',
+      '/release/va-gatekey-vol-2/deezer',
+      '/release/va-gatekey-vol-2/tidal',
+      '/release/va-gatekey-vol-2/napster',
+      '/release/va-gatekey-vol-2/soundcloud',
 
       '/release/vorg-echoes',
       '/release/vorg-echoes/official',
@@ -836,29 +954,34 @@ module.exports = {
       '/release/vorg-echoes/deezer',
       '/release/vorg-echoes/tidal',
       '/release/vorg-echoes/napster',
+      '/release/vorg-echoes/soundcloud',
 
       '/artist/irukanji',
       '/artist/zymosis',
-      '/artist/overdream',
+      '/artist/kabi',
       '/artist/psydewise',
       '/artist/vorg',
-      '/artist/altius',
-      '/artist/kauyumari',
-      '/artist/tystix',
-      '/artist/mindex',
-      '/artist/hardcore-buddhist',
-      '/artist/declaration-of-unity',
-      '/artist/boketto',
-      '/artist/space-organ',
-      '/artist/gojja',
-      '/artist/gaz-mask',
       '/artist/aesthesia',
-      '/artist/omnisound',
-      '/artist/tentura',
-      '/artist/juelz',
+      '/artist/boketto',
       '/artist/eleexr',
       '/artist/exolt',
-      '/artist/kabi',
+      '/artist/gaz-mask',
+      '/artist/gojja',
+      '/artist/juelz',
+      '/artist/space-organ',
+      '/artist/altius',
+      '/artist/declaration-of-unity',
+      '/artist/hardcore-buddhist',
+      '/artist/kauyumari',
+      '/artist/mindex',
+      '/artist/overdream',
+      '/artist/paracozm',
+      '/artist/tystix',
+      '/artist/ufomatka',
+      '/artist/unusual-cosmic-process',
+
+      '/artist/omnisound',
+      '/artist/tentura',
       '/artist/erot',
       '/artist/alexander-daf',
       '/artist/already-maged',
@@ -892,14 +1015,12 @@ module.exports = {
       '/artist/sphingida',
       '/artist/sygnals',
       '/artist/tookytooky',
-      '/artist/ufomatka',
       '/artist/unstable-elements',
-      '/artist/unusual-cosmic-process',
       '/artist/vonoom',
 
       '/playlist/sentimony-official',
       '/playlist/sentimony-official/official',
-      '/playlist/sentimony-official/itunes',
+      '/playlist/sentimony-official/applemusic',
       '/playlist/sentimony-official/googleplaymusic',
       '/playlist/sentimony-official/spotify',
       '/playlist/sentimony-official/youtube',
@@ -907,10 +1028,11 @@ module.exports = {
       '/playlist/sentimony-official/deezer',
       '/playlist/sentimony-official/tidal',
       '/playlist/sentimony-official/napster',
+      '/playlist/sentimony-official/soundcloud',
 
       '/playlist/psychill-psybient',
       '/playlist/psychill-psybient/official',
-      '/playlist/psychill-psybient/itunes',
+      '/playlist/psychill-psybient/applemusic',
       '/playlist/psychill-psybient/googleplaymusic',
       '/playlist/psychill-psybient/spotify',
       '/playlist/psychill-psybient/youtube',
@@ -918,10 +1040,11 @@ module.exports = {
       '/playlist/psychill-psybient/deezer',
       '/playlist/psychill-psybient/tidal',
       '/playlist/psychill-psybient/napster',
+      '/playlist/psychill-psybient/soundcloud',
 
       '/playlist/dark-prog-zenonesque',
       '/playlist/dark-prog-zenonesque/official',
-      '/playlist/dark-prog-zenonesque/itunes',
+      '/playlist/dark-prog-zenonesque/applemusic',
       '/playlist/dark-prog-zenonesque/googleplaymusic',
       '/playlist/dark-prog-zenonesque/spotify',
       '/playlist/dark-prog-zenonesque/youtube',
@@ -929,10 +1052,11 @@ module.exports = {
       '/playlist/dark-prog-zenonesque/deezer',
       '/playlist/dark-prog-zenonesque/tidal',
       '/playlist/dark-prog-zenonesque/napster',
+      '/playlist/dark-prog-zenonesque/soundcloud',
 
       '/playlist/goa-trance',
       '/playlist/goa-trance/official',
-      '/playlist/goa-trance/itunes',
+      '/playlist/goa-trance/applemusic',
       '/playlist/goa-trance/googleplaymusic',
       '/playlist/goa-trance/spotify',
       '/playlist/goa-trance/youtube',
@@ -940,6 +1064,7 @@ module.exports = {
       '/playlist/goa-trance/deezer',
       '/playlist/goa-trance/tidal',
       '/playlist/goa-trance/napster',
+      '/playlist/goa-trance/soundcloud',
 
       '/event/shift-space',
       '/event/alt-space',

@@ -6,7 +6,6 @@
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
-
           <app-cover
             :cover="artist.photo"
             :category="'artists'"
@@ -14,14 +13,17 @@
             :title="artist.title"
           />
 
-          <div class="page-artist__info">
-            <div v-if="artist.style" class="page-artist__small-info">
-              <div class="page-artist__style">{{ artist.style }}</div>
-            </div>
-            <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
-            <div v-if="artist.name" class="page-artist__small-info">Name: {{ artist.name }}</div>
-            <div v-if="artist.location" class="page-artist__small-info">Location: {{ artist.location }}</div>
-          </div>
+          <p v-if="artist.style" class="small-info">
+            <span class="page-artist__style">{{ artist.style }}</span>
+          </p>
+          <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
+          <p v-if="artist.name" class="small-info">Name: {{ artist.name }}</p>
+          <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
+
+          <!-- <p class="small-info">Artist Links:</p>
+          <app-btn :url="artist.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn :url="artist.discogs" :route="routes.discogs" :title="titles.discogs" :icon="icons.discogs"/> -->
+
         </div>
 
         <div class="page-artist__player-tabs">
@@ -33,27 +35,44 @@
 
 
           <!-- <vue-tabs>
-            <v-tab v-if="artist.youtube_id" title="YouTube" icon="page__tab__icon--youtube">
+
+            <v-tab v-if="artist.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
               <div class="iframe-holder">
                 <div class="iframe-holder__ratio">
                   <iframe
                     class="iframe-holder__iframe"
-                    :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + artist.youtube_id"
+                    :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + artist.youtube_playlist_id"
                     :title="artist.title + ' YouTube Iframe'"
                   ></iframe>
                 </div>
               </div>
             </v-tab>
-            <v-tab v-if="artist.soundcloud_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+
+            <v-tab v-if="artist.soundcloud_label_playlist_id" title="SC (Label)" icon="page__tab__icon--soundcloud">
+              <div class="playlist-release__soundcloud-player">
+                <iframe
+                  class="playlist-release__soundcloud-player-iframe"
+                  scrolling="no"
+                  height="450"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + artist.soundcloud_label_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
+                  :title="artist.title + ' SoundCloud Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
+            <v-tab v-if="artist.soundcloud_artist_playlist_id" title="SC (Artist)" icon="page__tab__icon--soundcloud">
               <iframe
-                :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + artist.soundcloud_id + '&amp;color=00aabb&amp;hide_related=true&amp;show_comments=true&amp;show_user=false&amp;sharing=false&amp;show_bpm=true'"
+                :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + artist.soundcloud_artist_playlist_id + '&amp;color=00aabb&amp;hide_related=true&amp;show_comments=true&amp;show_user=false&amp;sharing=false&amp;show_bpm=true'"
                 :title="artist.title + ' SoundCloud Iframe'"
                 style="width:100%;height:500px;border:none;display:block"
               ></iframe>
             </v-tab>
+
             <v-tab v-if="artist.facebook" title="Facebook" icon="page__tab__icon--facebook">
               <iframe
-                class="facebook-widget facebook-widget--size-s"
+                v-if="$mq === 'sm'"
+                class="facebook-widget facebook-widget--size-sm"
                 :src="'https://www.facebook.com/plugins/page.php?href=' + artist.facebook + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                 :title="artist.title + ' Facebook Mobile Iframe'"
                 scrolling="no"
@@ -61,7 +80,8 @@
                 allowTransparency="true"
               ></iframe>
               <iframe
-                class="facebook-widget facebook-widget--size-m"
+                v-if="$mq === 'md' || $mq === 'lg'"
+                class="facebook-widget facebook-widget--size-md"
                 :src="'https://www.facebook.com/plugins/page.php?href=' + artist.facebook + '%2F&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                 :title="artist.title + ' Facebook Desktop Iframe'"
                 scrolling="no"
@@ -69,12 +89,13 @@
                 allowTransparency="true"
               ></iframe>
             </v-tab>
-              <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
+            <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
               <a :href="artist.discogs" target="_blank" rel="noopener" style="display:flex;align-items:center">
                 <img src="https://content.sentimony.com/assets/img/svg-icons/discogs.svg" style="width:20px;margin-right:.4em">
                 <span>Discogs</span>
               </a>
             </v-tab>
+
           </vue-tabs> -->
         </div>
       </div>
@@ -87,14 +108,16 @@
         <p
           v-for="(i, index) in releasesSortByDate"
           :key="index"
-          v-if="i.artists.includes(artist.slug)"
+          v-if="i.visible && i.artists.includes(artist.slug)"
         >
-          <img style="width:11px;height:auto;"
-            :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
-            :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
-            :alt="i.title"
-          >
-          |
+          <span v-if="i.cover">
+            <img style="width:11px;height:auto;"
+              :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
+              :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
+              :alt="i.title"
+            >
+            |
+          </span>
           {{ i.title }}
           |
           {{ i.date | year }}
@@ -104,6 +127,7 @@
         <hr>
 
         <p v-if="artist.discogs">Links:</p>
+        <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p>
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
         <hr v-if="artist.discogs">
 
@@ -127,19 +151,31 @@
 </template>
 
 <script>
-  import SvgTriangle from '~/components/SvgTriangle.vue'
-  import AppCover from '~/components/AppCover'
-  import axios from '~/plugins/axios'
-  import FrameTabs from '~/components/FrameTabs.vue'
   import sortBy from 'lodash/sortBy'
   import moment from 'moment'
+
+  import axios from '~/plugins/axios'
+  import AppContent from '~/plugins/app-content'
+
+  import SvgTriangle from '~/components/SvgTriangle.vue'
+  import AppCover from '~/components/AppCover'
+  import AppBtn from '~/components/AppBtn'
+  import FrameTabs from '~/components/FrameTabs.vue'
 
   export default {
     layout: 'artist',
     components: {
       SvgTriangle,
       FrameTabs,
-      AppCover
+      AppCover,
+      AppBtn,
+    },
+    data () {
+      return {
+        routes: AppContent.routes,
+        titles: AppContent.titles,
+        icons: AppContent.icons,
+      }
     },
     // async asyncData({ route }) {
     //   const { key } = route.params
@@ -173,7 +209,8 @@
         this.$store.dispatch('updateCurrentFrame', index)
       },
       releasesSortByDate() {
-        return sortBy(this.releases, 'date').reverse()
+        var releases = sortBy(this.releases, 'date').reverse()
+        return releases
       }
     },
     filters: {
@@ -200,11 +237,11 @@
   @import '../../node_modules/coriolan-ui/mixins/media';
   @import '../../node_modules/coriolan-ui/mixins/ratio';
   @import '../../assets/scss/variables';
-  @import '../../assets/scss/buttons';
-  @import '../../assets/scss/vue-tabs-restyle';
-  @import '../../assets/scss/content';
-  @import '../../assets/scss/page';
-  @import '../../assets/scss/v-img-restyle';
+  // @import '../../assets/scss/buttons';
+  // @import '../../assets/scss/vue-tabs-restyle';
+  // @import '../../assets/scss/content';
+  // @import '../../assets/scss/page';
+  // @import '../../assets/scss/v-img-restyle';
   @import '../../assets/scss/page';
 
   .page-artist {
@@ -235,14 +272,14 @@
       margin-bottom: 1em;
       width: 100%;
       position: relative;
-      display: flex;
+      // display: flex;
       // align-items: flex-start;
       // justify-content: space-between;
 
       @include media(L) {
         margin-top: 62px;
         margin-bottom: 6em;
-        width: auto;
+        // width: auto;
       }
     }
 
@@ -290,22 +327,6 @@
       }
     }
 
-    &__info {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      padding-right: 1.1em;
-    }
-
-    &__small-info {
-      font-size: 10px;
-      color: rgba(#fff,.5);
-
-      @include media(S) {
-        font-size: 14px;
-      }
-    }
-
     &__style {
       display: inline-block;
       text-transform: capitalize;
@@ -317,8 +338,8 @@
       margin: 0 0 .1em;
       color: #fff;
 
-      @include media(S) {
-        font-size: 2em;
+      @include media(M) {
+        font-size: 30px;
       }
     }
 
@@ -358,22 +379,22 @@
     margin: 0 auto;
     height: 214px;
 
-    &--size-s {
-      display: block;
+    &--size-sm {
+      // display: block;
       width: 287px;
 
-      @include media(M) {
-        display: none;
-      }
+      // @include media(M) {
+      //   display: none;
+      // }
     }
 
-    &--size-m {
-      display: none;
+    &--size-md {
+      // display: none;
       width: 500px;
 
-      @include media(M) {
-        display: block;
-      }
+      // @include media(M) {
+      //   display: block;
+      // }
     }
   }
 </style>

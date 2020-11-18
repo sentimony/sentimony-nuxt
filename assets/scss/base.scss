@@ -1,4 +1,19 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
+@import 'variables';
+@import '../../node_modules/coriolan-ui/mixins/media';
+@import 'buttons';
+@import 'content';
+@import 'flex-sticky';
+@import 'iframe-size';
+@import 'item';
+@import 'list';
+@import 'main-menu-link';
+@import 'page';
+@import 'selection-color';
+@import 'swiper-restyle';
+@import 'title';
+@import 'v-img-restyle';
+@import 'vue-tabs-restyle';
 
 .__nuxt-error-page {
   position: relative !important;
@@ -11,7 +26,7 @@ html {
 
 body {
   margin: 0;
-  font: 400 15px/1.5 'Montserrat', sans-serif;
+  font: 400 12px/1.4 'Montserrat', sans-serif;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -19,7 +34,20 @@ body {
   height: 100%;
   text-align: center;
   min-width: $XS;
+
   background-color: #8a0202;
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg');
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg');
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @include media(M) {
+    font-size: 15px;
+    line-height: 1.5;
+  }
 }
 
 h1,
@@ -30,7 +58,10 @@ h5,
 h6,
 p {
   font-weight: 400;
-  margin: .5em 0;
+  margin: 0 0 .3rem;
+  @include media(M) {
+    margin-bottom: .5rem;
+  }
 }
 
 a {
@@ -69,4 +100,13 @@ hr {
 
 .sen-db {
   display: block;
+}
+
+.small-info {
+  font-size: 10px;
+  color: rgba(#fff,.5);
+
+  @include media(S) {
+    font-size: 14px;
+  }
 }

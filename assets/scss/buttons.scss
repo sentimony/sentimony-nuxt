@@ -1,15 +1,22 @@
 @import 'variables';
+@import '../../node_modules/coriolan-ui/mixins/media';
 
 @mixin btn {
   display: inline-block;
   color: #fff;
   border-radius: 6px;
-  padding: 7px .9em;
-  font-size: 14px;
+  padding: 4px .8em 8px;
+  font-size: 12px;
   border: 1px solid #fff;
   box-sizing: border-box;
-  margin-right: .7em;
+  margin-right: .5em;
   transition: background-color .2s ease;
+  letter-spacing: -0.5px;
+
+  @include media(M) {
+    padding: 6px .9em 8px;
+    font-size: 14px;
+  }
 
   &:last-child {
     margin-right: 0;

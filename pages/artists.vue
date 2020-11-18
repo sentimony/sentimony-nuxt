@@ -1,5 +1,5 @@
 <template>
-  <div class="artists">
+  <div class="page">
     <h1>Artists</h1>
     <div class="list">
       <div v-if="loading">Loading...</div>
@@ -61,13 +61,4 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
-  @import '../assets/scss/item';
-  @import '../assets/scss/list';
-
-  .artists {
-    @extend .page;
-    max-width: 1278px;
-    margin: 0 auto;
-  }
 </style>

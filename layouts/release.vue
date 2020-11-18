@@ -1,6 +1,6 @@
 <template>
   <div class="flex-sticky">
-    <BaseBg/>
+    <!-- <BaseBg/> -->
     <!-- <div class="flex-sticky__fractal">
       <Fractal/>
     </div> -->
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import BaseBg from '~/components/BaseBg.vue'
+  // import BaseBg from '~/components/BaseBg.vue'
   // import Fractal from '~/components/Fractal.vue'
   import HeaderMain from '~/components/HeaderMain.vue'
   import SidebarMenu from '~/components/SidebarMenu.vue'
@@ -32,7 +32,7 @@
 
   export default {
     components: {
-      BaseBg,
+      // BaseBg,
       // Fractal,
       HeaderMain,
       SidebarMenu,
@@ -45,9 +45,4 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../assets/scss/variables';
-  @import '../assets/scss/flex-sticky';
-  @import '../assets/scss/base';
-  @import '../assets/scss/selection-color';
 </style>
