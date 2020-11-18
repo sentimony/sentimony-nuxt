@@ -3,7 +3,7 @@
     <ddos-guard
       :item="release"
       :title="title"
-      :link="release.links.soundcloud"
+      :link="release.links.soundcloud_url"
     />
   </section>
 </template>
