@@ -31,10 +31,10 @@
           <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
           <!-- <app-btn :url="release.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
           <app-btn :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <!-- <app-btn :url="release.links.youtube" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/> -->
           <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
           <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
           <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
+          <!-- <app-btn :url="release.links.youtube" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/> -->
 
           <p v-if="release.coming_soon !== true" class="small-info">Downloat it:</p>
           <p v-else class="small-info">Downloat it soon:</p>
@@ -154,7 +154,7 @@
           <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
         </div>
 
-        <div v-if="release.links.youtube || release.links.soundcloud">
+        <div v-if="release.links.youtube || release.links.discogs">
           <hr>
           <p>Links:</p>
         </div>
@@ -177,10 +177,6 @@
 
         <p v-if="release.links.youtube">
           <a :href="release.links.youtube | YouTubeFullReleases" target="_blank" rel="noopener">YouTube [Full Release]</a>
-        </p>
-
-        <p v-if="release.links.soundcloud">
-          <a :href="release.links.soundcloud" target="_blank" rel="noopener">SoundCloud</a>
         </p>
 
         <p v-if="release.links.discogs">
@@ -234,12 +230,12 @@
           return moment(String(date)).format('DD MMM YYYY');
         }
       },
-      SpotifyEmbed (spotify) {
-        if (spotify) {
-          let s = spotify.replace('https://open.spotify.com/album/', '');
-          return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
-        }
-      },
+      // SpotifyEmbed (spotify) {
+      //   if (spotify) {
+      //     let s = spotify.replace('https://open.spotify.com/album/', '');
+      //     return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
+      //   }
+      // },
       YouTubeFullReleases (youtube) {
         if (youtube) {
           let y = youtube.replace('https://youtu.be/', '');
