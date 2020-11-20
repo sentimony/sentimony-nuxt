@@ -11,10 +11,10 @@
     </div>
     <div class="flex-sticky__content">
       <SwiperTop
-        title="Releases"
-        :list="releasesSortedByDate"
-        category="releases"
-        item="release"
+        title="Playlists"
+        :list="playlistsSortedByDate"
+        category="playlists"
+        item="playlist"
       />
       <nuxt/>
     </div>
@@ -51,17 +51,17 @@
     },
     data() {
       return {
-        releases: [],
+        playlists: [],
       }
     },
     mounted () {
-      axios.get('https://sentimony-db.firebaseio.com/releases.json')
-        .then(response => { this.releases = response.data })
+      axios.get('https://sentimony-db.firebaseio.com/playlists.json')
+        .then(response => { this.playlists = response.data })
         .catch(error => { console.log(error) })
     },
     computed: {
-      releasesSortedByDate () {
-        return sortBy(this.releases, 'date').reverse()
+      playlistsSortedByDate () {
+        return sortBy(this.playlists, 'date')
       }
     }
   }
