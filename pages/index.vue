@@ -8,7 +8,12 @@
       </div>
     </div>
 
-    <SwiperReleaseList/>
+    <SwiperTop
+      title="Releases"
+      :list="releasesSortedByDate"
+      category="releases"
+      item="release"
+    />
 
     <div class="about">
       <div class="about__wrapper">
@@ -31,19 +36,25 @@
       </div>
     </div>
 
-    <SwiperArtistList/>
+    <SwiperTop
+      title="Artists"
+      :list="artistsSortedByCategoryId"
+      category="artists"
+      item="artist"
+    />
 
   </div>
 </template>
 
 <script>
-  import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
-  import SwiperArtistList from '~/components/SwiperArtistList.vue'
+  import axios from 'axios'
+  import sortBy from 'lodash/sortBy'
+
+  import SwiperTop from '~/components/SwiperTop.vue'
 
   export default {
     components: {
-      SwiperReleaseList,
-      SwiperArtistList
+      SwiperTop
     },
     data: () => ({
       logoOldUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg',
@@ -52,8 +63,28 @@
       logoNewAlt: 'Sentimony Records Logo v3.3 SVG',
       siteTitle: 'Sentimony Records',
       siteDescription: 'Psychedelic Music Label',
-      aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes."
+      aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes.",
+      releases: [],
+      artists: [],
     }),
+    mounted () {
+      axios.get('https://sentimony-db.firebaseio.com/releases.json')
+        .then(response => { this.releases = response.data })
+        .catch(error => { console.log(error) })
+
+      axios.get('https://sentimony-db.firebaseio.com/artists.json')
+        .then(response => { this.artists = response.data })
+        .catch(error => { console.log(error) })
+
+    },
+    computed: {
+      releasesSortedByDate () {
+        return sortBy(this.releases, 'date').reverse()
+      },
+      artistsSortedByCategoryId () {
+        return sortBy(this.artists, 'category_id')
+      },
+    },
     head: {
       title: 'Home',
       meta: [
