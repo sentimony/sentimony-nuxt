@@ -15,7 +15,6 @@
 
           <p v-if="playlist.style" class="small-info">
             <span>{{ playlist.style }}</span>
-            <!-- <span v-if="playlist.total_time"> | {{ playlist.total_time }}</span> -->
           </p>
           <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
 
@@ -35,25 +34,25 @@
 
           <vue-tabs>
 
+            <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+              <div class="page-playlist__soundcloud-player">
+                <iframe
+                  class="page-playlist__soundcloud-player-iframe"
+                  scrolling="no"
+                  height="450"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + playlist.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
+                  :title="playlist.title + ' SoundCloud Iframe'"
+                ></iframe>
+              </div>
+            </v-tab>
+
             <v-tab v-if="playlist.links.youtube" title="YouTube" icon="page__tab__icon--youtube">
               <div class="page-playlist__youtube-player">
                 <iframe
                   class="page-playlist__youtube-player-iframe"
                   :src="playlist.links.youtube | YouTubeEmbed"
                   :title="playlist.title + ' YouTube Iframe'"
-                ></iframe>
-              </div>
-            </v-tab>
-
-            <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
-              <div class="playlist-release__soundcloud-player">
-                <iframe
-                  class="playlist-release__soundcloud-player-iframe"
-                  scrolling="no"
-                  height="450"
-                  allow="autoplay"
-                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + playlist.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                  :title="playlist.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
             </v-tab>
@@ -87,13 +86,15 @@
   import axios from '~/plugins/axios'
   import AppContent from '~/plugins/app-content'
 
+  // import SwiperTop from '~/components/SwiperTop.vue'
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
 
   export default {
-    // layout: 'playlist',
+    layout: 'playlist',
     components: {
+      // SwiperTop,
       SvgTriangle,
       AppCover,
       AppBtn,
@@ -103,6 +104,7 @@
         routes: AppContent.routes,
         titles: AppContent.titles,
         icons: AppContent.icons,
+        playlists: [],
       }
     },
     async asyncData({ route }) {
@@ -111,12 +113,6 @@
       return { playlist: data }
     },
     filters: {
-      // formatDate: function (date) {
-      //   var moment = require('moment');
-      //   if (date) {
-      //     return moment(String(date)).format('DD MMM YYYY');
-      //   }
-      // },
       YouTubeEmbed (youtube) {
         if (youtube) {
           let y = youtube.replace('https://www.youtube.com/playlist?list=', '');

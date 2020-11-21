@@ -5,7 +5,7 @@
       <div class="frame-tab__tabs">
         <div
           v-for="(i, index) in typeStore.frames"
-          :key="i.title"
+          :key="index"
           @click="chooseFrame(index)"
           class="frame-tab__tabs__item"
           :class="{isActive : currentFrameStore == index}"

@@ -30,7 +30,7 @@
 
 
 
-          <!-- <FrameTabs :typeStore="artistStore"/> -->
+          <FrameTabs :typeStore="artistStore"/>
 
 
 
@@ -126,16 +126,16 @@
         </p>
         <hr>
 
-        <p v-if="artist.discogs">Links:</p>
+        <p v-if="artist.discogs || artist.soundcloud_url">Links:</p>
         <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p>
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
-        <hr v-if="artist.discogs">
+        <!-- <hr v-if="artist.discogs || artist.soundcloud_url"> -->
 
-        <div v-if="artist.discogs">
+        <!-- <div v-if="artist.discogs">
           <hr>
           <p>Links:</p>
           <p><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
-        </div>
+        </div> -->
 
         <hr>
         <VueDisqus
@@ -175,6 +175,7 @@
         routes: AppContent.routes,
         titles: AppContent.titles,
         icons: AppContent.icons,
+        releases: [],
       }
     },
     // async asyncData({ route }) {
@@ -192,17 +193,17 @@
       const releases = releasesRes.data
       return { artist, releases }
     },
-    // computed: {
-    //   loading() {
-    //     return this.$store.getters.loading
-    //   },
-    //   artistStore() {
-    //     return this.$store.getters.loadedArtist(this.$route.params.key)
-    //   },
-    //   currentFrameStore() {
-    //     return this.$store.getters.currentFrame
-    //   }
-    // },
+    computed: {
+      loading() {
+        return this.$store.getters.loading
+      },
+      artistStore() {
+        return this.$store.getters.loadedArtist(this.$route.params.key)
+      },
+      currentFrameStore() {
+        return this.$store.getters.currentFrame
+      }
+    },
     methods: {
       chooseFrame(index) {
         this.selected == index

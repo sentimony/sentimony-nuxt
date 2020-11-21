@@ -1,21 +1,21 @@
 <template>
-  <div class="swiper-release-list">
-    <div class="title">Releases</div>
+  <div class="swiper-list">
+    <div v-if="title" class="title">{{ title }}</div>
 
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide
         class="item"
-        v-for="(i, index) in sortByDate"
+        v-for="(i, index) in list"
         :key="index"
         v-if="i.visible"
       >
-        <router-link v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link" active-class="is-selected">
+        <router-link v-if="i.slug" :to="'../../' + item + '/' + i.slug + '/'" class="item__link" active-class="is-selected">
           <div class="item__wrapper">
             <div class="item__cover">
-              <div v-if="i.cover" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-              <img v-if="i.cover" class="item__img swiper-lazy"
-                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.slug + '.jpg 2x'"
+              <div v-if="i.cover || i.photo" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+              <img v-if="i.cover || i.photo" class="item__img swiper-lazy"
+                :src="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
               <div v-else class="item__soon">
@@ -27,7 +27,7 @@
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
           </div>
-          <div class="item__title">{{ i.title }}</div>
+          <div v-if="i.title" class="item__title">{{ i.title }}</div>
         </router-link>
       </swiper-slide>
       <!-- <div class="swiper-pagination" slot="pagination"></div> -->
@@ -76,6 +76,7 @@
   // import sortBy from 'lodash/sortBy'
 
   export default {
+    props: ['title', 'list', 'category', 'item'],
     data() {
       return {
         // releases: [],
@@ -129,7 +130,4 @@
 </script>
 
 <style lang="scss">
-  .swiper-release-list {
-    position: relative;
-  }
 </style>

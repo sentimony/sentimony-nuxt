@@ -24,6 +24,7 @@ export default {
               id: key,
               slug: obj[key].slug,
               title: obj[key].title,
+              visible: obj[key].visible,
               cat_no: obj[key].cat_no,
               coming_soon: obj[key].coming_soon,
               cover: obj[key].cover,

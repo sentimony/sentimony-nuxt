@@ -44,6 +44,7 @@ export default {
     spotify: 'Spotify',
     junodownload: 'JunoDownload',
     youtube: 'YouTube',
+    youtube_full: 'YouTube (Full Release)',
     youtube_music: 'YouTube Music',
     deezer: 'Deezer',
     tidal: 'Tidal',

@@ -24,7 +24,7 @@
           </div>
           <div class="item__title">
             {{ i.title }}
-            </div>
+          </div>
         </router-link>
       </div>
     </div>
