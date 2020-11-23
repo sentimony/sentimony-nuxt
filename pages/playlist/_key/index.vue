@@ -33,12 +33,18 @@
 
         <div class="page-playlist__player-tabs">
 
-          <app-tabs>
-            <app-tab
-              v-if="playlist.links.soundcloud_playlist_id"
-              :icon="icons.soundcloud"
-              title="SoundCloud"
-            >
+          <IframeTabs
+            v-if="playlist.links.youtube || playlist.links.soundcloud_playlist_id"
+            :one="[
+              playlist.links.youtube,
+              playlist.links.soundcloud_playlist_id
+            ]"
+          />
+          <br>
+
+          <vue-tabs>
+
+            <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
               <div class="page-playlist__soundcloud-player">
                 <iframe
                   class="page-playlist__soundcloud-player-iframe"
@@ -132,6 +138,7 @@
   import AppContent from '~/plugins/app-content'
 
   // import SwiperTop from '~/components/SwiperTop.vue'
+  import IframeTabs from '~/components/IframeTabs.vue'
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
@@ -142,6 +149,7 @@
     layout: 'playlist',
     components: {
       // SwiperTop,
+      IframeTabs,
       SvgTriangle,
       AppCover,
       AppBtn,
