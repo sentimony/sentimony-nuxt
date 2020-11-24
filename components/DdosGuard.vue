@@ -29,7 +29,7 @@
     ],
     data () {
       return {
-        counter: 3,
+        counter: 0,
         redirect: false,
       }
     },
@@ -38,7 +38,7 @@
         setTimeout( ()=> {
            this.redirect = true
            window.location.href = this.link
-        }, 3000)
+        }, 0)
       },
       interval() {
         setInterval(() => {
