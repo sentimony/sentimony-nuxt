@@ -6,10 +6,12 @@
         :key="index"
         v-if="i !== ''"
         @click="chooseFrame(index)"
-        style="display:flex;"
+        style="display:flex;background:rgba(204,204,204,.4);"
+        class="px-1 py-1 mr-1"
       >
         <img :src="'https://content.sentimony.com/assets/img/svg-icons/' + icon(i) + '.svg?01'"
-          style="width:20px;height:20px;margin-right:6px;"
+          style="width:20px;height:20px;"
+          class="mr-1"
         />
         <span style="line-height:20px" v-html="title(i)"></span>
       </a>
