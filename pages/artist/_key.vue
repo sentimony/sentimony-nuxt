@@ -27,7 +27,14 @@
         </div>
 
         <div class="page-artist__player-tabs">
-          <vue-tabs>
+
+
+
+          <FrameTabs :typeStore="artistStore"/>
+
+
+
+          <!-- <vue-tabs>
 
             <v-tab v-if="artist.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
               <div class="iframe-holder">
@@ -82,17 +89,15 @@
                 allowTransparency="true"
               ></iframe>
             </v-tab>
-
-            <!-- <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
+            <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
               <a :href="artist.discogs" target="_blank" rel="noopener" style="display:flex;align-items:center">
                 <img src="https://content.sentimony.com/assets/img/svg-icons/discogs.svg" style="width:20px;margin-right:.4em">
                 <span>Discogs</span>
               </a>
-            </v-tab> -->
+            </v-tab>
 
-          </vue-tabs>
+          </vue-tabs> -->
         </div>
-
       </div>
     </div>
 
@@ -121,11 +126,18 @@
         </p>
         <hr>
 
-        <p v-if="artist.discogs">Links:</p>
+        <p v-if="artist.discogs || artist.soundcloud_url">Links:</p>
         <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p>
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
-        <hr v-if="artist.discogs">
+        <!-- <hr v-if="artist.discogs || artist.soundcloud_url"> -->
 
+        <!-- <div v-if="artist.discogs">
+          <hr>
+          <p>Links:</p>
+          <p><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
+        </div> -->
+
+        <hr>
         <VueDisqus
           shortname="sentimony"
           :identifier="artist.slug"
@@ -148,11 +160,13 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
+  import FrameTabs from '~/components/FrameTabs.vue'
 
   export default {
     layout: 'artist',
     components: {
       SvgTriangle,
+      FrameTabs,
       AppCover,
       AppBtn,
     },
@@ -161,13 +175,14 @@
         routes: AppContent.routes,
         titles: AppContent.titles,
         icons: AppContent.icons,
+        releases: [],
       }
     },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const { data } = await axios.get(`artists/${key}.json`)
-      return { artist: data }
-    },
+    // async asyncData({ route }) {
+    //   const { key } = route.params
+    //   const { data } = await axios.get(`artists/${key}.json`)
+    //   return { artist: data }
+    // },
     async asyncData({ route }) {
       const { key } = route.params
       const [artistRes, releasesRes] = await Promise.all([
@@ -179,6 +194,21 @@
       return { artist, releases }
     },
     computed: {
+      loading() {
+        return this.$store.getters.loading
+      },
+      artistStore() {
+        return this.$store.getters.loadedArtist(this.$route.params.key)
+      },
+      currentFrameStore() {
+        return this.$store.getters.currentFrame
+      }
+    },
+    methods: {
+      chooseFrame(index) {
+        this.selected == index
+        this.$store.dispatch('updateCurrentFrame', index)
+      },
       releasesSortByDate() {
         var releases = sortBy(this.releases, 'date').reverse()
         return releases

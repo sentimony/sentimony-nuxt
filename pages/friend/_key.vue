@@ -34,9 +34,9 @@
 </script>
 
 <style lang="scss">
-@import '../../assets/scss/page';
+  @import '../../assets/scss/page';
 
-.friend {
-  @extend .page;
-}
+  .friend {
+    @extend .page;
+  }
 </style>

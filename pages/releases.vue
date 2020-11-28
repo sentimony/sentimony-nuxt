@@ -2,12 +2,14 @@
   <div class="page">
     <h1>Releases</h1>
     <div class="list">
-      <div class="item"
-        v-for="(i, index) in sortByDate"
+      <div v-if="loading">Loading...</div>
+      <div v-else
+        class="item"
+        v-for="(i, index) in releasesStore"
         :key="index"
         v-if="i.visible"
       >
-        <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
+        <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
               <img v-if="i.cover" class="item__img"
@@ -20,7 +22,9 @@
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
           </div>
-          <div class="item__title">{{ i.title }}</div>
+          <div class="item__title">
+            {{ i.title }}
+          </div>
         </router-link>
       </div>
     </div>
@@ -43,15 +47,13 @@
       return { releases: data }
     },
     computed: {
-      sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
+      loading() {
+        return this.$store.getters.loading
+      },
+      releasesStore() {
+        return this.$store.getters.loadedReleasesSortedByDate
       }
     },
-    // filters: {
-    //   year (date) {
-    //     return date.split('-')[0]
-    //   }
-    // },
     head: {
       title: 'Releases',
       meta: [

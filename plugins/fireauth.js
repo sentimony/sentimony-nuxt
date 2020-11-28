@@ -2,6 +2,8 @@
 
 export default (context) => {
   const {store} = context
+  store.dispatch('loadReleases')
+  store.dispatch('loadArtists')
   store.dispatch('loadSocial')
 
   // return new Promise((resolve, reject) => {
