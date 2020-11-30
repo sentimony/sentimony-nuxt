@@ -1,26 +1,36 @@
 <template>
-  <div>
-    <div v-if="one" style="display:flex;">
+  <div class="IframeTabs">
+    <!-- <div>sidebarOpen: {{ this.$store.state.mobmenu.sidebarOpen }}</div> -->
+    <div>currentFrame: {{ this.$store.state.tabs.currentFrame }}</div>
+    <div v-if="one" class="d-flex">
       <a
         v-for="(i, index) in one"
         :key="index"
         v-if="i !== ''"
         @click="chooseFrame(index)"
-        style="display:flex;background:rgba(204,204,204,.4);"
-        class="px-1 py-1 mr-1"
+        style="background:rgba(204,204,204,.4);"
+        class="px-2 py-3 mr-2 d-flex pointer rounded-t-lg"
+        :class="{ isActive : currentFrameStore == index }"
       >
         <img :src="'https://content.sentimony.com/assets/img/svg-icons/' + icon(i) + '.svg?01'"
           style="width:20px;height:20px;"
           class="mr-1"
         />
-        <span style="line-height:20px" v-html="title(i)"></span>
+        <span style="line-height:20px"
+          v-html="title(i)"
+          class="text-body-2"
+        ></span>
       </a>
       <!-- <div>{{ title }}</div> -->
     </div>
-    <div>{{ content }}</div>
-    <br>
-    <div>
+    <!-- <div>{{ content }}</div>
+    <br> -->
+    <div
+      style="background:rgba(204,204,204,.4);"
+      class="pa-2 rounded-b-lg rounded-tr-lg"
+    >
       <iframe v-if="content"
+        class="d-block"
         :src="frame(content)" width="100" height="450"
       />
     </div>
@@ -34,6 +44,15 @@
       return {
         // title: '',
         content: this.one[0],
+        // isActive: false,
+      }
+    },
+    computed: {
+      // loading () {
+      //   return this.$store.getters.loading
+      // },
+      currentFrameStore () {
+        return this.$store.getters.currentFrame
       }
     },
     methods: {
@@ -74,15 +93,15 @@
         // return content
       },
       chooseFrame (index) {
-        // this.selected == index
-        // this.$store.dispatch('updateCurrentFrame', index)
-        // this.loading = true
+        // this.isActive = !this.isActive
+        this.selected == index
         this.content = this.one[index]
-        // this.content = false
+        this.$store.dispatch('updateCurrentFrame', index)
       }
     }
   }
 </script>
 
 <style lang="scss">
+  .IframeTabs a.isActive { background-color: red!important; }
 </style>
