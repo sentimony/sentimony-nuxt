@@ -8,9 +8,10 @@ import Vuex from 'vuex'
 // import friends from './friends'
 // import donate from './donate'
 // import user from './user'
+import mobmenu from './mobmenu'
+import tabs from './tabs'
 import loading from './loading'
 import social from './social'
-import mobmenu from './mobmenu'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -26,6 +27,7 @@ const createStore = () => {
       // donate: donate,
       // user: user,
       mobmenu,
+      tabs,
       loading,
       social
     }
