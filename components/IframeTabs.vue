@@ -8,7 +8,7 @@
         :key="index"
         v-if="i !== ''"
         @click="chooseFrame(index)"
-        style="background:rgba(204,204,204,.4);"
+        style="background:rgba(204,204,204,.4);opacity:.5;"
         class="px-2 py-3 mr-2 d-flex pointer rounded-t-lg"
         :class="{ isActive : currentFrameStore == index }"
       >
@@ -103,5 +103,8 @@
 </script>
 
 <style lang="scss">
-  .IframeTabs a.isActive { background-color: red!important; }
+  .IframeTabs a.isActive {
+    // background-color: rgba(204,204,204,.4)!important;
+    opacity: 1!important;
+  }
 </style>
