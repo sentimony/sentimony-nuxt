@@ -20,9 +20,10 @@
           <p v-if="artist.name" class="small-info">Name: {{ artist.name }}</p>
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
 
-          <!-- <p class="small-info">Artist Links:</p>
-          <app-btn :url="artist.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn :url="artist.discogs" :route="routes.discogs" :title="titles.discogs" :icon="icons.discogs"/> -->
+          <p class="small-info">Artist Links:</p>
+          <app-btn :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
+          <app-btn :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/>
 
         </div>
 
