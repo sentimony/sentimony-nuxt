@@ -1,7 +1,7 @@
 <template>
   <span class="app-btn">
 
-    <router-link v-if="url !== ''"
+    <router-link v-if="url !== '' && route !== false"
       class="app-btn__btn"
       :to="route"
       v-ripple
@@ -14,7 +14,30 @@
       <span class="app-btn__btn-text">{{ title }}</span>
     </router-link>
 
-    <span v-else
+    <span v-if="url == '' && route !== false"
+      class="app-btn__btn is-disabled"
+    >
+      <img
+        class="app-btn__btn-img"
+        :src="icon"
+        :alt="title + ' Icon'"
+      >
+      <span class="app-btn__btn-text">{{ title }}</span>
+    </span>
+
+    <a v-if="url !== '' && route == false"
+      :href="url"
+      class="app-btn__btn"
+      target="_blank"
+    >
+      <img class="app-btn__btn-img"
+        :src="icon"
+        :alt="title + ' Icon'"
+      >
+      <span class="app-btn__btn-text">{{ title }}</span>
+    </a>
+
+    <span v-if="url == '' && route == false"
       class="app-btn__btn is-disabled"
     >
       <img
