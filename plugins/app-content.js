@@ -36,6 +36,7 @@ export default {
     facebook: 'facebook',
   },
   titles: {
+    bandcamp: 'Bandcamp',
     bandcamp_24: 'Bandcamp 24bit',
     bandcamp_16: 'Bandcamp 16bit',
     apple_music: 'Apple Music',
