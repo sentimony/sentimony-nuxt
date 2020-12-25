@@ -6,7 +6,16 @@
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
+          
           <app-cover
+            v-if="artist.photo_xl != ''"
+            :cover_xl="artist.photo_xl"
+            :category="'artists'"
+            :slug="artist.slug"
+            :title="artist.title"
+          />
+          <app-cover
+            v-else
             :cover="artist.photo"
             :category="'artists'"
             :slug="artist.slug"
@@ -14,6 +23,7 @@
           />
 
           <p v-if="artist.style" class="small-info">
+            Style:
             <span class="page-artist__style">{{ artist.style }}</span>
           </p>
           <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
