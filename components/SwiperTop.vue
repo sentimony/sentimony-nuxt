@@ -12,17 +12,20 @@
         <router-link v-if="i.slug" :to="'../../' + item + '/' + i.slug + '/'" class="item__link" active-class="is-selected">
           <div class="item__wrapper">
             <div class="item__cover">
-              <div v-if="i.cover || i.photo" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-              <img v-if="i.cover || i.photo" class="item__img swiper-lazy"
+              <div v-if="i.cover || i.photo_xl || i.photo" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+              <img v-if="i.photo_xl" class="item__img swiper-lazy"
+                :src="i.photo_xl"
+                :alt="i.title"
+              >
+              <img v-if="i.cover || !i.photo_xl && i.photo" class="item__img swiper-lazy"
                 :src="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg'"
                 :srcset="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-else class="item__soon">
-                Artwork<br>
-                in<br>
-                progress
-              </div>
+              <div v-if="i.cover || !i.photo_xl && !i.photo"
+                class="item__soon"
+                v-html="coming()"
+              />
             </div>
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
@@ -40,10 +43,13 @@
 </template>
 
 <script>
+  import AppContent from '~/plugins/app-content'
+
   export default {
     props: ['title', 'list', 'category', 'item'],
     data() {
       return {
+        texts: AppContent.texts,
         swiperOption: {
           lazy: true,
           // scrollbar: {
@@ -67,6 +73,11 @@
             prevEl: '.swiper-button-prev'
           }
         }
+      }
+    },
+    methods : {
+      coming(category) {
+        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingArtwork
       }
     }
   }
