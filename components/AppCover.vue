@@ -1,18 +1,24 @@
 <template>
   <div class="app-cover">
-    <img v-if="cover"
+    <img v-img v-if="cover_xl"
+      class="app-cover__img"
+      :src="cover_xl"
+      :alt="title"
+    >
+
+    <img v-if="!cover_xl && cover"
       class="app-cover__bg"
       :src="'https://content.sentimony.com/assets/img/' + category + '/small/' + slug + '.jpg'"
       :srcset="'https://content.sentimony.com/assets/img/' + category + '/small/' + slug + '.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/small-retina/' + slug + '.jpg 2x'"
       :alt="title + ' Small Thumbnail'"
     >
-    <img v-img v-if="cover"
+    <img v-img v-if="!cover_xl && cover"
       class="app-cover__img"
       :src="'https://content.sentimony.com/assets/img/' + category + '/large/' + slug +'.jpg'"
       :srcset="'https://content.sentimony.com/assets/img/' + category + '/medium/' + slug +'.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/medium-retina/' + slug +'.jpg 2x'"
       :alt="title"
     >
-    <div v-if="!cover"
+    <div v-if="!cover_xl && !cover"
       class="app-cover__coming"
       v-html="coming()"
     />
@@ -23,7 +29,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
-    props: ['cover', 'category', 'slug', 'title'],
+    props: ['cover_xl', 'cover', 'category', 'slug', 'title'],
     data () {
       return {
         texts: AppContent.texts,

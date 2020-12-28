@@ -13,6 +13,7 @@ export default {
     napster: 'https://content.sentimony.com/assets/img/svg-icons/napster.svg?01',
     soundcloud: 'https://content.sentimony.com/assets/img/svg-icons/soundcloud.svg?01',
     discogs: 'https://content.sentimony.com/assets/img/svg-icons/discogs.svg?01',
+    facebook: 'https://content.sentimony.com/assets/img/svg-icons/facebook.svg?01',
   },
   routes: {
     bandcamp_24: 'bandcamp24',
@@ -32,8 +33,10 @@ export default {
     napster: 'napster',
     soundcloud: 'soundcloud',
     discogs: 'discogs',
+    facebook: 'facebook',
   },
   titles: {
+    bandcamp: 'Bandcamp',
     bandcamp_24: 'Bandcamp 24bit',
     bandcamp_16: 'Bandcamp 16bit',
     apple_music: 'Apple Music',
@@ -51,6 +54,7 @@ export default {
     napster: 'Napster',
     soundcloud: 'SoundCloud',
     discogs: 'Discogs',
+    facebook: 'Facebook',
   },
   texts: {
     comingPhoto: 'Photo<br>coming<br>soon',

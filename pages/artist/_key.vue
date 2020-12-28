@@ -6,7 +6,16 @@
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
+          
           <app-cover
+            v-if="artist.photo_xl != ''"
+            :cover_xl="artist.photo_xl"
+            :category="'artists'"
+            :slug="artist.slug"
+            :title="artist.title"
+          />
+          <app-cover
+            v-else
             :cover="artist.photo"
             :category="'artists'"
             :slug="artist.slug"
@@ -14,15 +23,18 @@
           />
 
           <p v-if="artist.style" class="small-info">
+            Style:
             <span class="page-artist__style">{{ artist.style }}</span>
           </p>
           <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
           <p v-if="artist.name" class="small-info">Name: {{ artist.name }}</p>
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
 
-          <!-- <p class="small-info">Artist Links:</p>
-          <app-btn :url="artist.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn :url="artist.discogs" :route="routes.discogs" :title="titles.discogs" :icon="icons.discogs"/> -->
+          <p class="small-info">Artist Links:</p>
+          <app-btn :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
+          <app-btn :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
+          <app-btn :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/>
 
         </div>
 
