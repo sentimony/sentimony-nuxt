@@ -22,7 +22,7 @@
                 :srcset="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-if="i.cover || !i.photo_xl && !i.photo"
+              <div v-if="!i.cover && !i.photo_xl && !i.photo"
                 class="item__soon"
                 v-html="coming()"
               />
