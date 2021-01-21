@@ -1,5 +1,6 @@
 <template>
   <div class="app-cover">
+
     <img v-img v-if="cover_xl"
       class="app-cover__img"
       :src="cover_xl"
@@ -12,16 +13,19 @@
       :srcset="'https://content.sentimony.com/assets/img/' + category + '/small/' + slug + '.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/small-retina/' + slug + '.jpg 2x'"
       :alt="title + ' Small Thumbnail'"
     >
+
     <img v-img v-if="!cover_xl && cover"
       class="app-cover__img"
       :src="'https://content.sentimony.com/assets/img/' + category + '/large/' + slug +'.jpg'"
       :srcset="'https://content.sentimony.com/assets/img/' + category + '/medium/' + slug +'.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/medium-retina/' + slug +'.jpg 2x'"
       :alt="title"
     >
+
     <div v-if="!cover_xl && !cover"
       class="app-cover__coming"
       v-html="coming()"
     />
+
   </div>
 </template>
 

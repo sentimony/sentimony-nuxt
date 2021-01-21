@@ -6,16 +6,9 @@
       <div class="page-artist__wrapper">
 
         <div class="page-artist__media">
-          
+
           <app-cover
-            v-if="artist.photo_xl != ''"
             :cover_xl="artist.photo_xl"
-            :category="'artists'"
-            :slug="artist.slug"
-            :title="artist.title"
-          />
-          <app-cover
-            v-else
             :cover="artist.photo"
             :category="'artists'"
             :slug="artist.slug"
@@ -117,7 +110,14 @@
           :key="index"
           v-if="i.visible && i.artists.includes(artist.slug)"
         >
-          <span v-if="i.cover">
+          <span v-if="i.cover_xl">
+            <img style="width:11px;height:auto;"
+              :src="i.cover_xl"
+              :alt="i.title"
+            >
+            |
+          </span>
+          <span v-if="!i.cover_xl && i.cover">
             <img style="width:11px;height:auto;"
               :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
               :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"

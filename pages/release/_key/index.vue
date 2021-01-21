@@ -6,7 +6,9 @@
       <div class="page-release__wrapper">
 
         <div class="page-release__media">
+
           <app-cover
+            :cover_xl="release.cover_xl"
             :cover="release.cover"
             :category="'releases'"
             :slug="release.slug"
