@@ -10,12 +10,18 @@
         <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.cover" class="item__img"
+              <img v-if="i.cover_xl" class="item__img"
+                :src="i.cover_xl"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <img v-if="!i.cover_xl && i.cover" class="item__img"
                 :src="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg'"
                 :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-else class="item__soon" v-html="texts.comingArtwork"/>
+              <div v-if="!i.cover_xl && !i.cover"
+                class="item__soon" v-html="texts.comingArtwork"
+              />
             </div>
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
