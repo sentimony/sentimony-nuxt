@@ -208,7 +208,7 @@
         title: this.artist.title,
         meta: [
           { name: 'description', content: this.artist.title + ' description' },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg' }
+          { property: 'og:image', content: this.artist.photo_og ? this.artist.photo_og : 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg' }
         ]
       }
     }
