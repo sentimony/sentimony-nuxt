@@ -175,11 +175,11 @@
         icons: AppContent.icons,
       }
     },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const { data } = await axios.get(`artists/${key}.json`)
-      return { artist: data }
-    },
+    // async asyncData({ route }) {
+    //   const { key } = route.params
+    //   const { data } = await axios.get(`artists/${key}.json`)
+    //   return { artist: data }
+    // },
     async asyncData({ route }) {
       const { key } = route.params
       const [artistRes, releasesRes] = await Promise.all([
