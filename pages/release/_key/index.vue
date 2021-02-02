@@ -185,6 +185,40 @@
           <a :href="release.links.discogs" target="_blank" rel="noopener">Discogs</a>
         </p>
 
+        <div v-if="release.relative_releases">
+          <hr>
+          <p>Relative Releases:</p>
+
+          <!-- <p>{{ release.relative_releases }}</p> -->
+
+          <p
+            v-for="(i, index) in releasesSortByDate"
+            :key="index"
+            v-if="i.visible && release.relative_releases.includes(i.slug)"
+          >
+            <span v-if="i.cover_xl">
+              <img style="width:11px;height:auto;"
+                :src="i.cover_xl"
+                :alt="i.title"
+              >
+              |
+            </span>
+            <span v-if="!i.cover_xl && i.cover">
+              <img style="width:11px;height:auto;"
+                :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
+                :alt="i.title"
+              >
+              |
+            </span>
+            {{ i.title }}
+            |
+            {{ i.date | year }}
+            |
+            <router-link v-ripple :to="'../../release/' + i.slug">Reed More</router-link>
+          </p>
+        </div>
+
         <hr>
         <VueDisqus
           shortname="sentimony"
@@ -199,6 +233,9 @@
 </template>
 
 <script>
+  import sortBy from 'lodash/sortBy'
+  import moment from 'moment'
+
   import axios from '~/plugins/axios'
   import AppContent from '~/plugins/app-content'
 
@@ -220,16 +257,37 @@
         icons: AppContent.icons,
       }
     },
+    // async asyncData({ route }) {
+    //   const { key } = route.params
+    //   const { data } = await axios.get(`releases/${key}.json`)
+    //   return { release: data }
+    // },
     async asyncData({ route }) {
       const { key } = route.params
-      const { data } = await axios.get(`releases/${key}.json`)
-      return { release: data }
+      const [releaseRes, releasesRes] = await Promise.all([
+        axios.get(`releases/${key}.json`),
+        axios.get('releases.json')
+      ]);
+      const release = releaseRes.data
+      const releases = releasesRes.data
+      return { release, releases }
+    },
+    computed: {
+      releasesSortByDate() {
+        var releases = sortBy(this.releases, 'date').reverse()
+        return releases
+      }
     },
     filters: {
       formatDate: function (date) {
         var moment = require('moment');
         if (date) {
           return moment(String(date)).format('DD MMM YYYY');
+        }
+      },
+      year: function (date) {
+        if (date) {
+          return moment(String(date)).format('YYYY');
         }
       },
       // SpotifyEmbed (spotify) {
