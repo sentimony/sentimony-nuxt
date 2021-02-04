@@ -922,6 +922,23 @@ module.exports = {
       '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/napster',
       '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/soundcloud',
 
+      '/release/psypheric-pa-leting-etter'
+      '/release/psypheric-pa-leting-etter/official',
+      '/release/psypheric-pa-leting-etter/bandcamp',
+      '/release/psypheric-pa-leting-etter/bandcamp24',
+      '/release/psypheric-pa-leting-etter/itunes',
+      '/release/psypheric-pa-leting-etter/googleplay',
+      '/release/psypheric-pa-leting-etter/googleplaymarket',
+      '/release/psypheric-pa-leting-etter/beatport',
+      '/release/psypheric-pa-leting-etter/spotify',
+      '/release/psypheric-pa-leting-etter/junodownload',
+      '/release/psypheric-pa-leting-etter/youtube',
+      '/release/psypheric-pa-leting-etter/youtubemusic',
+      '/release/psypheric-pa-leting-etter/deezer',
+      '/release/psypheric-pa-leting-etter/tidal',
+      '/release/psypheric-pa-leting-etter/napster',
+      '/release/psypheric-pa-leting-etter/soundcloud',
+
       '/release/va-gatekey-vol-2',
       '/release/va-gatekey-vol-2/official',
       '/release/va-gatekey-vol-2/bandcamp',
@@ -979,6 +996,7 @@ module.exports = {
       '/artist/tystix',
       '/artist/ufomatka',
       '/artist/unusual-cosmic-process',
+      '/artist/psypheric',
 
       '/artist/omnisound',
       '/artist/tentura',
