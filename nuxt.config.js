@@ -922,7 +922,7 @@ module.exports = {
       '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/napster',
       '/release/paracozm-vorg-too-weird-to-live-too-rare-to-die/soundcloud',
 
-      '/release/psypheric-pa-leting-etter'
+      '/release/psypheric-pa-leting-etter',
       '/release/psypheric-pa-leting-etter/official',
       '/release/psypheric-pa-leting-etter/bandcamp',
       '/release/psypheric-pa-leting-etter/bandcamp24',
