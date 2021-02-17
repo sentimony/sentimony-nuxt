@@ -12,6 +12,14 @@
 .page-release__bandcamp-player-iframe {
   // transition: height .2s ease;
 
+  &.tracks-2 {
+    height: (209px + 25px);
+
+    @include media(S) {
+      height: 209px;
+    }
+  }
+
   &.tracks-3 {
     height: (241px + 25px);
 
