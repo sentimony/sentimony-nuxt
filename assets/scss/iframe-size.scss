@@ -107,6 +107,14 @@
       height: 967px;
     }
   }
+
+  &.tracks-27 {
+    height: (1017px + 25px);
+
+    @include media(S) {
+      height: 1017px;
+    }
+  }
 }
 
 // .page-release__spotify-player-iframe {
@@ -155,6 +163,10 @@
 .page-release__soundcloud-player-iframe {
   // height: 450px;
 
+  &.tracks-2 {
+    height: 320px;
+  }
+
   &.tracks-3 {
     height: 360px;
   }
@@ -196,6 +208,10 @@
   }
 
   &.tracks-25 {
+    // height: 855px;
+  }
+
+  &.tracks-27 {
     // height: 855px;
   }
 }

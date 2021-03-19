@@ -972,6 +972,7 @@ module.exports = {
       '/release/va-gatekey-vol-2/tidal',
       '/release/va-gatekey-vol-2/napster',
       '/release/va-gatekey-vol-2/soundcloud',
+      '/release/va-gatekey-vol-2/soundclouddemo',
 
       '/release/unusual-cosmic-process-outlines',
       '/release/unusual-cosmic-process-outlines/official',
