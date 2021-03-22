@@ -51,19 +51,21 @@
         <div class="page-release__player-tabs">
           <vue-tabs>
 
-            <v-tab v-if="release.links.soundcloud_demo_id" title="SoundCloud Demo" icon="page__tab__icon--soundcloud">
-              <iframe
-                width="100%"
-                height="300"
-                scrolling="no"
-                frameborder="no"
-                allow="autoplay"
-                :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '%3Fsecret_token%3Ds-mgcxjQeuzcd&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=true&show_teaser=true&visual=true'"
-              ></iframe>
-                <!-- <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-                  <a href="https://soundcloud.com/sentimony" title="Sentimony Records" target="_blank" style="color: #cccccc; text-decoration: none;">Sentimony Records</a> · <a href="https://soundcloud.com/sentimony/va-gatekey-vol-2-demo/s-mgcxjQeuzcd" title="VA «Gatekey Vol. 2» Demo" target="_blank" style="color: #cccccc; text-decoration: none;">VA «Gatekey Vol. 2» Demo</a>
-                </div> -->
-            </v-tab>
+            <div v-if="release.links.soundcloud_demo_id">
+              <v-tab title="SoundCloud Preview" icon="page__tab__icon--soundcloud">
+                <iframe
+                  width="100%"
+                  height="300"
+                  scrolling="no"
+                  frameborder="no"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '%3Fsecret_token%3Ds-mgcxjQeuzcd&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=true&show_teaser=true&visual=true'"
+                ></iframe>
+                  <!-- <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                    <a href="https://soundcloud.com/sentimony" title="Sentimony Records" target="_blank" style="color: #cccccc; text-decoration: none;">Sentimony Records</a> · <a href="https://soundcloud.com/sentimony/va-gatekey-vol-2-demo/s-mgcxjQeuzcd" title="VA «Gatekey Vol. 2» Demo" target="_blank" style="color: #cccccc; text-decoration: none;">VA «Gatekey Vol. 2» Demo</a>
+                  </div> -->
+              </v-tab>
+            </div>
 
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
               <div class="page-release__bandcamp-player">
@@ -180,7 +182,7 @@
         </p> -->
 
         <p v-if="release.links.soundcloud_demo_url">
-          <a :href="release.links.soundcloud_demo_url" target="_blank" rel="noopener">SoundCloud Demo</a>
+          <a :href="release.links.soundcloud_demo_url" target="_blank" rel="noopener">SoundCloud Preview</a>
         </p>
 
         <p v-if="release.links.beatspace">
