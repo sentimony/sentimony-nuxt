@@ -12,109 +12,19 @@
 .page-release__bandcamp-player-iframe {
   // transition: height .2s ease;
 
-  &.tracks-2 {
-    height: (209px + 25px);
-
-    @include media(S) {
-      height: 209px;
-    }
-  }
-
-  &.tracks-3 {
-    height: (241px + 25px);
-
-    @include media(S) {
-      height: 241px;
-    }
-  }
-
-  &.tracks-4 {
-    height: (274px + 25px);
-
-    @include media(S) {
-      height: 274px;
-    }
-  }
-
-  &.tracks-5 {
-    height: (307px + 25px);
-
-    @include media(S) {
-      height: 307px;
-    }
-  }
-
-  &.tracks-7 {
-    height: (373px + 25px);
-
-    @include media(S) {
-      height: 373px;
-    }
-  }
-
-  &.tracks-8 {
-    height: (406px + 25px);
-
-    @include media(S) {
-      height: 406px;
-    }
-  }
-
-  &.tracks-9 {
-    height: (439px + 25px);
-
-    @include media(S) {
-      height: 439px;
-    }
-  }
-
-  &.tracks-10 {
-    height: (472px + 25px);
-
-    @include media(S) {
-      height: 472px;
-    }
-  }
-
-  &.tracks-11 {
-    height: (505px + 25px);
-
-    @include media(S) {
-      height: 505px;
-    }
-  }
-
-  &.tracks-12 {
-    height: (538px + 25px);
-
-    @include media(S) {
-      height: 538px;
-    }
-  }
-
-  &.tracks-22 {
-    height: (868px + 25px);
-
-    @include media(S) {
-      height: 868px;
-    }
-  }
-
-  &.tracks-25 {
-    height: (967px + 25px);
-
-    @include media(S) {
-      height: 967px;
-    }
-  }
-
-  &.tracks-27 {
-    height: (1042px + 25px);
-
-    @include media(S) {
-      height: 1042px;
-    }
-  }
+  &.tracks-2 { height: 209px; }
+  &.tracks-3 { height: 242px; }
+  &.tracks-4 { height: 276px; }
+  &.tracks-5 { height: 309px; }
+  &.tracks-7 { height: 376px; }
+  &.tracks-8 { height: 409px; }
+  &.tracks-9 { height: 442px; }
+  &.tracks-10 { height: 476px; }
+  &.tracks-11 { height: 509px; }
+  &.tracks-12 { height: 542px; }
+  &.tracks-22 { height: 876px; }
+  &.tracks-25 { height: 976px; }
+  &.tracks-27 { height: 1042px; }
 }
 
 // .page-release__spotify-player-iframe {
