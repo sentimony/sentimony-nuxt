@@ -49,10 +49,14 @@
         </div>
 
         <div class="page-release__player-tabs">
-          <vue-tabs>
 
-            <div v-if="release.links.soundcloud_demo_id">
-              <v-tab title="SoundCloud Preview" icon="page__tab__icon--soundcloud">
+          <app-tabs>
+            <app-tab
+              v-if="release.links.soundcloud_demo_id"
+              :icon="icons.soundcloud"
+              title="SoundCloud<br>(Preview)"
+            >
+              <div class="page-release__soundcloud-player">
                 <iframe
                   width="100%"
                   height="300"
@@ -61,13 +65,14 @@
                   allow="autoplay"
                   :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '%3Fsecret_token%3Ds-mgcxjQeuzcd&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=true&show_teaser=true&visual=true'"
                 ></iframe>
-                  <!-- <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-                    <a href="https://soundcloud.com/sentimony" title="Sentimony Records" target="_blank" style="color: #cccccc; text-decoration: none;">Sentimony Records</a> · <a href="https://soundcloud.com/sentimony/va-gatekey-vol-2-demo/s-mgcxjQeuzcd" title="VA «Gatekey Vol. 2» Demo" target="_blank" style="color: #cccccc; text-decoration: none;">VA «Gatekey Vol. 2» Demo</a>
-                  </div> -->
-              </v-tab>
-            </div>
+              </div>
+            </app-tab>
 
-            <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
+            <app-tab
+
+              :icon="icons.bandcamp"
+              title="Bandcamp"
+            >
               <div class="page-release__bandcamp-player">
                 <iframe
                   v-if="release.links.bandcamp_id"
@@ -82,9 +87,13 @@
                   coming
                 </div>
               </div>
-            </v-tab>
+            </app-tab>
 
-            <v-tab v-if="release.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+            <app-tab
+              v-if="release.links.soundcloud_playlist_id"
+              :icon="icons.soundcloud"
+              title="SoundCloud<br>(Full Tracks)"
+            >
               <div class="page-release__soundcloud-player">
                 <iframe
                   :class="'page-release__soundcloud-player-iframe tracks-' + release.tracks_number"
@@ -95,9 +104,13 @@
                   :title="release.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
-            </v-tab>
+            </app-tab>
 
-            <v-tab v-if="release.links.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
+            <app-tab
+              v-if="release.links.youtube_playlist_id"
+              :icon="icons.youtube"
+              title="YouTube"
+            >
               <div class="page-release__youtube-player">
                 <iframe
                   class="page-release__youtube-player-iframe"
@@ -105,20 +118,9 @@
                   :title="release.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
-            </v-tab>
+            </app-tab>
+          </app-tabs>
 
-            <!-- <v-tab v-if="release.links.spotify" title="Spotify" icon="page__tab__icon--spotify">
-              <div class="page-release__bandcamp-player">
-                <iframe
-                  v-if="release.links.spotify"
-                  :class="'page-release__spotify-player-iframe tracks-' + release.tracks_number"
-                  :src="release.links.spotify | SpotifyEmbed"
-                  :title="release.title + ' Spotify Iframe'"
-                ></iframe>
-              </div>
-            </v-tab> -->
-
-          </vue-tabs>
         </div>
 
       </div>
@@ -182,7 +184,7 @@
         </p> -->
 
         <p v-if="release.links.soundcloud_demo_url">
-          <a :href="release.links.soundcloud_demo_url" target="_blank" rel="noopener">SoundCloud Preview</a>
+          <a :href="release.links.soundcloud_demo_url" target="_blank" rel="noopener">SoundCloud (Preview)</a>
         </p>
 
         <p v-if="release.links.beatspace">
@@ -262,6 +264,8 @@
   import SvgTriangle from '~/components/SvgTriangle'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
+  import AppTabs from '~/components/AppTabs.vue'
+  import AppTab from '~/components/AppTab.vue'
 
   export default {
     layout: 'release',
@@ -269,6 +273,8 @@
       SvgTriangle,
       AppCover,
       AppBtn,
+      AppTabs,
+      AppTab,
     },
     data () {
       return {
