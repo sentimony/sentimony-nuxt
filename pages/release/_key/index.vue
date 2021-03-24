@@ -51,11 +51,10 @@
         <div class="page-release__player-tabs">
 
           <app-tabs>
-
             <app-tab
               v-if="release.links.soundcloud_demo_id"
               :icon="icons.soundcloud"
-              title="SoundCloud Preview"
+              title="SoundCloud<br>(Preview)"
             >
               <div class="page-release__soundcloud-player">
                 <iframe
@@ -70,7 +69,7 @@
             </app-tab>
 
             <app-tab
-              v-if="release.links.bandcamp_id"
+
               :icon="icons.bandcamp"
               title="Bandcamp"
             >
@@ -93,7 +92,7 @@
             <app-tab
               v-if="release.links.soundcloud_playlist_id"
               :icon="icons.soundcloud"
-              title="SoundCloud"
+              title="SoundCloud<br>(Full Tracks)"
             >
               <div class="page-release__soundcloud-player">
                 <iframe
@@ -120,67 +119,7 @@
                 ></iframe>
               </div>
             </app-tab>
-
           </app-tabs>
-
-          <br>
-
-          <!-- <vue-tabs>
-
-            <v-tab v-if="release.links.soundcloud_demo_id" title="SoundCloud Preview" icon="page__tab__icon--soundcloud">
-              <div class="page-release__soundcloud-player">
-                <iframe
-                  width="100%"
-                  height="300"
-                  scrolling="no"
-                  frameborder="no"
-                  allow="autoplay"
-                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '%3Fsecret_token%3Ds-mgcxjQeuzcd&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=true&show_teaser=true&visual=true'"
-                ></iframe>
-              </div>
-            </v-tab>
-
-            <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
-              <div class="page-release__bandcamp-player">
-                <iframe
-                  v-if="release.links.bandcamp_id"
-                  :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
-                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
-                  seamless
-                  :title="release.title + ' Bandcamp Iframe'"
-                ></iframe>
-                <div v-if="!release.links.bandcamp_id" class="page-release__player-coming">
-                  Music<br>
-                  is<br>
-                  coming
-                </div>
-              </div>
-            </v-tab>
-
-            <v-tab v-if="release.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
-              <div class="page-release__soundcloud-player">
-                <iframe
-                  :class="'page-release__soundcloud-player-iframe tracks-' + release.tracks_number"
-                  scrolling="no"
-                  height="450"
-                  allow="autoplay"
-                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + release.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                  :title="release.title + ' SoundCloud Iframe'"
-                ></iframe>
-              </div>
-            </v-tab>
-
-            <v-tab v-if="release.links.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
-              <div class="page-release__youtube-player">
-                <iframe
-                  class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
-                  :title="release.title + ' YouTube Iframe'"
-                ></iframe>
-              </div>
-            </v-tab>
-
-          </vue-tabs> -->
 
         </div>
 
@@ -245,7 +184,7 @@
         </p> -->
 
         <p v-if="release.links.soundcloud_demo_url">
-          <a :href="release.links.soundcloud_demo_url" target="_blank" rel="noopener">SoundCloud Preview</a>
+          <a :href="release.links.soundcloud_demo_url" target="_blank" rel="noopener">SoundCloud (Preview)</a>
         </p>
 
         <p v-if="release.links.beatspace">

@@ -32,9 +32,13 @@
         </div>
 
         <div class="page-artist__player-tabs">
-          <vue-tabs>
 
-            <v-tab v-if="artist.youtube_playlist_id" title="YouTube" icon="page__tab__icon--youtube">
+          <app-tabs>
+            <app-tab
+              v-if="artist.youtube_playlist_id"
+              :icon="icons.youtube"
+              title="YouTube"
+            >
               <div class="iframe-holder">
                 <div class="iframe-holder__ratio">
                   <iframe
@@ -44,9 +48,12 @@
                   ></iframe>
                 </div>
               </div>
-            </v-tab>
-
-            <v-tab v-if="artist.soundcloud_label_playlist_id" title="SC (Label)" icon="page__tab__icon--soundcloud">
+            </app-tab>
+            <app-tab
+              v-if="artist.soundcloud_label_playlist_id"
+              :icon="icons.soundcloud"
+              title="SoundCloud<br>(Label)"
+            >
               <div class="playlist-release__soundcloud-player">
                 <iframe
                   class="playlist-release__soundcloud-player-iframe"
@@ -57,17 +64,23 @@
                   :title="artist.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
-            </v-tab>
-
-            <v-tab v-if="artist.soundcloud_artist_playlist_id" title="SC (Artist)" icon="page__tab__icon--soundcloud">
+            </app-tab>
+            <app-tab
+              v-if="artist.soundcloud_artist_playlist_id"
+              :icon="icons.youtube"
+              title="SoundCloud<br>(Artist)"
+            >
               <iframe
                 :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/' + artist.soundcloud_artist_playlist_id + '&amp;color=00aabb&amp;hide_related=true&amp;show_comments=true&amp;show_user=false&amp;sharing=false&amp;show_bpm=true'"
                 :title="artist.title + ' SoundCloud Iframe'"
                 style="width:100%;height:500px;border:none;display:block"
               ></iframe>
-            </v-tab>
-
-            <v-tab v-if="artist.facebook" title="Facebook" icon="page__tab__icon--facebook">
+            </app-tab>
+            <app-tab
+              v-if="artist.facebook"
+              :icon="icons.facebook"
+              title="Facebook"
+            >
               <iframe
                 v-if="$mq === 'sm'"
                 class="facebook-widget facebook-widget--size-sm"
@@ -86,16 +99,9 @@
                 frameborder="0"
                 allowTransparency="true"
               ></iframe>
-            </v-tab>
+            </app-tab>
+          </app-tabs>
 
-            <!-- <v-tab v-if="artist.discogs" title="Discography" icon="page__tab__icon--discogs">
-              <a :href="artist.discogs" target="_blank" rel="noopener" style="display:flex;align-items:center">
-                <img src="https://content.sentimony.com/assets/img/svg-icons/discogs.svg" style="width:20px;margin-right:.4em">
-                <span>Discogs</span>
-              </a>
-            </v-tab> -->
-
-          </vue-tabs>
         </div>
 
       </div>
@@ -160,6 +166,8 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
+  import AppTabs from '~/components/AppTabs.vue'
+  import AppTab from '~/components/AppTab.vue'
 
   export default {
     layout: 'artist',
@@ -167,6 +175,8 @@
       SvgTriangle,
       AppCover,
       AppBtn,
+      AppTabs,
+      AppTab,
     },
     data () {
       return {
