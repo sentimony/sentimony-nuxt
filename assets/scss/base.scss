@@ -1,6 +1,7 @@
 @import '../../node_modules/coriolan-ui/tools/variables';
 @import 'variables';
 @import '../../node_modules/coriolan-ui/mixins/media';
+@import 'app-base';
 @import 'buttons';
 @import 'content';
 @import 'flex-sticky';
@@ -13,7 +14,7 @@
 @import 'swiper-restyle';
 @import 'title';
 @import 'v-img-restyle';
-@import 'vue-tabs-restyle';
+// @import 'vue-tabs-restyle';
 
 .__nuxt-error-page {
   position: relative !important;

@@ -32,9 +32,12 @@
 
         <div class="page-playlist__player-tabs">
 
-          <vue-tabs>
-
-            <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+          <app-tabs>
+            <app-tab
+              v-if="playlist.links.soundcloud_playlist_id"
+              :icon="icons.soundcloud"
+              title="SoundCloud"
+            >
               <div class="page-playlist__soundcloud-player">
                 <iframe
                   class="page-playlist__soundcloud-player-iframe"
@@ -45,9 +48,12 @@
                   :title="playlist.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
-            </v-tab>
-
-            <v-tab v-if="playlist.links.youtube" title="YouTube" icon="page__tab__icon--youtube">
+            </app-tab>
+            <app-tab
+              v-if="playlist.links.youtube"
+              :icon="icons.youtube"
+              title="YouTube"
+            >
               <div class="page-playlist__youtube-player">
                 <iframe
                   class="page-playlist__youtube-player-iframe"
@@ -55,9 +61,8 @@
                   :title="playlist.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
-            </v-tab>
-
-          </vue-tabs>
+            </app-tab>
+          </app-tabs>
 
         </div>
 
@@ -90,6 +95,8 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
+  import AppTabs from '~/components/AppTabs.vue'
+  import AppTab from '~/components/AppTab.vue'
 
   export default {
     layout: 'playlist',
@@ -98,6 +105,8 @@
       SvgTriangle,
       AppCover,
       AppBtn,
+      AppTabs,
+      AppTab,
     },
     data () {
       return {
