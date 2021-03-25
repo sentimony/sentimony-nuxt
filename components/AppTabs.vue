@@ -37,8 +37,8 @@ export default {
   },
   mounted () {
     this.selectTab(0)
-    console.log('tabs = ' + this.tabs)
-    console.log(this.tabs)
+    // console.log('tabs = ' + this.tabs)
+    // console.log(this.tabs)
   },
   methods: {
     selectTab (i) {

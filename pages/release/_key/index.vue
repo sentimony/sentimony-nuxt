@@ -56,7 +56,7 @@
               :icon="icons.soundcloud"
               title="SoundCloud<br>(Preview)"
             >
-              <div class="page-release__soundcloud-player">
+              <!-- <div class="page-release__soundcloud-player">
                 <iframe
                   width="100%"
                   height="300"
@@ -65,9 +65,18 @@
                   allow="autoplay"
                   :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '%3Fsecret_token%3Ds-mgcxjQeuzcd&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=true&show_teaser=true&visual=true'"
                 ></iframe>
+              </div> -->
+              <div class="page-release__soundcloud-player">
+                <iframe
+                  width="100%"
+                  height="166"
+                  scrolling="no"
+                  frameborder="no"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true'"
+                ></iframe>
               </div>
             </app-tab>
-
             <app-tab
 
               :icon="icons.bandcamp"

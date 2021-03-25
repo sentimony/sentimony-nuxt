@@ -2,7 +2,7 @@
   <div class="menu-social">
     <div class="menu-social__caption">{{ follow }}</div>
     <div v-if="loading">Loading...</div>
-    <div v-else class="menu-social__list">
+    <div v-else class="menu-social__list flex-wrap">
       <a class="menu-social__link"
         v-for="(i, index) in socialStore"
         :key="index"
@@ -71,6 +71,9 @@
       transition: opacity .2s ease;
       opacity: 0;
       visibility: hidden;
+      background-color: rgba(#8a0202, 1);
+      padding: 2px 8px;
+      border-radius: 4px;
 
       .menu-social__link:hover & {
         opacity: 1;

@@ -13,7 +13,6 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-disqus": "^3.0.5",
     "vue-mq": "^1.0.1",
-    "vue-nav-tabs": "^0.5.7",
     "vue-ripple-directive": "^2.0.1"
   },
   "devDependencies": {
