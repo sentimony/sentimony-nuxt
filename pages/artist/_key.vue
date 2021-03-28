@@ -24,11 +24,11 @@
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
 
           <p class="small-info">Artist Links:</p>
-          <app-btn :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
-          <app-btn :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
-          <app-btn :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/>
+          <app-btn v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn v-if="artist.spotify" :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
+          <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
+          <app-btn v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
+          <app-btn v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/>
 
         </div>
 
