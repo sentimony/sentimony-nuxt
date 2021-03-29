@@ -6,16 +6,15 @@
         @click="selectTab(index)"
         :class='{"app-tab__selected": (index == selectedIndex)}'
       >
-        <div class="d-flex body-2 align-center" style="height:44px;">
+        <div class="d-flex body-2 align-center" style="height:40px;">
           <img
             v-if="i.$attrs.icon"
             class=""
             :src="i.$attrs.icon"
             :alt="i.title + ' Icon'"
-            style="width:20px;margin-right:6px;"
+            style="width:20px;"
           >
-          <!-- <span v-if="i.title">{{ i.title }}</span> -->
-          <span v-if="i.title" v-html="i.title"/>
+          <span v-if="i.title" v-html="i.title" style="margin-left:6px;"/>
         </div>
       </li>
     </ul>
@@ -24,41 +23,43 @@
 </template>
 
 <script>
-export default {
-  // props: ['title', 'icon'],
-  data () {
-    return {
-      selectedIndex: 0,
-      tabs: []
-    }
-  },
-  created () {
-    this.tabs = this.$children
-  },
-  mounted () {
-    this.selectTab(0)
-    // console.log('tabs = ' + this.tabs)
-    // console.log(this.tabs)
-  },
-  methods: {
-    selectTab (i) {
-      this.selectedIndex = i
-      this.tabs.forEach((tab, index) => {
-        tab.isActive = (index === i)
-      })
+  export default {
+    // props: ['title', 'icon'],
+    data () {
+      return {
+        selectedIndex: 0,
+        tabs: []
+      }
+    },
+    created () {
+      this.tabs = this.$children
+    },
+    mounted () {
+      this.selectTab(0)
+      // console.log('tabs = ' + this.tabs)
+      // console.log(this.tabs)
+    },
+    methods: {
+      selectTab (i) {
+        this.selectedIndex = i
+        this.tabs.forEach((tab, index) => {
+          tab.isActive = (index === i)
+        })
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
+  @import '../node_modules/coriolan-ui/tools/variables';
+  @import '../node_modules/coriolan-ui/mixins/media';
+
   .app-tabs__header {
     list-style: none;
     margin: 0;
     padding: 0;
 
     & > li {
-      // display: inline-block;
       cursor: pointer;
       margin-left: 6px;
       padding: 0 12px;
@@ -78,6 +79,14 @@ export default {
       &.app-tab__selected {
         opacity: 1;
         cursor: default;
+      }
+    }
+
+    & span {
+      display: none;
+
+      @include media(S) {
+        display: block;
       }
     }
   }

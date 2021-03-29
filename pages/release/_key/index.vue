@@ -50,9 +50,8 @@
 
         <div class="page-release__player-tabs">
 
-          <app-tabs>
+          <app-tabs v-if="release.links.soundcloud_demo_id" style="margin-bottom:20px;">
             <app-tab
-              v-if="release.links.soundcloud_demo_id"
               :icon="icons.soundcloud"
               title="SoundCloud<br>(Preview)"
             >
@@ -77,8 +76,10 @@
                 ></iframe>
               </div>
             </app-tab>
-            <app-tab
+          </app-tabs>
 
+          <app-tabs>
+            <app-tab
               :icon="icons.bandcamp"
               title="Bandcamp"
             >

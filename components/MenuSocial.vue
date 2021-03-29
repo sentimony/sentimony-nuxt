@@ -40,6 +40,9 @@
 </script>
 
 <style lang="scss">
+  @import '../node_modules/coriolan-ui/tools/variables';
+  @import '../node_modules/coriolan-ui/mixins/media';
+
   .menu-social {
     margin: 0 auto 2em;
 
@@ -51,6 +54,11 @@
       margin-bottom: 10px;
       display: flex;
       justify-content: center;
+      width: 290px;
+
+      @include media(S) {
+        width: 100%;
+      }
     }
 
     &__link {

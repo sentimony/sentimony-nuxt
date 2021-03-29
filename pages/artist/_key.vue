@@ -15,10 +15,8 @@
             :title="artist.title"
           />
 
-          <p v-if="artist.style" class="small-info">
-            Style:
-            <span class="page-artist__style">{{ artist.style }}</span>
-          </p>
+          <p v-if="artist.category == 'musician' && artist.style" class="small-info">Style: <span class="page-artist__style">{{ artist.style }}</span></p>
+          <p v-if="artist.category == 'designer'" class="small-info">Visual Artist & Designer</p>
           <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
           <p v-if="artist.name" class="small-info">Name: {{ artist.name }}</p>
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
@@ -110,6 +108,22 @@
 
     <div class="content">
       <div class="content__wrapper">
+
+        <div v-if="artist.category == 'designer'">
+          <p>Gallery:</p>
+          <div class="d-flex flex-wrap" style="margin:0 -3px;">
+            <img v-img:group
+              v-for="(i, index) in releasesSortByDate"
+              :key="index"
+              v-if="i.visible && i.artists.includes(artist.slug) && i.cover"
+              :src="'https://content.sentimony.com/assets/img/releases/large/' + i.slug + '.jpg'"
+              :srcset="'https://content.sentimony.com/assets/img//releases/medium/' + i.slug +'.jpg 1x, https://content.sentimony.com/assets/img//releases/medium-retina/' + i.slug +'.jpg 2x'"
+              :alt="i.title"
+              style="width:25%;height:auto;padding:3px;box-sizing:border-box;"
+            />
+          </div>
+          <hr>
+        </div>
 
         <p>Releases:</p>
         <p
@@ -364,31 +378,6 @@
         transform: scale(.7);
         transform-origin: top left;
       }
-    }
-  }
-
-  .facebook-widget {
-    border: none;
-    overflow: hidden;
-    margin: 0 auto;
-    height: 214px;
-
-    &--size-sm {
-      // display: block;
-      width: 287px;
-
-      // @include media(M) {
-      //   display: none;
-      // }
-    }
-
-    &--size-md {
-      // display: none;
-      width: 500px;
-
-      // @include media(M) {
-      //   display: block;
-      // }
     }
   }
 </style>
