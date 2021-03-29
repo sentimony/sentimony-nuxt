@@ -42,3 +42,29 @@
   // &.tracks-25 { height: 855px; }
   // &.tracks-27 { height: 855px; }
 }
+
+.facebook-widget {
+  border: none;
+  overflow: hidden;
+  margin: 0 auto;
+
+  &--size-sm {
+    // display: block;
+    height: 98px;
+    width: 287px;
+
+    // @include media(M) {
+    //   display: none;
+    // }
+  }
+
+  &--size-md {
+    // display: none;
+    width: 500px;
+    height: 130px;
+
+    // @include media(M) {
+    //   display: block;
+    // }
+  }
+}

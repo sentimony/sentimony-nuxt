@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <h1>Artists</h1>
-    <h2>Musicians & Producer</h2>
+    <h2>Producers & Musicians</h2>
 
     <div class="list">
       <div class="item"
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <h2>Designers & Visual Artist</h2>
+    <h2>Visual Artists & Designers</h2>
 
     <div class="list">
       <div class="item"
