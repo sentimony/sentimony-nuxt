@@ -27,7 +27,7 @@
           <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
           <app-btn v-if="artist.instagram" :url="artist.instagram" :route="false" :title="titles.instagram" :icon="icons.instagram"/>
           <app-btn v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
-          <app-btn v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/>
+          <!-- <app-btn v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/> -->
 
         </div>
 
@@ -156,7 +156,7 @@
         <hr>
 
         <p v-if="artist.discogs">Links:</p>
-        <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p>
+        <!-- <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p> -->
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
         <hr v-if="artist.discogs">
 
