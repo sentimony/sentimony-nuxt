@@ -51,7 +51,7 @@
 
     &__list {
       padding-top: 1.2em;
-      margin-bottom: 10px;
+      margin: 0 auto 10px;
       display: flex;
       justify-content: center;
       width: 290px;
