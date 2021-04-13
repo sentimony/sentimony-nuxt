@@ -145,13 +145,13 @@
         />
 
         <!-- TODO: Delete this div, when info migrate to information -->
-        <div v-if="release.info">
+        <!-- <div v-if="release.info">
           <p
             v-for="(i, index) in release.info"
             :key="index"
             v-html="i.p"
           />
-        </div>
+        </div> -->
 
         <div v-if="release.tracklist">
           <hr>
