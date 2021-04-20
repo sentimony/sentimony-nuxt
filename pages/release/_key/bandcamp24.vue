@@ -3,7 +3,7 @@
     <ddos-guard
       :release="release"
       :title="title"
-      :link="release.links.itunes"
+      :link="release.links.bandcamp24_url"
     />
   </section>
 </template>
@@ -17,7 +17,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'iTunes'
+        title: 'Bandcamp (24bit)'
       }
     },
     async asyncData({ route }) {

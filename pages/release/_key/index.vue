@@ -21,7 +21,7 @@
           <div class="page-release__info">
             <div class="page-release__small-info">
               <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-              <span v-if="release.coming_soon"> | Coming at 2019</span>
+              <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
               <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
             </div>
             <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
@@ -33,10 +33,10 @@
             <div v-else class="page-release__small-info">Get it soon:</div>
             <div>
 
-              <!-- bandcamp btn -->
-              <router-link v-if="release.links.bandcamp_url"
+              <!-- bandcamp 24bit btn -->
+              <router-link v-if="release.links.bandcamp24_url"
                 class="page-release__bandcamp-btn"
-                :to="'bandcamp'"
+                :to="'bandcamp24'"
                 v-ripple
                 target="_blank" rel="noopener"
               >
@@ -44,7 +44,7 @@
                   src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
                   alt="Bandcamp Icon"
                 >
-                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+                <span class="page-release__bandcamp-btn-text">Bandcamp 24bit</span>
               </router-link>
 
               <span v-else
@@ -55,9 +55,35 @@
                   src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
                   alt="Bandcamp Icon"
                 >
-                <span class="page-release__bandcamp-btn-text">Bandcamp</span>
+                <span class="page-release__bandcamp-btn-text">Bandcamp 24bit</span>
               </span>
-              <!-- bandcamp btn -->
+              <!-- bandcamp 24bit btn -->
+
+              <!-- bandcamp 16bit btn -->
+              <router-link v-if="release.links.bandcamp_url"
+                class="page-release__bandcamp-btn"
+                :to="'bandcamp'"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__bandcamp-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
+                  alt="Bandcamp Icon"
+                >
+                <span class="page-release__bandcamp-btn-text">Bandcamp 16bit</span>
+              </router-link>
+
+              <span v-else
+                class="page-release__bandcamp-btn is-disabled"
+              >
+                <img
+                  class="page-release__bandcamp-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/bandcamp.svg?01"
+                  alt="Bandcamp Icon"
+                >
+                <span class="page-release__bandcamp-btn-text">Bandcamp 16bit</span>
+              </span>
+              <!-- bandcamp 16bit btn -->
 
               <!-- itunes btn -->
               <router-link v-if="release.links.itunes"
@@ -165,7 +191,7 @@
               <!-- spotify btn -->
 
               <!-- junodownload btn -->
-              <router-link v-if="release.links.junodownload"
+              <!-- <router-link v-if="release.links.junodownload"
                 class="page-release__junodownload-btn"
                 :to="'junodownload'"
                 v-ripple
@@ -184,12 +210,63 @@
                 <img
                   class="page-release__junodownload-btn-img"
                   src="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
-                  alt="Beatport Icon"
+                  alt="JunoDownload Icon"
                 >
                 <span class="page-release__junodownload-btn-text">JunoDownload</span>
-              </span>
-              <!-- spotify btn -->
+              </span> -->
+              <!-- junodownload btn -->
 
+              <!-- youtubemusic btn -->
+              <router-link v-if="release.links.youtube_music"
+                class="page-release__youtubemusic-btn"
+                :to="'youtubemusic'"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__youtubemusic-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01"
+                  alt="YouTube Music Icon"
+                >
+                <span class="page-release__youtubemusic-btn-text">YouTube Music</span>
+              </router-link>
+
+              <span v-else
+                class="page-release__youtubemusic-btn is-disabled"
+              >
+                <img
+                  class="page-release__youtubemusic-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/youtube-music.svg?01"
+                  alt="YouTube Music Icon"
+                >
+                <span class="page-release__youtubemusic-btn-text">YouTube Music</span>
+              </span>
+              <!-- youtubemusic btn -->
+
+              <!-- deezer btn -->
+              <router-link v-if="release.links.deezer"
+                class="page-release__deezer-btn"
+                :to="'deezer'"
+                v-ripple
+                target="_blank" rel="noopener"
+              >
+                <img class="page-release__deezer-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01"
+                  alt="Deezer Icon"
+                >
+                <span class="page-release__deezer-btn-text">Deezer</span>
+              </router-link>
+
+              <span v-else
+                class="page-release__deezer-btn is-disabled"
+              >
+                <img
+                  class="page-release__deezer-btn-img"
+                  src="https://content.sentimony.com/assets/img/svg-icons/deezer.svg?01"
+                  alt="Deezer Icon"
+                >
+                <span class="page-release__deezer-btn-text">Deezer</span>
+              </span>
+              <!-- deezer btn -->
             </div>
 
           </div>
@@ -200,11 +277,6 @@
 
             <v-tab title="Bandcamp" icon="page__tab__icon--bandcamp">
               <div class="page-release__bandcamp-player">
-                <div v-if="release.coming_soon" class="page-release__bandcamp-player-coming">
-                  Music<br>
-                  is<br>
-                  coming
-                </div>
                 <iframe
                   v-if="release.links.bandcamp_id"
                   :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
@@ -212,6 +284,11 @@
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
                 ></iframe>
+                <div v-if="!release.links.bandcamp_id" class="page-release__bandcamp-player-coming">
+                  Music<br>
+                  is<br>
+                  coming
+                </div>
               </div>
             </v-tab>
 
@@ -263,10 +340,13 @@
           <hr>
           <p>Tracklist:</p>
           <p v-for="i in release.tracklist.tracks">
-            <span v-if="i.number">{{ i.number }}. </span>
+            <span v-if="i.number">{{ i.number }} </span>
             <span v-if="i.artist">{{ i.artist }}</span>
             <span v-if="i.title"> - {{ i.title }}</span>
             <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
+            <span v-if="i.note"> {{ i.note }}</span>
+            <br v-if="i.credits">
+            <span v-if="i.credits" class="sen-fs11 sen-ml18 sen-db">{{ i.credits }}</span>
           </p>
           <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
         </div>
@@ -281,20 +361,17 @@
           <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
           <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
           <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
+          <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
         </div>
 
-        <div v-if="release.links.spotify">
+        <div v-if="release.links.junodownload || release.links.beatspace || release.links.psyshop || release.links.ektoplazm || release.links.discogs">
           <hr>
           <p>Links:</p>
         </div>
 
-        <!-- <p v-if="release.links.junodownload">
-          <a :href="release.links.junodownload" target="_blank" rel="noopener">Juno Download</a>
-        </p> -->
-
-        <!-- <p v-if="release.links.spotify">
-          <a :href="release.links.spotify" target="_blank" rel="noopener">Spotify</a>
-        </p> -->
+        <p v-if="release.links.junodownload">
+          <a :href="release.links.junodownload" target="_blank" rel="noopener">JunoDownload</a>
+        </p>
 
         <p v-if="release.links.beatspace">
           <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
@@ -363,7 +440,7 @@
       return {
         title: this.release.title,
         meta: [
-          { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
+          { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
           { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + this.release.cat_no + '/' + this.release.slug + '.jpg' }
         ]
       }
@@ -495,13 +572,14 @@
       line-height: 1.2;
       margin: 0 0 .1em;
       color: #fff;
-      text-transform: capitalize;
 
       @include media(M) {
         font-size: 2em;
       }
     }
 
+    &__deezer-btn,
+    &__youtubemusic-btn,
     &__junodownload-btn,
     &__beatport-btn,
     &__bandcamp-btn,
