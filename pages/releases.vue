@@ -11,15 +11,16 @@
                 :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-else class="item__soon">Artwork<br>in progress</div>
+              <div v-else class="item__soon">
+                Artwork<br>
+                in<br>
+                progress
+              </div>
             </div>
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
           </div>
-          <div class="item__title">
-            {{ i.title }}
-            <!-- <span v-if="i.format == 'EP'">{{ i.format }}</span> -->
-          </div>
+          <div class="item__title">{{ i.title }}</div>
         </router-link>
       </div>
     </div>
@@ -49,7 +50,7 @@
       title: 'Releases',
       meta: [
         { name: 'description', content: 'Releases of Sentimony Records' },
-        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg' }
       ]
     }
   }

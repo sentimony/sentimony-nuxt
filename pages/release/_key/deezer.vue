@@ -3,7 +3,7 @@
     <ddos-guard
       :release="release"
       :title="title"
-      :link="release.links.itunes"
+      :link="release.links.deezer"
     />
   </section>
 </template>
@@ -17,7 +17,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'iTunes'
+        title: 'Deezer'
       }
     },
     async asyncData({ route }) {
