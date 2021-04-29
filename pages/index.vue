@@ -8,34 +8,83 @@
       </div>
     </div>
 
-    <SwiperReleaseList/>
+    <SwiperTop
+      title="Releases"
+      :list="releasesSortedByDate"
+      category="releases"
+      item="release"
+    />
 
     <div class="about">
       <div class="about__wrapper">
-        <p><img class="about__logo" src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg" alt="Sentimony Records Logo SVG"></p>
-        <p>Sentimony Records is an independent record label started in Kyiv, Ukraine during the autumn 2006 by Ihor Orlovskyi also known as <router-link to="/artist/irukanji/">Irukanji</router-link>. At spring 2019 label was relocated into Riga, Latvia.</p>
+        <!-- <p>
+          <img
+            class="about__logo"
+            :src="logoOldUrl"
+            :alt="logoOldAlt"
+          />
+        </p> -->
+        <p>
+          <img
+            class="about__logo"
+            :src="logoNewUrl"
+            :alt="logoNewAlt"
+          />
+        </p>
+        <p>Sentimony Records is an independent record label started in Kyiv, Ukraine during the autumn 2006 by Ihor Orlovskyi also known as <router-link to="/artist/irukanji/">Irukanji</router-link>. At spring 2019 label was relocated to Riga, Latvia. But in summer 2020 moved back to Kyiv, Ukraine.</p>
         <p>{{ aboutDescription }}</p>
       </div>
     </div>
-    <SwiperArtistList/>
+
+    <SwiperTop
+      title="Artists"
+      :list="artistsSortedByCategoryId"
+      category="artists"
+      item="artist"
+    />
 
   </div>
 </template>
 
 <script>
-  import SwiperReleaseList from '~/components/SwiperReleaseList.vue'
-  import SwiperArtistList from '~/components/SwiperArtistList.vue'
+  import axios from 'axios'
+  import sortBy from 'lodash/sortBy'
+
+  import SwiperTop from '~/components/SwiperTop.vue'
 
   export default {
     components: {
-      SwiperReleaseList,
-      SwiperArtistList
+      SwiperTop
     },
     data: () => ({
+      logoOldUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg',
+      logoOldAlt: 'Sentimony Records Logo SVG',
+      logoNewUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg',
+      logoNewAlt: 'Sentimony Records Logo v3.3 SVG',
       siteTitle: 'Sentimony Records',
       siteDescription: 'Psychedelic Music Label',
-      aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes."
+      aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes.",
+      releases: [],
+      artists: [],
     }),
+    mounted () {
+      axios.get('https://sentimony-db.firebaseio.com/releases.json')
+        .then(response => { this.releases = response.data })
+        .catch(error => { console.log(error) })
+
+      axios.get('https://sentimony-db.firebaseio.com/artists.json')
+        .then(response => { this.artists = response.data })
+        .catch(error => { console.log(error) })
+
+    },
+    computed: {
+      releasesSortedByDate () {
+        return sortBy(this.releases, 'date').reverse()
+      },
+      artistsSortedByCategoryId () {
+        return sortBy(this.artists, 'category_id')
+      },
+    },
     head: {
       title: 'Home',
       meta: [
@@ -143,16 +192,16 @@
     position: relative;
 
     &__logo {
-      display: block;
+      display: inline-block;
       width: 60px;
       height: auto;
-      margin: 0 auto;
+      margin: 0 10px;
     }
 
     &__wrapper {
       max-width: 460px;
       margin: 0 auto;
-      padding: 5em 10px;
+      padding: 3em 10px;
       box-sizing: border-box;
 
       p {

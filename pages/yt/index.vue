@@ -1,14 +1,14 @@
 <template>
   <div class="youtube-page">
     <h1>YouTube Page</h1>
-    <div class="youtube-page__frame-holder">
+    <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
         v-if="youtubeFrames.allTracks"
         :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + youtubeFrames.allTracks"
         title="YouTube playlist frame'"
       />
-    </div>
+    </div> -->
     <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
@@ -19,16 +19,25 @@
     </div> -->
     <table>
       <tr>
-        <th>UPC</th>
+        <!-- <th>UPC</th> -->
         <th>Date</th>
-        <th>Cat.No</th>
+        <!-- <th>Cat.No</th> -->
         <th>Title</th>
+        <!-- <th>YouTube Full Release</th> -->
+        <th>UPC</th>
+        <th>JunoDownload</th>
       </tr>
-      <tr v-for="i in sortByDate">
-        <td>{{ i.upc }}</td>
+      <tr
+        v-for="(i, index) in sortByDate"
+        :key="index"
+      >
+        <!-- <td>{{ i.upc }}</td> -->
         <td>{{ i.date | formatDate }}</td>
-        <td style="text-transform:uppercase;">{{ i.cat_no }}:</td>
+        <!-- <td style="text-transform:uppercase;">{{ i.cat_no }}:</td> -->
         <td><router-link v-ripple :to="'/yt/' + i.slug + '/'">{{ i.title }}</router-link></td>
+        <!-- <td>{{ i.links.youtube }}</td> -->
+        <td>{{ i.upc }}</td>
+        <td><a v-if="i.links.junodownload" :href="i.links.junodownload" target="_blank">link >>></a></td>
       </tr>
     </table>
   </div>
@@ -51,14 +60,16 @@
     },
     computed: {
       sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
+        return sortBy(this.releases, 'date')
+        // return sortBy(this.releases, 'date').reverse()
       }
     },
     filters: {
       formatDate: function (date) {
         var moment = require('moment');
         if (date) {
-          return moment(String(date)).format('YYYY-MM-DD');
+          return moment(String(date)).format('YYYY');
+          // return moment(String(date)).format('YYYY-MM-DD');
         }
       }
     },
@@ -78,7 +89,7 @@
 
   .youtube-page {
     padding: 2em 0;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     font-size: 14px;
     line-height: 1.4;
@@ -102,6 +113,10 @@
       height: 143%;
       transform: scale(.7);
       transform-origin: top left;
+    }
+
+    table {
+      width: 100%;
     }
   }
 </style>

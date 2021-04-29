@@ -10,114 +10,61 @@
 }
 
 .page-release__bandcamp-player-iframe {
-  // transition: height .2s ease;
-
-  &.tracks-4 {
-    height: (274px + 25px);
-
-    @include media(S) {
-      height: 274px;
-    }
-  }
-
-  &.tracks-5 {
-    height: (307px + 25px);
-
-    @include media(S) {
-      height: 307px;
-    }
-  }
-
-  &.tracks-7 {
-    height: (373px + 25px);
-
-    @include media(S) {
-      height: 373px;
-    }
-  }
-
-  &.tracks-8 {
-    height: (406px + 25px);
-
-    @include media(S) {
-      height: 406px;
-    }
-  }
-
-  &.tracks-9 {
-    height: (439px + 25px);
-
-    @include media(S) {
-      height: 439px;
-    }
-  }
-
-  &.tracks-10 {
-    height: (472px + 25px);
-
-    @include media(S) {
-      height: 472px;
-    }
-  }
-
-  &.tracks-11 {
-    height: (505px + 25px);
-
-    @include media(S) {
-      height: 505px;
-    }
-  }
-
-  &.tracks-12 {
-    height: (538px + 25px);
-
-    @include media(S) {
-      height: 538px;
-    }
-  }
-
-  &.tracks-25 {
-    height: (967px + 25px);
-
-    @include media(S) {
-      height: 967px;
-    }
-  }
+  height: 276px;
+  &.tracks-2 { height: 209px; }
+  &.tracks-3 { height: 242px; }
+  &.tracks-4 { height: 276px; }
+  &.tracks-5 { height: 309px; }
+  &.tracks-7 { height: 376px; }
+  &.tracks-8 { height: 409px; }
+  &.tracks-9 { height: 442px; }
+  &.tracks-10 { height: 476px; }
+  &.tracks-11 { height: 509px; }
+  &.tracks-12 { height: 542px; }
+  &.tracks-22 { height: 876px; }
+  &.tracks-25 { height: 976px; }
+  &.tracks-27 { height: 1042px; }
 }
 
-.page-release__spotify-player-iframe {
-  // transition: height .2s ease;
+.page-release__soundcloud-player-iframe {
+  height: 400px;
+  &.tracks-2 { height: 320px; }
+  &.tracks-3 { height: 360px; }
+  &.tracks-4 { height: 400px; }
+  &.tracks-5 { height: 430px; }
+  &.tracks-7 { height: 500px; }
+  &.tracks-8 { height: 530px; }
+  &.tracks-9 { height: 560px; }
+  &.tracks-10 { height: 590px; }
+  &.tracks-11 { height: 620px; }
+  &.tracks-12 { height: 650px; }
+  // &.tracks-22 { height: 762px; }
+  // &.tracks-25 { height: 855px; }
+  // &.tracks-27 { height: 855px; }
+}
 
-  &.tracks-4 {
-    height: 280px;
+.facebook-widget {
+  border: none;
+  overflow: hidden;
+  margin: 0 auto;
+
+  &--size-sm {
+    // display: block;
+    height: 98px;
+    width: 287px;
+
+    // @include media(M) {
+    //   display: none;
+    // }
   }
 
-  &.tracks-5 {
-    height: 306px;
-  }
+  &--size-md {
+    // display: none;
+    width: 500px;
+    height: 130px;
 
-  &.tracks-7 {
-    height: 396px;
-  }
-
-  &.tracks-8,
-  &.tracks-9 {
-    height: 486px;
-  }
-
-  &.tracks-10 {
-    height: 531px;
-  }
-
-  &.tracks-11 {
-    height: 576px;
-  }
-
-  &.tracks-12 {
-    height: 621px;
-  }
-
-  &.tracks-25 {
-    height: 855px;
+    // @include media(M) {
+    //   display: block;
+    // }
   }
 }
