@@ -1,14 +1,11 @@
-@import '../../node_modules/coriolan-ui/tools/variables';
-@import '../../node_modules/coriolan-ui/mixins/media';
-
 // custom
-.swiper-artist-list,
-.swiper-release-list {
+.swiper-list {
+  position: relative;
   overflow: hidden;
-  height: 161px;
+  height: 164px;
 
   @include media(M) {
-    height: 286px;
+    height: 296px;
   }
 }
 
@@ -46,6 +43,10 @@
   &.swiper-button-disabled {
     opacity: .2;
     pointer-events: visible;
+  }
+
+  &:after {
+    content: '';
   }
 }
 

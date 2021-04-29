@@ -2,12 +2,19 @@
   <div class="tracks">
     <h1>Tracks</h1>
     <div class="" style="width: 500px; display: inline-block; text-align: left">
-      <div v-for="i in sortByDate" class="" style="margin-bottom: 20px">
+      <div class="" style="margin-bottom: 20px"
+        v-for="(i, index) in sortByDate"
+        :key="index"
+      >
         <div class="" style="margin-bottom: 20px">
           {{ i.title }}
         </div>
-        <div v-for="ii in i.tracklist.tracks" class="">
+        <div  class=""
+          v-for="(ii, index) in i.tracklist.tracks"
+          :key="'b' + index"
+        >
           <div class="">
+            {{ index + 1 }}
             {{ ii.artist }} -
             {{ ii.title }}
           </div>

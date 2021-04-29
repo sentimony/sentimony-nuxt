@@ -5,10 +5,17 @@
     <p v-if="event.location"><!-- Location:  -->{{ event.location }}</p>
     <hr>
     <p>Artists:</p>
-    <p v-for="i in event.lineup">{{ i.musician }}</p>
+    <p
+      v-for="(i, index) in event.lineup"
+      :key="index"
+      v-html="i.musician"
+    />
     <hr>
     <p>Links:</p>
-    <p v-for="i in event.links">
+    <p
+      v-for="(i, index) in event.links"
+      :key="index"
+    >
       <a v-if="i.url" :href="i.url" target="_blank" rel="noopener">{{ i.id }}</a>
     </p>
 

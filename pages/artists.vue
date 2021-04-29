@@ -1,35 +1,80 @@
 <template>
-  <div class="artists">
+  <div class="page">
     <h1>Artists</h1>
+    <h2>Producers & Musicians</h2>
+
     <div class="list">
-      <div v-for="i in sortByCategoryId" v-if="i.category_id" class="item">
+      <div class="item"
+        v-for="(i, index) in sortByCategoryId"
+        :key="index"
+        v-if="i.visible && i.category == 'musician'"
+      >
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.photo" class="item__img"
+              <img v-if="i.photo_xl" class="item__img"
+                :src="i.photo_xl"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <img v-if="!i.photo_xl && i.photo" class="item__img"
                 :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
                 :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <div v-else class="item__soon">
-                Photo<br>
-                coming<br>
-                soon
-              </div>
+              <div v-if="!i.photo_xl && !i.photo"
+                class="item__soon" v-html="texts.comingPhoto"
+              />
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
         </router-link>
       </div>
     </div>
+
+    <h2>Visual Artists & Designers</h2>
+
+    <div class="list">
+      <div class="item"
+        v-for="(i, index) in sortByCategoryId"
+        :key="index"
+        v-if="i.visible && i.category == 'designer'"
+      >
+        <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
+          <div class="item__wrapper">
+            <div class="item__cover">
+              <img v-if="i.photo_xl" class="item__img"
+                :src="i.photo_xl"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <img v-if="!i.photo_xl && i.photo" class="item__img"
+                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
+                :alt="i.title + ' Small Thumbnail'"
+              >
+              <div v-if="!i.photo_xl && !i.photo"
+                class="item__soon" v-html="texts.comingPhoto"
+              />
+            </div>
+          </div>
+          <div class="item__title">{{ i.title }}</div>
+        </router-link>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
   import axios from '~/plugins/axios'
   import sortBy from 'lodash/sortBy'
+  import AppContent from '~/plugins/app-content'
 
   export default {
+    data () {
+      return {
+        texts: AppContent.texts,
+      }
+    },
     async asyncData() {
       const { data } = await axios.get('artists.json')
       return { artists: data }
@@ -50,13 +95,4 @@
 </script>
 
 <style lang="scss">
-@import '../assets/scss/page';
-@import '../assets/scss/item';
-@import '../assets/scss/list';
-
-.artists {
-  @extend .page;
-  max-width: 1278px;
-  margin: 0 auto;
-}
 </style>

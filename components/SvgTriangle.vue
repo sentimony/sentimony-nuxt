@@ -7,9 +7,9 @@
 <style lang="scss">
   .svg-triangle {
     position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    left: -2%;
+    bottom: -1px;
+    width: 102%;
     z-index: 30;
   }
 </style>
