@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <h1>Releases</h1>
+    <app-submenu/>
     <div class="list">
       <div class="item"
         v-for="(i, index) in sortByDate"
@@ -37,8 +38,12 @@
   import axios from '~/plugins/axios'
   import sortBy from 'lodash/sortBy'
   import AppContent from '~/plugins/app-content'
+  import AppSubmenu from '~/components/AppSubmenu.vue'
 
   export default {
+    components: {
+      AppSubmenu,
+    },
     data () {
       return {
         texts: AppContent.texts,
