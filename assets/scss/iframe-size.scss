@@ -10,8 +10,7 @@
 }
 
 .page-release__bandcamp-player-iframe {
-  // transition: height .2s ease;
-
+  height: 276px;
   &.tracks-2 { height: 209px; }
   &.tracks-3 { height: 242px; }
   &.tracks-4 { height: 276px; }
@@ -27,101 +26,45 @@
   &.tracks-27 { height: 1042px; }
 }
 
-// .page-release__spotify-player-iframe {
-//
-//   &.tracks-4 {
-//     height: 204px;
-//   }
-//
-//   &.tracks-5 {
-//     height: 235px;
-//   }
-//
-//   &.tracks-7 {
-//     height: 297px;
-//   }
-//
-//   &.tracks-8 {
-//     height: 328px;
-//   }
-//
-//   &.tracks-9 {
-//     height: 359px;
-//   }
-//
-//   &.tracks-10 {
-//     height: 390px;
-//   }
-//
-//   &.tracks-11 {
-//     height: 421px;
-//   }
-//
-//   &.tracks-12 {
-//     height: 452px;
-//   }
-//
-//   &.tracks-22 {
-//     height: 762px;
-//   }
-//
-//   &.tracks-25 {
-//     height: 855px;
-//   }
-// }
-
 .page-release__soundcloud-player-iframe {
-  // height: 450px;
+  height: 400px;
+  &.tracks-2 { height: 320px; }
+  &.tracks-3 { height: 360px; }
+  &.tracks-4 { height: 400px; }
+  &.tracks-5 { height: 430px; }
+  &.tracks-7 { height: 500px; }
+  &.tracks-8 { height: 530px; }
+  &.tracks-9 { height: 560px; }
+  &.tracks-10 { height: 590px; }
+  &.tracks-11 { height: 620px; }
+  &.tracks-12 { height: 650px; }
+  // &.tracks-22 { height: 762px; }
+  // &.tracks-25 { height: 855px; }
+  // &.tracks-27 { height: 855px; }
+}
 
-  &.tracks-2 {
-    height: 320px;
+.facebook-widget {
+  border: none;
+  overflow: hidden;
+  margin: 0 auto;
+
+  &--size-sm {
+    // display: block;
+    height: 98px;
+    width: 287px;
+
+    // @include media(M) {
+    //   display: none;
+    // }
   }
 
-  &.tracks-3 {
-    height: 360px;
-  }
+  &--size-md {
+    // display: none;
+    width: 500px;
+    height: 130px;
 
-  &.tracks-4 {
-    height: 400px;
-  }
-
-  &.tracks-5 {
-    height: 430px;
-  }
-
-  &.tracks-7 {
-    height: 500px;
-  }
-
-  &.tracks-8 {
-    height: 530px;
-  }
-
-  &.tracks-9 {
-    height: 560px;
-  }
-
-  &.tracks-10 {
-    height: 590px;
-  }
-
-  &.tracks-11 {
-    height: 620px;
-  }
-
-  &.tracks-12 {
-    height: 650px;
-  }
-
-  &.tracks-22 {
-    // height: 762px;
-  }
-
-  &.tracks-25 {
-    // height: 855px;
-  }
-
-  &.tracks-27 {
-    // height: 855px;
+    // @include media(M) {
+    //   display: block;
+    // }
   }
 }

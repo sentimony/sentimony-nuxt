@@ -2,7 +2,7 @@
   <div class="menu-social">
     <div class="menu-social__caption">{{ follow }}</div>
     <div v-if="loading">Loading...</div>
-    <div v-else class="menu-social__list">
+    <div v-else class="menu-social__list flex-wrap">
       <a class="menu-social__link"
         v-for="(i, index) in socialStore"
         :key="index"
@@ -40,6 +40,9 @@
 </script>
 
 <style lang="scss">
+  @import '../node_modules/coriolan-ui/tools/variables';
+  @import '../node_modules/coriolan-ui/mixins/media';
+
   .menu-social {
     margin: 0 auto 2em;
 
@@ -48,9 +51,14 @@
 
     &__list {
       padding-top: 1.2em;
-      margin-bottom: 10px;
+      margin: 0 auto 10px;
       display: flex;
       justify-content: center;
+      width: 290px;
+
+      @include media(S) {
+        width: 100%;
+      }
     }
 
     &__link {
@@ -71,6 +79,9 @@
       transition: opacity .2s ease;
       opacity: 0;
       visibility: hidden;
+      background-color: rgba(#8a0202, 1);
+      padding: 2px 8px;
+      border-radius: 4px;
 
       .menu-social__link:hover & {
         opacity: 1;

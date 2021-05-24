@@ -15,19 +15,20 @@
             :title="artist.title"
           />
 
-          <p v-if="artist.style" class="small-info">
-            Style:
-            <span class="page-artist__style">{{ artist.style }}</span>
-          </p>
+          <p v-if="artist.category == 'musician' && artist.style" class="small-info">Style: <span class="page-artist__style">{{ artist.style }}</span></p>
+          <p v-if="artist.category == 'designer'" class="small-info">Visual Artist & Designer</p>
           <h1 v-if="artist.title" class="page-artist__title">{{ artist.title }}</h1>
           <p v-if="artist.name" class="small-info">Name: {{ artist.name }}</p>
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
 
           <p class="small-info">Artist Links:</p>
-          <app-btn :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
-          <app-btn :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
-          <app-btn :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/>
+          <app-btn v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn v-if="artist.spotify" :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
+          <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
+          <app-btn v-if="artist.instagram" :url="artist.instagram" :route="false" :title="titles.instagram" :icon="icons.instagram"/>
+          <app-btn v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
+          <app-btn v-if="artist.youtube_url" :url="artist.youtube_url" :route="false" :title="titles.youtube" :icon="icons.youtube"/>
+          <!-- <app-btn v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/> -->
 
         </div>
 
@@ -110,6 +111,22 @@
     <div class="content">
       <div class="content__wrapper">
 
+        <div v-if="artist.category == 'designer'">
+          <p>Gallery:</p>
+          <div class="d-flex flex-wrap" style="margin:0 -3px;">
+            <img v-img:group
+              v-for="(i, index) in releasesSortByDate"
+              :key="index"
+              v-if="i.visible && i.artists.includes(artist.slug) && i.cover"
+              :src="'https://content.sentimony.com/assets/img/releases/large/' + i.slug + '.jpg'"
+              :srcset="'https://content.sentimony.com/assets/img//releases/medium/' + i.slug +'.jpg 1x, https://content.sentimony.com/assets/img//releases/medium-retina/' + i.slug +'.jpg 2x'"
+              :alt="i.title"
+              style="width:25%;height:auto;padding:3px;box-sizing:border-box;"
+            />
+          </div>
+          <hr>
+        </div>
+
         <p>Releases:</p>
         <p
           v-for="(i, index) in releasesSortByDate"
@@ -140,7 +157,7 @@
         <hr>
 
         <p v-if="artist.discogs">Links:</p>
-        <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p>
+        <!-- <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p> -->
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
         <hr v-if="artist.discogs">
 
@@ -363,31 +380,6 @@
         transform: scale(.7);
         transform-origin: top left;
       }
-    }
-  }
-
-  .facebook-widget {
-    border: none;
-    overflow: hidden;
-    margin: 0 auto;
-    height: 214px;
-
-    &--size-sm {
-      // display: block;
-      width: 287px;
-
-      // @include media(M) {
-      //   display: none;
-      // }
-    }
-
-    &--size-md {
-      // display: none;
-      width: 500px;
-
-      // @include media(M) {
-      //   display: block;
-      // }
     }
   }
 </style>

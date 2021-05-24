@@ -75,6 +75,37 @@
         <div v-if="playlist.info" v-html="playlist.info"/>
 
         <hr>
+
+        <p>Releases:</p>
+        <p
+          v-for="(i, index) in releasesSortByDate"
+          :key="index"
+          v-if="i.visible && i.at_playlists.includes(playlist.slug)"
+        >
+          <span v-if="i.cover_xl">
+            <img style="width:11px;height:auto;"
+              :src="i.cover_xl"
+              :alt="i.title"
+            >
+            |
+          </span>
+          <span v-if="!i.cover_xl && i.cover">
+            <img style="width:11px;height:auto;"
+              :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
+              :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
+              :alt="i.title"
+            >
+            |
+          </span>
+          {{ i.title }}
+          |
+          {{ i.date | year }}
+          |
+          <router-link v-ripple :to="'../../release/' + i.slug">Reed More</router-link>
+        </p>
+
+        <hr>
+
         <VueDisqus
           shortname="sentimony"
           :identifier="playlist.slug"
@@ -88,6 +119,9 @@
 </template>
 
 <script>
+  import sortBy from 'lodash/sortBy'
+  import moment from 'moment'
+
   import axios from '~/plugins/axios'
   import AppContent from '~/plugins/app-content'
 
@@ -113,19 +147,45 @@
         routes: AppContent.routes,
         titles: AppContent.titles,
         icons: AppContent.icons,
-        playlists: [],
+        // playlists: [],
       }
     },
+    // async asyncData({ route }) {
+    //   const { key } = route.params
+    //   const { data } = await axios.get(`playlists/${key}.json`)
+    //   return { playlist: data }
+    // },
     async asyncData({ route }) {
       const { key } = route.params
-      const { data } = await axios.get(`playlists/${key}.json`)
-      return { playlist: data }
+      const [playlistRes, releasesRes] = await Promise.all([
+        axios.get(`playlists/${key}.json`),
+        axios.get('releases.json')
+      ]);
+      const playlist = playlistRes.data
+      const releases = releasesRes.data
+      return { playlist, releases }
+    },
+    computed: {
+      releasesSortByDate() {
+        // // if (this.releases.playlists) {
+        var releases = sortBy(this.releases, 'date').reverse()
+        return releases
+        // // }
+        // return this.releases.filter((release) => {
+        //   return released.visible
+        // })
+      }
     },
     filters: {
       YouTubeEmbed (youtube) {
         if (youtube) {
           let y = youtube.replace('https://www.youtube.com/playlist?list=', '');
           return 'https://www.youtube.com/embed/videoseries?list=' + y + '&loop=1';
+        }
+      },
+      year: function (date) {
+        if (date) {
+          return moment(String(date)).format('YYYY');
         }
       }
     },
