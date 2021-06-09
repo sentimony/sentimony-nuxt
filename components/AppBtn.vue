@@ -11,7 +11,7 @@
         :src="icon"
         :alt="title + ' Icon'"
       >
-      <span class="app-btn__btn-text">{{ title }}</span>
+      <span class="app-btn__btn-text" v-html="title"></span>
     </router-link>
 
     <span v-if="url == '' && route !== false"
@@ -22,7 +22,7 @@
         :src="icon"
         :alt="title + ' Icon'"
       >
-      <span class="app-btn__btn-text">{{ title }}</span>
+      <span class="app-btn__btn-text" v-html="title"></span>
     </span>
 
     <a v-if="url !== '' && route == false"
@@ -34,7 +34,7 @@
         :src="icon"
         :alt="title + ' Icon'"
       >
-      <span class="app-btn__btn-text">{{ title }}</span>
+      <span class="app-btn__btn-text" v-html="title"></span>
     </a>
 
     <span v-if="url == '' && route == false"
@@ -45,7 +45,7 @@
         :src="icon"
         :alt="title + ' Icon'"
       >
-      <span class="app-btn__btn-text">{{ title }}</span>
+      <span class="app-btn__btn-text" v-html="title"></span>
     </span>
 
   </span>
