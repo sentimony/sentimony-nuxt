@@ -156,6 +156,7 @@
           |
           <router-link v-ripple :to="'../../release/' + i.slug">Reed More</router-link>
         </p>
+        <!-- <p v-else>Coming soon</p> -->
         <hr>
 
         <p v-if="artist.discogs">Links:</p>
