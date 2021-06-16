@@ -15,6 +15,7 @@ export default {
     discogs: 'https://content.sentimony.com/assets/img/svg-icons/discogs.svg?01',
     facebook: 'https://content.sentimony.com/assets/img/svg-icons/facebook.svg?01',
     instagram: 'https://content.sentimony.com/assets/img/svg-icons/instagram.svg?01',
+    mixcloud: 'https://content.sentimony.com/assets/img/svg-icons/mixcloud.svg?01',
   },
   routes: {
     bandcamp_24: 'bandcamp24',
@@ -36,6 +37,7 @@ export default {
     discogs: 'discogs',
     facebook: 'facebook',
     // instagram: 'instagram',
+    // mixcloud: 'mixcloud',
   },
   titles: {
     bandcamp: 'Bandcamp',
@@ -57,7 +59,10 @@ export default {
     soundcloud: 'SoundCloud',
     discogs: 'Discogs',
     facebook: 'Facebook',
+    facebook_artist: 'Fb | Artist',
+    facebook_personal: 'Fb | Person',
     instagram: 'Instagram',
+    mixcloud: 'Mixcloud',
   },
   texts: {
     comingPhoto: 'Photo<br>coming<br>soon',

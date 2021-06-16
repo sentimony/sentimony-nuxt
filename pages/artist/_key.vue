@@ -24,7 +24,9 @@
           <p class="small-info">Artist Links:</p>
           <app-btn v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
           <app-btn v-if="artist.spotify" :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
+          <app-btn v-if="artist.mixcloud" :url="artist.mixcloud" :route="false" :title="titles.mixcloud" :icon="icons.mixcloud"/>
+          <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook_artist" :icon="icons.facebook"/>
+          <app-btn v-if="artist.facebook_personal" :url="artist.facebook_personal" :route="false" :title="titles.facebook_personal" :icon="icons.facebook"/>
           <app-btn v-if="artist.instagram" :url="artist.instagram" :route="false" :title="titles.instagram" :icon="icons.instagram"/>
           <app-btn v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
           <app-btn v-if="artist.youtube_url" :url="artist.youtube_url" :route="false" :title="titles.youtube" :icon="icons.youtube"/>
@@ -154,6 +156,7 @@
           |
           <router-link v-ripple :to="'../../release/' + i.slug">Reed More</router-link>
         </p>
+        <!-- <p v-else>Coming soon</p> -->
         <hr>
 
         <p v-if="artist.discogs">Links:</p>
