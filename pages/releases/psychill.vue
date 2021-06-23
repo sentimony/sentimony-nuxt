@@ -1,7 +1,10 @@
 <template>
   <div class="page">
+
     <h1>Psychill</h1>
+
     <app-submenu/>
+
     <div class="list">
       <div class="item"
         v-for="(i, index) in sortByDate"
@@ -31,6 +34,7 @@
         </router-link>
       </div>
     </div>
+    
   </div>
 </template>
 
