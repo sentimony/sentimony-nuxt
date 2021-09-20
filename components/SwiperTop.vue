@@ -18,12 +18,12 @@
                 :srcset="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/small-retina/' + i.slug + '.jpg 2x'"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <img v-if="i.cover_xl" class="item__img swiper-lazy"
-                :src="i.cover_xl"
+              <img v-if="i.cover_th" class="item__img swiper-lazy"
+                :src="i.cover_th"
                 :alt="i.title"
               >
-              <img v-if="i.photo_xl" class="item__img swiper-lazy"
-                :src="i.photo_xl"
+              <img v-if="i.photo_th" class="item__img swiper-lazy"
+                :src="i.photo_th"
                 :alt="i.title"
               >
               <div v-if="!i.cover && !i.cover_xl && !i.photo_xl && !i.photo"

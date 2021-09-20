@@ -1,10 +1,16 @@
 <template>
   <div class="app-cover">
 
+    <img v-if="cover_th"
+      class="app-cover__bg"
+      :src="cover_th"
+      :alt="title"
+    >
+
     <img v-img v-if="cover_xl"
       class="app-cover__img"
       :src="cover_xl"
-      :alt="title"
+      :alt="title + ' Thumbnail'"
     >
 
     <img v-if="!cover_xl && cover"
@@ -33,7 +39,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
-    props: ['cover_xl', 'cover', 'category', 'slug', 'title'],
+    props: ['cover_th', 'cover_xl', 'cover', 'category', 'slug', 'title'],
     data () {
       return {
         texts: AppContent.texts,
