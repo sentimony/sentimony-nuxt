@@ -8,6 +8,7 @@
         <div class="page-release__media">
 
           <app-cover
+            :cover_th="release.cover_th"
             :cover_xl="release.cover_xl"
             :cover="release.cover"
             :category="'releases'"
@@ -165,6 +166,7 @@
             <span v-if="i.title"> - {{ i.title }}</span>
             <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
             <span v-if="i.note"> {{ i.note }}</span>
+
             <br v-if="i.credits">
             <span v-if="i.credits" class="sen-fs11 sen-ml18 sen-db">{{ i.credits }}</span>
           </p>
