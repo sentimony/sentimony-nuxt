@@ -8,7 +8,8 @@
         <!-- <nuxt-link to="/news/" class="header-main__main-menu-link" active-class="is-selected">News</nuxt-link> -->
         <nuxt-link v-ripple to="/releases/" class="header-main__main-menu-link" active-class="is-selected">Releases</nuxt-link>
         <nuxt-link v-ripple to="/artists/" class="header-main__main-menu-link" active-class="is-selected">Artists</nuxt-link>
-        <nuxt-link v-ripple to="/playlists/" class="header-main__main-menu-link" active-class="is-selected">Playlists</nuxt-link>
+        <nuxt-link v-ripple to="/musicvideos/" class="header-main__main-menu-link" active-class="is-selected">Music Videos</nuxt-link>
+        <!-- <nuxt-link v-ripple to="/playlists/" class="header-main__main-menu-link" active-class="is-selected">Playlists</nuxt-link> -->
         <!-- <nuxt-link to="/events/" class="header-main__main-menu-link" active-class="is-selected">Events</nuxt-link> -->
         <!-- <nuxt-link to="/friends/" class="header-main__main-menu-link" active-class="is-selected">Friends</nuxt-link> -->
         <!-- <nuxt-link to="/contacts/" class="header-main__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
