@@ -116,15 +116,27 @@
         <div v-if="artist.category == 'designer'">
           <p>Gallery:</p>
           <div class="d-flex flex-wrap" style="margin:0 -3px;">
-            <img v-img:group
-              v-for="(i, index) in releasesSortByDate"
-              :key="index"
-              v-if="i.visible && i.artists.includes(artist.slug) && i.cover"
-              :src="'https://content.sentimony.com/assets/img/releases/large/' + i.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img//releases/medium/' + i.slug +'.jpg 1x, https://content.sentimony.com/assets/img//releases/medium-retina/' + i.slug +'.jpg 2x'"
-              :alt="i.title"
-              style="width:25%;height:auto;padding:3px;box-sizing:border-box;"
-            />
+            <div v-for="(i, index) in releasesSortByDate"
+                :key="index"
+                style="width:25%;height:auto;padding:3px;box-sizing:border-box;"
+                v-if="i.visible && i.artists.includes(artist.slug)"
+            >
+              <img v-img:group
+                v-if="i.visible && i.artists.includes(artist.slug) && i.cover_xl"
+                style="width:100%;height:auto;"
+                :src="i.cover_xl"
+              >
+              <img v-img:group
+                v-if="i.visible && i.artists.includes(artist.slug) && i.cover"
+                :src="'https://content.sentimony.com/assets/img/releases/large/' + i.slug + '.jpg'"
+                :srcset="'https://content.sentimony.com/assets/img//releases/medium/' + i.slug +'.jpg 1x, https://content.sentimony.com/assets/img//releases/medium-retina/' + i.slug +'.jpg 2x'"
+                :alt="i.title"
+                style="width:100%;height:auto;"
+              />
+              <!-- <div v-if="i.visible && i.artists.includes(artist.slug) && i.title">
+                {{ i.title }}
+              </div> -->
+            </div>
           </div>
           <hr>
         </div>
