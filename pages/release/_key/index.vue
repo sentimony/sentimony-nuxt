@@ -51,21 +51,11 @@
 
         <div class="page-release__player-tabs">
 
-          <app-tabs v-if="release.links.soundcloud_demo_id" style="margin-bottom:20px;">
+          <!-- <app-tabs v-if="release.links.soundcloud_demo_id" style="margin-bottom:20px;">
             <app-tab
               :icon="icons.soundcloud"
               title="SoundCloud<br>(Preview)"
             >
-              <!-- <div class="page-release__soundcloud-player">
-                <iframe
-                  width="100%"
-                  height="300"
-                  scrolling="no"
-                  frameborder="no"
-                  allow="autoplay"
-                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '%3Fsecret_token%3Ds-mgcxjQeuzcd&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=true&show_teaser=true&visual=true'"
-                ></iframe>
-              </div> -->
               <div class="page-release__soundcloud-player">
                 <iframe
                   width="100%"
@@ -77,7 +67,7 @@
                 ></iframe>
               </div>
             </app-tab>
-          </app-tabs>
+          </app-tabs> -->
 
           <app-tabs>
             <app-tab
