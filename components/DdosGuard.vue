@@ -1,6 +1,16 @@
 <template>
   <section class="Ddosguard">
     <div class="DdosguardTitle">DDoS Guard</div>
+
+    <div v-if="item.cover_th" class="DdosguardAnimation">
+      <div class="DdosguardCoverholder">
+        <img
+          :src="item.cover_th"
+          :alt="item.title"
+        />
+      </div>
+    </div>
+
     <div v-if="item.cover" class="DdosguardAnimation">
       <div class="DdosguardCoverholder">
         <img
@@ -10,6 +20,7 @@
         />
       </div>
     </div>
+
     <h1>{{ item.title }} on {{ title }}</h1>
     <p class="DdosguardText">
       Redirecting
