@@ -6,9 +6,8 @@
         <router-link v-ripple v-if="i.slug" :to="'/playlist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.cover" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.cat_no + '/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.cat_no + '/' + i.slug + '.jpg 2x'"
+              <img v-if="i.cover_th" class="item__img"
+                :src="i.cover_th"
                 :alt="i.title + ' Small Thumbnail'"
               >
               <div v-else class="item__soon" v-html="texts.comingArtwork"/>
