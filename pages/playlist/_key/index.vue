@@ -81,7 +81,7 @@
         <p
           v-for="(i, index) in releasesSortByDate"
           :key="index"
-          v-if="i.visible && i.at_playlists.includes(playlist.slug)"
+          v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
         >
           <span v-if="i.cover_xl">
             <img style="width:11px;height:auto;"
