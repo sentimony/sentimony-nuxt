@@ -7,7 +7,8 @@
 
         <div class="page-playlist__media">
           <app-cover
-            :cover="playlist.cover"
+            :cover_th="playlist.cover_th"
+            :cover_xl="playlist.cover_xl"
             :category="'playlists'"
             :slug="playlist.slug"
             :title="playlist.title"
@@ -80,7 +81,7 @@
         <p
           v-for="(i, index) in releasesSortByDate"
           :key="index"
-          v-if="i.visible && i.at_playlists.includes(playlist.slug)"
+          v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
         >
           <span v-if="i.cover_xl">
             <img style="width:11px;height:auto;"
