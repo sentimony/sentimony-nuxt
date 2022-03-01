@@ -1,7 +1,7 @@
 <template>
   <div class="page">
 
-    <h1>Music Videos</h1>
+    <h1>Videos</h1>
 
     <div class="list">
       <div class="item"
@@ -9,7 +9,7 @@
         :key="index"
         v-if="i.visible"
       >
-        <router-link v-ripple v-if="i.slug" :to="'/musicvideo/' + i.slug + '/'" class="item__link">
+        <router-link v-ripple v-if="i.slug" :to="'/video/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
               <img v-if="i.cover_th" class="item__img"
@@ -48,7 +48,7 @@
       }
     },
     async asyncData() {
-      const { data } = await axios.get('musicvideos.json')
+      const { data } = await axios.get('videos.json')
       return { releases: data }
     },
     computed: {
