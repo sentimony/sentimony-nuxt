@@ -60,7 +60,7 @@
               <div class="page-release__youtube-player">
                 <iframe
                   class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
+                  :src="release.links.youtube | YouTubeVideoID"
                   :title="release.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
@@ -113,7 +113,7 @@
   import AppTab from '~/components/AppTab.vue'
 
   export default {
-    layout: 'musicvideo',
+    layout: 'video',
     components: {
       SvgTriangle,
       AppCover,
@@ -136,8 +136,8 @@
     async asyncData({ route }) {
       const { key } = route.params
       const [releaseRes, releasesRes] = await Promise.all([
-        axios.get(`musicvideos/${key}.json`),
-        axios.get('musicvideos.json')
+        axios.get(`videos/${key}.json`),
+        axios.get('videos.json')
       ]);
       const release = releaseRes.data
       const releases = releasesRes.data
@@ -167,10 +167,16 @@
       //     return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
       //   }
       // },
-      YouTubeFullReleases (youtube) {
+      // YouTubeFullReleases (youtube) {
+      //   if (youtube) {
+      //     let y = youtube.replace('https://youtu.be/', '');
+      //     return 'https://www.youtube.com/watch?v=' + y + '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU';
+      //   }
+      // },
+      YouTubeVideoID (youtube) {
         if (youtube) {
           let y = youtube.replace('https://youtu.be/', '');
-          return 'https://www.youtube.com/watch?v=' + y + '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU';
+          return 'https://www.youtube.com/embed/' + y;
         }
       }
     },
