@@ -1,67 +1,66 @@
 <template>
-  <div class="release-page">
+  <div class="video-page">
 
-    <div class="page-release">
+    <div class="page-video">
       <SvgTriangle/>
-      <div class="page-release__wrapper">
+      <div class="page-video__wrapper">
 
-        <div class="page-release__media">
+        <div class="page-video__media">
 
           <app-cover
-            :cover_th="release.cover_th"
-            :cover_xl="release.cover_xl"
-            :cover="release.cover"
-            :category="'releases'"
-            :slug="release.slug"
-            :title="release.title"
+            :cover_th="video.cover_th"
+            :cover_xl="video.cover_xl"
+            :category="'videos'"
+            :slug="video.slug"
+            :title="video.title"
           />
 
           <p class="small-info">
-            <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
-            <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
-            <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
+            <span v-if="video.cat_no" class="page-video__catalog-number">{{ video.cat_no }}</span>
+            <span v-if="video.coming_soon"> | Coming at {{ video.date | formatDate }}</span>
+            <span v-else-if="video.date"> | {{ video.date | formatDate }}</span>
           </p>
-          <h1 v-if="release.title" class="page-release__title">{{ release.title }}</h1>
-          <p v-if="release.style" class="small-info">
-            <span v-if="release.style">{{ release.style }}</span>
-            <span v-if="release.total_time"> | {{ release.total_time }}</span>
+          <h1 v-if="video.title" class="page-video__title">{{ video.title }}</h1>
+          <p v-if="video.style" class="small-info">
+            <span v-if="video.style">{{ video.style }}</span>
+            <span v-if="video.total_time"> | {{ video.total_time }}</span>
           </p>
 
-          <p v-if="release.coming_soon !== true" class="small-info">Stream it:</p>
+          <p v-if="video.coming_soon !== true" class="small-info">Stream it:</p>
           <p v-else class="small-info">Stream it soon:</p>
-          <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
-          <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-          <!-- <app-btn :url="release.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
-          <app-btn :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
-          <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
-          <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
-          <!-- <app-btn :url="release.links.youtube" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/> -->
+          <app-btn :url="video.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+          <app-btn :url="video.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
+          <app-btn :url="video.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+          <!-- <app-btn :url="video.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
+          <app-btn :url="video.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn :url="video.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+          <app-btn :url="video.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
+          <app-btn :url="video.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
+          <!-- <app-btn :url="video.links.youtube" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/> -->
 
-          <p v-if="release.coming_soon !== true" class="small-info">Downloat it:</p>
+          <p v-if="video.coming_soon !== true" class="small-info">Downloat it:</p>
           <p v-else class="small-info">Downloat it soon:</p>
-          <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-          <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-          <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-          <!-- <app-btn :url="release.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/> -->
-          <!-- <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
-          <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
+          <app-btn :url="video.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+          <app-btn :url="video.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+          <app-btn :url="video.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
+          <!-- <app-btn :url="video.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/> -->
+          <!-- <app-btn :url="video.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
+          <app-btn :url="video.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
         </div>
 
-        <div class="page-release__player-tabs">
+        <div class="page-video__player-tabs">
 
           <app-tabs>
             <app-tab
-              v-if="release.links.youtube_playlist_id"
+              v-if="video.links.youtube_playlist_id"
               :icon="icons.youtube"
               title="YouTube"
             >
-              <div class="page-release__youtube-player">
+              <div class="page-video__youtube-player">
                 <iframe
-                  class="page-release__youtube-player-iframe"
-                  :src="release.links.youtube | YouTubeVideoID"
-                  :title="release.title + ' YouTube Iframe'"
+                  class="page-video__youtube-player-iframe"
+                  :src="video.links.youtube | YouTubeVideoID"
+                  :title="video.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
             </app-tab>
@@ -76,21 +75,21 @@
       <div class="content__wrapper">
 
         <div
-          v-if="release.information"
-          v-html="release.information"
+          v-if="video.information"
+          v-html="video.information"
         />
 
-        <div v-if="release.credits">
+        <div v-if="video.credits">
           <hr>
           <p>Credits:</p>
-          <div v-html="release.credits"/>
+          <div v-html="video.credits"/>
         </div>
 
         <hr>
         <VueDisqus
           shortname="sentimony"
-          :identifier="release.slug"
-          :url="'https://sentimony.com/release/' + release.slug"
+          :identifier="video.slug"
+          :url="'https://sentimony.com/video/' + video.slug"
         />
 
       </div>
@@ -130,23 +129,23 @@
     },
     // async asyncData({ route }) {
     //   const { key } = route.params
-    //   const { data } = await axios.get(`releases/${key}.json`)
-    //   return { release: data }
+    //   const { data } = await axios.get(`videos/${key}.json`)
+    //   return { video: data }
     // },
     async asyncData({ route }) {
       const { key } = route.params
-      const [releaseRes, releasesRes] = await Promise.all([
+      const [videoRes, videosRes] = await Promise.all([
         axios.get(`videos/${key}.json`),
         axios.get('videos.json')
       ]);
-      const release = releaseRes.data
-      const releases = releasesRes.data
-      return { release, releases }
+      const video = videoRes.data
+      const videos = videosRes.data
+      return { video, videos }
     },
     computed: {
-      releasesSortByDate() {
-        var releases = sortBy(this.releases, 'date').reverse()
-        return releases
+      videosSortByDate() {
+        var videos = sortBy(this.videos, 'date').reverse()
+        return videos
       }
     },
     filters: {
@@ -188,10 +187,10 @@
     },
     head () {
       return {
-        title: this.release.title,
+        title: this.video.title,
         meta: [
-          { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: this.release.cover_og ? this.release.cover_og : 'https://content.sentimony.com/assets/img/releases/og-images/' +  this.release.slug + '.jpg' }
+          { name: 'description', content: this.video.format + ' with ' + this.video.tracks_number + ' tracks of ' + this.video.style + ' | ' + this.video.date.split('-')[0] },
+          { property: 'og:image', content: this.video.cover_og ? this.video.cover_og : 'https://content.sentimony.com/assets/img/videos/og-images/' +  this.video.slug + '.jpg' }
         ]
       }
     }
@@ -208,7 +207,7 @@
   @import '../../assets/scss/iframe-size';
   @import '../../assets/scss/v-img-restyle';
 
-  .page-release {
+  .page-video {
     @extend .page;
     position: relative;
 
