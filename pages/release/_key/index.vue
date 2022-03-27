@@ -130,11 +130,6 @@
     <div class="content">
       <div class="content__wrapper">
 
-        <div
-          v-if="release.information"
-          v-html="release.information"
-        />
-
         <!-- TODO: Delete this div, when info migrate to information -->
         <!-- <div v-if="release.info">
           <p
@@ -144,50 +139,81 @@
           />
         </div> -->
 
-        <div v-if="release.tracklist">
-          <hr>
-          <p>Tracklist:</p>
-          <p
-            v-for="(i, index) in release.tracklist.tracks"
-            :key="index"
-          >
-            <span v-if="i.number">{{ i.number }} </span>
-            <span v-if="i.artist">{{ i.artist }}</span>
-            <span v-if="i.title"> - {{ i.title }}</span>
-            <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
-            <span v-if="i.note"> {{ i.note }}</span>
+        <div
+          v-if="release.information"
+          v-html="release.information"
+        />
 
-            <br v-if="i.credits">
-            <span v-if="i.credits" class="sen-fs11 sen-ml18 sen-db">{{ i.credits }}</span>
-          </p>
-          <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
+        <!-- TODO: Delete this div, when tracklist migrate to tracklistCompact -->
+        <div v-if="!release.tracklistCompact">
+          <div v-if="release.tracklist">
+            <hr>
+            <p>Tracklist:</p>
+            <p
+              v-for="(i, index) in release.tracklist.tracks"
+              :key="index"
+            >
+              <span v-if="i.number">{{ i.number }} </span>
+              <span v-if="i.artist">{{ i.artist }}</span>
+              <span v-if="i.title"> - {{ i.title }}</span>
+              <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
+              <span v-if="i.note"> {{ i.note }}</span>
+
+              <br v-if="i.credits">
+              <span v-if="i.credits" class="sen-fs11 sen-ml18 sen-db">{{ i.credits }}</span>
+            </p>
+            <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
+          </div>
         </div>
 
-        <div v-if="release.credits.artwork_by || release.credits.written_and_produced_by || release.credits.mastered_by || release.credits.compiled_by">
+        <div v-if="release.tracklistCompact">
           <hr>
-          <p>Credits:</p>
-          <p v-if="release.credits.written_and_produced_by" v-html="'Written & Produced By ' + release.credits.written_and_produced_by"></p>
-          <p v-if="release.credits.tracks_by" v-html="release.credits.tracks_by"></p>
-          <!-- <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p> -->
-          <p v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></p>
-          <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
-          <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
-          <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
-          <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
+          <p><small><b>Tracklist:</b></small></p>
+          <p
+            v-for="(i, index) in release.tracklistCompact"
+            :key="index"
+            v-html="i.p"
+          ></p>
+        </div>
+
+        <!-- TODO: Delete this div, when tracklist migrate to creditsCompact -->
+        <div v-if="!release.creditsCompact">
+          <div v-if="release.credits.artwork_by || release.credits.written_and_produced_by || release.credits.mastered_by || release.credits.compiled_by">
+            <hr>
+            <p>Credits:</p>
+            <p v-if="release.credits.written_and_produced_by" v-html="'Written & Produced By ' + release.credits.written_and_produced_by"></p>
+            <p v-if="release.credits.tracks_by" v-html="release.credits.tracks_by"></p>
+            <!-- <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p> -->
+            <p v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></p>
+            <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
+            <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
+            <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
+            <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
+          </div>
+        </div>
+
+        <div v-if="release.creditsCompact">
+          <hr>
+          <p><small><b>Credits:</b></small></p>
+          <p
+            v-for="(i, index) in release.creditsCompact"
+            :key="index"
+            v-html="i.p"
+          ></p>
         </div>
 
         <div v-if="release.links.youtube || release.links.discogs || release.links.soundcloud_demo_url">
           <hr>
-          <p>Links:</p>
+          <p><small><b>Links:</b></small></p>
         </div>
 
         <!-- <p v-if="release.links.junodownload">
           <a :href="release.links.junodownload" target="_blank" rel="noopener">JunoDownload</a>
         </p> -->
 
-        <p v-if="release.links.soundcloud_demo_url">
+        <!-- <p v-if="release.links.soundcloud_demo_url">
           <a :href="release.links.soundcloud_demo_url" target="_blank" rel="noopener">SoundCloud (Preview)</a>
-        </p>
+        </p> -->
 
         <p v-if="release.links.beatspace">
           <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
@@ -211,7 +237,7 @@
 
         <div v-if="release.relative_releases">
           <hr>
-          <p>Relative Releases:</p>
+          <p><small><b>Relative Releases:</b></small></p>
 
           <!-- <p>{{ release.relative_releases }}</p> -->
 
