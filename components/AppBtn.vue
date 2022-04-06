@@ -7,7 +7,8 @@
       v-ripple
       target="_blank" rel="noopener"
     >
-      <img class="app-btn__btn-img"
+      <img
+        class="app-btn__btn-img"
         :src="icon"
         :alt="title + ' Icon'"
       >
