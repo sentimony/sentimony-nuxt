@@ -351,9 +351,11 @@
       //   }
       // },
       YouTubeFullReleases (youtube) {
+        let y = youtube.replace('https://youtu.be/', '');
         if (youtube) {
-          let y = youtube.replace('https://youtu.be/', '');
           return 'https://www.youtube.com/watch?v=' + y + '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU';
+        } else {
+          return y
         }
       }
     },
