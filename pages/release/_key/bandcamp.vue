@@ -17,7 +17,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'Bandcamp (16bit)'
+        title: 'Bandcamp [16bit]'
       }
     },
     async asyncData({ route }) {
