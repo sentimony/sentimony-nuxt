@@ -27,26 +27,26 @@
             <span v-if="release.total_time"> | {{ release.total_time }}</span>
           </p>
 
+          <p v-if="release.coming_soon !== true" class="small-info">Downloat it:</p>
+          <p v-else class="small-info">Downloat it soon:</p>
+          <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+          <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+          <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
+          <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
+          <!-- <app-btn :url="release.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/> -->
+          <!-- <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
+
           <p v-if="release.coming_soon !== true" class="small-info">Stream it:</p>
           <p v-else class="small-info">Stream it soon:</p>
           <app-btn :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
           <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
           <app-btn :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
           <!-- <app-btn :url="release.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
-          <app-btn :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
           <app-btn :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
           <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
           <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
-          <!-- <app-btn :url="release.links.youtube" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/> -->
-
-          <p v-if="release.coming_soon !== true" class="small-info">Downloat it:</p>
-          <p v-else class="small-info">Downloat it soon:</p>
-          <app-btn :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-          <app-btn :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-          <app-btn :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-          <!-- <app-btn :url="release.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/> -->
-          <!-- <app-btn :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
-          <app-btn :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
+          <app-btn :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn :url="release.links.youtube | YouTubeFullReleases" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/>
         </div>
 
         <div class="page-release__player-tabs">
@@ -202,7 +202,7 @@
           ></p>
         </div>
 
-        <div v-if="release.links.youtube || release.links.discogs || release.links.soundcloud_demo_url">
+        <div v-if="release.links.discogs || release.links.soundcloud_demo_url">
           <hr>
           <p><small><b>Links:</b></small></p>
         </div>
@@ -227,9 +227,9 @@
           <a :href="release.links.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
         </p>
 
-        <p v-if="release.links.youtube">
+        <!-- <p v-if="release.links.youtube">
           <a :href="release.links.youtube | YouTubeFullReleases" target="_blank" rel="noopener">YouTube [Full Release]</a>
-        </p>
+        </p> -->
 
         <p v-if="release.links.discogs">
           <a :href="release.links.discogs" target="_blank" rel="noopener">Discogs</a>
@@ -351,9 +351,11 @@
       //   }
       // },
       YouTubeFullReleases (youtube) {
+        let y = youtube.replace('https://youtu.be/', '');
         if (youtube) {
-          let y = youtube.replace('https://youtu.be/', '');
           return 'https://www.youtube.com/watch?v=' + y + '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU';
+        } else {
+          return y
         }
       }
     },

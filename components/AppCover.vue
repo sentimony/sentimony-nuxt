@@ -10,7 +10,7 @@
     <img v-img v-if="cover_xl"
       class="app-cover__img"
       :src="cover_xl"
-      :alt="title + ' Thumbnail'"
+      :alt="title"
     >
 
     <img v-if="!cover_xl && cover"

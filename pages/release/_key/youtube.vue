@@ -3,7 +3,7 @@
     <ddos-guard
       :item="release"
       :title="title"
-      :link="release.links.youtube"
+      :link="release.links.youtube | YouTubeFullReleases"
     />
   </section>
 </template>
@@ -24,6 +24,16 @@
       const { key } = route.params
       const { data } = await axios.get(`releases/${key}.json`)
       return { release: data }
+    },
+    filters: {
+      YouTubeFullReleases (youtube) {
+        let y = youtube.replace('https://youtu.be/', '');
+        if (youtube) {
+          return 'https://www.youtube.com/watch?v=' + y + '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU';
+        } else {
+          return y
+        }
+      }
     },
     head () {
       return {
