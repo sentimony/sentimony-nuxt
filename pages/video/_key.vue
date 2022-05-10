@@ -16,43 +16,18 @@
           />
 
           <p class="small-info">
-            <span v-if="video.cat_no" class="page-video__catalog-number">{{ video.cat_no }}</span>
-            <span v-if="video.coming_soon"> | Coming at {{ video.date | formatDate }}</span>
-            <span v-else-if="video.date"> | {{ video.date | formatDate }}</span>
+            <span v-if="video.coming_soon">Coming at {{ video.date | formatDate }}</span>
+            <span v-else-if="video.date">{{ video.date | formatDate }}</span>
           </p>
           <h1 v-if="video.title" class="page-video__title">{{ video.title }}</h1>
-          <p v-if="video.style" class="small-info">
-            <span v-if="video.style">{{ video.style }}</span>
-            <span v-if="video.total_time"> | {{ video.total_time }}</span>
-          </p>
 
-          <p v-if="video.coming_soon !== true" class="small-info">Stream it:</p>
-          <p v-else class="small-info">Stream it soon:</p>
-          <app-btn :url="video.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn :url="video.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
-          <app-btn :url="video.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-          <!-- <app-btn :url="video.links.googleplay_music" :route="routes.googleplay_music" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
-          <app-btn :url="video.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn :url="video.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
-          <app-btn :url="video.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
-          <app-btn :url="video.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
-          <!-- <app-btn :url="video.links.youtube" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/> -->
-
-          <p v-if="video.coming_soon !== true" class="small-info">Downloat it:</p>
-          <p v-else class="small-info">Downloat it soon:</p>
-          <app-btn :url="video.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-          <app-btn :url="video.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-          <app-btn :url="video.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-          <!-- <app-btn :url="video.links.googleplay_market" :route="routes.googleplay_market" :title="titles.googleplay_market" :icon="icons.googleplay"/> -->
-          <!-- <app-btn :url="video.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
-          <app-btn :url="video.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
         </div>
 
         <div class="page-video__player-tabs">
 
           <app-tabs>
             <app-tab
-              v-if="video.links.youtube_playlist_id"
+              v-if="video.links.youtube"
               :icon="icons.youtube"
               title="YouTube"
             >
@@ -189,8 +164,8 @@
       return {
         title: this.video.title,
         meta: [
-          { name: 'description', content: this.video.format + ' with ' + this.video.tracks_number + ' tracks of ' + this.video.style + ' | ' + this.video.date.split('-')[0] },
-          { property: 'og:image', content: this.video.cover_og ? this.video.cover_og : 'https://content.sentimony.com/assets/img/videos/og-images/' +  this.video.slug + '.jpg' }
+          { name: 'description', content: '' },
+          { property: 'og:image', content: '' }
         ]
       }
     }
