@@ -1,4 +1,8 @@
 {
+  "name": "sentimony-nuxt",
+  "description": "Web development of Sentimony Records site",
+  "version": "1.0.0",
+  "author": "Ihor Orlovskyi",
   "dependencies": {
     "axios": "^0.21.2",
     "core-js": "^2.6.9",
