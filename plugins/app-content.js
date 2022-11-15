@@ -63,6 +63,8 @@ export default {
     facebook_artist: 'Fb | Artist',
     facebook_personal: 'Fb | Person',
     instagram: 'Instagram',
+    instagram_artist: 'Insta | Artist',
+    instagram_personal: 'Insta | Person',
     mixcloud: 'Mixcloud',
   },
   texts: {
