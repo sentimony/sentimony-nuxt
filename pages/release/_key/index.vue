@@ -17,7 +17,7 @@
           />
 
           <p class="small-info">
-            <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
+            <span v-if="release.cat_no">{{ release.cat_no }}</span>
             <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
             <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
           </p>
@@ -426,9 +426,6 @@
       }
     }
 
-    &__catalog-number {
-      text-transform: uppercase;
-    }
 
     &__title {
       font-size: 18px;
