@@ -10,7 +10,7 @@
     "firebase": "^7.18.0",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.14.3",
+    "nuxt": "^3.0.0",
     "nuxt-facebook-pixel-module": "^1.3.0",
     "swiper": "^5.4.5",
     "v-img": "^0.2.0",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.14.1",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^13.2.0"
   },
   "scripts": {
     "dev": "nuxt",
