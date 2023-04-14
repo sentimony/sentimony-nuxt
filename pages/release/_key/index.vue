@@ -17,7 +17,7 @@
           />
 
           <p class="small-info">
-            <span v-if="release.cat_no" class="page-release__catalog-number">{{ release.cat_no }}</span>
+            <span v-if="release.cat_no">{{ release.cat_no }}</span>
             <span v-if="release.coming_soon"> | Coming at {{ release.date | formatDate }}</span>
             <span v-else-if="release.date"> | {{ release.date | formatDate }}</span>
           </p>
@@ -46,7 +46,7 @@
           <app-btn :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
           <app-btn :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
           <app-btn :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn :url="release.links.youtube | YouTubeFullReleases" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/>
+          <app-btn :url="release.links.youtube | YouTubeFullReleases" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/>
         </div>
 
         <div class="page-release__player-tabs">
@@ -72,7 +72,7 @@
           <app-tabs>
             <app-tab
               :icon="icons.bandcamp"
-              title="Bandcamp"
+              :title="titles.bandcamp"
             >
               <div class="page-release__bandcamp-player">
                 <iframe
@@ -93,7 +93,7 @@
             <app-tab
               v-if="release.links.soundcloud_playlist_id"
               :icon="icons.soundcloud"
-              title="SoundCloud<br>(Full Tracks)"
+              :title="titles.soundcloud"
             >
               <div class="page-release__soundcloud-player">
                 <iframe
@@ -110,7 +110,7 @@
             <app-tab
               v-if="release.links.youtube_playlist_id"
               :icon="icons.youtube"
-              title="YouTube"
+              :title="titles.youtube_track"
             >
               <div class="page-release__youtube-player">
                 <iframe
@@ -426,9 +426,6 @@
       }
     }
 
-    &__catalog-number {
-      text-transform: uppercase;
-    }
 
     &__title {
       font-size: 18px;

@@ -51,7 +51,8 @@ export default {
     spotify: 'Spotify',
     junodownload: 'JunoDownload',
     youtube: 'YouTube',
-    youtube_full: 'YouTube (Full Release)',
+    youtube_full: 'YouTube <small>Full Release</small>',
+    youtube_track: 'YouTube <small>Per Track</small>',
     youtube_music: 'YouTube Music',
     deezer: 'Deezer',
     tidal: 'Tidal',
@@ -62,6 +63,8 @@ export default {
     facebook_artist: 'Fb | Artist',
     facebook_personal: 'Fb | Person',
     instagram: 'Instagram',
+    instagram_artist: 'Insta | Artist',
+    instagram_personal: 'Insta | Person',
     mixcloud: 'Mixcloud',
   },
   texts: {

@@ -37,7 +37,7 @@
         <td><router-link v-ripple :to="'/yt/' + i.slug + '/'">{{ i.title }}</router-link></td>
         <!-- <td>{{ i.links.youtube }}</td> -->
         <td>{{ i.upc }}</td>
-        <td><a v-if="i.links.junodownload" :href="i.links.junodownload" target="_blank">link >>></a></td>
+        <td><router-link :to="'/release/' + i.slug + '/'">official link >>></router-link></td>
       </tr>
     </table>
   </div>

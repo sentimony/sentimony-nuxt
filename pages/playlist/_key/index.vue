@@ -83,14 +83,14 @@
           :key="index"
           v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
         >
-          <span v-if="i.cover_xl">
+          <span v-if="i.cover_th">
             <img style="width:11px;height:auto;"
-              :src="i.cover_xl"
+              :src="i.cover_th"
               :alt="i.title"
             >
             |
           </span>
-          <span v-if="!i.cover_xl && i.cover">
+          <span v-if="!i.cover_th && i.cover">
             <img style="width:11px;height:auto;"
               :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
               :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"

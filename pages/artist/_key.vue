@@ -22,14 +22,15 @@
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
 
           <p class="small-info">Artist Links:</p>
-          <app-btn v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
           <app-btn v-if="artist.spotify" :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn v-if="artist.mixcloud" :url="artist.mixcloud" :route="false" :title="titles.mixcloud" :icon="icons.mixcloud"/>
-          <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook_artist" :icon="icons.facebook"/>
-          <app-btn v-if="artist.facebook_personal" :url="artist.facebook_personal" :route="false" :title="titles.facebook_personal" :icon="icons.facebook"/>
+          <app-btn v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
+          <!-- <app-btn v-if="artist.facebook_personal" :url="artist.facebook_personal" :route="false" :title="titles.facebook_personal" :icon="icons.facebook"/> -->
           <app-btn v-if="artist.instagram" :url="artist.instagram" :route="false" :title="titles.instagram" :icon="icons.instagram"/>
-          <app-btn v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
           <app-btn v-if="artist.youtube_url" :url="artist.youtube_url" :route="false" :title="titles.youtube" :icon="icons.youtube"/>
+          <app-btn v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
+          <!-- <app-btn v-if="artist.instagram_personal" :url="artist.instagram_personal" :route="false" :title="titles.instagram_personal" :icon="icons.instagram"/> -->
+          <!-- <app-btn v-if="artist.mixcloud" :url="artist.mixcloud" :route="false" :title="titles.mixcloud" :icon="icons.mixcloud"/> -->
           <!-- <app-btn v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/> -->
 
         </div>
@@ -52,7 +53,7 @@
                 </div>
               </div>
             </app-tab>
-            <app-tab
+            <!-- <app-tab
               v-if="artist.soundcloud_label_playlist_id"
               :icon="icons.soundcloud"
               title="SoundCloud<br>(Label)"
@@ -67,8 +68,8 @@
                   :title="artist.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
-            </app-tab>
-            <app-tab
+            </app-tab> -->
+            <!-- <app-tab
               v-if="artist.soundcloud_artist_playlist_id"
               :icon="icons.youtube"
               title="SoundCloud<br>(Artist)"
@@ -78,7 +79,7 @@
                 :title="artist.title + ' SoundCloud Iframe'"
                 style="width:100%;height:500px;border:none;display:block"
               ></iframe>
-            </app-tab>
+            </app-tab> -->
             <app-tab
               v-if="artist.facebook"
               :icon="icons.facebook"
@@ -147,14 +148,14 @@
           :key="index"
           v-if="i.visible && i.artists.includes(artist.slug)"
         >
-          <span v-if="i.cover_xl">
+          <span v-if="i.cover_th">
             <img style="width:11px;height:auto;"
-              :src="i.cover_xl"
+              :src="i.cover_th"
               :alt="i.title"
             >
             |
           </span>
-          <span v-if="!i.cover_xl && i.cover">
+          <span v-if="!i.cover_th && i.cover">
             <img style="width:11px;height:auto;"
               :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
               :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
@@ -249,7 +250,7 @@
       return {
         title: this.artist.title,
         meta: [
-          { name: 'description', content: this.artist.title + ' description' },
+          { name: 'description', content: this.artist.style + ' ' + this.artist.category + ' from ' + this.artist.location },
           { property: 'og:image', content: this.artist.photo_og ? this.artist.photo_og : 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg' }
         ]
       }
