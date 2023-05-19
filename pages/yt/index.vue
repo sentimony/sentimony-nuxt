@@ -17,13 +17,21 @@
         title="YouTube playlist frame'"
       />
     </div> -->
-    <table>
+
+    <div v-for="(i, index) in sortByDate"
+        :key="index"
+        v-if="i.visible"
+    >
+      {{ i.title }} ({{ i.date | formatDate }})
+    </div>
+
+    <!-- <table>
       <tr>
-        <!-- <th>UPC</th> -->
-        <th>Date</th>
-        <!-- <th>Cat.No</th> -->
+        <th>UPC</th>
+        <th>Cat.No</th>
         <th>Title</th>
-        <!-- <th>YouTube Full Release</th> -->
+        <th>Date</th>
+        <th>YouTube Full Release</th>
         <th>UPC</th>
         <th>JunoDownload</th>
       </tr>
@@ -31,15 +39,15 @@
         v-for="(i, index) in sortByDate"
         :key="index"
       >
-        <!-- <td>{{ i.upc }}</td> -->
-        <td>{{ i.date | formatDate }}</td>
-        <!-- <td style="text-transform:uppercase;">{{ i.cat_no }}:</td> -->
+        <td>{{ i.upc }}</td>
+        <td style="text-transform:uppercase;">{{ i.cat_no }}:</td>
         <td><router-link v-ripple :to="'/yt/' + i.slug + '/'">{{ i.title }}</router-link></td>
-        <!-- <td>{{ i.links.youtube }}</td> -->
+        <td>{{ i.date | formatDate }}</td>
+        <td>{{ i.links.youtube }}</td>
         <td>{{ i.upc }}</td>
         <td><router-link :to="'/release/' + i.slug + '/'">official link >>></router-link></td>
       </tr>
-    </table>
+    </table> -->
   </div>
 </template>
 

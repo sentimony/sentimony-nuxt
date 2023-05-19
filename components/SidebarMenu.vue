@@ -8,7 +8,7 @@
       <nuxt-link v-ripple to="/releases/" class="mobmenu__link">Releases</nuxt-link>
       <nuxt-link v-ripple to="/artists/" class="mobmenu__link">Artists</nuxt-link>
       <nuxt-link v-ripple to="/videos/" class="mobmenu__link">Videos</nuxt-link>
-    <nuxt-link v-ripple to="/playlists/" class="mobmenu__link">Playlists</nuxt-link>
+      <nuxt-link v-ripple to="/playlists/" class="mobmenu__link">Playlists</nuxt-link>
       <nuxt-link v-ripple to="/events/" class="mobmenu__link">Events</nuxt-link>
       <nuxt-link v-ripple to="/friends/" class="mobmenu__link">Friends</nuxt-link>
       <nuxt-link v-ripple to="/contacts/" class="mobmenu__link">Contacts</nuxt-link>

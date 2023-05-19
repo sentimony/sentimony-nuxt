@@ -60,7 +60,7 @@
       "slug": "mindex",
       "visible": true,
       "category": "musician",
-      "category_id": "104",
+      "category_id": "103",
       "name": "Slava",
       "location": "Russia -> USA",
       "style": "Neuro Hop, Psybass, Psystep, Psychill",
@@ -143,7 +143,7 @@
       "slug": "psydewise",
       "visible": true,
       "category": "musician",
-      "category_id": "103",
+      "category_id": "104",
       "name": "Sam Gamgee",
       "location": "Garden Route, South Africa",
       "style": "Psytrance, Zenonesque, Dark Progressive",
@@ -171,7 +171,7 @@
       "slug": "vorg",
       "visible": true,
       "category": "musician",
-      "category_id": "103",
+      "category_id": "104",
       "name": "Robson Morche",
       "location": "Brazil",
       "style": "Psytrance, Dark Progressive, Zenonesque",
@@ -226,7 +226,7 @@
       "slug": "exolt",
       "visible": true,
       "category": "musician",
-      "category_id": "104",
+      "category_id": "105",
       "name": "Maxim Kurushyn",
       "location": "Kyiv, Ukraine",
       "style": "Psytrance, Dark Progressive, Zenonesque",
@@ -2198,6 +2198,14 @@
       "title": "Patreon",
       "url": "https://www.patreon.com/sentimony"
     },
+    "TikTok": {
+      "icon": "tiktok",
+      "isVisibleHeadr": false,
+      "isVisibleContacts": true,
+      "isVisibleFootr": true,
+      "title": "TikTok",
+      "url": "https://www.tiktok.com/@sentimony"
+    },
     "Beatport": {
       "icon": "beatport",
       "isVisibleHeadr": false,
@@ -2228,7 +2236,7 @@
       "isVisibleContacts": true,
       "isVisibleFootr": true,
       "title": "YouTube",
-      "url": "https://www.youtube.com/c/SentimonyRecordsOfficial"
+      "url": "https://www.youtube.com/@SentimonyRecords"
     },
     "SoundCloud": {
       "icon": "soundcloud",
@@ -2303,7 +2311,7 @@
       "url": "https://www.discogs.com/label/82598-Sentimony-Records?sort=year&sort_order=desc&layout=big&&limit=100"
     },
     "AppleMusic": {
-      "icon": "apple-music",
+      "icon": "apple-music-2",
       "isVisibleHeadr": false,
       "isVisibleContacts": true,
       "isVisibleFootr": true,
@@ -8174,7 +8182,7 @@
         { "p": "2 VORG - The Maze | 137bpm" },
         { "p": "3 VORG - The Conflict | 135bpm" },
         { "p": "4 VORG - The Internal Flight | 137bpm" },
-        { "p": "5 VORG - SILENCE | 151bpm" }
+        { "p": "5 VORG - SILENCE | 149bpm" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
@@ -8219,7 +8227,7 @@
       "format": "EP",
       "upc": "",
       "artists": "tystix fivetimesno",
-      "relative_releases": "",
+      "relative_releases": "tystix-refraction",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records proud to present new dark progressive release titled «Etherial Lense» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
@@ -8697,8 +8705,8 @@
       "cat_no": "SENCD070",
       "visible": true,
       "date": "2023-04-21T12:00:00.000Z",
-      "coming_soon": true,
-      "new": false,
+      "coming_soon": false,
+      "new": true,
       "cover_og": "https://content.sentimony.com/assets/img/releases/psydewise-gain-of-funktion_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/releases/psydewise-gain-of-funktion_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/releases/psydewise-gain-of-funktion_xl.jpg",
@@ -8728,8 +8736,60 @@
         "bandcamp_url": "https://sentimony.bandcamp.com/album/psydewise-gain-of-funktion-ep-16bit",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-gain-of-funktion-ep-24bit",
         "bandcamp_id": "1189083657",
-        "soundcloud_url": "https://soundcloud.com/sentimony/sets/psydewise-gain-of-funktion/s-8YZEA9zKY8P",
+        "soundcloud_url": "https://soundcloud.com/sentimony/sets/psydewise-gain-of-funktion",
         "soundcloud_playlist_id": "1598493481",
+        "itunes": "https://music.apple.com/us/album/gain-of-funktion/1682948893",
+        "beatport": "https://www.beatport.com/release/gain-of-funktion/4099720",
+        "spotify": "https://open.spotify.com/album/2IAO0mYf6vkZ34Fl4yE6K6",
+        "junodownload": "https://www.junodownload.com/products/psydewise-gain-of-funktion/6086759-02",
+        "discogs": "",
+        "deezer": "https://www.deezer.com/us/album/431236727",
+        "tidal": "https://listen.tidal.com/album/289899219",
+        "napster": "https://app-legacy.napster.com/artist/psydewise/album/gain-of-funktion",
+        "qobuz": "https://play.qobuz.com/album/qy1ju8eb038wa",
+        "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kaHy_hgcPzKXv0R145u1E2g2x_IeK22Sc",
+        "youtube": "https://youtu.be/eHZsAgvdcnA",
+        "youtube_playlist_id": "PLp2GaPnw5O3NJP7SsGqYGeN6ZuVOiokcc"
+      }
+    },
+    "tystix-refraction": {
+      "slug": "tystix-refraction",
+      "title": "TyStix «Refraction» EP",
+      "cat_no": "SENCD071",
+      "visible": true,
+      "date": "2023-05-19T12:00:00.000Z",
+      "coming_soon": true,
+      "new": false,
+      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Ftystix-refraction_og.jpg?alt=media&token=fb453d2a-8d43-4856-b558-4ff70696ac75",
+      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Ftystix-refraction_th.jpg?alt=media&token=0f8a596f-f7b9-4554-a452-170df5603c72",
+      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Ftystix-refraction_xl.jpg?alt=media&token=447df95e-e31b-47fc-894e-9df6de229d42",
+      "style": "Psytrance, Dark Progressive, Zenonesque",
+      "tracks_number": "4",
+      "total_time": "39:24",
+      "format": "EP",
+      "upc": "",
+      "artists": "tystix matik",
+      "relative_releases": "tystix-etherial-lense",
+      "at_playlists": "sentimony-official dark-prog-zenonesque",
+      "information": "<p>Sentimony Records proud to present new dark progressive and zenonesque release titled «Refraction» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "1 Tystix - Just A Name | 134bpm" },
+        { "p": "2 TyStix - Coastal Erosion | 137bpm" },
+        { "p": "3 TyStix - Romanesca | 141bpm" },
+        { "p": "4 TyStix - Water Strider | 141bpm" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
+        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By <a href='https://www.facebook.com/zymosis.dimitro' target='_blank' rel='noopener'>Dimitro @ Zymosis Studio</a>" }
+      ],
+      "links": {
+        "official": "https://sentimony.com/release/tystix-refraction",
+        "bandcamp_url": "",
+        "bandcamp24_url": "",
+        "bandcamp_id": "",
+        "soundcloud_url": "",
+        "soundcloud_playlist_id": "",
         "itunes": "",
         "beatport": "",
         "spotify": "",
@@ -8740,8 +8800,8 @@
         "napster": "",
         "qobuz": "",
         "youtube_music": "",
-        "youtube": "https://youtu.be/eHZsAgvdcnA",
-        "youtube_playlist_id": "PLp2GaPnw5O3NJP7SsGqYGeN6ZuVOiokcc"
+        "youtube": "",
+        "youtube_playlist_id": ""
       }
     },
     "kauyumari-ep": {
@@ -8749,7 +8809,7 @@
       "title": "Kauyumari «...» EP",
       "cat_no": "SENCD0XX",
       "visible": false,
-      "date": "2021-11-26T12:00:00.000Z",
+      "date": "2022-11-26T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "",
