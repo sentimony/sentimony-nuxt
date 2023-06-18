@@ -8557,7 +8557,7 @@
       "format": "EP",
       "upc": "",
       "artists": "irukanji eleexr",
-      "relative_releases": "irukanji-z-lisu irukanji-rebuild",
+      "relative_releases": "irukanji-z-lisu irukanji-rebuild eleexr-behind-dark-mirrors",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records proud to present new epic dark progressive release titled «I Have Something To Show You» by <a href='/artist/irukanji/'>Irukanji</a> and <a href='/artist/eleexr/'>EleexR</a>, from Ukraine.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
@@ -8752,12 +8752,65 @@
         "youtube_playlist_id": "PLp2GaPnw5O3NJP7SsGqYGeN6ZuVOiokcc"
       }
     },
-    "tystix-refraction": {
-      "slug": "tystix-refraction",
-      "title": "TyStix «Refraction» EP",
+    "eleexr-behind-dark-mirrors": {
+      "slug": "eleexr-behind-dark-mirrors",
+      "title": "EleexR «Behind Dark Mirrors» EP",
       "cat_no": "SENCD071",
       "visible": true,
-      "date": "2023-05-19T12:00:00.000Z",
+      "date": "2023-06-25T12:00:00.000Z",
+      "coming_soon": true,
+      "new": false,
+      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Feleexr-behind-dark-mirrors_og.jpg?alt=media&token=3aecd344-7887-46fe-bdfc-2bcf6eeeb28b",
+      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Feleexr-behind-dark-mirrors_th.jpg?alt=media&token=3d1f9873-9396-41e6-aa51-92c993e43da6",
+      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Feleexr-behind-dark-mirrors_xl.jpg?alt=media&token=9f514682-38df-4b2a-9c97-e88427f35563",
+      "style": "Psytrance, Dark Progressive, Zenonesque",
+      "tracks_number": "4",
+      "total_time": "39:24",
+      "format": "EP",
+      "upc": "",
+      "artists": "eleexr irukanji vorg matik torus-knot-believes-in-humanity",
+      "relative_releases": "irukanji-eleexr-i-have-something-to-show-you",
+      "at_playlists": "sentimony-official dark-prog-zenonesque",
+      "information": "<p>Sentimony Records proud to present new dark progressive and zenonesque release titled «Behind Dark Mirrors» by <a href='/artist/eleexr/'>EleexR</a>, from Ukraine.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "1 EleexR - Everybody Lies | 136bpm" },
+        { "p": "2 EleexR - Behind Dark Mirrors | 136bpm" },
+        { "p": "3 EleexR & Irukanji - Another Mirror | 136bpm" },
+        { "p": "4 EleexR - Thousand Mirrors (VORG Rmx) | 132bpm" },
+        { "p": "5 EleexR - Everybody Lies (Torus Knot Believes In Humanity Rmx) | 136bpm" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/eleexr/'>EleexR</a>" },
+        { "p": "Artwork By <a href='https://www.facebook.com/ekaterina.bochkar' target='_blank' rel='noopener'>KA</a>" },
+        { "p": "Mastered By <a href='https://www.facebook.com/zymosis.dimitro' target='_blank' rel='noopener'>Dimitro @ Zymosis Studio</a>" }
+      ],
+      "links": {
+        "official": "https://sentimony.com/release/tystix-refraction",
+        "bandcamp_url": "",
+        "bandcamp24_url": "",
+        "bandcamp_id": "",
+        "soundcloud_url": "",
+        "soundcloud_playlist_id": "",
+        "itunes": "",
+        "beatport": "",
+        "spotify": "",
+        "junodownload": "",
+        "discogs": "",
+        "deezer": "",
+        "tidal": "",
+        "napster": "",
+        "qobuz": "",
+        "youtube_music": "",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      }
+    },
+    "tystix-romanesca": {
+      "slug": "tystix-romanesca",
+      "title": "TyStix «Romanesca» EP",
+      "cat_no": "SENCD072",
+      "visible": true,
+      "date": "2023-07-07T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Ftystix-refraction_og.jpg?alt=media&token=fb453d2a-8d43-4856-b558-4ff70696ac75",
@@ -8771,7 +8824,7 @@
       "artists": "tystix matik",
       "relative_releases": "tystix-etherial-lense",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records proud to present new dark progressive and zenonesque release titled «Refraction» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a deep trip and enjoy!</p>",
+      "information": "<p>Sentimony Records proud to present new dark progressive and zenonesque release titled «Romanesca» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "1 Tystix - Just A Name | 134bpm" },
         { "p": "2 TyStix - Coastal Erosion | 137bpm" },
