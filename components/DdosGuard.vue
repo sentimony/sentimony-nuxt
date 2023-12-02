@@ -22,11 +22,17 @@
     </div>
 
     <h1>{{ item.title }} on {{ title }}</h1>
-    <p class="DdosguardText">
+
+    <p class="DdosguardText" v-if="redirect">
       Redirecting
-      <span v-if="!redirect"> . . . {{ counter }} sec</span>
-      <span v-if="redirect"> to <a :href="link">{{ link }}</a></span>
+      <!-- <span v-if="!redirect"> . . . {{ counter }} sec</span> -->
+      <span> to <a :href="link">{{ link }}</a></span>
     </p>
+
+    <p class="DdosguardText" v-if="!redirect">
+      Link is coming soon
+    </p>
+
   </section>
 </template>
 
@@ -46,10 +52,19 @@
     },
     methods: {
       timeout() {
-        setTimeout( ()=> {
-           this.redirect = true
-           window.location.href = this.link
-        }, 0)
+        let result
+        if (this.link != '') {
+          result = '✅ there is a link'
+          setTimeout( ()=> {
+            this.redirect = true
+            window.location.href = this.link
+          }, 0)
+
+        } else {
+          result = '❌ there is no link'
+          this.redirect = false
+        }
+        console.log(result);
       },
       interval() {
         setInterval(() => {
@@ -142,10 +157,10 @@
       height: 80px
       width: 80px
       // border: 2px solid #999
-      // background-color: #eee
       box-sizing: border-box
       @include media(M)
-        background-color: #999
+        background-color: rgba(#999, .5)
+        // background-color: #999
         height: 120px
         width: 120px
 
@@ -153,7 +168,7 @@
       display: block
       width: 100%
       height: auto
-      border-radius: 500px
+      border-radius: 100%
       animation: 2s ease-in-out infinite pulseScale
 
     h1
@@ -172,9 +187,9 @@
 
   @keyframes pulseShadow
     0%
-      box-shadow: 0 0 0 0 rgba(#999, 1)
+      box-shadow: 0 0 0 0 rgba(#999, .5)
     100%
-      box-shadow: 0 0 0 280px rgba(#999, 0)
+      box-shadow: 0 0 0 250px rgba(#999, 0)
 
   @keyframes pulseScale
     0%
