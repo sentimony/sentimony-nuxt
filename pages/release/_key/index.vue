@@ -27,15 +27,15 @@
             <span v-if="release.total_time"> | {{ release.total_time }}</span>
           </p>
 
-          <p v-if="release.coming_soon !== true" class="small-info">Downloat it:</p>
-          <p v-else class="small-info">Downloat it soon:</p>
+          <p v-if="release.coming_soon !== true" class="small-info">Download it:</p>
+          <p v-else class="small-info">Download it soon</p>
           <app-btn v-if="release.links.bandcamp24_url" :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
           <app-btn v-if="release.links.bandcamp_url" :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
           <app-btn v-if="release.links.beatport" :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
           <app-btn v-if="release.links.junodownload" :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
 
           <p v-if="release.coming_soon !== true" class="small-info">Stream it:</p>
-          <p v-else class="small-info">Stream it soon:</p>
+          <p v-else class="small-info">Stream it soon</p>
           <app-btn v-if="release.links.spotify" :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
           <app-btn v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple_2"/>
           <app-btn v-if="release.links.youtube_music" :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music_2"/>

@@ -21,7 +21,7 @@
           <p v-if="artist.name" class="small-info">Name: {{ artist.name }}</p>
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
 
-          <p class="small-info">Artist Links:</p>
+          <p class="small-info">Links:</p>
           <app-btn v-if="artist.spotify" :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
           <app-btn v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
           <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
@@ -38,6 +38,7 @@
         <div class="page-artist__player-tabs">
 
           <app-tabs>
+
             <app-tab
               v-if="artist.youtube_playlist_id"
               :icon="icons.youtube"
@@ -53,6 +54,7 @@
                 </div>
               </div>
             </app-tab>
+
             <!-- <app-tab
               v-if="artist.soundcloud_label_playlist_id"
               :icon="icons.soundcloud"
@@ -69,9 +71,10 @@
                 ></iframe>
               </div>
             </app-tab> -->
+
             <!-- <app-tab
               v-if="artist.soundcloud_artist_playlist_id"
-              :icon="icons.youtube"
+              :icon="icons.soundcloud"
               title="SoundCloud<br>(Artist)"
             >
               <iframe
@@ -80,6 +83,17 @@
                 style="width:100%;height:500px;border:none;display:block"
               ></iframe>
             </app-tab> -->
+
+            <app-tab
+              v-if="artist.soundcloud_track_id"
+              :icon="icons.soundcloud"
+              title="SoundCloud"
+            >
+              <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + artist.soundcloud_track_id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
+              ></iframe>
+            </app-tab>
+
             <app-tab
               v-if="artist.facebook"
               :icon="icons.facebook"
@@ -104,6 +118,7 @@
                 allowTransparency="true"
               ></iframe>
             </app-tab>
+
           </app-tabs>
 
         </div>
@@ -114,13 +129,19 @@
     <div class="content">
       <div class="content__wrapper">
 
+        <div
+          v-if="artist.information"
+          v-html="artist.information"
+        />
+        <hr v-if="artist.information">
+
         <div v-if="artist.category == 'designer'">
           <p>Gallery:</p>
           <div class="d-flex flex-wrap" style="margin:0 -3px;">
             <div v-for="(i, index) in releasesSortByDate"
-                :key="index"
-                style="width:25%;height:auto;padding:3px;box-sizing:border-box;"
-                v-if="i.visible && i.artists.includes(artist.slug)"
+              :key="index"
+              style="width:25%;height:auto;padding:3px;box-sizing:border-box;"
+              v-if="i.visible && i.artists.includes(artist.slug)"
             >
               <img v-img:group
                 v-if="i.visible && i.artists.includes(artist.slug) && i.cover_xl"
@@ -142,7 +163,7 @@
           <hr>
         </div>
 
-        <p>Releases:</p>
+        <p><small><b>Releases:</b></small></p>
         <p
           v-for="(i, index) in releasesSortByDate"
           :key="index"
@@ -172,7 +193,7 @@
         <!-- <p v-else>Coming soon</p> -->
         <hr>
 
-        <p v-if="artist.discogs">Links:</p>
+        <p v-if="artist.discogs"><small><b>Links:</b></small></p>
         <!-- <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p> -->
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
         <hr v-if="artist.discogs">
