@@ -18,6 +18,7 @@ export default {
     facebook: 'https://content.sentimony.com/assets/img/svg-icons/facebook.svg?01',
     instagram: 'https://content.sentimony.com/assets/img/svg-icons/instagram.svg?01',
     mixcloud: 'https://content.sentimony.com/assets/img/svg-icons/mixcloud.svg?01',
+    diggersfactory: 'https://content.sentimony.com/assets/img/svg-icons/discogs.svg?01',
   },
   routes: {
     bandcamp_24: 'bandcamp24',
@@ -40,6 +41,7 @@ export default {
     facebook: 'facebook',
     // instagram: 'instagram',
     // mixcloud: 'mixcloud',
+    diggersfactory: 'diggersfactory',
   },
   titles: {
     bandcamp: 'Bandcamp',
@@ -68,6 +70,7 @@ export default {
     instagram_artist: 'Insta | Artist',
     instagram_personal: 'Insta | Person',
     mixcloud: 'Mixcloud',
+    diggersfactory: 'Diggers Factory',
   },
   texts: {
     comingPhoto: 'Photo<br>coming<br>soon',
