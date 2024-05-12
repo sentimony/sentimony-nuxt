@@ -27,15 +27,19 @@
             <span v-if="release.total_time"> | {{ release.total_time }}</span>
           </p>
 
-          <p v-if="release.coming_soon !== true" class="small-info">Download it:</p>
-          <p v-else class="small-info">Download it soon</p>
+          <p v-if="release.links.diggersfactory_url" class=""><br>Purchase VINYL</p>
+          <!-- <p v-else class="small-info">Download it soon</p> -->
+          <app-btn v-if="release.links.diggersfactory_url" :url="release.links.diggersfactory_url" :route="routes.diggersfactory" :title="titles.diggersfactory" :icon="icons.diggersfactory"/>
+
+          <p v-if="release.coming_soon !== true" class="small-info"><br>Download it</p>
+          <p v-else class="small-info"><br>Download it soon</p>
           <app-btn v-if="release.links.bandcamp24_url" :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
           <app-btn v-if="release.links.bandcamp_url" :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
           <app-btn v-if="release.links.beatport" :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
           <app-btn v-if="release.links.junodownload" :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
 
-          <p v-if="release.coming_soon !== true" class="small-info">Stream it:</p>
-          <p v-else class="small-info">Stream it soon</p>
+          <p v-if="release.coming_soon !== true" class="small-info"><br>Stream it</p>
+          <p v-else class="small-info"><br>Stream it soon</p>
           <app-btn v-if="release.links.spotify" :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
           <app-btn v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple_2"/>
           <app-btn v-if="release.links.youtube_music" :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music_2"/>
@@ -44,6 +48,7 @@
           <app-btn v-if="release.links.napster" :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
           <app-btn v-if="release.links.soundcloud_url" :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
           <app-btn v-if="release.links.youtube" :url="release.links.youtube | YouTubeFullReleases" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/>
+
         </div>
 
         <div class="page-release__player-tabs">
@@ -65,8 +70,22 @@
               </div>
             </app-tab>
           </app-tabs> -->
-
           <app-tabs>
+
+            <app-tab
+              v-if="release.links.youtube_playlist_id"
+              :icon="icons.youtube"
+              :title="titles.youtube_track"
+            >
+              <div class="page-release__youtube-player">
+                <iframe
+                  class="page-release__youtube-player-iframe"
+                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
+                  :title="release.title + ' YouTube Iframe'"
+                ></iframe>
+              </div>
+            </app-tab>
+
             <app-tab
               :icon="icons.bandcamp"
               :title="titles.bandcamp"
@@ -104,19 +123,6 @@
               </div>
             </app-tab>
 
-            <app-tab
-              v-if="release.links.youtube_playlist_id"
-              :icon="icons.youtube"
-              :title="titles.youtube_track"
-            >
-              <div class="page-release__youtube-player">
-                <iframe
-                  class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
-                  :title="release.title + ' YouTube Iframe'"
-                ></iframe>
-              </div>
-            </app-tab>
           </app-tabs>
 
         </div>
