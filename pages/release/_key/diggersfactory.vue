@@ -3,7 +3,7 @@
     <ddos-guard
       :item="release"
       :title="title"
-      :link="release.links.bandcamp24_url"
+      :link="release.links.diggersfactory_url"
     />
   </section>
 </template>
