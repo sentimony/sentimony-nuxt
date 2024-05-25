@@ -44,6 +44,8 @@
           <app-btn v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple_2"/>
           <app-btn v-if="release.links.youtube_music" :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music_2"/>
           <app-btn v-if="release.links.deezer" :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+          <app-btn v-if="release.links.amazon_music" :url="release.links.amazon_music" :route="routes.amazon_music" :title="titles.amazon_music" :icon="icons.amazon_music"/>
+          <app-btn v-if="release.links.qobuz" :url="release.links.qobuz" :route="routes.qobuz" :title="titles.qobuz" :icon="icons.qobuz"/>
           <app-btn v-if="release.links.tidal" :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
           <app-btn v-if="release.links.napster" :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
           <app-btn v-if="release.links.soundcloud_url" :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
