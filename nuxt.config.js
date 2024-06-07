@@ -1245,7 +1245,23 @@ module.exports = {
       '/release/mushroomslice-astro-review/napster',
       '/release/mushroomslice-astro-review/soundcloud',
 
-      // future releases
+      // '/release/kauyumari-transmuting',
+      '/release/kauyumari-transmuting/official',
+      '/release/kauyumari-transmuting/bandcamp',
+      '/release/kauyumari-transmuting/bandcamp24',
+      '/release/kauyumari-transmuting/itunes',
+      '/release/kauyumari-transmuting/beatport',
+      '/release/kauyumari-transmuting/spotify',
+      '/release/kauyumari-transmuting/junodownload',
+      '/release/kauyumari-transmuting/youtube',
+      '/release/kauyumari-transmuting/youtubemusic',
+      '/release/kauyumari-transmuting/deezer',
+      '/release/kauyumari-transmuting/tidal',
+      '/release/kauyumari-transmuting/napster',
+      '/release/kauyumari-transmuting/soundcloud',
+      // TO DO: make to all releases
+      '/release/kauyumari-transmuting/amazonmusic',
+      '/release/kauyumari-transmuting/qobuz',
       
       // '/release/nuada-tools-of-perception',
       '/release/nuada-tools-of-perception/official',
@@ -1261,6 +1277,11 @@ module.exports = {
       '/release/nuada-tools-of-perception/tidal',
       '/release/nuada-tools-of-perception/napster',
       '/release/nuada-tools-of-perception/soundcloud',
+      // TO DO: make to all releases
+      '/release/nuada-tools-of-perception/amazonmusic',
+      '/release/nuada-tools-of-perception/qobuz',
+
+      // future releases
       
       // '/release/jai-come-from',
       '/release/jai-come-from/official',
@@ -1276,6 +1297,9 @@ module.exports = {
       '/release/jai-come-from/tidal',
       '/release/jai-come-from/napster',
       '/release/jai-come-from/soundcloud',
+      // TO DO: make to all releases
+      '/release/jai-come-from/amazonmusic',
+      '/release/jai-come-from/qobuz',
       
       // '/release/djeriko-cosmologia-fractalica',
       '/release/djeriko-cosmologia-fractalica/official',
@@ -1291,21 +1315,6 @@ module.exports = {
       '/release/djeriko-cosmologia-fractalica/tidal',
       '/release/djeriko-cosmologia-fractalica/napster',
       '/release/djeriko-cosmologia-fractalica/soundcloud',
-
-      // '/release/kauyumari-transmuting',
-      '/release/kauyumari-transmuting/official',
-      '/release/kauyumari-transmuting/bandcamp',
-      '/release/kauyumari-transmuting/bandcamp24',
-      '/release/kauyumari-transmuting/itunes',
-      '/release/kauyumari-transmuting/beatport',
-      '/release/kauyumari-transmuting/spotify',
-      '/release/kauyumari-transmuting/junodownload',
-      '/release/kauyumari-transmuting/youtube',
-      '/release/kauyumari-transmuting/youtubemusic',
-      '/release/kauyumari-transmuting/deezer',
-      '/release/kauyumari-transmuting/tidal',
-      '/release/kauyumari-transmuting/napster',
-      '/release/kauyumari-transmuting/soundcloud',
 
       // '/release/vorg-cyber-soul',
       '/release/vorg-cyber-soul/official',
