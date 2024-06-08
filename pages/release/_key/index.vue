@@ -41,7 +41,10 @@
           <p v-if="release.coming_soon !== true" class="small-info"><br>Stream it</p>
           <p v-else class="small-info"><br>Stream it soon</p>
           <app-btn v-if="release.links.spotify" :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple_2"/>
+          <!-- TO DO: remake itunes -> applemusic_url -->
+          <app-btn v-if="release.links.applemusic_url && release.links.itunes" :url="release.links.applemusic_url" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple_2"/>
+          <app-btn v-else :url="release.links.itunes" :route="routes.itunes" :title="titles.apple_music" :icon="icons.apple"/>
+          
           <app-btn v-if="release.links.youtube_music" :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music_2"/>
           <app-btn v-if="release.links.deezer" :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
           <app-btn v-if="release.links.amazon_music" :url="release.links.amazon_music" :route="routes.amazon_music" :title="titles.amazon_music" :icon="icons.amazon_music"/>

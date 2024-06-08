@@ -1298,6 +1298,7 @@ module.exports = {
       '/release/jai-come-from/napster',
       '/release/jai-come-from/soundcloud',
       // TO DO: make to all releases
+      '/release/jai-come-from/applemusic',
       '/release/jai-come-from/amazonmusic',
       '/release/jai-come-from/qobuz',
       
