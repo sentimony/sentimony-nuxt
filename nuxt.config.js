@@ -1316,6 +1316,10 @@ module.exports = {
       '/release/djeriko-cosmologia-fractalica/tidal',
       '/release/djeriko-cosmologia-fractalica/napster',
       '/release/djeriko-cosmologia-fractalica/soundcloud',
+      // TO DO: make to all releases
+      '/release/djeriko-cosmologia-fractalica/applemusic',
+      '/release/djeriko-cosmologia-fractalica/amazonmusic',
+      '/release/djeriko-cosmologia-fractalica/qobuz',
 
       // '/release/vorg-cyber-soul',
       '/release/vorg-cyber-soul/official',
