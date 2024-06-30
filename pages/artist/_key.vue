@@ -163,7 +163,10 @@
           <hr>
         </div>
 
-        <p><small><b>Releases:</b></small></p>
+        <p v-if="artist.category == 'musician'"><small><b>Releases with {{ artist.title }}:</b></small></p>
+        <!-- <p v-if="artist.category == 'dj'"><small><b>Releases compiled by {{ artist.title }}:</b></small></p> -->
+        <p v-if="artist.category == 'designer'"><small><b>Releases with {{ artist.title }} artwork:</b></small></p>
+        <p v-if="artist.category == 'mastering'"><small><b>Releases mastered by {{ artist.title }}:</b></small></p>
         <p
           v-for="(i, index) in releasesSortByDate"
           :key="index"
