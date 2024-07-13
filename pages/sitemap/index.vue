@@ -17,13 +17,65 @@
         title="YouTube playlist frame'"
       />
     </div> -->
+    <ol>
+      <li v-for="(i, index) in sortByDate"
+          :key="index"
+      >
+        <p>
+          <span>[{{ i.cat_no }}]</span>
+          <router-link v-ripple :to="'/release/' + i.slug + '/'" style="text-decoration: underline;">{{ i.title }}</router-link>
+          <span>({{ i.date | formatDate }})</span>
+          <br>
+          v1
+          <span v-for="(ii, index) in i.links" :key="index">
+            <span v-if="ii.includes('.qobuz.')">
+              <router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'" style="text-decoration: underline;">
+                Apple Music
+            </router-link>
+            </span>
+            <span v-if="ii.includes('.qobuz.')">
+              <router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'" style="text-decoration: underline;">
+                Amazon Music
+            </router-link>
+            </span>
+            <span v-if="ii.includes('.qobuz.')">
+              <router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'" style="text-decoration: underline;">
+                Qobuz
+            </router-link>
+            </span>
 
-    <div v-for="(i, index) in sortByDate"
-        :key="index"
-        v-if="i.visible"
-    >
-      {{ i.title }} ({{ i.date | formatDate }})
-    </div>
+            <!-- {{ ii.includes('.qobuz.') }}, 
+            {{ ii.qobuz }}, 
+            <router-link v-if="ii.spotify" :to="'/release/' + i.slug + '/spotify/'" style="text-decoration: underline;">Spotify</router-link>
+            <router-link v-if="ii.applemusic_url" :to="'/release/' + i.slug + '/applemusic/'" style="text-decoration: underline;">Apple Music</router-link> -->
+          </span>
+          <br>
+          v2
+          <span v-for="(iii, index) in i.links_v2" :key="index">
+            <span v-if="iii.url.includes('.apple.')">
+              <router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'" style="text-decoration: underline;">
+                Apple Music
+            </router-link>
+          </span>
+          <span v-if="iii.url.includes('.amazon.')">
+            <router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'" style="text-decoration: underline;">
+                Amazon Music
+            </router-link>
+          </span>
+          <span v-if="iii.url.includes('.qobuz.')">
+            <router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'" style="text-decoration: underline;">
+                Qobuz
+            </router-link>
+          </span>
+          <!-- <router-link v-ripple :to="'/release/' + i.slug + '/' + iii.route + '/'" style="text-decoration: underline;">
+              <span v-if="iii.route == 'applemusic'">Apple Music</span>
+              <span v-if="iii.route == 'amazonmusic'">Amazon Music</span>
+              <span v-if="iii.route == 'qobuz'">Qobuz</span>
+            </router-link> |  -->
+          </span>
+        </p>
+      </li>
+    </ol>
 
     <!-- <table>
       <tr>
@@ -41,13 +93,14 @@
       >
         <td>{{ i.upc }}</td>
         <td style="text-transform:uppercase;">{{ i.cat_no }}:</td>
-        <td><router-link v-ripple :to="'/yt/' + i.slug + '/'">{{ i.title }}</router-link></td>
+        <td><router-link v-ripple :to="'/sitemap/' + i.slug + '/'">{{ i.title }}</router-link></td>
         <td>{{ i.date | formatDate }}</td>
         <td>{{ i.links.youtube }}</td>
         <td>{{ i.upc }}</td>
         <td><router-link :to="'/release/' + i.slug + '/'">official link >>></router-link></td>
       </tr>
     </table> -->
+
   </div>
 </template>
 
