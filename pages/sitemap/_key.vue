@@ -1,7 +1,7 @@
 <template>
   <div class="youtube-page-item">
 
-    <router-link v-ripple to="/yt">◄ Back to YouTube Page</router-link><br>
+    <router-link v-ripple to="/sitemap">◄ Back to Sitemap Page</router-link><br>
     <br>
     <div class="youtube-page-item__frame-holder">
       <iframe
@@ -32,21 +32,21 @@
     <span>{{ release.title }}</span>
     (Sentimony Records, {{ release.date | formatDate }})<br>
     <br>
-    <span
+    <!-- <span
       v-for="(i, index) in release.tracklist.tracks"
       :key="index"
     >
-      <!-- <span>{{ i.cue_time }} ► </span> -->
+      <span>{{ i.cue_time }} ► </span>
       <span>{{ i.number }}. </span>
       <span>{{ i.artist }} - </span>
       <span>{{ i.title }} | </span>
       <span>{{ i.bpm }}bpm</span><br>
-    </span>
-    <span v-if="release.tracklist.note" v-html="release.tracklist.note"></span>
-    <br v-if="release.tracklist.note">
+    </span> -->
+    <!-- <span v-if="release.tracklist.note" v-html="release.tracklist.note"></span>
+    <br v-if="release.tracklist.note"> -->
     <br>
 
-    <span v-if="release.credits.written_and_produced_by" v-html="'Written & Prodused By ' + release.credits.written_and_produced_by"></span>
+    <!-- <span v-if="release.credits.written_and_produced_by" v-html="'Written & Prodused By ' + release.credits.written_and_produced_by"></span>
     <br v-if="release.credits.written_and_produced_by">
     <span v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></span>
     <br v-if="release.credits.compiled_by">
@@ -55,7 +55,7 @@
     <span v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></span>
     <br v-if="release.credits.mastered_by">
     <span v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></span>
-    <br v-if="release.credits.mixed_and_mastered_by">
+    <br v-if="release.credits.mixed_and_mastered_by"> -->
 
     <!-- <br>
     ===<br>
