@@ -49,8 +49,8 @@ export default {
   },
   titles: {
     bandcamp: 'Bandcamp',
-    bandcamp_24: 'Bandcamp <small>24bit</small>',
-    bandcamp_16: 'Bandcamp <small>16bit</small>',
+    bandcamp_24: 'Bandcamp <small>(24bit)</small>',
+    bandcamp_16: 'Bandcamp <small>(16bit)</small>',
     apple_music: 'Apple Music',
     itunes: 'iTunes',
     googleplay_music: 'GooglePlay Music',

@@ -1,6 +1,6 @@
 <template>
   <div class="youtube-page">
-    <h1>YouTube Page</h1>
+    <h1>Sitemap</h1>
     <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
@@ -17,62 +17,109 @@
         title="YouTube playlist frame'"
       />
     </div> -->
-    <ol>
-      <li v-for="(i, index) in sortByDate"
+
+    <div>Releases</div>
+    <ol class="sitemap-link-list">
+      <li v-for="(i, index) in releasesSortByDate"
+          :key="index"
+      >
+        <!-- <p :style="{ 'background-image': 'url(' + i.cover_og + '); background-size: cover;' }">{{ i.title }}</p> -->
+        <p>
+          <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
+          <!-- <span>[{{ i.cat_no }}]</span> -->
+          <router-link v-ripple :to="'/release/' + i.slug + '/'" style="text-decoration: underline;">{{ i.title }}</router-link>
+          <!-- <span>({{ i.date | formatDate }})</span> -->
+          <br>
+          
+          v1
+          <span v-for="(ii, index) in i.links" :key="index">
+            <span v-if="ii.includes('.bandcamp.') && ii.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp</router-link></span>
+            <span v-if="ii.includes('.beatport.')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
+            <span v-if="ii.includes('.junodownload.')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
+            <span v-if="ii.includes('.spotify.')"><router-link v-ripple :to="'/release/' + i.slug + '/spotify/'">Spotify</router-link></span>
+            <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">Apple Music</router-link></span>
+            <span v-if="ii.includes('.amazon.')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">Amazon Music</router-link></span>
+            <span v-if="ii.includes('.deezer.')"><router-link v-ripple :to="'/release/' + i.slug + '/deezer/'">Deezer</router-link></span>
+            <span v-if="ii.includes('.tidal.')"><router-link v-ripple :to="'/release/' + i.slug + '/tidal/'">Tidal</router-link></span>
+            <span v-if="ii.includes('.qobuz.')"><router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
+            <span v-if="ii.includes('.napster.')"><router-link v-ripple :to="'/release/' + i.slug + '/napster/'">Napster</router-link></span>
+            <span v-if="ii.includes('soundcloud.')"><router-link v-ripple :to="'/release/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
+            <span v-if="ii.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTube Music</router-link></span>
+            <span v-if="ii.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
+          </span>
+          <br>
+
+          v2
+          <span v-for="(iii, index) in i.links_v2" :key="index">
+            <span v-if="iii.url.includes('.bandcamp.') && iii.url.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp</router-link></span>
+            <span v-if="iii.url.includes('.beatport.')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
+            <span v-if="iii.url.includes('.junodownload.')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
+            <span v-if="iii.url.includes('.spotify.')"><router-link v-ripple :to="'/release/' + i.slug + '/spotify/'">Spotify</router-link></span>
+            <span v-if="iii.url.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">Apple Music</router-link></span>
+            <span v-if="iii.url.includes('.amazon.')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">Amazon Music</router-link></span>
+            <span v-if="iii.url.includes('.deezer.')"><router-link v-ripple :to="'/release/' + i.slug + '/deezer/'">Deezer</router-link></span>
+            <span v-if="iii.url.includes('.tidal.')"><router-link v-ripple :to="'/release/' + i.slug + '/tidal/'">Tidal</router-link></span>
+            <span v-if="iii.url.includes('.qobuz.')"><router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
+            <span v-if="iii.url.includes('.napster.')"><router-link v-ripple :to="'/release/' + i.slug + '/napster/'">Napster</router-link></span>
+            <span v-if="iii.url.includes('soundcloud.')"><router-link v-ripple :to="'/release/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
+            <span v-if="iii.url.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTube Music</router-link></span>
+            <span v-if="iii.url.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
+          </span>
+        </p>
+      </li>
+    </ol>
+
+    <div>Artists</div>
+
+    <ol class="sitemap-link-list">
+      <li v-for="(i, index) in artistsSortByCategoryId"
           :key="index"
       >
         <p>
-          <span>[{{ i.cat_no }}]</span>
-          <router-link v-ripple :to="'/release/' + i.slug + '/'" style="text-decoration: underline;">{{ i.title }}</router-link>
-          <span>({{ i.date | formatDate }})</span>
+          <img v-if="i.photo_th" :src="i.photo_th" :alt="i.title">
+          <router-link v-ripple :to="'/artist/' + i.slug + '/'">{{ i.title }}</router-link>
           <br>
+          <span>({{ i.location }})</span>
+        </p>
+      </li>
+    </ol>
+
+    <div>Playlists</div>
+
+    <ol class="sitemap-link-list">
+      <li v-for="(i, index) in playlistsSortByDate"
+          :key="index"
+      >
+        <p>
+          <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
+          <router-link v-ripple :to="'/playlist/' + i.slug + '/'">{{ i.title }}</router-link>
+          <br>
+          
           v1
           <span v-for="(ii, index) in i.links" :key="index">
-            <span v-if="ii.includes('.qobuz.')">
-              <router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'" style="text-decoration: underline;">
-                Apple Music
-            </router-link>
-            </span>
-            <span v-if="ii.includes('.qobuz.')">
-              <router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'" style="text-decoration: underline;">
-                Amazon Music
-            </router-link>
-            </span>
-            <span v-if="ii.includes('.qobuz.')">
-              <router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'" style="text-decoration: underline;">
-                Qobuz
-            </router-link>
-            </span>
+            <span v-if="ii.includes('.spotify.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/spotify/'">Spotify</router-link></span>
+            <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/applemusic/'">Apple Music</router-link></span>
+            <!-- <span v-if="ii.includes('.amazon.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/amazonmusic/'">Amazon Music</router-link></span> -->
+            <span v-if="ii.includes('.deezer.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/deezer/'">Deezer</router-link></span>
+            <span v-if="ii.includes('.tidal.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/tidal/'">Tidal</router-link></span>
+            <span v-if="ii.includes('.qobuz.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
+            <span v-if="ii.includes('.napster.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/napster/'">Napster</router-link></span>
+            <span v-if="ii.includes('soundcloud.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
+            <span v-if="ii.includes('music.youtube.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/youtubemusic/'">YouTube Music</router-link></span>
+            <!-- <span v-if="ii.includes('youtu.be')"><router-link v-ripple :to="'/playlist/' + i.slug + '/youtube/'">YouTube</router-link></span> -->
+          </span>
+        </p>
+      </li>
+    </ol>
 
-            <!-- {{ ii.includes('.qobuz.') }}, 
-            {{ ii.qobuz }}, 
-            <router-link v-if="ii.spotify" :to="'/release/' + i.slug + '/spotify/'" style="text-decoration: underline;">Spotify</router-link>
-            <router-link v-if="ii.applemusic_url" :to="'/release/' + i.slug + '/applemusic/'" style="text-decoration: underline;">Apple Music</router-link> -->
-          </span>
-          <br>
-          v2
-          <span v-for="(iii, index) in i.links_v2" :key="index">
-            <span v-if="iii.url.includes('.apple.')">
-              <router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'" style="text-decoration: underline;">
-                Apple Music
-            </router-link>
-          </span>
-          <span v-if="iii.url.includes('.amazon.')">
-            <router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'" style="text-decoration: underline;">
-                Amazon Music
-            </router-link>
-          </span>
-          <span v-if="iii.url.includes('.qobuz.')">
-            <router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'" style="text-decoration: underline;">
-                Qobuz
-            </router-link>
-          </span>
-          <!-- <router-link v-ripple :to="'/release/' + i.slug + '/' + iii.route + '/'" style="text-decoration: underline;">
-              <span v-if="iii.route == 'applemusic'">Apple Music</span>
-              <span v-if="iii.route == 'amazonmusic'">Amazon Music</span>
-              <span v-if="iii.route == 'qobuz'">Qobuz</span>
-            </router-link> |  -->
-          </span>
+    <div>Videos</div>
+
+    <ol class="sitemap-link-list">
+      <li v-for="(i, index) in videosSortByDate"
+          :key="index"
+      >
+        <p>
+          <router-link v-ripple :to="'/video/' + i.slug + '/'">{{ i.title }}</router-link>
         </p>
       </li>
     </ol>
@@ -115,14 +162,31 @@
         needToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
       }
     }),
-    async asyncData() {
-      const { data } = await axios.get('releases.json')
-      return { releases: data }
+    async asyncData({ route }) {
+      const [artistsRes, releasesRes, playlistsRes, videosRes] = await Promise.all([
+        axios.get(`artists.json`),
+        axios.get('releases.json'),
+        axios.get('playlists.json'),
+        axios.get('videos.json'),
+      ]);
+      const artists = artistsRes.data
+      const releases = releasesRes.data
+      const playlists = playlistsRes.data
+      const videos = videosRes.data
+      return { artists, releases, playlists, videos }
     },
     computed: {
-      sortByDate () {
+      releasesSortByDate () {
         return sortBy(this.releases, 'date')
-        // return sortBy(this.releases, 'date').reverse()
+      },
+      artistsSortByCategoryId () {
+        return sortBy(this.artists, 'category_id')
+      },
+      playlistsSortByDate () {
+        return sortBy(this.playlists, 'date')
+      },
+      videosSortByDate () {
+        return sortBy(this.videos, 'date')
       }
     },
     filters: {
@@ -135,7 +199,7 @@
       }
     },
     head: {
-      title: 'YouTube Page',
+      title: 'Sitemap',
       meta: [
         { name: 'description', content: '' },
         { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
@@ -145,6 +209,7 @@
 </script>
 
 <style lang="scss">
+  @import '../../node_modules/coriolan-ui/mixins/clearfix';
   @import '../../node_modules/coriolan-ui/mixins/ratio';
   @import '../../assets/scss/iframe-size';
 
@@ -179,5 +244,22 @@
     table {
       width: 100%;
     }
+  }
+
+  .sitemap-link-list a {
+    text-decoration: underline;
+  }
+
+  .sitemap-link-list p {
+    @include clearfix;
+  }
+
+  .sitemap-link-list img {
+    width: auto;
+    height: 56px;
+    // display: block;
+    float: left;
+    margin-right: 10px;
+    // margin-bottom: 10px;
   }
 </style>
