@@ -33,6 +33,7 @@
           
           v1
           <span v-for="(ii, index) in i.links" :key="index">
+            <span v-if="ii.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
             <span v-if="ii.includes('.bandcamp.') && ii.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp</router-link></span>
             <span v-if="ii.includes('.beatport.')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
             <span v-if="ii.includes('.junodownload.')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
@@ -51,6 +52,7 @@
 
           v2
           <span v-for="(iii, index) in i.links_v2" :key="index">
+            <span v-if="iii.url.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
             <span v-if="iii.url.includes('.bandcamp.') && iii.url.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp</router-link></span>
             <span v-if="iii.url.includes('.beatport.')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
             <span v-if="iii.url.includes('.junodownload.')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
