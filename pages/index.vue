@@ -31,8 +31,7 @@
             :alt="logoNewAlt"
           />
         </p>
-        <p>Sentimony Records is an independent record label started in Kyiv, Ukraine during the autumn 2006 by Ihor Orlovskyi also known as <router-link to="/artist/irukanji/">Irukanji</router-link>. At spring 2019 label was relocated to Riga, Latvia. But in summer 2020 moved back to Kyiv, Ukraine.</p>
-        <p>{{ aboutDescription }}</p>
+        <div class="about__description" v-html="aboutDescription"></div>
       </div>
     </div>
 
@@ -63,7 +62,7 @@
       logoNewAlt: 'Sentimony Records Logo v3.3 SVG',
       siteTitle: 'Sentimony Records',
       siteDescription: 'Psychedelic Music Label',
-      aboutDescription: "Not limiting itself to one specific genre, the label main mission is to contribute the growth of the psychedelic trance and chillout scenes.",
+      aboutDescription: " <p>Sentimony Records is an independent record label that was founded in the vibrant city of Kyiv, Ukraine during the enchanting autumn of 2006 by the visionary Ihor Orlovskyi, also known by his artistic moniker, <a href='/artist/irukanji/'>Irukanji</a>.</p><p>The label's primary mission is to nurture and contribute to the flourishing of the psychedelic trance and psychill scenes, enriching the global soundscape with its unique and immersive musical offerings.</p><p>In recent years, Sentimony Records has honed its focus on its most cherished genres, delving deeply into the mesmerizing realms of <a href='/playlist/dark-prog-zenonesque/'>DarkProg Psytrance</a>, as well as <a href='/playlist/psychill-psybient/'>Glitched Psychill</a>.</p><p>Through its dedication to these genres, the label continues to captivate listeners and inspire the psychedelic music community worldwide.</p>",
       releases: [],
       artists: [],
     }),
@@ -191,6 +190,14 @@
     background-color: rgba(#000,.5);
     position: relative;
 
+    &__description {
+      text-align: left;
+
+      & > p {
+        text-indent: 20px;
+      }
+    }
+
     &__logo {
       display: inline-block;
       width: 60px;
@@ -199,7 +206,7 @@
     }
 
     &__wrapper {
-      max-width: 460px;
+      max-width: 500px;
       margin: 0 auto;
       padding: 3em 10px;
       box-sizing: border-box;
@@ -208,6 +215,7 @@
 
         a {
           color: #ff595e;
+          text-indent: initial;
 
           &:hover {
             color: red;
