@@ -78,20 +78,6 @@
           <app-tabs>
 
             <app-tab
-              v-if="release.links.youtube_playlist_id"
-              :icon="icons.youtube"
-              :title="titles.youtube_track"
-            >
-              <div class="page-release__youtube-player">
-                <iframe
-                  class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
-                  :title="release.title + ' YouTube Iframe'"
-                ></iframe>
-              </div>
-            </app-tab>
-
-            <app-tab
               :icon="icons.bandcamp"
               :title="titles.bandcamp"
             >
@@ -108,6 +94,20 @@
                   is<br>
                   coming
                 </div>
+              </div>
+            </app-tab>
+
+            <app-tab
+              v-if="release.links.youtube_playlist_id"
+              :icon="icons.youtube"
+              :title="titles.youtube_track"
+            >
+              <div class="page-release__youtube-player">
+                <iframe
+                  class="page-release__youtube-player-iframe"
+                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
+                  :title="release.title + ' YouTube Iframe'"
+                ></iframe>
               </div>
             </app-tab>
 
