@@ -61,6 +61,8 @@ export default {
     youtube: 'YouTube',
     youtube_full: 'YouTube <small>Full Release</small>',
     youtube_track: 'YouTube <small>Per Track</small>',
+    youtube_playlist: 'YouTube <small>Playlist</small>',
+    youtube_indiv: 'YouTube <small>Individual Tracks</small>',
     youtube_music: 'YouTube Music',
     deezer: 'Deezer',
     tidal: 'Tidal',

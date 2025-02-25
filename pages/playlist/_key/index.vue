@@ -50,16 +50,21 @@
                 ></iframe>
               </div>
             </app-tab>
+            
             <app-tab
               v-if="playlist.links.youtube"
               :icon="icons.youtube"
               title="YouTube"
             >
               <div class="page-playlist__youtube-player">
-                <iframe
+                <iframe 
                   class="page-playlist__youtube-player-iframe"
                   :src="playlist.links.youtube | YouTubeEmbed"
-                  :title="playlist.title + ' YouTube Iframe'"
+                  :title="playlist.title + 'YouTube video player'"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
                 ></iframe>
               </div>
             </app-tab>
@@ -181,7 +186,7 @@
       YouTubeEmbed (youtube) {
         if (youtube) {
           let y = youtube.replace('https://www.youtube.com/playlist?list=', '');
-          return 'https://www.youtube.com/embed/videoseries?list=' + y + '&loop=1';
+          return 'https://www.youtube-nocookie.com/embed/videoseries?list=' + y + '&loop=1';
         }
       },
       year: function (date) {

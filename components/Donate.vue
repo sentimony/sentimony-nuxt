@@ -7,13 +7,10 @@
       </g>
     </svg>
     <div class="donate__wrapper">
-      <p v-html="donate1"/>
-      <!-- <br> -->
-      <p v-html="donate2"/>
-      <!-- <br> -->
-      <p v-html="donate3"/>
-      <!-- <br> -->
-      <p v-html="donate4"/>
+      <p>I always love to read feedback.</p>
+      <p>Find your favorite track and leave a comment with your thoughts on our <a :href="youtube_url" target="_blank" rel="noopener">YouTube</a>, <a :href="soundcloud_url" target="_blank" rel="noopener">SoundCloud</a> or <a :href="bandcamp_url" target="_blank" rel="noopener">Bandcamp</a> pages.</p>
+      <p>Thank you, I really appreciate it ❤️</p>
+      <p><i>Ihor</i></p>
     </div>
   </div>
 </template>
@@ -21,10 +18,9 @@
 <script>
   export default {
     data: () => ({
-      donate1: 'I always love to read feedback.',
-      donate2: 'Find your favorite track and leave a comment on our <a href="http://bit.ly/sen-yt" target="_blank" rel="noopener">YouTube</a>, <a href="http://bit.ly/sen-sc" target="_blank" rel="noopener">SoundCloud</a> or <a href="http://bit.ly/sen-bc" target="_blank" rel="noopener">Bandcamp</a> pages.',
-      donate3: 'Thank you! I really appreciate it.',
-      donate4: '<i>Ihor</i>'
+      youtube_url: 'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1',
+      soundcloud_url: 'http://bit.ly/sen-sc',
+      bandcamp_url: 'http://bit.ly/sen-bc',
     })
   }
 </script>
