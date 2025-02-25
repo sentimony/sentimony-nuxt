@@ -33,8 +33,8 @@
 
           <p v-if="release.coming_soon !== true" class="small-info"><br>Download it</p>
           <!-- <p v-else class="small-info"><br>Download it soon</p> -->
-          <app-btn v-if="release.links.bandcamp24_url" :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-          <app-btn v-if="release.links.bandcamp_url" :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+          <app-btn v-if="release.links.bandcamp24_url && release.links.bandcamp24_url !== 'redirect_to_16'" :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+          <app-btn v-if="release.links.bandcamp_url && release.links.bandcamp_url !== 'redirect_to_24'" :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
           <app-btn v-if="release.links.beatport" :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
           <app-btn v-if="release.links.junodownload" :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
 
