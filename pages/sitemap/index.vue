@@ -34,37 +34,43 @@
           v1
           <span v-for="(ii, index) in i.links" :key="index">
             <span v-if="ii.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
-            <span v-if="ii.includes('.bandcamp.') && ii.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp</router-link></span>
+            <span v-if="ii.includes('.bandcamp.')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp/'">Bandcamp</router-link></span>
+            <span v-if="ii.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp24</router-link></span>
             <span v-if="ii.includes('.beatport.')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
             <span v-if="ii.includes('.junodownload.')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
             <span v-if="ii.includes('.spotify.')"><router-link v-ripple :to="'/release/' + i.slug + '/spotify/'">Spotify</router-link></span>
-            <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">Apple Music</router-link></span>
-            <span v-if="ii.includes('.amazon.')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">Amazon Music</router-link></span>
+            <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">AppleMusic</router-link></span>
+            <span v-if="ii.includes('.amazon.')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">AmazonMusic</router-link></span>
             <span v-if="ii.includes('.deezer.')"><router-link v-ripple :to="'/release/' + i.slug + '/deezer/'">Deezer</router-link></span>
             <span v-if="ii.includes('.tidal.')"><router-link v-ripple :to="'/release/' + i.slug + '/tidal/'">Tidal</router-link></span>
             <span v-if="ii.includes('.qobuz.')"><router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
             <span v-if="ii.includes('.napster.')"><router-link v-ripple :to="'/release/' + i.slug + '/napster/'">Napster</router-link></span>
             <span v-if="ii.includes('soundcloud.')"><router-link v-ripple :to="'/release/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
-            <span v-if="ii.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTube Music</router-link></span>
+            <span v-if="ii.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTubeMusic</router-link></span>
             <span v-if="ii.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
+
+            <span v-if="ii.includes('sentimony.')"><router-link v-ripple :to="'/release/' + i.slug + '/official/'">Official</router-link></span>
+            <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/itunes/'">Itunes</router-link></span>
+            <span v-if="ii.includes('play.google.com/music')"><router-link v-ripple :to="'/release/' + i.slug + '/googleplay/'">GooglePlayMusic</router-link></span>
           </span>
           <br>
 
           v2
           <span v-for="(iii, index) in i.links_v2" :key="index">
             <span v-if="iii.url.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
-            <span v-if="iii.url.includes('.bandcamp.') && iii.url.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp</router-link></span>
+            <span v-if="iii.url.includes('.bandcamp.')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp/'">Bandcamp</router-link></span>
+            <span v-if="iii.url.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp24</router-link></span>
             <span v-if="iii.url.includes('.beatport.')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
             <span v-if="iii.url.includes('.junodownload.')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
             <span v-if="iii.url.includes('.spotify.')"><router-link v-ripple :to="'/release/' + i.slug + '/spotify/'">Spotify</router-link></span>
-            <span v-if="iii.url.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">Apple Music</router-link></span>
-            <span v-if="iii.url.includes('.amazon.')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">Amazon Music</router-link></span>
+            <span v-if="iii.url.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">AppleMusic</router-link></span>
+            <span v-if="iii.url.includes('.amazon.')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">AmazonMusic</router-link></span>
             <span v-if="iii.url.includes('.deezer.')"><router-link v-ripple :to="'/release/' + i.slug + '/deezer/'">Deezer</router-link></span>
             <span v-if="iii.url.includes('.tidal.')"><router-link v-ripple :to="'/release/' + i.slug + '/tidal/'">Tidal</router-link></span>
             <span v-if="iii.url.includes('.qobuz.')"><router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
             <span v-if="iii.url.includes('.napster.')"><router-link v-ripple :to="'/release/' + i.slug + '/napster/'">Napster</router-link></span>
             <span v-if="iii.url.includes('soundcloud.')"><router-link v-ripple :to="'/release/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
-            <span v-if="iii.url.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTube Music</router-link></span>
+            <span v-if="iii.url.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTubeMusic</router-link></span>
             <span v-if="iii.url.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
           </span>
         </p>
@@ -100,14 +106,14 @@
           v1
           <span v-for="(ii, index) in i.links" :key="index">
             <span v-if="ii.includes('.spotify.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/spotify/'">Spotify</router-link></span>
-            <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/applemusic/'">Apple Music</router-link></span>
-            <!-- <span v-if="ii.includes('.amazon.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/amazonmusic/'">Amazon Music</router-link></span> -->
+            <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/applemusic/'">AppleMusic</router-link></span>
+            <!-- <span v-if="ii.includes('.amazon.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/amazonmusic/'">AmazonMusic</router-link></span> -->
             <span v-if="ii.includes('.deezer.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/deezer/'">Deezer</router-link></span>
             <span v-if="ii.includes('.tidal.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/tidal/'">Tidal</router-link></span>
             <span v-if="ii.includes('.qobuz.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
             <span v-if="ii.includes('.napster.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/napster/'">Napster</router-link></span>
             <span v-if="ii.includes('soundcloud.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
-            <span v-if="ii.includes('music.youtube.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/youtubemusic/'">YouTube Music</router-link></span>
+            <span v-if="ii.includes('music.youtube.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/youtubemusic/'">YouTubeMusic</router-link></span>
             <!-- <span v-if="ii.includes('youtu.be')"><router-link v-ripple :to="'/playlist/' + i.slug + '/youtube/'">YouTube</router-link></span> -->
           </span>
         </p>

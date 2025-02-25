@@ -1,10 +1,19 @@
 <template>
   <section>
-    <ddos-guard
-      :item="release"
-      :title="title"
-      :link="release.links.bandcamp24_url"
-    />
+    <div v-if="release.links.bandcamp24_url.includes('redirect_to_16')">
+      <ddos-guard
+        :item="release"
+        :title="title"
+        :link="release.links.bandcamp_url"
+      />
+    </div>
+    <div v-if="release.links.bandcamp24_url.includes('.bandcamp.')">
+      <ddos-guard
+        :item="release"
+        :title="title"
+        :link="release.links.bandcamp24_url"
+      />
+    </div>
   </section>
 </template>
 
@@ -17,7 +26,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'Bandcamp (24bit)'
+        title: 'Bandcamp'
       }
     },
     async asyncData({ route }) {
