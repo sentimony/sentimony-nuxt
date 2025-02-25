@@ -7,7 +7,7 @@
         :link="release.links.bandcamp_url"
       />
     </div>
-    <div v-if="release.links.bandcamp24_url.includes('.bandcamp.')">
+    <div v-if="release.links.bandcamp24_url.includes('.bandcamp.') || release.links.bandcamp24_url == ''">
       <ddos-guard
         :item="release"
         :title="title"

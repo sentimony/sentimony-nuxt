@@ -18,7 +18,7 @@
         logolink: {
           title: 'Sentimony Records',
           description: 'Psychedelic Music Label',
-          logoImg: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg',
+          logoImg: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01',
           url: '/'
         }
       }
