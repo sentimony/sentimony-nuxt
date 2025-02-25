@@ -3,6 +3,11 @@
 
     <router-link v-ripple to="/sitemap">◄ Back to Sitemap Page</router-link><br>
     <br>
+    <span style="text-transform:uppercase;">{{ release.cat_no }}: </span>
+    <span>{{ release.title }}</span>
+    <span>({{ release.date | formatDate }})</span>
+    <br>
+    <br>
     <div class="youtube-page-item__frame-holder">
       <iframe
         class="youtube-page-item__frame"
@@ -27,10 +32,6 @@
     Beatport: http://bit.ly/{{ release.cat_no }}-beatport<br>
     Spotify: http://bit.ly/{{ release.cat_no }}-spotify<br>
     Official release page: http://bit.ly/{{ release.cat_no }}<br> -->
-    <br>
-    <span style="text-transform:uppercase;">{{ release.cat_no }}: </span>
-    <span>{{ release.title }}</span>
-    (Sentimony Records, {{ release.date | formatDate }})<br>
     <br>
     <!-- <span
       v-for="(i, index) in release.tracklist.tracks"

@@ -28,6 +28,7 @@
           <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
           <!-- <span>[{{ i.cat_no }}]</span> -->
           <router-link v-ripple :to="'/release/' + i.slug + '/'" style="text-decoration: underline;">{{ i.title }}</router-link>
+          <router-link v-ripple :to="'/sitemap/' + i.slug + '/'">sitemap >>></router-link>
           <!-- <span>({{ i.date | formatDate }})</span> -->
           <br>
           
@@ -143,7 +144,7 @@
         <th>JunoDownload</th>
       </tr>
       <tr
-        v-for="(i, index) in sortByDate"
+        v-for="(i, index) in releasesSortByDate"
         :key="index"
       >
         <td>{{ i.upc }}</td>
@@ -185,7 +186,7 @@
     },
     computed: {
       releasesSortByDate () {
-        return sortBy(this.releases, 'date')
+        return sortBy(this.releases, 'date').reverse()
       },
       artistsSortByCategoryId () {
         return sortBy(this.artists, 'category_id')

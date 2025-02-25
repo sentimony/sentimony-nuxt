@@ -1,29 +1,33 @@
 <template>
   <div class="tracks">
     <h1>Tracks</h1>
-    <div class="" style="width: 500px; display: inline-block; text-align: left">
-      <div class="" style="margin-bottom: 20px"
+    <ol class="" style="width: 500px; display: inline-block; text-align: left">
+      <li class="" style=""
         v-for="(i, index) in sortByDate"
         :key="index"
+         v-if="i.visible"
       >
-        <div class="" style="margin-bottom: 20px">
-          {{ i.title }}
-        </div>
-        <div  class=""
-          v-for="(ii, index) in i.tracklist.tracks"
-          :key="'b' + index"
-        >
-          <div class="">
-            {{ index + 1 }}
-            {{ ii.artist }} -
-            {{ ii.title }}
+        <div>
+          
+          <div v-if="i.title" class="" style="margin-bottom: 20px">{{ i.title }}</div>
+          
+          <div v-if="i.tracklist" class="" style="margin-bottom: 20px">
+            <div v-for="(ii, index) in i.tracklist.tracks" :key="'b' + index">
+              <div class="">
+              {{ index + 1 }}
+              {{ ii.artist }} -
+              {{ ii.title }}
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="">
-          _
-        </div>
+
+          <div v-if="i.tracklistCompact" class="" style="margin-bottom: 20px">
+            <div v-for="(iii, index) in i.tracklistCompact" :key="'b' + index" v-html="iii.p"/>
+          </div>
+
       </div>
-    </div>
+    </li>
+    </ol>
   </div>
 </template>
 

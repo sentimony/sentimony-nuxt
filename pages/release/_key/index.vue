@@ -53,6 +53,17 @@
           <app-btn v-if="release.links.napster" :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
           <app-btn v-if="release.links.soundcloud_url" :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
           <app-btn v-if="release.links.youtube" :url="release.links.youtube | YouTubeFullReleases" :route="routes.youtube" :title="titles.youtube_full" :icon="icons.youtube"/>
+          
+          <span class="app-btn" v-if="release.links.youtube_playlist_id">
+            <a class="app-btn__btn" :href="release.links.youtube_playlist_id | YouTubeIndividualTracks" target="_blank" rel="noopener">
+              <img
+                class="app-btn__btn-img"
+                :src="icons.youtube"
+                :alt="titles.youtube_indiv + ' Icon'"
+              >
+              <span class="app-btn__btn-text" v-html="titles.youtube_indiv"></span>
+            </a>
+          </span>
 
         </div>
 
@@ -100,13 +111,17 @@
             <app-tab
               v-if="release.links.youtube_playlist_id"
               :icon="icons.youtube"
-              :title="titles.youtube_track"
+              :title="titles.youtube_indiv"
             >
               <div class="page-release__youtube-player">
-                <iframe
+                <iframe 
                   class="page-release__youtube-player-iframe"
-                  :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
-                  :title="release.title + ' YouTube Iframe'"
+                  :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + release.links.youtube_playlist_id + '&loop=1'"
+                  :title="release.title + 'YouTube video player'"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
                 ></iframe>
               </div>
             </app-tab>
@@ -359,11 +374,19 @@
       //   }
       // },
       YouTubeFullReleases (youtube) {
-        let y = youtube.replace('https://youtu.be/', '');
+        let ytfr = youtube.replace('https://youtu.be/', '');
         if (youtube) {
-          return 'https://www.youtube.com/watch?v=' + y + '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU';
+          return 'https://www.youtube.com/watch?v=' + ytfr + '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU';
         } else {
-          return y
+          return ytfr
+        }
+      },
+      YouTubeIndividualTracks (youtube_playlist_id) {
+        let ytit = youtube_playlist_id.replace('https://youtu.be/', '');
+        if (youtube_playlist_id) {
+          return 'https://www.youtube.com/playlist?list=' + ytit + '&index=1';
+        } else {
+          return ytit
         }
       }
     },

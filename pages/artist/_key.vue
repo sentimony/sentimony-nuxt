@@ -46,10 +46,14 @@
             >
               <div class="iframe-holder">
                 <div class="iframe-holder__ratio">
-                  <iframe
+                  <iframe 
                     class="iframe-holder__iframe"
-                    :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + artist.youtube_playlist_id"
-                    :title="artist.title + ' YouTube Iframe'"
+                    :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + artist.youtube_playlist_id + '&loop=1'"
+                    :title="artist.title + 'YouTube video player'"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
                   ></iframe>
                 </div>
               </div>
