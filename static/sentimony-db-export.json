@@ -9459,7 +9459,7 @@
         "napster": "",
         "qobuz": "https://play.qobuz.com/album/voblccm0o02za",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nCsiWGOPeC-akwxhb-vlYBB_wF0ckdQXk",
-        "youtube": "",
+        "youtube": "https://youtu.be/1Xi5sQy3IdE",
         "youtube_playlist_id": "PLp2GaPnw5O3NaLfBzlUNWxXjy6c67gM5W"
       }
     },
@@ -9497,7 +9497,6 @@
       ],
       "links": {
         "official": "https://sentimony.com/release/vorg-cyber-soul",
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/urklang-psyral-lifeforms-24bit",
         "bandcamp_id": "2067884992",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/urklang-psyral-lifeforms",
@@ -9514,7 +9513,7 @@
         "qobuz": "https://play.qobuz.com/album/mz08vpkx0u75b",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_l1KciJWCr0RERDqzKpbZCK0KmZnUtJJ0Q",
         "youtube": "",
-        "youtube_playlist_id": ""
+        "youtube_playlist_id": "PLp2GaPnw5O3PoanCB55pDHe0u5t1kXXLY"
       }
     },
     "spacecraft-metamorphosis": {
@@ -10243,6 +10242,70 @@
         "napster": "",
         "qobuz": "https://play.qobuz.com/album/qbumdgqh6hsea",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_lys8IYjvLJX-1UtnecRYVtNAoAmPhdMbg",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      },
+      "links_v2": [
+        { "url": "https://sentimony.bandcamp.com/-24bit" },
+        { "url": "https://www.beatport.com" },
+        { "url": "https://www.junodownload.com" },
+        { "url": "https://open.spotify.com" },
+        { "url": "https://music.apple.com" },
+        { "url": "https://music.amazon.com" },
+        { "url": "https://www.deezer.com" },
+        { "url": "https://listen.tidal.com" },
+        { "url": "https://play.qobuz.com" },
+        { "url": "https://app.napster.com" },
+        { "url": "https://soundcloud.com" },
+        { "url": "https://music.youtube.com" },
+        { "url": "https://youtu.be" }
+      ]
+    },
+    "mirror-me-azure-skies-and-golden-valleys": {
+      "slug": "mirror-me-azure-skies-and-golden-valleys",
+      "title": "Mirror Me «Azure Skies And Golden Valleys» EP",
+      "cat_no": "SENCD090",
+      "visible": true,
+      "date": "2025-03-21T12:00:00.000Z",
+      "coming_soon": false,
+      "new": true,
+      "cover_og": "https://content.sentimony.com/assets/img/releases/mirror-me-azure-skies-and-golden-valleys_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/mirror-me-azure-skies-and-golden-valleys_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/mirror-me-azure-skies-and-golden-valleys_xl.jpg",
+      "style": "Psytrance, Progressive, PsyProg, GlitchProg",
+      "tracks_number": "3",
+      "total_time": "25:34",
+      "format": "EP",
+      "artists": "mirror-me salamandra dimitro",
+      "relative_releases": "",
+      "at_playlists": "sentimony-official dark-prog-zenonesque",
+      "information": "<p>Sentimony Records is proud to present new glitched and harmonic progressive psytrance release titled «Azure Skies And Golden Valleys» by <a href='/artist/mirror-me/'>Mirror Me</a>, from Poland.</p><p>Antoni created this EP with the sole wish that all the proceeds be donated to the Ukrainian people and army. Of course, we will fulfill his wish. Antoni, thank you so much for supporting our fight.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "<small>1</small> <b>Mirror Me</b> - Iridescent Daylight <small>(136bpm)</small>" },
+        { "p": "<small>2</small> <b>Mirror Me</b> - Sinusoidal Horizons <small>(138bpm)</small>" },
+        { "p": "<small>3</small> <b>Mirror Me</b> - Spectral Seaside <small>(137bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/mirror-me/'>Mirror Me</a>" },
+        { "p": "Artwork By <a href='https://www.facebook.com/SalamandraArtworks' target='_blank' rel='noopener'>Anneta  Salamandra</a>" },
+        { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro @ Zymosis Studio</a>" }
+      ],
+      "links": {
+        "bandcamp24_url": "https://sentimony.bandcamp.com/album/azure-skies-and-golden-valleys",
+        "bandcamp_id": "4191914024",
+        "soundcloud_url": "https://soundcloud.com/sentimony/sets/mirror-me-azure-skies-and-golden-valleys-ep",
+        "soundcloud_playlist_id": "1986948112",
+        "applemusic_url": "",        
+        "beatport": "",
+        "spotify": "",
+        "junodownload": "",
+        "discogs": "",
+        "deezer": "",
+        "amazon_music": "",
+        "tidal": "",
+        "napster": "",
+        "qobuz": "",
+        "youtube_music": "",
         "youtube": "",
         "youtube_playlist_id": ""
       },
