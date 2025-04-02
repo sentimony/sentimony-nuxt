@@ -40,11 +40,16 @@
               playlist.links.soundcloud_playlist_id
             ]"
           />
-          <br>
+
+          <!-- <br>
 
           <app-tabs>
 
-            <app-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+            <app-tab 
+              v-if="playlist.links.soundcloud_playlist_id"
+              title="SoundCloud"
+              :icon="icons.soundcloud"
+            >
               <div class="page-playlist__soundcloud-player">
                 <iframe
                   class="page-playlist__soundcloud-player-iframe"
@@ -74,7 +79,7 @@
                 ></iframe>
               </div>
             </app-tab>
-          </app-tabs>
+          </app-tabs> -->
 
         </div>
 
@@ -161,14 +166,8 @@
         routes: AppContent.routes,
         titles: AppContent.titles,
         icons: AppContent.icons,
-        // playlists: [],
       }
     },
-    // async asyncData({ route }) {
-    //   const { key } = route.params
-    //   const { data } = await axios.get(`playlists/${key}.json`)
-    //   return { playlist: data }
-    // },
     async asyncData({ route }) {
       const { key } = route.params
       const [playlistRes, releasesRes] = await Promise.all([
@@ -181,13 +180,8 @@
     },
     computed: {
       releasesSortByDate() {
-        // // if (this.releases.playlists) {
         var releases = sortBy(this.releases, 'date').reverse()
         return releases
-        // // }
-        // return this.releases.filter((release) => {
-        //   return released.visible
-        // })
       }
     },
     filters: {
@@ -253,14 +247,10 @@
       margin-bottom: 1em;
       width: 100%;
       position: relative;
-      // display: flex;
-      // align-items: flex-start;
-      // justify-content: space-between;
 
       @include media(L) {
         margin-top: 62px;
         margin-bottom: 10em;
-        // width: auto;
       }
     }
 
