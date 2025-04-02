@@ -1,7 +1,8 @@
 <template>
   <div class="IframeTabs">
-    <!-- <div>sidebarOpen: {{ this.$store.state.mobmenu.sidebarOpen }}</div> -->
-    <div>currentFrame: {{ this.$store.state.tabs.currentFrame }}</div>
+    <!-- <div>currentFrameStore: {{ currentFrameStore }}</div>
+    <div>content(): {{ content }}</div>
+    <br> -->
     <div v-if="one" class="d-flex">
       <a
         v-for="(i, index) in one"
@@ -21,18 +22,20 @@
           class="text-body-2"
         ></span>
       </a>
-      <!-- <div>{{ title }}</div> -->
     </div>
-    <!-- <div>{{ content }}</div>
-    <br> -->
     <div
       style="background:rgba(204,204,204,.4);"
       class="pa-2 rounded-b-lg rounded-tr-lg"
     >
-      <iframe v-if="content"
-        class="d-block"
-        :src="frame(content)" width="100" height="450"
-      />
+      <div
+        style="background:rgba(204,204,204,.4);"
+        :class="'IframeTabs__player IframeTabs__player-' + icon(content)"
+      >
+        <iframe v-if="content"
+          :class="'d-block'"
+          :src="frame(content)" width="100" height="450"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -42,15 +45,10 @@
     props: ['one'],
     data () {
       return {
-        // title: '',
-        content: this.one[0],
-        // isActive: false,
+        content: this.one[this.$store.getters.currentFrame],
       }
     },
     computed: {
-      // loading () {
-      //   return this.$store.getters.loading
-      // },
       currentFrameStore () {
         return this.$store.getters.currentFrame
       }
@@ -73,27 +71,15 @@
         }
       },
       frame(content) {
-        // if (this.content.length == 14 || this.content.length == 15 || this.content.length == 16) {
-        //   return 'https://bandcamp.com/EmbeddedPlayer/' + this.content + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=false/transparent=true/'
-        // }
-        // if (this.content.length == 22) {
-        //   return 'https://open.spotify.com/embed?uri=spotify:album:' + this.content
-        // }
         if (content.length == 72) {
           const content2 = content.match(/\=(.*)/)[1]
-          // const tag = response.data.FE.match(/(.*) /)[1]
-          // this.title = 'YouTube'
-          // return 'https://www.youtube.com/embed/videoseries?list=' + content2
           return 'https://www.youtube.com/embed/videoseries?list=' + content2
         }
         if (content.length == 6 || content.length == 7 || content.length == 8 || content.length == 9 || content.length == 10) {
-          // this.title = 'SoundCloud'
           return 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + content + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'
         }
-        // return content
       },
       chooseFrame (index) {
-        // this.isActive = !this.isActive
         this.selected == index
         this.content = this.one[index]
         this.$store.dispatch('updateCurrentFrame', index)
@@ -103,8 +89,34 @@
 </script>
 
 <style lang="scss">
-  .IframeTabs a.isActive {
-    // background-color: rgba(204,204,204,.4)!important;
-    opacity: 1!important;
+  @import '../node_modules/coriolan-ui/tools/variables';
+  @import '../node_modules/coriolan-ui/mixins/ratio';
+  @import '../assets/scss/iframe-size';
+
+  .IframeTabs {
+
+    & a.isActive {
+      opacity: 1!important;
+    }
+
+    &__player {
+      @extend .sentimony-iframe;
+
+      &-youtube {
+        @include ratio(100%,16,9);
+
+        & iframe {
+          border-radius: 6px;
+          border: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 143%;
+          height: 143%;
+          transform: scale(.7);
+          transform-origin: top left;
+        }
+      }
+    }
   }
 </style>
