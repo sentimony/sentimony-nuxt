@@ -42,9 +42,9 @@
           />
           <br>
 
-          <vue-tabs>
+          <app-tabs>
 
-            <v-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
+            <app-tab v-if="playlist.links.soundcloud_playlist_id" title="SoundCloud" icon="page__tab__icon--soundcloud">
               <div class="page-playlist__soundcloud-player">
                 <iframe
                   class="page-playlist__soundcloud-player-iframe"
