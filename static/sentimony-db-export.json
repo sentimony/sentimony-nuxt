@@ -17,15 +17,16 @@
       "soundcloud_label_playlist_id": "1159271491",
       "soundcloud_artist_playlist_id": "5771025",
       "mixcloud": "https://www.mixcloud.com/irukanji",
-      "youtube_playlist_id": "PLp2GaPnw5O3MzxR4EF6nsV8ETCGoyUA_e",
+      "youtube_playlist_id": "PLAIai5Lge7pg9SpejhZnVtQILTAnSiMlV",
+      "youtube_label_playlist_id": "PLp2GaPnw5O3MzxR4EF6nsV8ETCGoyUA_e",
       "spotify": "https://open.spotify.com/artist/76HMCkLOJJcJ39QH0Grv8I",
       "discogs": "https://www.discogs.com/artist/1375976-Irukanji",
       "facebook": "https://www.facebook.com/irukanji.psy",
       "facebook_personal": "https://www.facebook.com/ihororlovskyi",
       "instagram": "https://www.instagram.com/irukanji25",
       "instagram_personal": "https://www.instagram.com/ihororlovskyi",
-      "bandcamp_url": "https://irukanji.bandcamp.com",
-      "youtube_url": "https://www.youtube.com/channel/UCgGAqMEdhI6gK6Hvjx_x0ug",
+      "bandcamp_url": "https://irukanji.bandcamp.com/follow_me",
+      "youtube_url": "https://www.youtube.com/@Irukanji25?sub_confirmation=1",
       "website": "https://irukanji.sentimony.com"
     },
     "zymosis": {
@@ -332,6 +333,33 @@
       "youtube_url": "",
       "website": ""
     },
+    "tonal-sense": {
+      "title": "Tonal Sense",
+      "slug": "tonal-sense",
+      "visible": true,
+      "category": "musician",
+      "category_id": "111",
+      "name": "Alejandro Bermúdez Barillas",
+      "location": "Guatemala",
+      "style": "Psytrance, DarkProg",
+      "photo_og": "https://content.sentimony.com/assets/img/artists/tonal-sense-01_og.jpg",
+      "photo_th": "https://content.sentimony.com/assets/img/artists/tonal-sense-01_th.jpg",
+      "photo_xl": "https://content.sentimony.com/assets/img/artists/tonal-sense-01_xl.jpg",
+      "soundcloud_url": "https://soundcloud.com/tonal_sense",
+      "soundcloud_label_playlist_id": "",
+      "soundcloud_artist_playlist_id": "",
+      "mixcloud": "",
+      "youtube_playlist_id": "",
+      "spotify": "https://open.spotify.com/artist/6s0jVV7jaCkNd5aYEOkjwd",
+      "discogs": "",
+      "facebook": "https://www.facebook.com/Tonal.Sense",
+      "facebook_personal": "https://www.facebook.com/jorge.bermudezbarillas",
+      "instagram": "https://www.instagram.com/tonal.sense/",
+      "instagram_personal": "",
+      "bandcamp_url": "",
+      "youtube_url": "",
+      "website": ""
+    },
     "mushroomslice": {
       "title": "Mushroomslice",
       "slug": "mushroomslice",
@@ -418,7 +446,7 @@
       "slug": "bensaid",
       "visible": true,
       "category": "musician",
-      "category_id": "105",
+      "category_id": "104",
       "name": "Benjamin Garrido",
       "location": "Chile",
       "style": "Psytrance, Dark Progressive, Psytech",
@@ -801,7 +829,7 @@
       "slug": "derotonin",
       "visible": true,
       "category": "musician",
-      "category_id": "104",
+      "category_id": "105",
       "name": "Lee Reid",
       "location": "Fremantle, Australia",
       "style": "Progressive, Zenonesque, Psybass",
@@ -941,7 +969,7 @@
       "slug": "noob-psybot",
       "visible": true,
       "category": "musician",
-      "category_id": "106",
+      "category_id": "107",
       "name": "Aditya Vernekar",
       "location": "Mumbai, India",
       "style": "Psytrance, Dark Progressive, Zenonesque, Psytech",
@@ -996,7 +1024,7 @@
       "slug": "tystix",
       "visible": true,
       "category": "musician",
-      "category_id": "105",
+      "category_id": "104",
       "name": "Tyler Archer",
       "location": "Knysna, South Africa",
       "style": "Psytrance, Dark Progressive, Zenonesque",
@@ -1024,7 +1052,7 @@
       "slug": "jai",
       "visible": true,
       "category": "musician",
-      "category_id": "107",
+      "category_id": "105",
       "name": "Jai Jagdeesh",
       "location": "Xalapa, Mexico",
       "style": "Dark Progressive, Glitch",
@@ -2584,12 +2612,39 @@
       "youtube_url": "",
       "website": ""
     },
+    "salamandra": {
+      "title": "Salamandra",
+      "slug": "salamandra",
+      "visible": true,
+      "category": "designer",
+      "category_id": "407",
+      "name": "",
+      "location": "Lviv, Ukraine",
+      "style": "",
+      "photo_og": "https://content.sentimony.com/assets/img/artists/salamandra-01_og.jpg",
+      "photo_th": "https://content.sentimony.com/assets/img/artists/salamandra-01_th.jpg",
+      "photo_xl": "https://content.sentimony.com/assets/img/artists/salamandra-01_xl.jpg",
+      "soundcloud_url": "",
+      "soundcloud_label_playlist_id": "",
+      "soundcloud_artist_playlist_id": "",
+      "mixcloud": "",
+      "youtube_playlist_id": "",
+      "spotify": "",
+      "discogs": "",
+      "facebook": "https://www.facebook.com/SalamandraArtworks",
+      "facebook_personal": "https://www.facebook.com/anneta.salamandra",
+      "instagram": "https://www.instagram.com/salamandra_artworks",
+      "instagram_personal": "",
+      "bandcamp_url": "",
+      "youtube_url": "",
+      "website": ""
+    },
     "jungle-symbol": {
       "title": "Jungle Symbol",
       "slug": "jungle-symbol",
       "visible": false,
       "category": "designer",
-      "category_id": "407",
+      "category_id": "408",
       "name": "Denys Krupodorov",
       "location": "Odesa, Ukraine",
       "style": "",
@@ -3713,12 +3768,11 @@
       "visible": true,
       "date": "2009-02-23T12:00:00.000Z",
       "coming_soon": false,
-      "new": "",
-      "cover": true,
-      "cover_og": "",
-      "cover_th": "",
-      "cover_xl": "",
-      "style": "Psychill, Downtempo",
+      "new": false,
+      "cover_og": "https://content.sentimony.com/assets/img/releases/irukanji-z-lisu_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/irukanji-z-lisu_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/irukanji-z-lisu_xl.jpg",
+      "style": "Psychill, Psybient, Glitched, Trippy, Downtempo, Midtempo, Psyprog, Darkprog ",
       "tracks_number": "10",
       "total_time": "1:08:30",
       "format": "Album",
@@ -3726,15 +3780,24 @@
       "relative_releases": "sphingida-origin irukanji-rebuild irukanji-eleexr-i-have-something-to-show-you",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records proudly presents «Z Lisu» (from Ukrainian its mean «From The Forest») - debut album of <a href='/artist/irukanji/'>Irukanji</a>.</p><p>Behind this name is standing talented musician and charismatic dj – Ihor Orlovskyi, member of Ukrainian duet <a href='/artist/sphingida/'>Sphingida</a> (2004 - 2008).</p><p>Also Ihor Orlovskyi is known as owner of Sentimony Records and its sublables Aqua Deep Music and Lookinglook Records.</p><p>Created in 2008 Irukanji combined all experimental ideas and fresh twisted downtempo style. Irukanji is breaking all rules and standing beyond the scope.</p><p>In his tracks you will hear crazy conversion between pure psychedelic down beats and mysterious tales.</p><p>Have a nice forest journey!</p>",
-      "credits": {
-        "written_and_produced_by": "<a href='/artist/irukanji/'>Irukanji</a>",
-        "compiled_by": "",
-        "artwork_by": "<a href='https://www.facebook.com/apivniuk' target='_blank' rel='noopener'>Anton Pivniuk</a>",
-        "mastered_by": "Prok @ VioletRaySoundlab",
-        "mixed_and_mastered_by": ""
-      },
+      "tracklistCompact": [
+        { "p": "<small>01.</small> <b>Irukanji</b> - Onset (In) <small>(72bpm)</small>" },
+        { "p": "<small>02.</small> <b>Irukanji</b> - Swamp <small>(128bpm)</small>" },
+        { "p": "<small>03.</small> <b>Irukanji</b> - Recapture The Past <small>(90bpm)</small>" },
+        { "p": "<small>04.</small> <b>Irukanji</b> - Return Home <small>(90bpm)</small>" },
+        { "p": "<small>05.</small> <b>Irukanji</b> - Hybrid Seven <small>(100bpm)</small>" },
+        { "p": "<small>06.</small> <b>Irukanji</b> - Nymphosis <small>(120bpm)</small>" },
+        { "p": "<small>07.</small> <b>Irukanji</b> - On One Wave <small>(130bpm)</small>" },
+        { "p": "<small>08.</small> <b>Irukanji</b> - Forest Speakers <small>(130bpm)</small>" },
+        { "p": "<small>09.</small> <b>Sphingida</b> - Crystal Silence <small>(75bpm)</small>" },
+        { "p": "<small>10.</small> <b>Irukanji</b> - End (Out) (feat. <b>NeiRula</b>) <small>(72bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/irukanji/'>Irukanji</a>" },
+        { "p": "Artwork By <a href='https://www.facebook.com/apivniuk' target='_blank' rel='noopener'>Anton Pivniuk</a>" },
+        { "p": "Mastering By Prok @ VioletRaySoundlab" }
+      ],
       "links": {
-        "official": "https://sentimony.com/release/irukanji-z-lisu",
         "bandcamp_url": "https://sentimony.bandcamp.com/album/irukanji-z-lisu",
         "bandcamp24_url": "",
         "bandcamp_id": "2924012921",
@@ -3752,77 +3815,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46372172",
+        "amazon_music": "https://music.amazon.com/albums/B074V2DB3D",
         "tidal": "https://listen.tidal.com/album/77547070",
         "napster": "https://app.napster.com/artist/irukanji/album/z-lisu",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689262",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_lyQ8BpbKwpCXzBb2IEYwX7Mo6EjGDvV98",
         "youtube": "https://youtu.be/fes2A7Gmzw0",
         "youtube_playlist_id": "PLp2GaPnw5O3PXxnQyyDQiwfBrOlP6Qjc6"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Irukanji",
-            "title": "Onset (In)",
-            "bpm": "72"
-          },
-          {
-            "number": "02",
-            "artist": "Irukanji",
-            "title": "Swamp",
-            "bpm": "128"
-          },
-          {
-            "number": "03",
-            "artist": "Irukanji",
-            "title": "Recapture The Past",
-            "bpm": "90"
-          },
-          {
-            "number": "04",
-            "artist": "Irukanji",
-            "title": "Return Home",
-            "bpm": "90"
-          },
-          {
-            "number": "05",
-            "artist": "Irukanji",
-            "title": "Hybrid Seven",
-            "bpm": "100"
-          },
-          {
-            "number": "06",
-            "artist": "Irukanji",
-            "title": "Nymphosis",
-            "bpm": "120"
-          },
-          {
-            "number": "07",
-            "artist": "Irukanji",
-            "title": "On One Wave",
-            "bpm": "130"
-          },
-          {
-            "number": "08",
-            "artist": "Irukanji",
-            "title": "Forest Speakers",
-            "bpm": "130"
-          },
-          {
-            "number": "09",
-            "artist": "Sphingida",
-            "title": "Crystal Silence",
-            "bpm": "75"
-          },
-          {
-            "number": "10",
-            "artist": "Irukanji",
-            "title": "End (Out) (feat. NeiRula)",
-            "bpm": "72"
-          }
-        ]
       }
     },
     "va-ocean-scenes-higher-titans": {
@@ -8041,7 +8040,7 @@
       "total_time": "29:31",
       "format": "EP",
       "artists": "paracozm vorg matik dimitro",
-      "relative_releases": "vorg-echoes paracozm-vorg-qube",
+      "relative_releases": "vorg-echoes paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-day vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Too Weird To Live, Too Rare To Die» by Brazilian duo <a href='/artist/paracozm/'>Paracozm</a> and <a href='/artist/vorg/'>VORG</a>.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
@@ -8543,7 +8542,7 @@
       "total_time": "42:43",
       "format": "EP",
       "artists": "vorg matik dimitro",
-      "relative_releases": "paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube",
+      "relative_releases": "paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-day vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Echoes» by <a href='/artist/vorg/'>VORG</a>, from Brazil.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
@@ -8596,7 +8595,7 @@
       "total_time": "33:53",
       "format": "EP",
       "artists": "tystix fivetimesno dimitro",
-      "relative_releases": "tystix-romanesca",
+      "relative_releases": "tystix-romanesca tystix-spectral",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Etherial Lense» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
@@ -9138,11 +9137,11 @@
       "total_time": "39:21",
       "format": "EP",
       "artists": "tystix matik dimitro",
-      "relative_releases": "tystix-etherial-lense",
+      "relative_releases": "tystix-etherial-lense tystix-spectral",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Romanesca» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
-        { "p": "1 Tystix - Just A Name | 134bpm" },
+        { "p": "1 TyStix - Just A Name | 134bpm" },
         { "p": "2 TyStix - Coastal Erosion | 137bpm" },
         { "p": "3 TyStix - Romanesca | 141bpm" },
         { "p": "4 TyStix - Water Strider | 141bpm" }
@@ -9295,7 +9294,7 @@
       "total_time": "47:14",
       "format": "EP",
       "artists": "paracozm vorg matik dimitro",
-      "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die",
+      "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die vorg-cyber-soul-night vorg-cyber-soul-day vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «QUBE» by Brazilian duo <a href='/artist/paracozm/'>Paracozm</a> and <a href='/artist/vorg/'>VORG</a>.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
@@ -9483,12 +9482,12 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new Dark Progressive and Psytechno release titled «Psyral Lifeforms» by <a href='/artist/urklang/'>Urklang</a> from Austria.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>Urklang</b> - Space Nomad &nbsp;<small>136bpm</small>" },
-        { "p": "<small>2</small> <b>Urklang</b> - Libertá &nbsp;<small>136bpm</small>" },
-        { "p": "<small>3</small> <b>Urklang</b> - Psyral Lifeforms &nbsp;<small>138bpm</small>" },
-        { "p": "<small>4</small> <b>Urklang</b> - Parallel Multiverse &nbsp;<small>138bpm</small>" },
-        { "p": "<small>5</small> <b>Urklang</b> - Holon &nbsp;<small>140bpm</small>" },
-        { "p": "<small>6</small> <b>Urklang</b> - Transformation &nbsp;<small>140bpm</small>" }
+        { "p": "<small>1.</small> <b>Urklang</b> - Space Nomad <small>(136bpm)</small>" },
+        { "p": "<small>2.</small> <b>Urklang</b> - Libertá <small>(136bpm)</small>" },
+        { "p": "<small>3.</small> <b>Urklang</b> - Psyral Lifeforms <small>(138bpm)</small>" },
+        { "p": "<small>4.</small> <b>Urklang</b> - Parallel Multiverse <small>(138bpm)</small>" },
+        { "p": "<small>5.</small> <b>Urklang</b> - Holon <small>(140bpm)</small>" },
+        { "p": "<small>6.</small> <b>Urklang</b> - Transformation <small>(140bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/urklang/'>Urklang</a>" },
@@ -9512,7 +9511,7 @@
         "napster": "",
         "qobuz": "https://play.qobuz.com/album/mz08vpkx0u75b",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_l1KciJWCr0RERDqzKpbZCK0KmZnUtJJ0Q",
-        "youtube": "",
+        "youtube": "https://youtu.be/2cPEchjG8ZY",
         "youtube_playlist_id": "PLp2GaPnw5O3PoanCB55pDHe0u5t1kXXLY"
       }
     },
@@ -9536,10 +9535,10 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is happy to present new DarkProg Psytrance EP titled «Metamorphosis» by <a href='/artist/spacecraft/'>SpaceCraft</a> from Mexico.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>SpaceCraft</b> - Metamorphosis &nbsp;<small>138bpm</small>" },
-        { "p": "<small>2</small> <b>SpaceCraft</b> - Uncover &nbsp;<small>138bpm</small>" },
-        { "p": "<small>3</small> <b>SpaceCraft</b> - Boogyman &nbsp;<small>138bpm</small>" },
-        { "p": "<small>4</small> <b>Irukanji</b> & <b>EleexR</b> - I Have Something (<b>SpaceCraft</b> Rmx) &nbsp;<small>138bpm</small>" }
+        { "p": "<small>1.</small> <b>SpaceCraft</b> - Metamorphosis <small>(138bpm)</small>" },
+        { "p": "<small>2.</small> <b>SpaceCraft</b> - Uncover <small>(138bpm)</small>" },
+        { "p": "<small>3.</small> <b>SpaceCraft</b> - Boogyman <small>(138bpm)</small>" },
+        { "p": "<small>4.</small> <b>Irukanji</b> & <b>EleexR</b> - I Have Something (<b>SpaceCraft</b> Rmx) <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/spacecraft/'>SpaceCraft</a>" },
@@ -9941,14 +9940,14 @@
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Introducing the opportunity to embark on a sonic voyage like never before with Zymosis on vinyl for the very first time!</p><p>Experience the ethereal soundscape of «Memento», the latest masterpiece from Ukrainian virtuoso Zymosis, now available as a captivating double vinyl album.</p><p>In the realm of philosophy,«memento» resonates with profound depth, embodying the essence of temporal consciousness and existential contemplation. Rooted in the Latin imperative «mementō», translating to «remember», it beckons onlookers towards an introspective odyssey through the transient tapestry of existence, urging the embrace of every fleeting moment.</p><p>Featuring 8 mesmerizing narratives, with 2 enchanting tales on each side, this album promises an exhilarating journey through realms of sound and thought.</p><p>Prepare for a captivating expedition into the realms of sound and introspection. Bon voyage, and may you savor every moment of this exquisite auditory adventure!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>Zymosis</b> - A Way Away &nbsp;<small>120bpm</small>" },
-        { "p": "<small>2</small> <b>Zymosis</b> - Return To The Path &nbsp;<small>140bpm</small>" },
-        { "p": "<small>3</small> <b>Zymosis</b> - Kiss Me Goodbye &nbsp;<small>90bpm</small>" },
-        { "p": "<small>4</small> <b>Zymosis</b> - Spirit In The Box (feat. <b>Irukanji</b>) &nbsp;<small>112bpm</small>" },
-        { "p": "<small>5</small> <b>Zymosis</b> - 7 Seconds (2024) &nbsp;<small>142bpm</small>" },
-        { "p": "<small>6</small> <b>Zymosis</b> - Never Last &nbsp;<small>135bpm</small>" },
-        { "p": "<small>7</small> <b>Zymosis</b> - Small But Very Important Thing (2024) &nbsp;<small>140bpm</small>" },
-        { "p": "<small>8</small> <b>Zymosis</b> - Last Call (2024) &nbsp;<small>140bpm</small>" }
+        { "p": "<small>1.</small> <b>Zymosis</b> - A Way Away <small>(120bpm)</small>" },
+        { "p": "<small>2.</small> <b>Zymosis</b> - Return To The Path <small>(140bpm)</small>" },
+        { "p": "<small>3.</small> <b>Zymosis</b> - Kiss Me Goodbye <small>(90bpm<)/small>" },
+        { "p": "<small>4.</small> <b>Zymosis</b> - Spirit In The Box (feat. <b>Irukanji</b>) <small>(112bpm)</small>" },
+        { "p": "<small>5.</small> <b>Zymosis</b> - 7 Seconds (2024) <small>(142bpm)</small>" },
+        { "p": "<small>6.</small> <b>Zymosis</b> - Never Last <small>(135bpm)</small>" },
+        { "p": "<small>7.</small> <b>Zymosis</b> - Small But Very Important Thing (2024) <small>(140bpm)</small>" },
+        { "p": "<small>8.</small> <b>Zymosis</b> - Last Call (2024) <small>(140bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/zymosis/'>Zymosis</a>" },
@@ -9969,7 +9968,7 @@
         "beatport": "https://www.beatport.com/release/memento/4658482",
         "spotify": "https://open.spotify.com/album/7N0JcRfEUYmc2s40Cfd4O2",
         "junodownload": "https://www.junodownload.com/products/zymosis-memento/6707135-02",
-        "discogs": "",
+        "discogs": "https://www.discogs.com/ru/release/31329094-Zymosis-Memento",
         "deezer": "https://www.deezer.com/us/album/617370691",
         "amazon_music": "https://music.amazon.com/albums/B0D9P81DXR",
         "tidal": "https://listen.tidal.com/album/375949924",
@@ -10016,7 +10015,7 @@
       "at_playlists": "sentimony-official psydnb psychill-psybient",
       "information": "<p>Sentimony Records proudly presents its debut single, alongside the label's first release of Drum & Bass with a pinch of trible and psychedelic vibes by <a href='/artist/boketto/'>Boketto</a> (UK), titled «Pushback».</p><p>With «Pushback», Boketto seeks to encapsulate the emotional journey of humanity, tracing our mysterious origins through to our present evolution.</p><p>This release is truly one-of-a-kind, marking the beginning of a new chapter for us: the Psychedelic Drum & Bass (PsyDnB) genre. We’ve already started work on the first PsyDnB compilation featuring talented, psyminded artists. Stay tuned and enjoy the ride!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>Boketto</b> - Pushback &nbsp;<small>174bpm</small>" }
+        { "p": "<small>1.</small> <b>Boketto</b> - Pushback <small>(174bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By Harry Critchley (<a href='/artist/boketto/'>Boketto</a>)" },
@@ -10078,10 +10077,10 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present new dark progressive psytrance release titled «Lucid Vision» by <a href='/artist/bensaid/'>Bensaid</a>, from Chile.</p><p>Lucid vision comes from the authentic part that each person carries within, having to sculpt until reaching it, with progress until removing false programs that are not destined for the authentic purpose, and from there changing not only this reality, but also an infinite multitude of possibilities.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>Bensaid</b> - Lucid Vision &nbsp;<small>140bpm</small>" },
-        { "p": "<small>2</small> <b>Bensaid</b> - Esfera &nbsp;<small>140bpm</small>" },
-        { "p": "<small>3</small> <b>Bensaid</b> - Mint Rain &nbsp;<small>137bpm</small>" },
-        { "p": "<small>4</small> <b>Bensaid</b> - Fractal Move &nbsp;<small>142bpm</small>" }
+        { "p": "<small>1.</small> <b>Bensaid</b> - Lucid Vision <small>(140bpm)</small>" },
+        { "p": "<small>2.</small> <b>Bensaid</b> - Esfera <small>(140bpm)</small>" },
+        { "p": "<small>3.</small> <b>Bensaid</b> - Mint Rain <small>(137bpm)</small>" },
+        { "p": "<small>4.</small> <b>Bensaid</b> - Fractal Move <small>(142bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/bensaid/'>Bensaid</a>" },
@@ -10216,10 +10215,10 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present new dark progressive psytrance release titled «Triangulum» by <a href='/artist/frog-prog/'>Frog Prog</a>, from Ukraine.</p><p>Triangulum Galaxy - a spiral galaxy located in the constellation of Triangulum. Its name, derived from the Greek word for «triangle,» reinforces the symbolic connection between the geometric form of the triangle and the broader universe.</p><p>Each of the three corners of the triangle can be seen as symbolic of key aspects of existence: body, mind, and spirit, or creation, preservation, and destruction. These three aspects are not separate but interconnected, forming a unified whole that reflects the cyclical nature of existence. This interconnectedness of parts mirrors the cosmic order that governs not only the individual but also the continuation of life and lineage across time.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>Frog Prog</b> - Darknes & Light &nbsp;<small>138bpm</small>" },
-        { "p": "<small>2</small> <b>Frog Prog</b> - Triángulum &nbsp;<small>138bpm</small>" },
-        { "p": "<small>3</small> <b>Frog Prog</b> - The ONE &nbsp;<small>136bpm</small>" },
-        { "p": "<small>4</small> <b>Frog Prog</b> - Future Music &nbsp;<small>138bpm</small>" }
+        { "p": "<small>1.</small> <b>Frog Prog</b> - Darknes & Light <small>(138bpm)</small>" },
+        { "p": "<small>2.</small> <b>Frog Prog</b> - Triángulum <small>(138bpm)</small>" },
+        { "p": "<small>3.</small> <b>Frog Prog</b> - The ONE <small>(136bpm)</small>" },
+        { "p": "<small>4.</small> <b>Frog Prog</b> - Future Music <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/frog-prog/'>Frog Prog</a>" },
@@ -10281,13 +10280,13 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present new glitched and harmonic progressive psytrance release titled «Azure Skies And Golden Valleys» by <a href='/artist/mirror-me/'>Mirror Me</a>, from Poland.</p><p>Antoni created this EP with the sole wish that all the proceeds be donated to the Ukrainian people and army. Of course, we will fulfill his wish. Antoni, thank you so much for supporting our fight.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>Mirror Me</b> - Iridescent Daylight <small>(136bpm)</small>" },
-        { "p": "<small>2</small> <b>Mirror Me</b> - Sinusoidal Horizons <small>(138bpm)</small>" },
-        { "p": "<small>3</small> <b>Mirror Me</b> - Spectral Seaside <small>(137bpm)</small>" }
+        { "p": "<small>1.</small> <b>Mirror Me</b> - Iridescent Daylight <small>(136bpm)</small>" },
+        { "p": "<small>2.</small> <b>Mirror Me</b> - Sinusoidal Horizons <small>(138bpm)</small>" },
+        { "p": "<small>3.</small> <b>Mirror Me</b> - Spectral Seafloor <small>(137bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/mirror-me/'>Mirror Me</a>" },
-        { "p": "Artwork By <a href='https://www.facebook.com/SalamandraArtworks' target='_blank' rel='noopener'>Anneta  Salamandra</a>" },
+        { "p": "Artwork By <a href='/artist/salamandra/'>Salamandra</a>" },
         { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro @ Zymosis Studio</a>" }
       ],
       "links": {
@@ -10295,6 +10294,76 @@
         "bandcamp_id": "4191914024",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/mirror-me-azure-skies-and-golden-valleys-ep",
         "soundcloud_playlist_id": "1986948112",
+        "applemusic_url": "https://music.apple.com/us/album/azure-skies-and-golden-valleys-single/1805950847",        
+        "beatport": "https://www.beatport.com/release/azure-skies-and-golden-valleys/5019135",
+        "spotify": "https://open.spotify.com/album/1LxHuU80ZN1WXn4lJPPsvZ",
+        "junodownload": "https://www.junodownload.com/products/mirror-me-azure-skies-golden-valleys/7060294-02/",
+        "discogs": "",
+        "deezer": "https://www.deezer.com/us/album/736276861",
+        "amazon_music": "https://music.amazon.com/albums/B0F3B7NKP6",
+        "tidal": "https://listen.tidal.com/album/427599008",
+        "napster": "",
+        "qobuz": "https://play.qobuz.com/album/mm3nm6sckxlfc",
+        "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kyzM0qWfl7kFVmjnsQzkQ-rIOSefwWV7g",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      },
+      "links_v2": [
+        { "url": "https://sentimony.bandcamp.com/-24bit" },
+        { "url": "https://www.beatport.com" },
+        { "url": "https://www.junodownload.com" },
+        { "url": "https://open.spotify.com" },
+        { "url": "https://music.apple.com" },
+        { "url": "https://music.amazon.com" },
+        { "url": "https://www.deezer.com" },
+        { "url": "https://listen.tidal.com" },
+        { "url": "https://play.qobuz.com" },
+        { "url": "https://app.napster.com" },
+        { "url": "https://soundcloud.com" },
+        { "url": "https://music.youtube.com" },
+        { "url": "https://youtu.be" }
+      ]
+    },
+    "vorg-cyber-soul-night": {
+      "slug": "vorg-cyber-soul-night",
+      "title": "VORG «Cyber Soul: Night»",
+      "cat_no": "SENCD091",
+      "visible": true,
+      "date": "2025-03-28T12:00:00.000Z",
+      "coming_soon": false,
+      "new": true,
+      "cover_og": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-night_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-night_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-night_xl.jpg",
+      "style": "DarkProg Psytrance, Psytechno",
+      "tracks_number": "9",
+      "total_time": "1:13:02",
+      "format": "EP",
+      "artists": "vorg matik dimitro",
+      "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-day vorg-cyber-soul-chill",
+      "at_playlists": "sentimony-official dark-prog-zenonesque",
+      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg/'>VORG</a> from Brazil.</p><p>This is the first episode of trilogy of Cyber ​​Soul: Night, <a href='/release/vorg-cyber-soul-day/'>Day</a> and <a href='/release/vorg-cyber-soul-chill/'>Chill</a>, which will be released over the coming months.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "<small>1.</small> <b>VORG</b> - Elastic <small>(139bpm)</small>" },
+        { "p": "<small>2.</small> <b>VORG</b> - Orange And Green <small>(137bpm)</small>" },
+        { "p": "<small>3.</small> <b>VORG</b> - Escape <small>(138bpm)</small>" },
+        { "p": "<small>4.</small> <b>VORG</b> - Submerged Feelings <small>(137bpm)</small>" },
+        { "p": "<small>5.</small> <b>VORG</b> - Unreverse <small>(137bpm)</small>" },
+        { "p": "<small>6.</small> <b>VORG</b> - Exposed <small>(138bpm)</small>" },
+        { "p": "<small>7.</small> <b>VORG</b> - Part Of The Wall <small>(138bpm)</small>" },
+        { "p": "<small>8.</small> <b>VORG</b> - Face To Silence <small>(140bpm)</small>" },
+        { "p": "<small>9.</small> <b>VORG</b> - Terms Of Life <small>(139bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
+        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By Mastered By <a href='/artist/dimitro/'>Dimitro @ Zymosis Studio</a>" }
+      ],
+      "links": {
+        "bandcamp24_url": "https://sentimony.bandcamp.com/album/cyber-soul-night",
+        "bandcamp_id": "2689285825",
+        "soundcloud_url": "https://soundcloud.com/sentimony/sets/vorg-cyber-soul-night",
+        "soundcloud_playlist_id": "1993081332",
         "applemusic_url": "",        
         "beatport": "",
         "spotify": "",
@@ -10325,35 +10394,231 @@
         { "url": "https://youtu.be" }
       ]
     },
-    "vorg-cyber-soul-night": {
-      "slug": "vorg-cyber-soul-night",
-      "title": "VORG «Cyber Soul: Night»",
-      "cat_no": "SENCD090",
-      "visible": false,
-      "date": "2025-03-07T12:00:00.000Z",
+    "tystix-spectral": {
+      "slug": "tystix-spectral",
+      "title": "TyStix «Spectral» EP",
+      "cat_no": "SENCD092",
+      "visible": true,
+      "date": "2025-04-05T12:00:00.000Z",
+      "coming_soon": false,
+      "new": true,
+      "cover_og": "https://content.sentimony.com/assets/img/releases/tystix-spectral_og_v2.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/tystix-spectral_th_v2.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/tystix-spectral_xl_v2.jpg",
+      "style": "Psytrance, Dark Progressive",
+      "tracks_number": "4",
+      "total_time": "24:36",
+      "format": "EP",
+      "artists": "tystix matik dimitro",
+      "relative_releases": "tystix-etherial-lense tystix-romanesca",
+      "at_playlists": "sentimony-official dark-prog-zenonesque",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive psytrance release titled «Spectral» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "<small>1.</small> <b>TyStix</b> - Quanto <small>(135bpm)</small>" },
+        { "p": "<small>2.</small> <b>TyStix</b> - Nimbus <small>(137bpm)</small>" },
+        { "p": "<small>3.</small> <b>TyStix</b> - Spectral <small>(138bpm)</small>" },
+        { "p": "<small>4.</small> <b>TyStix</b> - Optics <small>(138bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
+        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro @ Zymosis Studio</a>" }
+      ],
+      "links": {
+        "bandcamp24_url": "https://sentimony.bandcamp.com/album/spectral",
+        "bandcamp_id": "1252783831",
+        "soundcloud_url": "https://soundcloud.com/sentimony/sets/tystix-spectral-ep",
+        "soundcloud_playlist_id": "1999482584",
+        "applemusic_url": "",        
+        "beatport": "",
+        "spotify": "",
+        "junodownload": "",
+        "discogs": "",
+        "deezer": "",
+        "amazon_music": "",
+        "tidal": "",
+        "napster": "",
+        "qobuz": "",
+        "youtube_music": "",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      },
+      "links_v2": [
+        { "url": "https://sentimony.bandcamp.com/-24bit" },
+        { "url": "https://www.beatport.com" },
+        { "url": "https://www.junodownload.com" },
+        { "url": "https://open.spotify.com" },
+        { "url": "https://music.apple.com" },
+        { "url": "https://music.amazon.com" },
+        { "url": "https://www.deezer.com" },
+        { "url": "https://listen.tidal.com" },
+        { "url": "https://play.qobuz.com" },
+        { "url": "https://app.napster.com" },
+        { "url": "https://soundcloud.com" },
+        { "url": "https://music.youtube.com" },
+        { "url": "https://youtu.be" }
+      ]
+    },
+    "tonal-sense-enveloping-rhythm": {
+      "slug": "tonal-sense-enveloping-rhythm",
+      "title": "Tonal Sense «Enveloping Rhythm» EP",
+      "cat_no": "SENCD093",
+      "visible": true,
+      "date": "2025-04-11T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
-      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fvorg-cyber-soul-night_og.jpg?alt=media&token=1faf084d-af88-44a1-8bb3-2c4c0bf27ef1",
-      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fvorg-cyber-soul-night_th.jpg?alt=media&token=7b811ac0-2941-4c12-bfd1-439b65fb7473",
-      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fvorg-cyber-soul-night_xl.jpg?alt=media&token=03dad705-2983-4122-9463-0ff3f9660eea",
-      "style": "Darkprog Psytrance, Psytechno",
+      "cover_og": "https://content.sentimony.com/assets/img/releases/tonal-sense-enveloping-rhythm_og_v2.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/tonal-sense-enveloping-rhythm_th_v2.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/tonal-sense-enveloping-rhythm_xl_v2.jpg",
+      "style": "Psytrance, Dark Progressive",
+      "tracks_number": "3",
+      "total_time": "21:09",
+      "format": "EP",
+      "artists": "tonal-sense matik dimitro",
+      "relative_releases": "",
+      "at_playlists": "sentimony-official dark-prog-zenonesque",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive psytrance release titled «Enveloping Rhythm» by <a href='/artist/tonal-sense/'>Tonal Sense</a>, from Guatemala.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "<small>1.</small> <b>Tonal Sense</b> - Dark Sense <small>(138bpm)</small>" },
+        { "p": "<small>2.</small> <b>Tonal Sense</b> - Sound Storm <small>(140bpm)</small>" },
+        { "p": "<small>3.</small> <b>Tonal Sense</b> - Emveloping Rhythms <small>(142bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/tonal-sense/'>Tonal Sense</a>" },
+        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro @ Zymosis Studio</a>" }
+      ],
+      "links": {
+        "bandcamp24_url": "",
+        "bandcamp_id": "",
+        "soundcloud_url": "",
+        "soundcloud_playlist_id": "",
+        "applemusic_url": "",        
+        "beatport": "",
+        "spotify": "",
+        "junodownload": "",
+        "discogs": "",
+        "deezer": "",
+        "amazon_music": "",
+        "tidal": "",
+        "napster": "",
+        "qobuz": "",
+        "youtube_music": "",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      },
+      "links_v2": [
+        { "url": "https://sentimony.bandcamp.com/-24bit" },
+        { "url": "https://www.beatport.com" },
+        { "url": "https://www.junodownload.com" },
+        { "url": "https://open.spotify.com" },
+        { "url": "https://music.apple.com" },
+        { "url": "https://music.amazon.com" },
+        { "url": "https://www.deezer.com" },
+        { "url": "https://listen.tidal.com" },
+        { "url": "https://play.qobuz.com" },
+        { "url": "https://app.napster.com" },
+        { "url": "https://soundcloud.com" },
+        { "url": "https://music.youtube.com" },
+        { "url": "https://youtu.be" }
+      ]
+    },
+    "vorg-cyber-soul-day": {
+      "slug": "vorg-cyber-soul-day",
+      "title": "VORG «Cyber Soul: Day»",
+      "cat_no": "SENCDXXX",
+      "visible": false,
+      "date": "2025-04-28T12:00:00.000Z",
+      "coming_soon": true,
+      "new": false,
+      "cover_og": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-day_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-day_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-day_xl.jpg",
+      "style": "DarkProg Psytrance, Psytechno",
       "tracks_number": "9",
-      "total_time": "1:11:47",
+      "total_time": "1:03:16",
       "format": "EP",
       "artists": "vorg matik dimitro",
-      "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube",
+      "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg/'>VORG</a> from Brazil.</p><p>Have a deep trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg/'>VORG</a> from Brazil.</p><p>This is the second episode of trilogy of Cyber ​​Soul: <a href='/release/vorg-cyber-soul-night/'>Night</a>, Day and <a href='/release/vorg-cyber-soul-chill/'>Chill</a>, which are released these months.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
-        { "p": "<small>1</small> <b>VORG</b> - Elastic <small>(138bpm)</small>" },
-        { "p": "<small>2</small> <b>VORG</b> - Orange And Green <small>(138bpm)</small>" },
-        { "p": "<small>3</small> <b>VORG</b> - In Is Out <small>(138bpm)</small>" },
-        { "p": "<small>4</small> <b>VORG</b> - Submerged Feelings <small>(138bpm)</small>" },
-        { "p": "<small>5</small> <b>VORG</b> - Unreverse <small>(138bpm)</small>" },
-        { "p": "<small>6</small> <b>VORG</b> - Exposed <small>(138bpm)</small>" },
-        { "p": "<small>7</small> <b>VORG</b> - Part Of The Wall <small>(138bpm)</small>" },
-        { "p": "<small>8</small> <b>VORG</b> - Face To Silence <small>(138bpm)</small>" },
-        { "p": "<small>9</small> <b>VORG</b> - Terms Of Life <small>(138bpm)</small>" }
+        { "p": "<small>1.</small> <b>VORG</b> - Adventure Nature <small>(139bpm)</small>" },
+        { "p": "<small>2.</small> <b>VORG</b> - Acid Kid <small>(137bpm)</small>" },
+        { "p": "<small>3.</small> <b>VORG</b> - Antiseptic Love <small>(139bpm)</small>" },
+        { "p": "<small>4.</small> <b>VORG</b> - Valley Of The Lightness <small>(139bpm)</small>" },
+        { "p": "<small>5.</small> <b>VORG</b> - Past Changes <small>(139bpm)</small>" },
+        { "p": "<small>6.</small> <b>VORG</b> - Abduction <small>(134bpm)</small>" },
+        { "p": "<small>7.</small> <b>VORG</b> - The Light <small>(138bpm)</small>" },
+        { "p": "<small>8.</small> <b>VORG</b> - Ambious <small>(137bpm)</small>" },
+        { "p": "<small>9.</small> <b>VORG</b> - Nebula <small>(137bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
+        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By Mastered By <a href='/artist/dimitro/'>Dimitro @ Zymosis Studio</a>" }
+      ],
+      "links": {
+        "bandcamp24_url": "",
+        "bandcamp_id": "",
+        "soundcloud_url": "",
+        "soundcloud_playlist_id": "",
+        "applemusic_url": "",        
+        "beatport": "",
+        "spotify": "",
+        "junodownload": "",
+        "discogs": "",
+        "deezer": "",
+        "amazon_music": "",
+        "tidal": "",
+        "napster": "",
+        "qobuz": "",
+        "youtube_music": "",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      },
+      "links_v2": [
+        { "url": "https://sentimony.bandcamp.com/-24bit" },
+        { "url": "https://www.beatport.com" },
+        { "url": "https://www.junodownload.com" },
+        { "url": "https://open.spotify.com" },
+        { "url": "https://music.apple.com" },
+        { "url": "https://music.amazon.com" },
+        { "url": "https://www.deezer.com" },
+        { "url": "https://listen.tidal.com" },
+        { "url": "https://play.qobuz.com" },
+        { "url": "https://app.napster.com" },
+        { "url": "https://soundcloud.com" },
+        { "url": "https://music.youtube.com" },
+        { "url": "https://youtu.be" }
+      ]
+    },
+    "vorg-cyber-soul-chill": {
+      "slug": "vorg-cyber-soul-chill",
+      "title": "VORG «Cyber Soul: Chill»",
+      "cat_no": "SENCDXXX",
+      "visible": false,
+      "date": "2025-05-28T12:00:00.000Z",
+      "coming_soon": true,
+      "new": false,
+      "cover_og": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_xl.jpg",
+      "style": "DarkProg Psytrance, Psytechno",
+      "tracks_number": "6",
+      "total_time": "40:43",
+      "format": "EP",
+      "artists": "vorg matik dimitro",
+      "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-day",
+      "at_playlists": "sentimony-official psychill-psybient",
+      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg/'>VORG</a> from Brazil.</p><p>This is the third episode of trilogy of Cyber ​​Soul: <a href='/release/vorg-cyber-soul-night/'>Night</a>, <a href='/release/vorg-cyber-soul-day/'>Day</a> and Chill, which have been released in recent months.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "<small>1.</small> <b>VORG</b> - 17 Earths <small>(127bpm)</small>" },
+        { "p": "<small>2.</small> <b>VORG</b> - Impass <small>(137bpm)</small>" },
+        { "p": "<small>3.</small> <b>VORG</b> - Lost Memories <small>(132bpm)</small>" },
+        { "p": "<small>4.</small> <b>VORG</b> - No Forms <small>(128bpm)</small>" },
+        { "p": "<small>5.</small> <b>VORG</b> - Cardio Drums <small>(125bpm)</small>" },
+        { "p": "<small>6.</small> <b>VORG</b> - Our Reason <small>(117bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
@@ -10717,9 +10982,9 @@
       "visible": true,
       "date": "2020-04-10T12:00:00.000Z",
       "format": "clip",
-      "cover_og": "",
-      "cover_th": "",
-      "cover_xl": "",
+      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fboketto-scitalis-cover_og.jpg?alt=media&token=75341cda-f89f-460a-b553-d6c3084313cf",
+      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fboketto-scitalis-cover_th.jpg?alt=media&token=6c41f9e5-ea54-4915-9b32-526ebac99d0b",
+      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fboketto-scitalis-cover_xl.jpg?alt=media&token=c193c6f2-284b-461f-a614-360d3e988316",
       "information": "<p>Information here</p>",
       "credits": "<p>Credits here</p>",
       "links": {
