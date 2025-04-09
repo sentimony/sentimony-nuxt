@@ -14,6 +14,7 @@
             :category="'releases'"
             :slug="release.slug"
             :title="release.title"
+            v-ripple
           />
 
           <p class="small-info">
@@ -197,22 +198,6 @@
             :key="index"
             v-html="i.p"
           ></p>
-        </div>
-
-        <!-- TODO: Delete this div, when tracklist migrate to creditsCompact -->
-        <div v-if="!release.creditsCompact">
-          <div v-if="release.credits.artwork_by || release.credits.written_and_produced_by || release.credits.mastered_by || release.credits.compiled_by">
-            <hr>
-            <p>Credits:</p>
-            <p v-if="release.credits.written_and_produced_by" v-html="'Written & Produced By ' + release.credits.written_and_produced_by"></p>
-            <p v-if="release.credits.tracks_by" v-html="release.credits.tracks_by"></p>
-            <!-- <p v-if="release.credits.vocal_by" v-html="'Vocal By ' + release.credits.vocal_by"></p> -->
-            <p v-if="release.credits.compiled_by" v-html="'Compiled By ' + release.credits.compiled_by"></p>
-            <p v-if="release.credits.artwork_by" v-html="'Artwork By ' + release.credits.artwork_by"></p>
-            <p v-if="release.credits.mastered_by" v-html="'Mastered By ' + release.credits.mastered_by"></p>
-            <p v-if="release.credits.mixed_and_mastered_by" v-html="'Mixed & Mastered By ' + release.credits.mixed_and_mastered_by"></p>
-            <p v-if="release.credits.mixed_by" v-html="'Mixed By ' + release.credits.mixed_by"></p>
-          </div>
         </div>
 
         <div v-if="release.creditsCompact">
