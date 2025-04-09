@@ -3,7 +3,7 @@
     <ddos-guard
       :item="release"
       :title="title"
-      :link="release.links.official"
+      :link="'/release/' + release.slug + '/'"
     />
   </section>
 </template>

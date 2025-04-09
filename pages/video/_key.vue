@@ -13,6 +13,7 @@
             :category="'videos'"
             :slug="video.slug"
             :title="video.title"
+            v-ripple
           />
 
           <p class="small-info">

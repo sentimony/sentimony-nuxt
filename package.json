@@ -24,8 +24,8 @@
     "sass-loader": "^7.1.0"
   },
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt generate"
+    "dev": "node -v && npm -v && nuxt",
+    "build": "node -v && npm -v && nuxt generate"
   },
   "engines": {
     "node": "12.16.1",

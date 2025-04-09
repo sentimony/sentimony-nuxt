@@ -12,6 +12,7 @@
             :category="'playlists'"
             :slug="playlist.slug"
             :title="playlist.title"
+            v-ripple
           />
 
           <p v-if="playlist.style" class="small-info">

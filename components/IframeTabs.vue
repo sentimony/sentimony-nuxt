@@ -12,6 +12,7 @@
         style="background:rgba(204,204,204,.4);opacity:.5;"
         class="px-2 py-3 mr-2 d-flex pointer rounded-t-lg"
         :class="{ isActive : currentFrameStore == index }"
+        v-ripple
       >
         <img :src="'https://content.sentimony.com/assets/img/svg-icons/' + icon(i) + '.svg?01'"
           style="width:20px;height:20px;"

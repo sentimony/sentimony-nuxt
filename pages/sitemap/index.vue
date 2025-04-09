@@ -128,6 +128,7 @@
           :key="index"
       >
         <p>
+          <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
           <router-link v-ripple :to="'/video/' + i.slug + '/'">{{ i.title }}</router-link>
         </p>
       </li>
