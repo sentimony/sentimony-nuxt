@@ -154,41 +154,10 @@
     <div class="content">
       <div class="content__wrapper">
 
-        <!-- TODO: Delete this div, when info migrate to information -->
-        <!-- <div v-if="release.info">
-          <p
-            v-for="(i, index) in release.info"
-            :key="index"
-            v-html="i.p"
-          />
-        </div> -->
-
         <div
           v-if="release.information"
           v-html="release.information"
         />
-
-        <!-- TODO: Delete this div, when tracklist migrate to tracklistCompact -->
-        <div v-if="!release.tracklistCompact">
-          <div v-if="release.tracklist">
-            <hr>
-            <p>Tracklist:</p>
-            <p
-              v-for="(i, index) in release.tracklist.tracks"
-              :key="index"
-            >
-              <span v-if="i.number">{{ i.number }} </span>
-              <span v-if="i.artist">{{ i.artist }}</span>
-              <span v-if="i.title"> - {{ i.title }}</span>
-              <span v-if="i.bpm"> | {{ i.bpm }}bpm</span>
-              <span v-if="i.note"> {{ i.note }}</span>
-
-              <br v-if="i.credits">
-              <span v-if="i.credits" class="sen-fs11 sen-ml18 sen-db">{{ i.credits }}</span>
-            </p>
-            <p v-if="release.tracklist.note" v-html="release.tracklist.note"></p>
-          </div>
-        </div>
 
         <div v-if="release.tracklistCompact">
           <hr>

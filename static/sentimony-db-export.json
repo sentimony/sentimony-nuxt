@@ -2581,7 +2581,7 @@
       "discogs": "",
       "facebook": "https://www.facebook.com/zymosisstudio",
       "facebook_personal": "https://www.facebook.com/zymosis.dimitro",
-      "instagram": "",
+      "instagram": "https://www.instagram.com/zymosis_studio",
       "instagram_personal": "https://www.instagram.com/dimitroz",
       "bandcamp_url": "",
       "youtube_url": "",
@@ -3434,6 +3434,20 @@
         { "p": "Artwork By <a href='https://www.facebook.com/apivniuk' target='_blank' rel='noopener'>Anton Pivniuk</a>" },
         { "p": "Mastered By Prok @ VioletRaySoundlab" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Unstable Elements - Thaw (Intro) | 130bpm" },
+        { "p": "02 Sphingida - Over The Depth | 72bpm" },
+        { "p": "03 Unstable Elements - Emotions | 130bpm" },
+        { "p": "04 Harax - Flamberg | 96bpm" },
+        { "p": "05 Zymosis - Strange Emotions | 100bpm" },
+        { "p": "06 Solcast - Hi Paul | 130bpm" },
+        { "p": "07 Harax - Aessone | 90bpm" },
+        { "p": "08 Roof Raiser - Ice Age | 104bpm" },
+        { "p": "09 Heinali - Eye Of The Storm | 122bpm" },
+        { "p": "10 Aisaid - Protos | 90bpm" },
+        { "p": "11 Alexander Daf - Road To The East | 120bpm" },
+        { "p": "12 Atmik - The Day After Tomorrow (Outro) | 105bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-emptinesses",
         "bandcamp24_url": "",
@@ -3452,90 +3466,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46371642",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074TYRJ1Z",
         "tidal": "https://listen.tidal.com/album/77547310",
         "napster": "https://app.napster.com/artist/various/album/emptinesses",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689217",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nC9ZayWpwR0izA92BOFWXGxNDJ0h8Gw68",
         "youtube": "https://youtu.be/_IKZViH38gM",
         "youtube_playlist_id": "PLp2GaPnw5O3NOkIC2Cxy_qAeHMmgqEAYP"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Unstable Elements",
-            "title": "Thaw (Intro)",
-            "bpm": "130"
-          },
-          {
-            "number": "02",
-            "artist": "Sphingida",
-            "title": "Over The Depth",
-            "bpm": "72"
-          },
-          {
-            "number": "03",
-            "artist": "Unstable Elements",
-            "title": "Emotions",
-            "bpm": "130"
-          },
-          {
-            "number": "04",
-            "artist": "Harax",
-            "title": "Flamberg",
-            "bpm": "96"
-          },
-          {
-            "number": "05",
-            "artist": "Zymosis",
-            "title": "Strange Emotions",
-            "bpm": "100"
-          },
-          {
-            "number": "06",
-            "artist": "Solcast",
-            "title": "Hi Paul",
-            "bpm": "130"
-          },
-          {
-            "number": "07",
-            "artist": "Harax",
-            "title": "Aessone",
-            "bpm": "90"
-          },
-          {
-            "number": "08",
-            "artist": "Roof Raiser",
-            "title": "Ice Age",
-            "bpm": "104"
-          },
-          {
-            "number": "09",
-            "artist": "Heinali",
-            "title": "Eye Of The Storm",
-            "bpm": "122"
-          },
-          {
-            "number": "10",
-            "artist": "Aisaid",
-            "title": "Protos",
-            "bpm": "90"
-          },
-          {
-            "number": "11",
-            "artist": "Alexander Daf",
-            "title": "Road To The East",
-            "bpm": "120"
-          },
-          {
-            "number": "12",
-            "artist": "Atmik",
-            "title": "The Day After Tomorrow (Outro)",
-            "bpm": "105"
-          }
-        ]
       }
     },
     "sphingida-origin": {
@@ -3562,6 +3499,18 @@
         { "p": "Artwork By <a href='https://www.facebook.com/apivniuk' target='_blank' rel='noopener'>Anton Pivniuk</a>" },
         { "p": "Mastered By Prok @ VioletRaySoundlab" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Sphingida - Sunset Sign | 100bpm" },
+        { "p": "02 Sphingida - Submerge | 110bpm" },
+        { "p": "03 Sphingida - Spaceward | 120bpm" },
+        { "p": "04 Sphingida - Toxic Memory | 77bpm" },
+        { "p": "05 Sphingida - Fountain Of Youth | 148bpm" },
+        { "p": "06 Sphingida - Gigs Faka (vs. Roof Raiser) | 110bpm" },
+        { "p": "07 Sphingida - Springled Planet | 132bpm" },
+        { "p": "08 Sphingida - Alone In Aqua Endless | 125bpm" },
+        { "p": "09 Sphingida - In The Algae | 100bpm" },
+        { "p": "10 Sphingida - New Age Lullaby | 96bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/sphingida-origin",
         "bandcamp24_url": "",
@@ -3580,78 +3529,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46371732",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074TYDFC2",
         "tidal": "https://listen.tidal.com/album/77546178",
         "napster": "https://app.napster.com/artist/sphingida/album/origin-271685969",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689231",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mb98-SepV7_ossqE4_JR0rlAuI4-Ws2_Y",
         "youtube": "https://youtu.be/Dl1OU7b87g8",
         "youtube_playlist_id": "PLp2GaPnw5O3OxCOTqW6opBhhXWwftxrFL"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Sphingida",
-            "title": "Sunset Sign",
-            "bpm": "100"
-          },
-          {
-            "number": "02",
-            "artist": "Sphingida",
-            "title": "Submerge",
-            "bpm": "110"
-          },
-          {
-            "number": "03",
-            "artist": "Sphingida",
-            "title": "Spaceward",
-            "bpm": "120"
-          },
-          {
-            "number": "04",
-            "artist": "Sphingida",
-            "title": "Toxic Memory",
-            "bpm": "77"
-          },
-          {
-            "number": "05",
-            "artist": "Sphingida",
-            "title": "Fountain Of Youth",
-            "bpm": "148"
-          },
-          {
-            "number": "06",
-            "artist": "Sphingida",
-            "title": "Gigs Faka (vs. Roof Raiser)",
-            "bpm": "110"
-          },
-          {
-            "number": "07",
-            "artist": "Sphingida",
-            "title": "Springled Planet",
-            "bpm": "132"
-          },
-          {
-            "number": "08",
-            "artist": "Sphingida",
-            "title": "Alone In Aqua Endless",
-            "bpm": "125"
-          },
-          {
-            "number": "09",
-            "artist": "Sphingida",
-            "title": "In The Algae",
-            "bpm": "100"
-          },
-          {
-            "number": "10",
-            "artist": "Sphingida",
-            "title": "New Age Lullaby",
-            "bpm": "96"
-          }
-        ]
       }
     },
     "va-true-story": {
@@ -3678,6 +3562,20 @@
         { "p": "Artwork By <a href='https://www.facebook.com/apivniuk' target='_blank' rel='noopener'>Anton Pivniuk</a>" },
         { "p": "Mastered By Prok @ VioletRaySoundlab" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Spectrum Vision - Mystical Experiences | 120bpm" },
+        { "p": "02 Chronos - Time Keeper | 80bpm" },
+        { "p": "03 Dagas - Sombrero Galaxy | 70bpm" },
+        { "p": "04 AstroPilot - Enlightenment | 80bpm" },
+        { "p": "05 Zymosis - Needle (feat. Hvoya) | 90bpm" },
+        { "p": "06 Liquid Mind - Free Dance | 93bpm" },
+        { "p": "07 Unusual Cosmic Process - Smooth Turbulence | 133bpm" },
+        { "p": "08 Frans Gosu - Dark Water | 125bpm" },
+        { "p": "09 Sphingida - Machaon | 120bpm" },
+        { "p": "10 Unstable Elements - Yumy (vs. Madgentel) | 130bpm" },
+        { "p": "11 Taff - Wind | 110bpm" },
+        { "p": "12 Sol - Chudo 81 (Harax Version) | 110bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-true-story",
         "bandcamp24_url": "",
@@ -3696,90 +3594,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46371822",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074TXPMC7",
         "tidal": "https://listen.tidal.com/album/77547004",
         "napster": "https://app.napster.com/artist/various/album/true-story-271686002",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689248",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kJoZrKrTMOen7kwELYCcuueI9F_5GaNjQ",
         "youtube": "https://youtu.be/JtYJYzh43W0",
         "youtube_playlist_id": "PLp2GaPnw5O3NvqIWcRclfziSECY_BT1Ez"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Spectrum Vision",
-            "title": "Mystical Experiences",
-            "bpm": "120"
-          },
-          {
-            "number": "02",
-            "artist": "Chronos",
-            "title": "Time Keeper",
-            "bpm": "80"
-          },
-          {
-            "number": "03",
-            "artist": "Dagas",
-            "title": "Sombrero Galaxy",
-            "bpm": "70"
-          },
-          {
-            "number": "04",
-            "artist": "AstroPilot",
-            "title": "Enlightenment",
-            "bpm": "80"
-          },
-          {
-            "number": "05",
-            "artist": "Zymosis",
-            "title": "Needle (feat. Hvoya)",
-            "bpm": "90"
-          },
-          {
-            "number": "06",
-            "artist": "Liquid Mind",
-            "title": "Free Dance",
-            "bpm": "93"
-          },
-          {
-            "number": "07",
-            "artist": "Unusual Cosmic Process",
-            "title": "Smooth Turbulence",
-            "bpm": "133"
-          },
-          {
-            "number": "08",
-            "artist": "Frans Gosu",
-            "title": "Dark Water",
-            "bpm": "125"
-          },
-          {
-            "number": "09",
-            "artist": "Sphingida",
-            "title": "Machaon",
-            "bpm": "120"
-          },
-          {
-            "number": "10",
-            "artist": "Unstable Elements",
-            "title": "Yumy (vs. Madgentel)",
-            "bpm": "130"
-          },
-          {
-            "number": "11",
-            "artist": "Taff",
-            "title": "Wind",
-            "bpm": "110"
-          },
-          {
-            "number": "12",
-            "artist": "Sol",
-            "title": "Chudo 81 (Harax Version)",
-            "bpm": "110"
-          }
-        ]
       }
     },
     "spectrum-vision-lost-space-device": {
@@ -3855,7 +3676,7 @@
       "cover_og": "https://content.sentimony.com/assets/img/releases/irukanji-z-lisu_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/releases/irukanji-z-lisu_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/releases/irukanji-z-lisu_xl.jpg",
-      "style": "Psychill, Psybient, Glitched, Trippy, Downtempo, Midtempo, Psyprog, Darkprog ",
+      "style": "Psychill, Psybient, Glitched, Trippy, Downtempo, Midtempo, Psychedelic Electronica",
       "tracks_number": "10",
       "total_time": "1:08:30",
       "format": "Album",
@@ -3931,6 +3752,20 @@
         { "p": "Artwork By <a href='https://www.instagram.com/julenca' target='_blank' rel='noopener'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a> & <a href='https://www.facebook.com/cifroteca.music' target='_blank' rel='noopener'>Yuriy Iofik @ Cifroteca Studio</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Irukanji - Mammoth (In) | 130bpm" },
+        { "p": "02 Cifroteca - Nero Squarka | 148bpm" },
+        { "p": "03 Overdream - Rear Gear Forest Ear | 148bpm" },
+        { "p": "04 Already Maged - Necromantica | 154bpm" },
+        { "p": "05 Roof Raiser - GMO25 | 150bpm" },
+        { "p": "06 Saikozaurus - Key Meeting | 150bpm" },
+        { "p": "07 Magmadivers - It's All In Your Head | 149bpm" },
+        { "p": "08 Shivattva - Foggy Land Of Zartak | 148bpm" },
+        { "p": "09 Tookytooky - Nocturna (Rmx) | 146bpm" },
+        { "p": "10 Calamus - The Mighty Glow | 150bpm" },
+        { "p": "11 Shiva3 - Old Moon | 145bpm" },
+        { "p": "12 NeiRula - Absolutiz Hipnotyzze (Out) | 90bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-ocean-scenes-higher-titans",
         "bandcamp24_url": "",
@@ -3949,90 +3784,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46372282",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074TX4R7Z",
         "tidal": "https://listen.tidal.com/album/77545956",
         "napster": "https://app.napster.com/artist/various/album/ocean-scenes-higher-titans",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689286",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mpgA1jQraZlcwM5h19aDiJDvC23GXvViA",
         "youtube": "https://youtu.be/j3I5fIyDZq4",
         "youtube_playlist_id": "PLp2GaPnw5O3P0Hwmx8ZjBgCdR_QsI-3fP"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Irukanji",
-            "title": "Mammoth (In)",
-            "bpm": "130"
-          },
-          {
-            "number": "02",
-            "artist": "Cifroteca",
-            "title": "Nero Squarka",
-            "bpm": "148"
-          },
-          {
-            "number": "03",
-            "artist": "Overdream",
-            "title": "Rear Gear Forest Ear",
-            "bpm": "148"
-          },
-          {
-            "number": "04",
-            "artist": "Already Maged",
-            "title": "Necromantica",
-            "bpm": "154"
-          },
-          {
-            "number": "05",
-            "artist": "Roof Raiser",
-            "title": "GMO25",
-            "bpm": "150"
-          },
-          {
-            "number": "06",
-            "artist": "Saikozaurus",
-            "title": "Key Meeting",
-            "bpm": "150"
-          },
-          {
-            "number": "07",
-            "artist": "Magmadivers",
-            "title": "It's All In Your Head",
-            "bpm": "149"
-          },
-          {
-            "number": "08",
-            "artist": "Shivattva",
-            "title": "Foggy Land Of Zartak",
-            "bpm": "148"
-          },
-          {
-            "number": "09",
-            "artist": "Tookytooky",
-            "title": "Nocturna (Rmx)",
-            "bpm": "146"
-          },
-          {
-            "number": "10",
-            "artist": "Calamus",
-            "title": "The Mighty Glow",
-            "bpm": "150"
-          },
-          {
-            "number": "11",
-            "artist": "Shiva3",
-            "title": "Old Moon",
-            "bpm": "145"
-          },
-          {
-            "number": "12",
-            "artist": "NeiRula",
-            "title": "Absolutiz Hipnotyzze (Out)",
-            "bpm": "90"
-          }
-        ]
       }
     },
     "senzar-before-the-morning-sun": {
@@ -4059,6 +3817,18 @@
         { "p": "Artwork By <a href='https://www.instagram.com/julenca' target='_blank' rel='noopener'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Senzar - Intro (feat. Ariel Electron) | 0bpm" },
+        { "p": "02 Senzar - Deep Sea Civilization | 0bpm" },
+        { "p": "03 Senzar - Before The Morning Sun | 66-132bpm" },
+        { "p": "04 Senzar - Power Of Light | 75bpm" },
+        { "p": "05 Senzar - Mos På Træerne | 75bpm" },
+        { "p": "06 Senzar - Finsteraarhorn (Erot Rmx) | 85bpm" },
+        { "p": "07 Senzar - Sun Dance | 90bpm" },
+        { "p": "08 Senzar - Path Of Dhyana | 60-120bpm" },
+        { "p": "09 Senzar - Book Of Dzyan | 120bpm" },
+        { "p": "10 Senzar - Before The Morning Sun (NASA Rmx) | 128bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/senzar-before-the-morning-sun",
         "bandcamp24_url": "",
@@ -4077,78 +3847,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46435752",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074VVNS6W",
         "tidal": "https://listen.tidal.com/album/77584553",
         "napster": "https://app.napster.com/artist/senzar/album/before-the-morning-sun",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689293",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_l2iPXAE2NOfZWrcYiUGaKl-2lyuPbFG_0",
         "youtube": "https://youtu.be/-uguS2P4Wgc",
         "youtube_playlist_id": "PLp2GaPnw5O3PP655ySgkQ8ZxQbHMTodg0"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Senzar",
-            "title": "Intro (feat. Ariel Electron)",
-            "bpm": "0"
-          },
-          {
-            "number": "02",
-            "artist": "Senzar",
-            "title": "Deep Sea Civilization",
-            "bpm": "0"
-          },
-          {
-            "number": "03",
-            "artist": "Senzar",
-            "title": "Before The Morning Sun",
-            "bpm": "66-132"
-          },
-          {
-            "number": "04",
-            "artist": "Senzar",
-            "title": "Power Of Light",
-            "bpm": "75"
-          },
-          {
-            "number": "05",
-            "artist": "Senzar",
-            "title": "Mos På Træerne",
-            "bpm": "75"
-          },
-          {
-            "number": "06",
-            "artist": "Senzar",
-            "title": "Finsteraarhorn (Erot Rmx)",
-            "bpm": "85"
-          },
-          {
-            "number": "07",
-            "artist": "Senzar",
-            "title": "Sun Dance",
-            "bpm": "90"
-          },
-          {
-            "number": "08",
-            "artist": "Senzar",
-            "title": "Path Of Dhyana",
-            "bpm": "60-120"
-          },
-          {
-            "number": "09",
-            "artist": "Senzar",
-            "title": "Book Of Dzyan",
-            "bpm": "120"
-          },
-          {
-            "number": "10",
-            "artist": "Senzar",
-            "title": "Before The Morning Sun (NASA Rmx)",
-            "bpm": "128"
-          }
-        ]
       }
     },
     "va-grower": {
@@ -4175,6 +3880,21 @@
         { "p": "Artwork By <a href='https://www.instagram.com/julenca' target='_blank' rel='noopener'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Atati - Versions | 60bpm" },
+        { "p": "02 Spectrum Vision - Outsiders | 100bpm" },
+        { "p": "03 Mahaon - Leaving The Limit (feat. Locus) | 75bpm" },
+        { "p": "04 Vonoom - Dirty Dishwater | 80bpm" },
+        { "p": "05 Overdream - Mystique Cabalistique | 92bpm" },
+        { "p": "06 E.R.S. - I Went Irie (The Orient Funk Experience) | 100bpm" },
+        { "p": "07 Irukanji - Muti Cappa | 88bpm" },
+        { "p": "08 ShizoLizer Gin - Sweet Dino | 100bpm" },
+        { "p": "09 Xylonite - Thermal Expansion | 125bpm" },
+        { "p": "10 Unusual Cosmic Process - Cosmic Harmony | 96bpm" },
+        { "p": "11 Liquid Crystal - Raindrops | 90bpm" },
+        { "p": "12 Kalpataru Tree - MetaLullaby | 77bpm" }
+        
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-grower",
         "bandcamp24_url": "",
@@ -4193,90 +3913,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46435812",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074VT3XH3",
         "tidal": "https://listen.tidal.com/album/77583393",
         "napster": "https://app.napster.com/artist/various/album/grower",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689309",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mNaxuLvLS_G5yBgNg5ssYGsIsr-lr3-Co",
         "youtube": "https://youtu.be/jwjegtw1t50",
         "youtube_playlist_id": "PLp2GaPnw5O3OeeTCsMzapg-teocv3XDnT"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Atati",
-            "title": "Versions",
-            "bpm": "60"
-          },
-          {
-            "number": "02",
-            "artist": "Spectrum Vision",
-            "title": "Outsiders",
-            "bpm": "100"
-          },
-          {
-            "number": "03",
-            "artist": "Mahaon",
-            "title": "Leaving The Limit (feat. Locus)",
-            "bpm": "75"
-          },
-          {
-            "number": "04",
-            "artist": "Vonoom",
-            "title": "Dirty Dishwater",
-            "bpm": "80"
-          },
-          {
-            "number": "05",
-            "artist": "Overdream",
-            "title": "Mystique Cabalistique",
-            "bpm": "92"
-          },
-          {
-            "number": "06",
-            "artist": "E.R.S.",
-            "title": "I Went Irie (The Orient Funk Experience)",
-            "bpm": "100"
-          },
-          {
-            "number": "07",
-            "artist": "Irukanji",
-            "title": "Muti Cappa",
-            "bpm": "88"
-          },
-          {
-            "number": "08",
-            "artist": "ShizoLizer Gin",
-            "title": "Sweet Dino",
-            "bpm": "100"
-          },
-          {
-            "number": "09",
-            "artist": "Xylonite",
-            "title": "Thermal Expansion",
-            "bpm": "125"
-          },
-          {
-            "number": "10",
-            "artist": "Unusual Cosmic Process",
-            "title": "Cosmic Harmony",
-            "bpm": "96"
-          },
-          {
-            "number": "11",
-            "artist": "Liquid Crystal",
-            "title": "Raindrops",
-            "bpm": "90"
-          },
-          {
-            "number": "12",
-            "artist": "Kalpataru Tree",
-            "title": "MetaLullaby",
-            "bpm": "77"
-          }
-        ]
       }
     },
     "va-time-loop-beyond-borders": {
@@ -4303,6 +3946,19 @@
         { "p": "Artwork By Flange" },
         { "p": "Mastered By Monno @ Bimmelim Soundlabs" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 IooI - Chromosoma | 110bpm" },
+        { "p": "02 Vonoom - Space Baby | 90bpm" },
+        { "p": "03 CaveDave - The Sun In Here | 92bpm" },
+        { "p": "04 Mindex - The Door (vs. Back To The Roots) | 110bpm" },
+        { "p": "05 Khooman - Kadha | 80bpm" },
+        { "p": "06 Spectrum Vision - Sympotronic | 95bpm" },
+        { "p": "07 NeiRula - Eyes Of Atlans | 90bpm" },
+        { "p": "08 Lemonchill - Moonlight Sonata (AstroPilot Rmx) | 100bpm" },
+        { "p": "09 Dagas - Caverna Magica | 82bpm" },
+        { "p": "10 Erot - Into The Deep Consciousness | 95bpm" },
+        { "p": "11 ShunyA - Ocean Of Sound | 60bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-time-loop-beyond-borders",
         "bandcamp24_url": "",
@@ -4321,84 +3977,13 @@
         "beatspace":"http://www.beatspace.com/sencd007cd-time-loop-beyond-borders.html",
         "psyshop": "https://www.psyshop.com/Time-Loop-Beyond-Borders/smy1cd007",
         "deezer": "https://www.deezer.com/us/album/46435862",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074VZTT92",
         "tidal": "https://listen.tidal.com/album/77584023",
         "napster": "https://app.napster.com/artist/various/album/time-loop-beyond-borders",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689323",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_ka4M9H8Y3bn2lQJ3pzl1kKr3299du9510",
         "youtube": "https://youtu.be/6mellZED_Fc",
         "youtube_playlist_id": "PLp2GaPnw5O3PMfJen6W2rPocA9QsNSOga"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "IooI",
-            "title": "Chromosoma",
-            "bpm": "110"
-          },
-          {
-            "number": "02",
-            "artist": "Vonoom",
-            "title": "Space Baby",
-            "bpm": "90"
-          },
-          {
-            "number": "03",
-            "artist": "CaveDave",
-            "title": "The Sun In Here",
-            "bpm": "92"
-          },
-          {
-            "number": "04",
-            "artist": "Mindex",
-            "title": "The Door (vs. Back To The Roots)",
-            "bpm": "110"
-          },
-          {
-            "number": "05",
-            "artist": "Khooman",
-            "title": "Kadha",
-            "bpm": "80"
-          },
-          {
-            "number": "06",
-            "artist": "Spectrum Vision",
-            "title": "Sympotronic",
-            "bpm": "95"
-          },
-          {
-            "number": "07",
-            "artist": "NeiRula",
-            "title": "Eyes Of Atlans",
-            "bpm": "90"
-          },
-          {
-            "number": "08",
-            "artist": "Lemonchill",
-            "title": "Moonlight Sonata (AstroPilot Rmx)",
-            "bpm": "100"
-          },
-          {
-            "number": "09",
-            "artist": "Dagas",
-            "title": "Caverna Magica",
-            "bpm": "82"
-          },
-          {
-            "number": "10",
-            "artist": "Erot",
-            "title": "Into The Deep Consciousness",
-            "bpm": "95"
-          },
-          {
-            "number": "11",
-            "artist": "ShunyA",
-            "title": "Ocean Of Sound",
-            "bpm": "60"
-          }
-        ]
       }
     },
     "unusual-cosmic-process-weightlessness": {
@@ -4425,6 +4010,15 @@
         { "p": "Artwork By <a href='https://www.instagram.com/julenca' target='_blank' rel='noopener'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Unusual Cosmic Process - Final Race | 126bpm" },
+        { "p": "2 Unusual Cosmic Process - Lighted Up | 126bpm" },
+        { "p": "3 Unusual Cosmic Process - Connected Trough An Ozone Hole | 92bpm" },
+        { "p": "4 Unusual Cosmic Process - Weightlessness | 95bpm" },
+        { "p": "5 Unusual Cosmic Process - Place On Earth | 118bpm" },
+        { "p": "6 Unusual Cosmic Process - Emotional Trip | 120bpm" },
+        { "p": "7 Unusual Cosmic Process - Maximum Depth | 103bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-weightlessness",
         "bandcamp24_url": "",
@@ -4443,60 +4037,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/113463782",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07YNBC9QJ",
         "tidal": "https://listen.tidal.com/album/119360468",
         "napster": "https://app.napster.com/artist/unusual-cosmic-process/album/weightlessness",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/m03rmzzt5gdya",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kq12WVEBucCp2pi0ohdGjPLiqHi4cgqfc",
         "youtube": "https://youtu.be/C3Tt9Pix_nc",
         "youtube_playlist_id": "PLp2GaPnw5O3P0IB08Nj8GUFFOIsI1vBLa"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Unusual Cosmic Process",
-            "title": "Final Race",
-            "bpm": "126"
-          },
-          {
-            "number": "2",
-            "artist": "Unusual Cosmic Process",
-            "title": "Lighted Up",
-            "bpm": "126"
-          },
-          {
-            "number": "3",
-            "artist": "Unusual Cosmic Process",
-            "title": "Connected Trough An Ozone Hole",
-            "bpm": "92"
-          },
-          {
-            "number": "4",
-            "artist": "Unusual Cosmic Process",
-            "title": "Weightlessness",
-            "bpm": "95"
-          },
-          {
-            "number": "5",
-            "artist": "Unusual Cosmic Process",
-            "title": "Place On Earth",
-            "bpm": "118"
-          },
-          {
-            "number": "6",
-            "artist": "Unusual Cosmic Process",
-            "title": "Emotional Trip",
-            "bpm": "120"
-          },
-          {
-            "number": "7",
-            "artist": "Unusual Cosmic Process",
-            "title": "Maximum Depth",
-            "bpm": "103"
-          }
-        ]
       }
     },
     "va-tempo-syndicate": {
@@ -4523,6 +4070,20 @@
         { "p": "Artwork By <a href='/artist/irukanji/'>Irukanji</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Boggy Elf - Dream Of Ashvattha (In) | 80bpm" },
+        { "p": "02 ShizoLizer Gin - Kinder Pingui | 115bpm" },
+        { "p": "03 Hypnotriod - The Sleep Detector | 125bpm" },
+        { "p": "04 Unusual Cosmic Process - Insignificant Information | 104bpm" },
+        { "p": "05 Flooting Grooves - Psydeburn | 124bpm" },
+        { "p": "06 Irukanji - Ayalla | 125bpm" },
+        { "p": "07 Sygnals - Among Others | 110bpm" },
+        { "p": "08 Senzar - Nature Moves | 121bpm" },
+        { "p": "09 Daoine Sidhe - Mindslipses | 127bpm" },
+        { "p": "10 Wizack Twizack - Lejon | 130bpm" },
+        { "p": "11 Primordial Ooze - Trial | 120bpm" },
+        { "p": "12 Spectrum Vision - Time Out Man (Out) | 120bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-tempo-syndicate",
         "bandcamp24_url": "",
@@ -4541,90 +4102,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46435992",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074W6QZLK",
         "tidal": "https://listen.tidal.com/album/77585075",
         "napster": "https://app.napster.com/artist/various/album/tempo-syndicate",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689361",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_m85jH-aMH0hpcmUfsZEWfPjj0iDyDCrGk",
         "youtube": "https://youtu.be/puXq7tpenrk",
         "youtube_playlist_id": "PLp2GaPnw5O3MjPaPsRVcCds3RFF2oUY6y"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Boggy Elf",
-            "title": "Dream Of Ashvattha (In)",
-            "bpm": "80"
-          },
-          {
-            "number": "02",
-            "artist": "ShizoLizer Gin",
-            "title": "Kinder Pingui",
-            "bpm": "115"
-          },
-          {
-            "number": "03",
-            "artist": "Hypnotriod",
-            "title": "The Sleep Detector",
-            "bpm": "125"
-          },
-          {
-            "number": "04",
-            "artist": "Unusual Cosmic Process",
-            "title": "Insignificant Information",
-            "bpm": "104"
-          },
-          {
-            "number": "05",
-            "artist": "Flooting Grooves",
-            "title": "Psydeburn",
-            "bpm": "124"
-          },
-          {
-            "number": "06",
-            "artist": "Irukanji",
-            "title": "Ayalla",
-            "bpm": "125"
-          },
-          {
-            "number": "07",
-            "artist": "Sygnals",
-            "title": "Among Others",
-            "bpm": "110"
-          },
-          {
-            "number": "08",
-            "artist": "Senzar",
-            "title": "Nature Moves",
-            "bpm": "121"
-          },
-          {
-            "number": "09",
-            "artist": "Daoine Sidhe",
-            "title": "Mindslipses",
-            "bpm": "127"
-          },
-          {
-            "number": "10",
-            "artist": "Wizack Twizack",
-            "title": "Lejon",
-            "bpm": "130"
-          },
-          {
-            "number": "11",
-            "artist": "Primordial Ooze",
-            "title": "Trial",
-            "bpm": "120"
-          },
-          {
-            "number": "12",
-            "artist": "Spectrum Vision",
-            "title": "Time Out Man (Out)",
-            "bpm": "120"
-          }
-        ]
       }
     },
     "va-dancing-mavka": {
@@ -4651,6 +4135,17 @@
         { "p": "Artwork By <a href='https://www.instagram.com/julenca' target='_blank' rel='noopener'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Pandemicus - Out Of Space | 142bpm" },
+        { "p": "2 Jyotish - 1000 Little Indians | 150bpm" },
+        { "p": "3 Celestial Consciousness - Astral Dance | 148bpm" },
+        { "p": "4 Ufomatka - Vega | 139bpm" },
+        { "p": "5 Spirit Medicine - In The Brain Machines | 150bpm" },
+        { "p": "6 Sky Technology - Reactor Of Life | 145bpm" },
+        { "p": "7 Zelur Project - The New Creature | 145bpm" },
+        { "p": "8 ShizoLizer Gin - Pony Ponyslas | 145bpm" },
+        { "p": "9 Space Vibes System - Space Energy | 145bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-dancing-mavka",
         "bandcamp24_url": "",
@@ -4669,72 +4164,13 @@
         "beatspace": "",
         "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/113463752",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07YN9P3K9",
         "tidal": "https://listen.tidal.com/album/119360476",
         "napster": "https://app.napster.com/artist/various/album/dancing-mavka",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/vp9gkzhpdj0ya",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mfiLur_IVghcgv2bL6mW7psxJKOkYV-C4",
         "youtube": "https://youtu.be/KzDlfsV7Ey8",
         "youtube_playlist_id": "PLp2GaPnw5O3MEQlC5LWj1BekEnhkDHZGX"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Pandemicus",
-            "title": "Out Of Space",
-            "bpm": "142"
-          },
-          {
-            "number": "2",
-            "artist": "Jyotish",
-            "title": "1000 Little Indians",
-            "bpm": "150"
-          },
-          {
-            "number": "3",
-            "artist": "Celestial Consciousness",
-            "title": "Astral Dance",
-            "bpm": "148"
-          },
-          {
-            "number": "4",
-            "artist": "Ufomatka",
-            "title": "Vega",
-            "bpm": "139"
-          },
-          {
-            "number": "5",
-            "artist": "Spirit Medicine",
-            "title": "In The Brain Machines",
-            "bpm": "150"
-          },
-          {
-            "number": "6",
-            "artist": "Sky Technology",
-            "title": "Reactor Of Life",
-            "bpm": "145"
-          },
-          {
-            "number": "7",
-            "artist": "Zelur Project",
-            "title": "The New Creature",
-            "bpm": "145"
-          },
-          {
-            "number": "8",
-            "artist": "ShizoLizer Gin",
-            "title": "Pony Ponyslas",
-            "bpm": "145"
-          },
-          {
-            "number": "9",
-            "artist": "Space Vibes System",
-            "title": "Space Energy",
-            "bpm": "145"
-          }
-        ]
       }
     },
     "va-absence-of-gravity": {
@@ -4761,6 +4197,19 @@
         { "p": "Artwork By 1n0x" },
         { "p": "Mastered By <a href='http://altar-records.com' target='_blank' rel='noopener'>Zen @ Altar Records Studio</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Reactive - Free Search | 118bpm" },
+        { "p": "02 AstroPilot - God's Channel (Original Version) | 119bpm" },
+        { "p": "03 Mary Bruk - Sandal | 75bpm" },
+        { "p": "04 Spectrum Vision - Tunguska | 125bpm" },
+        { "p": "05 Alexander Daf - We Bring The Light | 122bpm" },
+        { "p": "06 Chronos - Endless Rotation | 80bpm" },
+        { "p": "07 Irukanji - Missing Bot | 108bpm" },
+        { "p": "08 CJ Catalizer - The Third Orbit | 120bpm" },
+        { "p": "09 Psyfactor - Nine | 120bpm" },
+        { "p": "10 NeiRula - Approaching To Pulsar | 113bpm" },
+        { "p": "11 Unstable Elements - Once Upon A Time | 70bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-absence-of-gravity",
         "bandcamp24_url": "",
@@ -4779,84 +4228,13 @@
         "beatspace":"http://www.beatspace.com/sencd010cd-absence-of-gravity.html",
         "psyshop": "https://www.psyshop.com/Absence-Gravity-Sentimony/smy1cd010",
         "deezer": "https://www.deezer.com/us/album/46436032",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074VYR1GY",
         "tidal": "https://listen.tidal.com/album/77583114",
         "napster": "https://app.napster.com/artist/various/album/absence-of-gravity",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689378",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_lLVwtMnkR5XiVqDgSJPrbcI3fbl4sKdwU",
         "youtube": "https://youtu.be/n7fjx6abiPQ",
         "youtube_playlist_id": "PLp2GaPnw5O3Ny1EriesLL8xw9aHLvms7d"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Reactive",
-            "title": "Free Search",
-            "bpm": "118"
-          },
-          {
-            "number": "02",
-            "artist": "AstroPilot",
-            "title": "God's Channel (Original Version)",
-            "bpm": "119"
-          },
-          {
-            "number": "03",
-            "artist": "Mary Bruk",
-            "title": "Sandal",
-            "bpm": "75"
-          },
-          {
-            "number": "04",
-            "artist": "Spectrum Vision",
-            "title": "Tunguska",
-            "bpm": "125"
-          },
-          {
-            "number": "05",
-            "artist": "Alexander Daf",
-            "title": "We Bring The Light",
-            "bpm": "122"
-          },
-          {
-            "number": "06",
-            "artist": "Chronos",
-            "title": "Endless Rotation",
-            "bpm": "80"
-          },
-          {
-            "number": "07",
-            "artist": "Irukanji",
-            "title": "Missing Bot",
-            "bpm": "108"
-          },
-          {
-            "number": "08",
-            "artist": "CJ Catalizer",
-            "title": "The Third Orbit",
-            "bpm": "120"
-          },
-          {
-            "number": "09",
-            "artist": "Psyfactor",
-            "title": "Nine",
-            "bpm": "120"
-          },
-          {
-            "number": "10",
-            "artist": "NeiRula",
-            "title": "Approaching To Pulsar",
-            "bpm": "113"
-          },
-          {
-            "number": "11",
-            "artist": "Unstable Elements",
-            "title": "Once Upon A Time",
-            "bpm": "70"
-          }
-        ]
       }
     },
     "va-special-places": {
@@ -4883,6 +4261,20 @@
         { "p": "Artwork By <a href='https://www.instagram.com/julenca' target='_blank' rel='noopener'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 K.D. Expression - Alpae-3717 | 100bpm" },
+        { "p": "02 Cygna - Camaras De Lamento | 110bpm" },
+        { "p": "03 Chronos - Dandelions As Memory | 120bpm" },
+        { "p": "04 Irukanji - Out From Little Box (AstroPilot Edit) | 110bpm" },
+        { "p": "05 Ambient Intelligent Application - Via Lactea (AstroPilot Edit) | 113bpm" },
+        { "p": "06 Rabitza - Port | 120bpm" },
+        { "p": "07 AstroPilot - Svoboda | 120bpm" },
+        { "p": "08 Access To Arasaka - AUG | 115bpm" },
+        { "p": "09 Field Rotation - Disappear | 130bpm" },
+        { "p": "10 Nexar - Jewel (AstroPilot Edit) | 85bpm" },
+        { "p": "11 36 - A Final Thought | 119bpm" },
+        { "p": "12 Eguana - A Moment Of Madness | 80bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-special-places",
         "bandcamp24_url": "",
@@ -4901,90 +4293,13 @@
         "beatspace":"http://www.beatspace.com/sencd011cd-special-places.html",
         "psyshop": "https://www.psyshop.com/Special-Places-Sentimony/smy1cd011",
         "deezer": "https://www.deezer.com/us/album/46436072",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074W56991",
         "tidal": "https://listen.tidal.com/album/77583245",
         "napster": "https://app.napster.com/artist/various/album/special-places",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689385",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kG8BGaQTpHvjDRP7x8iUUst7E-8HHLvKs",
         "youtube": "https://youtu.be/jm1VbRibY94",
         "youtube_playlist_id": "PLp2GaPnw5O3ObKevWMqC9sH5Isd5S8L7s"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "K.D. Expression",
-            "title": "Alpae-3717",
-            "bpm": "100"
-          },
-          {
-            "number": "02",
-            "artist": "Cygna",
-            "title": "Camaras De Lamento",
-            "bpm": "110"
-          },
-          {
-            "number": "03",
-            "artist": "Chronos",
-            "title": "Dandelions As Memory",
-            "bpm": "120"
-          },
-          {
-            "number": "04",
-            "artist": "Irukanji",
-            "title": "Out From Little Box (AstroPilot Edit)",
-            "bpm": "110"
-          },
-          {
-            "number": "05",
-            "artist": "Ambient Intelligent Application",
-            "title": "Via Lactea (AstroPilot Edit)",
-            "bpm": "113"
-          },
-          {
-            "number": "06",
-            "artist": "Rabitza",
-            "title": "Port",
-            "bpm": "120"
-          },
-          {
-            "number": "07",
-            "artist": "AstroPilot",
-            "title": "Svoboda",
-            "bpm": "120"
-          },
-          {
-            "number": "08",
-            "artist": "Access To Arasaka",
-            "title": "AUG",
-            "bpm": "115"
-          },
-          {
-            "number": "09",
-            "artist": "Field Rotation",
-            "title": "Disappear",
-            "bpm": "130"
-          },
-          {
-            "number": "10",
-            "artist": "Nexar",
-            "title": "Jewel (AstroPilot Edit)",
-            "bpm": "85"
-          },
-          {
-            "number": "11",
-            "artist": "36",
-            "title": "A Final Thought",
-            "bpm": "119"
-          },
-          {
-            "number": "12",
-            "artist": "Eguana",
-            "title": "A Moment Of Madness",
-            "bpm": "80"
-          }
-        ]
       }
     },
     "hypnotriod-seven-heavenly-edges": {
@@ -5011,6 +4326,13 @@
         { "p": "Artwork By <a href='https://www.facebook.com/apivniuk' target='_blank' rel='noopener'>Anton Pivniuk</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Hypnotriod - Seven Heavenly Edges | 125bmpbpm" },
+        { "p": "2 Hypnotriod - Sour Jazz | 115bmpbpm" },
+        { "p": "3 Hypnotriod - Tale-teller (Irukanji Rmx) | 125bmpbpm" },
+        { "p": "4 Hypnotriod - Vavel'ero Sea (Tentura Rmx) | 115bmpbpm" },
+        { "p": "5 Hypnotriod - The Sleep Detector (Unusual Cosmic Process Rmx) | 120bmpbpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/hypnotriod-seven-heavenly-edges",
         "bandcamp24_url": "",
@@ -5026,51 +4348,14 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/556014",
         "ektoplazm": "http://www.ektoplazm.com/free-music/hypnotriod-seven-heavenly-edges",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46436112",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074W3YT9N",
         "tidal": "https://listen.tidal.com/album/77584907",
         "napster": "https://app.napster.com/artist/hypnotriod/album/seven-heavenly-edges",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689422",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kPkLIsmbBkkiCbxBnI-UTzastASE9wxB0",
         "youtube": "https://youtu.be/4qX3xfGQcQs",
         "youtube_playlist_id": "PLp2GaPnw5O3M5qeJ2tRG2yhoVbLvkAFoC"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Hypnotriod",
-            "title": "Seven Heavenly Edges",
-            "bpm": "125bmp"
-          },
-          {
-            "number": "2",
-            "artist": "Hypnotriod",
-            "title": "Sour Jazz",
-            "bpm": "115bmp"
-          },
-          {
-            "number": "3",
-            "artist": "Hypnotriod",
-            "title": "Tale-teller (Irukanji Rmx)",
-            "bpm": "125bmp"
-          },
-          {
-            "number": "4",
-            "artist": "Hypnotriod",
-            "title": "Vavel'ero Sea (Tentura Rmx)",
-            "bpm": "115bmp"
-          },
-          {
-            "number": "5",
-            "artist": "Hypnotriod",
-            "title": "The Sleep Detector (Unusual Cosmic Process Rmx)",
-            "bpm": "120bmp"
-          }
-        ]
       }
     },
     "specialmind-the-missing-particle": {
@@ -5097,6 +4382,13 @@
         { "p": "Artwork By <a href='https://www.facebook.com/ader.tentura' target='_blank' rel='noopener'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Specialmind - The Missing Particle | 110bpm" },
+        { "p": "2 Specialmind - Alterlife | 100bpm" },
+        { "p": "3 Specialmind - Soul Language | 113bpm" },
+        { "p": "4 Specialmind - Alterlife (Tentura Rmx) | 100bpm" },
+        { "p": "5 Specialmind - Soul Language (Unusual Cosmic Process Rmx) | 113bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/specialmind-the-missing-particle",
         "bandcamp24_url": "",
@@ -5112,51 +4404,14 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/601769",
         "ektoplazm": "http://www.ektoplazm.com/free-music/specialmind-the-missing-particle",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46436142",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074W74RSV",
         "tidal": "https://listen.tidal.com/album/77583710",
         "napster": "https://app.napster.com/artist/specialmind/album/the-missing-particle",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689439",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_lK0e7oei7EG2-wwqIc8E21vWpr9FYSttI",
         "youtube": "https://youtu.be/aERmS8uMIEA",
         "youtube_playlist_id": "PLp2GaPnw5O3OumSRMWN_k8f-plmSOlxab"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Specialmind",
-            "title": "The Missing Particle",
-            "bpm": "110"
-          },
-          {
-            "number": "2",
-            "artist": "Specialmind",
-            "title": "Alterlife",
-            "bpm": "100"
-          },
-          {
-            "number": "3",
-            "artist": "Specialmind",
-            "title": "Soul Language",
-            "bpm": "113"
-          },
-          {
-            "number": "4",
-            "artist": "Specialmind",
-            "title": "Alterlife (Tentura Rmx)",
-            "bpm": "100"
-          },
-          {
-            "number": "5",
-            "artist": "Specialmind",
-            "title": "Soul Language (Unusual Cosmic Process Rmx)",
-            "bpm": "113"
-          }
-        ]
       }
     },
     "tentura-aurora": {
@@ -5183,6 +4438,12 @@
         { "p": "Artwork By <a href='https://www.facebook.com/ader.tentura' target='_blank' rel='noopener'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Tentura - Aurora | 110bpm" },
+        { "p": "2 Tentura - Melting | 75bpm" },
+        { "p": "3 Tentura - High Way | 125bpm" },
+        { "p": "4 Tentura - Eclipse | 80bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/tentura-aurora",
         "bandcamp24_url": "",
@@ -5198,45 +4459,14 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/597257",
         "ektoplazm": "http://www.ektoplazm.com/free-music/tentura-aurora",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46369932",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074TX6DD1",
         "tidal": "https://listen.tidal.com/album/77546595",
         "napster": "https://app.napster.com/artist/tentura/album/aurora-271685918",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689446",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_n48ajQpeuAXsZqbwwXL_d_tjLhw2KyFBk",
         "youtube": "https://youtu.be/JMkIuzIlZJI",
         "youtube_playlist_id": "PLp2GaPnw5O3Pev66mBuHmGG4cHaBkx1FR"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Tentura",
-            "title": "Aurora",
-            "bpm": "110"
-          },
-          {
-            "number": "2",
-            "artist": "Tentura",
-            "title": "Melting",
-            "bpm": "75"
-          },
-          {
-            "number": "3",
-            "artist": "Tentura",
-            "title": "High Way",
-            "bpm": "125"
-          },
-          {
-            "number": "4",
-            "artist": "Tentura",
-            "title": "Eclipse",
-            "bpm": "80"
-          }
-        ]
       }
     },
     "cifroteca-roof-raiser-wild-storm": {
@@ -5263,6 +4493,18 @@
         { "p": "Artwork By <a href='https://www.facebook.com/sanathana.swaroop' target='_blank' rel='noopener'>Swaroop Guhathakurta</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Cifroteca - Unknown Signals | 148bpm" },
+        { "p": "02 Roof Raiser - Parallel Reality | 148bpm" },
+        { "p": "03 Cifroteca & Roof Raiser - Wild Storm | 147bpm" },
+        { "p": "04 Cifroteca - CooCoo 2019 | 148bpm" },
+        { "p": "05 Roof Raiser - Warning Signal | 148bpm" },
+        { "p": "06 Cifroteca - Star Bolide | 151bpm" },
+        { "p": "07 Roof Raiser - Object M82 | 150bpm" },
+        { "p": "08 Roof Raiser & Cifroteca - Bukanna | 150bpm" },
+        { "p": "09 Cifroteca - Burning Syncho | 153bpm" },
+        { "p": "10 Roof Raiser - Abnormal Plants | 149bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/cifroteca-roof-raiser-wild-storm",
         "bandcamp24_url": "",
@@ -5281,78 +4523,13 @@
         "beatspace":"http://www.beatspace.com/sencd015-wild-storm.html",
         "psyshop": "https://www.psyshop.com/Wild-Storm-Cifroteca-RRaiser/smy1cd015",
         "deezer": "https://www.deezer.com/us/album/46436172",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074VVK5BB",
         "tidal": "https://listen.tidal.com/album/77585601",
         "napster": "https://app.napster.com/artist/roof-raiser/album/wild-storm",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689453",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_lCuG261uwKEoT2vq83vV7WZCU9eKJkGaQ",
         "youtube": "https://youtu.be/Cj_dDcBtfG4",
         "youtube_playlist_id": "PLp2GaPnw5O3MiDE58W_2b0G4lZAF19cNt"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Cifroteca",
-            "title": "Unknown Signals",
-            "bpm": "148"
-          },
-          {
-            "number": "02",
-            "artist": "Roof Raiser",
-            "title": "Parallel Reality",
-            "bpm": "148"
-          },
-          {
-            "number": "03",
-            "artist": "Cifroteca & Roof Raiser",
-            "title": "Wild Storm",
-            "bpm": "147"
-          },
-          {
-            "number": "04",
-            "artist": "Cifroteca",
-            "title": "CooCoo 2019",
-            "bpm": "148"
-          },
-          {
-            "number": "05",
-            "artist": "Roof Raiser",
-            "title": "Warning Signal",
-            "bpm": "148"
-          },
-          {
-            "number": "06",
-            "artist": "Cifroteca",
-            "title": "Star Bolide",
-            "bpm": "151"
-          },
-          {
-            "number": "07",
-            "artist": "Roof Raiser",
-            "title": "Object M82",
-            "bpm": "150"
-          },
-          {
-            "number": "08",
-            "artist": "Roof Raiser & Cifroteca",
-            "title": "Bukanna",
-            "bpm": "150"
-          },
-          {
-            "number": "09",
-            "artist": "Cifroteca",
-            "title": "Burning Syncho",
-            "bpm": "153"
-          },
-          {
-            "number": "10",
-            "artist": "Roof Raiser",
-            "title": "Abnormal Plants",
-            "bpm": "149"
-          }
-        ]
       }
     },
     "va-gamayun-tale": {
@@ -5379,6 +4556,21 @@
         { "p": "Artwork By <a href='https://www.instagram.com/julenca' target='_blank' rel='noopener'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Celestial Consciousness - Rise | 110bpm" },
+        { "p": "02 Magic Science - Atman | 146bpm" },
+        { "p": "03 PharaOm - White Lotus Energy | 146bpm" },
+        { "p": "04 Nova Fractal - Through Our Senses (Sky Technology Rmx) | 145bpm" },
+        { "p": "05 Roof Raiser - Stone Garden | 148bpm" },
+        { "p": "06 Prok - Gliese | 144bpm" },
+        { "p": "07 Ufomatka - Asteroid | 148bpm" },
+        { "p": "08 Wanderlust - Square Of The Cadboard Clocks | 147bpm" },
+        { "p": "09 ShizoLizer Gin - Skygravity Trance Mission | 142bpm" },
+        { "p": "10 Jyotish - Purple Imagination | 132bpm" },
+        { "p": "11 Rexuss - Chakra | 150bpm *" },
+        { "p": "* - bonus track, available digitally only" }
+        
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-gamayun-tale",
         "bandcamp24_url": "",
@@ -5397,84 +4589,13 @@
         "beatspace":"http://www.beatspace.com/7694/Lookinglook+Records/Various/Gamayun+Tale/detail.aspx",
         "psyshop": "https://www.psyshop.com/Gamayun-Tale-Lookinglook/loo1cd005",
         "deezer": "https://www.deezer.com/us/album/113465672",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07YNBMTP3",
         "tidal": "https://listen.tidal.com/album/119360568",
         "napster": "https://app.napster.com/artist/various/album/gamayun-tale-sentimony-records",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/mjzeb1ss0i8vb",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_koS_zvRfXe1sUr3Gr2TWT97NQKAX9qxu8",
         "youtube": "https://youtu.be/WUYZdjSTwtg",
         "youtube_playlist_id": "PLp2GaPnw5O3NadY7sjq7ZmVk7rc5j8Li9"
-      },
-      "tracklist": {
-        "note": "* - bonus track, available digitally only",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Celestial Consciousness",
-            "title": "Rise",
-            "bpm": "110"
-          },
-          {
-            "number": "02",
-            "artist": "Magic Science",
-            "title": "Atman",
-            "bpm": "146"
-          },
-          {
-            "number": "03",
-            "artist": "PharaOm",
-            "title": "White Lotus Energy",
-            "bpm": "146"
-          },
-          {
-            "number": "04",
-            "artist": "Nova Fractal",
-            "title": "Through Our Senses (Sky Technology Rmx)",
-            "bpm": "145"
-          },
-          {
-            "number": "05",
-            "artist": "Roof Raiser",
-            "title": "Stone Garden",
-            "bpm": "148"
-          },
-          {
-            "number": "06",
-            "artist": "Prok",
-            "title": "Gliese",
-            "bpm": "144"
-          },
-          {
-            "number": "07",
-            "artist": "Ufomatka",
-            "title": "Asteroid",
-            "bpm": "148"
-          },
-          {
-            "number": "08",
-            "artist": "Wanderlust",
-            "title": "Square Of The Cadboard Clocks",
-            "bpm": "147"
-          },
-          {
-            "number": "09",
-            "artist": "ShizoLizer Gin",
-            "title": "Skygravity Trance Mission",
-            "bpm": "142"
-          },
-          {
-            "number": "10",
-            "artist": "Jyotish",
-            "title": "Purple Imagination",
-            "bpm": "132"
-          },
-          {
-            "number": "11",
-            "artist": "Rexuss",
-            "title": "Chakra",
-            "bpm": "150bpm *"
-          }
-        ]
       }
     },
     "psyfactor-retro-scientific": {
@@ -5501,6 +4622,19 @@
         { "p": "Artwork By <a href='https://www.facebook.com/ader.tentura' target='_blank' rel='noopener'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Psyfactor - Orbiter | 120bpm" },
+        { "p": "02 Psyfactor - Stop Going | 120bpm" },
+        { "p": "03 Psyfactor - Earth-Like | 120bpm" },
+        { "p": "04 Psyfactor - Last Martian | 120bpm" },
+        { "p": "05 Psyfactor - Skydive | 155bpm" },
+        { "p": "06 Psyfactor - Electrify Yourselves | 140bpm" },
+        { "p": "07 Psyfactor - Outwards | 155bpm" },
+        { "p": "08 Psyfactor - Retro Scientific | 120bpm" },
+        { "p": "09 Psyfactor - Allover | 120bpm" },
+        { "p": "10 Psyfactor - I Leave | 100bpm" },
+        { "p": "11 Psyfactor - Lost Myself | 100bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/psyfactor-retro-scientific",
         "bandcamp24_url": "",
@@ -5519,84 +4653,13 @@
         "beatspace":"http://www.beatspace.com/sencd016-retro-scientific.html",
         "psyshop": "https://www.psyshop.com/Retro-Scientific-Psyfactor/smy1cd016",
         "deezer": "https://www.deezer.com/us/album/113463702",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07YN7RSNT",
         "tidal": "https://listen.tidal.com/album/119360580",
         "napster": "https://app.napster.com/artist/psyfactor/album/retro-scientific-sentimony-records",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/kasgty5ytl53a",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nqAhajeSHVseRc2V2gAwPYB2bdz57wuq4",
         "youtube": "https://youtu.be/kawdP7JfejE",
         "youtube_playlist_id": "PLp2GaPnw5O3PdlgX-f4f-HerTdKWzuU-Y"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Psyfactor",
-            "title": "Orbiter",
-            "bpm": "120"
-          },
-          {
-            "number": "02",
-            "artist": "Psyfactor",
-            "title": "Stop Going",
-            "bpm": "120"
-          },
-          {
-            "number": "03",
-            "artist": "Psyfactor",
-            "title": "Earth-Like",
-            "bpm": "120"
-          },
-          {
-            "number": "04",
-            "artist": "Psyfactor",
-            "title": "Last Martian",
-            "bpm": "120"
-          },
-          {
-            "number": "05",
-            "artist": "Psyfactor",
-            "title": "Skydive",
-            "bpm": "155"
-          },
-          {
-            "number": "06",
-            "artist": "Psyfactor",
-            "title": "Electrify Yourselves",
-            "bpm": "140"
-          },
-          {
-            "number": "07",
-            "artist": "Psyfactor",
-            "title": "Outwards",
-            "bpm": "155"
-          },
-          {
-            "number": "08",
-            "artist": "Psyfactor",
-            "title": "Retro Scientific",
-            "bpm": "120"
-          },
-          {
-            "number": "09",
-            "artist": "Psyfactor",
-            "title": "Allover",
-            "bpm": "120"
-          },
-          {
-            "number": "10",
-            "artist": "Psyfactor",
-            "title": "I Leave",
-            "bpm": "100"
-          },
-          {
-            "number": "11",
-            "artist": "Psyfactor",
-            "title": "Lost Myself",
-            "bpm": "100"
-          }
-        ]
       }
     },
     "ufomatka-the-ep": {
@@ -5623,6 +4686,13 @@
         { "p": "Artwork By Ufomatka" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Ufomatka - Afrodancerequesting | 145bpm" },
+        { "p": "2 Ufomatka - Vanguard1 | 146bpm" },
+        { "p": "3 Ufomatka - Freaky Son Of A Bitch | 154bpm" },
+        { "p": "4 Ufomatka - No End... | 154bpm" },
+        { "p": "5 Ufomatka - The Binman | 128bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/ufomatka-the-e-p",
         "bandcamp24_url": "",
@@ -5638,48 +4708,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/866892",
         "deezer": "https://www.deezer.com/us/album/46370002",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074TXLHJG",
         "tidal": "https://listen.tidal.com/album/77545841",
         "napster": "https://app.napster.com/artist/ufomatka/album/the-ep-271685899",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689484",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kV-nlW6qJ5CUMdLD8gGk_H7kekRXLfI_k",
         "youtube": "https://youtu.be/ZM7q14FZT_w",
         "youtube_playlist_id": "PLp2GaPnw5O3Ox6J1Yy2JxL2fj7yZIIMn-"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Ufomatka",
-            "title": "Afrodancerequesting",
-            "bpm": "145"
-          },
-          {
-            "number": "2",
-            "artist": "Ufomatka",
-            "title": "Vanguard1",
-            "bpm": "146"
-          },
-          {
-            "number": "3",
-            "artist": "Ufomatka",
-            "title": "Freaky Son Of A Bitch",
-            "bpm": "154"
-          },
-          {
-            "number": "4",
-            "artist": "Ufomatka",
-            "title": "No End...",
-            "bpm": "154"
-          },
-          {
-            "number": "5",
-            "artist": "Ufomatka",
-            "title": "The Binman",
-            "bpm": "128"
-          }
-        ]
       }
     },
     "tentura-beyond-illusion": {
@@ -5706,6 +4741,18 @@
         { "p": "Artwork By <a href='https://www.facebook.com/ader.tentura' target='_blank' rel='noopener'>Ader</a> & Andrei Verner" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Tentura - Alchemy | 120bpm" },
+        { "p": "02 Tentura - Interstellar | 140bpm" },
+        { "p": "03 Tentura - Liftoff | 90bpm" },
+        { "p": "04 Tentura - Beginning Of Time | 100bpm" },
+        { "p": "05 Tentura - Echoes | 120bpm" },
+        { "p": "06 Tentura - Vivid | 120bpm" },
+        { "p": "07 Tentura - Rising | 145bpm" },
+        { "p": "08 Tentura - Presence Of The Sence | 80bpm" },
+        { "p": "09 Tentura - Resonance (Remake) | 120bpm" },
+        { "p": "10 Tentura - Resident (vs. Specialmind) | 113bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/tentura-beyond-illusion",
         "bandcamp24_url": "redirect_to_16",
@@ -5721,78 +4768,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/866837",
         "deezer": "https://www.deezer.com/us/album/113463722",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07YN7TGPF",
         "tidal": "https://listen.tidal.com/album/119360664",
         "napster": "https://app.napster.com/artist/tentura/album/beyond-illusion",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/u22ws95d1gdca",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nNpcCOog3l6uLXO_dZdMPsQpOckNdSCEE",
         "youtube": "https://youtu.be/MUFZKBXEs1Q",
         "youtube_playlist_id": "PLp2GaPnw5O3PMQaDZ68wXXSCBq7hdE9im"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Tentura",
-            "title": "Alchemy",
-            "bpm": "120"
-          },
-          {
-            "number": "02",
-            "artist": "Tentura",
-            "title": "Interstellar",
-            "bpm": "140"
-          },
-          {
-            "number": "03",
-            "artist": "Tentura",
-            "title": "Liftoff",
-            "bpm": "90"
-          },
-          {
-            "number": "04",
-            "artist": "Tentura",
-            "title": "Beginning Of Time",
-            "bpm": "100"
-          },
-          {
-            "number": "05",
-            "artist": "Tentura",
-            "title": "Echoes",
-            "bpm": "120"
-          },
-          {
-            "number": "06",
-            "artist": "Tentura",
-            "title": "Vivid",
-            "bpm": "120"
-          },
-          {
-            "number": "07",
-            "artist": "Tentura",
-            "title": "Rising",
-            "bpm": "145"
-          },
-          {
-            "number": "08",
-            "artist": "Tentura",
-            "title": "Presence Of The Sence",
-            "bpm": "80"
-          },
-          {
-            "number": "09",
-            "artist": "Tentura",
-            "title": "Resonance (Remake)",
-            "bpm": "120"
-          },
-          {
-            "number": "10",
-            "artist": "Tentura",
-            "title": "Resident (vs. Specialmind)",
-            "bpm": "113"
-          }
-        ]
       }
     },
     "va-the-ten": {
@@ -5819,6 +4801,18 @@
         { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Zymosis feat. Katya Chilly - U Zemli | 140bpm" },
+        { "p": "02 Dagas - Age Of Aquarius | 60bpm" },
+        { "p": "03 Hair! - Hashish (Encapsulate Rmx) | 99.5bpm" },
+        { "p": "04 Spectrum Vision - Mono Town | 90bpm" },
+        { "p": "05 AstroPilot - Breath Of Fate | 102bpm" },
+        { "p": "06 Crystal Vibe - Neuron | 111bpm" },
+        { "p": "07 Chronos - Cultural Legacy (Live Version) | 110bpm" },
+        { "p": "08 Overdream - Flat Earthers | 113bpm" },
+        { "p": "09 Daoine Sidhe - Horizon Shifter | 115bpm" },
+        { "p": "10 Irukanji - Clooney | 125bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-the-ten",
         "bandcamp24_url": "redirect_to_16",
@@ -5834,78 +4828,13 @@
         "junodownload": "https://www.junodownload.com/products/the-ten/4950562-02",
         "discogs": "https://www.discogs.com/master/1164819",
         "deezer": "https://www.deezer.com/us/album/116264812",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07ZK7S7KM",
         "tidal": "https://listen.tidal.com/album/120995812",
         "napster": "https://app.napster.com/artist/various-artists/album/the-ten",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/ds7g9lw2qvktb",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_n6Uc4MNxXvO9Kxn-lLqgbgo9WXUeaeFOQ",
         "youtube": "https://youtu.be/lq73GjXRfPE",
         "youtube_playlist_id": "PLp2GaPnw5O3MM1mWFvfVOKf35NKCJHEhk"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Zymosis feat. Katya Chilly",
-            "title": "U Zemli",
-            "bpm": "140"
-          },
-          {
-            "number": "02",
-            "artist": "Dagas",
-            "title": "Age Of Aquarius",
-            "bpm": "60"
-          },
-          {
-            "number": "03",
-            "artist": "Hair!",
-            "title": "Hashish (Encapsulate Rmx)",
-            "bpm": "99.5"
-          },
-          {
-            "number": "04",
-            "artist": "Spectrum Vision",
-            "title": "Mono Town",
-            "bpm": "90"
-          },
-          {
-            "number": "05",
-            "artist": "AstroPilot",
-            "title": "Breath Of Fate",
-            "bpm": "102"
-          },
-          {
-            "number": "06",
-            "artist": "Crystal Vibe",
-            "title": "Neuron",
-            "bpm": "111"
-          },
-          {
-            "number": "07",
-            "artist": "Chronos",
-            "title": "Cultural Legacy (Live Version)",
-            "bpm": "110"
-          },
-          {
-            "number": "08",
-            "artist": "Overdream",
-            "title": "Flat Earthers",
-            "bpm": "113"
-          },
-          {
-            "number": "09",
-            "artist": "Daoine Sidhe",
-            "title": "Horizon Shifter",
-            "bpm": "115"
-          },
-          {
-            "number": "10",
-            "artist": "Irukanji",
-            "title": "Clooney",
-            "bpm": "125"
-          }
-        ]
       }
     },
     "zymosis-insight": {
@@ -5932,6 +4861,19 @@
         { "p": "Artwork By <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Zymosis - Make A Wish | 90bpm" },
+        { "p": "2 Zymosis - But I Will Not Know | 90bpm" },
+        { "p": "3 Zymosis - Beautiful Thing | 96bpm *" },
+        { "p": "4 Zymosis - Loneliness | 110bpm" },
+        { "p": "5 Zymosis - Let It All Out | 140bpm" },
+        { "p": "6 Zymosis - Where Can I Find You | 114bpm" },
+        { "p": "7 Zymosis - Sansara (Rework) | 97bpm" },
+        { "p": "8 Zymosis - OMGTY | 90bpm" },
+        { "p": "9 Zymosis feat. Katya Chilly - U Zemli | 140bpm **" },
+        { "p": "* - previously released at VA «Anti Particle» (Phantasm Records, 2014)" },
+        { "p": "** - previously released at VA «The Ten» (Sentimony Records, 2017)" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/zymosis-insight",
         "bandcamp24_url": "redirect_to_16",
@@ -5950,74 +4892,13 @@
         "beatspace": "http://www.beatspace.com/sencd025-insight.html",
         "psyshop": "https://www.psyshop.com/Insight-Zymosis-Sentimony/smy1cd025",
         "deezer": "https://www.deezer.com/us/album/46370162",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B074V395Z2",
         "tidal": "https://listen.tidal.com/album/77546337",
         "napster": "https://app.napster.com/artist/zymosis/album/insight-271814683",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079689514",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mDvblEBcz5Knd1Jx_M-p3eV69Pb0TRJXo",
         "youtube": "https://youtu.be/dXTvdBfOed8",
         "youtube_playlist_id": "PLp2GaPnw5O3PfYbFBghokLjl_sq1cETz-"
-      },
-      "tracklist": {
-        "note": "* - previously released at <a href='https://www.beatport.com/release/anti-particle-compiled-by-shantrip/1246692' target='_blank'>VA «Anti Particle»</a> (Phantasm Records, 2014)<br>** - previously released at <a href='/release/va-the-ten/'>VA «The Ten»</a> (Sentimony Records, 2017)",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Zymosis",
-            "title": "Make A Wish",
-            "bpm": "90"
-          },
-          {
-            "number": "2",
-            "artist": "Zymosis",
-            "title": "But I Will Not Know",
-            "bpm": "90"
-          },
-          {
-            "number": "3",
-            "artist": "Zymosis",
-            "title": "Beautiful Thing",
-            "bpm": "96",
-            "note": "*"
-        },
-          {
-            "number": "4",
-            "artist": "Zymosis",
-            "title": "Loneliness",
-            "bpm": "110"
-          },
-          {
-            "number": "5",
-            "artist": "Zymosis",
-            "title": "Let It All Out",
-            "bpm": "140"
-          },
-          {
-            "number": "6",
-            "artist": "Zymosis",
-            "title": "Where Can I Find You",
-            "bpm": "114"
-          },
-          {
-            "number": "7",
-            "artist": "Zymosis",
-            "title": "Sansara (Rework)",
-            "bpm": "97"
-          },
-          {
-            "number": "8",
-            "artist": "Zymosis",
-            "title": "OMGTY",
-            "bpm": "90"
-          },
-          {
-            "number": "9",
-            "artist": "Zymosis feat. Katya Chilly",
-            "title": "U Zemli",
-            "bpm": "140",
-            "note": "**"
-          }
-        ]
       }
     },
     "overdream-beautiful-thinking": {
@@ -6044,6 +4925,12 @@
         { "p": "Artwork By <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Overdream - Radical Utopian | 115bpm" },
+        { "p": "2 Overdream - Kopimist | 118bpm" },
+        { "p": "3 Overdream - Flat Earther (Beautiful Edit) | 113bpm" },
+        { "p": "4 Overdream - Omnipresence | 80bpm" }
+      ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/overdream-beautiful-thinking-ep",
         "bandcamp24_url": "redirect_to_16",
@@ -6059,42 +4946,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Overdream-Beautiful-Thinking/release/10989518",
         "deezer": "https://www.deezer.com/us/album/49641922",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B076BDKJH5",
         "tidal": "https://listen.tidal.com/album/79803173",
         "napster": "https://app.napster.com/artist/overdream/album/beautiful-thinking",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/0191079821808",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_krFuHSdECljaPEBJWDX7aGWN5h0fXtfFs",
         "youtube": "https://youtu.be/8zpB_cvSGAg",
         "youtube_playlist_id": "PLp2GaPnw5O3MUINi2gPZiMj2fIKp6pImE"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Overdream",
-            "title": "Radical Utopian",
-            "bpm": "115"
-          },
-          {
-            "number": "2",
-            "artist": "Overdream",
-            "title": "Kopimist",
-            "bpm": "118"
-          },
-          {
-            "number": "3",
-            "artist": "Overdream",
-            "title": "Flat Earther (Beautiful Edit)",
-            "bpm": "113"
-          },
-          {
-            "number": "4",
-            "artist": "Overdream",
-            "title": "Omnipresence",
-            "bpm": "80"
-          }
-        ]
       }
     },
     "ufomatka-altering-the-synaptic-controllers": {
@@ -6121,6 +4979,13 @@
         { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
         { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Ufomatka - Multiplexer | 140bpm" },
+        { "p": "2 Ufomatka - Alien Controlled Human Exterminator | 137bpm" },
+        { "p": "3 Ufomatka - Fornax Cluster | 145bpm" },
+        { "p": "4 Ufomatka - Warper-mutator | 138bpm" },
+        { "p": "5 Ufomatka - Weird Species | 153bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/ufomatka-altering-the-synaptic-controllers-ep-24bit",
@@ -6136,48 +5001,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Ufomatka-Altering-The-Synaptic-Controllers/release/11362580",
         "deezer": "https://www.deezer.com/us/album/55359442",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B0794RQ22C",
         "tidal": "https://listen.tidal.com/album/83661919",
         "napster": "https://app.napster.com/artist/ufomatka/album/altering-the-synaptic-controllers",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/zx61cgcdfcakc",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mTobjroVcpdu-r00ZfbKZGFoh5NguMeHw",
         "youtube": "https://youtu.be/Xp79Wh0fLd4",
         "youtube_playlist_id": "PLp2GaPnw5O3NTf_Aicn5RWYD4D3-kdIMy"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Ufomatka",
-            "title": "Multiplexer",
-            "bpm": "140"
-          },
-          {
-            "number": "2",
-            "artist": "Ufomatka",
-            "title": "Alien Controlled Human Exterminator",
-            "bpm": "137"
-          },
-          {
-            "number": "3",
-            "artist": "Ufomatka",
-            "title": "Fornax Cluster",
-            "bpm": "145"
-          },
-          {
-            "number": "4",
-            "artist": "Ufomatka",
-            "title": "Warper-mutator",
-            "bpm": "138"
-          },
-          {
-            "number": "5",
-            "artist": "Ufomatka",
-            "title": "Weird Species",
-            "bpm": "153"
-          }
-        ]
       }
     },
     "omnisound-destiny": {
@@ -6204,6 +5034,13 @@
         { "p": "Artwork By <a href='/artist/ader/'>Ader</a>" },
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Omnisound - Open For More | 97bpm" },
+        { "p": "2 Omnisound - Bridge | 92bpm" },
+        { "p": "3 Omnisound - Destiny (feat. Masha Lichee) | 120bpm" },
+        { "p": "4 Tentura - Liftoff (Omnisound Rmx) | 90bpm" },
+        { "p": "5 Tentura - Theme Patcher (Omnisound Rmx) | 110bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/omnisound-destiny-ep-24bit",
@@ -6219,48 +5056,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Omnisound-Destiny/release/11500534",
         "deezer": "https://www.deezer.com/us/album/55419232",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07959HWB4",
         "tidal": "https://listen.tidal.com/album/83698354",
         "napster": "https://app.napster.com/artist/omnisound/album/destiny-297181174",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/ihcvetsgq01oc",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_noAi_Wx_5XodP1XQ9Q2wOFMs-wkapIwec",
         "youtube": "https://youtu.be/MlOvEX9LKwQ",
         "youtube_playlist_id": "PLp2GaPnw5O3PcwGPSo4Ksr03Yemm9Vkos"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Omnisound",
-            "title": "Open For More",
-            "bpm": "97"
-          },
-          {
-            "number": "2",
-            "artist": "Omnisound",
-            "title": "Bridge",
-            "bpm": "92"
-          },
-          {
-            "number": "3",
-            "artist": "Omnisound",
-            "title": "Destiny (feat. Masha Lichee)",
-            "bpm": "120"
-          },
-          {
-            "number": "4",
-            "artist": "Tentura",
-            "title": "Liftoff (Omnisound Rmx)",
-            "bpm": "90"
-          },
-          {
-            "number": "5",
-            "artist": "Tentura",
-            "title": "Theme Patcher (Omnisound Rmx)",
-            "bpm": "110"
-          }
-        ]
       }
     },
     "zymosis-nichna": {
@@ -6288,6 +5090,13 @@
         { "p": "Artwork By <a href='https://www.artstation.com/master-di' target='_blank' rel='noopener'>Dmitry Yurchenko @ Di-StudiO</a>" },
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Zymosis - Kotyk | 80bpm" },
+        { "p": "2 Zymosis - Lystochok | 80bpm" },
+        { "p": "3 Zymosis - Kycyu | 86bpm" },
+        { "p": "4 Zymosis - Serdenko | 115bpm" },
+        { "p": "5 Zymosis - Dytyna | 80bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-nichna-ep-24bit",
@@ -6303,48 +5112,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Zymosis-Nichna/release/12199090",
         "deezer": "https://www.deezer.com/us/album/65463112",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07DMM7JJF",
         "tidal": "https://listen.tidal.com/album/90398266",
         "napster": "https://app.napster.com/artist/zymosis/album/nichna",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/dr2872vssovlb",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nJ3EYYrcISAGlqQfYBp33Pd8ZvCjf7Quw",
         "youtube": "https://youtu.be/hH3kVw_0T8c",
         "youtube_playlist_id": "PLp2GaPnw5O3NFaWRqsjAcMO1526QPNR0j"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Zymosis",
-            "title": "Kotyk",
-            "bpm": "80"
-          },
-          {
-            "number": "2",
-            "artist": "Zymosis",
-            "title": "Lystochok",
-            "bpm": "80"
-          },
-          {
-            "number": "3",
-            "artist": "Zymosis",
-            "title": "Kycyu",
-            "bpm": "86"
-          },
-          {
-            "number": "4",
-            "artist": "Zymosis",
-            "title": "Serdenko",
-            "bpm": "115"
-          },
-          {
-            "number": "5",
-            "artist": "Zymosis",
-            "title": "Dytyna",
-            "bpm": "80"
-          }
-        ]
       }
     },
     "va-futured-vol-1": {
@@ -6371,6 +5145,13 @@
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Juelz - Inner Borders | 135bpm" },
+        { "p": "2 Psydewise - Navaho Reject | 138bpm" },
+        { "p": "3 EleexR - Zemnosis | 138bpm" },
+        { "p": "4 eXoLT - Buzzooka | 136bpm" },
+        { "p": "5 Irukanji - Organix | 138bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-1-24bit",
@@ -6386,48 +5167,13 @@
         "junodownload": "https://www.junodownload.com/products/juelz-psydewise-eleexr-exolt-futured-vol-1/3987756-02",
         "discogs": "https://www.discogs.com/release/12358770",
         "deezer": "https://www.deezer.com/us/album/69106822",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07FVKWY52",
         "tidal": "https://listen.tidal.com/album/92576884",
         "napster": "https://app.napster.com/artist/various/album/futured-vol-1",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/q5k0hzipz7vqa",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_n9CGHLJZh-Eb3QZ3F5ZQfRaQnaBh6djqc",
         "youtube": "https://youtu.be/rHVrTGikJQQ",
         "youtube_playlist_id": "PLp2GaPnw5O3NakQwOoRQ2reOBlahDqjLy"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Juelz",
-            "title": "Inner Borders",
-            "bpm": "135"
-          },
-          {
-            "number": "2",
-            "artist": "Psydewise",
-            "title": "Navaho Reject",
-            "bpm": "138"
-          },
-          {
-            "number": "3",
-            "artist": "EleexR",
-            "title": "Zemnosis",
-            "bpm": "138"
-          },
-          {
-            "number": "4",
-            "artist": "eXoLT",
-            "title": "Buzzooka",
-            "bpm": "136"
-          },
-          {
-            "number": "5",
-            "artist": "Irukanji",
-            "title": "Organix",
-            "bpm": "138"
-          }
-        ]
       }
     },
     "psydewise-synaptic-elastic": {
@@ -6454,6 +5200,12 @@
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Psydewise - Blast! | 140bpm" },
+        { "p": "2 Psydewise - Hypnocritic | 135bpm" },
+        { "p": "3 Psydewise - Unknown Origin | 138bpm" },
+        { "p": "4 Psydewise - Mycelium Network (feat. Nifex) | 137bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-synaptic-elastic-ep-24bit",
@@ -6469,42 +5221,13 @@
         "junodownload": "https://www.junodownload.com/products/psydewise-synaptic-elastic/3871292-02",
         "discogs": "https://www.discogs.com/release/12411668",
         "deezer": "https://www.deezer.com/us/album/70122902",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07G7YPZWP",
         "tidal": "https://listen.tidal.com/album/93444126",
         "napster": "https://app.napster.com/artist/psydewise/album/synaptic-elastic",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/szi7uqsifqbha",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_k8OePrtfHdc__flKCVrt1k4LTAeBIXsoo",
         "youtube": "https://youtu.be/SHvJtUh9-xA",
         "youtube_playlist_id": "PLp2GaPnw5O3MzBwZM1PJpFw8biL3eb-fV"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Psydewise",
-            "title": "Blast!",
-            "bpm": "140"
-          },
-          {
-            "number": "2",
-            "artist": "Psydewise",
-            "title": "Hypnocritic",
-            "bpm": "135"
-          },
-          {
-            "number": "3",
-            "artist": "Psydewise",
-            "title": "Unknown Origin",
-            "bpm": "138"
-          },
-          {
-            "number": "4",
-            "artist": "Psydewise",
-            "title": "Mycelium Network (feat. Nifex)",
-            "bpm": "137"
-          }
-        ]
       }
     },
     "u-wave-autumn-discovery": {
@@ -6531,6 +5254,12 @@
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 U-Wave - Caravan Dream | 96bpm" },
+        { "p": "2 U-Wave - Mama Africa | 90bpm" },
+        { "p": "3 U-Wave - Indian Pattern | 100bpm" },
+        { "p": "4 U-Wave - Autumn Discovery | 80bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/u-wave-autumn-discovery-ep-24bit",
@@ -6546,42 +5275,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/U-Wave-Autumn-Discovery/release/12697920",
         "deezer": "https://www.deezer.com/us/album/75150652",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07J4BTCX2",
         "tidal": "https://listen.tidal.com/album/96414275",
         "napster": "https://app.napster.com/artist/u-wave/album/autumn-discovery",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/y4222hn9eegja",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nAVcwxnD8g5ijXNfd6HHtf2B8oH6hqTGw",
         "youtube": "https://youtu.be/YdnipKXWWy8",
         "youtube_playlist_id": "PLp2GaPnw5O3McdX0r7SNVfBVyA66QaWIs"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "U-Wave",
-            "title": "Caravan Dream",
-            "bpm": "96"
-          },
-          {
-            "number": "2",
-            "artist": "U-Wave",
-            "title": "Mama Africa",
-            "bpm": "90"
-          },
-          {
-            "number": "3",
-            "artist": "U-Wave",
-            "title": "Indian Pattern",
-            "bpm": "100"
-          },
-          {
-            "number": "4",
-            "artist": "U-Wave",
-            "title": "Autumn Discovery",
-            "bpm": "80"
-          }
-        ]
       }
     },
     "va-futured-vol-2": {
@@ -6608,6 +5308,16 @@
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Irukanji - Ale Yak? | 138bpm" },
+        { "p": "2 Space Organ - Ultimate Rush (vs. Juelz) | 137bpm" },
+        { "p": "3 KAbi - Terra | 138bpm" },
+        { "p": "4 Declaration of Unity - Percashew | 139bpm" },
+        { "p": "5 Psydewise - Family Business | 137bpm" },
+        { "p": "6 eXoLT - Go Rounds | 136bpm" },
+        { "p": "7 EleexR - Thousand Mirrors | 132bpm" },
+        { "p": "8 Dreamstalker - Piper Call (Rework) | 130bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-2-24bit",
@@ -6623,66 +5333,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Various-Futured-Vol-2/release/13100568",
         "deezer": "https://www.deezer.com/us/album/81149732",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07L51P623",
         "tidal": "https://listen.tidal.com/album/100471415",
         "napster": "https://app.napster.com/artist/various/album/futured-vol-2",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/j5knxio7823ac",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_lqZDPkkAP5Pghuscz6d_LAP-CXcDPLWFU",
         "youtube": "https://youtu.be/eLuV7PaeAgc",
         "youtube_playlist_id": "PLp2GaPnw5O3OoMD69Cb7zoyc2SKu0Zlxh"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Irukanji",
-            "title": "Ale Yak?",
-            "bpm": "138"
-          },
-          {
-            "number": "2",
-            "artist": "Space Organ",
-            "title": "Ultimate Rush (vs. Juelz)",
-            "bpm": "137"
-          },
-          {
-            "number": "3",
-            "artist": "KAbi",
-            "title": "Terra",
-            "bpm": "138"
-          },
-          {
-            "number": "4",
-            "artist": "Declaration of Unity",
-            "title": "Percashew",
-            "bpm": "139"
-          },
-          {
-            "number": "5",
-            "artist": "Psydewise",
-            "title": "Family Business",
-            "bpm": "137"
-          },
-          {
-            "number": "6",
-            "artist": "eXoLT",
-            "title": "Go Rounds",
-            "bpm": "136"
-          },
-          {
-            "number": "7",
-            "artist": "EleexR",
-            "title": "Thousand Mirrors",
-            "bpm": "132"
-          },
-          {
-            "number": "8",
-            "artist": "Dreamstalker",
-            "title": "Piper Call (Rework)",
-            "bpm": "130"
-          }
-        ]
       }
     },
     "aesthesia-perception": {
@@ -6709,6 +5366,12 @@
         { "p": "Artwork By 🇺🇦 <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
         { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Aesthesia - Flow | 84bpm" },
+        { "p": "2 Aesthesia - Les Paul Down The Rabbit Hole | 115bpm" },
+        { "p": "3 Aesthesia - Moment Of Silence | 135bpm" },
+        { "p": "4 Aesthesia - Tellus Mater | 65bpm<br><small>Written & Produced By Aesthesia, Professor M</small>" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/aesthesia-perception-ep-24bit",
@@ -6724,43 +5387,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Aesthesia-Perception/release/13198112",
         "deezer": "https://www.deezer.com/us/album/103038222",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07V39TW2V",
         "tidal": "https://listen.tidal.com/album/113055977",
         "napster": "https://app.napster.com/artist/aesthesia/album/perception-390282618",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/koxubtk2xexob",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nUB9vGKc6D7towe9fwvvM0Q6FJIyohPqE",
         "youtube": "https://youtu.be/j_2b1H2I0uA",
         "youtube_playlist_id": "PLp2GaPnw5O3Py7hkadIYWbawB16K9Y8EE"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Aesthesia",
-            "title": "Flow",
-            "bpm": "84"
-          },
-          {
-            "number": "2",
-            "artist": "Aesthesia",
-            "title": "Les Paul Down The Rabbit Hole",
-            "bpm": "115"
-          },
-          {
-            "number": "3",
-            "artist": "Aesthesia",
-            "title": "Moment Of Silence",
-            "bpm": "135"
-          },
-          {
-            "number": "4",
-            "artist": "Aesthesia",
-            "title": "Tellus Mater",
-            "bpm": "65",
-            "credits": "Written & Produced By Aesthesia, Professor M"
-          }
-        ]
       }
     },
     "juelz-dependence": {
@@ -6787,6 +5420,12 @@
         { "p": "Artwork By <a href='https://www.facebook.com/den.mareta' target='_blank' rel='noopener'>Denni Mareta</a>" },
         { "p": "Mastered By <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Juelz - Aznaa | 125bpm" },
+        { "p": "2 Juelz - Desire | 134bpm" },
+        { "p": "3 Juelz - Trust Me | 135bpm" },
+        { "p": "4 Hellquist - Abstraction (Juelz Rmx) | 136bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/juelz-dependence-ep-24bit",
@@ -6802,42 +5441,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Juelz-Dependence-EP/release/13291427",
         "deezer": "https://www.deezer.com/us/album/103038132",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07V586GCF",
         "tidal": "https://listen.tidal.com/album/113055964",
         "napster": "https://app.napster.com/artist/juelz/album/dependence-sentimony-records",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/bbvjwfrkipyva",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nYy1uBViAbP17OMwEQjY3tmPWO2MV2lNw",
         "youtube": "https://youtu.be/09qPKrtXsjo",
         "youtube_playlist_id": "PLp2GaPnw5O3No0HMaK_HWW7SQcg9bh38b"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Juelz",
-            "title": "Aznaa",
-            "bpm": "125"
-          },
-          {
-            "number": "2",
-            "artist": "Juelz",
-            "title": "Desire",
-            "bpm": "134"
-          },
-          {
-            "number": "3",
-            "artist": "Juelz",
-            "title": "Trust Me",
-            "bpm": "135"
-          },
-          {
-            "number": "4",
-            "artist": "Hellquist",
-            "title": "Abstraction (Juelz Rmx)",
-            "bpm": "136"
-          }
-        ]
       }
     },
     "unusual-cosmic-process-brain-channel": {
@@ -6864,6 +5474,12 @@
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Unusual Cosmic Process - Electric Fields | 110bpm" },
+        { "p": "2 Unusual Cosmic Process - Brain Channel | 100bpm" },
+        { "p": "3 Unusual Cosmic Process - Ultima Thule | 105bpm" },
+        { "p": "4 Unusual Cosmic Process - Sequoia | 100bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-brain-channel-ep-24bit",
@@ -6879,42 +5495,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Unusual-Cosmic-Process-Brain-Channel/master/1529440",
         "deezer": "https://www.deezer.com/us/album/94081862",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07QVWJ9KM",
         "tidal": "https://listen.tidal.com/album/107967725",
         "napster": "https://app.napster.com/artist/unusual-cosmic-process/album/brain-channel-sentimony-records",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/n8edz7up3hyaa",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kuVpt9WxLoaufxpMYpKDf0wUC1ps5FJ1E",
         "youtube": "https://youtu.be/Ei6-xfOp92s",
         "youtube_playlist_id": "PLp2GaPnw5O3ObLtw0L5NQWsSQNoFr5Jx_"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Unusual Cosmic Process",
-            "title": "Electric Fields",
-            "bpm": "110"
-          },
-          {
-            "number": "2",
-            "artist": "Unusual Cosmic Process",
-            "title": "Brain Channel",
-            "bpm": "100"
-          },
-          {
-            "number": "3",
-            "artist": "Unusual Cosmic Process",
-            "title": "Ultima Thule",
-            "bpm": "105"
-          },
-          {
-            "number": "4",
-            "artist": "Unusual Cosmic Process",
-            "title": "Sequoia",
-            "bpm": "100"
-          }
-        ]
       }
     },
     "space-organ-deep-impressions": {
@@ -6941,6 +5528,12 @@
         { "p": "Artwork By 🇺🇦 <a href='/artist/trootootoo/'>Trootootoo</a>" },
         { "p": "Mastered By 🇧🇷 <a href='https://www.facebook.com/morbinmaster' target='_blank' rel='noopener'>Rafael Morbin @ Morbin Studios</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Alchemy Circle - Imperial Catharsis (Space Organ Rmx) | 138bpm" },
+        { "p": "2 Space Organ - 2030 | 138bpm" },
+        { "p": "3 Space Organ - Hybrid | 137bpm" },
+        { "p": "4 Hypogeo - The Lamb Of Dog (Space Organ Rmx) | 140bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/space-organ-deep-impressions-ep-24bit",
@@ -6956,42 +5549,13 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/Space-Organ-Deep-Impressions/release/13583872",
         "deezer": "https://www.deezer.com/us/album/95970712",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07RHQJKXL",
         "tidal": "https://listen.tidal.com/album/108985988",
         "napster": "https://app.napster.com/artist/space-organ/album/deep-impressions",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/v9bxfhpksdbxa",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kxucjNlgw29xY5MULGS7zJVoed0RVAFnE",
         "youtube": "https://youtu.be/tEyi6Jnl73U",
         "youtube_playlist_id": "PLp2GaPnw5O3Ot5BdOytC2-e9BEsRy68p6"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Alchemy Circle",
-            "title": "Imperial Catharsis (Space Organ Rmx)",
-            "bpm": "138"
-          },
-          {
-            "number": "2",
-            "artist": "Space Organ",
-            "title": "2030",
-            "bpm": "138"
-          },
-          {
-            "number": "3",
-            "artist": "Space Organ",
-            "title": "Hybrid",
-            "bpm": "137"
-          },
-          {
-            "number": "4",
-            "artist": "Hypogeo",
-            "title": "The Lamb Of Dog (Space Organ Rmx)",
-            "bpm": "140"
-          }
-        ]
       }
     },
     "psydewise-radio-dystopia": {
@@ -7018,6 +5582,12 @@
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇿🇦 <a href='https://www.facebook.com/sam.wise.3194' target='_blank' rel='noopener'>Samuel J. Wise @ Macro-Dot Audio</a>" }
       ], 
+      "tracklistCompact": [
+        { "p": "1 Psydewise - Crystalized Mind | 136bpm" },
+        { "p": "2 Psydewise - Tetrafloraxapan | 137bpm" },
+        { "p": "3 Psydewise - Fleeting Moments | 138bpm" },
+        { "p": "4 Psydewise - Intruder | 137bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-radio-dystopia-ep-24bit",
@@ -7033,42 +5603,13 @@
         "junodownload": "https://www.junodownload.com/products/psydewise-radio-dystopia/4166610-02",
         "discogs": "https://www.discogs.com/Psydewise-Radio-Dystopia/release/14149956",
         "deezer": "https://www.deezer.com/us/album/98601302",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07SH2LYW9",
         "tidal": "https://listen.tidal.com/album/110333610",
         "napster": "https://app.napster.com/artist/psydewise/album/radio-dystopia",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/nmlcmeb11pzsa",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kz7eBpU-DMY5_EgUpOwO8WWwf9cViyCzc",
         "youtube": "https://youtu.be/KW1xA0qJAnI",
         "youtube_playlist_id": "PLp2GaPnw5O3PnBP2oiT-p8fg8hJCOFH4K"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "1",
-            "artist": "Psydewise",
-            "title": "Crystalized Mind",
-            "bpm": "136"
-          },
-          {
-            "number": "2",
-            "artist": "Psydewise",
-            "title": "Tetrafloraxapan",
-            "bpm": "137"
-          },
-          {
-            "number": "3",
-            "artist": "Psydewise",
-            "title": "Fleeting Moments",
-            "bpm": "138"
-          },
-          {
-            "number": "4",
-            "artist": "Psydewise",
-            "title": "Intruder",
-            "bpm": "137"
-          }
-        ]
       }
     },
     "artech-stringer-mode": {
@@ -7149,6 +5690,19 @@
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a> (Tracks #02 - #11) & 🇿🇦 <a href='https://www.facebook.com/sam.wise.3194' target='_blank' rel='noopener'>Samuel J. Wise @ Macro-Dot Audio</a> (Track 01)" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Psydewise - Pixelated Pupils | 139bpm" },
+        { "p": "02 VORG - Smilevil | 137bpm" },
+        { "p": "03 KAbi - Futured | 137bpm" },
+        { "p": "04 Gojja - The Googly Eye In The Sky | 138bpm" },
+        { "p": "05 Kauyumari - Kaax (feat. Omega Sound) (Kauyumari Rmx) | 137bpm" },
+        { "p": "06 Altius - Hawaiian Cube | 138bpm" },
+        { "p": "07 Kromagon - Heacy Lohic (Irukanji, EleexR, eXoLT Rmx) | 137bpm" },
+        { "p": "08 Sumiruna - Kismet (Space Organ Rmx) | 140bpm" },
+        { "p": "09 Diffus - Twilight Progressive | 140bpm" },
+        { "p": "10 No-C - Init (feat. Psychoz) | 139bpm" },
+        { "p": "11 Hybrid Reality - Totem (Gaz Mask Rmx) | 139bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-3-24bit",
@@ -7164,84 +5718,13 @@
         "junodownload": "https://www.junodownload.com/products/futured-vol-3/4232412-02",
         "discogs": "https://www.discogs.com/Irukanji-Injir-Futured-Vol-3/release/14149650",
         "deezer": "https://www.deezer.com/us/album/105493502",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B07VQBQHR8",
         "tidal": "https://listen.tidal.com/album/114254148",
         "napster": "https://app.napster.com/artist/various/album/futured-vol-3",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/i2h1rmcihyvpa",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kDIoPqPVcZRw4RRq5L4wCfpZ0oCRLC8ho",
         "youtube": "https://youtu.be/pX7XlDRGjS8",
         "youtube_playlist_id": "PLp2GaPnw5O3OlpLP9wJ0uYjgFXVSG1wrY"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Psydewise",
-            "title": "Pixelated Pupils",
-            "bpm": "139"
-          },
-          {
-            "number": "02",
-            "artist": "VORG",
-            "title": "Smilevil",
-            "bpm": "137"
-          },
-          {
-            "number": "03",
-            "artist": "KAbi",
-            "title": "Futured",
-            "bpm": "137"
-          },
-          {
-            "number": "04",
-            "artist": "Gojja",
-            "title": "The Googly Eye In The Sky",
-            "bpm": "138"
-          },
-          {
-            "number": "05",
-            "artist": "Kauyumari",
-            "title": "Kaax (feat. Omega Sound) (Kauyumari Rmx)",
-            "bpm": "137"
-          },
-          {
-            "number": "06",
-            "artist": "Altius",
-            "title": "Hawaiian Cube",
-            "bpm": "138"
-          },
-          {
-            "number": "07",
-            "artist": "Kromagon",
-            "title": "Heacy Lohic (Irukanji, EleexR, eXoLT Rmx)",
-            "bpm": "137"
-          },
-          {
-            "number": "08",
-            "artist": "Sumiruna",
-            "title": "Kismet (Space Organ Rmx)",
-            "bpm": "140"
-          },
-          {
-            "number": "09",
-            "artist": "Diffus",
-            "title": "Twilight Progressive",
-            "bpm": "140"
-          },
-          {
-            "number": "10",
-            "artist": "No-C",
-            "title": "Init (feat. Psychoz)",
-            "bpm": "139"
-          },
-          {
-            "number": "11",
-            "artist": "Hybrid Reality",
-            "title": "Totem (Gaz Mask Rmx)",
-            "bpm": "139"
-          }
-        ]
       }
     },
     "va-gatekey-vol-1": {
@@ -7269,6 +5752,33 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> (Tracks #01, #03 - #25) & 🇺🇸 <a href='https://www.facebook.com/MindexMusic' target='_blank' rel='noopener'>Mindex</a> (Track 02)" },
         { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> (Tracks #07, #22)" }
       ], 
+      "tracklistCompact": [
+        { "p": "01 Zymosis - Last Call | 140bpm" },
+        { "p": "02 Mindex - Warrior | 140bpm" },
+        { "p": "03 Juelz - Repeating Yesterday | 87.5bpm" },
+        { "p": "04 Psydewise - Puddled In Dub | 128bpm" },
+        { "p": "05 Spectrum Vision - Tajmahal | 128bpm" },
+        { "p": "06 Ra Djan - Space Breaks | 120bpm" },
+        { "p": "07 Aesthesia - Roots | 67.5bpm" },
+        { "p": "08 Overdream - Skywalker (feat. Proff) | 125bpm" },
+        { "p": "09 VORG - Guided And Quiet | 120bpm" },
+        { "p": "10 Kauyumari - Tepezcohuite | 111bpm" },
+        { "p": "11 Omnisound - Waterfall | 98bpm" },
+        { "p": "12 KAbi - Gui | 90bpm" },
+        { "p": "13 Roof Raiser - Bug Inside | 170bpm" },
+        { "p": "14 U-Wave - Line Of Fate | 100bpm" },
+        { "p": "15 Specialmind - Perception Of Calmness | 80bpm" },
+        { "p": "16 Crystal Vibe - Ambassador | 110bpm" },
+        { "p": "17 ShizoLizer Gin - Come Back | 90bpm" },
+        { "p": "18 Ufomatka - Wasteland | 120bpm" },
+        { "p": "19 Unusual Cosmic Process - Brain Channel (Psypheric Rmx) | 110bpm" },
+        { "p": "20 Irukanji - Here And Now | 120bpm" },
+        { "p": "21 Tookytooky - Nature Of Uncertainty | 120bpm" },
+        { "p": "22 Sky Mavka - Glass Cave | 125bpm" },
+        { "p": "23 Hardcore Buddhist & Art Imagination - Sea Dream (Live Version) | 115bpm" },
+        { "p": "24 E-Mantra - Approaching Nibiru (Sky Technology Rmx) | 110bpm" },
+        { "p": "25 Ahanjack & Yoi - Onaion | 85bpm" }
+      ],
       "links": {
         "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-gatekey-vol-1-24bit",
@@ -7284,169 +5794,13 @@
         "junodownload": "https://www.junodownload.com/products/gatekey-vol-1/4370207-02",
         "discogs": "https://www.discogs.com/release/15977451",
         "deezer": "https://www.deezer.com/us/album/121531872",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B0829FP1GJ",
         "tidal": "https://listen.tidal.com/album/124412937",
         "napster": "https://app.napster.com/artist/various-artists/album/gatekey-vol-1",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/h0jfk8vzw8crc",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kVoXjkDnGtqiX609eVXWSh-g6iOE8GONA",
         "youtube": "https://youtu.be/oPvpi2OZyzo",
         "youtube_playlist_id": "PLp2GaPnw5O3OndSZbDjWhaJK5Mj_34-_V"
-      },
-      "tracklist": {
-        "note": "",
-        "tracks": [
-          {
-            "number": "01",
-            "artist": "Zymosis",
-            "title": "Last Call",
-            "bpm": "140"
-          },
-          {
-            "number": "02",
-            "artist": "Mindex",
-            "title": "Warrior",
-            "bpm": "140"
-          },
-          {
-            "number": "03",
-            "artist": "Juelz",
-            "title": "Repeating Yesterday",
-            "bpm": "87.5"
-          },
-          {
-            "number": "04",
-            "artist": "Psydewise",
-            "title": "Puddled In Dub",
-            "bpm": "128"
-          },
-          {
-            "number": "05",
-            "artist": "Spectrum Vision",
-            "title": "Tajmahal",
-            "bpm": "128"
-          },
-          {
-            "number": "06",
-            "artist": "Ra Djan",
-            "title": "Space Breaks",
-            "bpm": "120"
-          },
-          {
-            "number": "07",
-            "artist": "Aesthesia",
-            "title": "Roots",
-            "bpm": "67.5"
-          },
-          {
-            "number": "08",
-            "artist": "Overdream",
-            "title": "Skywalker (feat. Proff)",
-            "bpm": "125"
-          },
-          {
-            "number": "09",
-            "artist": "VORG",
-            "title": "Guided And Quiet",
-            "bpm": "120"
-          },
-          {
-            "number": "10",
-            "artist": "Kauyumari",
-            "title": "Tepezcohuite",
-            "bpm": "111"
-          },
-          {
-            "number": "11",
-            "artist": "Omnisound",
-            "title": "Waterfall",
-            "bpm": "98"
-          },
-          {
-            "number": "12",
-            "artist": "KAbi",
-            "title": "Gui",
-            "bpm": "90"
-          },
-          {
-            "number": "13",
-            "artist": "Roof Raiser",
-            "title": "Bug Inside",
-            "bpm": "170"
-          },
-          {
-            "number": "14",
-            "artist": "U-Wave",
-            "title": "Line Of Fate",
-            "bpm": "100"
-          },
-          {
-            "number": "15",
-            "artist": "Specialmind",
-            "title": "Perception Of Calmness",
-            "bpm": "80"
-          },
-          {
-            "number": "16",
-            "artist": "Crystal Vibe",
-            "title": "Ambassador",
-            "bpm": "110"
-          },
-          {
-            "number": "17",
-            "artist": "ShizoLizer Gin",
-            "title": "Come Back",
-            "bpm": "90"
-          },
-          {
-            "number": "18",
-            "artist": "Ufomatka",
-            "title": "Wasteland",
-            "bpm": "120"
-          },
-          {
-            "number": "19",
-            "artist": "Unusual Cosmic Process",
-            "title": "Brain Channel (Psypheric Rmx)",
-            "bpm": "110"
-          },
-          {
-            "number": "20",
-            "artist": "Irukanji",
-            "title": "Here And Now",
-            "bpm": "120"
-          },
-          {
-            "number": "21",
-            "artist": "Tookytooky",
-            "title": "Nature Of Uncertainty",
-            "bpm": "120"
-          },
-          {
-            "number": "22",
-            "artist": "Sky Mavka",
-            "title": "Glass Cave",
-            "bpm": "125"
-          },
-          {
-            "number": "23",
-            "artist": "Hardcore Buddhist & Art Imagination",
-            "title": "Sea Dream (Live Version)",
-            "bpm": "115",
-            "log": "Written & Produced By Hardcore Buddhist and Art Imagination (electronics by Ihor Dal' and Andriy Averin, guitar - Anton Semikopenko, sax and flutes - Yaroslav Gross)"
-          },
-          {
-            "number": "24",
-            "artist": "E-Mantra",
-            "title": "Approaching Nibiru (Sky Technology Rmx)",
-            "bpm": "110"
-          },
-          {
-            "number": "25",
-            "artist": "Ahanjack & Yoi",
-            "title": "Onaion",
-            "bpm": "85"
-          }
-        ]
       }
     },
     "gojja-amber-current": {
@@ -8452,10 +6806,10 @@
         "junodownload": "https://www.junodownload.com/products/irukanji-rebuild/5311230-02",
         "discogs": "",
         "deezer": "https://www.deezer.com/us/album/266707532",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B09JV5BK8B",
         "tidal": "https://listen.tidal.com/album/201792387",
         "napster": "https://app.napster.com/artist/irukanji/album/rebuild",
-        "qobuz": "",
+        "qobuz": "https://play.qobuz.com/album/w4macu1lsd54a",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nprd9pnoKivk_bLwIcJQjcerGCbpaXiP8",
         "youtube": "https://youtu.be/IqE_tkJj0kc",
         "youtube_playlist_id": "PLp2GaPnw5O3PJCZGUbx-cOcXJf0xyqhFK"
@@ -9355,7 +7709,7 @@
       "tracks_number": "10",
       "total_time": "1:22:00",
       "format": "Album",
-      "artists": "space-organ symetric stereodots irukanji alchemy-circle trootootoo",
+      "artists": "space-organ symetric stereodots irukanji alchemy-circle trootootoo, dimitro",
       "relative_releases": "space-organ-deep-impressions space-organ-behind-the-universe",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new DarkProg Psytrance full length album titled «Time And Space» by <a href='/artist/space-organ/'>Space Organ</a> from Brazil.</p><p>Have a deep trip and enjoy!</p>",
@@ -9441,7 +7795,7 @@
         "junodownload": "https://www.junodownload.com/products/urklang-psyral-lifeforms/6545272-02",
         "discogs": "",
         "deezer": "https://www.deezer.com/us/album/560733982",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B0CY5V5HTY",
         "tidal": "https://listen.tidal.com/album/351292400",
         "napster": "",
         "qobuz": "https://play.qobuz.com/album/mz08vpkx0u75b",
@@ -9493,7 +7847,7 @@
         "junodownload": "https://www.junodownload.com/products/spacecraft-metamorphosis/6570150-02/",
         "discogs": "",
         "deezer": "https://www.deezer.com/us/album/568798691",
-        "amazon_music": "",
+        "amazon_music": "https://music.amazon.com/albums/B0CZSCTWHF",
         "tidal": "https://listen.tidal.com/album/355226153",
         "napster": "",
         "qobuz": "https://play.qobuz.com/album/jlfj8lq0ysfsb",
@@ -10293,8 +8647,8 @@
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/vorg-cyber-soul-night",
         "soundcloud_playlist_id": "1993081332",
         "applemusic_url": "https://music.apple.com/us/album/cyber-soul-night/1807202087",        
-        "beatport": "",
-        "spotify": "",
+        "beatport": "https://www.beatport.com/release/cyber-soul-night/5028746",
+        "spotify": "https://open.spotify.com/album/06PsEHap6p6rVDvha8OTOv",
         "junodownload": "",
         "discogs": "",
         "deezer": "https://www.deezer.com/us/album/739238721",
@@ -10357,17 +8711,17 @@
         "bandcamp_id": "1252783831",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/tystix-spectral-ep",
         "soundcloud_playlist_id": "1999482584",
-        "applemusic_url": "",        
-        "beatport": "",
+        "applemusic_url": "https://music.apple.com/us/album/spectral-ep/1807800319",        
+        "beatport": "https://www.beatport.com/release/spectral/5031433",
         "spotify": "",
-        "junodownload": "",
+        "junodownload": "https://www.junodownload.com/products/tystix-spectral/7073079-02/",
         "discogs": "",
-        "deezer": "",
-        "amazon_music": "",
-        "tidal": "",
+        "deezer": "https://www.deezer.com/us/album/740649051",
+        "amazon_music": "https://music.amazon.com/albums/B0F4F18XQ4",
+        "tidal": "https://listen.tidal.com/album/429306074",
         "napster": "",
-        "qobuz": "",
-        "youtube_music": "",
+        "qobuz": "https://play.qobuz.com/album/f1g89mnrrp3mb",
+        "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mrzbwEpNN_o2rzJbU0igVipGQwOIkFy6c",
         "youtube": "",
         "youtube_playlist_id": ""
       },
@@ -10392,7 +8746,7 @@
       "title": "Tonal Sense «Enveloping Rhythm» EP",
       "cat_no": "SENCD093",
       "visible": true,
-      "date": "2025-04-11T12:00:00.000Z",
+      "date": "2025-04-18T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "https://content.sentimony.com/assets/img/releases/tonal-sense-enveloping-rhythm_og.jpg",
