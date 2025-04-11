@@ -56,13 +56,16 @@
 
   &__soon {
     color: rgba(#fff,.5);
-    font-size: 8px;
-    padding: .6em 1.2em;
+    font-size: 7px;
+    line-height: 1.25;
+    padding: .3em .5em;
     text-align: left;
     box-sizing: border-box;
 
     @include media(M) {
       font-size: 10px;
+      line-height: 1.5;
+      padding: .6em 1.0em;
     }
   }
 
@@ -103,6 +106,25 @@
     @include media(M) {
       // height: 60px;
       font-size: 12px;
+    }
+  }
+}
+
+.item--rectangle {
+
+  .item__wrapper {
+    height: 43.75px!important;
+
+    @include media(M) {
+      height: 87.5px!important;
+    }
+  }
+
+  .item__cover {
+    height: 33.75px!important;
+
+    @include media(M) {
+      height: 67.5px!important;
     }
   }
 }

@@ -1,36 +1,33 @@
 <template>
   <div class="page">
 
-    <h1>Videos</h1>
+    <h1>{{ pageTitle }}</h1>
 
     <div class="list">
-      <div class="item"
-        v-for="(i, index) in sortByDate"
+
+      <div class="item item--rectangle"
+        v-for="(i, index) in videosSortedByDate"
         :key="index"
         v-if="i.visible"
       >
         <router-link v-ripple v-if="i.slug" :to="'/video/' + i.slug + '/'" class="item__link">
+          
           <div class="item__wrapper">
             <div class="item__cover">
               <img v-if="i.cover_th" class="item__img"
                 :src="i.cover_th"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <img v-if="!i.cover_th && i.cover" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-if="!i.cover_th && !i.cover"
-                class="item__soon" v-html="texts.comingArtwork"
+              <div v-if="!i.cover_th"
+                class="item__soon" v-html="texts.comingCover"
               />
             </div>
-            <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
-            <div v-if="i.new" class="item__status--red">Out Now</div>
           </div>
           <div class="item__title">{{ i.title }}</div>
+
         </router-link>
       </div>
+
     </div>
 
   </div>
@@ -44,27 +41,23 @@
   export default {
     data () {
       return {
+        pageTitle: 'Videos',
         texts: AppContent.texts,
       }
     },
     async asyncData() {
       const { data } = await axios.get('videos.json')
-      return { releases: data }
+      return { videos: data }
     },
     computed: {
-      sortByDate () {
-        return sortBy(this.releases, 'date').reverse()
+      videosSortedByDate () {
+        return sortBy(this.videos, 'date').reverse()
       }
     },
-    // filters: {
-    //   year (date) {
-    //     return date.split('-')[0]
-    //   }
-    // },
     head: {
-      title: 'Releases',
+      title: 'Videos',
       meta: [
-        { name: 'description', content: 'Music Videos of Sentimony Records' },
+        { name: 'description', content: 'Music videos, clips, lives and concerts of Sentimony Records' },
         { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
       ]
     }

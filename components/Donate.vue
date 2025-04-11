@@ -7,7 +7,7 @@
       </g>
     </svg>
     <div class="donate__wrapper">
-      <p>I always love to read feedback.</p>
+      <p>Me and artists are always love to read feedback.</p>
       <p>Find your favorite track and leave a comment with your thoughts on our <a :href="youtube_url" target="_blank" rel="noopener">YouTube</a>, <a :href="soundcloud_url" target="_blank" rel="noopener">SoundCloud</a> or <a :href="bandcamp_url" target="_blank" rel="noopener">Bandcamp</a> pages.</p>
       <p>Thank you, I really appreciate it ❤️</p>
       <p><i>Ihor</i></p>
@@ -19,8 +19,8 @@
   export default {
     data: () => ({
       youtube_url: 'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1',
-      soundcloud_url: 'http://bit.ly/sen-sc',
-      bandcamp_url: 'http://bit.ly/sen-bc',
+      soundcloud_url: 'https://soundcloud.com/sentimony',
+      bandcamp_url: 'https://sentimony.bandcamp.com/follow_me',
     })
   }
 </script>

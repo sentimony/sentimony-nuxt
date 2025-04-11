@@ -47,7 +47,7 @@
     },
     methods : {
       coming(category) {
-        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingArtwork
+        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingCover
       }
     }
   }

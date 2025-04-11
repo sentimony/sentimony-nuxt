@@ -101,11 +101,7 @@
                   seamless
                   :title="release.title + ' Bandcamp Iframe'"
                 ></iframe>
-                <div v-if="!release.links.bandcamp_id" class="page-release__player-coming">
-                  Music<br>
-                  is<br>
-                  coming
-                </div>
+                <div v-if="!release.links.bandcamp_id" class="page-release__player-coming" v-html="texts.comingMusic"/>
               </div>
             </app-tab>
 
@@ -286,6 +282,7 @@
         routes: AppContent.routes,
         titles: AppContent.titles,
         icons: AppContent.icons,
+        texts: AppContent.texts,
       }
     },
     // async asyncData({ route }) {
@@ -355,7 +352,7 @@
         title: this.release.title,
         meta: [
           { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: this.release.cover_og ? this.release.cover_og : 'https://content.sentimony.com/assets/img/releases/og-images/' +  this.release.slug + '.jpg' }
+          { property: 'og:image', content: this.release.cover_og ? this.release.cover_og : 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
         ]
       }
     }

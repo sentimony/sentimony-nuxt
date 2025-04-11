@@ -1,6 +1,7 @@
 <template>
   <div class="youtube-page">
     <h1>Sitemap</h1>
+    
     <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
@@ -9,6 +10,7 @@
         title="YouTube playlist frame'"
       />
     </div> -->
+
     <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
@@ -26,13 +28,15 @@
         <!-- <p :style="{ 'background-image': 'url(' + i.cover_og + '); background-size: cover;' }">{{ i.title }}</p> -->
         <p>
           <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
+          <img v-if="!i.cover_th" src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Coming Soon">
           <!-- <span>[{{ i.cat_no }}]</span> -->
           <router-link v-ripple :to="'/release/' + i.slug + '/'" style="text-decoration: underline;">{{ i.title }}</router-link>
           <router-link v-ripple :to="'/sitemap/' + i.slug + '/'">sitemap >>></router-link>
           <!-- <span>({{ i.date | formatDate }})</span> -->
+          
           <br>
           
-          v1
+          <span v-if="i.links">v1</span>
           <span v-for="(ii, index) in i.links" :key="index">
             <span v-if="ii.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
             <span v-if="ii.includes('.bandcamp.')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp/'">Bandcamp16</router-link></span>
@@ -54,9 +58,10 @@
             <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/itunes/'">Itunes</router-link></span>
             <span v-if="ii.includes('play.google.com/music')"><router-link v-ripple :to="'/release/' + i.slug + '/googleplay/'">GooglePlayMusic</router-link></span>
           </span>
+
           <br>
 
-          v2
+          <span v-if="i.links_v2">v2</span>
           <span v-for="(iii, index) in i.links_v2" :key="index">
             <span v-if="iii.url.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
             <span v-if="iii.url.includes('.bandcamp.')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp/'">Bandcamp16</router-link></span>
@@ -74,6 +79,7 @@
             <span v-if="iii.url.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTubeMusic</router-link></span>
             <span v-if="iii.url.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
           </span>
+
         </p>
       </li>
     </ol>

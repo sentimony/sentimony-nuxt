@@ -13,6 +13,7 @@
             :category="'artists'"
             :slug="artist.slug"
             :title="artist.title"
+            v-ripple
           />
 
           <p v-if="artist.category == 'musician' && artist.style" class="small-info">Style: <span class="page-artist__style">{{ artist.style }}</span></p>
@@ -32,6 +33,7 @@
           <!-- <app-btn v-if="artist.instagram_personal" :url="artist.instagram_personal" :route="false" :title="titles.instagram_personal" :icon="icons.instagram"/> -->
           <!-- <app-btn v-if="artist.mixcloud" :url="artist.mixcloud" :route="false" :title="titles.mixcloud" :icon="icons.mixcloud"/> -->
           <!-- <app-btn v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/> -->
+          <app-btn v-if="artist.website" :url="artist.website" :route="false" :title="titles.website" :icon="icons.diggersfactory"/>
 
         </div>
 
@@ -152,13 +154,6 @@
                 style="width:100%;height:auto;"
                 :src="i.cover_xl"
               >
-              <img v-img:group
-                v-if="i.visible && i.artists.includes(artist.slug) && i.cover"
-                :src="'https://content.sentimony.com/assets/img/releases/large/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img//releases/medium/' + i.slug +'.jpg 1x, https://content.sentimony.com/assets/img//releases/medium-retina/' + i.slug +'.jpg 2x'"
-                :alt="i.title"
-                style="width:100%;height:auto;"
-              />
               <!-- <div v-if="i.visible && i.artists.includes(artist.slug) && i.title">
                 {{ i.title }}
               </div> -->
@@ -179,14 +174,6 @@
           <span v-if="i.cover_th">
             <img style="width:11px;height:auto;"
               :src="i.cover_th"
-              :alt="i.title"
-            >
-            |
-          </span>
-          <span v-if="!i.cover_th && i.cover">
-            <img style="width:11px;height:auto;"
-              :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
               :alt="i.title"
             >
             |

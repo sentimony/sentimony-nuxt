@@ -28,7 +28,9 @@ html {
 
 body {
   margin: 0;
-  font: 400 12px/1.4 'Montserrat', sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: 'Montserrat', sans-serif;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -61,6 +63,7 @@ h6,
 p {
   font-weight: 400;
   margin: 0 0 .3rem;
+
   @include media(M) {
     margin-bottom: .5rem;
   }
@@ -116,3 +119,4 @@ small {
     font-size: 14px;
   }
 }
+

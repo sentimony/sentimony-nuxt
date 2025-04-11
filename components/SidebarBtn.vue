@@ -1,6 +1,6 @@
 <template>
   <button
-    class="button"
+    class="SideBarBtn"
     :class="sidebarOpen ? 'is-active' : ''"
     @click="handleClick"
     v-if="$mq === 'sm' || $mq === 'md'"
@@ -25,7 +25,7 @@
 </script>
 
 <style lang="scss">
-  .button {
+  .SideBarBtn {
     position: fixed;
     z-index: 2000;
     top: 12px;

@@ -10,16 +10,6 @@
         <div>
           
           <div v-if="i.title" class="" style="margin-bottom: 20px">{{ i.title }}</div>
-          
-          <div v-if="i.tracklist" class="" style="margin-bottom: 20px">
-            <div v-for="(ii, index) in i.tracklist.tracks" :key="'b' + index">
-              <div class="">
-              {{ index + 1 }}
-              {{ ii.artist }} -
-              {{ ii.title }}
-              </div>
-            </div>
-          </div>
 
           <div v-if="i.tracklistCompact" class="" style="margin-bottom: 20px">
             <div v-for="(iii, index) in i.tracklistCompact" :key="'b' + index" v-html="iii.p"/>
@@ -45,13 +35,8 @@
         return sortBy(this.releases, 'date').reverse().reverse()
       }
     },
-    // filters: {
-    //   year (date) {
-    //     return date.split('-')[0]
-    //   }
-    // },
     head: {
-      title: 'Releases',
+      title: 'Tracks',
       meta: [
         { name: 'description', content: 'Tracks of Sentimony Records' },
         { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg' }

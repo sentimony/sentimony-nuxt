@@ -7,24 +7,15 @@
 
         <div class="page-video__media">
 
-          <app-cover
-            :cover_th="video.cover_th"
-            :cover_xl="video.cover_xl"
-            :category="'videos'"
-            :slug="video.slug"
-            :title="video.title"
-            v-ripple
-          />
-
+          <h1 v-if="video.title" class="page-video__title">{{ video.title }}</h1>
           <p class="small-info">
             <span v-if="video.coming_soon">Coming at {{ video.date | formatDate }}</span>
             <span v-else-if="video.date">{{ video.date | formatDate }}</span>
           </p>
-          <h1 v-if="video.title" class="page-video__title">{{ video.title }}</h1>
 
-        </div>
+        <!-- </div>
 
-        <div class="page-video__player-tabs">
+        <div class="page-video__player-tabs"> -->
 
           <app-tabs>
             <app-tab
@@ -62,6 +53,7 @@
         </div>
 
         <hr>
+
         <VueDisqus
           shortname="sentimony"
           :identifier="video.slug"
@@ -82,7 +74,7 @@
   import AppContent from '~/plugins/app-content'
 
   import SvgTriangle from '~/components/SvgTriangle'
-  import AppCover from '~/components/AppCover'
+  // import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
   import AppTabs from '~/components/AppTabs.vue'
   import AppTab from '~/components/AppTab.vue'
@@ -91,7 +83,7 @@
     layout: 'video',
     components: {
       SvgTriangle,
-      AppCover,
+      // AppCover,
       AppBtn,
       AppTabs,
       AppTab,
@@ -229,7 +221,7 @@
     &__title {
       font-size: 18px;
       line-height: 1.2;
-      margin: 0 0 .1em;
+      // margin: 0 0 .1em;
       color: #fff;
 
       @include media(M) {
