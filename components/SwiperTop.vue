@@ -4,7 +4,7 @@
 
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide
-        class="item"
+        :class="'item ' + rectangle()"
         v-for="(i, index) in list"
         :key="index"
         v-if="i.visible"
@@ -81,7 +81,10 @@
     },
     methods : {
       coming(category) {
-        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingArtwork
+        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingCover
+      },
+      rectangle(category) {
+        return this.category == 'videos' ? 'item--rectangle' : ''
       }
     }
   }

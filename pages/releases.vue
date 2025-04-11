@@ -22,7 +22,7 @@
                 :alt="i.title + ' Small Thumbnail'"
               >
               <div v-if="!i.cover_th && !i.cover"
-                class="item__soon" v-html="texts.comingArtwork"
+                class="item__soon" v-html="texts.comingCover"
               />
             </div>
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>

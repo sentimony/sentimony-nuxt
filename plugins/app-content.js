@@ -79,9 +79,11 @@ export default {
     qobuz: 'Qobuz',
     amazon_music: 'Amazon Music',
     diggersfactory: 'Diggers Factory',
+    website: 'Website',
   },
   texts: {
-    comingPhoto: 'Photo<br>coming<br>soon',
-    comingArtwork: 'Artwork<br>in<br>progress',
+    comingPhoto: 'Photo<br>is<br>coming',
+    comingCover: 'Cover<br>is<br>coming',
+    comingMusic: 'Music<br>is<br>coming',
   }
 }

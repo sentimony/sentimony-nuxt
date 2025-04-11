@@ -42,6 +42,20 @@
       item="artist"
     />
 
+    <!-- <SwiperTop
+      title="videos"
+      :list="videosSortedByDate"
+      category="videos"
+      item="video"
+    /> -->
+
+    <!-- <SwiperTop
+      title="playlists"
+      :list="playlistsSortedByDate"
+      category="playlists"
+      item="playlist"
+    /> -->
+
   </div>
 </template>
 
@@ -65,15 +79,25 @@
       aboutDescription: " <p>Sentimony Records is an independent record label that was founded in the vibrant city of Kyiv, Ukraine during the enchanting autumn of 2006 by the visionary Ihor Orlovskyi, also known by his artistic moniker, <a href='/artist/irukanji/'>Irukanji</a>.</p><p>The label's primary mission is to nurture and contribute to the flourishing of the psychedelic trance and psychill scenes, enriching the global soundscape with its unique and immersive musical offerings.</p><p>In recent years, Sentimony Records has honed its focus on its most cherished genres, delving deeply into the mesmerizing realms of <a href='/playlist/dark-prog-zenonesque/'>DarkProg Psytrance</a>, as well as <a href='/playlist/psychill-psybient/'>Trippy Psychill</a>.</p><p>Through its dedication to these genres, the label continues to captivate listeners and inspire the psychedelic music community worldwide.</p>",
       releases: [],
       artists: [],
+      // videos: [],
+      // playlists: [],
     }),
     mounted () {
       axios.get('https://sentimony-db.firebaseio.com/releases.json')
         .then(response => { this.releases = response.data })
         .catch(error => { console.log(error) })
 
-      axios.get('https://sentimony-db.firebaseio.com/artists.json')
+        axios.get('https://sentimony-db.firebaseio.com/artists.json')
         .then(response => { this.artists = response.data })
         .catch(error => { console.log(error) })
+
+        // axios.get('https://sentimony-db.firebaseio.com/videos.json')
+        // .then(response => { this.videos = response.data })
+        // .catch(error => { console.log(error) })
+
+        // axios.get('https://sentimony-db.firebaseio.com/playlists.json')
+        // .then(response => { this.playlists = response.data })
+        // .catch(error => { console.log(error) })
 
     },
     computed: {
@@ -83,6 +107,12 @@
       artistsSortedByCategoryId () {
         return sortBy(this.artists, 'category_id')
       },
+      // videosSortedByDate () {
+      //   return sortBy(this.videos, 'date').reverse()
+      // },
+      // playlistsSortedByDate () {
+      //   return sortBy(this.playlists, 'date').reverse().reverse()
+      // },
     },
     head: {
       title: 'Home',
