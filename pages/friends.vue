@@ -1,12 +1,13 @@
 <template>
-  <div class="friends">
+  <div class="page">
     <h1>Friends</h1>
-    <div class="friends__list">
-      <p class="friends__item"
+    <div class="">
+      <p class=""
         v-for="(i, index) in friends"
         :key="index"
+         v-if="i.visible"
       >
-        <router-link v-ripple :to="'/friend/' + i.slug" class="friends__link" v-if="i.title">{{ i.title }}</router-link>
+        <router-link v-ripple :to="'/friend/' + i.slug" class="friends__link">{{ i.title }}</router-link>
       </p>
     </div>
   </div>
@@ -31,9 +32,9 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
+  // @import '../assets/scss/page';
 
-  .friends {
-    @extend .page;
-  }
+  // .friends {
+  //   @extend .page;
+  // }
 </style>

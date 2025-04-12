@@ -1,13 +1,13 @@
 <template>
   <section>
-    <div v-if="release.links.bandcamp24_url.includes('redirect_to_16')">
+    <div v-if="release.links.bandcamp_url || release.links.bandcamp_url == ''">
       <ddos-guard
         :item="release"
         :title="title"
         :link="release.links.bandcamp_url"
       />
     </div>
-    <div v-if="release.links.bandcamp24_url.includes('.bandcamp.') || release.links.bandcamp24_url == ''">
+    <div v-if="release.links.bandcamp24_url || release.links.bandcamp24_url == ''">
       <ddos-guard
         :item="release"
         :title="title"

@@ -17,7 +17,7 @@
     components: { DdosGuard },
     data () {
       return {
-        title: 'Diggers Factory'
+        title: 'DiggersFactory'
       }
     },
     async asyncData({ route }) {

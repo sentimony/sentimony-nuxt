@@ -39,6 +39,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
+    // layout: 'video',
     data () {
       return {
         pageTitle: 'Videos',

@@ -45,6 +45,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
+    // layout: 'release',
     data () {
       return {
         texts: AppContent.texts,
@@ -59,11 +60,6 @@
         return sortBy(this.releases, 'date').reverse()
       }
     },
-    // filters: {
-    //   year (date) {
-    //     return date.split('-')[0]
-    //   }
-    // },
     head: {
       title: 'Releases',
       meta: [
