@@ -35,6 +35,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
+    // layout: 'playlist',
     data () {
       return {
         texts: AppContent.texts,
@@ -49,11 +50,6 @@
         return sortBy(this.playlists, 'date').reverse().reverse()
       }
     },
-    // filters: {
-    //   year (date) {
-    //     return date.split('-')[0]
-    //   }
-    // },
     head: {
       title: 'Playlists',
       meta: [

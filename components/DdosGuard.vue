@@ -11,16 +11,6 @@
       </div>
     </div>
 
-    <div v-if="item.cover" class="DdosguardAnimation">
-      <div class="DdosguardCoverholder">
-        <img
-          :src="'https://content.sentimony.com/assets/img/items/small/' + item.slug +'.jpg'"
-          :srcset="'https://content.sentimony.com/assets/img/releases/small/' + item.slug +'.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + item.slug +'.jpg 2x'"
-          :alt="item.title"
-        />
-      </div>
-    </div>
-
     <h1>{{ item.title }} on {{ title }}</h1>
 
     <p class="DdosguardText" v-if="redirect">
@@ -30,7 +20,7 @@
     </p>
 
     <p class="DdosguardText" v-if="!redirect">
-      Link is coming soon
+      Link is coming
     </p>
 
   </section>

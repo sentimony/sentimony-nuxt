@@ -1,5 +1,5 @@
 <template>
-  <div class="page news">
+  <div class="page">
     <h1>News</h1>
 
     <p
@@ -77,11 +77,6 @@
           return moment(String(date)).format('DD MMM YYYY');
         }
       },
-      // year: function (date) {
-      //   if (date) {
-      //     return moment(String(date)).format('YYYY');
-      //   }
-      // }
     },
     head: {
       title: 'News',
@@ -94,20 +89,20 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
+  // @import '../node_modules/coriolan-ui/tools/variables';
+  // @import '../node_modules/coriolan-ui/mixins/media';
   
-  .news {
-    padding-bottom: 30px;
+  // .news {
+  //   padding-bottom: 30px;
 
-    @include media(M) {
-      padding-bottom: 60px;
-    }
-  }
+  //   @include media(M) {
+  //     padding-bottom: 60px;
+  //   }
+  // }
 
-  .news-img {
-    height: 120px;
-    display: block;
-    margin: 0 auto;
-  }
+  // .news-img {
+  //   height: 120px;
+  //   display: block;
+  //   margin: 0 auto;
+  // }
 </style>

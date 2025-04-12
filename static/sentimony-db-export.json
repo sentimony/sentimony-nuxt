@@ -2419,7 +2419,7 @@
       "visible": false,
       "category": "musician",
       "category_id": "120",
-      "name": "",
+      "name": "Nelson Neto",
       "location": "Amsterdam, Netherlands",
       "style": "Psytech, Minimal Deep Techno",
       "photo_og": "",
@@ -3249,6 +3249,7 @@
     "another-dimension": {
       "title": "Another Dimension Music",
       "slug": "another-dimension",
+      "visible": true,
       "links": [
         {
           "id": "site",
@@ -3275,6 +3276,7 @@
     "clocktail": {
       "title": "ClockTail Records",
       "slug": "clocktail",
+      "visible": true,
       "links": [
         {
           "id": "site",
@@ -3301,6 +3303,7 @@
     "moon-koradji": {
       "title": "Moon Koradji Records",
       "slug": "moon-koradji",
+      "visible": true,
       "links": [
         {
           "id": "site",
@@ -3327,6 +3330,7 @@
     "space-baby": {
       "title": "Space Baby Records",
       "slug": "space-baby",
+      "visible": true,
       "links": [
         {
           "id": "site",
@@ -3353,6 +3357,7 @@
     "treetrolla": {
       "title": "Treetrolla Records",
       "slug": "treetrolla",
+      "visible": true,
       "links": [
         {
           "id": "site",
@@ -3379,6 +3384,7 @@
     "zenon": {
       "title": "Zenon Records",
       "slug": "zenon",
+      "visible": false,
       "links": [
         {
           "id": "site",
@@ -3405,6 +3411,7 @@
     "parvati": {
       "title": "Parvati Records",
       "slug": "parvati",
+      "visible": false,
       "links": [
         {
           "id": "site",
@@ -3469,11 +3476,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-fantazma",
-        "bandcamp24_url": "",
         "bandcamp_id": "3399361938",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-fantazma",
         "soundcloud_playlist_id": "1154564158",
-        "itunes": "https://itunes.apple.com/ua/album/fantazma/1271830675",
         "applemusic_url": "https://itunes.apple.com/ua/album/fantazma/1271830675",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B2hduene7glxvtujapk2org2tla/Various+Artists/Fantazma",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Fantazma?id=B2hduene7glxvtujapk2org2tla&hl=ru",
@@ -3534,11 +3539,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-emptinesses",
-        "bandcamp24_url": "",
         "bandcamp_id": "2938863422",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-emptinesses",
         "soundcloud_playlist_id": "1154581399",
-        "itunes": "https://itunes.apple.com/ua/album/emptinesses/1271845181",
         "applemusic_url": "https://itunes.apple.com/ua/album/emptinesses/1271845181",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bvvivb7ygfis7lgalvcgz3b6edu/Various+Artists/Emptinesses",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Emptinesses?id=Bvvivb7ygfis7lgalvcgz3b6edu&hl=ru",
@@ -3597,11 +3600,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/sphingida-origin",
-        "bandcamp24_url": "",
         "bandcamp_id": "3680718383",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/sphingida-origin",
         "soundcloud_playlist_id": "1154611888",
-        "itunes": "https://itunes.apple.com/ua/album/origin/1271839641",
         "applemusic_url": "https://itunes.apple.com/ua/album/origin/1271839641",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B2yntgsllsaxuu6pkikjg6r62ye/Sphingida/Origin",
         "googleplay_market": "https://play.google.com/store/music/album/Sphingida_Origin?id=B2yntgsllsaxuu6pkikjg6r62ye&hl=ru",
@@ -3662,11 +3663,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-true-story",
-        "bandcamp24_url": "",
         "bandcamp_id": "1223403780",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-true-story",
         "soundcloud_playlist_id": "1154602552",
-        "itunes": "https://itunes.apple.com/ua/album/true-story/1271859514",
         "applemusic_url": "https://itunes.apple.com/ua/album/true-story/1271859514",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B7u7b5uhnwp36n2qvj65pvmx6yy/Various+Artists/True+Story",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_True_Story?id=B7u7b5uhnwp36n2qvj65pvmx6yy&hl=ru",
@@ -3724,11 +3723,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/spectrum-vision-lost-space-device",
-        "bandcamp24_url": "",
         "bandcamp_id": "309398559",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/spectrum-vision-lost-space-device",
         "soundcloud_playlist_id": "1154619733",
-        "itunes": "https://itunes.apple.com/ua/album/lost-space-device/1271841248",
         "applemusic_url": "https://itunes.apple.com/ua/album/lost-space-device/1271841248",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bimzdv7srukdity4athantcgihy/Spectrum+Vision/Lost+Space+Device",
         "googleplay_market": "https://play.google.com/store/music/album/Spectrum_Vision_Lost_Space_Device?id=Bimzdv7srukdity4athantcgihy&hl=ru",
@@ -3787,11 +3784,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/irukanji-z-lisu",
-        "bandcamp24_url": "",
         "bandcamp_id": "2924012921",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/irukanji-z-lisu",
         "soundcloud_playlist_id": "1154645908",
-        "itunes": "https://itunes.apple.com/ua/album/z-lisu/1271842894",
         "applemusic_url": "https://itunes.apple.com/ua/album/z-lisu/1271842894",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B7zd2igcwcv3wsglahnf3j3dyde/Irukanji/Z+Lisu",
         "googleplay_market": "https://play.google.com/store/music/album/Irukanji_Z_Lisu?id=B7zd2igcwcv3wsglahnf3j3dyde&hl=ru",
@@ -3852,11 +3847,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-ocean-scenes-higher-titans",
-        "bandcamp24_url": "",
         "bandcamp_id": "776415346",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-ocean-scenes-higher-titans",
         "soundcloud_playlist_id": "1154698312",
-        "itunes": "https://itunes.apple.com/ua/album/ocean-scenes-higher-titans/1271845715",
         "applemusic_url": "https://itunes.apple.com/ua/album/ocean-scenes-higher-titans/1271845715",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Byy32xtqid45ol6rezctxept5ei/Various+Artists/Ocean+Scenes%3A+Higher+Titans",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Ocean_Scenes_Higher_Titans?id=Byy32xtqid45ol6rezctxept5ei&hl=ru",
@@ -3915,11 +3908,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/senzar-before-the-morning-sun",
-        "bandcamp24_url": "",
         "bandcamp_id": "844009190",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/senzar-before-the-morning-sun",
         "soundcloud_playlist_id": "1154726281",
-        "itunes": "https://itunes.apple.com/ua/album/before-the-morning-sun/1272404247",
         "applemusic_url": "https://itunes.apple.com/ua/album/before-the-morning-sun/1272404247",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bk2ryoclvc77dtqjqopjxwbdmve/Senzar/Before+The+Morning+Sun",
         "googleplay_market": "https://play.google.com/store/music/album/Senzar_Before_The_Morning_Sun?id=Bk2ryoclvc77dtqjqopjxwbdmve&hl=ru",
@@ -3981,11 +3972,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-grower",
-        "bandcamp24_url": "",
         "bandcamp_id": "1678520944",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-grower",
         "soundcloud_playlist_id": "1154740054",
-        "itunes": "https://itunes.apple.com/ua/album/grower/1272413722",
         "applemusic_url": "https://itunes.apple.com/ua/album/grower/1272413722",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bq7xsasj75chkyf32mcdy64b5fm/Various+Artists/Grower",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Grower?id=Bq7xsasj75chkyf32mcdy64b5fm&hl=ru",
@@ -4045,11 +4034,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-time-loop-beyond-borders",
-        "bandcamp24_url": "",
         "bandcamp_id": "2208878008",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-time-loop-beyond-borders",
         "soundcloud_playlist_id": "1154763844",
-        "itunes": "https://itunes.apple.com/ua/album/time-loop-beyond-borders/1272419337",
         "applemusic_url": "https://itunes.apple.com/ua/album/time-loop-beyond-borders/1272419337",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B6ec2ubqel4qheukhneeyrhblte/Various+Artists/Time+Loop%3A+Beyond+Borders",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Time_Loop_Beyond_Borders?id=B6ec2ubqel4qheukhneeyrhblte&hl=ru",
@@ -4105,11 +4092,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-weightlessness",
-        "bandcamp24_url": "",
         "bandcamp_id": "1793671240",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/unusual-cosmic-process-weightlessness",
         "soundcloud_playlist_id": "1154787820",
-        "itunes": "https://itunes.apple.com/ua/album/weightlessness/1271855982",
         "applemusic_url": "https://itunes.apple.com/ua/album/weightlessness/1271855982",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Btumylcki5356ecjzvans7px55m/Unusual+Cosmic+Process/Weightlessness",
         "googleplay_market": "https://play.google.com/store/music/album/Unusual_Cosmic_Process_Weightlessness?id=Btumylcki5356ecjzvans7px55m&hl=ru",
@@ -4170,11 +4155,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-tempo-syndicate",
-        "bandcamp24_url": "",
         "bandcamp_id": "2483216888",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-tempo-syndicate",
         "soundcloud_playlist_id": "1154826934",
-        "itunes": "https://itunes.apple.com/ua/album/tempo-syndicate/1272422614",
         "applemusic_url": "https://itunes.apple.com/ua/album/tempo-syndicate/1272422614",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Btublfcc3kcy6txy6vww26z55ym/Various+Artists/Tempo+Syndicate",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Tempo_Syndicate?id=Btublfcc3kcy6txy6vww26z55ym&hl=ru",
@@ -4232,11 +4215,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-dancing-mavka",
-        "bandcamp24_url": "",
         "bandcamp_id": "3971967864",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-dancing-mavka",
         "soundcloud_playlist_id": "1154863864",
-        "itunes": "https://itunes.apple.com/ua/album/dansing-mavka/1272427474",
         "applemusic_url": "https://itunes.apple.com/ua/album/dansing-mavka/1272427474",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B7iz6lmvo4jiox5bstjaojsa3fm/Various+Artists/Dancing+Mavka",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Dancing_Mavka?id=B7iz6lmvo4jiox5bstjaojsa3fm&hl=ru",
@@ -4296,11 +4277,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-absence-of-gravity",
-        "bandcamp24_url": "",
         "bandcamp_id": "615519130",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-absence-of-gravity",
         "soundcloud_playlist_id": "1155000739",
-        "itunes": "https://itunes.apple.com/ua/album/absence-of-gravity/1272431442",
         "applemusic_url": "https://itunes.apple.com/ua/album/absence-of-gravity/1272431442",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bu5k4b4rzp5sogsrgjf5kmymkji/Various+Artists/Absence+Of+Gravity",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Absence_Of_Gravity?id=Bu5k4b4rzp5sogsrgjf5kmymkji&hl=ru",
@@ -4361,11 +4340,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-special-places",
-        "bandcamp24_url": "",
         "bandcamp_id": "64124286",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-special-places",
         "soundcloud_playlist_id": "1155065920",
-        "itunes": "https://itunes.apple.com/ua/album/special-places/1272432893",
         "applemusic_url": "https://itunes.apple.com/ua/album/special-places/1272432893",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bbun7hghe7tfhybjxgehj6pl2we/Various+Artists/Special+Places",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Special_Places?id=Bbun7hghe7tfhybjxgehj6pl2we&hl=ru",
@@ -4419,11 +4396,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/hypnotriod-seven-heavenly-edges",
-        "bandcamp24_url": "",
         "bandcamp_id": "2733998829",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/hypnotriod-seven-heavenly-edges",
         "soundcloud_playlist_id": "1155065266",
-        "itunes": "https://itunes.apple.com/ua/album/seven-heavenly-edges-ep/1272433925",
         "applemusic_url": "https://itunes.apple.com/ua/album/seven-heavenly-edges-ep/1272433925",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B6mqahvvxjox3b7izhvaoltnr2e/Hypnotriod/Seven+Heavenly+Edges",
         "googleplay_market": "https://play.google.com/store/search?q=Hypnotriod%20%C2%ABSeven%20Heavenly%20Edges&c=music&hl=ru",
@@ -4475,11 +4450,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/specialmind-the-missing-particle",
-        "bandcamp24_url": "",
         "bandcamp_id": "1673341211",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/specialmind-the-missing-particle",
         "soundcloud_playlist_id": "2780288",
-        "itunes": "https://itunes.apple.com/ua/album/the-missing-particle-ep/1272435876",
         "applemusic_url": "https://itunes.apple.com/ua/album/the-missing-particle-ep/1272435876",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bl5jqjufz6wabkce5jtlpf3wyua/Specialmind/The+Missing+Particle",
         "googleplay_market": "https://play.google.com/store/music/album/Specialmind_The_Missing_Particle?id=Bl5jqjufz6wabkce5jtlpf3wyua&hl=ru",
@@ -4530,11 +4503,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/tentura-aurora",
-        "bandcamp24_url": "",
         "bandcamp_id": "2261902557",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/tentura-aurora",
         "soundcloud_playlist_id": "2956647",
-        "itunes": "https://itunes.apple.com/ua/album/aurora-ep/1271860711",
         "applemusic_url": "https://itunes.apple.com/ua/album/aurora-ep/1271860711",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bgisrmdtkzr2w62jltkk74rut3u/Tentura/Aurora",
         "googleplay_market": "https://play.google.com/store/music/album/Tentura_Aurora?id=Bgisrmdtkzr2w62jltkk74rut3u&hl=ru",
@@ -4591,11 +4562,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/cifroteca-roof-raiser-wild-storm",
-        "bandcamp24_url": "",
         "bandcamp_id": "1314944593",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/cifroteca-roof-raiser-wild-storm",
         "soundcloud_playlist_id": "1155106678",
-        "itunes": "https://itunes.apple.com/ua/album/wild-storm/1272437308",
         "applemusic_url": "https://itunes.apple.com/ua/album/wild-storm/1272437308",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bqmocyclwij66ut5nyai3fckm3a/Cifroteca/Wild+Storm",
         "googleplay_market": "https://play.google.com/store/music/album/Cifroteca_Wild_Storm?id=Bqmocyclwij66ut5nyai3fckm3a&hl=ru",
@@ -4657,11 +4626,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-gamayun-tale",
-        "bandcamp24_url": "",
         "bandcamp_id": "2380801017",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-gamayun-tale",
         "soundcloud_playlist_id": "1155130015",
-        "itunes": "https://itunes.apple.com/ua/album/gamayun-tale/1272972527",
         "applemusic_url": "https://itunes.apple.com/ua/album/gamayun-tale/1272972527",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bfya3lf65e5yeftm54jg5h4bdxu/Various+Artists/Gamayun+Tale",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Gamayun_Tale?id=Bfya3lf65e5yeftm54jg5h4bdxu&hl=ru",
@@ -4721,11 +4688,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/psyfactor-retro-scientific",
-        "bandcamp24_url": "",
         "bandcamp_id": "625816327",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/psyfactor-retro-scientific",
         "soundcloud_playlist_id": "10235131",
-        "itunes": "https://music.apple.com/ua/album/retro-scientific/1482182020",
         "applemusic_url": "https://music.apple.com/ua/album/retro-scientific/1482182020",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Brag7pwxjsayzy2p73o774hhi64/Psyfactor/Retro+Scientific",
         "googleplay_market": "https://play.google.com/store/music/album/Psyfactor_Retro_Scientific?id=Brag7pwxjsayzy2p73o774hhi64&hl=ru",
@@ -4779,11 +4744,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/ufomatka-the-e-p",
-        "bandcamp24_url": "",
         "bandcamp_id": "3632768543",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/ufomatka-the-ep",
         "soundcloud_playlist_id": "1155155821",
-        "itunes": "https://itunes.apple.com/ua/album/the-ep/1271815522",
         "applemusic_url": "https://itunes.apple.com/ua/album/the-ep/1271815522",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bodr6adfev7dqehsy466f6rvj4y/Ufomatka/The+EP",
         "googleplay_market": "https://play.google.com/store/music/album/Ufomatka_The_EP?id=Bodr6adfev7dqehsy466f6rvj4y&hl=ru",
@@ -4839,11 +4802,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/tentura-beyond-illusion",
-        "bandcamp24_url": "redirect_to_16",
         "bandcamp_id": "144410096",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/tentura-beyond-illusion",
         "soundcloud_playlist_id": "1155172417",
-        "itunes": "https://itunes.apple.com/ua/album/beyond-illusion/1271862865",
         "applemusic_url": "https://itunes.apple.com/ua/album/beyond-illusion/1271862865",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bjy4qia342qqehskfigersgrhbe/Tentura/Beyond+Illusion",
         "googleplay_market": "https://play.google.com/store/music/album/Tentura_Beyond_Illusion?id=Bjy4qia342qqehskfigersgrhbe&hl=ru",
@@ -4899,11 +4860,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-the-ten",
-        "bandcamp24_url": "redirect_to_16",
         "bandcamp_id": "1710048583",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-the-ten",
         "soundcloud_playlist_id": "1155187951",
-        "itunes": "https://music.apple.com/lv/album/the-ten/1484872450",
         "applemusic_url": "https://music.apple.com/lv/album/the-ten/1484872450",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B2it4uknkjtoktpictmy6ccok6e/Various+Artists/The+Ten",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_The_Ten?id=B2it4uknkjtoktpictmy6ccok6e&hl=ru",
@@ -4959,12 +4918,10 @@
         { "p": "** - previously released at VA «The Ten» (Sentimony Records, 2017)" }
       ],
       "links": {
-        "bandcamp_url": "https://sentimony.bandcamp.com/album/zymosis-insight",
-        "bandcamp24_url": "redirect_to_16",
+        "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-insight",
         "bandcamp_id": "3630855086",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/zymosis-insight",
         "soundcloud_playlist_id": "1155204025",
-        "itunes": "https://itunes.apple.com/ua/album/insight/1271988987",
         "applemusic_url": "https://itunes.apple.com/ua/album/insight/1271988987",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bt6umx3hpzsqwnjqk3k6fz24bam/Zymosis/Insight",
         "googleplay_market": "https://play.google.com/store/music/album/Zymosis_Insight?id=Bt6umx3hpzsqwnjqk3k6fz24bam&hl=ru",
@@ -5017,11 +4974,9 @@
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/overdream-beautiful-thinking-ep",
-        "bandcamp24_url": "redirect_to_16",
         "bandcamp_id": "2011367654",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/overdream-beautiful-thinking",
         "soundcloud_playlist_id": "1155217846",
-        "itunes": "https://itunes.apple.com/ua/album/beautiful-thinking-ep/1295137031",
         "applemusic_url": "https://itunes.apple.com/ua/album/beautiful-thinking-ep/1295137031",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bzphnp3gpao7qmexkvgeuqbrm6q/Overdream/Beautiful+Thinking",
         "googleplay_market": "https://play.google.com/store/music/album/Overdream_Beautiful_Thinking?id=Bzphnp3gpao7qmexkvgeuqbrm6q&hl=ru",
@@ -5071,12 +5026,10 @@
         { "p": "5 Ufomatka - Weird Species | 153bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/ufomatka-altering-the-synaptic-controllers-ep-24bit",
         "bandcamp_id": "2242712058",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/ufomatka-altering-the-synaptic-controllers",
         "soundcloud_playlist_id": "1155281251",
-        "itunes": "https://itunes.apple.com/ua/album/altering-the-synaptic-controllers-ep/1337479829",
         "applemusic_url": "https://itunes.apple.com/ua/album/altering-the-synaptic-controllers-ep/1337479829",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bf2ppxjgru5xrcigc7ugeu5ruy4/Ufomatka/Altering+The+Synaptic+Controllers",
         "googleplay_market": "https://play.google.com/store/search?q=Ufomatka%20%C2%ABAltering%20The%20Synaptic%20Controllers&c=music&hl=ru",
@@ -5126,12 +5079,10 @@
         { "p": "5 Tentura - Theme Patcher (Omnisound Rmx) | 110bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/omnisound-destiny-ep-24bit",
         "bandcamp_id": "2261614302",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/omnisound-destiny",
         "soundcloud_playlist_id": "1155242512",
-        "itunes": "https://itunes.apple.com/ua/album/destiny-ep/1337846034",
         "applemusic_url": "https://itunes.apple.com/ua/album/destiny-ep/1337846034",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bfbrk7nrumb7ecbb2tj2prxc33m/Omnisound/Destiny",
         "googleplay_market": "https://play.google.com/store/search?q=Omnisound%20%C2%ABDestiny&c=music&hl=ru",
@@ -5182,12 +5133,10 @@
         { "p": "5 Zymosis - Dytyna | 80bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-nichna-ep-24bit",
         "bandcamp_id": "333332422",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/zymosis-nichna",
         "soundcloud_playlist_id": "1155249220",
-        "itunes": "https://itunes.apple.com/ua/album/nichna-ep/1397004703",
         "applemusic_url": "https://itunes.apple.com/ua/album/nichna-ep/1397004703",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bwo73cngsad7ahejp3zhldm37hi/Zymosis/Nichna",
         "googleplay_market": "https://play.google.com/store/music/album/Zymosis_Nichna?id=Bwo73cngsad7ahejp3zhldm37hi&hl=ru",
@@ -5237,12 +5186,10 @@
         { "p": "5 Irukanji - Organix | 138bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-1-24bit",
         "bandcamp_id": "3078593045",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-1",
         "soundcloud_playlist_id": "1155257491",
-        "itunes": "https://itunes.apple.com/ua/album/futured-vol-1-ep/1417286761",
         "applemusic_url": "https://itunes.apple.com/ua/album/futured-vol-1-ep/1417286761",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bdn66gug45mmecplmtups3gw36a/Various+Artists/Futured+Vol.+1",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Futured_Vol_1?id=Bdn66gug45mmecplmtups3gw36a&hl=ru",
@@ -5291,12 +5238,10 @@
         { "p": "4 Psydewise - Mycelium Network (feat. Nifex) | 137bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-synaptic-elastic-ep-24bit",
         "bandcamp_id": "2097685026",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/psydewise-synaptic-elastic",
         "soundcloud_playlist_id": "1155282394",
-        "itunes": "https://itunes.apple.com/ua/album/synaptic-elastic-ep/1423953566",
         "applemusic_url": "https://itunes.apple.com/ua/album/synaptic-elastic-ep/1423953566",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bey3r5fc6tsf35nuu3pjzk62zdy/Psydewise/Synaptic+Elastic",
         "googleplay_market": "https://play.google.com/store/music/album/Psydewise_Synaptic_Elastic?id=Bey3r5fc6tsf35nuu3pjzk62zdy&hl=ru",
@@ -5345,12 +5290,10 @@
         { "p": "4 U-Wave - Autumn Discovery | 80bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/u-wave-autumn-discovery-ep-24bit",
         "bandcamp_id": "2755654736",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/u-wave-autumn-discovery",
         "soundcloud_playlist_id": "1155287293",
-        "itunes": "https://itunes.apple.com/ua/album/autumn-discovery-ep/1438580473",
         "applemusic_url": "https://itunes.apple.com/ua/album/autumn-discovery-ep/1438580473",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Brv5wrvb6fi7afi34xru7n5zyku/U-Wave/Autumn+Discovery",
         "googleplay_market": "https://play.google.com/store/search?q=U-Wave%20%C2%ABAutumn%20Discovery&c=music&hl=ru",
@@ -5403,12 +5346,10 @@
         { "p": "8 Dreamstalker - Piper Call (Rework) | 130bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-2-24bit",
         "bandcamp_id": "1993929997",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-2",
         "soundcloud_playlist_id": "1156516930",
-        "itunes": "https://itunes.apple.com/ua/album/futured-vol-2/1445750933",
         "applemusic_url": "https://itunes.apple.com/ua/album/futured-vol-2/1445750933",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B7uvdvmppet7wh23mamsdpuzk5e/Various+Artists/Futured%2C+Vol.+2",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Futured_Vol_2?id=B7uvdvmppet7wh23mamsdpuzk5e&hl=ru",
@@ -5457,12 +5398,10 @@
         { "p": "4 Aesthesia - Tellus Mater | 65bpm<br><small>Written & Produced By Aesthesia, Professor M</small>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/aesthesia-perception-ep-24bit",
         "bandcamp_id": "2133994939",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/aesthesia-perception",
         "soundcloud_playlist_id": "1155318082",
-        "itunes": "https://music.apple.com/ua/album/perception-ep/1472279153",
         "applemusic_url": "https://music.apple.com/ua/album/perception-ep/1472279153",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bquf4ny5uiblkt6ni6rzvftnwzm/Aesthesia/Perception",
         "googleplay_market": "https://play.google.com/store/music/album/Aesthesia_Perception?id=Bquf4ny5uiblkt6ni6rzvftnwzm&hl=ru",
@@ -5511,12 +5450,10 @@
         { "p": "4 Hellquist - Abstraction (Juelz Rmx) | 136bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/juelz-dependence-ep-24bit",
         "bandcamp_id": "1093192594",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/juelz-dependence",
         "soundcloud_playlist_id": "1155323755",
-        "itunes": "https://music.apple.com/ua/album/dependence-ep/1472278599",
         "applemusic_url": "https://music.apple.com/ua/album/dependence-ep/1472278599",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bunq34qlu2d3xcj3upus4svthfm/Juelz/Dependence",
         "googleplay_market": "https://play.google.com/store/music/album/Juelz_Dependence?id=Bunq34qlu2d3xcj3upus4svthfm&hl=ru",
@@ -5565,12 +5502,10 @@
         { "p": "4 Unusual Cosmic Process - Sequoia | 100bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-brain-channel-ep-24bit",
         "bandcamp_id": "258372597",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/unusual-cosmic-process-brain-channel",
         "soundcloud_playlist_id": "1155330106",
-        "itunes": "https://itunes.apple.com/ua/album/brain-channel-ep/1460411269",
         "applemusic_url": "https://itunes.apple.com/ua/album/brain-channel-ep/1460411269",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B6cuv5clj7cvnxqxqkp2kvpp5d4/Unusual+Cosmic+Process/Brain+Channel",
         "googleplay_market": "https://play.google.com/store/music/album/Unusual_Cosmic_Process_Brain_Channel?id=B6cuv5clj7cvnxqxqkp2kvpp5d4&hl=ru",
@@ -5619,12 +5554,10 @@
         { "p": "4 Hypogeo - The Lamb Of Dog (Space Organ Rmx) | 140bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/space-organ-deep-impressions-ep-24bit",
         "bandcamp_id": "2070661401",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/space-organ-deep-impressions",
         "soundcloud_playlist_id": "1155534688",
-        "itunes": "https://itunes.apple.com/ua/album/deep-impressions-ep/1462726423",
         "applemusic_url": "https://itunes.apple.com/ua/album/deep-impressions-ep/1462726423",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bs2vnnqbx3a2bvqtszo6drcilei/Space+Organ/Deep+Impressions",
         "googleplay_market": "https://play.google.com/store/music/album/Space_Organ_Deep_Impressions?id=Bs2vnnqbx3a2bvqtszo6drcilei&hl=ru",
@@ -5673,12 +5606,10 @@
         { "p": "4 Psydewise - Intruder | 137bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-radio-dystopia-ep-24bit",
         "bandcamp_id": "2278729389",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/psydewise-radio-dystopia",
         "soundcloud_playlist_id": "1155536977",
-        "itunes": "https://music.apple.com/ua/album/radio-dystopia-ep/1465742523",
         "applemusic_url": "https://music.apple.com/ua/album/radio-dystopia-ep/1465742523",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bpavkpbqh2jc5q4jxnalqg5vomu/Psydewise/Radio+Dystopia",
         "googleplay_market": "https://play.google.com/store/music/album/Psydewise_Radio_Dystopia?id=Bpavkpbqh2jc5q4jxnalqg5vomu&hl=ru",
@@ -5707,11 +5638,11 @@
       "cover_og": "https://content.sentimony.com/assets/img/releases/artech-stringer-mode_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/releases/artech-stringer-mode_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/releases/artech-stringer-mode_xl.jpg",
-      "style": "Psytech, Deep Techno, Minimal Techno",
+      "style": "Psytech, Deep Techno, Minimal Techno, Tech Trance",
       "tracks_number": "4",
       "total_time": "28:16",
       "format": "EP",
-      "artists": "artech 3pointz matik makus",
+      "artists": "artech, 3pointz, matik, makus",
       "relative_releases": "",
       "at_playlists": "sentimony-official",
       "information": "<p>Sentimony Records is proud to presents new release titled «Stringer Mode» - its Psytech & Minimal Deep Techno EP by <a href='/artist/artech/'>Artech</a> from Netherlands.</p><p>Have a deep trip!</p>",
@@ -5727,13 +5658,11 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/artech-stringer-mode-ep-24bit",
         "bandcamp_id": "962614876",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/artech-stringer-mode",
         "soundcloud_playlist_id": "1157189434",
-        "itunes": "https://music.apple.com/ua/album/stringer-mode-ep/1470651990",
-        "applemusic_url": "https://music.apple.com/ua/album/stringer-mode-ep/1470651990",        
+        "applemusic_url": "https://music.apple.com/ua/album/stringer-mode-ep/1476105262",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Brjyz7d6zm7scw5d6s2dnzdg57i/Artech/Stringer+Mode",
         "googleplay_market": "https://play.google.com/store/music/album?id=Brjyz7d6zm7scw5d6s2dnzdg57i&tid=song-Tannezxcfynuglj6pn6fiib2kr4&hl=ru",
         "beatport": "https://www.beatport.com/release/stringer-mode/2686664",
@@ -5788,12 +5717,10 @@
         { "p": "11 Hybrid Reality - Totem (Gaz Mask Rmx) | 139bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-3-24bit",
         "bandcamp_id": "1737764213",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-3",
         "soundcloud_playlist_id": "1155555220",
-        "itunes": "https://music.apple.com/ua/album/futured-vol-3/1474713581",
         "applemusic_url": "https://music.apple.com/ua/album/futured-vol-3/1474713581",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bgibfifju4dxwqa75zo5isag5wm/Various+Artists/Futured%2C+Vol.+3",
         "googleplay_market": "https://play.google.com/store/music/album/Various_Artists_Futured_Vol_3?id=Bgibfifju4dxwqa75zo5isag5wm&hl=ru",
@@ -5864,12 +5791,10 @@
         { "p": "25 Ahanjack & Yoi - Onaion | 85bpm" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-gatekey-vol-1-24bit",
         "bandcamp_id": "281959027",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-gatekey-vol-1",
         "soundcloud_playlist_id": "1155583744",
-        "itunes": "https://music.apple.com/lv/album/gatekey-vol-1/1490179251",
         "applemusic_url": "https://music.apple.com/lv/album/gatekey-vol-1/1490179251",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/B3pasgr4pce3rxyozx5ernwftom/Irukanji/Gatekey%2C+Vol.+1",
         "googleplay_market": "https://play.google.com/store/music/album/Irukanji_Gatekey_Vol_1?id=B3pasgr4pce3rxyozx5ernwftom&hl=ru",
@@ -5918,12 +5843,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gojja-amber-current-ep-24bit",
         "bandcamp_id": "3080928540",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/gojja-amber-current",
         "soundcloud_playlist_id": "1155610471",
-        "itunes": "https://music.apple.com/lv/album/amber-current-ep/1491088841",
         "applemusic_url": "https://music.apple.com/lv/album/amber-current-ep/1491088841",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bsby5jx63rve36tngf5vytndj4m/Gojja/Amber+Current",
         "googleplay_market": "https://play.google.com/store/music/album/Gojja_Amber_Current?id=Bsby5jx63rve36tngf5vytndj4m&hl=ru",
@@ -5972,12 +5895,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gaz-mask-quetzalcoatl-ep-24bit",
         "bandcamp_id": "777153224",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/gaz-mask-quetzalcoatl",
         "soundcloud_playlist_id": "1155612961",
-        "itunes": "https://music.apple.com/lv/album/quetzalcoatl-ep/1494190433",
         "applemusic_url": "https://music.apple.com/lv/album/quetzalcoatl-ep/1494190433",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bqu5nqvql4jq2jj72myiqbmkdvi/%D0%93%D0%B0%D0%B7+%D0%9C%D0%B0%D1%81%D0%BA/Quetzalcoatl",
         "googleplay_market": "https://play.google.com/store/music/album/%D0%93%D0%B0%D0%B7_%D0%9C%D0%B0%D1%81%D0%BA_Quetzalcoatl?id=Bqu5nqvql4jq2jj72myiqbmkdvi&hl=ru",
@@ -6027,12 +5948,10 @@
         { "p": "Mastered By Ross Gilbert @ CMC" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-yugen-ep-24bit",
         "bandcamp_id": "1451213246",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/boketto-yugen",
         "soundcloud_playlist_id": "1155621871",
-        "itunes": "https://music.apple.com/lv/album/yugen-ep/1497560387",
         "applemusic_url": "https://music.apple.com/lv/album/yugen-ep/1497560387",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bia5b2eyxxfdzpnk6ueywau3asq/Boketto/Yugen",
         "googleplay_market": "https://play.google.com/store/music/album/Boketto_Yugen?id=Bia5b2eyxxfdzpnk6ueywau3asq&hl=ru",
@@ -6081,12 +6000,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/kabi-mboko-ep-24bit",
         "bandcamp_id": "1145350553",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/kabi-mboko",
         "soundcloud_playlist_id": "1155631144",
-        "itunes": "https://music.apple.com/lv/album/mboko-ep/1504129897",
         "applemusic_url": "https://music.apple.com/lv/album/mboko-ep/1504129897",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Btvycbrur6cldgcpy7oavn45gzi/Kabi/mBoko",
         "googleplay_market": "https://play.google.com/store/music/album/Kabi_mBoko?id=Btvycbrur6cldgcpy7oavn45gzi&hl=ru",
@@ -6136,12 +6053,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-outer-ep-24bit",
         "bandcamp_id": "2937915610",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/boketto-outer",
         "soundcloud_playlist_id": "1155637438",
-        "itunes": "https://music.apple.com/lv/album/outer-ep/1506049898",
         "applemusic_url": "https://music.apple.com/lv/album/outer-ep/1506049898",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bbvjf2igd5w3ths2efing22l3ai/Boketto/Outer",
         "googleplay_market": "https://play.google.com/store/music/album/Boketto_Outer?id=Bbvjf2igd5w3ths2efing22l3ai&hl=ru",
@@ -6196,12 +6111,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-timeless-24bit",
         "bandcamp_id": "810544399",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/zymosis-timeless",
         "soundcloud_playlist_id": "1155646096",
-        "itunes": "https://music.apple.com/lv/album/timeless/1504133267",
         "applemusic_url": "https://music.apple.com/lv/album/timeless/1504133267",        
         "googleplay_music": "https://play.google.com/music/m/Bdyec5blg5m5b5sfelywm65gw3a?t=Timeless_-_Zymosis",
         "googleplay_market": "https://play.google.com/store/music/album/Zymosis_Timeless?id=Bdyec5blg5m5b5sfelywm65gw3a&hl=ru",
@@ -6268,12 +6181,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-4-24bit",
         "bandcamp_id": "2562866518",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-4",
         "soundcloud_playlist_id": "1155649597",
-        "itunes": "https://music.apple.com/lv/album/futured-vol-4/1514497001",
         "applemusic_url": "https://music.apple.com/lv/album/futured-vol-4/1514497001",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Boiyngcquc2gewahy5lf7boi3qi/Irukanji/Futured%2C+Vol.+4",
         "googleplay_market": "https://play.google.com/store/music/album/Irukanji_Futured_Vol_4?id=Boiyngcquc2gewahy5lf7boi3qi&hl=ru",
@@ -6322,12 +6233,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/exolt-noise-no-sleep-ep-24bit",
         "bandcamp_id": "3369058720",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/exolt-noise-no-sleep",
         "soundcloud_playlist_id": "1155668443",
-        "itunes": "https://music.apple.com/ua/album/noise-no-sleep-ep/1534411728",
         "applemusic_url": "https://music.apple.com/ua/album/noise-no-sleep-ep/1534411728",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bzqvyw65tgti4ia54dxlrdfmlsy/eXoLT/Noise+No+Sleep",
         "beatport": "https://www.beatport.com/release/noise-no-sleep/3148323",
@@ -6376,12 +6285,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-presence-ep-24bit",
         "bandcamp_id": "3149365330",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/boketto-presence",
         "soundcloud_playlist_id": "1155676510",
-        "itunes": "https://music.apple.com/ua/album/presence-ep/1534411848",
         "applemusic_url": "https://music.apple.com/ua/album/presence-ep/1534411848",        
         "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Ba4rmwtfsapyo7rw765fa4bji3a/Boketto/Presence",
         "beatport": "https://www.beatport.com/release/presence/3148505",
@@ -6428,12 +6335,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/paracozm-vorg-too-weird-to-live-too-rare-to-die-24bit",
         "bandcamp_id": "1316836587",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/paracozm-vorg-too-weird-to-live-too-rare-to-die",
         "soundcloud_playlist_id": "1156592074",
-        "itunes": "https://music.apple.com/ua/album/too-weird-to-live-too-rare-to-die-ep/1539059785",
         "applemusic_url": "https://music.apple.com/ua/album/too-weird-to-live-too-rare-to-die-ep/1539059785",        
         "beatport": "https://www.beatport.com/release/too-weird-to-live-too-rare-to-die/3186973",
         "spotify": "https://open.spotify.com/album/16Q0JPFo6b8Vq2kVEoK3Eq",
@@ -6480,12 +6385,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psypheric-pa-leting-etter-24bit",
         "bandcamp_id": "2651442424",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/psypheric-pa-leting-etter",
         "soundcloud_playlist_id": "1206079273",
-        "itunes": "https://music.apple.com/ua/album/pa-leting-etter-ep/1550615469",
         "applemusic_url": "https://music.apple.com/ua/album/pa-leting-etter-ep/1550615469",        
         "beatport": "https://www.beatport.com/release/pa-leting-etter/3268471",
         "spotify": "https://open.spotify.com/album/18vOUSTXBl6cSePo2PBHWZ",
@@ -6530,12 +6433,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-immure-ep-24bit",
         "bandcamp_id": "3415904391",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/boketto-immure",
         "soundcloud_playlist_id": "1212763720",
-        "itunes": "https://music.apple.com/ua/album/immure-single/1553111000",
         "applemusic_url": "https://music.apple.com/ua/album/immure-single/1553111000",        
         "beatport": "https://www.beatport.com/release/immure/3286213",
         "spotify": "https://open.spotify.com/album/3lpwypNRPRzRM7ZmqeH1n4",
@@ -6606,14 +6507,12 @@
         { "p": "Mixed By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> (Tracks #19, <!-- #20, --> #26)" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-gatekey-vol-2-24bit",
         "bandcamp_id": "1920465512",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-gatekey-vol-2",
         "soundcloud_playlist_id": "1235746504",
         "soundcloud_demo_url": "https://soundcloud.com/sentimony/va-gatekey-vol-2-preview?in=sentimony/sets/label-previews",
         "soundcloud_demo_id": "1010315809",
-        "itunes": "https://music.apple.com/ua/album/gatekey-vol-2/1559290072",
         "applemusic_url": "https://music.apple.com/ua/album/gatekey-vol-2/1559290072",        
         "beatport": "https://www.beatport.com/release/gatekey-vol-2/3333571",
         "spotify": "https://open.spotify.com/album/4hU3KYLRiuNn3EBbM3oI3g",
@@ -6660,14 +6559,12 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/space-organ-behind-the-universe-ep-24bit",
         "bandcamp_id": "3228491176",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/space-organ-behind-the-universe",
         "soundcloud_playlist_id": "1252978588",
         "soundcloud_demo_url": "https://soundcloud.com/sentimony/space-organ-behind-the-universe-ep-preview?in=sentimony/sets/label-previews",
         "soundcloud_demo_id": "1039941721",
-        "itunes": "https://music.apple.com/ua/album/behind-the-universe-ep/1564168593",
         "applemusic_url": "https://music.apple.com/ua/album/behind-the-universe-ep/1564168593",        
         "beatport": "https://www.beatport.com/release/behind-the-universe/3372201",
         "spotify": "https://open.spotify.com/album/49qZLFb4jfNHUWVSM2r9il",
@@ -6718,14 +6615,12 @@
         { "p": "Mastered By <a href='https://www.zeamoonmastering.com' target='_blank' rel='noopener'>Simon Neumann @ Zeamoon Mastering</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/derotonin-motion-trickness-24bit",
         "bandcamp_id": "3021918998",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/derotonin-motion-trickness",
         "soundcloud_playlist_id": "1284274777",
         "soundcloud_demo_url": "https://soundcloud.com/sentimony/derotonin-motion-trickness-preview?in=sentimony/sets/label-previews",
         "soundcloud_demo_id": "1070998804",
-        "itunes": "https://music.apple.com/ua/album/motion-trickness/1573996943",
         "applemusic_url": "https://music.apple.com/ua/album/motion-trickness/1573996943",        
         "beatport": "https://www.beatport.com/release/motion-trickness/3435100",
         "spotify": "https://open.spotify.com/album/5JZBorkRmwFzOV1Bk3covn",
@@ -6772,14 +6667,12 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-outlines-ep-24bit",
         "bandcamp_id": "2512354373",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/unusual-cosmic-process-outlines",
         "soundcloud_playlist_id": "1295958127",
         "soundcloud_demo_url": "https://soundcloud.com/sentimony/unusual-cosmic-process-outlines-ep-preview?in=sentimony/sets/label-previews",
         "soundcloud_demo_id": "1101297655",
-        "itunes": "https://music.apple.com/ua/album/outlines-ep/1573982670",
         "applemusic_url": "https://music.apple.com/ua/album/outlines-ep/1573982670",        
         "beatport": "https://www.beatport.com/release/outlines/3435099",
         "spotify": "https://open.spotify.com/album/6JNFKYRB3Q1nf2OFGWwzuv",
@@ -6826,12 +6719,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gaz-mask-trippy-valley-ep-24bit",
         "bandcamp_id": "4194441721",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/gaz-mask-trippy-valley",
         "soundcloud_playlist_id": "1311066088",
-        "itunes": "https://music.apple.com/us/album/trippy-valley-ep/1583631196",
         "applemusic_url": "https://music.apple.com/us/album/trippy-valley-ep/1583631196",        
         "beatport": "https://www.beatport.com/release/trippy-valley/3494438",
         "spotify": "https://open.spotify.com/album/00903VqU6UXeu9MyxibCVN",
@@ -6878,12 +6769,10 @@
         { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/irukanji-rebuild-ep-24bit",
         "bandcamp_id": "715273196",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/irukanji-rebuild",
         "soundcloud_playlist_id": "1329723787",
-        "itunes": "https://music.apple.com/us/album/rebuild-ep/1591114782",
         "applemusic_url": "https://music.apple.com/us/album/rebuild-ep/1591114782",        
         "beatport": "https://www.beatport.com/release/rebuild/3550152",
         "spotify": "https://open.spotify.com/album/76hWIqAX7zWZiXcpQttS6I",
@@ -6931,12 +6820,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/vorg-echoes-ep-24bit",
         "bandcamp_id": "1946068507",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/vorg-echoes",
         "soundcloud_playlist_id": "1354038319",
-        "itunes": "https://music.apple.com/us/album/echoes-ep/1598679280",
         "applemusic_url": "https://music.apple.com/us/album/echoes-ep/1598679280",        
         "beatport": "https://www.beatport.com/release/echoes/3589561",
         "spotify": "https://open.spotify.com/album/28IkRYDcWXwbqFXLvxyKRi",
@@ -6983,12 +6870,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/tystix-etherial-lense-ep-24bit",
         "bandcamp_id": "1872017423",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/tystix-etherial-lense",
         "soundcloud_playlist_id": "1390050886",
-        "itunes": "https://music.apple.com/ua/album/etherial-lense-ep/1606054793",
         "applemusic_url": "https://music.apple.com/ua/album/etherial-lense-ep/1606054793",        
         "beatport": "https://www.beatport.com/release/etherial-lense/3631431",
         "spotify": "https://open.spotify.com/album/1XCiOZk0VF2mw5GA7v4J5B",
@@ -7035,12 +6920,10 @@
         { "p": "Masteried By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/nuada-internal-quest-ep-24bit",
         "bandcamp_id": "1104024411",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/nuada-internal-quest",
         "soundcloud_playlist_id": "1418564113",
-        "itunes": "https://music.apple.com/us/album/internal-quest-ep/1616734964",
         "applemusic_url": "https://music.apple.com/us/album/internal-quest-ep/1616734964",        
         "beatport": "https://www.beatport.com/release/internal-quest/3703273",
         "spotify": "https://open.spotify.com/album/7ccOrPtG5FdQGK7QBhamA0",
@@ -7085,12 +6968,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea-ep-24bit-2",
         "bandcamp_id": "257061871",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea",
         "soundcloud_playlist_id": "1419000196",
-        "itunes": "https://music.apple.com/us/album/sunrise-over-the-black-sea-single/1617368472",
         "applemusic_url": "https://music.apple.com/us/album/sunrise-over-the-black-sea-single/1617368472",        
         "beatport": "https://www.beatport.com/release/sunrise-over-the-black-sea/3707925",
         "spotify": "https://open.spotify.com/album/3ZTh1ZLTrcNnrGHeWbcvaE",
@@ -7137,12 +7018,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/noob-psybot-friends-obscure-litany-ep-24bit",
         "bandcamp_id": "3254854918",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/noob-psybot-friends-obscure-litany",
         "soundcloud_playlist_id": "1419000295",
-        "itunes": "https://music.apple.com/us/album/obscure-litany-ep/1618996829",
         "applemusic_url": "https://music.apple.com/us/album/obscure-litany-ep/1618996829",        
         "beatport": "https://www.beatport.com/release/obscure-litany/3718004",
         "spotify": "https://open.spotify.com/album/01rSxK84pO4i0Wp279O0aU",
@@ -7210,12 +7089,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-5-24bit",
         "bandcamp_id": "2310430819",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-5",
         "soundcloud_playlist_id": "1472011762",
-        "itunes": "https://music.apple.com/ua/album/futured-vol-5/1635167689",
         "applemusic_url": "https://music.apple.com/ua/album/futured-vol-5/1635167689",        
         "beatport": "https://www.beatport.com/release/futured-vol-5/3812879",
         "spotify": "https://open.spotify.com/album/2n9Piru8RVwGeFMRKyKBZi",
@@ -7261,12 +7138,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/frog-prog-sacred-journey-ep-24bit",
         "bandcamp_id": "1615675213",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/frog-prog-sacred-journey",
         "soundcloud_playlist_id": "1499087368",
-        "itunes": "https://music.apple.com/us/album/sacred-journey-ep/1645103893",
         "applemusic_url": "https://music.apple.com/us/album/sacred-journey-ep/1645103893",        
         "beatport": "https://www.beatport.com/release/sacred-journey/3871399",
         "spotify": "https://open.spotify.com/album/61qkxdS7ksroE8gCqA7mv4",
@@ -7314,12 +7189,10 @@
         { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/irukanji-eleexr-i-have-something-to-show-you-ep-24bit",
         "bandcamp_id": "754496385",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/irukanji-eleexr-i-have-something-to-show-you",
         "soundcloud_playlist_id": "1534941634",
-        "itunes": "https://music.apple.com/us/album/i-have-something-to-show-you-ep/1655877882",
         "applemusic_url": "https://music.apple.com/us/album/i-have-something-to-show-you-ep/1655877882",        
         "beatport": "https://www.beatport.com/release/i-have-something-to-show-you/3944034",
         "spotify": "https://open.spotify.com/album/28oTTbExoY2SHphuPQhLJy",
@@ -7367,12 +7240,10 @@
         { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/from-vacuum-banglich-ep-24bit",
         "bandcamp_id": "1812647524",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/from-vacuum-banglich/s-YI5fVYeign9",
         "soundcloud_playlist_id": "1541493523",
-        "itunes": "https://music.apple.com/us/album/banglich-ep/1655705605",
         "applemusic_url": "https://music.apple.com/us/album/banglich-ep/1655705605",        
         "beatport": "https://www.beatport.com/release/banglich/3942927",
         "spotify": "https://open.spotify.com/album/40DQVGBFRmGaDjr4k5rhnp",
@@ -7420,12 +7291,10 @@
         { "p": "Mixed & Mastered By <a href='https://www.facebook.com/profile.php?id=100007802205486' target='_blank' rel='noopener'>Spec @ Critical Studio</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/declaration-of-unity-transpersonal-ep-24bit",
         "bandcamp_id": "3809250683",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/declaration-of-unity",
         "soundcloud_playlist_id": "1564699267",
-        "itunes": "https://music.apple.com/us/album/transpersonal-ep/1667592561",
         "applemusic_url": "https://music.apple.com/us/album/transpersonal-ep/1667592561",        
         "beatport": "https://www.beatport.com/release/transpersonal/4003410",
         "spotify": "https://open.spotify.com/album/5xR4qmAxmgziycT9ZW4sYi",
@@ -7473,12 +7342,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-gain-of-funktion-ep-24bit",
         "bandcamp_id": "1189083657",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/psydewise-gain-of-funktion",
         "soundcloud_playlist_id": "1598493481",
-        "itunes": "https://music.apple.com/us/album/gain-of-funktion/1682948893",
         "applemusic_url": "https://music.apple.com/us/album/gain-of-funktion/1682948893",        
         "beatport": "https://www.beatport.com/release/gain-of-funktion/4099720",
         "spotify": "https://open.spotify.com/album/2IAO0mYf6vkZ34Fl4yE6K6",
@@ -7525,12 +7392,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/tystix-romanesca-ep-24bit",
         "bandcamp_id": "131299250",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/tystix-romanesca",
         "soundcloud_playlist_id": "1648834618",
-        "itunes": "https://music.apple.com/us/album/romanesca/1696017273",
         "applemusic_url": "https://music.apple.com/us/album/romanesca/1696017273",        
         "beatport": "https://www.beatport.com/release/romanesca/4187624",
         "spotify": "https://open.spotify.com/album/1UeQ6aEA1GGJYgWcKWJpkM",
@@ -7578,12 +7443,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/eleexr-behind-dark-mirrors-ep-24bit",
         "bandcamp_id": "4143479617",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/eleexr-behind-dark-mirrors-ep",
         "soundcloud_playlist_id": "1658100937",
-        "itunes": "https://music.apple.com/us/album/behind-dark-mirrors/1693887619",
         "applemusic_url": "https://music.apple.com/us/album/behind-dark-mirrors/1693887619",        
         "beatport": "https://www.beatport.com/release/behind-dark-mirrors/4173288",
         "spotify": "https://open.spotify.com/album/3Hf1jf3DGcVmzQuntptjXo",
@@ -7630,12 +7493,10 @@
         { "p": "Mastered By Serious About Sound" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/jai-midi-bass-ep-24bit",
         "bandcamp_id": "3637574210",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/jai-midi-bass-ep",
         "soundcloud_playlist_id": "1669713171",
-        "itunes": "https://music.apple.com/us/album/midi-bass/1701156613",
         "applemusic_url": "https://music.apple.com/us/album/midi-bass/1701156613",        
         "beatport": "https://www.beatport.com/release/midi-bass/4221426",
         "spotify": "https://open.spotify.com/album/3OfOjiqFnKIRv2AuQy6Nh8",
@@ -7683,12 +7544,10 @@
         { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "redirect_to_24",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/paracozm-vorg-qube-ep-24bit",
         "bandcamp_id": "1945531266",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/paracozm-vorg-qube-ep",
         "soundcloud_playlist_id": "1692907380",
-        "itunes": "https://music.apple.com/us/album/qube/1707938207",
         "applemusic_url": "https://music.apple.com/us/album/qube/1707938207",        
         "beatport": "https://www.beatport.com/release/qube/4271742",
         "spotify": "https://open.spotify.com/album/5gWCTqP9c0fKgib46PEwJh",
@@ -7762,7 +7621,6 @@
         "bandcamp_id": "2406989051",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-6",
         "soundcloud_playlist_id": "1739727468",
-        "itunes": "https://music.apple.com/us/album/futured-vol-6/1719138230",
         "applemusic_url": "https://music.apple.com/us/album/futured-vol-6/1719138230",        
         "beatport": "https://www.beatport.com/release/futured-vol-6/4361194",
         "spotify": "https://open.spotify.com/album/6lZRGLB2v2hQwWXgSJNLuH",
@@ -7819,7 +7677,6 @@
         "bandcamp_id": "1266264359",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/space-organ-time-and-space",
         "soundcloud_playlist_id": "1769257131",
-        "itunes": "https://music.apple.com/us/album/time-and-space/1730037714",
         "applemusic_url": "https://music.apple.com/us/album/time-and-space/1730037714",        
         "beatport": "https://www.beatport.com/release/time-and-space/4444818",
         "spotify": "https://open.spotify.com/album/02YVCqtPtwX5kinaIuf83D",
@@ -7872,7 +7729,6 @@
         "bandcamp_id": "2067884992",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/urklang-psyral-lifeforms",
         "soundcloud_playlist_id": "1793621793",
-        "itunes": "https://music.apple.com/us/album/psyral-lifeforms/1736134876",
         "applemusic_url": "https://music.apple.com/us/album/psyral-lifeforms/1736134876",        
         "beatport": "https://www.beatport.com/release/psyral-lifeforms/4495180",
         "spotify": "https://open.spotify.com/album/4bOxaEsdpZjwj6AbboLNDh",
@@ -7919,12 +7775,10 @@
         { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/spacecraft-metamorphosis-ep-24bit",
         "bandcamp_id": "2681893742",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/spacecraft-metamorphosis-ep",
         "soundcloud_playlist_id": "1806741262",
-        "itunes": "https://music.apple.com/us/album/metamorphosis-ep/1739492141",
         "applemusic_url": "https://music.apple.com/us/album/metamorphosis-ep/1739492141",        
         "beatport": "https://www.beatport.com/release/metamorphosis/4519794",
         "spotify": "https://open.spotify.com/album/3wtawjFQ832AkfONC8oznH",
@@ -7972,12 +7826,10 @@
         { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/mushroomslice-astro-review-ep-24bit",
         "bandcamp_id": "872225027",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/mushroomslice-astro-review-ep",
         "soundcloud_playlist_id": "1809603151",
-        "itunes": "https://music.apple.com/us/album/astro-review/1739493012",
         "applemusic_url": "https://music.apple.com/us/album/astro-review/1739493012",        
         "beatport": "https://www.beatport.com/release/astro-review/4519814",
         "spotify": "https://open.spotify.com/album/3RtRAF9fwO0Zgna9n1yFsX",
@@ -8025,12 +7877,10 @@
         { "p": "Masteried By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/kauyumari-transmuting-ep-24bit",
         "bandcamp_id": "753465141",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/kauyumari-transmuting-ep",
         "soundcloud_playlist_id": "1824503943",
-        "itunes": "https://music.apple.com/us/album/transmuting-ep/1746080793",
         "applemusic_url": "https://music.apple.com/us/album/transmuting-ep/1746080793",        
         "beatport": "https://www.beatport.com/release/transmuting/4570657",
         "spotify": "https://open.spotify.com/album/5WRxYAuuAHEkoiob3SbRz4",
@@ -8079,12 +7929,10 @@
         { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/nuada-tools-of-perception-24bit",
         "bandcamp_id": "2075455790",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/nuada-tools-of-perception",
         "soundcloud_playlist_id": "1827750102",
-        "itunes": "https://music.apple.com/us/album/tools-of-perception/1746080386",
         "applemusic_url": "https://music.apple.com/us/album/tools-of-perception/1746080386",        
         "beatport": "https://www.beatport.com/release/tools-of-perception/4570656",
         "spotify": "https://open.spotify.com/album/0ZSilaqNNvmaWv3zm5KrJX",
@@ -8131,12 +7979,10 @@
         { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/jai-come-from-ep-24bit",
         "bandcamp_id": "1198531215",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/jai-come-from-ep",
         "soundcloud_playlist_id": "1834227783",
-        "itunes": "https://music.apple.com/us/album/come-from/1747840428",
         "applemusic_url": "https://music.apple.com/us/album/come-from/1747840428",        
         "beatport": "https://www.beatport.com/release/come-from/4585708",
         "spotify": "https://open.spotify.com/album/5N3v2xi5PVNDpRJBTxzPZx",
@@ -8184,12 +8030,10 @@
         { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/djeriko-cosmologi-a-fractalica-ep-24bit",
         "bandcamp_id": "3167303701",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/djeriko-cosmologia-fractalica",
         "soundcloud_playlist_id": "1837468347",
-        "itunes": "https://music.apple.com/us/album/cosmologi-a-fractalica/1748911287",
         "applemusic_url": "https://music.apple.com/us/album/cosmologi-a-fractalica/1748911287",        
         "beatport": "https://www.beatport.com/release/cosmologia-fractalica/4592865",
         "spotify": "https://open.spotify.com/album/0DC9OGR5CE41ITdLrWpzDf",
@@ -8203,22 +8047,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mKF4u2OlErd-WlI6N6vNb7CWW5uiKMOQA",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/album/djeriko-cosmologi-a-fractalica-ep-24bit" },
-        { "url": "https://www.beatport.com/release/cosmologia-fractalica/4592865" },
-        { "url": "https://www.junodownload.com/products/djeriko-cosmologia-fractalica/6642736-02/" },
-        { "url": "https://open.spotify.com/album/0DC9OGR5CE41ITdLrWpzDf" },
-        { "url": "https://music.apple.com/us/album/cosmologi-a-fractalica/1748911287" },
-        { "url": "https://music.amazon.com/albums/B0D5FLYXV3" },
-        { "url": "https://www.deezer.com/us/album/593553282" },
-        { "url": "https://listen.tidal.com/album/366035163" },
-        { "url": "https://play.qobuz.com/album/hdgl3o2mngsua" },
-        { "url": "https://app.napster.com/artist/various/album/fantazma" },
-        { "url": "https://soundcloud.com/sentimony/sets/djeriko-cosmologia-fractalica" },
-        { "url": "https://music.youtube.com/playlist?list=OLAK5uy_mKF4u2OlErd-WlI6N6vNb7CWW5uiKMOQA" },
-        { "url": "https://youtu.be/lenuoD0y-HU" }
-      ]
+      }
     },
     "fracktom-chronicles-of-chaos": {
       "slug": "fracktom-chronicles-of-chaos",
@@ -8251,12 +8080,10 @@
         { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/fracktom-chronicles-of-chaos-ep-24bit",
         "bandcamp_id": "2528081031",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/fracktom-chronicles-of-chaos",
         "soundcloud_playlist_id": "1852613586",
-        "itunes": "",
         "applemusic_url": "https://music.apple.com/us/album/chronicles-of-chaos/1757936493",        
         "beatport": "https://www.beatport.com/release/chronicles-of-chaos/4657305",
         "spotify": "https://open.spotify.com/album/7mdYDgjovOjnm3J8TkjraG",
@@ -8270,22 +8097,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kee98dtC4zg9EL__Fx4CVI__Wl2FDfUHk",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/album/djeriko-cosmologi-a-fractalica-ep-24bit" },
-        { "url": "https://www.beatport.com/release/cosmologia-fractalica/4592865" },
-        { "url": "https://www.junodownload.com/products/djeriko-cosmologia-fractalica/6642736-02/" },
-        { "url": "https://open.spotify.com/album/0DC9OGR5CE41ITdLrWpzDf" },
-        { "url": "https://music.apple.com/us/album/cosmologi-a-fractalica/1748911287" },
-        { "url": "https://music.amazon.com/albums/B0D5FLYXV3" },
-        { "url": "https://www.deezer.com/us/album/593553282" },
-        { "url": "https://listen.tidal.com/album/366035163" },
-        { "url": "https://play.qobuz.com/album/hdgl3o2mngsua" },
-        { "url": "https://app.napster.com/artist/various/album/fantazma" },
-        { "url": "https://soundcloud.com/sentimony/sets/djeriko-cosmologia-fractalica" },
-        { "url": "https://music.youtube.com/playlist?list=OLAK5uy_mKF4u2OlErd-WlI6N6vNb7CWW5uiKMOQA" },
-        { "url": "https://youtu.be/lenuoD0y-HU" }
-      ]
+      }
     },
     "zymosis-memento": {
       "slug": "zymosis-memento",
@@ -8324,12 +8136,10 @@
       ],
       "links": {
         "diggersfactory_url": "https://www.diggersfactory.com/vinyl/317332/zymosis-memento",
-        "bandcamp_url": "",
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-memento-24bit",
         "bandcamp_id": "1251190336",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/zymosis-memento",
         "soundcloud_playlist_id": "1854758958",
-        "itunes": "",
         "applemusic_url": "https://music.apple.com/us/album/memento/1758123258",        
         "beatport": "https://www.beatport.com/release/memento/4658482",
         "spotify": "https://open.spotify.com/album/7N0JcRfEUYmc2s40Cfd4O2",
@@ -8343,23 +8153,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_ksnH1FubhkFBfzmBjIEZ1ZfILzK9zzbFc",
         "youtube": "",
         "youtube_playlist_id": "PLp2GaPnw5O3MdDgJmztCY5f_70sSTxrIe"
-      },
-      "links_v2": [
-        { "url": "https://www.diggersfactory.com/vinyl/317332/zymosis-memento" },
-        { "url": "https://sentimony.bandcamp.com/album/zymosis-memento-24bit" },
-        { "url": "https://www.beatport.com/release/memento/4658482" },
-        { "url": "https://www.junodownload.com/products/zymosis-memento/6707135-02" },
-        { "url": "https://open.spotify.com/album/7N0JcRfEUYmc2s40Cfd4O2" },
-        { "url": "https://music.apple.com/us/album/memento/1758123258" },
-        { "url": "https://music.amazon.com/albums/B0D9P81DXR" },
-        { "url": "https://www.deezer.com/us/album/617370691" },
-        { "url": "https://listen.tidal.com/album/375949924" },
-        { "url": "https://play.qobuz.com/album/jgd387l1r407a" },
-        { "url": "https://app.napster.com/artist/various/album/fantazma" },
-        { "url": "https://soundcloud.com/sentimony/sets/zymosis-memento" },
-        { "url": "https://music.youtube.com/playlist?list=OLAK5uy_ksnH1FubhkFBfzmBjIEZ1ZfILzK9zzbFc" },
-        { "url": "https://youtu.be/lenuoD0y-HU" }
-      ]
+      }
     },
     "boketto-pushback": {
       "slug": "boketto-pushback",
@@ -8406,22 +8200,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_m791SYEK_DdmGBf7cxgwC_QwY5TfmAt8s",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "bensaid-lucid-vision": {
       "slug": "bensaid-lucid-vision",
@@ -8471,22 +8250,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_ly99meVzoF595xpdFxM2VWZUVo1rkFu6g",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "from-vacuum-good-steps": {
       "slug": "from-vacuum-good-steps",
@@ -8544,22 +8308,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mdKHNlygpg_bBsRmJqRB-51LBbdiwOEUw",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "frog-prog-triangulum": {
       "slug": "frog-prog-triangulum",
@@ -8609,22 +8358,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_lys8IYjvLJX-1UtnecRYVtNAoAmPhdMbg",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "mirror-me-azure-skies-and-golden-valleys": {
       "slug": "mirror-me-azure-skies-and-golden-valleys",
@@ -8673,22 +8407,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_kyzM0qWfl7kFVmjnsQzkQ-rIOSefwWV7g",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "vorg-cyber-soul-night": {
       "slug": "vorg-cyber-soul-night",
@@ -8743,22 +8462,7 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mmVNEFtiPFiGrf5EMSu5sohUX9-O3QN5M",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "tystix-spectral": {
       "slug": "tystix-spectral",
@@ -8797,7 +8501,7 @@
         "soundcloud_playlist_id": "1999482584",
         "applemusic_url": "https://music.apple.com/us/album/spectral-ep/1807800319",        
         "beatport": "https://www.beatport.com/release/spectral/5031433",
-        "spotify": "",
+        "spotify": "https://open.spotify.com/album/2MFEQEaZTHtxD0JmKgbTIQ",
         "junodownload": "https://www.junodownload.com/products/tystix-spectral/7073079-02/",
         "discogs": "",
         "deezer": "https://www.deezer.com/us/album/740649051",
@@ -8808,28 +8512,13 @@
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mrzbwEpNN_o2rzJbU0igVipGQwOIkFy6c",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "tonal-sense-enveloping-rhythm": {
       "slug": "tonal-sense-enveloping-rhythm",
       "title": "Tonal Sense «Enveloping Rhythm» EP",
       "cat_no": "SENCD093",
-      "visible": true,
+      "visible": false,
       "date": "2025-04-18T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
@@ -8872,22 +8561,7 @@
         "youtube_music": "",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "va-futured-vol-7": {
       "slug": "va-futured-vol-7",
@@ -8960,22 +8634,7 @@
         "youtube_music": "",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "vorg-cyber-soul-day": {
       "slug": "vorg-cyber-soul-day",
@@ -9030,22 +8689,7 @@
         "youtube_music": "",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "vorg-cyber-soul-chill": {
       "slug": "vorg-cyber-soul-chill",
@@ -9097,22 +8741,7 @@
         "youtube_music": "",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://sentimony.bandcamp.com/-24bit" },
-        { "url": "https://www.beatport.com" },
-        { "url": "https://www.junodownload.com" },
-        { "url": "https://open.spotify.com" },
-        { "url": "https://music.apple.com" },
-        { "url": "https://music.amazon.com" },
-        { "url": "https://www.deezer.com" },
-        { "url": "https://listen.tidal.com" },
-        { "url": "https://play.qobuz.com" },
-        { "url": "https://app.napster.com" },
-        { "url": "https://soundcloud.com" },
-        { "url": "https://music.youtube.com" },
-        { "url": "https://youtu.be" }
-      ]
+      }
     },
     "va-gatekey-vol-3": {
       "slug": "va-gatekey-vol-3",
@@ -9168,12 +8797,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp_url": "",
         "bandcamp24_url": "",
         "bandcamp_id": "",
         "soundcloud_url": "",
         "soundcloud_playlist_id": "",
-        "itunes": "",
         "applemusic_url": "",        
         "beatport": "",
         "spotify": "",
@@ -9187,12 +8814,7 @@
         "youtube_music": "",
         "youtube": "",
         "youtube_playlist_id": ""
-      },
-      "links_v2": [
-        { "url": "https://music.apple.com/us/album/cosmologi-a-fractalica/1748911287" },
-        { "url": "https://music.amazon.com/albums/B0D5FLYXV3" },
-        { "url": "https://play.qobuz.com/album/hdgl3o2mngsua" }
-      ]
+      }
     }
   },
   "playlists": {

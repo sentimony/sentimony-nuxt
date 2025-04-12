@@ -144,6 +144,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
+    // layout: 'artist',
     data () {
       return {
         texts: AppContent.texts,

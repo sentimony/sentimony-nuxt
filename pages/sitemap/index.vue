@@ -1,7 +1,7 @@
 <template>
   <div class="youtube-page">
     <h1>Sitemap</h1>
-    
+
     <!-- <div class="youtube-page__frame-holder">
       <iframe
         class="youtube-page__frame"
@@ -36,7 +36,7 @@
           
           <br>
           
-          <span v-if="i.links">v1</span>
+          <span>v1</span>
           <span v-for="(ii, index) in i.links" :key="index">
             <span v-if="ii.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
             <span v-if="ii.includes('.bandcamp.')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp/'">Bandcamp16</router-link></span>
@@ -53,7 +53,6 @@
             <span v-if="ii.includes('soundcloud.')"><router-link v-ripple :to="'/release/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
             <span v-if="ii.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTubeMusic</router-link></span>
             <span v-if="ii.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
-
             <span v-if="ii.includes('sentimony.')"><router-link v-ripple :to="'/release/' + i.slug + '/official/'">Official</router-link></span>
             <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/itunes/'">Itunes</router-link></span>
             <span v-if="ii.includes('play.google.com/music')"><router-link v-ripple :to="'/release/' + i.slug + '/googleplay/'">GooglePlayMusic</router-link></span>
@@ -61,23 +60,27 @@
 
           <br>
 
-          <span v-if="i.links_v2">v2</span>
-          <span v-for="(iii, index) in i.links_v2" :key="index">
-            <span v-if="iii.url.includes('.diggersfactory.')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span>
-            <span v-if="iii.url.includes('.bandcamp.')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp/'">Bandcamp16</router-link></span>
-            <span v-if="iii.url.includes('-24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp24</router-link></span>
-            <span v-if="iii.url.includes('.beatport.')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
-            <span v-if="iii.url.includes('.junodownload.')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
-            <span v-if="iii.url.includes('.spotify.')"><router-link v-ripple :to="'/release/' + i.slug + '/spotify/'">Spotify</router-link></span>
-            <span v-if="iii.url.includes('.apple.')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">AppleMusic</router-link></span>
-            <span v-if="iii.url.includes('.amazon.')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">AmazonMusic</router-link></span>
-            <span v-if="iii.url.includes('.deezer.')"><router-link v-ripple :to="'/release/' + i.slug + '/deezer/'">Deezer</router-link></span>
-            <span v-if="iii.url.includes('.tidal.')"><router-link v-ripple :to="'/release/' + i.slug + '/tidal/'">Tidal</router-link></span>
-            <span v-if="iii.url.includes('.qobuz.')"><router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
-            <span v-if="iii.url.includes('.napster.')"><router-link v-ripple :to="'/release/' + i.slug + '/napster/'">Napster</router-link></span>
-            <span v-if="iii.url.includes('soundcloud.')"><router-link v-ripple :to="'/release/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
-            <span v-if="iii.url.includes('music.youtube.')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTubeMusic</router-link></span>
-            <span v-if="iii.url.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
+          <span>v2</span>
+
+          <span v-for="(x, index) in links_v2" :key="index">
+            <!-- <span v-if="x.url.includes('diggersfactory')"><router-link v-ripple :to="'/release/' + i.slug + '/diggersfactory/'">DiggersFactory</router-link></span> -->
+            <span v-if="x.url.includes('bandcamp')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp/'">Bandcamp16</router-link></span>
+            <span v-if="x.url.includes('24bit')"><router-link v-ripple :to="'/release/' + i.slug + '/bandcamp24/'">Bandcamp24</router-link></span>
+            <span v-if="x.url.includes('beatport')"><router-link v-ripple :to="'/release/' + i.slug + '/beatport/'">Beatport</router-link></span>
+            <span v-if="x.url.includes('junodownload')"><router-link v-ripple :to="'/release/' + i.slug + '/junodownload/'">JunoDownload</router-link></span>
+            <span v-if="x.url.includes('spotify')"><router-link v-ripple :to="'/release/' + i.slug + '/spotify/'">Spotify</router-link></span>
+            <span v-if="x.url.includes('apple')"><router-link v-ripple :to="'/release/' + i.slug + '/applemusic/'">AppleMusic</router-link></span>
+            <span v-if="x.url.includes('amazon')"><router-link v-ripple :to="'/release/' + i.slug + '/amazonmusic/'">AmazonMusic</router-link></span>
+            <span v-if="x.url.includes('deezer')"><router-link v-ripple :to="'/release/' + i.slug + '/deezer/'">Deezer</router-link></span>
+            <span v-if="x.url.includes('tidal')"><router-link v-ripple :to="'/release/' + i.slug + '/tidal/'">Tidal</router-link></span>
+            <span v-if="x.url.includes('qobuz')"><router-link v-ripple :to="'/release/' + i.slug + '/qobuz/'">Qobuz</router-link></span>
+            <span v-if="x.url.includes('napster')"><router-link v-ripple :to="'/release/' + i.slug + '/napster/'">Napster</router-link></span>
+            <span v-if="x.url.includes('soundcloud')"><router-link v-ripple :to="'/release/' + i.slug + '/soundcloud/'">SoundCloud</router-link></span>
+            <span v-if="x.url.includes('music.youtube')"><router-link v-ripple :to="'/release/' + i.slug + '/youtubemusic/'">YouTubeMusic</router-link></span>
+            <span v-if="x.url.includes('youtu.be')"><router-link v-ripple :to="'/release/' + i.slug + '/youtube/'">YouTube</router-link></span>
+            <span v-if="x.url.includes('sentimony')"><router-link v-ripple :to="'/release/' + i.slug + '/official/'">Official</router-link></span>
+            <span v-if="x.url.includes('apple')"><router-link v-ripple :to="'/release/' + i.slug + '/itunes/'">Itunes</router-link></span>
+            <span v-if="x.url.includes('play.google.com/music')"><router-link v-ripple :to="'/release/' + i.slug + '/googleplay/'">GooglePlayMusic</router-link></span>
           </span>
 
         </p>
@@ -110,7 +113,7 @@
           <router-link v-ripple :to="'/playlist/' + i.slug + '/'">{{ i.title }}</router-link>
           <br>
           
-          v1
+          <span>v1</span>
           <span v-for="(ii, index) in i.links" :key="index">
             <span v-if="ii.includes('.spotify.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/spotify/'">Spotify</router-link></span>
             <span v-if="ii.includes('.apple.')"><router-link v-ripple :to="'/playlist/' + i.slug + '/applemusic/'">AppleMusic</router-link></span>
@@ -175,12 +178,15 @@
     data: () => ({
       youtubeFrames: {
         allTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn',
-        needToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
-      }
+        needToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH',
+      },
+      links_v2: [
+        { "url": "diggersfactory bandcamp 24bit beatport junodownload spotify apple amazon deezer tidal qobuz soundcloud music.youtube youtu.be sentimony" },
+      ]
     }),
     async asyncData({ route }) {
       const [artistsRes, releasesRes, playlistsRes, videosRes] = await Promise.all([
-        axios.get(`artists.json`),
+        axios.get('artists.json'),
         axios.get('releases.json'),
         axios.get('playlists.json'),
         axios.get('videos.json'),

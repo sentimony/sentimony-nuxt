@@ -3,7 +3,7 @@
     <ddos-guard
       :item="release"
       :title="title"
-      :link="release.links.itunes"
+      :link="release.links.applemusic_url"
     />
   </section>
 </template>
