@@ -3487,8 +3487,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/403901",
         "ektoplazm": "http://www.ektoplazm.com/free-music/fantazma",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46371552",
         "amazon_music": "https://music.amazon.com/albums/B074TVGD2R",
         "tidal": "https://listen.tidal.com/album/77545528",
@@ -3550,8 +3548,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/403903",
         "ektoplazm": "http://www.ektoplazm.com/free-music/emptinesses",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46371642",
         "amazon_music": "https://music.amazon.com/albums/B074TYRJ1Z",
         "tidal": "https://listen.tidal.com/album/77547310",
@@ -3611,8 +3607,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/446647",
         "ektoplazm": "http://www.ektoplazm.com/free-music/sphingida-origin",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46371732",
         "amazon_music": "https://music.amazon.com/albums/B074TYDFC2",
         "tidal": "https://listen.tidal.com/album/77546178",
@@ -3644,7 +3638,7 @@
       "information": "<p>Sentimony Records team proudly presents to you, friends, our fourth release - «True Story» compiled by <a href='/artist/sphingida/'>Sphingida</a>.</p><p>We cooked for you 12 awesome tracks from artists that you have known from our previous releases... and several new discoveries to please your ear and our hopes. And some well-known names... We wish you'll enjoy this compilation, which guides you through the true story about the adventures of an small Sentimon...</p><p>During listening you will be absorbed by classic ambient vibes in the start of journey and with increasing psy-ambient motion, downtempo and expressive uptempo energy.</p><p>Have a nice journey!</p>",
       "creditsCompact": [
         { "p": "Compiled By <a href='/artist/sphingida/'>Sphingida</a>" },
-        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a>" },
+        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a> & Olia Klapak" },
         { "p": "Mastered By Prok @ VioletRaySoundlab" }
       ], 
       "tracklistCompact": [
@@ -3674,8 +3668,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/563060",
         "ektoplazm": "http://www.ektoplazm.com/free-music/true-story",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46371822",
         "amazon_music": "https://music.amazon.com/albums/B074TXPMC7",
         "tidal": "https://listen.tidal.com/album/77547004",
@@ -3722,26 +3714,24 @@
         { "p": "Mastering By Prok @ VioletRaySoundlab" }
       ],
       "links": {
-        "bandcamp_url": "https://sentimony.bandcamp.com/album/spectrum-vision-lost-space-device",
-        "bandcamp_id": "309398559",
+        "bandcamp_url": "",
+        "bandcamp_id": "",
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/spectrum-vision-lost-space-device",
         "soundcloud_playlist_id": "1154619733",
-        "applemusic_url": "https://itunes.apple.com/ua/album/lost-space-device/1271841248",        
-        "googleplay_music": "https://play.google.com/music/listen?u=0#/album/Bimzdv7srukdity4athantcgihy/Spectrum+Vision/Lost+Space+Device",
-        "googleplay_market": "https://play.google.com/store/music/album/Spectrum_Vision_Lost_Space_Device?id=Bimzdv7srukdity4athantcgihy&hl=ru",
-        "beatport": "https://www.beatport.com/release/lost-space-device/2136281",
-        "spotify": "https://open.spotify.com/album/499STqjGFqpZlnE2JLBfLq",
+        "applemusic_url": "",        
+        "googleplay_music": "",
+        "googleplay_market": "",
+        "beatport": "",
+        "spotify": "",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/494470",
         "ektoplazm": "http://www.ektoplazm.com/free-music/spectrum-vision-lost-space-device",
-        "beatspace": "",
-        "psyshop": "",
-        "deezer": "https://www.deezer.com/us/album/46372032",
+        "deezer": "",
         "amazon_music": "",
-        "tidal": "https://listen.tidal.com/album/77545723",
-        "napster": "https://app.napster.com/artist/spectrum-vision/album/lost-space-device",
+        "tidal": "",
+        "napster": "",
         "qobuz": "",
-        "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_nLV6NUcaXA-RHrUVWQ1IqrnGX83ojVoGQ",
+        "youtube_music": "",
         "youtube": "https://youtu.be/iQL7taNJr7k",
         "youtube_playlist_id": "PLp2GaPnw5O3P-uVtUa228Cpg62X8za31K"
       }
@@ -3795,8 +3785,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/563062",
         "ektoplazm": "http://www.ektoplazm.com/free-music/irukanji-z-lisu",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46372172",
         "amazon_music": "https://music.amazon.com/albums/B074V2DB3D",
         "tidal": "https://listen.tidal.com/album/77547070",
@@ -3858,8 +3846,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/538286",
         "ektoplazm": "http://www.ektoplazm.com/free-music/ocean-scenes-higher-titans",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46372282",
         "amazon_music": "https://music.amazon.com/albums/B074TX4R7Z",
         "tidal": "https://listen.tidal.com/album/77545956",
@@ -3919,8 +3905,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/331378",
         "ektoplazm": "http://www.ektoplazm.com/free-music/senzar-before-the-morning-sun",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46435752",
         "amazon_music": "https://music.amazon.com/albums/B074VVNS6W",
         "tidal": "https://listen.tidal.com/album/77584553",
@@ -3983,8 +3967,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/339908",
         "ektoplazm": "http://www.ektoplazm.com/free-music/grower",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46435812",
         "amazon_music": "https://music.amazon.com/albums/B074VT3XH3",
         "tidal": "https://listen.tidal.com/album/77583393",
@@ -4103,8 +4085,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/349889",
         "ektoplazm": "http://www.ektoplazm.com/free-music/unusual-cosmic-process-weightlessness",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/113463782",
         "amazon_music": "https://music.amazon.com/albums/B07YNBC9QJ",
         "tidal": "https://listen.tidal.com/album/119360468",
@@ -4166,8 +4146,6 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/563066",
         "ektoplazm": "http://www.ektoplazm.com/free-music/tempo-syndicate",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/46435992",
         "amazon_music": "https://music.amazon.com/albums/B074W6QZLK",
         "tidal": "https://listen.tidal.com/album/77585075",
@@ -4226,8 +4204,6 @@
         "junodownload": "https://www.junodownload.com/products/dancing-mavka/4304382-02",
         "discogs": "https://www.discogs.com/master/350184",
         "ektoplazm": "http://www.ektoplazm.com/free-music/dancing-mavka",
-        "beatspace": "",
-        "psyshop": "",
         "deezer": "https://www.deezer.com/us/album/113463752",
         "amazon_music": "https://music.amazon.com/albums/B07YN9P3K9",
         "tidal": "https://listen.tidal.com/album/119360476",
@@ -4896,13 +4872,13 @@
       "total_time": "1:13:41",
       "format": "Album",
       "artists": "zymosis, katya-chilly artrama dimitro",
-      "relative_releases": "zymosis-nichna zymosis-timeless zymosis-memento",
+      "relative_releases": "zymosis-nichna zymosis-timeless zymosis-memento zymosis-an-endless-sense-of-the-past",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team is proud to present «Insight» - new <a href='/artist/zymosis/'>Zymosis</a> full-length album.</p><p><i>I was looking for Power, but I did not find anything ...</i></p><p><i>Then I looked for God, but found nothing ...</i></p><p><i>Then I looked for myself and did not find anything either.</i></p><p><i>When my quest for Power, God and Myself merged, I found the Secret:<br>All that is and all that you know is the One Whole.<br>Everything that happens is part of a single action, which can be called a single life of the universe. Life is what it is. You can only understand and accept this. And only the Understanding - the pure One Whole Consciousness, which is in the beginning, remains only. This is the only existing reality. All the rest is an illusion, which includes all the variety of phenomena that arise in our perception.<br>When I realized this, Harmony and Peace found me ...</i></p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/zymosis/'>Zymosis</a>" },
         { "p": "Artwork By <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
       "tracklistCompact": [
         { "p": "1 Zymosis - Make A Wish | 90bpm" },
@@ -5016,7 +4992,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/ufomatka/'>Ufomatka</a>" },
         { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
-        { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
       "tracklistCompact": [
         { "p": "1 Ufomatka - Multiplexer | 140bpm" },
@@ -5069,7 +5045,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/omnisound/'>Omnisound</a>" },
         { "p": "Artwork By <a href='/artist/ader/'>Ader</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
       "tracklistCompact": [
         { "p": "1 Omnisound - Open For More | 97bpm" },
@@ -5116,14 +5092,14 @@
       "total_time": "23:18",
       "format": "EP",
       "artists": "zymosis dimitro",
-      "relative_releases": "zymosis-insight zymosis-timeless zymosis-memento",
+      "relative_releases": "zymosis-insight zymosis-timeless zymosis-memento zymosis-an-endless-sense-of-the-past",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records presents «Nichna» - ethno and ambient EP by <a href='/artist/zymosis/'>Zymosis</a>, consisting of Ukrainian folk lullabies.</p><p>Have a nice sleep!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/zymosis/'>Zymosis</a>" },
         { "p": "Track 1. Vocal By Olga Troyan & Viktoriya Grigo; Bandura By Illya Sukhuy<br>Track 2. Vocal By Olga Troyan & Anastasiya Ermakova<br>Track 3. Vocal By Olga Troyan<br>Track 4. Vocal By Olga Troyan<br>Track 5. Vocal By Olga Troyan; Symphonic Part By Boris Sevastyanov" },
         { "p": "Artwork By <a href='https://www.artstation.com/master-di' target='_blank' rel='noopener'>Dmitry Yurchenko @ Di-StudiO</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
       "tracklistCompact": [
         { "p": "1 Zymosis - Kotyk | 80bpm" },
@@ -5892,7 +5868,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/gaz-mask/'>Gaz Mask</a>" },
         { "p": "Artwork By <a href='/artist/jungle-symbol/'>Jungle Symbol</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gaz-mask-quetzalcoatl-ep-24bit",
@@ -5996,8 +5972,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/kabi/'>KAbi</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/kabi-mboko-ep-24bit",
@@ -6049,8 +6025,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/boketto/'>Boketto</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-outer-ep-24bit",
@@ -6090,7 +6066,7 @@
       "total_time": "1:02:43",
       "format": "Album",
       "artists": "zymosis, the-doox, overdream, hardcore-buddhist artrama dimitro",
-      "relative_releases": "zymosis-insight zymosis-nichna zymosis-memento",
+      "relative_releases": "zymosis-insight zymosis-nichna zymosis-memento zymosis-an-endless-sense-of-the-past",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records proud to present «Timeless» - new full length album by <a href='/artist/zymosis/'>Zymosis</a>, from Ukraine.</p><p>Enjoy!</p>",
       "tracklistCompact": [
@@ -6108,7 +6084,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/zymosis/'>Zymosis</a>" },
         { "p": "Artwork By <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-timeless-24bit",
@@ -6281,8 +6257,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/boketto/'>Boketto</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-presence-ep-24bit",
@@ -6331,8 +6307,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/paracozm/'>Paracozm</a> & <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/paracozm-vorg-too-weird-to-live-too-rare-to-die-24bit",
@@ -6381,8 +6357,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/psypheric/'>Psypheric</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psypheric-pa-leting-etter-24bit",
@@ -6430,7 +6406,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/boketto/'>Boketto</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/timo.vogelsang' target='_blank' rel='noopener'>Timo Vo</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-immure-ep-24bit",
@@ -6556,7 +6532,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/space-organ/'>Space Organ</a>" },
         { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/space-organ-behind-the-universe-ep-24bit",
@@ -6663,7 +6639,7 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
@@ -6715,8 +6691,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/gaz-mask/'>Gaz Mask</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gaz-mask-trippy-valley-ep-24bit",
@@ -6765,8 +6741,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/irukanji-rebuild-ep-24bit",
@@ -6816,8 +6792,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/vorg-echoes-ep-24bit",
@@ -6867,7 +6843,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/FiveTimesNo' target='_blank' rel='noopener'>No No No No No</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/tystix-etherial-lense-ep-24bit",
@@ -6917,7 +6893,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/nuada/'>Nuada</a>" },
         { "p": "Artwork By <a href='https://www.instagram.com/iampurerage/' target='_blank' rel='noopener'>Paul Pazdan</a>" },
-        { "p": "Masteried By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Masteried By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/nuada-internal-quest-ep-24bit",
@@ -7135,7 +7111,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/frog-prog/'>Frog Prog</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/pxEYES' target='_blank' rel='noopener'>pxEYES</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/frog-prog-sacred-journey-ep-24bit",
@@ -7186,7 +7162,7 @@
         { "p": "Written & Produced By <a href='/artist/irukanji/'>Irukanji</a> & <a href='/artist/eleexr/'>EleexR</a>" },
         { "p": "Cello By Dina Kononova (Track 2)" },
         { "p": "Artwork By <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/irukanji-eleexr-i-have-something-to-show-you-ep-24bit",
@@ -7237,7 +7213,7 @@
       ],
       "creditsCompact": [
         { "p": "Written, Produced & Artwork By <a href='/artist/from-vacuum/'>From Vacuum</a>" },
-        { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/from-vacuum-banglich-ep-24bit",
@@ -7338,8 +7314,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/psydewise/'>Psydewise</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-gain-of-funktion-ep-24bit",
@@ -7388,8 +7364,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/tystix-romanesca-ep-24bit",
@@ -7440,7 +7416,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/eleexr/'>EleexR</a>" },
         { "p": "Artwork By <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/eleexr-behind-dark-mirrors-ep-24bit",
@@ -7540,8 +7516,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/paracozm/'>Paracozm</a> & <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/paracozm-vorg-qube-ep-24bit",
@@ -7670,7 +7646,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/space-organ/'>Space Organ</a>" },
         { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/space-organ-time-and-space-24bit",
@@ -7721,7 +7697,7 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/urklang/'>Urklang</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By <a href='https://www.zeamoonmastering.com' target='_blank' rel='noopener'>Simon Neumann @ Zeamoon Mastering</a>" }
       ],
       "links": {
@@ -7771,8 +7747,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/spacecraft/'>SpaceCraft</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mixed & Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/spacecraft-metamorphosis-ep-24bit",
@@ -7823,7 +7799,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/mushroomslice/'>Mushroomslice</a>" },
         { "p": "Artwork By junky.fm aka Oleksii Kryvenko" },
-        { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/mushroomslice-astro-review-ep-24bit",
@@ -7873,8 +7849,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/kauyumari/'>Kauyumari</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Masteried By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Masteried By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/kauyumari-transmuting-ep-24bit",
@@ -7925,8 +7901,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/nuada/'>Nuada</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/nuada-tools-of-perception-24bit",
@@ -7976,7 +7952,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/jai/'>Jai</a>" },
         { "p": "Artwork By <a href='/artist/zhapa/'>Zhapa Rodríguez</a>" },
-        { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/jai-come-from-ep-24bit",
@@ -8026,8 +8002,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/djeriko/'>Djeriko</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Stem Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/djeriko-cosmologi-a-fractalica-ep-24bit",
@@ -8076,8 +8052,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/fracktom/'>Fracktom</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/fracktom-chronicles-of-chaos-ep-24bit",
@@ -8115,7 +8091,7 @@
       "total_time": "1:00:13",
       "format": "Album",
       "artists": "zymosis irukanji ka-art dimitro",
-      "relative_releases": "zymosis-insight zymosis-nichna zymosis-timeless",
+      "relative_releases": "zymosis-insight zymosis-nichna zymosis-timeless zymosis-an-endless-sense-of-the-past",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Introducing the opportunity to embark on a sonic voyage like never before with Zymosis on vinyl for the very first time!</p><p>Experience the ethereal soundscape of «Memento», the latest masterpiece from Ukrainian virtuoso Zymosis, now available as a captivating double vinyl album.</p><p>In the realm of philosophy,«memento» resonates with profound depth, embodying the essence of temporal consciousness and existential contemplation. Rooted in the Latin imperative «mementō», translating to «remember», it beckons onlookers towards an introspective odyssey through the transient tapestry of existence, urging the embrace of every fleeting moment.</p><p>Featuring 8 mesmerizing narratives, with 2 enchanting tales on each side, this album promises an exhilarating journey through realms of sound and thought.</p><p>Prepare for a captivating expedition into the realms of sound and introspection. Bon voyage, and may you savor every moment of this exquisite auditory adventure!</p>",
       "tracklistCompact": [
@@ -8132,7 +8108,7 @@
         { "p": "Written & Produced By <a href='/artist/zymosis/'>Zymosis</a>" },
         { "p": "Tracks 2, 3, 8. Cello By Dina Kononova" },
         { "p": "Artwork By <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> & Yurii Medved" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> & Yurii Medved" }
       ],
       "links": {
         "diggersfactory_url": "https://www.diggersfactory.com/vinyl/317332/zymosis-memento",
@@ -8180,7 +8156,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By Harry Critchley (<a href='/artist/boketto/'>Boketto</a>)" },
         { "p": "Artwork By <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-pushback-single",
@@ -8229,8 +8205,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/bensaid/'>Bensaid</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/bensaid-lucid-vision-ep",
@@ -8288,7 +8264,7 @@
       ],
       "creditsCompact": [
         { "p": "Written, Produced & Artwork By <a href='/artist/from-vacuum/'>From Vacuum</a>" },
-        { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/from-vacuum-good-steps",
@@ -8338,7 +8314,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/frog-prog/'>Frog Prog</a>" },
         { "p": "Artwork By slamthings" },
-        { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/frog-prog-triangulum-ep",
@@ -8387,7 +8363,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/mirror-me/'>Mirror Me</a>" },
         { "p": "Artwork By <a href='/artist/salamandra/'>Salamandra</a>" },
-        { "p": "Mastering By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/azure-skies-and-golden-valleys",
@@ -8441,8 +8417,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/cyber-soul-night",
@@ -8491,8 +8467,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/spectral",
@@ -8518,30 +8494,77 @@
       "slug": "tonal-sense-enveloping-rhythm",
       "title": "Tonal Sense «Enveloping Rhythm» EP",
       "cat_no": "SENCD093",
-      "visible": false,
+      "visible": true,
       "date": "2025-04-18T12:00:00.000Z",
-      "coming_soon": true,
-      "new": false,
+      "coming_soon": false,
+      "new": true,
       "cover_og": "https://content.sentimony.com/assets/img/releases/tonal-sense-enveloping-rhythm_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/releases/tonal-sense-enveloping-rhythm_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/releases/tonal-sense-enveloping-rhythm_xl.jpg",
       "style": "Psytrance, Dark Progressive",
       "tracks_number": "3",
-      "total_time": "21:09",
+      "total_time": "21:20",
       "format": "EP",
-      "artists": "tonal-sense matik dimitro",
+      "artists": "tonal-sense matik",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive psytrance release titled «Enveloping Rhythm» by <a href='/artist/tonal-sense/'>Tonal Sense</a>, from Guatemala.</p><p>Have a deep trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive psytrance EP titled «Enveloping Rhythm» by <a href='/artist/tonal-sense/'>Tonal Sense</a>, from Guatemala.</p><p>Have a deep trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Tonal Sense</b> - Dark Sense <small>(138bpm)</small>" },
         { "p": "<small>2.</small> <b>Tonal Sense</b> - Sound Storm <small>(140bpm)</small>" },
         { "p": "<small>3.</small> <b>Tonal Sense</b> - Emveloping Rhythms <small>(142bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/tonal-sense/'>Tonal Sense</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written, Produced, Mastered By 🇬🇹 <a href='/artist/tonal-sense/'>Tonal Sense</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" }
+      ],
+      "links": {
+        "bandcamp24_url": "https://sentimony.bandcamp.com/album/enveloping-rhythm",
+        "bandcamp_id": "2440909379",
+        "soundcloud_url": "https://soundcloud.com/sentimony/sets/tonal-sense-enveloping-rhythm-ep",
+        "soundcloud_playlist_id": "2008067346",
+        "applemusic_url": "https://music.apple.com/us/album/enveloping-rhythm-single/1809011545",        
+        "beatport": "https://www.beatport.com/release/enveloping-rhythm/5041571",
+        "spotify": "https://open.spotify.com/album/5Q4ArGIk0LoJy7nvVEeOUG#login",
+        "junodownload": "https://www.junodownload.com/products/tonal-sense-enveloping-rhythm/7082563-02",
+        "discogs": "",
+        "deezer": "https://www.deezer.com/us/album/743543301",
+        "amazon_music": "https://music.amazon.com/albums/B0F56TMZXV",
+        "tidal": "https://listen.tidal.com/album/430538790",
+        "napster": "",
+        "qobuz": "https://play.qobuz.com/album/bgzsdf1vyj4rb",
+        "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mLYwC8n0hAKyPZdO_TJlkHSFK8k7oYVQo",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      }
+    },
+    "zymosis-an-endless-sense-of-the-past": {
+      "slug": "zymosis-an-endless-sense-of-the-past",
+      "title": "Zymosis «An Endless Sense Of The Past» Single",
+      "cat_no": "SENCD094",
+      "visible": true,
+      "date": "2025-04-29T12:00:00.000Z",
+      "coming_soon": true,
+      "new": false,
+      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fzymosis-an-endless-sense-of-the-past_og.jpg?alt=media&token=004bda25-fafb-4e3c-b6d0-c5f54d480955",
+      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fzymosis-an-endless-sense-of-the-past_th.jpg?alt=media&token=757a6ced-0eb3-4fd9-ab0a-64abc320e3ed",
+      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fzymosis-an-endless-sense-of-the-past_xl.jpg?alt=media&token=fa2dd62c-2bfe-4f79-a29b-6cb6598c9c6f",
+      "style": "Psychill, Psybient, Psychedelic Electronica, Psybreaks",
+      "tracks_number": "1",
+      "total_time": "21:20",
+      "format": "Single",
+      "artists": "zymosis dimitro ka-art",
+      "relative_releases": "zymosis-insight zymosis-nichna zymosis-timeless zymosis-memento",
+      "at_playlists": "sentimony-official psychill-psybient",
+      "information": "<p>Sentimony Records is proud to present a psychedelic electronica single titled «An Endless Sense Of The Past» by <a href='/artist/zymosis/'>Zymosis</a>, from Ukraine.</p><p>Have a nice trip!</p>",
+      "tracklistCompact": [
+        { "p": "<small>1.</small> <b>Zymosis</b> - An Endless Sense Of The Past <small>(80/160bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis/'>Zymosis</a>" },
+        { "p": "Cello By 🇺🇦 Dina Kononova" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "",
@@ -8566,14 +8589,14 @@
     "va-futured-vol-7": {
       "slug": "va-futured-vol-7",
       "title": "VA «Futured, Vol. 7»",
-      "cat_no": "SENCD094",
+      "cat_no": "SENCD095",
       "visible": true,
-      "date": "2025-04-25T12:00:00.000Z",
+      "date": "2025-05-09T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
-      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fva-futured-vol-7_og.jpg?alt=media&token=d78ae279-32dd-4a12-8d73-5d5c40ec9c73",
-      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fva-futured-vol-7_th.jpg?alt=media&token=84a25d12-2f8b-45ad-b21d-6d9f8fc68ac9",
-      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/releases%2Fva-futured-vol-7_xl.jpg?alt=media&token=4e4b927a-1367-452a-8b43-73717845e3ae",
+      "cover_og": "https://content.sentimony.com/assets/img/releases/va-futured-vol-7_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/va-futured-vol-7_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/va-futured-vol-7_xl.jpg",
       "style": "Psytrance, Darkprog, Psytechno",
       "tracks_number": "27",
       "total_time": "3:37:19",
@@ -8668,8 +8691,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "",
@@ -8720,8 +8743,8 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By Mastered By <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Mastered By Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "",
@@ -8926,9 +8949,9 @@
       "visible": true,
       "date": "2018-06-20T12:00:00.000Z",
       "format": "clip",
-      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fzymosis-serdenko-cover_og.jpg?alt=media&token=27ebea7e-ea0f-44f1-893d-b143bd1cbb6a",
-      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fzymosis-serdenko-cover_th.jpg?alt=media&token=e293c0a8-2f88-44a2-a203-e0df59f5975c",
-      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fzymosis-serdenko-cover_xl.jpg?alt=media&token=1e9306ce-7fcf-40ca-81ed-e468a0b6c4ae",
+      "cover_og": "https://content.sentimony.com/assets/img/videos/zymosis-serdenko_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/videos/zymosis-serdenko_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/videos/zymosis-serdenko_xl.jpg",
       "information": "<p>Information here</p>",
       "credits": "<p>Credits here</p>",
       "links": {
@@ -8956,9 +8979,9 @@
       "visible": true,
       "date": "2019-12-13T12:00:00.000Z",
       "format": "clip",
-      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fzymosis-last-call-cover_og.jpg?alt=media&token=96c910fe-798e-4255-9db7-39af80827f30",
-      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fzymosis-last-call-cover_th.jpg?alt=media&token=362c7cad-497d-4d26-8975-4820ed97826c",
-      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fzymosis-last-call-cover_xl.jpg?alt=media&token=f22e407a-fa7e-4746-b098-5138e39838c7",
+      "cover_og": "https://content.sentimony.com/assets/img/videos/zymosis-last-call_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/videos/zymosis-last-call_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/videos/zymosis-last-call_xl.jpg",
       "information": "<p>Information here</p>",
       "credits": "<p>Credits here</p>",
       "links": {
@@ -8971,9 +8994,9 @@
       "visible": true,
       "date": "2020-04-10T12:00:00.000Z",
       "format": "clip",
-      "cover_og": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fboketto-scitalis-cover_og.jpg?alt=media&token=75341cda-f89f-460a-b553-d6c3084313cf",
-      "cover_th": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fboketto-scitalis-cover_th.jpg?alt=media&token=6c41f9e5-ea54-4915-9b32-526ebac99d0b",
-      "cover_xl": "https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/videos%2Fboketto-scitalis-cover_xl.jpg?alt=media&token=c193c6f2-284b-461f-a614-360d3e988316",
+      "cover_og": "https://content.sentimony.com/assets/img/videos/boketto-scitalis_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/videos/boketto-scitalis_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/videos/boketto-scitalis_xl.jpg",
       "information": "<p>Information here</p>",
       "credits": "<p>Credits here</p>",
       "links": {
