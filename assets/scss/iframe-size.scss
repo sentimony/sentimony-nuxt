@@ -11,6 +11,7 @@
 
 .page-release__bandcamp-player-iframe {
   height: 276px;
+  &.tracks-1 { height: 176px; }
   &.tracks-2 { height: 209px; }
   &.tracks-3 { height: 242px; }
   &.tracks-4 { height: 276px; }
@@ -30,6 +31,7 @@
 
 .page-release__soundcloud-player-iframe {
   height: 400px;
+  &.tracks-1 { height: 290px; }
   &.tracks-2 { height: 320px; }
   &.tracks-3 { height: 360px; }
   &.tracks-4 { height: 400px; }
