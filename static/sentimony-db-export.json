@@ -6791,7 +6791,7 @@
         { "p": "5 VORG - SILENCE | 149bpm" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
@@ -8416,9 +8416,9 @@
         { "p": "<small>9.</small> <b>VORG</b> - Terms Of Life <small>(139bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/cyber-soul-night",
@@ -8576,7 +8576,7 @@
         "spotify": "https://open.spotify.com/album/5wmogF6RbJ8W5Es3e5rE2p",
         "junodownload": "https://www.junodownload.com/products/zymosis-an-endless-sense-of-the-past/7096129-02",
         "discogs": "",
-        "deezer": "",
+        "deezer": "https://www.deezer.com/us/album/748958481",
         "amazon_music": "https://music.amazon.com/albums/B0F6PD35RD",
         "tidal": "https://listen.tidal.com/album/432677707",
         "napster": "",
@@ -8591,15 +8591,15 @@
       "title": "VA «Futured, Vol. 7»",
       "cat_no": "SENCD095",
       "visible": true,
-      "date": "2025-05-09T12:00:00.000Z",
+      "date": "2025-05-16T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "https://content.sentimony.com/assets/img/releases/va-futured-vol-7_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/releases/va-futured-vol-7_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/releases/va-futured-vol-7_xl.jpg",
       "style": "Psytrance, Darkprog, Psytechno",
-      "tracks_number": "27",
-      "total_time": "3:37:19",
+      "tracks_number": "28",
+      "total_time": "3:45:53",
       "format": "Compilation",
       "artists": "akhos bensai declaration-of-unity derotonin aleckat djeriko omsense beka dmnt eleexr exolt flexxodus fracktom frog-prog gaz-mask irukanji jakanatura kabi kauyumari mushroomslice noob-psybot nuada paracozm tystix psydewise shmewl deuteroz sourone space organ spacecraft alternative-roots tonal-sense urklang vorg soulid matik dimitro",
       "relative_releases": "va-futured-vol-1 va-futured-vol-2 va-futured-vol-3 va-futured-vol-4 va-futured-vol-5 va-futured-vol-6",
@@ -8626,6 +8626,7 @@
         { "p": "<small>XX.</small> 🇦🇺 Nuada - The Sonny Side <small>(144bpm)</small>" },
         { "p": "<small>XX.</small> 🇧🇷 Paracozm - Framed (🇿🇦🇧🇪 TyStix Rmx) <small>(138bpm)</small>" },
         { "p": "<small>XX.</small> 🇿🇦 Psydewise - Pulsars <small>(140bpm)</small>" },
+        { "p": "<small>XX.</small> 🇧🇷 QUBE - The Monster <small>(136bpm)</small>" },
         { "p": "<small>XX.</small> 🇲🇽 sHmewl & 🇲🇽 Deuteroz - Fusion Contrast <small>(140bpm)</small>" },
         { "p": "<small>XX.</small> 🇵🇱 Sourone - Ghostwire <small>(132bpm)</small>" },
         { "p": "<small>XX.</small> 🇧🇷 Space Organ - Short Flow <small>(144bpm)</small>" },
@@ -8662,9 +8663,9 @@
     "vorg-cyber-soul-day": {
       "slug": "vorg-cyber-soul-day",
       "title": "VORG «Cyber Soul: Day»",
-      "cat_no": "SENCDXXX",
-      "visible": false,
-      "date": "2025-04-28T12:00:00.000Z",
+      "cat_no": "SENCD096",
+      "visible": true,
+      "date": "2025-05-30T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-day_og.jpg",
@@ -8690,9 +8691,64 @@
         { "p": "<small>9.</small> <b>VORG</b> - Nebula <small>(137bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+      ],
+      "links": {
+        "bandcamp24_url": "",
+        "bandcamp_id": "",
+        "soundcloud_url": "",
+        "soundcloud_playlist_id": "",
+        "applemusic_url": "",        
+        "beatport": "",
+        "spotify": "",
+        "junodownload": "",
+        "discogs": "",
+        "deezer": "",
+        "amazon_music": "",
+        "tidal": "",
+        "napster": "",
+        "qobuz": "",
+        "youtube_music": "",
+        "youtube": "",
+        "youtube_playlist_id": ""
+      }
+    },
+    "syned-brain-dementor-mysterium-tremendum": {
+      "slug": "syned-brain-dementor-mysterium-tremendum",
+      "title": "Syned Brain & Dementor «MysteriUM TremendUM»",
+      "cat_no": "SENCD097",
+      "visible": false,
+      "date": "2025-06-06T12:00:00.000Z",
+      "coming_soon": true,
+      "new": false,
+      "cover_og": "",
+      "cover_th": "",
+      "cover_xl": "",
+      "style": "DarkProg Psytrance",
+      "tracks_number": "9",
+      "total_time": "1:06:59",
+      "format": "Split Album",
+      "artists": "syned-brain dementor ka-art spirit-architect",
+      "relative_releases": "",
+      "at_playlists": "sentimony-official dark-prog-zenonesque",
+      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance album titled «MysteriUM TremendUM» by <a href='/artist/syned-brain/'>Syned Brain</a> and <a href='/artist/dementor/'>Dementor</a> from North Macedonia.</p><p>Have a deep trip and enjoy!</p>",
+      "tracklistCompact": [
+        { "p": "<small>1.</small> <b>Syned Brain</b> & <b>Dementor</b> - MysteriUM TremendUM <small>(140bpm)</small>" },
+        { "p": "<small>2.</small> <b>Dementor</b> - Echoes Of The Abyss <small>(142bpm)</small>" },
+        { "p": "<small>3.</small> <b>Syned Brain</b> - Phantom Veil <small>(142bpm)</small>" },
+        { "p": "<small>4.</small> <b>Dementor</b> & <b>Syned Brain</b> - Obsidian Rift <small>(142bpm)</small>" },
+        { "p": "<small>5.</small> <b>Syned Brain</b> - Inception (<b>Dementor</b> Remix) <small>(142bpm)</small>" },
+        { "p": "<small>6.</small> <b>Dementor</b> - Enjoy Your Last Happiness (<b>Syned Brain</b> Remix) <small>(142bpm)</small>" },
+        { "p": "<small>7.</small> <b>Syned Brain</b> & <b>Dementor</b> - Origin Of Valak <small>(142bpm)</small>" },
+        { "p": "<small>8.</small> <b>Dementor</b> - Labyrinth of Shadows <small>(142bpm)</small>" },
+        { "p": "<small>9.</small> <b>Syned Brain</b> - Veil of Eternity <small>(140bpm)</small>" }
+      ],
+      "creditsCompact": [
+        { "p": "Written & Produced By 🇲🇰 <a href='/artist/syned-brain/'>Syned Brain</a> & 🇲🇰 <a href='/artist/dementor/'>Dementor</a>" },
+        { "p": "Artwork By 🇲🇰 Mina & 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
+        { "p": "Mastered By 🇲🇰 Spirit Architect" }
       ],
       "links": {
         "bandcamp24_url": "",
@@ -8717,15 +8773,15 @@
     "vorg-cyber-soul-chill": {
       "slug": "vorg-cyber-soul-chill",
       "title": "VORG «Cyber Soul: Chill»",
-      "cat_no": "SENCDXXX",
+      "cat_no": "SENCD098",
       "visible": false,
-      "date": "2025-05-28T12:00:00.000Z",
+      "date": "2025-06-28T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_xl.jpg",
-      "style": "DarkProg Psytrance, Psytechno",
+      "style": "Psychill, Psybient, Glitched, Trippy, Downtempo, Midtempo, Psychedelic Electronica",
       "tracks_number": "6",
       "total_time": "40:43",
       "format": "EP",
@@ -8742,9 +8798,9 @@
         { "p": "<small>6.</small> <b>VORG</b> - Our Reason <small>(117bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/vorg/'>VORG</a>" },
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
         { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "",
