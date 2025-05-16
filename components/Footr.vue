@@ -14,7 +14,7 @@
 
     <div class="footr__powered">
       <div>Design by <a href="https://www.facebook.com/apivniuk" target="_blank" rel="noopener">Anton Pivniuk</a></div>
-      <div>Development by <a href="https://www.facebook.com/ihororlovskyi" target="_blank" rel="noopener">Ihor Orlovskyi</a></div>
+      <div>Development by <a href="https://github.com/sentimony/sentimony-nuxt" target="_blank" rel="noopener">Ihor Orlovskyi</a></div>
     </div>
 
   </div>
