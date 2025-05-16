@@ -17,13 +17,6 @@
 
     <div class="about">
       <div class="about__wrapper">
-        <!-- <p>
-          <img
-            class="about__logo"
-            :src="logoOldUrl"
-            :alt="logoOldAlt"
-          />
-        </p> -->
         <p>
           <img
             class="about__logo"
@@ -32,6 +25,13 @@
           />
         </p>
         <div class="about__description" v-html="aboutDescription"></div>
+        <p>
+          <img
+            class="about__logo"
+            :src="logoOldUrl"
+            :alt="logoOldAlt"
+          />
+        </p>
       </div>
     </div>
 
@@ -70,9 +70,9 @@
       SwiperTop
     },
     data: () => ({
-      logoOldUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg',
+      logoOldUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg?01',
       logoOldAlt: 'Sentimony Records Logo SVG',
-      logoNewUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg',
+      logoNewUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01',
       logoNewAlt: 'Sentimony Records Logo v3.3 SVG',
       siteTitle: 'Sentimony Records',
       siteDescription: 'Psychedelic Music Label',
