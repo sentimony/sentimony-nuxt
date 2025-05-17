@@ -82,8 +82,8 @@ export default {
     website: 'Website',
   },
   texts: {
-    comingPhoto: 'Photo<br>is<br>coming',
-    comingCover: 'Cover<br>is<br>coming',
-    comingMusic: 'Music<br>is<br>coming',
+    comingPhoto: 'Photo<br>is<br>coming ⛄',
+    comingCover: 'Cover<br>is<br>coming ⛄',
+    comingMusic: 'Music<br>is<br>coming ⛄',
   }
 }
