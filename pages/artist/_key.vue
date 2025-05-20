@@ -182,7 +182,7 @@
           |
           {{ i.date | year }}
           |
-          <router-link v-ripple :to="'../../release/' + i.slug + '/'">Reed More</router-link>
+          <router-link v-ripple :to="'../../release/' + i.slug + '/'">Read More</router-link>
         </p>
         <!-- <p v-else>Coming soon</p> -->
         <hr>

@@ -18,7 +18,7 @@
       <router-link v-ripple :to="'../' + `${i.location ? 'event' : 'release'}` + '/' + i.slug">{{ i.title }}</router-link>
       <!-- {{ i.title }}
       <router-link v-ripple :to="'../' + `${i.location ? 'event' : 'release'}` + '/' + i.slug">
-        <small>Reed More</small>
+        <small>Read More</small>
       </router-link> -->
     </p>
 
@@ -39,7 +39,7 @@
           <router-link class="news__btn"
             v-ripple v-if="i.url"
             :to="i.url"
-          >Reed More</router-link>
+          >Read More</router-link>
         </div>
       </li>
     </ul> -->
