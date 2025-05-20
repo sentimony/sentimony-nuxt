@@ -210,28 +210,13 @@
 
         <div v-if="release.relative_releases">
           <hr>
-          <p><small><b>Relative Releases:</b></small></p>
 
-          <!-- <p>{{ release.relative_releases }}</p> -->
+          <AppRelative
+            title="Relative Releases:"
+            :list="releasesSortByDate"
+            :filter="release.relative_releases"
+          />
 
-          <p
-            v-for="(i, index) in releasesSortByDate"
-            :key="index"
-            v-if="i.visible && release.relative_releases.includes(i.slug)"
-          >
-            <span v-if="i.cover_xl">
-              <img style="width:11px;height:auto;"
-                :src="i.cover_xl"
-                :alt="i.title"
-              >
-              |
-            </span>
-            {{ i.title }}
-            |
-            {{ i.date | year }}
-            |
-            <router-link v-ripple :to="'../../release/' + i.slug + '/'">Reed More</router-link>
-          </p>
         </div>
 
         <hr>
@@ -259,6 +244,7 @@
   import AppBtn from '~/components/AppBtn'
   import AppTabs from '~/components/AppTabs.vue'
   import AppTab from '~/components/AppTab.vue'
+  import AppRelative from '~/components/AppRelative.vue'
 
   export default {
     layout: 'release',
@@ -268,6 +254,7 @@
       AppBtn,
       AppTabs,
       AppTab,
+      AppRelative,
     },
     data () {
       return {
