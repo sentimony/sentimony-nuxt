@@ -17,8 +17,8 @@
       "soundcloud_label_playlist_id": "1159271491",
       "soundcloud_artist_playlist_id": "5771025",
       "mixcloud": "https://www.mixcloud.com/irukanji",
-      "youtube_playlist_id": "PLAIai5Lge7pg9SpejhZnVtQILTAnSiMlV",
-      "youtube_label_playlist_id": "PLp2GaPnw5O3MzxR4EF6nsV8ETCGoyUA_e",
+      "youtube_artist_playlist_id": "PLAIai5Lge7pg9SpejhZnVtQILTAnSiMlV",
+      "youtube_playlist_id": "PLp2GaPnw5O3MzxR4EF6nsV8ETCGoyUA_e",
       "spotify": "https://open.spotify.com/artist/76HMCkLOJJcJ39QH0Grv8I",
       "discogs": "https://www.discogs.com/artist/1375976-Irukanji",
       "facebook": "https://www.facebook.com/irukanji.psy",
@@ -8632,8 +8632,7 @@
         { "p": "<small>24.</small> 🇧🇷 <b>QUBE</b> - The Monster <small>(136bpm)</small>" },
         { "p": "<small>25.</small> 🇲🇽 <b>SpaceCraft</b> & 🇵🇹 <b>Alternative Roots</b> - Space Roots <small>(135bpm)</small>" },
         { "p": "<small>26.</small> 🇲🇽🇬🇧 <b>Kauyumari</b> - Subterrenean Pulse <small>(132bpm)</small>" },
-        { "p": "<small>27.</small> 🇮🇳 <b>Noob Psybot</b> - Jakub's Ladder <small>(130bpm)</small>" },
-        { "p": "<span style='display: none;'><small>XX.</small> 🇿🇦 <b>KAbi</b> - Hypnoit <small>(140bpm)</small></span>" }
+        { "p": "<small>27.</small> 🇮🇳 <b>Noob Psybot</b> - Jakub's Ladder <small>(130bpm)</small>" }
       ],
       "creditsCompact": [
         { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
@@ -8643,7 +8642,7 @@
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-7",
         "bandcamp_id": "654281618",
-        "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-7",
+        "soundcloud_url": "https://soundcloud.com/sentimony/sets/va-futured-vol-7/s-mQFjUiPBDij",
         "soundcloud_playlist_id": "2023372542",
         "applemusic_url": "",        
         "beatport": "",

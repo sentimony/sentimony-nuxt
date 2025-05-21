@@ -17,7 +17,7 @@
             |
             {{ i.date | year }}
             |
-            <router-link v-ripple :to="'../../release/' + i.slug + '/'">Read More</router-link>
+            <router-link v-ripple :to="'../../' + category + '/' + i.slug + '/'">Read More</router-link>
         </p>
     </div>
 </template>
@@ -26,7 +26,7 @@
     import moment from 'moment'
 
     export default {
-        props: ['title', 'list', 'filter'],
+        props: ['title', 'list', 'filter', 'category'],
         filters: {
             year: function (date) {
                 if (date) {

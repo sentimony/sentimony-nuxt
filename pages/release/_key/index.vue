@@ -215,6 +215,7 @@
             title="Relative Releases:"
             :list="releasesSortByDate"
             :filter="release.relative_releases"
+            category="release"
           />
 
         </div>
