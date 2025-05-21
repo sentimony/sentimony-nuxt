@@ -94,6 +94,14 @@
 
         <hr>
 
+        <!-- TO DO: need to fix filter
+        <AppRelative
+          title="Releases:"
+          :list="releasesSortByDate"
+          :filter="playlist.slug"
+          category="playlist"
+        /> -->
+
         <p>Releases:</p>
         <p
           v-for="(i, index) in releasesSortByDate"
@@ -150,6 +158,7 @@
   import AppBtn from '~/components/AppBtn'
   import AppTabs from '~/components/AppTabs.vue'
   import AppTab from '~/components/AppTab.vue'
+  // import AppRelative from '~/components/AppRelative.vue'
 
   export default {
     layout: 'playlist',
@@ -161,6 +170,7 @@
       AppBtn,
       AppTabs,
       AppTab,
+      // AppRelative,
     },
     data () {
       return {
