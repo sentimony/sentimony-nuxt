@@ -211,12 +211,19 @@
         <div v-if="release.relative_releases">
           <hr>
 
-          <AppRelative
-            title="Relative Releases:"
-            :list="releasesSortByDate"
-            :filter="release.relative_releases"
-            category="release"
-          />
+          <p><small><b>Relative Releases:</b></small></p>
+          <p
+            v-for="(i, index) in releasesSortByDate"
+            :key="index"
+            v-if="i.visible && release.relative_releases.includes(i.slug)"
+          >
+
+            <AppRelativeItem
+              :i="i"
+              category="release"
+            />
+
+          </p>
 
         </div>
 
@@ -245,7 +252,7 @@
   import AppBtn from '~/components/AppBtn'
   import AppTabs from '~/components/AppTabs.vue'
   import AppTab from '~/components/AppTab.vue'
-  import AppRelative from '~/components/AppRelative.vue'
+  import AppRelativeItem from '~/components/AppRelativeItem.vue'
 
   export default {
     layout: 'release',
@@ -255,7 +262,7 @@
       AppBtn,
       AppTabs,
       AppTab,
-      AppRelative,
+      AppRelativeItem,
     },
     data () {
       return {
@@ -279,6 +286,7 @@
       const release = releaseRes.data
       const releases = releasesRes.data
       return { release, releases }
+
     },
     computed: {
       releasesSortByDate() {
@@ -321,12 +329,16 @@
         }
       }
     },
-    methods: {
-      onLoad ({ route }) {
-        const { key } = route.params
-        console.log(key)
-      }
-    },
+    // methods: {
+    //   onLoad ({ route }) {
+    //     const { key } = route.params
+    //     console.log(key)
+    //   },
+    // },
+    // mounted () {
+    //   console.log('releases:', this.releases)
+    //   console.log('release:', this.release)
+    // },
     head () {
       return {
         title: this.release.title,
