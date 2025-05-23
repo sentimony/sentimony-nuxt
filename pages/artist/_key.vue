@@ -171,24 +171,16 @@
           :key="index"
           v-if="i.visible && i.artists.includes(artist.slug)"
         >
-          <span v-if="i.cover_th">
-            <img style="width:11px;height:auto;"
-              :src="i.cover_th"
-              :alt="i.title"
-            >
-            |
-          </span>
-          {{ i.title }}
-          |
-          {{ i.date | year }}
-          |
-          <router-link v-ripple :to="'../../release/' + i.slug + '/'">Read More</router-link>
+
+          <AppRelativeItem
+            :i="i"
+            category="release"
+          />
+
         </p>
-        <!-- <p v-else>Coming soon</p> -->
         <hr>
 
         <p v-if="artist.discogs"><small><b>Links:</b></small></p>
-        <!-- <p v-if="artist.soundcloud_url"><a :href="artist.soundcloud_url" target="_blank" rel="noopener">SoundCloud</a></p> -->
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
         <hr v-if="artist.discogs">
 
@@ -216,6 +208,7 @@
   import AppBtn from '~/components/AppBtn'
   import AppTabs from '~/components/AppTabs.vue'
   import AppTab from '~/components/AppTab.vue'
+  import AppRelativeItem from '~/components/AppRelativeItem.vue'
 
   export default {
     layout: 'artist',
@@ -225,6 +218,7 @@
       AppBtn,
       AppTabs,
       AppTab,
+      AppRelativeItem,
     },
     data () {
       return {

@@ -94,40 +94,18 @@
 
         <hr>
 
-        <!-- TO DO: need to fix filter
-        <AppRelative
-          title="Releases:"
-          :list="releasesSortByDate"
-          :filter="playlist.slug"
-          category="playlist"
-        /> -->
-
         <p>Releases:</p>
         <p
           v-for="(i, index) in releasesSortByDate"
           :key="index"
           v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
         >
-          <span v-if="i.cover_th">
-            <img style="width:11px;height:auto;"
-              :src="i.cover_th"
-              :alt="i.title"
-            >
-            |
-          </span>
-          <span v-if="!i.cover_th && i.cover">
-            <img style="width:11px;height:auto;"
-              :src="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg'"
-              :srcset="'https://content.sentimony.com/assets/img/releases/micro/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/micro-retina/' + i.slug + '.jpg 2x'"
-              :alt="i.title"
-            >
-            |
-          </span>
-          {{ i.title }}
-          |
-          {{ i.date | year }}
-          |
-          <router-link v-ripple :to="'../../release/' + i.slug">Read More</router-link>
+
+          <AppRelativeItem
+            :i="i"
+            category="release"
+          />
+
         </p>
 
         <hr>
@@ -158,7 +136,7 @@
   import AppBtn from '~/components/AppBtn'
   import AppTabs from '~/components/AppTabs.vue'
   import AppTab from '~/components/AppTab.vue'
-  // import AppRelative from '~/components/AppRelative.vue'
+  import AppRelativeItem from '~/components/AppRelativeItem.vue'
 
   export default {
     layout: 'playlist',
@@ -170,7 +148,7 @@
       AppBtn,
       AppTabs,
       AppTab,
-      // AppRelative,
+      AppRelativeItem,
     },
     data () {
       return {
