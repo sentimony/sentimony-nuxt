@@ -21,15 +21,15 @@
           <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
 
           <p class="small-info">Stream it:</p>
-          <app-btn :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn :url="playlist.links.itunes" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
-          <app-btn :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-          <!-- <app-btn :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
-          <app-btn :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube" :icon="icons.youtube"/>
-          <!-- <app-btn :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/> -->
-          <!-- <app-btn :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/> -->
-          <!-- <app-btn :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/> -->
-          <app-btn :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn redirect="false" v-if="playlist.links.spotify" :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+          <app-btn redirect="false" v-if="playlist.links.apple_music" :url="playlist.links.apple_music" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
+          <app-btn redirect="false" v-if="playlist.links.youtube_music" :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+          <!-- <app-btn redirect="false" v-if="playlist.links.googleplay_music" :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
+          <app-btn redirect="false" v-if="playlist.links.youtube" :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube_playlist" :icon="icons.youtube"/>
+          <!-- <app-btn redirect="false" v-if="playlist.links.deezer" :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/> -->
+          <!-- <app-btn redirect="false" v-if="playlist.links.tidal" :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/> -->
+          <!-- <app-btn redirect="false" v-if="playlist.links.napster" :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/> -->
+          <app-btn redirect="false" v-if="playlist.links.soundcloud_url" :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
         </div>
 
         <div class="page-playlist__player-tabs">

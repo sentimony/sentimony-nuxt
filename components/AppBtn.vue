@@ -1,7 +1,7 @@
 <template>
   <span class="app-btn">
 
-    <router-link v-if="url !== '' && route !== false"
+    <router-link v-if="url !== '' && redirect !== 'false'"
       class="app-btn__btn"
       :to="route"
       v-ripple
@@ -15,7 +15,7 @@
       <span class="app-btn__btn-text" v-html="title"></span>
     </router-link>
 
-    <span v-if="url == '' && route !== false"
+    <span v-if="url == '' && redirect !== 'false'"
       class="app-btn__btn is-disabled"
     >
       <img
@@ -26,10 +26,11 @@
       <span class="app-btn__btn-text" v-html="title"></span>
     </span>
 
-    <a v-if="url !== '' && route == false"
+    <a v-if="url !== '' && redirect == 'false'"
       :href="url"
+      v-ripple
       class="app-btn__btn"
-      target="_blank"
+      target="_blank" rel="noopener"
     >
       <img class="app-btn__btn-img"
         :src="icon"
@@ -38,7 +39,7 @@
       <span class="app-btn__btn-text" v-html="title"></span>
     </a>
 
-    <span v-if="url == '' && route == false"
+    <span v-if="url == '' && redirect == 'false'"
       class="app-btn__btn is-disabled"
     >
       <img
@@ -49,12 +50,14 @@
       <span class="app-btn__btn-text" v-html="title"></span>
     </span>
 
+    <!-- url: {{ url }}<br> route: {{ route }}<br> title: {{ title }}<br> icon: {{ icon }}<br> redirect: {{ redirect }}<br> -->
+
   </span>
 </template>
 
 <script>
   export default {
-    props: ['url', 'route', 'title', 'icon']
+    props: ['url', 'route', 'title', 'icon', 'redirect']
   }
 </script>
 

@@ -23,17 +23,17 @@
           <p v-if="artist.location" class="small-info">Location: {{ artist.location }}</p>
 
           <p class="small-info">Links:</p>
-          <app-btn v-if="artist.spotify" :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
-          <!-- <app-btn v-if="artist.facebook_personal" :url="artist.facebook_personal" :route="false" :title="titles.facebook_personal" :icon="icons.facebook"/> -->
-          <app-btn v-if="artist.instagram" :url="artist.instagram" :route="false" :title="titles.instagram" :icon="icons.instagram"/>
-          <app-btn v-if="artist.youtube_url" :url="artist.youtube_url" :route="false" :title="titles.youtube" :icon="icons.youtube"/>
-          <app-btn v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
-          <!-- <app-btn v-if="artist.instagram_personal" :url="artist.instagram_personal" :route="false" :title="titles.instagram_personal" :icon="icons.instagram"/> -->
-          <!-- <app-btn v-if="artist.mixcloud" :url="artist.mixcloud" :route="false" :title="titles.mixcloud" :icon="icons.mixcloud"/> -->
-          <!-- <app-btn v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/> -->
-          <app-btn v-if="artist.website" :url="artist.website" :route="false" :title="titles.website" :icon="icons.diggersfactory"/>
+          <app-btn redirect="false" v-if="artist.spotify" :url="artist.spotify" :route="false" :title="titles.spotify" :icon="icons.spotify"/>
+          <app-btn redirect="false" v-if="artist.soundcloud_url" :url="artist.soundcloud_url" :route="false" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <app-btn redirect="false" v-if="artist.facebook" :url="artist.facebook" :route="false" :title="titles.facebook" :icon="icons.facebook"/>
+          <!-- <app-btn redirect="false" v-if="artist.facebook_personal" :url="artist.facebook_personal" :route="false" :title="titles.facebook_personal" :icon="icons.facebook"/> -->
+          <app-btn redirect="false" v-if="artist.instagram" :url="artist.instagram" :route="false" :title="titles.instagram" :icon="icons.instagram"/>
+          <app-btn redirect="false" v-if="artist.youtube_url" :url="artist.youtube_url" :route="false" :title="titles.youtube" :icon="icons.youtube"/>
+          <app-btn redirect="false" v-if="artist.bandcamp_url" :url="artist.bandcamp_url" :route="false" :title="titles.bandcamp" :icon="icons.bandcamp"/>
+          <!-- <app-btn redirect="false" v-if="artist.instagram_personal" :url="artist.instagram_personal" :route="false" :title="titles.instagram_personal" :icon="icons.instagram"/> -->
+          <!-- <app-btn redirect="false" v-if="artist.mixcloud" :url="artist.mixcloud" :route="false" :title="titles.mixcloud" :icon="icons.mixcloud"/> -->
+          <!-- <app-btn redirect="false" v-if="artist.discogs" :url="artist.discogs" :route="false" :title="titles.discogs" :icon="icons.discogs"/> -->
+          <app-btn redirect="false" v-if="artist.website" :url="artist.website" :route="false" :title="titles.website" :icon="icons.diggersfactory"/>
 
         </div>
 
