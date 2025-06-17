@@ -18,19 +18,15 @@
     <div class="about">
       <div class="about__wrapper">
         <p>
-          <img
-            class="about__logo"
-            :src="logoNewUrl"
-            :alt="logoNewAlt"
-          />
+          <img class="about__logo" :src="logoNewUrlv3" :alt="logoNewAltv3"/>
+          <!-- <img class="about__logo" :src="logoOldUrl" :alt="logoOldAlt"/> -->
         </p>
         <div class="about__description" v-html="aboutDescription"></div>
         <p>
-          <img
-            class="about__logo"
-            :src="logoOldUrl"
-            :alt="logoOldAlt"
-          />
+          <!-- <img class="about__logo" :src="logoNewUrlv1" :alt="logoNewAltv1"/> -->
+          <!-- <img class="about__logo" :src="logoNewUrlv2" :alt="logoNewAltv3"/> -->
+          <!-- <img class="about__logo" :src="logoNewUrlv3" :alt="logoNewAltv3"/> -->
+          <img class="about__logo" :src="logoOldUrl" :alt="logoOldAlt"/>
         </p>
       </div>
     </div>
@@ -72,11 +68,15 @@
     data: () => ({
       logoOldUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo.svg?01',
       logoOldAlt: 'Sentimony Records Logo SVG',
-      logoNewUrl: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01',
-      logoNewAlt: 'Sentimony Records Logo v3.3 SVG',
+      logoNewUrlv1: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01',
+      logoNewAltv1: 'Sentimony Records Logo v3.1 SVG',
+      logoNewUrlv2: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01',
+      logoNewAltv2: 'Sentimony Records Logo v3.2 SVG',
+      logoNewUrlv3: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01',
+      logoNewAltv3: 'Sentimony Records Logo v3.3 SVG',
       siteTitle: 'Sentimony Records',
       siteDescription: 'Psychedelic Music Label',
-      aboutDescription: " <p>Sentimony Records is an independent record label that was founded in the vibrant city of Kyiv, Ukraine during the enchanting autumn of 2006 by the visionary Ihor Orlovskyi, also known by his artistic moniker, <a href='/artist/irukanji/'>Irukanji</a>.</p><p>The label's primary mission is to nurture and contribute to the flourishing of the psychedelic trance and psychill scenes, enriching the global soundscape with its unique and immersive musical offerings.</p><p>In recent years, Sentimony Records has honed its focus on its most cherished genres, delving deeply into the mesmerizing realms of <a href='/playlist/dark-prog-zenonesque/'>DarkProg Psytrance</a>, as well as <a href='/playlist/psychill-psybient/'>Trippy Psychill</a>.</p><p>Through its dedication to these genres, the label continues to captivate listeners and inspire the psychedelic music community worldwide.</p>",
+      aboutDescription: "<p>Sentimony Records is an independent psychedelic music label founded in Kyiv, Ukraine, in the autumn of 2006 by the visionary Ihor Orlovskyi, also known by his moniker <a href='/artist/irukanji/'>Irukanji</a>.</p><p>The label's main mission is to contribute to the growth of talented psy-minded artists, enriching the global soundscape with unique and exciting musical journeys.</p><p>Over the years, Sentimony Records has focused on its most beloved psychedelic subgenres: <a href='/playlist/dark-prog-zenonesque/'>DarkProg Psytrance</a> and <a href='/playlist/psychill-psybient/'>Trippy Psychill</a>. Through a deep commitment to these styles, the label continues to captivate listeners and inspire the worldwide psychedelic music community.</p>",
       releases: [],
       artists: [],
       // videos: [],
@@ -118,7 +118,7 @@
       title: 'Home',
       meta: [
         { name: 'description', content: 'Home of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
       ]
     }
   }
