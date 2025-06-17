@@ -2,8 +2,10 @@ import { DB } from '@/services/fireinit.js'
 
 export default {
 
-  state: {
-    loadedSocial: []
+  state() {
+    return { 
+      loadedSocial: []
+    }
   },
 
   mutations: {

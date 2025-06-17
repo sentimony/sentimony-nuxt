@@ -18,14 +18,7 @@
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <img v-if="!i.photo_xl && i.photo" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-if="!i.photo_th && !i.photo"
-                class="item__soon" v-html="texts.comingPhoto"
-              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -48,18 +41,7 @@
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <!-- <img v-if="i.photo_xl" class="item__img"
-                :src="i.photo_xl"
-                :alt="i.title + ' Small Thumbnail'"
-              > -->
-              <!-- <img v-if="!i.photo_xl && i.photo" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              > -->
-              <div v-if="!i.photo_th"
-                class="item__soon" v-html="texts.comingPhoto"
-              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -82,18 +64,7 @@
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <!-- <img v-if="i.photo_xl" class="item__img"
-                :src="i.photo_xl"
-                :alt="i.title + ' Small Thumbnail'"
-              > -->
-              <!-- <img v-if="!i.photo_xl && i.photo" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              > -->
-              <div v-if="!i.photo_th"
-                class="item__soon" v-html="texts.comingPhoto"
-              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -116,18 +87,7 @@
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <!-- <img v-if="i.photo_xl" class="item__img"
-                :src="i.photo_xl"
-                :alt="i.title + ' Small Thumbnail'"
-              > -->
-              <!-- <img v-if="!i.photo_xl && i.photo" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/artists/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/artists/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              > -->
-              <div v-if="!i.photo_th"
-                class="item__soon" v-html="texts.comingPhoto"
-              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -163,7 +123,7 @@
       title: 'Artists',
       meta: [
         { name: 'description', content: 'Artists of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
       ]
     }
   }

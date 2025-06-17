@@ -10,6 +10,8 @@
         <router-link v-ripple to="/playlists/" class="menu-main__link" active-class="is-selected">Playlists</router-link>
         <router-link v-ripple to="/events/" class="menu-main__link" active-class="is-selected">Events</router-link>
         <router-link v-ripple to="/friends/" class="menu-main__link" active-class="is-selected">Friends</router-link>
+        <!-- <router-link v-ripple to="/sitemap/" class="menu-main__link" active-class="is-selected">Sitemap</router-link> -->
+        <!-- <router-link v-ripple to="/tracks/" class="menu-main__link" active-class="is-selected">Tracks</router-link> -->
         <router-link v-ripple to="/contacts/" class="menu-main__link" active-class="is-selected">Contacts</router-link>
       </div>
     </div>

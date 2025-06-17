@@ -16,14 +16,7 @@
                 :src="i.cover_th"
                 :alt="i.title + ' Small Thumbnail'"
               >
-              <img v-if="!i.cover_th && i.cover" class="item__img"
-                :src="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/releases/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/releases/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-if="!i.cover_th && !i.cover"
-                class="item__soon" v-html="texts.comingCover"
-              />
+              <div v-else class="item__soon" v-html="texts.comingCover"/>
             </div>
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
@@ -64,7 +57,7 @@
       title: 'Releases',
       meta: [
         { name: 'description', content: 'Releases of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01' }
       ]
     }
   }

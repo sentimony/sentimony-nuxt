@@ -1,7 +1,9 @@
 export default {
 
-  state: {
-    currentFrame: 0,
+  state() {
+    return { 
+      currentFrame: 0, 
+    }
   },
 
   mutations: {

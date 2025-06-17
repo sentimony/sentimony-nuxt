@@ -54,16 +54,20 @@
 
   export default {
     async asyncData() {
-      const [releasesRes, eventsRes, videosRes] = await Promise.all([
+      const [
+        releasesRes,
+        eventsRes,
+        // videosRes
+      ] = await Promise.all([
         axios.get('releases.json'),
         axios.get('events.json'),
-        axios.get('videos.json')
+        // axios.get('videos.json')
       ]);
       const news = Object.assign(
         releasesRes.data, 
         eventsRes.data,
-        videosRes.data
-        )
+        // videosRes.data
+      )
       return { news }
     },
     computed: {
@@ -82,7 +86,7 @@
       title: 'News',
       meta: [
         { name: 'description', content: 'News of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
       ]
     }
   }

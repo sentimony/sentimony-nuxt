@@ -41,7 +41,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    // display: none;
 
     @include media(M) {
       display: block;
@@ -61,13 +61,13 @@
         width: 125px;
         height: 250px;
         background: radial-gradient(ellipse at 50% 0,
-          rgba(#fff, .15) 0%,
+          rgba(#fff, .12) 0%,
           rgba(#8a0202, 0) 50%,
-          rgba(#000, .15) 100%);
+          rgba(#000, .12) 100%);
         border-radius: 50%;
         position: absolute;
         transition: all 5.25s ease-in-out;
-        animation: turn 5.0s ease-in-out infinite;
+        animation: turn 7.5s ease-in-out infinite;
       }
     }
   }

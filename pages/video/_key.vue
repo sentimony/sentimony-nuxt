@@ -7,6 +7,14 @@
 
         <div class="page-video__media">
 
+          <!-- <AppCover
+            :cover_th="video.cover_th"
+            :cover_xl="video.cover_xl"
+            :category="'videos'"
+            :title="video.title"
+            v-ripple
+          /> -->
+
           <h1 v-if="video.title" class="page-video__title">{{ video.title }}</h1>
           <p class="small-info">
             <span v-if="video.coming_soon">Coming at {{ video.date | formatDate }}</span>
@@ -17,8 +25,8 @@
 
         <div class="page-video__player-tabs"> -->
 
-          <app-tabs>
-            <app-tab
+          <AppTabs>
+            <AppTab
               v-if="video.links.youtube"
               :icon="icons.youtube"
               title="YouTube"
@@ -30,8 +38,8 @@
                   :title="video.title + ' YouTube Iframe'"
                 ></iframe>
               </div>
-            </app-tab>
-          </app-tabs>
+            </AppTab>
+          </AppTabs>
 
         </div>
 

@@ -12,7 +12,7 @@
         rel="noopener"
       >
         <img class="menu-social__icon"
-          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'"
+          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'"
           :alt="i.title + ' Icon'"
         />
         <span class="menu-social__tooltip">{{ i.title }}</span>
@@ -54,7 +54,7 @@
       margin: 0 auto 10px;
       display: flex;
       justify-content: center;
-      width: 290px;
+      // width: 290px;
 
       @include media(S) {
         width: 100%;

@@ -3,30 +3,30 @@
 
     <router-link v-ripple to="/sitemap">◄ Back to Sitemap Page</router-link><br>
     <br>
-    <span style="text-transform:uppercase;">{{ release.cat_no }}: </span>
+    <!-- <span style="text-transform:uppercase;">{{ release.cat_no }}: </span> -->
     <span>{{ release.title }}</span>
-    <span>({{ release.date | formatDate }})</span>
+    <!-- <span>({{ release.date | formatDate }})</span> -->
     <br>
     <br>
-    <div class="youtube-page-item__frame-holder">
+    <!-- <div class="youtube-page-item__frame-holder">
       <iframe
         class="youtube-page-item__frame"
         v-if="release.links.youtube_playlist_id"
         :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
         :title="release.title + ' YouTube Iframe'"
       ></iframe>
-    </div>
+    </div> -->
     <br>
-    <div class="youtube-page-item__frame-holder">
+    <!-- <div class="youtube-page-item__frame-holder">
       <iframe
         class="youtube-page-item__frame"
         v-if="release.links.youtube_music"
         :src="release.links.youtube_music | youtubeMusicEmbed"
         :title="release.title + ' YouTube Music Iframe'"
       ></iframe>
-    </div>
-    <!-- <br>
-    Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>
+    </div> -->
+    <br>
+    <!-- Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>
     iTunes: http://bit.ly/{{ release.cat_no }}-itunes<br>
     GooglePlay: http://bit.ly/{{ release.cat_no }}-google<br>
     Beatport: http://bit.ly/{{ release.cat_no }}-beatport<br>
@@ -112,7 +112,7 @@
         title: this.release.title,
         meta: [
           { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + '/' + this.release.slug + '.jpg' }
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + '/' + this.release.slug + '.jpg?01' }
         ]
       }
     }
