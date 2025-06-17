@@ -30,7 +30,7 @@
         title: this.playlist.title + ' on ' + this.title,
         meta: [
           // { name: 'description', content: this.playlist.tracks_number + ' tracks ' + this.playlist.style + ' ' + this.playlist.format + ', ' + this.playlist.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg' }
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg?01' }
         ]
       }
     }

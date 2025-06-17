@@ -57,7 +57,13 @@
 
 <script>
   export default {
-    props: ['url', 'route', 'title', 'icon', 'redirect']
+    props: {
+      'url': String,
+      'route': String,
+      'title': String,
+      'icon': String,
+      'redirect': String,
+    }
   }
 </script>
 

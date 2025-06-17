@@ -16,7 +16,7 @@
           target="_blank"
           rel="noopener"
         >
-          <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'">
+          <img class="contacts__icon" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" :alt="i.title + ' Icon'">
           <span>{{ i.title }}</span>
         </a>
       </p>
@@ -46,7 +46,7 @@
       title: 'Contacts',
       meta: [
         { name: 'description', content: 'Contacts of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
       ]
     }
   }

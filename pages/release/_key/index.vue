@@ -7,12 +7,10 @@
 
         <div class="page-release__media">
 
-          <app-cover
+          <AppCover
             :cover_th="release.cover_th"
             :cover_xl="release.cover_xl"
-            :cover="release.cover"
-            :category="'releases'"
-            :slug="release.slug"
+            category="releases"
             :title="release.title"
             v-ripple
           />
@@ -30,31 +28,31 @@
 
           <p v-if="release.links.diggersfactory_url" class=""><br>Purchase VINYL</p>
           <!-- <p v-else class="small-info">Download it soon</p> -->
-          <app-btn redirect="false" v-if="release.links.diggersfactory_url" :url="release.links.diggersfactory_url" :route="routes.diggersfactory" :title="titles.diggersfactory" :icon="icons.diggersfactory"/>
+          <AppBtn redirect="false" v-if="release.links.diggersfactory_url" :url="release.links.diggersfactory_url" :route="routes.diggersfactory" :title="titles.diggersfactory" :icon="icons.diggersfactory"/>
 
           <p v-if="release.coming_soon !== true" class="small-info"><br>Download it</p>
           <!-- <p v-else class="small-info"><br>Download it soon</p> -->
-          <app-btn redirect="false" v-if="release.links.bandcamp24_url && release.links.bandcamp24_url !== 'redirect_to_16'" :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
-          <app-btn redirect="false" v-if="release.links.bandcamp_url && release.links.bandcamp_url !== 'redirect_to_24'" :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
-          <app-btn redirect="false" v-if="release.links.beatport" :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
-          <app-btn redirect="false" v-if="release.links.junodownload" :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
+          <AppBtn redirect="false" v-if="release.links.bandcamp24_url && release.links.bandcamp24_url !== 'redirect_to_16'" :url="release.links.bandcamp24_url" :route="routes.bandcamp_24" :title="titles.bandcamp_24" :icon="icons.bandcamp"/>
+          <AppBtn redirect="false" v-if="release.links.bandcamp_url && release.links.bandcamp_url !== 'redirect_to_24'" :url="release.links.bandcamp_url" :route="routes.bandcamp_16" :title="titles.bandcamp_16" :icon="icons.bandcamp"/>
+          <AppBtn redirect="false" v-if="release.links.beatport" :url="release.links.beatport" :route="routes.beatport" :title="titles.beatport" :icon="icons.beatport"/>
+          <AppBtn redirect="false" v-if="release.links.junodownload" :url="release.links.junodownload" :route="routes.junodownload" :title="titles.junodownload" :icon="icons.junodownload"/>
 
           <p v-if="release.coming_soon !== true" class="small-info"><br>Stream it</p>
           <!-- <p v-else class="small-info"><br>Stream it soon</p> -->
-          <app-btn redirect="false" v-if="release.links.spotify" :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+          <AppBtn redirect="false" v-if="release.links.spotify" :url="release.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
           
-          <app-btn redirect="false" v-if="release.links.applemusic_url" :url="release.links.applemusic_url" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple_2"/>
-          <!-- <app-btn redirect="false" v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
+          <AppBtn redirect="false" v-if="release.links.applemusic_url" :url="release.links.applemusic_url" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple_2"/>
+          <!-- <AppBtn redirect="false" v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
 
-          <app-btn redirect="false" v-if="release.links.youtube_music" :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music_2"/>
-          <app-btn redirect="false" v-if="release.links.deezer" :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
-          <app-btn redirect="false" v-if="release.links.amazon_music" :url="release.links.amazon_music" :route="routes.amazon_music" :title="titles.amazon_music" :icon="icons.amazon_music"/>
-          <app-btn redirect="false" v-if="release.links.qobuz" :url="release.links.qobuz" :route="routes.qobuz" :title="titles.qobuz" :icon="icons.qobuz"/>
-          <app-btn redirect="false" v-if="release.links.tidal" :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
-          <app-btn redirect="false" v-if="release.links.napster" :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
-          <app-btn redirect="false" v-if="release.links.soundcloud_url" :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
-          <app-btn redirect="false" v-if="release.links.youtube" :url="release.links.youtube | YouTubeFullReleases" :route="routes.youtube" :title="titles.youtube_full_release" :icon="icons.youtube"/>
-          <app-btn redirect="false" v-if="release.links.youtube_playlist_id" :url="release.links.youtube_playlist_id | YouTubeIndividualTracks" :route="titles.youtube_playlist" :title="titles.youtube_playlist" :icon="icons.youtube"/>
+          <AppBtn redirect="false" v-if="release.links.youtube_music" :url="release.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music_2"/>
+          <AppBtn redirect="false" v-if="release.links.deezer" :url="release.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/>
+          <AppBtn redirect="false" v-if="release.links.amazon_music" :url="release.links.amazon_music" :route="routes.amazon_music" :title="titles.amazon_music" :icon="icons.amazon_music"/>
+          <AppBtn redirect="false" v-if="release.links.qobuz" :url="release.links.qobuz" :route="routes.qobuz" :title="titles.qobuz" :icon="icons.qobuz"/>
+          <AppBtn redirect="false" v-if="release.links.tidal" :url="release.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/>
+          <AppBtn redirect="false" v-if="release.links.napster" :url="release.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/>
+          <AppBtn redirect="false" v-if="release.links.soundcloud_url" :url="release.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <AppBtn redirect="false" v-if="release.links.youtube" :url="release.links.youtube | YouTubeFullReleases" :route="routes.youtube" :title="titles.youtube_full_release" :icon="icons.youtube"/>
+          <AppBtn redirect="false" v-if="release.links.youtube_playlist_id" :url="release.links.youtube_playlist_id | YouTubeIndividualTracks" :route="titles.youtube_playlist" :title="titles.youtube_playlist" :icon="icons.youtube"/>
           
           <!-- <span class="app-btn" v-if="release.links.youtube_playlist_id">
             <a class="app-btn__btn" :href="release.links.youtube_playlist_id | YouTubeIndividualTracks" target="_blank" rel="noopener">
@@ -71,8 +69,8 @@
 
         <div class="page-release__player-tabs">
 
-          <!-- <app-tabs v-if="release.links.soundcloud_demo_id" style="margin-bottom:20px;">
-            <app-tab
+          <!-- <AppTabs v-if="release.links.soundcloud_demo_id" style="margin-bottom:20px;">
+            <AppTab
               :icon="icons.soundcloud"
               title="SoundCloud<br>(Preview)"
             >
@@ -86,11 +84,12 @@
                   :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true'"
                 ></iframe>
               </div>
-            </app-tab>
-          </app-tabs> -->
-          <app-tabs>
+            </AppTab>
+          </AppTabs> -->
 
-            <app-tab
+          <AppTabs>
+
+            <AppTab
               :icon="icons.bandcamp"
               :title="titles.bandcamp"
             >
@@ -104,9 +103,9 @@
                 ></iframe>
                 <div v-if="!release.links.bandcamp_id" class="page-release__player-coming" v-html="texts.comingMusic"/>
               </div>
-            </app-tab>
+            </AppTab>
 
-            <app-tab
+            <AppTab
               v-if="release.links.youtube_playlist_id"
               :icon="icons.youtube"
               :title="titles.youtube_playlist"
@@ -122,9 +121,9 @@
                   allowfullscreen
                 ></iframe>
               </div>
-            </app-tab>
+            </AppTab>
 
-            <app-tab
+            <AppTab
               v-if="release.links.soundcloud_playlist_id"
               :icon="icons.soundcloud"
               :title="titles.soundcloud"
@@ -139,9 +138,9 @@
                   :title="release.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
-            </app-tab>
+            </AppTab>
 
-          </app-tabs>
+          </AppTabs>
 
         </div>
 
@@ -345,7 +344,7 @@
         title: this.release.title,
         meta: [
           { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: this.release.cover_og ? this.release.cover_og : 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+          { property: 'og:image', content: this.release.cover_og ? this.release.cover_og : 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
         ]
       }
     }

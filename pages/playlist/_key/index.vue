@@ -6,11 +6,11 @@
       <div class="page-playlist__wrapper">
 
         <div class="page-playlist__media">
-          <app-cover
+
+          <AppCover
             :cover_th="playlist.cover_th"
             :cover_xl="playlist.cover_xl"
-            :category="'playlists'"
-            :slug="playlist.slug"
+            category="playlists"
             :title="playlist.title"
             v-ripple
           />
@@ -21,15 +21,15 @@
           <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
 
           <p class="small-info">Stream it:</p>
-          <app-btn redirect="false" v-if="playlist.links.spotify" :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
-          <app-btn redirect="false" v-if="playlist.links.apple_music" :url="playlist.links.apple_music" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
-          <app-btn redirect="false" v-if="playlist.links.youtube_music" :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
-          <!-- <app-btn redirect="false" v-if="playlist.links.googleplay_music" :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
-          <app-btn redirect="false" v-if="playlist.links.youtube" :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube_playlist" :icon="icons.youtube"/>
-          <!-- <app-btn redirect="false" v-if="playlist.links.deezer" :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/> -->
-          <!-- <app-btn redirect="false" v-if="playlist.links.tidal" :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/> -->
-          <!-- <app-btn redirect="false" v-if="playlist.links.napster" :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/> -->
-          <app-btn redirect="false" v-if="playlist.links.soundcloud_url" :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
+          <AppBtn redirect="false" v-if="playlist.links.spotify" :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify"/>
+          <AppBtn redirect="false" v-if="playlist.links.apple_music" :url="playlist.links.apple_music" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple"/>
+          <AppBtn redirect="false" v-if="playlist.links.youtube_music" :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music"/>
+          <!-- <AppBtn redirect="false" v-if="playlist.links.googleplay_music" :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
+          <AppBtn redirect="false" v-if="playlist.links.youtube" :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube_playlist" :icon="icons.youtube"/>
+          <!-- <AppBtn redirect="false" v-if="playlist.links.deezer" :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/> -->
+          <!-- <AppBtn redirect="false" v-if="playlist.links.tidal" :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/> -->
+          <!-- <AppBtn redirect="false" v-if="playlist.links.napster" :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/> -->
+          <AppBtn redirect="false" v-if="playlist.links.soundcloud_url" :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud"/>
         </div>
 
         <div class="page-playlist__player-tabs">
@@ -42,11 +42,11 @@
             ]"
           />
 
-          <!-- <br>
+          <!-- <br> -->
 
-          <app-tabs>
+          <!-- <AppTabs>
 
-            <app-tab 
+            <AppTab 
               v-if="playlist.links.soundcloud_playlist_id"
               title="SoundCloud"
               :icon="icons.soundcloud"
@@ -61,9 +61,9 @@
                   :title="playlist.title + ' SoundCloud Iframe'"
                 ></iframe>
               </div>
-            </app-tab>
+            </AppTab>
             
-            <app-tab
+            <AppTab
               v-if="playlist.links.youtube"
               :icon="icons.youtube"
               title="YouTube"
@@ -79,8 +79,8 @@
                   allowfullscreen
                 ></iframe>
               </div>
-            </app-tab>
-          </app-tabs> -->
+            </AppTab>
+          </AppTabs> -->
 
         </div>
 
@@ -134,8 +134,8 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
   import AppCover from '~/components/AppCover'
   import AppBtn from '~/components/AppBtn'
-  import AppTabs from '~/components/AppTabs.vue'
-  import AppTab from '~/components/AppTab.vue'
+  // import AppTabs from '~/components/AppTabs.vue'
+  // import AppTab from '~/components/AppTab.vue'
   import AppRelativeItem from '~/components/AppRelativeItem.vue'
 
   export default {
@@ -146,8 +146,8 @@
       SvgTriangle,
       AppCover,
       AppBtn,
-      AppTabs,
-      AppTab,
+      // AppTabs,
+      // AppTab,
       AppRelativeItem,
     },
     data () {
@@ -191,7 +191,7 @@
         title: this.playlist.title,
         meta: [
           { name: 'description', content: this.playlist.style + ', ' + this.playlist.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg' }
+          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg?01' }
         ]
       }
     }

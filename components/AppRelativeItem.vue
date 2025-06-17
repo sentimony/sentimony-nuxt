@@ -19,7 +19,10 @@
   import moment from 'moment'
 
   export default {
-    props: ['i',, 'category'],
+    props: {
+      'i': Object, 
+      'category': String,
+    },
     filters: {
       year: function (date) {
         if (date) {

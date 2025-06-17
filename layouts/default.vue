@@ -1,9 +1,9 @@
 <template>
   <div class="flex-sticky">
     <!-- <BaseBg/> -->
-    <!-- <div class="flex-sticky__fractal">
+    <div class="flex-sticky__fractal">
       <Fractal/>
-    </div> -->
+    </div>
     <div class="flex-sticky__header">
       <header-main/>
       <sidebar-menu/>
@@ -21,7 +21,7 @@
 
 <script>
   // import BaseBg from '~/components/BaseBg.vue'
-  // import Fractal from '~/components/Fractal.vue'
+  import Fractal from '~/components/Fractal.vue'
   import HeaderMain from '~/components/HeaderMain.vue'
   import SidebarMenu from '~/components/SidebarMenu.vue'
   import SidebarBtn from '~/components/SidebarBtn.vue'
@@ -31,7 +31,7 @@
   export default {
     components: {
       // BaseBg,
-      // Fractal,
+      Fractal,
       HeaderMain,
       SidebarMenu,
       SidebarBtn,

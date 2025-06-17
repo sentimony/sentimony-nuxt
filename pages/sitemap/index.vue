@@ -23,12 +23,12 @@
     <div>Releases</div>
     <ol class="sitemap-link-list">
       <li v-for="(i, index) in releasesSortByDate"
-          :key="index"
+        :key="index"
       >
         <!-- <p :style="{ 'background-image': 'url(' + i.cover_og + '); background-size: cover;' }">{{ i.title }}</p> -->
         <p>
           <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
-          <img v-if="!i.cover_th" src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Coming Soon">
+          <img v-else src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Coming Soon">
           <!-- <span>[{{ i.cat_no }}]</span> -->
           <router-link v-ripple :to="'/release/' + i.slug + '/'" style="text-decoration: underline;">{{ i.title }}</router-link>
           <router-link v-ripple :to="'/sitemap/' + i.slug + '/'">sitemap >>></router-link>
@@ -91,10 +91,11 @@
 
     <ol class="sitemap-link-list">
       <li v-for="(i, index) in artistsSortByCategoryId"
-          :key="index"
+        :key="index"
       >
         <p>
           <img v-if="i.photo_th" :src="i.photo_th" :alt="i.title">
+          <img v-else src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Coming Soon">
           <router-link v-ripple :to="'/artist/' + i.slug + '/'">{{ i.title }}</router-link>
           <br>
           <span>({{ i.location }})</span>
@@ -106,10 +107,11 @@
 
     <ol class="sitemap-link-list">
       <li v-for="(i, index) in playlistsSortByDate"
-          :key="index"
+        :key="index"
       >
         <p>
           <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
+          <img v-else src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Coming Soon">
           <router-link v-ripple :to="'/playlist/' + i.slug + '/'">{{ i.title }}</router-link>
           <br>
           
@@ -134,11 +136,13 @@
 
     <ol class="sitemap-link-list">
       <li v-for="(i, index) in videosSortByDate"
-          :key="index"
+        :key="index"
       >
         <p>
           <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title">
+          <img v-else src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Coming Soon">
           <router-link v-ripple :to="'/video/' + i.slug + '/'">{{ i.title }}</router-link>
+          <!-- <router-link v-ripple :to="'/sitemap/' + i.slug + '/'">sitemap >>></router-link> -->
         </p>
       </li>
     </ol>
@@ -224,7 +228,7 @@
       title: 'Sitemap',
       meta: [
         { name: 'description', content: '' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
       ]
     }
   }

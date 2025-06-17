@@ -12,12 +12,6 @@
         <router-link v-if="i.slug" :to="'../../' + item + '/' + i.slug + '/'" class="item__link" active-class="is-selected">
           <div class="item__wrapper">
             <div class="item__cover">
-              <!-- <div v-if="i.cover || i.cover_xl || i.photo_xl || i.photo" class="swiper-lazy-preloader swiper-lazy-preloader-white"></div> -->
-              <img v-if="i.cover && !i.cover_xl || i.photo && !i.photo_xl" class="item__img swiper-lazy"
-                :src="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg'"
-                :srcset="'https://content.sentimony.com/assets/img/' + category + '/small/' + i.slug + '.jpg 1x, https://content.sentimony.com/assets/img/' + category + '/small-retina/' + i.slug + '.jpg 2x'"
-                :alt="i.title + ' Small Thumbnail'"
-              >
               <img v-if="i.cover_th" class="item__img swiper-lazy"
                 :src="i.cover_th"
                 :alt="i.title"
@@ -26,7 +20,7 @@
                 :src="i.photo_th"
                 :alt="i.title"
               >
-              <div v-if="!i.cover && !i.cover_xl && !i.photo_xl && !i.photo"
+              <div v-if="!i.cover_xl && !i.photo_xl"
                 class="item__soon"
                 v-html="coming()"
               />

@@ -10,9 +10,9 @@
 <script>
   export default {
     data: () => ({
-      baseBgSrc: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg',
-      baseBgSrc1x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg 1x',
-      baseBgSrc2x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg 2x',
+      baseBgSrc: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg?01',
+      baseBgSrc1x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg?01 1x',
+      baseBgSrc2x: 'https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg?01 2x',
       baseBgAlt: 'Sombrero Red Background'
     })
   }

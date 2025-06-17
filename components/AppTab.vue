@@ -7,10 +7,7 @@
 <script>
   export default {
     props: {
-      title: {
-        type: String,
-        default: 'Tab'
-      }
+      'title': String,
     },
     data () {
       return {

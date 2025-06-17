@@ -25,7 +25,7 @@
       title: 'Friends',
       meta: [
         { name: 'description', content: 'Friends of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
       ]
     }
   }

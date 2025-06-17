@@ -5,7 +5,7 @@
     @click="handleClick"
     v-if="$mq === 'sm' || $mq === 'md'"
   >
-    <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg">
+    <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg?01">
   </button>
 </template>
 

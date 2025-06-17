@@ -1,10 +1,9 @@
 import * as types from '../mutation-types'
 
 // initial state
-// shape: [{ id, quantity }]
-const state = {
+const state = () => ({
   sidebarOpen: false
-}
+})
 
 // getters
 const getters = {
@@ -13,7 +12,7 @@ const getters = {
 
 // actions
 const actions = {
-  toggleSidebar ({ commit, state }) {
+  toggleSidebar ({ commit }) {
     commit(types.TOGGLE_SIDEBAR)
   }
 }

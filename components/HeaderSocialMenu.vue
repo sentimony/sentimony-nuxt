@@ -18,7 +18,7 @@
             v-html="free"
           /> -->
           <img class="headr-social-menu__link__img"
-            :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg'" :alt="i.title + ' Icon'"
+            :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" :alt="i.title + ' Icon'"
           />
           <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom"
             v-html="i.title"

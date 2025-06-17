@@ -1,7 +1,9 @@
 export default {
 
-  state: {
-    loading: false
+  state() {
+    return { 
+      loading: false
+    }
   },
 
   mutations: {

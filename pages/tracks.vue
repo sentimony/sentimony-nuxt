@@ -39,7 +39,7 @@
       title: 'Tracks',
       meta: [
         { name: 'description', content: 'Tracks of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg' }
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01' }
       ]
     }
   }

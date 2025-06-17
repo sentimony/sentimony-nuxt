@@ -60,6 +60,7 @@ export default {
     spotify: 'Spotify',
     junodownload: 'JunoDownload',
     youtube: 'YouTube',
+    youtube_full: 'YouTube <small>Full</small>',
     youtube_full_release: 'YouTube <small>Full Release</small>',
     youtube_per_track: 'YouTube <small>Per Track</small>',
     youtube_playlist: 'YouTube <small>Playlist</small>',

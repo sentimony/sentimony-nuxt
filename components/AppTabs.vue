@@ -5,6 +5,7 @@
         :key="index"
         @click="selectTab(index)"
         :class='{"app-tab__selected": (index == selectedIndex)}'
+        v-ripple
       >
         <div class="d-flex body-2 align-center" style="height:40px;">
           <img
