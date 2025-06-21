@@ -45,17 +45,19 @@
     transition: transform .3s ease,
                 border-color .3s ease;
 
-    &:focus {
-      outline: none;
-      border-color: white;
-    }
+    // &:focus {
+    //   outline: none;
+    //   border-color: white;
+    // }
 
     &.is-active {
+      outline: none;
+      border-color: white;
       transform: rotate(90deg);
     }
 
-    &.is-active:focus {
-      border-color: white;
-    }
+    // &.is-active:focus {
+    //   border-color: white;
+    // }
   }
 </style>
