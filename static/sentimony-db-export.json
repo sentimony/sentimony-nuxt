@@ -8771,7 +8771,7 @@
     "vorg-cyber-soul-day": {
       "slug": "vorg-cyber-soul-day",
       "title": "VORG «Cyber Soul: Day»",
-      "cat_no": "~ SENCD096",
+      "cat_no": "SENCD096",
       "visible": true,
       "date": "2025-06-27T12:00:00.000Z",
       "coming_soon": true,
@@ -8804,10 +8804,10 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
-        "bandcamp24_url": "",
-        "bandcamp_id": "",
-        "soundcloud_url": "",
-        "soundcloud_playlist_id": "",
+        "bandcamp24_url": "https://sentimony.bandcamp.com/album/cyber-soul-day",
+        "bandcamp_id": "2833258143",
+        "soundcloud_url": "https://soundcloud.com/sentimony/sets/vorg-cyber-soul-day/s-Ptyw6Q0OEcB",
+        "soundcloud_playlist_id": "2040088854",
         "applemusic_url": "",        
         "beatport": "",
         "spotify": "",
