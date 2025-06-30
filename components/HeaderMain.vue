@@ -1,8 +1,10 @@
 <template>
+  <div>
   <div class="header-main">
+    
     <div class="header-main__container">
 
-      <header-logolink style="width:232px"/>
+      <HeaderLogolink style="width:232px"/>
 
       <nav class="header-main__main-menu" v-if="$mq === 'lg'">
         <!-- <nuxt-link to="/news/" class="header-main__main-menu-link" active-class="is-selected">News</nuxt-link> -->
@@ -19,16 +21,22 @@
 
     </div>
   </div>
+  <!-- <div class="header-main__container"> -->
+    <AppPlayer/>
+  <!-- </div> -->
+  </div>
 </template>
 
 <script>
   import HeaderLogolink from '~/components/HeaderLogolink.vue'
   import HeaderSocialMenu from '~/components/HeaderSocialMenu.vue'
+  import AppPlayer from '~/components/AppPlayer.vue'
 
   export default {
     components: {
       HeaderLogolink,
       HeaderSocialMenu,
+      AppPlayer
     },
   }
 </script>
