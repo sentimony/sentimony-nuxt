@@ -1,9 +1,14 @@
 <template>
   <div class="base-bg">
+    <!-- <img class="base-bg__img"
+      :src="baseBgSrc"
+      :srcset="baseBgSrc1x + ',' + baseBgSrc2x"
+      :alt="baseBgAlt"
+    > -->
     <img class="base-bg__img"
-         :src="baseBgSrc"
-         :srcset="baseBgSrc1x + ',' + baseBgSrc2x"
-         :alt="baseBgAlt">
+      :src="baseBgSrc"
+      :alt="baseBgAlt"
+    >
   </div>
 </template>
 
@@ -35,6 +40,7 @@
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+      opacity: .5;
     }
   }
 </style>

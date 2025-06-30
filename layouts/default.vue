@@ -8,6 +8,7 @@
       <header-main/>
       <sidebar-menu/>
       <sidebar-btn/>
+      <!-- <AppPlayer/> -->
     </div>
     <div class="flex-sticky__content">
       <nuxt/>
@@ -27,6 +28,7 @@
   import SidebarBtn from '~/components/SidebarBtn.vue'
   import Donate from '~/components/Donate.vue'
   import Footr from '~/components/Footr.vue'
+  // import AppPlayer from '../components/AppPlayer.vue'
 
   export default {
     components: {
@@ -36,6 +38,7 @@
       SidebarMenu,
       SidebarBtn,
       Donate,
+      // AppPlayer,
       Footr
     }
   }

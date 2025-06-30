@@ -39,10 +39,16 @@ body {
   text-align: center;
   min-width: $XS;
 
+  // RED BG
   background-color: #8a0202;
   background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg?01');
-  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg?01');
-  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg?01');
+  // background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg?01');
+  // background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg?01');
+  
+  // GREEN BG
+  // background-color: #144b15;
+  // background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-green.jpg?01');
+  
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
