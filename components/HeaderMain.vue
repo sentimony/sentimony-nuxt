@@ -22,7 +22,7 @@
     </div>
   </div>
   <!-- <div class="header-main__container"> -->
-    <AppPlayer/>
+    <AppPlayerDraggable/>
   <!-- </div> -->
   </div>
 </template>
@@ -30,13 +30,13 @@
 <script>
   import HeaderLogolink from '~/components/HeaderLogolink.vue'
   import HeaderSocialMenu from '~/components/HeaderSocialMenu.vue'
-  import AppPlayer from '~/components/AppPlayer.vue'
+  import AppPlayerDraggable from '~/components/AppPlayerDraggable.vue'
 
   export default {
     components: {
       HeaderLogolink,
       HeaderSocialMenu,
-      AppPlayer
+      AppPlayerDraggable
     },
   }
 </script>
@@ -49,7 +49,7 @@
 
   .header-main {
     position: relative;
-    z-index: 1000;
+    z-index: 700;
     padding: 0 .6em;
 
     &__container {

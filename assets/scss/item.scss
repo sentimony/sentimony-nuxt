@@ -19,7 +19,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto 4px;
-    transition: background-color .2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 
     @include media(M) {
       width: 140px;
@@ -28,7 +28,7 @@
 
     .item__link.is-selected &,
     .item__link:hover & {
-      background-color: rgba(#fff,.3);
+      background-color: rgba(#fff, 0.3);
     }
   }
 
@@ -55,17 +55,17 @@
   }
 
   &__soon {
-    color: rgba(#fff,.5);
+    color: rgba(#fff, 0.5);
     font-size: 7px;
     line-height: 1.25;
-    padding: .3em .5em;
+    padding: 0.3em 0.5em;
     text-align: left;
     box-sizing: border-box;
 
     @include media(M) {
       font-size: 10px;
       line-height: 1.5;
-      padding: .6em 1.0em;
+      padding: 0.6em 1em;
     }
   }
 
@@ -75,7 +75,7 @@
     right: -5px;
     font-size: 7px;
     z-index: 40;
-    padding: .2em .8em;
+    padding: 0.2em 0.8em;
     border-radius: 0 2px;
     box-shadow: $shadow;
 
@@ -100,7 +100,7 @@
     color: #fff;
     font-size: 8px;
     padding: 0 2px;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     // height: 42px;
 
     @include media(M) {
@@ -111,20 +111,19 @@
 }
 
 .item--rectangle {
-
   .item__wrapper {
-    height: 43.75px!important;
+    height: 43.75px !important;
 
     @include media(M) {
-      height: 87.5px!important;
+      height: 87.5px !important;
     }
   }
 
   .item__cover {
-    height: 33.75px!important;
+    height: 33.75px !important;
 
     @include media(M) {
-      height: 67.5px!important;
+      height: 67.5px !important;
     }
   }
 }

@@ -2,20 +2,22 @@
   <div class="flex-sticky">
     <!-- <BaseBg/> -->
     <div class="flex-sticky__fractal">
-      <Fractal/>
+      <Fractal />
     </div>
     <div class="flex-sticky__header">
-      <header-main/>
-      <sidebar-menu/>
-      <sidebar-btn/>
+      <header-main />
+      <sidebar-menu />
+      <sidebar-btn />
       <!-- <AppPlayer/> -->
     </div>
     <div class="flex-sticky__content">
-      <nuxt/>
+      <transition name="fade" mode="out-in">
+        <nuxt />
+      </transition>
     </div>
     <div class="flex-sticky__footer">
-      <Donate/>
-      <Footr/>
+      <Donate />
+      <Footr />
     </div>
   </div>
 </template>
@@ -44,5 +46,4 @@
   }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
