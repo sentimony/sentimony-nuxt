@@ -2968,8 +2968,8 @@
       "youtube_playlist_id": "",
       "spotify": "",
       "discogs": "",
-      "facebook": "",
-      "facebook_personal": "",
+      "facebook": "https://www.facebook.com/ju.orlovska",
+      "facebook_personal": "https://www.facebook.com/ju.orlovska",
       "instagram": "https://www.instagram.com/ju_orlovska",
       "instagram_personal": "https://www.instagram.com/julenca",
       "bandcamp_url": "",
@@ -7921,8 +7921,8 @@
         "tidal": "https://listen.tidal.com/album/355227429",
         "qobuz": "https://play.qobuz.com/album/of272sgxz7yaa",
         "youtube_music": "https://music.youtube.com/playlist?list=OLAK5uy_mPHM1bdPnwjN2lyRc_TJMayd2mPanovE0",
-        "youtube": "",
-        "youtube_playlist_id": ""
+        "youtube": "https://youtu.be/GRTo25SOoag",
+        "youtube_playlist_id": "PLp2GaPnw5O3OEJmdg1ViAdWQecN2gNekf"
       }
     },
     "kauyumari-transmuting": {
