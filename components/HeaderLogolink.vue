@@ -1,6 +1,13 @@
 <template>
-  <nuxt-link v-ripple :to="logolink.url" class="header-logolink" active-class="is-selected" exact>
-    <img class="header-logolink__logo"
+  <nuxt-link
+    v-ripple
+    :to="logolink.url"
+    class="header-logolink"
+    active-class="is-selected"
+    exact
+  >
+    <img
+      class="header-logolink__logo"
       :src="logolink.logoImg"
       :alt="logolink.title + 'Logo SVG'"
     />
@@ -18,7 +25,8 @@
         logolink: {
           title: 'Sentimony Records',
           description: 'Psychedelic Music Label',
-          logoImg: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01',
+          logoImg:
+            'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01',
           url: '/'
         }
       }
@@ -54,8 +62,8 @@
 
     &__description {
       font-size: 12px;
-      color: rgba(#fff,.4);
-      letter-spacing: .4px;
+      color: rgba(#fff, 0.4);
+      letter-spacing: 0.4px;
     }
   }
 </style>

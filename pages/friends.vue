@@ -2,12 +2,10 @@
   <div class="page">
     <h1>Friends</h1>
     <div class="">
-      <p class=""
-        v-for="(i, index) in friends"
-        :key="index"
-         v-if="i.visible"
-      >
-        <router-link v-ripple :to="'/friend/' + i.slug" class="friends__link">{{ i.title }}</router-link>
+      <p class="" v-for="(i, index) in friends" :key="index" v-if="i.visible">
+        <router-link v-ripple :to="'/friend/' + i.slug" class="friends__link">{{
+          i.title
+        }}</router-link>
       </p>
     </div>
   </div>
@@ -25,7 +23,11 @@
       title: 'Friends',
       meta: [
         { name: 'description', content: 'Friends of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+        {
+          property: 'og:image',
+          content:
+            'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
+        }
       ]
     }
   }

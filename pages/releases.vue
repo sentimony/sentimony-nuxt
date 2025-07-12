@@ -1,24 +1,33 @@
 <template>
   <div class="page">
-
     <h1>Releases</h1>
 
     <div class="list">
-      <div class="item"
+      <div
+        class="item"
         v-for="(i, index) in sortByDate"
         :key="index"
         v-if="i.visible"
       >
-        <router-link v-ripple v-if="i.slug" :to="'/release/' + i.slug + '/'" class="item__link">
+        <router-link
+          v-ripple
+          v-if="i.slug"
+          :to="'/release/' + i.slug + '/'"
+          class="item__link"
+        >
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.cover_th" class="item__img"
+              <img
+                v-if="i.cover_th"
+                class="item__img"
                 :src="i.cover_th"
                 :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-else class="item__soon" v-html="texts.comingCover"/>
+              />
+              <div v-else class="item__soon" v-html="texts.comingCover" />
             </div>
-            <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
+            <div v-if="i.coming_soon" class="item__status--green">
+              Coming Soon
+            </div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
           </div>
           <div class="item__title">
@@ -28,7 +37,6 @@
         </router-link>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -39,9 +47,9 @@
 
   export default {
     // layout: 'release',
-    data () {
+    data() {
       return {
-        texts: AppContent.texts,
+        texts: AppContent.texts
       }
     },
     async asyncData() {
@@ -49,7 +57,7 @@
       return { releases: data }
     },
     computed: {
-      sortByDate () {
+      sortByDate() {
         return sortBy(this.releases, 'date').reverse()
       }
     },
@@ -57,11 +65,14 @@
       title: 'Releases',
       meta: [
         { name: 'description', content: 'Releases of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01' }
+        {
+          property: 'og:image',
+          content:
+            'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01'
+        }
       ]
     }
   }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

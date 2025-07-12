@@ -62,7 +62,7 @@
         const isMobile = window.innerWidth < 768
         this.position = isMobile
           ? { right: '0%', bottom: '0%' }
-          : { right: '4%', bottom: '50%' }
+          : { right: '4%', bottom: '45%' }
       },
 
       updateBoxSize() {

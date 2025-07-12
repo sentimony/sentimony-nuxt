@@ -1,23 +1,26 @@
 <template>
   <div class="app-cover">
-
-    <img v-if="cover_th"
+    <img
+      v-img
+      v-if="cover_th"
       class="app-cover__bg"
       :src="cover_th"
-      :alt="title"
-    >
+      :alt="'Artwork of the ' + title + ' thumbnail'"
+    />
 
-    <img v-img v-if="cover_xl"
+    <img
+      v-img
+      v-if="cover_xl"
       class="app-cover__img"
       :src="cover_xl"
-      :alt="title"
-    >
+      :alt="'Artwork of the ' + title + ' high quality'"
+    />
 
-    <div v-if="!cover_xl && !cover_th"
+    <div
+      v-if="!cover_th && !cover_xl"
       class="app-cover__coming"
       v-html="coming()"
     />
-
   </div>
 </template>
 
@@ -26,19 +29,21 @@
 
   export default {
     props: {
-      'cover_th': String,
-      'cover_xl': String,
-      'category': String,
-      'title': String,
+      cover_th: String,
+      cover_xl: String,
+      category: String,
+      title: String
     },
-    data () {
+    data() {
       return {
-        texts: AppContent.texts,
+        texts: AppContent.texts
       }
     },
-    methods : {
+    methods: {
       coming(category) {
-        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingCover
+        return this.category == 'artists'
+          ? this.texts.comingPhoto
+          : this.texts.comingCover
       }
     }
   }
@@ -58,7 +63,7 @@
     border-radius: 2px;
     overflow: hidden;
     margin-right: 1.4em;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     background-color: $colorBgBlack;
     box-shadow: $shadow;
     position: relative;
@@ -92,7 +97,7 @@
     &__coming {
       padding: 1em 1.2em;
       font-size: 10px;
-      color: rgba(#fff,.5);
+      color: rgba(#fff, 0.5);
 
       @include media(M) {
         font-size: 14px;

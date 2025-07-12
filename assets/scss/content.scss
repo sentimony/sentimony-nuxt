@@ -1,16 +1,17 @@
 .content {
   text-align: left;
-  background-color: #fff;
+  // background-color: #fff;
+  background-color: #e0ebe0;
   color: #000;
   position: relative;
-  padding: .5em .6em;
+  padding: 0.5em 0.6em;
 
   &__wrapper {
     max-width: 640px;
     position: relative;
     z-index: 40;
     margin: 0 auto;
-    padding-top: .5em;
+    padding-top: 0.5em;
 
     @include media(L) {
       margin: 0 auto;

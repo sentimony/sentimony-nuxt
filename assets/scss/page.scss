@@ -3,9 +3,14 @@
 @import 'title';
 
 .page {
-  padding: 0 .6em;
+  padding: 0 0.6em;
   // max-width: 1278px;
   margin: 0 auto;
+  padding-bottom: 30px;
+
+  @include media(M) {
+    padding-bottom: 60px;
+  }
 
   h1 {
     @extend .title;

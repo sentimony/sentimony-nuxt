@@ -8,7 +8,7 @@
       <header-main />
       <sidebar-menu />
       <sidebar-btn />
-      <!-- <AppPlayer/> -->
+      <!-- <AppPlayerDraggable /> -->
     </div>
     <div class="flex-sticky__content">
       <transition name="fade" mode="out-in">
@@ -30,7 +30,7 @@
   import SidebarBtn from '~/components/SidebarBtn.vue'
   import Donate from '~/components/Donate.vue'
   import Footr from '~/components/Footr.vue'
-  // import AppPlayer from '../components/AppPlayer.vue'
+  // import AppPlayerDraggable from '../components/AppPlayerDraggable.vue'
 
   export default {
     components: {
@@ -40,7 +40,7 @@
       SidebarMenu,
       SidebarBtn,
       Donate,
-      // AppPlayer,
+      // AppPlayerDraggable,
       Footr
     }
   }
