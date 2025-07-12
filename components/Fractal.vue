@@ -27,8 +27,7 @@
   </div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style lang="scss">
   @import '../node_modules/coriolan-ui/tools/variables';
@@ -48,7 +47,7 @@
     }
 
     &__petal {
-      transform: translate3d(-50%,-50%,0);
+      transform: translate3d(-50%, -50%, 0);
       position: absolute;
       top: 50%;
       left: 50%;
@@ -57,13 +56,15 @@
       transition: all 5.25s ease-in-out;
 
       &:after {
-        content:'';
+        content: '';
         width: 125px;
         height: 250px;
-        background: radial-gradient(ellipse at 50% 0,
-          rgba(#fff, .18) 0%,
+        background: radial-gradient(
+          ellipse at 50% 0,
+          rgba(#fff, 0.05) 0%,
           rgba(#8a0202, 0) 50%,
-          rgba(#000, .18) 100%);
+          rgba(#000, 0.33) 100%
+        );
         border-radius: 50%;
         position: absolute;
         transition: all 5.25s ease-in-out;
@@ -74,13 +75,13 @@
 
   @for $i from 1 through 24 {
     .fractal__petal:nth-child(#{$i}) {
-      transform: rotate($i*15deg);
+      transform: rotate($i * 15deg);
     }
   }
 
   @keyframes turn {
     100% {
-      transform:rotate(1turn);
+      transform: rotate(1turn);
     }
   }
 </style>

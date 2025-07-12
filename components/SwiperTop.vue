@@ -9,23 +9,35 @@
         :key="index"
         v-if="i.visible"
       >
-        <router-link v-if="i.slug" :to="'../../' + item + '/' + i.slug + '/'" class="item__link" active-class="is-selected">
+        <router-link
+          v-if="i.slug"
+          :to="'../../' + item + '/' + i.slug + '/'"
+          class="item__link"
+          active-class="is-selected"
+        >
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.cover_th" class="item__img swiper-lazy"
+              <img
+                v-if="i.cover_th"
+                class="item__img swiper-lazy"
                 :src="i.cover_th"
                 :alt="i.title"
-              >
-              <img v-if="i.photo_th" class="item__img swiper-lazy"
+              />
+              <img
+                v-if="i.photo_th"
+                class="item__img swiper-lazy"
                 :src="i.photo_th"
                 :alt="i.title"
-              >
-              <div v-if="!i.cover_xl && !i.photo_xl"
+              />
+              <div
+                v-if="!i.cover_xl && !i.photo_xl"
                 class="item__soon"
                 v-html="coming()"
               />
             </div>
-            <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>
+            <div v-if="i.coming_soon" class="item__status--green">
+              Coming Soon
+            </div>
             <div v-if="i.new" class="item__status--red">Out Now</div>
           </div>
           <div v-if="i.title" class="item__title">{{ i.title }}</div>
@@ -36,7 +48,6 @@
       <div class="swiper-button-prev" slot="button-prev"></div>
       <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
     </swiper>
-
   </div>
 </template>
 
@@ -73,9 +84,11 @@
         }
       }
     },
-    methods : {
+    methods: {
       coming(category) {
-        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingCover
+        return this.category == 'artists'
+          ? this.texts.comingPhoto
+          : this.texts.comingCover
       },
       rectangle(category) {
         return this.category == 'videos' ? 'item--rectangle' : ''
@@ -84,5 +97,4 @@
   }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -40,15 +40,24 @@ body {
   min-width: $XS;
 
   // RED BG
-  background-color: #8a0202;
-  background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg?01');
+  // background-color: #8a0202;
+  // background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red.jpg?01');
   // background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_1x.jpg?01');
   // background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-red_2x.jpg?01');
-  
+  // background-image: url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-red_v1.jpg?alt=media&token=01b6ab9a-046c-407b-9bc9-747a0d3ace9a');
+
   // GREEN BG
-  // background-color: #144b15;
-  // background-image: url('https://content.sentimony.com/assets/img/backgrounds/sombrero-green.jpg?01');
-  
+  background-color: #144b15;
+  // background-image: url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v1.jpg?alt=media&token=ecd2f2d2-10d7-4516-8273-0d4f03dfc158');
+  // background-image: url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v2.jpg?alt=media&token=95104446-ad54-4466-a843-a57375302daa');
+  // background-image: url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v3.jpg?alt=media&token=bd3f81c9-0a77-4c8c-ae65-24d3f52c7470');
+  // background-image: url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v4.jpg?alt=media&token=1cacddcb-5144-4ba7-a970-d6142038bf69');
+  // background-image: url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5.jpg?alt=media&token=b4e80e90-669c-42aa-b8b5-583f56d8de2e');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5.jpg?alt=media&token=b4e80e90-669c-42aa-b8b5-583f56d8de2e');
+  // background-image: url('');
+  // background-image: url('');
+  // background-image: url('');
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,10 +77,10 @@ h5,
 h6,
 p {
   font-weight: 400;
-  margin: 0 0 .3rem;
+  margin: 0 0 0.3rem;
 
   @include media(M) {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -95,13 +104,13 @@ iframe {
 }
 
 hr {
-  border: solid rgba(#000,.3);
+  border: solid rgba(#000, 0.3);
   border-width: 1px 0 0;
   margin: 1em 0;
 }
 
 small {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 // Sentimony UI
@@ -119,10 +128,9 @@ small {
 
 .small-info {
   font-size: 10px;
-  color: rgba(#fff,.5);
+  color: rgba(#fff, 0.5);
 
   @include media(S) {
     font-size: 14px;
   }
 }
-
