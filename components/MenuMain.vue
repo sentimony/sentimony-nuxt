@@ -52,13 +52,13 @@
           active-class="is-selected"
           >Events</router-link
         >
-        <router-link
+        <!-- <router-link
           v-ripple
           to="/friends/"
           class="menu-main__link"
           active-class="is-selected"
           >Friends</router-link
-        >
+        > -->
         <router-link
           v-ripple
           to="/contacts/"

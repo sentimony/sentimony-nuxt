@@ -8,21 +8,41 @@ module.exports = {
     link: [
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Montserrat'
+        href:
+          'https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap'
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Julius+Sans+One'
-      },
-      {
-        rel: 'shortcut icon',
         href:
-          'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-32.png?01'
+          'https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap'
       },
+      // {
+      //   rel: 'stylesheet',
+      //   href: 'https://fonts.googleapis.com/css2?family=Lekton&display=swap'
+      // },
+      // {
+      //   rel: 'stylesheet',
+      //   href:
+      //     'https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'
+      // },
       {
         rel: 'apple-touch-icon',
-        href:
-          'https://content.sentimony.com/assets/img/favicons/sentimony/favicon-144.png?01'
+        sizes: '180x180',
+        href: '/favicon-v2-green/apple-touch-icon.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/favicon-v2-green/favicon.svg'
+      },
+      {
+        rel: 'alternate icon',
+        type: 'image/x-icon',
+        href: '/favicon-v2-green/favicon.ico'
+      },
+      {
+        rel: 'manifest',
+        href: '/favicon-v2-green/site.webmanifest'
       }
     ]
   },

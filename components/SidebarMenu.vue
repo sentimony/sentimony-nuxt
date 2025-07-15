@@ -23,9 +23,9 @@
         >Playlists</nuxt-link
       >
       <nuxt-link v-ripple to="/events/" class="mobmenu__link">Events</nuxt-link>
-      <nuxt-link v-ripple to="/friends/" class="mobmenu__link"
+      <!-- <nuxt-link v-ripple to="/friends/" class="mobmenu__link"
         >Friends</nuxt-link
-      >
+      > -->
       <!-- <nuxt-link v-ripple to="/sitemap/" class="mobmenu__link">Sitemap</nuxt-link> -->
       <!-- <nuxt-link v-ripple to="/tracks/" class="mobmenu__link">Tracks</nuxt-link> -->
       <nuxt-link v-ripple to="/contacts/" class="mobmenu__link"
