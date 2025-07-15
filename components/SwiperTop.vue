@@ -2,7 +2,10 @@
   <div class="swiper-list">
     <div v-if="title" class="title">{{ title }}</div>
 
-    <swiper class="swiper" :options="swiperOption">
+    <swiper
+      :class="{ 'swiper swiperTop': true, isShown }"
+      :options="swiperOption"
+    >
       <swiper-slide
         :class="'item ' + rectangle()"
         v-for="(i, index) in list"
@@ -58,6 +61,7 @@
     props: ['title', 'list', 'category', 'item'],
     data() {
       return {
+        isShown: false,
         texts: AppContent.texts,
         swiperOption: {
           lazy: true,
@@ -84,6 +88,14 @@
         }
       }
     },
+    mounted() {
+      setTimeout(() => {
+        this.isShown = true
+      }, 1000)
+      // this.$nextTick(() => {
+      //   this.isShown = true
+      // })
+    },
     methods: {
       coming(category) {
         return this.category == 'artists'
@@ -97,4 +109,16 @@
   }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .swiperTop {
+    opacity: 0;
+    // filter: blur(4px);
+    // backdrop-filter: blur(2px);
+    transition: opacity 0.4s ease;
+
+    &.isShown {
+      opacity: 1;
+      // filter: blur(0px);
+    }
+  }
+</style>

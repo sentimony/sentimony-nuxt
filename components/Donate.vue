@@ -13,7 +13,7 @@
       </p>
       <p>Thank you — I truly appreciate it ❤️</p>
       <!-- <p><i>—Ihor</i></p> -->
-      <p>—Ihor</p>
+      <p>— Ihor</p>
     </div>
   </div>
 </template>

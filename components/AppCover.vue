@@ -5,7 +5,7 @@
       v-if="cover_th"
       class="app-cover__bg"
       :src="cover_th"
-      :alt="'Artwork of the ' + title + ' thumbnail'"
+      :alt="title + ' Thumbnail'"
     />
 
     <img
@@ -13,7 +13,7 @@
       v-if="cover_xl"
       class="app-cover__img"
       :src="cover_xl"
-      :alt="'Artwork of the ' + title + ' high quality'"
+      :alt="title"
     />
 
     <div

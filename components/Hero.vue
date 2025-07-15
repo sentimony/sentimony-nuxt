@@ -1,8 +1,13 @@
 <template>
   <div class="hero">
     <div class="hero__wrapper">
-      <div class="hero__title" v-html="siteTitle" />
-      <div class="hero__description">{{ siteDescription }}</div>
+      <div class="hero__title">
+        <div class="julius-sans-one-regular" v-html="siteTitle" />
+        <div class="julius-sans-one-regular" v-html="siteSubTitle" />
+        <!-- <div class="courier-prime-regular" v-html="siteSubTitle" />
+        <div class="lekton-regular" v-html="siteSubTitle" /> -->
+      </div>
+      <div class="hero__description" v-html="siteDescription" />
     </div>
   </div>
 </template>
@@ -13,7 +18,8 @@
       title: String
     },
     data: () => ({
-      siteTitle: 'Sentimony<br>Records',
+      siteTitle: 'Sentimony',
+      siteSubTitle: 'Records',
       siteDescription: 'Psychedelic Music Label'
     })
   }
@@ -56,13 +62,31 @@
     }
 
     &__title {
-      font-family: 'Julius Sans One', sans-serif;
+      // font-family: 'Julius Sans One', sans-serif;
       color: #fff;
       margin-bottom: 0.2em;
-      font-weight: 400;
+      // font-weight: 400;
       font-size: 40px;
       letter-spacing: 2px;
       text-transform: uppercase;
+
+      .julius-sans-one-regular {
+        font-family: 'Julius Sans One', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      // .courier-prime-regular {
+      //   font-family: 'Courier Prime', monospace;
+      //   font-weight: 400;
+      //   font-style: normal;
+      // }
+
+      // .lekton-regular {
+      //   font-family: 'Lekton', monospace;
+      //   font-weight: 400;
+      //   font-style: normal;
+      // }
 
       @include media(S) {
         font-size: 55px;
