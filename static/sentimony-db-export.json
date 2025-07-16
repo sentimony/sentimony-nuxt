@@ -3149,6 +3149,14 @@
       "isVisibleFootr": true,
       "title": "Spotify",
       "url": "https://open.spotify.com/user/4arwh3vuu5g9w1gqm89o09td7"
+    },
+    "Deezer": {
+      "icon": "deezer",
+      "isVisibleHeadr": false,
+      "isVisibleContacts": true,
+      "isVisibleFootr": true,
+      "title": "Deezer",
+      "url": "https://www.deezer.com/us/profile/2697545682"
     }
   },
   "events": {

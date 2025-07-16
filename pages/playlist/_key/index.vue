@@ -53,7 +53,14 @@
             :title="titles.youtube_playlist"
             :icon="icons.youtube"
           />
-          <!-- <AppBtn redirect="false" v-if="playlist.links.deezer" :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer"/> -->
+          <AppBtn
+            redirect="false"
+            v-if="playlist.links.deezer"
+            :url="playlist.links.deezer"
+            :route="routes.deezer"
+            :title="titles.deezer"
+            :icon="icons.deezer"
+          />
           <!-- <AppBtn redirect="false" v-if="playlist.links.tidal" :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/> -->
           <!-- <AppBtn redirect="false" v-if="playlist.links.napster" :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/> -->
           <AppBtn
