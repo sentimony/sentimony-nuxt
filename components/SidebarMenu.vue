@@ -11,7 +11,7 @@
       @click="handleClick"
     >
       <nuxt-link v-ripple to="/" class="mobmenu__link" exact>Home</nuxt-link>
-      <nuxt-link v-ripple to="/news/" class="mobmenu__link">News</nuxt-link>
+      <!-- <nuxt-link v-ripple to="/news/" class="mobmenu__link">News</nuxt-link> -->
       <nuxt-link v-ripple to="/releases/" class="mobmenu__link"
         >Releases</nuxt-link
       >

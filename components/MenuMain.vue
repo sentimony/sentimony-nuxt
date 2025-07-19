@@ -10,13 +10,13 @@
           exact
           >Home</router-link
         >
-        <router-link
+        <!-- <router-link
           v-ripple
           to="/news/"
           class="menu-main__link"
           active-class="is-selected"
           >News</router-link
-        >
+        > -->
         <router-link
           v-ripple
           to="/releases/"
@@ -45,13 +45,13 @@
           active-class="is-selected"
           >Playlists</router-link
         >
-        <router-link
+        <!-- <router-link
           v-ripple
           to="/events/"
           class="menu-main__link"
           active-class="is-selected"
           >Events</router-link
-        >
+        > -->
         <!-- <router-link
           v-ripple
           to="/friends/"
