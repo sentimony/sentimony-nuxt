@@ -3,6 +3,7 @@
     <h1 class="contacts__caption">Contacts</h1>
     <p class="contacts__title">{{ touch }}</p>
     <p><a :href="mailtoUrl">{{ email }}</a></p>
+    <br>
     <p class="contacts__title">{{ follow }}</p>
     <p v-if="loading">Loading...</p>
     <div v-else>

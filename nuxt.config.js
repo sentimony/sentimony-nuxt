@@ -81,9 +81,9 @@ module.exports = {
   },
   build: {
     vendor: ['axios'],
-    analyze: {
-      analyzerMode: 'static'
-    }
+    // analyze: {
+    //   analyzerMode: 'static'
+    // }
   },
   router: {
     scrollBehavior: function(to, from, savedPosition) {
