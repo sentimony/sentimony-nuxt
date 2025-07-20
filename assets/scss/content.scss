@@ -5,6 +5,11 @@
   color: #000;
   position: relative;
   padding: 0.5em 0.6em;
+  padding-bottom: 30px;
+
+  @include media(M) {
+    padding-bottom: 60px;
+  }
 
   &__wrapper {
     max-width: 640px;

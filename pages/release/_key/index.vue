@@ -373,12 +373,12 @@
           </p>
         </div>
 
-        <hr />
+        <!-- <hr />
         <VueDisqus
           shortname="sentimony"
           :identifier="release.slug"
           :url="'https://sentimony.com/release/' + release.slug"
-        />
+        /> -->
       </div>
     </div>
   </div>
