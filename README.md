@@ -10,7 +10,7 @@ _Web development of Sentimony Records site_
 
 <!-- [Coriolan UI](https://coriolan-ui.github.io) - [Sass](http://sass-lang.com) mixins pack -->
 
-[Disqus](https://disqus.com) - comments
+<!-- [Disqus](https://disqus.com) - comments -->
 
 [Netlify](https://www.netlify.com) - automatic deploy & free hosting platform
 
@@ -23,7 +23,7 @@ _Web development of Sentimony Records site_
 ```
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm use 14.15.0
+nvm use 20.19.4
 npm i
 npm run dev
 ```
