@@ -147,13 +147,14 @@
             <AppRelativeItem :i="i" category="release" />
           </li>
         </ol>
-        <hr />
+
+        <!-- <hr />
 
         <VueDisqus
           shortname="sentimony"
           :identifier="playlist.slug"
           :url="'https://sentimony.com/playlist/' + playlist.slug"
-        />
+        /> -->
       </div>
     </div>
   </div>

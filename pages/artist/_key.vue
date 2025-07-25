@@ -181,13 +181,14 @@
 
         <p v-if="artist.discogs"><small><b>Links:</b></small></p>
         <p v-if="artist.discogs"><a :href="artist.discogs" target="_blank" rel="noopener">Discogs</a></p>
-        <hr v-if="artist.discogs">
+        
+        <!-- <hr v-if="artist.discogs">
 
         <VueDisqus
           shortname="sentimony"
           :identifier="artist.slug"
           :url="'https://sentimony.com/artist/' + artist.slug"
-        />
+        /> -->
 
       </div>
     </div>

@@ -60,13 +60,13 @@
           <div v-html="video.credits"/>
         </div>
 
-        <hr>
+        <!-- <hr>
 
         <VueDisqus
           shortname="sentimony"
           :identifier="video.slug"
           :url="'https://sentimony.com/video/' + video.slug"
-        />
+        /> -->
 
       </div>
     </div>
