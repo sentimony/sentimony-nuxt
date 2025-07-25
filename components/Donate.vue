@@ -30,6 +30,9 @@
 </script>
 
 <style lang="scss">
+  @import '../node_modules/coriolan-ui/tools/variables';
+  @import '../node_modules/coriolan-ui/mixins/media';
+
   .donate {
     position: relative;
     color: #000;
@@ -47,10 +50,18 @@
     &__wrapper {
       max-width: 500px;
       margin: 0 auto;
-      padding: 5em 10px;
       box-sizing: border-box;
       position: relative;
       text-align: left;
+      padding-left: 0.6em;
+      padding-right: 0.6em;
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      @include media(M) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
 
       p {
         text-shadow: 0 2px 2px #fff, 0 -2px 2px #fff, 2px 0 2px #fff,
