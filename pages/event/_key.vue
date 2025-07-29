@@ -39,6 +39,7 @@
   import moment from 'moment'
 
   export default {
+    layout: 'default',
     components: {
     },
     async asyncData({ route }) {

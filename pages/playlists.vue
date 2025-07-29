@@ -35,7 +35,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
-    // layout: 'playlist',
+    layout: 'default',
     data () {
       return {
         texts: AppContent.texts,

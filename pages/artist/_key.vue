@@ -211,7 +211,7 @@
   import AppRelativeItem from '~/components/AppRelativeItem.vue'
 
   export default {
-    layout: 'artist',
+    layout: 'default',
     components: {
       SvgTriangle,
       AppCover,

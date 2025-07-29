@@ -46,7 +46,7 @@
   import AppContent from '~/plugins/app-content'
 
   export default {
-    // layout: 'release',
+    layout: 'default',
     data() {
       return {
         texts: AppContent.texts

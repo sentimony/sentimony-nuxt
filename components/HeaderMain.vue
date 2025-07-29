@@ -8,34 +8,10 @@
 
         <nav class="header-main__main-menu" v-if="$mq === 'lg'">
           <!-- <nuxt-link to="/news/" class="header-main__main-menu-link" active-class="is-selected">News</nuxt-link> -->
-          <nuxt-link
-            v-ripple
-            to="/releases/"
-            class="header-main__main-menu-link"
-            active-class="is-selected"
-            >Releases</nuxt-link
-          >
-          <nuxt-link
-            v-ripple
-            to="/artists/"
-            class="header-main__main-menu-link"
-            active-class="is-selected"
-            >Artists</nuxt-link
-          >
-          <nuxt-link
-            v-ripple
-            to="/videos/"
-            class="header-main__main-menu-link"
-            active-class="is-selected"
-            >Videos</nuxt-link
-          >
-          <nuxt-link
-            v-ripple
-            to="/playlists/"
-            class="header-main__main-menu-link"
-            active-class="is-selected"
-            >Playlists</nuxt-link
-          >
+          <nuxt-link v-ripple to="/releases/" class="header-main__main-menu-link" active-class="is-selected">Releases</nuxt-link>
+          <nuxt-link v-ripple to="/artists/" class="header-main__main-menu-link" active-class="is-selected">Artists</nuxt-link>
+          <nuxt-link v-ripple to="/videos/" class="header-main__main-menu-link" active-class="is-selected">Videos</nuxt-link>
+          <nuxt-link v-ripple to="/playlists/" class="header-main__main-menu-link" active-class="is-selected">Playlists</nuxt-link>
           <!-- <nuxt-link to="/events/" class="header-main__main-menu-link" active-class="is-selected">Events</nuxt-link> -->
           <!-- <nuxt-link to="/friends/" class="header-main__main-menu-link" active-class="is-selected">Friends</nuxt-link> -->
           <!-- <nuxt-link to="/contacts/" class="header-main__main-menu-link" active-class="is-selected">Contacts</nuxt-link> -->
@@ -90,13 +66,13 @@
 
       &-link {
         @extend .main-menu-link;
+        line-height: 16px;
         font-size: 14px;
-        // line-height: 16px;
-        padding: 16px;
+        padding: 20px 16px;
 
         @include media(L) {
           font-size: 16px;
-          padding: 16px 16px * 1.75;
+          padding: 20px 16px * 1.75;
         }
       }
     }

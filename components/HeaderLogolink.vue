@@ -43,8 +43,9 @@
     justify-content: center;
     align-items: center;
     width: 232px;
-    height: 54px;
+    height: 56px;
     padding: 0;
+    line-height: 1.5;
 
     &__logo {
       width: 40px;

@@ -177,7 +177,7 @@
   import AppRelativeItem from '~/components/AppRelativeItem.vue'
 
   export default {
-    layout: 'playlist',
+    layout: 'default',
     components: {
       // SwiperTop,
       IframeTabs,
