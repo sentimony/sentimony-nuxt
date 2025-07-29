@@ -1,9 +1,17 @@
 <template>
   <div class="sidebar0">
 
-    <div class="sidebar1" :class="sidebarOpen ? 'is-open' : ''" @click="handleClick"></div>
+    <div 
+      class="sidebar1" 
+      :class="mobmenu.sidebarOpen ? 'is-open' : ''" 
+      @click="mobmenu.toggleSidebar"
+    ></div>
     
-    <div class="sidebar2" :class="sidebarOpen ? 'is-open' : ''" @click="handleClick">
+    <div
+      class="sidebar2" 
+      :class="mobmenu.sidebarOpen ? 'is-open' : ''" 
+      @click="mobmenu.toggleSidebar"
+    >
       <nuxt-link v-ripple to="/" class="mobmenu__link" exact>Home</nuxt-link>
       <!-- <nuxt-link v-ripple to="/news/" class="mobmenu__link">News</nuxt-link> -->
       <nuxt-link v-ripple to="/releases/" class="mobmenu__link">Releases</nuxt-link>
@@ -18,11 +26,17 @@
 
       <hr style="border-color:#fff;opacity:.3;" />
 
-      <header-social-menu style="width:266px" />
+      <header-social-menu style="display: flex; justify-content: center;" />
     </div>
 
   </div>
 </template>
+
+<script setup>
+  import { useMobmenuStore } from '../pinia/mobmenu.ts'
+
+  const mobmenu = useMobmenuStore()
+</script>
 
 <script>
   import HeaderSocialMenu from '~/components/HeaderSocialMenu.vue'
@@ -31,16 +45,6 @@
     components: {
       HeaderSocialMenu
     },
-    computed: {
-      sidebarOpen() {
-        return this.$store.state.mobmenu.sidebarOpen
-      }
-    },
-    methods: {
-      handleClick() {
-        this.$store.dispatch('toggleSidebar')
-      }
-    }
   }
 </script>
 

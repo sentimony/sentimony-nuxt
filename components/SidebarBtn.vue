@@ -1,27 +1,18 @@
 <template>
-  <button
+  <button 
     class="SideBarBtn"
-    :class="sidebarOpen ? 'is-active' : ''"
-    @click="handleClick"
+    :class="mobmenu.sidebarOpen ? 'is-active' : ''"
+    @click="mobmenu.toggleSidebar"
     v-if="$mq === 'sm' || $mq === 'md'"
   >
     <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg?01">
   </button>
 </template>
 
-<script>
-  export default {
-    computed: {
-      sidebarOpen () {
-        return this.$store.state.mobmenu.sidebarOpen
-      }
-    },
-    methods: {
-      handleClick () {
-        this.$store.dispatch('toggleSidebar')
-      }
-    }
-  }
+<script setup>
+  import { useMobmenuStore } from '../pinia/mobmenu.ts'
+
+  const mobmenu = useMobmenuStore()
 </script>
 
 <style lang="scss">

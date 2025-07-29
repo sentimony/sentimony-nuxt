@@ -15,9 +15,7 @@
       <div style="display: flex; flex-direction: column; justify-content: center;">
         <!-- <div :class="showHero ? 'sen-dn' : 'sen-db'"> -->
         <div style="order: 0;">
-          <transition name="fade" mode="out-in">
-            <Hero v-if="isIndex" />
-          </transition>
+          <Hero v-if="isIndex" />
         </div>
 
         <!-- </div> -->
