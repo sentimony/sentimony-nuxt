@@ -62,7 +62,9 @@ module.exports = {
     { src: '~/plugins/fireauth.js', ssr: false },
     { src: '~/plugins/vue-ripple-directive.js', ssr: false },
     { src: '~/plugins/vue-mq.js', ssr: true },
-    { src: '~/plugins/vue-disqus', ssr: true }
+    // { src: '~/plugins/vue-disqus', ssr: true },
+    '~/plugins/pinia.js',
+
   ],
   css: [
     'normalize.css/normalize.css',
@@ -80,11 +82,22 @@ module.exports = {
     disabled: false
   },
   build: {
+    // loaders: {
+    //   scss: {
+    //     implementation: require('sass'),
+    //   },
+    //   sass: {
+    //     implementation: require('sass'),
+    //   },
+    // },
     vendor: ['axios'],
     // analyze: {
     //   analyzerMode: 'static'
     // }
   },
+  buildModules: [
+    '@nuxtjs/composition-api/module'
+  ],
   router: {
     scrollBehavior: function(to, from, savedPosition) {
       return { x: 0, y: 0 }
