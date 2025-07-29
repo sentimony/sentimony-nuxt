@@ -92,15 +92,10 @@
       setTimeout(() => {
         this.isShown = true
       }, 1000)
-      // this.$nextTick(() => {
-      //   this.isShown = true
-      // })
     },
     methods: {
       coming(category) {
-        return this.category == 'artists'
-          ? this.texts.comingPhoto
-          : this.texts.comingCover
+        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingCover
       },
       rectangle(category) {
         return this.category == 'videos' ? 'item--rectangle' : ''

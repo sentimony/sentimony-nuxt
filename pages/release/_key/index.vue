@@ -399,7 +399,7 @@
   import AppRelativeItem from '~/components/AppRelativeItem.vue'
 
   export default {
-    layout: 'release',
+    layout: 'default',
     components: {
       SvgTriangle,
       AppCover,

@@ -1,13 +1,13 @@
 <template>
   <div class="">
-    <Hero />
+    <!-- <Hero /> -->
 
-    <SwiperTop
+    <!-- <SwiperTop
       title="Releases"
       :list="releasesSortedByDate"
       category="releases"
       item="release"
-    />
+    /> -->
 
     <div class="index">
       <div class="index__wrapper">
@@ -25,12 +25,12 @@
       </div>
     </div>
 
-    <SwiperTop
+    <!-- <SwiperTop
       title="Artists"
       :list="artistsSortedByCategoryId"
       category="artists"
       item="artist"
-    />
+    /> -->
 
     <!-- <SwiperTop
       title="videos"
@@ -49,16 +49,17 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import sortBy from 'lodash/sortBy'
+  // import axios from 'axios'
+  // import sortBy from 'lodash/sortBy'
 
-  import SwiperTop from '~/components/SwiperTop.vue'
-  import Hero from '../components/Hero.vue'
+  // import SwiperTop from '~/components/SwiperTop.vue'
+  // import Hero from '../components/Hero.vue'
 
   export default {
+    layout: 'default',
     components: {
-      SwiperTop,
-      Hero
+      // Hero,
+      // SwiperTop,
     },
     data: () => ({
       logoOldUrl:
@@ -77,45 +78,39 @@
       // siteDescription: 'Psychedelic Music Label',
       aboutDescription:
         "<p>Sentimony Records is an independent psychedelic music label founded in Kyiv, Ukraine, in the autumn of 2006 by the visionary Ihor Orlovskyi, also known by his moniker 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>.</p><p>The label's main mission is to contribute to the growth of talented psy-minded artists, enriching the global soundscape with unique and exciting musical journeys.</p><p>Over the years, Sentimony Records has focused on its most beloved psychedelic subgenres: <a href='/playlist/dark-prog-zenonesque/'>DarkProg Psytrance</a> and <a href='/playlist/psychill-psybient/'>Trippy Psychill</a>. Through a deep commitment to these styles, the label continues to captivate listeners and inspire the worldwide psychedelic music community.</p>",
-      releases: [],
-      artists: []
+      // releases: [],
+      // artists: []
       // videos: [],
       // playlists: [],
     }),
     mounted() {
-      axios
-        .get('https://sentimony-db.firebaseio.com/releases.json')
-        .then((response) => {
-          this.releases = response.data
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      // axios
+      //   .get('https://sentimony-db.firebaseio.com/releases.json')
+      //   .then((response) => { this.releases = response.data })
+      //   .catch((error) => { console.log(error) })
 
-      axios
-        .get('https://sentimony-db.firebaseio.com/artists.json')
-        .then((response) => {
-          this.artists = response.data
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      // axios
+      //   .get('https://sentimony-db.firebaseio.com/artists.json')
+      //   .then((response) => { this.artists = response.data })
+      //   .catch((error) => { console.log(error) })
 
-      // axios.get('https://sentimony-db.firebaseio.com/videos.json')
-      // .then(response => { this.videos = response.data })
-      // .catch(error => { console.log(error) })
+      // axios
+      //   .get('https://sentimony-db.firebaseio.com/videos.json')
+      //   .then(response => { this.videos = response.data })
+      //   .catch(error => { console.log(error) })
 
-      // axios.get('https://sentimony-db.firebaseio.com/playlists.json')
-      // .then(response => { this.playlists = response.data })
-      // .catch(error => { console.log(error) })
+      // axios
+      //   .get('https://sentimony-db.firebaseio.com/playlists.json')
+      //   .then(response => { this.playlists = response.data })
+      //   .catch(error => { console.log(error) })
     },
     computed: {
-      releasesSortedByDate() {
-        return sortBy(this.releases, 'date').reverse()
-      },
-      artistsSortedByCategoryId() {
-        return sortBy(this.artists, 'category_id')
-      }
+      // releasesSortedByDate() {
+      //   return sortBy(this.releases, 'date').reverse()
+      // },
+      // artistsSortedByCategoryId() {
+      //   return sortBy(this.artists, 'category_id')
+      // }
       // videosSortedByDate () {
       //   return sortBy(this.videos, 'date').reverse()
       // },

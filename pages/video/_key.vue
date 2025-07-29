@@ -88,7 +88,7 @@
   import AppTab from '~/components/AppTab.vue'
 
   export default {
-    layout: 'video',
+    layout: 'default',
     components: {
       SvgTriangle,
       // AppCover,
