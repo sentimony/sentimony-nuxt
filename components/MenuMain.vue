@@ -13,12 +13,13 @@
         <router-link v-ripple to="/contacts/" class="menu-main__link" active-class="is-selected">Contacts</router-link>
         <!-- <router-link v-ripple to="/tracks/" class="menu-main__link" active-class="is-selected">Tracks</router-link> -->
         <!-- <router-link v-ripple to="/sitemap/" class="menu-main__link" active-class="is-selected">Sitemap</router-link> -->
+        <!-- <router-link v-ripple to="/404" class="menu-main__link" active-class="is-selected">404</router-link> -->
       </div>
     </div>
   </div>
 </template>
 
-<script></script>
+<script setup></script>
 
 <style lang="scss">
   .menu-main {
@@ -40,6 +41,7 @@
       padding: 0.6em;
       background-color: rgba(#fff, 0);
       transition: background-color 0.2s ease;
+      color: #fff;
 
       &.is-selected,
       &:hover {

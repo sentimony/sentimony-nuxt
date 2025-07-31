@@ -1,4 +1,5 @@
 module.exports = {
+  target: "static",
   head: {
     titleTemplate: '%s | Sentimony Records',
     meta: [
@@ -46,6 +47,7 @@ module.exports = {
       }
     ]
   },
+  components: true,
   loading: {
     color: 'rgba(255,255,255,0.5)',
     height: '5px'
@@ -57,21 +59,16 @@ module.exports = {
   plugins: [
     { src: '~/plugins/google-analytics.js', ssr: false },
     { src: '~/plugins/vue-awesome-swiper.js', ssr: true },
-    // { src: '~/plugins/vue-tabs.js', ssr: false },
     { src: '~/plugins/v-img.js', ssr: false },
-    { src: '~/plugins/fireauth.js', ssr: false },
     { src: '~/plugins/vue-ripple-directive.js', ssr: false },
     { src: '~/plugins/vue-mq.js', ssr: true },
-    // { src: '~/plugins/vue-disqus', ssr: true },
     '~/plugins/pinia.js',
-
   ],
   css: [
     'normalize.css/normalize.css',
     'swiper/css/swiper.css',
     'assets/scss/base.scss',
     // 'swiper/swiper-bundle.css',
-    // 'vue-nav-tabs/dist/vue-tabs.min.css',
     '@/assets/scss/transitions.scss'
   ],
   modules: ['nuxt-facebook-pixel-module'],
@@ -96,7 +93,7 @@ module.exports = {
     // }
   },
   buildModules: [
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
   ],
   router: {
     scrollBehavior: function(to, from, savedPosition) {

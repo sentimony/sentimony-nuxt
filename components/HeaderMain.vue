@@ -69,6 +69,7 @@
         line-height: 16px;
         font-size: 14px;
         padding: 20px 16px;
+        display: inline-block;
 
         @include media(L) {
           font-size: 16px;
