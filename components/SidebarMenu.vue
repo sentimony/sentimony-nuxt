@@ -26,7 +26,7 @@
 
       <hr style="border-color:#fff;opacity:.3;" />
 
-      <header-social-menu style="display: flex; justify-content: center;" />
+      <HeaderSocialMenu style="display: flex; justify-content: center;" />
     </div>
 
   </div>

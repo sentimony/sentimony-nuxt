@@ -65,6 +65,7 @@
   import SvgTriangle from '~/components/SvgTriangle.vue'
 
   export default {
+    layout: 'error',
     components: {
       SvgTriangle,
     },

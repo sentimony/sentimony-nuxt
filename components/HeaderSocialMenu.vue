@@ -1,35 +1,38 @@
 <template>
-  <!-- <no-ssr> -->
-  <!-- <client-only> -->
-    <div class="headr-social-menu">
-      <div v-if="loading" style="width: 232px;">Loading...</div>
-      <nav v-else class="headr-social-menu__container">
-        <a class="headr-social-menu__link" v-for="(i, index) in socialStore" :key="index" v-if="i.isVisibleHeadr" :href="i.url" v-ripple target="_blank" rel="noopener">
-          <img class="headr-social-menu__link__img" :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" :alt="i.title + ' Icon'"/>
-          <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom" v-html="i.title"/>
-        </a>
-      </nav>
-    </div>
-  <!-- </client-only> -->
-  <!-- </no-ssr> -->
+  <div class="headr-social-menu">
+    <div v-if="loadingStore.loading" style="width: 232px;">Loading...</div>
+    <nav v-else class="headr-social-menu__container">
+      <a 
+        class="headr-social-menu__link" 
+        v-ripple 
+        v-for="(i, index) in social.loadedSocial" 
+        :key="index" 
+        v-if="i.isVisibleHeadr" 
+        :href="i.url" 
+        target="_blank" rel="noopener"
+      >
+        <img 
+          class="headr-social-menu__link__img" 
+          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
+          :alt="i.title + ' Icon'"
+        />
+        <div class="headr-social-menu__link__tooltip headr-social-menu__link__tooltip--bottom" v-html="i.title"/>
+      </a>
+    </nav>
+  </div>
 </template>
 
-<script>
-  export default {
-    // data() {
-    //   return {
-    //     free: 'FREE or Donate'
-    //   }
-    // },
-    computed: {
-      loading () {
-        return this.$store.getters.loading
-      },
-      socialStore () {
-        return this.$store.getters.loadedSocial
-      }
-    }
-  }
+<script setup>
+  import { onMounted } from '@nuxtjs/composition-api'
+  import { useLoadingStore } from '../pinia/loading.ts'
+  import { useSocialStore } from '../pinia/social.ts'
+
+  const loadingStore = useLoadingStore()
+  const social = useSocialStore()
+
+  onMounted(() => {
+    social.loadSocial()
+  })
 </script>
 
 <style lang="scss">

@@ -22,12 +22,8 @@
     <div class="content">
       <div class="content__wrapper">
 
-        <!-- <VueDisqus
-          shortname="sentimony"
-          :identifier="event.slug"
-          :url="'https://sentimony.com/event/' + event.slug"
-        /> -->
 
+        
       </div>
     </div>
   </div>

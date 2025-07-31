@@ -6,7 +6,7 @@
   "dependencies": {
     "@nuxtjs/composition-api": "^0.34.0",
     "axios": "^0.21.2",
-    "core-js": "^2.6.9",
+    "core-js": "^3.6.5",
     "coriolan-ui": "^0.1.20",
     "firebase": "^7.18.0",
     "moment": "^2.29.1",
@@ -17,7 +17,6 @@
     "swiper": "^5.4.5",
     "v-img": "^0.2.0",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-disqus": "^3.0.5",
     "vue-mq": "^1.0.1",
     "vue-ripple-directive": "^2.0.1"
   },

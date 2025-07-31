@@ -148,13 +148,6 @@
           </li>
         </ol>
 
-        <!-- <hr />
-
-        <VueDisqus
-          shortname="sentimony"
-          :identifier="playlist.slug"
-          :url="'https://sentimony.com/playlist/' + playlist.slug"
-        /> -->
       </div>
     </div>
   </div>
@@ -254,7 +247,6 @@
   @import '../../../node_modules/coriolan-ui/tools/variables';
   @import '../../../node_modules/coriolan-ui/mixins/media';
   @import '../../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../../assets/scss/vue-tabs-restyle';
   @import '../../../assets/scss/content';
   @import '../../../assets/scss/page';
   @import '../../../assets/scss/iframe-size';
