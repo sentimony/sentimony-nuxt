@@ -7,44 +7,14 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap'
-      },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap'
-      },
-      // {
-      //   rel: 'stylesheet',
-      //   href: 'https://fonts.googleapis.com/css2?family=Lekton&display=swap'
-      // },
-      // {
-      //   rel: 'stylesheet',
-      //   href:
-      //     'https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'
-      // },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/favicon-v2-green/apple-touch-icon.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        href: '/favicon-v2-green/favicon.svg'
-      },
-      {
-        rel: 'alternate icon',
-        type: 'image/x-icon',
-        href: '/favicon-v2-green/favicon.ico'
-      },
-      {
-        rel: 'manifest',
-        href: '/favicon-v2-green/site.webmanifest'
-      }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap' },
+      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lekton&display=swap' },
+      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon-v2-green/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon-v2-green/favicon.svg' },
+      { rel: 'alternate icon', type: 'image/x-icon', href: '/favicon-v2-green/favicon.ico' },
+      { rel: 'manifest', href: '/favicon-v2-green/site.webmanifest' },
     ]
   },
   components: true,
@@ -75,19 +45,11 @@ module.exports = {
   facebook: {
     track: 'PageView',
     pixelId: 168167750758036,
-    version: '2.0',
+    autoPageView: true,
     disabled: false
   },
   build: {
-    // loaders: {
-    //   scss: {
-    //     implementation: require('sass'),
-    //   },
-    //   sass: {
-    //     implementation: require('sass'),
-    //   },
-    // },
-    vendor: ['axios'],
+    // vendor: ['axios'],
     // analyze: {
     //   analyzerMode: 'static'
     // }
