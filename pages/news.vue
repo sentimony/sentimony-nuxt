@@ -48,7 +48,7 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
   import sortBy from 'lodash/sortBy'
   import moment from 'moment'
 
@@ -93,13 +93,12 @@
 </script>
 
 <style lang="scss">
-  // @import '../node_modules/coriolan-ui/tools/variables';
-  // @import '../node_modules/coriolan-ui/mixins/media';
+  // @use '@/assets/scss/coriolanMedia' as media;
   
   // .news {
   //   padding-bottom: 30px;
 
-  //   @include media(M) {
+  //   @include media.media(M) {
   //     padding-bottom: 60px;
   //   }
   // }

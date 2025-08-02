@@ -34,7 +34,7 @@
       'title',
       'link'
     ],
-    data () {
+    data() {
       return {
         counter: 0,
         redirect: false,
@@ -70,8 +70,9 @@
 </script>
 
 <style lang="sass">
-  @import '../node_modules/coriolan-ui/tools/variables'
-  @import '../node_modules/coriolan-ui/mixins/media'
+  @use '@/assets/scss/coriolanVariables'
+  // @use '@/assets/scss/variables'
+  @use '@/assets/scss/coriolanMedia' as media
 
 
   .Ddosguard
@@ -91,7 +92,7 @@
     font-family: 'Montserrat', sans-serif
     // background-color: #eee
     color: #333
-    @include media(M)
+    @include media.media(M)
       padding-top: 8rem
 
     &Title
@@ -104,7 +105,7 @@
       padding: 0 .5em
       position: relative
       z-index: 1
-      @include media(M)
+      @include media.media(M)
         font-size: 40px
 
     &Animation
@@ -113,7 +114,7 @@
       width: 80px
       height: 80px
       margin-bottom: 1rem
-      @include media(M)
+      @include media.media(M)
         height: 120px
         width: 120px
 
@@ -126,7 +127,7 @@
         height: 100%
         border-radius: 50%
         box-shadow: 0 0 0
-        @include media(M)
+        @include media.media(M)
           animation: 2s ease infinite pulseShadow
 
       &:after
@@ -138,7 +139,7 @@
         height: 100%
         border-radius: 50%
         box-shadow: 0 0 0
-        @include media(M)
+        @include media.media(M)
           animation: 2s ease-in-out .5s infinite pulseShadow
 
     &Coverholder
@@ -148,7 +149,7 @@
       width: 80px
       // border: 2px solid #999
       box-sizing: border-box
-      @include media(M)
+      @include media.media(M)
         background-color: rgba(#999, .5)
         // background-color: #999
         height: 120px
@@ -167,7 +168,7 @@
       background-color: rgba(#fff,.5)
       position: relative
       padding: 0 .5em
-      @include media(M)
+      @include media.media(M)
         font-size: 30px
 
     &Text

@@ -70,14 +70,14 @@
   import sortBy from 'lodash/sortBy'
   import moment from 'moment'
 
-  import axios from '~/plugins/axios'
-  import AppContent from '~/plugins/app-content'
+  import axios from '@/plugins/axios'
+  import AppContent from '@/plugins/AppContent'
 
-  import SvgTriangle from '~/components/SvgTriangle'
-  // import AppCover from '~/components/AppCover'
-  import AppBtn from '~/components/AppBtn'
-  import AppTabs from '~/components/AppTabs.vue'
-  import AppTab from '~/components/AppTab.vue'
+  import SvgTriangle from '@/components/SvgTriangle'
+  // import AppCover from '@/components/AppCover'
+  import AppBtn from '@/components/AppBtn'
+  import AppTabs from '@/components/AppTabs.vue'
+  import AppTab from '@/components/AppTab.vue'
 
   export default {
     layout: 'default',
@@ -88,7 +88,7 @@
       AppTabs,
       AppTab,
     },
-    data () {
+    data() {
       return {
         routes: AppContent.routes,
         titles: AppContent.titles,
@@ -153,7 +153,7 @@
         console.log(key)
       }
     },
-    head () {
+    head() {
       return {
         title: this.video.title,
         meta: [
@@ -166,13 +166,12 @@
 </script>
 
 <style lang="scss">
-  @import '../../node_modules/coriolan-ui/tools/variables';
-  @import '../../node_modules/coriolan-ui/mixins/media';
-  @import '../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../assets/scss/content';
-  @import '../../assets/scss/page';
-  @import '../../assets/scss/iframe-size';
-  @import '../../assets/scss/v-img-restyle';
+  @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/coriolanRatio' as ratio;
+  @use '@/assets/scss/content';
+  @use '@/assets/scss/page';
+  @use '@/assets/scss/iframe-size';
+  @use '@/assets/scss/v-img-restyle';
 
   .page-video {
     @extend .page;
@@ -192,7 +191,7 @@
       justify-content: space-between;
       flex-direction: column;
 
-      @include media(L) {
+      @include media.media(L) {
         flex-direction: row;
         padding-top: 40px;
       }
@@ -206,7 +205,7 @@
       // align-items: flex-start;
       // justify-content: space-between;
 
-      @include media(L) {
+      @include media.media(L) {
         margin-top: 62px;
         margin-bottom: 10em;
         // width: auto;
@@ -223,7 +222,7 @@
       // margin: 0 0 .1em;
       color: #fff;
 
-      @include media(M) {
+      @include media.media(M) {
         font-size: 30px;
       }
     }
@@ -248,7 +247,7 @@
     }
 
     &__youtube-player {
-      @include ratio(100%,16,9);
+      @include ratio.ratio(100%,16,9);
       @extend .sentimony-iframe;
 
       &-iframe {

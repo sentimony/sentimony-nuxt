@@ -28,7 +28,7 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
   import sortBy from 'lodash/sortBy'
 
   export default {
@@ -38,9 +38,7 @@
     },
     computed: {
       sortByDate() {
-        return sortBy(this.releases, 'date')
-          .reverse()
-          .reverse()
+        return sortBy(this.releases, 'date').reverse().reverse()
       }
     },
     head: {
@@ -49,8 +47,7 @@
         { name: 'description', content: 'Tracks of Sentimony Records' },
         {
           property: 'og:image',
-          content:
-            'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01'
+          content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01'
         }
       ]
     }
@@ -58,9 +55,9 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
-  // @import '../assets/scss/item';
-  // @import '../assets/scss/list';
+  @use '@/assets/scss/page';
+  // @use '@/assets/scss/item';
+  // @use '@/assets/scss/list';
 
   .tracks {
     @extend .page;

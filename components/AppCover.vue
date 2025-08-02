@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import AppContent from '~/plugins/app-content'
+  import AppContent from '@/plugins/AppContent'
 
   export default {
     props: {
@@ -50,10 +50,8 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
-  @import '../assets/scss/variables';
-  @import '../assets/scss/v-img-restyle';
+  @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/v-img-restyle';
 
   .app-cover {
     // min-width: 100px;
@@ -64,12 +62,12 @@
     overflow: hidden;
     margin-right: 1.4em;
     margin-bottom: 0.5em;
-    background-color: $colorBgBlack;
-    box-shadow: $shadow;
+    background-color: rgba(#000, 0.5);
+    box-shadow: 0 2px 10px 0 rgba(#000, 0.5);
     position: relative;
     float: left;
 
-    @include media(M) {
+    @include media.media(M) {
       // min-width: 190px;
       // max-width: 190px;
       width: 190px;
@@ -86,10 +84,10 @@
       display: block;
       width: 100%;
       max-width: 100px;
-      box-shadow: $shadow;
+      box-shadow: 0 2px 10px 0 rgba(#000, 0.5);
       position: relative;
 
-      @include media(M) {
+      @include media.media(M) {
         max-width: 190px;
       }
     }
@@ -99,7 +97,7 @@
       font-size: 10px;
       color: rgba(#fff, 0.5);
 
-      @include media(M) {
+      @include media.media(M) {
         font-size: 14px;
       }
     }

@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
   import moment from 'moment'
 
   export default {
@@ -51,7 +51,7 @@
         }
       }
     },
-    head () {
+    head() {
       return {
         title: this.event.title,
         meta: [
@@ -64,8 +64,8 @@
 </script>
 
 <style lang="scss">
-  @import '../../assets/scss/page';
-  @import '../../assets/scss/content';
+  @use '@/assets/scss/page';
+  @use '@/assets/scss/content';
 
   .event {
     @extend .page;

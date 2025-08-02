@@ -21,17 +21,15 @@
 <script>
   export default {
     data: () => ({
-      youtube_url:
-        'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1',
+      youtube_url:'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1',
       soundcloud_url: 'https://soundcloud.com/sentimony',
-      bandcamp_url: 'https://sentimony.bandcamp.com/follow_me'
+      bandcamp_url: 'https://sentimony.bandcamp.com/follow_me',
     })
   }
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
+  @use '@/assets/scss/coriolanMedia' as media;
 
   .donate {
     position: relative;
@@ -58,7 +56,7 @@
       padding-top: 30px;
       padding-bottom: 30px;
 
-      @include media(M) {
+      @include media.media(M) {
         padding-top: 60px;
         padding-bottom: 60px;
       }

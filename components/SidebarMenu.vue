@@ -33,13 +33,13 @@
 </template>
 
 <script setup>
-  import { useMobmenuStore } from '../pinia/mobmenu.ts'
+  import { useMobmenuStore } from '@/stores/mobmenu.ts'
 
   const mobmenu = useMobmenuStore()
 </script>
 
 <script>
-  import HeaderSocialMenu from '~/components/HeaderSocialMenu.vue'
+  import HeaderSocialMenu from '@/components/HeaderSocialMenu.vue'
 
   export default {
     components: {
@@ -49,6 +49,9 @@
 </script>
 
 <style lang="scss">
+  @use '@/assets/scss/page';
+  @use '@/assets/scss/main-menu-link';
+
   .sidebar0 {
     z-index: 1000;
     position: fixed;
@@ -106,9 +109,6 @@
     }
   }
 
-  @import '../assets/scss/page';
-  @import '../assets/scss/main-menu-link';
-
   .mobmenu {
     @extend .page;
 
@@ -119,7 +119,7 @@
 
       &:hover,
       &.nuxt-link-active {
-        background-color: $colorBgLight;
+        background-color: rgba(#ccc, 0.4);
       }
     }
   }

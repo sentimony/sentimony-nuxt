@@ -35,7 +35,7 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/main-menu-link';
+  @use '@/assets/scss/main-menu-link';
 
   .header-logolink {
     @extend .main-menu-link;

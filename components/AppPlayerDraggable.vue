@@ -140,10 +140,9 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../assets/scss/page';
-  @import '../node_modules/coriolan-ui/mixins/ratio';
-  @import '../assets/scss/iframe-size';
+  @use '@/assets/scss/page';
+  @use '@/assets/scss/coriolanRatio' as ratio;
+  @use '@/assets/scss/iframe-size';
 
   .AppPlayerDraggable {
     color: #fff;
@@ -158,7 +157,7 @@
     background-color: rgba(#ccc, 0.4);
     // background-color: #ac5c58;
     border-radius: 9px;
-    box-shadow: $shadow;
+    box-shadow: 0 2px 10px 0 rgba(#000, 0.5);
     // box-shadow: none;
     // cursor: grab;
     cursor: move;
@@ -186,7 +185,7 @@
       background-color: rgba(#ccc, 0.4);
       z-index: 960;
       // cursor: grab;
-      text-shadow: 0px 0px 1px $colorBgBlack;
+      text-shadow: 0px 0px 1px rgba(#000, 0.5);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -204,7 +203,7 @@
       box-sizing: border-box;
       position: relative;
       // color: #fff;
-      @include ratio(100%, 16, 9);
+      @include ratio.ratio(100%, 16, 9);
       @extend .sentimony-iframe;
       // box-shadow: none;
       // transform: translateY(50%);

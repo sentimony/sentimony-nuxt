@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
 
   export default {
     async asyncData() {
@@ -25,8 +25,7 @@
         { name: 'description', content: 'Friends of Sentimony Records' },
         {
           property: 'og:image',
-          content:
-            'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
+          content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
         }
       ]
     }
@@ -34,7 +33,7 @@
 </script>
 
 <style lang="scss">
-  // @import '../assets/scss/page';
+  // @use '@/assets/scss/page';
 
   // .friends {
   //   @extend .page;

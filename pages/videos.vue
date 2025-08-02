@@ -34,13 +34,13 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
   import sortBy from 'lodash/sortBy'
-  import AppContent from '~/plugins/app-content'
+  import AppContent from '@/plugins/AppContent'
 
   export default {
     layout: 'default',
-    data () {
+    data() {
       return {
         pageTitle: 'Videos',
         texts: AppContent.texts,
@@ -65,5 +65,4 @@
   }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

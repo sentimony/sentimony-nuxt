@@ -1,6 +1,6 @@
-// @import '../../node_modules/coriolan-ui/tools/variables';
-// @import '../../node_modules/coriolan-ui/mixins/media';
-@import 'variables';
+@use 'coriolanVariables';
+// @use 'variables';
+@use 'coriolanMedia' as media;
 
 .main-menu-link {
   color: #fff;
@@ -10,7 +10,7 @@
   font-size: 16px;
   padding: 16px 16px*1.75;
 
-  // @include media(L) {
+  // @include media.media(L) {
   //   font-size: 16px;
   //   padding: 16px 16px*1.75;
   // }
@@ -21,6 +21,6 @@
 
   &.is-selected,
   &:hover {
-    background-color: $colorBgLight;
+    background-color: rgba(#ccc, 0.4);
   }
 }

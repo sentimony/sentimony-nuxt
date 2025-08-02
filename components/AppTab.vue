@@ -9,7 +9,7 @@
     props: {
       'title': String,
     },
-    data () {
+    data() {
       return {
         isActive: true
       }

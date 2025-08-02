@@ -68,10 +68,8 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
-  @import '../assets/scss/variables';
-  @import '../assets/scss/buttons';
+  @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/buttons';
 
   .app-btn {
     margin-right: .5em;
@@ -87,7 +85,7 @@
         width: 16px;
         height: 16px;
 
-        @include media(M) {
+        @include media.media(M) {
           width: 18px;
           height: 18px;
         }

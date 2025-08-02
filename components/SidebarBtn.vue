@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-  import { useMobmenuStore } from '../pinia/mobmenu.ts'
+  import { useMobmenuStore } from '@/stores/mobmenu.ts'
 
   const mobmenu = useMobmenuStore()
 </script>

@@ -26,7 +26,7 @@
 <script>
   export default {
     // props: ['title', 'icon'],
-    data () {
+    data() {
       return {
         selectedIndex: 0,
         tabs: []
@@ -52,8 +52,7 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
+  @use '@/assets/scss/coriolanMedia' as media;
 
   .app-tabs__header {
     list-style: none;
@@ -86,7 +85,7 @@
     & span {
       display: none;
 
-      @include media(S) {
+      @include media.media(S) {
         display: block;
       }
     }

@@ -75,9 +75,7 @@
 
         <div class="page-playlist__player-tabs">
           <IframeTabs
-            v-if="
-              playlist.links.youtube || playlist.links.soundcloud_playlist_id
-            "
+            v-if="playlist.links.youtube || playlist.links.soundcloud_playlist_id"
             :one="[
               playlist.links.youtube,
               playlist.links.soundcloud_playlist_id
@@ -157,17 +155,17 @@
   import sortBy from 'lodash/sortBy'
   import moment from 'moment'
 
-  import axios from '~/plugins/axios'
-  import AppContent from '~/plugins/app-content'
+  import axios from '@/plugins/axios'
+  import AppContent from '@/plugins/AppContent'
 
-  // import SwiperTop from '~/components/SwiperTop.vue'
-  import IframeTabs from '~/components/IframeTabs.vue'
-  import SvgTriangle from '~/components/SvgTriangle.vue'
-  import AppCover from '~/components/AppCover'
-  import AppBtn from '~/components/AppBtn'
-  // import AppTabs from '~/components/AppTabs.vue'
-  // import AppTab from '~/components/AppTab.vue'
-  import AppRelativeItem from '~/components/AppRelativeItem.vue'
+  // import SwiperTop from '@/components/SwiperTop.vue'
+  import IframeTabs from '@/components/IframeTabs.vue'
+  import SvgTriangle from '@/components/SvgTriangle.vue'
+  import AppCover from '@/components/AppCover'
+  import AppBtn from '@/components/AppBtn'
+  // import AppTabs from '@/components/AppTabs.vue'
+  // import AppTab from '@/components/AppTab.vue'
+  import AppRelativeItem from '@/components/AppRelativeItem.vue'
 
   export default {
     layout: 'default',
@@ -227,13 +225,11 @@
         meta: [
           {
             name: 'description',
-            content:
-              this.playlist.style + ', ' + this.playlist.date.split('-')[0]
+            content:               this.playlist.style + ', ' + this.playlist.date.split('-')[0]
           },
           {
             property: 'og:image',
-            content:
-              'https://content.sentimony.com/assets/img/playlists/og-images/' +
+            content:               'https://content.sentimony.com/assets/img/playlists/og-images/' +
               this.playlist.slug +
               '.jpg?01'
           }
@@ -244,13 +240,12 @@
 </script>
 
 <style lang="scss">
-  @import '../../../node_modules/coriolan-ui/tools/variables';
-  @import '../../../node_modules/coriolan-ui/mixins/media';
-  @import '../../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../../assets/scss/content';
-  @import '../../../assets/scss/page';
-  @import '../../../assets/scss/iframe-size';
-  @import '../../../assets/scss/v-img-restyle';
+  @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/coriolanRatio' as ratio;
+  @use '@/assets/scss/content';
+  @use '@/assets/scss/page';
+  @use '@/assets/scss/iframe-size';
+  @use '@/assets/scss/v-img-restyle';
 
   .page-playlist {
     @extend .page;
@@ -270,7 +265,7 @@
       justify-content: space-between;
       flex-direction: column;
 
-      @include media(L) {
+      @include media.media(L) {
         flex-direction: row;
         padding-top: 40px;
       }
@@ -281,7 +276,7 @@
       width: 100%;
       position: relative;
 
-      @include media(L) {
+      @include media.media(L) {
         margin-top: 62px;
         margin-bottom: 10em;
       }
@@ -297,7 +292,7 @@
       margin: 0 0 0.1em;
       color: #fff;
 
-      @include media(M) {
+      @include media.media(M) {
         font-size: 30px;
       }
     }
@@ -309,7 +304,7 @@
     }
 
     &__youtube-player {
-      @include ratio(100%, 16, 9);
+      @include ratio.ratio(100%, 16, 9);
       @extend .sentimony-iframe;
 
       &-iframe {

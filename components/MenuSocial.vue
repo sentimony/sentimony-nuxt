@@ -24,8 +24,8 @@
 
 <script setup>
   import { onMounted } from '@nuxtjs/composition-api'
-  import { useLoadingStore } from '../pinia/loading.ts'
-  import { useSocialStore } from '../pinia/social.ts'
+  import { useLoadingStore } from '@/stores/loading.ts'
+  import { useSocialStore } from '@/stores/social.ts'
 
   const loadingStore = useLoadingStore()
   const social = useSocialStore()
@@ -36,8 +36,7 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
+  @use '@/assets/scss/coriolanMedia' as media;
 
   .menu-social {
     margin: 0 auto 24px;
@@ -53,7 +52,7 @@
       justify-content: center;
       // width: 290px;
 
-      @include media(S) {
+      @include media.media(S) {
         width: 100%;
       }
     }

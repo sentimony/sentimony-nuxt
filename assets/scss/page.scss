@@ -1,6 +1,7 @@
-@import '../../node_modules/coriolan-ui/tools/variables';
-@import '../../node_modules/coriolan-ui/mixins/media';
-@import 'title';
+@use 'coriolanVariables';
+// @use 'variables';
+@use 'coriolanMedia' as media;
+@use 'title';
 
 .page {
   padding: 0 0.6em;
@@ -8,7 +9,7 @@
   margin: 0 auto;
   padding-bottom: 30px;
 
-  @include media(M) {
+  @include media.media(M) {
     padding-bottom: 60px;
   }
 
@@ -23,7 +24,7 @@
     background-size: cover;
     display: block;
 
-    @include media(L) {
+    @include media.media(L) {
       margin-right: 6px;
     }
   }
@@ -35,7 +36,7 @@
   //   background-size: cover;
   //   display: block;
   //
-  //   @include media(L) {
+  //   @include media.media(L) {
   //     margin-right: 6px;
   //   }
   //

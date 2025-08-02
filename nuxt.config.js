@@ -27,41 +27,53 @@ module.exports = {
     mode: 'out-in'
   },
   plugins: [
-    { src: '~/plugins/google-analytics.js', ssr: false },
-    { src: '~/plugins/vue-awesome-swiper.js', ssr: true },
-    { src: '~/plugins/v-img.js', ssr: false },
-    { src: '~/plugins/vue-ripple-directive.js', ssr: false },
-    { src: '~/plugins/vue-mq.js', ssr: true },
-    '~/plugins/pinia.js',
+    { src: '@/plugins/google-analytics.js', ssr: false },
+    { src: '@/plugins/vue-awesome-swiper.js', ssr: false },
+    { src: '@/plugins/v-img.js', ssr: false },
+    { src: '@/plugins/vue-ripple-directive.js', ssr: false },
+    { src: '@/plugins/vue-mq.js', ssr: true },
+    { src: '@/plugins/pinia.js', ssr: true },
   ],
   css: [
     'normalize.css/normalize.css',
     'swiper/css/swiper.css',
-    'assets/scss/base.scss',
-    // 'swiper/swiper-bundle.css',
-    '@/assets/scss/transitions.scss'
+    '@/assets/scss/base.scss',
+    '@/assets/scss/transitions.scss',
   ],
-  modules: ['nuxt-facebook-pixel-module'],
+  modules: [
+    'nuxt-facebook-pixel-module',
+  ],
   facebook: {
     track: 'PageView',
     pixelId: 168167750758036,
     autoPageView: true,
     disabled: false
   },
-  build: {
-    // vendor: ['axios'],
-    // analyze: {
-    //   analyzerMode: 'static'
-    // }
-  },
-  buildModules: [
+    buildModules: [
     '@nuxtjs/composition-api/module',
   ],
-  router: {
-    scrollBehavior: function(to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
-  }
+  build: {
+    // analyze: {
+    //   analyzerMode: 'static'
+    // },
+    loaders: {
+      scss: {
+        implementation: require('sass'),
+        sassOptions: {
+          api: 'modern',
+          silenceDeprecations: ['legacy-js-api']
+        }
+      },
+      sass: {
+        implementation: require('sass'),
+        sassOptions: {
+          api: 'modern',
+          silenceDeprecations: ['legacy-js-api']
+        }
+      }
+    },
+    // vendor: ['axios'],
+  },
   // generate: {
   //   routes: [
   //   ]

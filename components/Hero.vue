@@ -26,8 +26,7 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
+  @use '@/assets/scss/coriolanMedia' as media;
 
   .hero {
     position: relative;
@@ -38,19 +37,19 @@
     );
     padding: 7.5em 0;
 
-    @include media(S) {
+    @include media.media(S) {
       padding: 8.5em 0;
     }
 
-    @include media(M) {
+    @include media.media(M) {
       padding: 9.5em 0;
     }
 
-    @include media(L) {
+    @include media.media(L) {
       padding: 10.5em 0;
     }
 
-    @include media(XL) {
+    @include media.media(XL) {
       padding: 11.5em 0;
     }
 
@@ -88,22 +87,22 @@
       //   font-style: normal;
       // }
 
-      @include media(S) {
+      @include media.media(S) {
         font-size: 55px;
         letter-spacing: 5px;
       }
 
-      @include media(M) {
+      @include media.media(M) {
         font-size: 70px;
         letter-spacing: 8px;
       }
 
-      @include media(L) {
+      @include media.media(L) {
         font-size: 85px;
         letter-spacing: 11px;
       }
 
-      @include media(XL) {
+      @include media.media(XL) {
         font-size: 100px;
         letter-spacing: 14px;
       }
@@ -117,22 +116,22 @@
       font-size: 12px;
       letter-spacing: 4px;
 
-      @include media(S) {
+      @include media.media(S) {
         font-size: 14px;
         letter-spacing: 8px;
       }
 
-      @include media(M) {
+      @include media.media(M) {
         font-size: 16px;
         letter-spacing: 12px;
       }
 
-      @include media(L) {
+      @include media.media(L) {
         font-size: 18px;
         letter-spacing: 16px;
       }
 
-      @include media(XL) {
+      @include media.media(XL) {
         font-size: 20px;
         letter-spacing: 20px;
       }

@@ -75,16 +75,16 @@
 <script>
   import axios from 'axios'
   import sortBy from 'lodash/sortBy'
-  // import BaseBg from '~/components/BaseBg.vue'
-  import Fractal from '~/components/Fractal.vue'
-  import HeaderMain from '~/components/HeaderMain.vue'
-  import SidebarMenu from '~/components/SidebarMenu.vue'
-  import SidebarBtn from '~/components/SidebarBtn.vue'
-  import Hero from '~/components/Hero.vue'
-  import Donate from '~/components/Donate.vue'
-  import Footr from '~/components/Footr.vue'
-  // import AppPlayerDraggable from '../components/AppPlayerDraggable.vue'
-  import SwiperTop from '../components/SwiperTop.vue'
+  // import BaseBg from '@/components/BaseBg.vue'
+  import Fractal from '@/components/Fractal.vue'
+  import HeaderMain from '@/components/HeaderMain.vue'
+  import SidebarMenu from '@/components/SidebarMenu.vue'
+  import SidebarBtn from '@/components/SidebarBtn.vue'
+  import Hero from '@/components/Hero.vue'
+  import Donate from '@/components/Donate.vue'
+  import Footr from '@/components/Footr.vue'
+  // import AppPlayerDraggable from '@/components/AppPlayerDraggable.vue'
+  import SwiperTop from '@/components/SwiperTop.vue'
 
   export default {
     components: {

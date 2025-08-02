@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
   import moment from 'moment'
 
   export default {
@@ -21,7 +21,7 @@
       const { data } = await axios.get(`friends/${key}.json`)
       return { friend: data }
     },
-    head () {
+    head() {
       return {
         title: this.friend.title,
         meta: [
@@ -34,9 +34,9 @@
 </script>
 
 <style lang="scss">
-@import '../../assets/scss/page';
+  @use '@/assets/scss/page';
 
-.friend {
-  @extend .page;
-}
+  .friend {
+    @extend .page;
+  }
 </style>

@@ -46,7 +46,7 @@
 
 <script setup>
   import { computed, watch } from '@nuxtjs/composition-api'
-  import { useFrameStore } from '../pinia/tabs.ts'
+  import { useFrameStore } from '@/stores/tabs.ts'
 
   // Props
   const props = defineProps({
@@ -100,9 +100,9 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/ratio';
-  @import '../assets/scss/iframe-size';
+  // @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/coriolanRatio' as ratio;
+  @use '@/assets/scss/iframe-size';
 
   .IframeTabs {
 
@@ -114,7 +114,7 @@
       @extend .sentimony-iframe;
 
       &-youtube {
-        @include ratio(100%,16,9);
+        @include ratio.ratio(100%,16,9);
 
         & iframe {
           border-radius: 6px;
