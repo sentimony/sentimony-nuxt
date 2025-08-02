@@ -32,8 +32,8 @@
 
 <script setup>
   import { onMounted } from '@nuxtjs/composition-api'
-  import { useLoadingStore } from '../pinia/loading.ts'
-  import { useSocialStore } from '../pinia/social.ts'
+  import { useLoadingStore } from '@/stores/loading.ts'
+  import { useSocialStore } from '@/stores/social.ts'
 
   const loadingStore = useLoadingStore()
   const social = useSocialStore()
@@ -64,8 +64,7 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
-  // @import '../assets/scss/variables';
+  @use '@/assets/scss/page';
 
   .contacts {
     @extend .page;
@@ -83,7 +82,7 @@
     }
 
   //   &__title {
-  //     color: $accent-color;
+  //     color: lighten(#ccc, 10%);
   //     font-weight: 700;
   //     text-transform: uppercase;
   //   }

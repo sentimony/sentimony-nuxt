@@ -24,8 +24,8 @@
 </template>
 
 <script>
-  import HeaderLogolink from '~/components/HeaderLogolink.vue'
-  import HeaderSocialMenu from '~/components/HeaderSocialMenu.vue'
+  import HeaderLogolink from '@/components/HeaderLogolink.vue'
+  import HeaderSocialMenu from '@/components/HeaderSocialMenu.vue'
 
   export default {
     components: {
@@ -36,10 +36,8 @@
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
-  // @import '../assets/scss/variables';
-  @import '../assets/scss/main-menu-link';
+  @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/main-menu-link';
 
   .header-main {
     position: relative;
@@ -60,7 +58,7 @@
     &__main-menu {
       // display: none;
       //
-      // @include media(M) {
+      // @include media.media(M) {
       //   display: flex;
       // }
 
@@ -71,7 +69,7 @@
         padding: 20px 16px;
         display: inline-block;
 
-        @include media(L) {
+        @include media.media(L) {
           font-size: 16px;
           padding: 20px 16px * 1.75;
         }

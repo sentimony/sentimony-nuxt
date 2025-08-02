@@ -52,8 +52,8 @@
   // import axios from 'axios'
   // import sortBy from 'lodash/sortBy'
 
-  // import SwiperTop from '~/components/SwiperTop.vue'
-  // import Hero from '../components/Hero.vue'
+  // import SwiperTop from '@/components/SwiperTop.vue'
+  // import Hero from '@/components/Hero.vue'
 
   export default {
     layout: 'default',
@@ -124,8 +124,7 @@
         { name: 'description', content: 'Home of Sentimony Records' },
         {
           property: 'og:image',
-          content:
-            'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
+          content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
         }
       ]
     }

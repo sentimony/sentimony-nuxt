@@ -21,8 +21,8 @@
 </template>
 
 <script>
-  import MenuMain from '~/components/MenuMain.vue'
-  import MenuSocial from '~/components/MenuSocial.vue'
+  import MenuMain from '@/components/MenuMain.vue'
+  import MenuSocial from '@/components/MenuSocial.vue'
 
   export default {
     components: {

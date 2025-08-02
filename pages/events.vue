@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
   import sortBy from 'lodash/sortBy'
   import moment from 'moment'
 
@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss">
-  @import '../assets/scss/page';
+  @use '@/assets/scss/page';
 
   .events {
     @extend .page;

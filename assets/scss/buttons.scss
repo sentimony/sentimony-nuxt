@@ -1,5 +1,6 @@
-@import 'variables';
-@import '../../node_modules/coriolan-ui/mixins/media';
+@use 'coriolanVariables';
+// @use 'variables';
+@use 'coriolanMedia' as media;
 
 @mixin btn {
   display: inline-block;
@@ -13,7 +14,7 @@
   transition: background-color .2s ease;
   letter-spacing: -0.5px;
 
-  @include media(M) {
+  @include media.media(M) {
     padding: 6px .9em 8px;
     font-size: 14px;
   }
@@ -23,7 +24,7 @@
   }
 
   &:hover {
-    background-color: $colorBgLight;
+    background-color: rgba(#ccc, 0.4);
   }
 
   &.is-disabled {
@@ -45,7 +46,7 @@
   font-size: 12px;
   margin-left: .4em;
 
-  @include media(S) {
+  @include media.media(S) {
     display: inline-block;
     font-size: inherit;
   }

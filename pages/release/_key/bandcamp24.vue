@@ -18,13 +18,13 @@
 </template>
 
 <script>
-  import DdosGuard from '~/components/DdosGuard.vue'
-  import axios from '~/plugins/axios'
+  import DdosGuard from '@/components/DdosGuard.vue'
+  import axios from '@/plugins/axios'
 
   export default {
     layout: 'ddos-guard',
     components: { DdosGuard },
-    data () {
+    data() {
       return {
         title: 'Bandcamp'
       }
@@ -34,7 +34,7 @@
       const { data } = await axios.get(`releases/${key}.json`)
       return { release: data }
     },
-    head () {
+    head() {
       return {
         title: this.release.title + ' on ' + this.title,
         meta: [
@@ -46,5 +46,4 @@
   }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

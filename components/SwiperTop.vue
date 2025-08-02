@@ -55,7 +55,7 @@
 </template>
 
 <script>
-  import AppContent from '~/plugins/app-content'
+  import AppContent from '@/plugins/AppContent'
 
   export default {
     props: ['title', 'list', 'category', 'item'],

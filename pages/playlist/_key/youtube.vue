@@ -9,13 +9,13 @@
 </template>
 
 <script>
-  import DdosGuard from '~/components/DdosGuard.vue'
-  import axios from '~/plugins/axios'
+  import DdosGuard from '@/components/DdosGuard.vue'
+  import axios from '@/plugins/axios'
 
   export default {
     layout: 'ddos-guard',
     components: { DdosGuard },
-    data () {
+    data() {
       return {
         title: 'YouTube'
       }
@@ -25,7 +25,7 @@
       const { data } = await axios.get(`playlists/${key}.json`)
       return { playlist: data }
     },
-    head () {
+    head() {
       return {
         title: this.playlist.title + ' on ' + this.title,
         meta: [
@@ -37,5 +37,4 @@
   }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

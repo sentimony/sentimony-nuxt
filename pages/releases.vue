@@ -41,9 +41,9 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
+  import axios from '@/plugins/axios'
   import sortBy from 'lodash/sortBy'
-  import AppContent from '~/plugins/app-content'
+  import AppContent from '@/plugins/AppContent'
 
   export default {
     layout: 'default',
@@ -67,8 +67,7 @@
         { name: 'description', content: 'Releases of Sentimony Records' },
         {
           property: 'og:image',
-          content:
-            'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01'
+          content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-releases.jpg?01'
         }
       ]
     }

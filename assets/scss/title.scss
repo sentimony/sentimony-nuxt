@@ -1,3 +1,7 @@
+@use 'coriolanVariables';
+// @use 'variables';
+@use 'coriolanMedia' as media;
+
 .title {
   // text-align: left;
   max-width: 1270px;
@@ -6,7 +10,7 @@
   // padding: 0 10px;
   box-sizing: border-box;
 
-  @include media(M) {
+  @include media.media(M) {
     font-size: 32px;
   }
 }

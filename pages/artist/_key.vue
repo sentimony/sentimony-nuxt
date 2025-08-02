@@ -192,15 +192,15 @@
   import sortBy from 'lodash/sortBy'
   import moment from 'moment'
 
-  import axios from '~/plugins/axios'
-  import AppContent from '~/plugins/app-content'
+  import axios from '@/plugins/axios'
+  import AppContent from '@/plugins/AppContent'
 
-  import SvgTriangle from '~/components/SvgTriangle.vue'
-  import AppCover from '~/components/AppCover'
-  import AppBtn from '~/components/AppBtn'
-  import AppTabs from '~/components/AppTabs.vue'
-  import AppTab from '~/components/AppTab.vue'
-  import AppRelativeItem from '~/components/AppRelativeItem.vue'
+  import SvgTriangle from '@/components/SvgTriangle.vue'
+  import AppCover from '@/components/AppCover'
+  import AppBtn from '@/components/AppBtn'
+  import AppTabs from '@/components/AppTabs.vue'
+  import AppTab from '@/components/AppTab.vue'
+  import AppRelativeItem from '@/components/AppRelativeItem.vue'
 
   export default {
     layout: 'default',
@@ -212,7 +212,7 @@
       AppTab,
       AppRelativeItem,
     },
-    data () {
+    data() {
       return {
         routes: AppContent.routes,
         titles: AppContent.titles,
@@ -247,7 +247,7 @@
         }
       }
     },
-    head () {
+    head() {
       return {
         title: this.artist.title,
         meta: [
@@ -260,15 +260,13 @@
 </script>
 
 <style lang="scss">
-  @import '../../node_modules/coriolan-ui/tools/variables';
-  @import '../../node_modules/coriolan-ui/mixins/media';
-  @import '../../node_modules/coriolan-ui/mixins/ratio';
-  @import '../../assets/scss/variables';
-  // @import '../../assets/scss/buttons';
-  // @import '../../assets/scss/content';
-  // @import '../../assets/scss/page';
-  // @import '../../assets/scss/v-img-restyle';
-  @import '../../assets/scss/page';
+  @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/coriolanRatio' as ratio;
+  // @use '@/assets/scss/buttons';
+  // @use '@/assets/scss/content';
+  // @use '@/assets/scss/page';
+  // @use '@/assets/scss/v-img-restyle';
+  @use '@/assets/scss/page';
 
   .page-artist {
     @extend .page;
@@ -288,7 +286,7 @@
       justify-content: space-between;
       flex-direction: column;
 
-      @include media(L) {
+      @include media.media(L) {
         flex-direction: row;
         padding-top: 40px;
       }
@@ -302,7 +300,7 @@
       // align-items: flex-start;
       // justify-content: space-between;
 
-      @include media(L) {
+      @include media.media(L) {
         margin-top: 62px;
         margin-bottom: 10em;
         // width: auto;
@@ -310,8 +308,8 @@
     }
 
     &__photo {
-      background-color: $colorBgBlack;
-      box-shadow: $shadow;
+      background-color: rgba(#000, 0.5);
+      box-shadow: 0 2px 10px 0 rgba(#000, 0.5);
       border-radius: 2px;
       min-width: 100px;
       height: 100px;
@@ -319,7 +317,7 @@
       margin-right: 1.4em;
       position: relative;
 
-      @include media(M) {
+      @include media.media(M) {
         min-width: 190px;
         height: 190px;
       }
@@ -337,7 +335,7 @@
         height: auto;
         border-radius: 2px;
 
-        @include media(M) {
+        @include media.media(M) {
           width: 190px;
         }
       }
@@ -347,7 +345,7 @@
         font-size: 10px;
         color: rgba(#fff,.5);
 
-        @include media(M) {
+        @include media.media(M) {
           font-size: 14px;
         }
       }
@@ -364,7 +362,7 @@
       margin: 0 0 .1em;
       color: #fff;
 
-      @include media(M) {
+      @include media.media(M) {
         font-size: 30px;
       }
     }
@@ -382,7 +380,7 @@
 
       &__ratio {
         position: relative;
-        @include ratio(100%,16,9);
+        @include ratio.ratio(100%,16,9);
       }
 
       &__iframe {

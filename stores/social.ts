@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { DB } from '../services/fireinit'
-import { useLoadingStore } from './loading.ts'
+import { DB } from '@/services/fireinit'
+import { useLoadingStore } from '@/stores/loading.ts'
 
 export const useSocialStore = defineStore('social', {
   state: () => ({

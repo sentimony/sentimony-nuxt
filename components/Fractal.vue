@@ -30,8 +30,7 @@
 <script></script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
+  @use '@/assets/scss/coriolanMedia' as media;
 
   .fractal {
     overflow: hidden;
@@ -42,7 +41,7 @@
     height: 100%;
     // display: none;
 
-    @include media(M) {
+    @include media.media(M) {
       display: block;
     }
 

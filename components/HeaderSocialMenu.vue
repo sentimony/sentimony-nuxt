@@ -24,8 +24,8 @@
 
 <script setup>
   import { onMounted } from '@nuxtjs/composition-api'
-  import { useLoadingStore } from '../pinia/loading.ts'
-  import { useSocialStore } from '../pinia/social.ts'
+  import { useLoadingStore } from '@/stores/loading.ts'
+  import { useSocialStore } from '@/stores/social.ts'
 
   const loadingStore = useLoadingStore()
   const social = useSocialStore()
@@ -36,16 +36,14 @@
 </script>
 
 <style lang="scss">
-  // @import '../node_modules/coriolan-ui/tools/variables';
-  // @import '../node_modules/coriolan-ui/mixins/media';
-  // @import '../assets/scss/variables';
-  @import '../assets/scss/main-menu-link';
+  @use '@/assets/scss/coriolanMedia' as media;
+  @use '@/assets/scss/main-menu-link';
 
   .headr-social-menu {
     // width: 232px;
     // display: none;
     //
-    // @include media(M) {
+    // @include media.media(M) {
     //   display: block;
     // }
 

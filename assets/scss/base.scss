@@ -1,20 +1,19 @@
-@import '../../node_modules/coriolan-ui/tools/variables';
-@import 'variables';
-@import '../../node_modules/coriolan-ui/mixins/media';
-@import 'app-base';
-@import 'sentimony-ui';
-@import 'buttons';
-@import 'content';
-@import 'flex-sticky';
-@import 'iframe-size';
-@import 'item';
-@import 'list';
-@import 'main-menu-link';
-@import 'page';
-@import 'selection-color';
-@import 'swiper-restyle';
-@import 'title';
-@import 'v-img-restyle';
+@use '@/assets/scss/coriolanVariables' as *;
+@use '@/assets/scss/coriolanMedia' as media;
+@use '@/assets/scss/app-base';
+@use '@/assets/scss/sentimony-ui';
+@use '@/assets/scss/buttons';
+@use '@/assets/scss/content';
+@use '@/assets/scss/flex-sticky';
+@use '@/assets/scss/iframe-size';
+@use '@/assets/scss/item';
+@use '@/assets/scss/list';
+@use '@/assets/scss/main-menu-link';
+@use '@/assets/scss/page';
+@use '@/assets/scss/selection-color';
+@use '@/assets/scss/swiper-restyle';
+@use '@/assets/scss/title';
+@use '@/assets/scss/v-img-restyle';
 
 .__nuxt-error-page {
   position: relative !important;
@@ -66,7 +65,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
 
-  @include media(M) {
+  @include media.media(M) {
     font-size: 15px;
     line-height: 1.5;
   }
@@ -82,7 +81,7 @@ p {
   font-weight: 400;
   margin: 0 0 0.3rem;
 
-  @include media(M) {
+  @include media.media(M) {
     margin-bottom: 0.5rem;
   }
 }
@@ -133,7 +132,7 @@ small {
   font-size: 10px;
   color: rgba(#fff, 0.5);
 
-  @include media(S) {
+  @include media.media(S) {
     font-size: 14px;
   }
 }
