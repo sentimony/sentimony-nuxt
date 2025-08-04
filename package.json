@@ -27,7 +27,7 @@
     "build": "node -v && npm -v && nuxt generate"
   },
   "engines": {
-    "node": "20.19.4",
-    "npm": "10.8.2"
+    "node": "22.18.0",
+    "npm": "10.9.3"
   }
 }

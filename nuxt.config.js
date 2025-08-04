@@ -28,7 +28,7 @@ module.exports = {
   },
   plugins: [
     { src: '@/plugins/google-analytics.js', ssr: false },
-    { src: '@/plugins/vue-awesome-swiper.js', ssr: false },
+    { src: '@/plugins/vue-awesome-swiper.js', ssr: true },
     { src: '@/plugins/v-img.js', ssr: false },
     { src: '@/plugins/vue-ripple-directive.js', ssr: false },
     { src: '@/plugins/vue-mq.js', ssr: true },
