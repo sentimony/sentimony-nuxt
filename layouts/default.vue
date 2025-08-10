@@ -1,5 +1,24 @@
 <template>
   <div class="flex-sticky">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <style type="text/tailwindcss">
+      /* @tailwind base;
+      @tailwind components;
+      @tailwind utilities; */
+      @theme {
+        --font-montserrat: 'Montserrat', sans-serif;
+        /*  */
+      }
+      body { @apply font-montserrat antialiased text-[12px]/[1.4] md:text-[15px]/[1.5] text-white text-center bg-green-950 bg-[url(https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01)] bg-center bg-no-repeat bg-cover bg-fixed; }
+      h1, h2, h3, h4, h5, h6, p { @apply mb-[.3rem] md:mb-[.5rem]; }
+      h1, h2, h3, h4, h5, h6 { @apply font-normal; }
+      h1 { @apply text-[18px] md:text-[32px] my-[.5em]; }
+      h2 { @apply text-[1.5em]; }
+      h3 { @apply text-[1.17em]; }
+      h4 { @apply text-[1em]; }
+      h5 { @apply text-[0.83em]; }
+      h6 { @apply text-[0.67em]; }
+    </style>
     <!-- <BaseBg/> -->
     <div class="flex-sticky__fractal">
       <Fractal />
@@ -15,12 +34,12 @@
       <div style="display: flex; flex-direction: column; justify-content: center;">
         <!-- <div :class="showHero ? 'sen-dn' : 'sen-db'"> -->
         <div style="order: 0;">
-          <Hero v-if="isIndex" />
+          <!-- <Hero v-if="isIndex" /> -->
         </div>
 
         <!-- </div> -->
 
-        <div :class="showReleases || isIndex ? 'sen-o1' : 'sen-o0'" style="order: 1;">
+        <div :class="showReleases || isIndex ? 'opacity-100 h-[inherit]' : 'opacity-0 h-[0px]'" style="order: 1;">
           <SwiperTop
             title="Releases"
             :list="releasesSortedByDate"
@@ -29,7 +48,7 @@
           />
         </div>
 
-        <div :class="showArtists || isIndex ? 'sen-o1' : 'sen-o0'" :style="isIndex ? 'order: 3;' : 'order: 1;'">
+        <div :class="showArtists || isIndex ? 'opacity-100 h-[inherit]' : 'opacity-0 h-[0px]'" :style="isIndex ? 'order: 3;' : 'order: 1;'">
           <SwiperTop
             title="Artists"
             :list="artistsSortedByCategoryId"
@@ -38,7 +57,7 @@
           />
         </div>
 
-        <div :class="showVideos ? 'sen-o1' : 'sen-o0'" style="order: 1;">
+        <div :class="showVideos ? 'opacity-100 h-[inherit]' : 'opacity-0 h-[0px]'" style="order: 1;">
           <SwiperTop
             title="Videos"
             :list="videosSortedByDate"
@@ -47,9 +66,9 @@
           />
         </div>
 
-        <div :class="showPlaylists ? 'sen-o1' : 'sen-o0'" style="order: 1;">
-          <SwiperTop
-            title="Playlists"
+        <div :class="showPlaylists ? 'opacity-100 h-[inherit]' : 'opacity-0 h-[0px]'" style="order: 1;">
+          <SwiperTop_copy
+            title="Playlists11!"
             :list="playlistsSortedByDate"
             category="playlists"
             item="playlist"
@@ -85,6 +104,7 @@
   import Footr from '~/components/Footr.vue'
   // import AppPlayerDraggable from '../components/AppPlayerDraggable.vue'
   import SwiperTop from '../components/SwiperTop.vue'
+  import SwiperTop_copy from '../components/SwiperTop_copy.vue'
 
   export default {
     components: {
@@ -97,7 +117,8 @@
       Donate,
       // AppPlayerDraggable,
       Footr,
-      SwiperTop
+      SwiperTop,
+      SwiperTop_copy,
     },
     data: () => ({
       releases: [],

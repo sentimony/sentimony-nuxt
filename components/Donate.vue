@@ -1,7 +1,7 @@
 <template>
-  <div class="donate">
+  <div class="donate relative">
     <img class="donate__bg" src="~/static/donate-bg.svg" alt="donate bg" />
-    <div class="donate__wrapper">
+    <div class="donate__wrapper px-2 py-[30px] md:py-[60px]">
       <p>My fellow artists and I always love reading your feedback.</p>
       <p>
         Find your favorite track and share your thoughts in the comments on our
@@ -12,7 +12,6 @@
         pages.
       </p>
       <p>Thank you — I truly appreciate it ❤️</p>
-      <!-- <p><i>—Ihor</i></p> -->
       <p>— Ihor</p>
     </div>
   </div>
@@ -21,20 +20,19 @@
 <script>
   export default {
     data: () => ({
-      youtube_url:
-        'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1',
+      youtube_url: 'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1',
       soundcloud_url: 'https://soundcloud.com/sentimony',
-      bandcamp_url: 'https://sentimony.bandcamp.com/follow_me'
+      bandcamp_url: 'https://sentimony.bandcamp.com/follow_me',
     })
   }
 </script>
 
 <style lang="scss">
-  @import '../node_modules/coriolan-ui/tools/variables';
-  @import '../node_modules/coriolan-ui/mixins/media';
+  // @import '../node_modules/coriolan-ui/tools/variables';
+  // @import '../node_modules/coriolan-ui/mixins/media';
 
   .donate {
-    position: relative;
+    // position: relative;
     color: #000;
     background-color: #fff;
     // background-color: #e0ebe0;
@@ -45,6 +43,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+      display: inline-block;
     }
 
     &__wrapper {
@@ -53,15 +52,15 @@
       box-sizing: border-box;
       position: relative;
       text-align: left;
-      padding-left: 0.6em;
-      padding-right: 0.6em;
-      padding-top: 30px;
-      padding-bottom: 30px;
+      // padding-left: 0.6em;
+      // padding-right: 0.6em;
+      // padding-top: 30px;
+      // padding-bottom: 30px;
 
-      @include media(M) {
-        padding-top: 60px;
-        padding-bottom: 60px;
-      }
+      // @include media(M) {
+      //   padding-top: 60px;
+      //   padding-bottom: 60px;
+      // }
 
       p {
         text-shadow: 0 2px 2px #fff, 0 -2px 2px #fff, 2px 0 2px #fff,

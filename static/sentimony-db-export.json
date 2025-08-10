@@ -2219,7 +2219,7 @@
       "slug": "sphingida",
       "visible": false,
       "category": "musician",
-      "category_id": "",
+      "category_id": "120",
       "name": "Ihor Orlovskyi & Yulia Levchenko",
       "location": "Kyiv, Ukraine",
       "style": "Psychill",
@@ -9072,7 +9072,7 @@
       "cover_og": "https://content.sentimony.com/assets/img/playlists/goa_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/playlists/goa_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/playlists/goa_xl.jpg",
-      "info": "<p>Goa Trance and Experimental Neo Goa releases of Sentimony Records released from 2011 to 2018.</p>",
+      "info": "<p>Goa Trance and Experimental Neo Goa releases of Sentimony Records at chronological order. Updates every new release.</p>",
       "links": {
         "spotify": "https://open.spotify.com/playlist/2vjEzwo7trlHcH74fnq8jb",
         "apple_music": "https://music.apple.com/ua/playlist/goa-trance-sentimony/pl.u-jV89bojTDoZBgpR",
@@ -9085,6 +9085,31 @@
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/goa-trance",
         "soundcloud_playlist_id": "1250227435",
         "napster": "https://app.napster.com/playlists/playlist/mp.276678980",
+        "qobuz": ""
+      }
+    },
+    "psydnb": {
+      "slug": "psydnb",
+      "title": "Psy DnB | Sentimony",
+      "style": "Psy DnB",
+      "date": "2017-01-01T12:05:00.000Z",
+      "visible": true,
+      "cover_og": "",
+      "cover_th": "",
+      "cover_xl": "",
+      "info": "<p>Psy DnB releases of Sentimony Records at chronological order. Updates every new release.</p>",
+      "links": {
+        "spotify": "",
+        "apple_music": "",
+        "googleplay_music": "",
+        "youtube": "",
+        "youtube_music": "",
+        "deezer": "",
+        "amazon_music": "",
+        "tidal": "",
+        "soundcloud_url": "",
+        "soundcloud_playlist_id": "",
+        "napster": "",
         "qobuz": ""
       }
     }
@@ -9178,6 +9203,21 @@
       "credits": "<p>Credits here</p>",
       "links": {
         "youtube": "https://youtu.be/ujmtrQXK1RI"
+      }
+    },
+    "irukanji-from-my-nerves": {
+      "slug": "irukanji-from-my-nerves",
+      "title": "Irukanji - From My Nerves",
+      "visible": false,
+      "date": "2022-11-04T12:00:00.000Z",
+      "format": "clip",
+      "cover_og": "",
+      "cover_th": "",
+      "cover_xl": "",
+      "information": "<p>Information here</p>",
+      "credits": "<p>Credits here</p>",
+      "links": {
+        "youtube": ""
       }
     }
   }
