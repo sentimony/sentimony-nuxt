@@ -1,8 +1,20 @@
+@import '../../node_modules/coriolan-ui/tools/variables';
+
+@import '../../node_modules/coriolan-ui/mixins/media';
+
 // custom
 .swiper-list {
+  height: 164px;
+  // height: 296px;
+
   position: relative;
   overflow: hidden;
-  height: 164px;
+
+  // @media (min-width: 754px) {
+  //   & {
+  //     height: 296px;
+  //   }
+  // }
 
   @include media(M) {
     height: 296px;
@@ -14,9 +26,15 @@
   overflow: visible;
 }
 
+// .swiper-slide {
+//   width: 180px;
+// }
+
 .swiper-button-prev,
 .swiper-button-next {
-  display: none;
+  // display: none;
+  display: block;
+
   background-color: #fff;
   background-position: center;
   background-size: 20px;
@@ -32,9 +50,9 @@
   transition: opacity .2s ease;
   opacity: .7;
 
-  @include media(M) {
-    display: block;
-  }
+  // @include media(M) {
+  //   display: block;
+  // }
 
   &:hover {
     opacity: 1;
