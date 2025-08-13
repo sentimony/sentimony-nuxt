@@ -3,28 +3,21 @@
   "description": "Web development of Sentimony Records site",
   "version": "1.0.0",
   "author": "Ihor Orlovskyi",
+  "type": "module",
+  "private": true,
   "dependencies": {
-    "@nuxtjs/composition-api": "^0.34.0",
-    "axios": "^1.11.0",
-    "core-js": "^3.44.0",
-    "firebase": "^7.18.0",
-    "moment": "^2.30.1",
-    "normalize.css": "^8.0.1",
-    "nuxt-facebook-pixel-module": "^1.6.0",
-    "pinia": "^2.0.14",
-    "v-img": "^0.2.0",
-    "vue-awesome-swiper": "^4.1.1",
-    "vue-mq": "^1.0.1",
-    "vue-ripple-directive": "^2.0.1"
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "nuxt": "^2.18.1",
-    "sass": "^1.89.2",
-    "sass-loader": "^10.4.1"
+    "nuxt": "^4.0.3"
   },
   "scripts": {
-    "dev": "node -v && npm -v && nuxt",
-    "build": "node -v && npm -v && nuxt generate"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "engines": {
     "node": "22.18.0",
