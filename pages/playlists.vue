@@ -15,7 +15,7 @@
               <img v-if="i.cover_th" class="item__img"
                 :src="i.cover_th"
                 :alt="i.title + ' Small Thumbnail'"
-              >
+              />
               <div v-else class="item__soon" v-html="texts.comingCover"/>
             </div>
             <div v-if="i.coming_soon" class="item__status--green">Coming Soon</div>

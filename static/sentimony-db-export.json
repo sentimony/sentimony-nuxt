@@ -2219,7 +2219,7 @@
       "slug": "sphingida",
       "visible": false,
       "category": "musician",
-      "category_id": "",
+      "category_id": "120",
       "name": "Ihor Orlovskyi & Yulia Levchenko",
       "location": "Kyiv, Ukraine",
       "style": "Psychill",
@@ -4702,19 +4702,17 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
       "tracklistCompact": [
-        { "p": "01 Celestial Consciousness - Rise | 110bpm" },
-        { "p": "02 Magic Science - Atman | 146bpm" },
-        { "p": "03 PharaOm - White Lotus Energy | 146bpm" },
-        { "p": "04 Nova Fractal - Through Our Senses (Sky Technology Rmx) | 145bpm" },
-        { "p": "05 Roof Raiser - Stone Garden | 148bpm" },
-        { "p": "06 Prok - Gliese | 144bpm" },
-        { "p": "07 Ufomatka - Asteroid | 148bpm" },
-        { "p": "08 Wanderlust - Square Of The Cadboard Clocks | 147bpm" },
-        { "p": "09 ShizoLizer Gin - Skygravity Trance Mission | 142bpm" },
-        { "p": "10 Jyotish - Purple Imagination | 132bpm" },
-        { "p": "11 Rexuss - Chakra | 150bpm *" },
-        { "p": "* - bonus track, available digitally only" }
-        
+        { "p": "<small>01.</small> <b>Celestial Consciousness</b> - Rise <small>(110bpm)</small>" },
+        { "p": "<small>02.</small> <b>Magic Science</b> - Atman <small>(146bpm)</small>" },
+        { "p": "<small>03.</small> <b>PharaOm</b> - White Lotus Energy <small>(146bpm)</small>" },
+        { "p": "<small>04.</small> <b>Nova Fractal</b> - Through Our Senses (Sky Technology Rmx) <small>(145bpm)</small>" },
+        { "p": "<small>05.</small> <b>Roof Raiser</b> - Stone Garden <small>(148bpm)</small>" },
+        { "p": "<small>06.</small> <b>Prok</b> - Gliese <small>(144bpm)</small>" },
+        { "p": "<small>07.</small> <b>Ufomatka</b> - Asteroid <small>(148bpm)</small>" },
+        { "p": "<small>08.</small> <b>Wanderlust</b> - Square Of The Cadboard Clocks <small>(147bpm)</small>" },
+        { "p": "<small>09.</small> <b>ShizoLizer Gin</b> - Skygravity Trance Mission <small>(142bpm)</small>" },
+        { "p": "<small>10.</small> <b>Jyotish</b> - Purple Imagination <small>(132bpm)</small>" },
+        { "p": "<small>11.</small> <b>Rexuss</b> - Chakra <small>(150bpm)</small> *<br>* <small>- bonus track, available only in digital format</small>" }
       ],
       "links": {
         "bandcamp_url": "https://sentimony.bandcamp.com/album/va-gamayun-tale",
@@ -4997,17 +4995,15 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ], 
       "tracklistCompact": [
-        { "p": "1 Zymosis - Make A Wish | 90bpm" },
-        { "p": "2 Zymosis - But I Will Not Know | 90bpm" },
-        { "p": "3 Zymosis - Beautiful Thing | 96bpm *" },
-        { "p": "4 Zymosis - Loneliness | 110bpm" },
-        { "p": "5 Zymosis - Let It All Out | 140bpm" },
-        { "p": "6 Zymosis - Where Can I Find You | 114bpm" },
-        { "p": "7 Zymosis - Sansara (Rework) | 97bpm" },
-        { "p": "8 Zymosis - OMGTY | 90bpm" },
-        { "p": "9 Zymosis feat. Katya Chilly - U Zemli | 140bpm **" },
-        { "p": "* - previously released at VA «Anti Particle» (Phantasm Records, 2014)" },
-        { "p": "** - previously released at VA «The Ten» (Sentimony Records, 2017)" }
+        { "p": "<small>1.</small> <b>Zymosis</b> - Make A Wish <small>(90bpm)</small>" },
+        { "p": "<small>2.</small> <b>Zymosis</b> - But I Will Not Know <small>(90bpm)</small>" },
+        { "p": "<small>3.</small> <b>Zymosis</b> - Beautiful Thing <small>(96bpm)</small> *" },
+        { "p": "<small>4.</small> <b>Zymosis</b> - Loneliness <small>(110bpm)</small>" },
+        { "p": "<small>5.</small> <b>Zymosis</b> - Let It All Out <small>(140bpm)</small>" },
+        { "p": "<small>6.</small> <b>Zymosis</b> - Where Can I Find You <small>(114bpm)</small>" },
+        { "p": "<small>7.</small> <b>Zymosis</b> - Sansara (Rework) <small>(97bpm)</small>" },
+        { "p": "<small>8.</small> <b>Zymosis</b> - OMGTY <small>(90bpm)</small>" },
+        { "p": "<small>9.</small> <b>Zymosis</b> feat. <b>Katya Chilly</b> - U Zemli <small>(140bpm)</small> **<br>* <small>- previously released at VA «Anti Particle» (Phantasm Records, 2014)</small><br>** <small>- previously released at VA «The Ten» (Sentimony Records, 2017)</small>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-insight",
@@ -6186,16 +6182,15 @@
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records proud to present «Timeless» - new full length album by <a href='/artist/zymosis/'>Zymosis</a>, from Ukraine.</p><p>Enjoy!</p>",
       "tracklistCompact": [
-        { "p": "1 Zymosis - You Don't Have Time | 130bpm" },
-        { "p": "2 Zymosis - Discover Yourself | 100bpm" },
-        { "p": "3 The Doox - Rano (Zymosis Rmx) | 124bpm *" },
-        { "p": "4 Zymosis - Perception Limit | 160bpm" },
-        { "p": "5 Zymosis - Deeper Than Truth | 120bpm" },
-        { "p": "6 Zymosis - The Way I See It | 144bpm" },
-        { "p": "7 Zymosis - Because I Still Love You | 120bpm" },
-        { "p": "8 Zymosis, Overdream & Hardcore Buddhist - Shiva Shambo | 115bpm" },
-        { "p": "9 Zymosis - An Expression Of Age | 128bpm" },
-        { "p": "<span class='sen-fs11 sen-ml18 sen-db'>* - previously released at <a href='https://open.spotify.com/album/65SFFQHJg2A5fb04kul3Lg' target='_blank'>The Doox «ЛІРА»</a> (UMIG Music, 2019)</span>" }
+        { "p": "<small>1.</small> <b>Zymosis</b> - You Don't Have Time <small>(130bpm)</small>" },
+        { "p": "<small>2.</small> <b>Zymosis</b> - Discover Yourself <small>(100bpm)</small>" },
+        { "p": "<small>3.</small> <b>The Doox</b> - Rano (<b>Zymosis</b> Rmx) <small>(124bpm)</small> *" },
+        { "p": "<small>4.</small> <b>Zymosis</b> - Perception Limit <small>(160bpm)</small>" },
+        { "p": "<small>5.</small> <b>Zymosis</b> - Deeper Than Truth <small>(120bpm)</small>" },
+        { "p": "<small>6.</small> <b>Zymosis</b> - The Way I See It <small>(144bpm)</small>" },
+        { "p": "<small>7.</small> <b>Zymosis</b> - Because I Still Love You <small>(120bpm)</small>" },
+        { "p": "<small>8.</small> <b>Zymosis</b>, Overdream & Hardcore Buddhist - Shiva Shambo <small>(115bpm)</small>" },
+        { "p": "<small>9.</small> <b>Zymosis</b> - An Expression Of Age <small>(128bpm)</small><br>* <small>- previously released at The Doox «ЛІРА» (UMIG Music, 2019)</small>" }
       ],
       "creditsCompact": [
         { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis/'>Zymosis</a>" },
@@ -9072,7 +9067,7 @@
       "cover_og": "https://content.sentimony.com/assets/img/playlists/goa_og.jpg",
       "cover_th": "https://content.sentimony.com/assets/img/playlists/goa_th.jpg",
       "cover_xl": "https://content.sentimony.com/assets/img/playlists/goa_xl.jpg",
-      "info": "<p>Goa Trance and Experimental Neo Goa releases of Sentimony Records released from 2011 to 2018.</p>",
+      "info": "<p>Goa Trance and Experimental Neo Goa releases of Sentimony Records at chronological order. Updates every new release.</p>",
       "links": {
         "spotify": "https://open.spotify.com/playlist/2vjEzwo7trlHcH74fnq8jb",
         "apple_music": "https://music.apple.com/ua/playlist/goa-trance-sentimony/pl.u-jV89bojTDoZBgpR",
@@ -9085,6 +9080,31 @@
         "soundcloud_url": "https://soundcloud.com/sentimony/sets/goa-trance",
         "soundcloud_playlist_id": "1250227435",
         "napster": "https://app.napster.com/playlists/playlist/mp.276678980",
+        "qobuz": ""
+      }
+    },
+    "psydnb": {
+      "slug": "psydnb",
+      "title": "Psy DnB | Sentimony",
+      "style": "Psy DnB",
+      "date": "2017-01-01T12:05:00.000Z",
+      "visible": true,
+      "cover_og": "",
+      "cover_th": "",
+      "cover_xl": "",
+      "info": "<p>Psy DnB releases of Sentimony Records at chronological order. Updates every new release.</p>",
+      "links": {
+        "spotify": "",
+        "apple_music": "",
+        "googleplay_music": "",
+        "youtube": "",
+        "youtube_music": "",
+        "deezer": "",
+        "amazon_music": "",
+        "tidal": "",
+        "soundcloud_url": "",
+        "soundcloud_playlist_id": "",
+        "napster": "",
         "qobuz": ""
       }
     }
@@ -9178,6 +9198,21 @@
       "credits": "<p>Credits here</p>",
       "links": {
         "youtube": "https://youtu.be/ujmtrQXK1RI"
+      }
+    },
+    "irukanji-from-my-nerves": {
+      "slug": "irukanji-from-my-nerves",
+      "title": "Irukanji - From My Nerves",
+      "visible": false,
+      "date": "2022-11-04T12:00:00.000Z",
+      "format": "clip",
+      "cover_og": "",
+      "cover_th": "",
+      "cover_xl": "",
+      "information": "<p>Information here</p>",
+      "credits": "<p>Credits here</p>",
+      "links": {
+        "youtube": ""
       }
     }
   }

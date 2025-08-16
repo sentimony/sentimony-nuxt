@@ -1,28 +1,28 @@
 <template>
-  <div class="tracks">
+  <div class="page">
+
     <h1>Tracks</h1>
-    <ol class="" style="width: 500px; display: inline-block; text-align: left">
-      <li
-        class=""
-        style=""
+    
+    <ol style="width: 500px;display: inline-block;text-align: left;">
+      <div
         v-for="(i, index) in sortByDate"
         :key="index"
         v-if="i.visible"
       >
-        <div>
-          <div v-if="i.title" class="" style="margin-bottom: 20px">
-            {{ i.title }}
-          </div>
-
-          <div v-if="i.tracklistCompact" class="" style="margin-bottom: 20px">
-            <div
-              v-for="(iii, index) in i.tracklistCompact"
-              :key="'b' + index"
-              v-html="iii.p"
-            />
-          </div>
+        <div v-if="i.title" style="margin-bottom: 20px;">
+          <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title" style="width: 16px;margin-right: 6px;vertical-align: text-bottom;"/>
+          {{ i.title }}
         </div>
-      </li>
+
+        <div v-if="i.tracklistCompact" style="margin-bottom: 20px;">
+          <li
+            v-for="(iii, index) in i.tracklistCompact"
+            :key="'b' + index"
+            v-if="i.tracklistCompact"
+            v-html="iii.p"
+          />
+        </div>
+      </div>
     </ol>
   </div>
 </template>
@@ -38,7 +38,7 @@
     },
     computed: {
       sortByDate() {
-        return sortBy(this.releases, 'date').reverse().reverse()
+        return sortBy(this.releases, 'date').reverse()
       }
     },
     head: {
@@ -54,14 +54,4 @@
   }
 </script>
 
-<style lang="scss">
-  @use '@/assets/scss/page';
-  // @use '@/assets/scss/item';
-  // @use '@/assets/scss/list';
-
-  .tracks {
-    @extend .page;
-    max-width: 1278px;
-    margin: 0 auto;
-  }
-</style>
+<style lang="scss"></style>
