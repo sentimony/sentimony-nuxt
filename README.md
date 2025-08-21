@@ -8,6 +8,8 @@ _Web development of Sentimony Records site_
 
 [Firebase](https://firebase.google.com) - realtime database by [Google Developers](https://developers.google.com)
 
+https://icon-sets.iconify.design/mdi/?icon-filter=music&keyword=d
+
 [Netlify](https://www.netlify.com) - automatic deploy & free hosting platform
 
 <!-- ### Content

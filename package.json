@@ -10,7 +10,12 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "nuxt": "^4.0.3"
+    "@nuxt/icon": "^2.0.0",
+    "@nuxt/image": "^1.11.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "nuxt": "^4.0.3",
+    "sass-embedded": "^1.90.0"
   },
   "scripts": {
     "build": "nuxt build",
