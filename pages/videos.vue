@@ -34,35 +34,35 @@
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
-  import sortBy from 'lodash/sortBy'
-  import AppContent from '@/plugins/AppContent'
+import axios from '@/plugins/axios'
+import sortBy from 'lodash/sortBy'
+import AppContent from '@/plugins/AppContent'
 
-  export default {
-    layout: 'default',
-    data() {
-      return {
-        pageTitle: 'Videos',
-        texts: AppContent.texts,
-      }
-    },
-    async asyncData() {
-      const { data } = await axios.get('videos.json')
-      return { videos: data }
-    },
-    computed: {
-      videosSortedByDate () {
-        return sortBy(this.videos, 'date').reverse()
-      }
-    },
-    head: {
-      title: 'Videos',
-      meta: [
-        { name: 'description', content: 'Music videos, clips, lives and concerts of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
-      ]
+export default {
+  layout: 'default',
+  data() {
+    return {
+      pageTitle: 'Videos',
+      texts: AppContent.texts,
     }
+  },
+  async asyncData() {
+    const { data } = await axios.get('videos.json')
+    return { videos: data }
+  },
+  computed: {
+    videosSortedByDate () {
+      return sortBy(this.videos, 'date').reverse()
+    }
+  },
+  head: {
+    title: 'Videos',
+    meta: [
+      { name: 'description', content: 'Music videos, clips, lives and concerts of Sentimony Records' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+    ]
   }
+}
 </script>
 
 <style lang="scss"></style>

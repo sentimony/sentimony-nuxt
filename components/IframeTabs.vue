@@ -45,89 +45,89 @@
 </template>
 
 <script setup>
-  import { computed, watch } from '@nuxtjs/composition-api'
-  import { useFrameStore } from '@/stores/tabs.ts'
+import { computed, watch } from '@nuxtjs/composition-api'
+import { useFrameStore } from '@/stores/tabs.ts'
 
-  // Props
-  const props = defineProps({
-    one: {
-      type: Array,
-      required: true
-    }
-  })
-
-  // Store
-  const frameStore = useFrameStore()
-
-  // Поточне значення індексу
-  const currentFrame = computed(() => frameStore.currentFrame)
-
-  // Поточний елемент з `one` (playlist ID)
-  const currentContent = computed(() => props.one?.[currentFrame.value] || '')
-
-  // Метод вибору фрейму
-  function chooseFrame(index) {
-    frameStore.updateCurrentFrame(index)
+// Props
+const props = defineProps({
+  one: {
+    type: Array,
+    required: true
   }
+})
 
-  // Хелпери
-  function icon(content) {
-    if (!content) return ''
-    if (content.length === 72) return 'youtube'
-    if (content.length >= 6 && content.length <= 10) return 'soundcloud'
-    return ''
-  }
+// Store
+const frameStore = useFrameStore()
 
-  function title(content) {
-    if (!content) return ''
-    if (content.length === 72) return 'YouTube'
-    if (content.length >= 6 && content.length <= 10) return 'SoundCloud'
-    return ''
-  }
+// Поточне значення індексу
+const currentFrame = computed(() => frameStore.currentFrame)
 
-  function frame(content) {
-    if (!content) return ''
-    if (content.length === 72) {
-      const match = content.match(/\=(.*)/)
-      const contentId = match ? match[1] : ''
-      return 'https://www.youtube.com/embed/videoseries?list=' + contentId
-    }
-    if (content.length >= 6 && content.length <= 10) {
-      return `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/${content}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false`
-    }
-    return ''
+// Поточний елемент з `one` (playlist ID)
+const currentContent = computed(() => props.one?.[currentFrame.value] || '')
+
+// Метод вибору фрейму
+function chooseFrame(index) {
+  frameStore.updateCurrentFrame(index)
+}
+
+// Хелпери
+function icon(content) {
+  if (!content) return ''
+  if (content.length === 72) return 'youtube'
+  if (content.length >= 6 && content.length <= 10) return 'soundcloud'
+  return ''
+}
+
+function title(content) {
+  if (!content) return ''
+  if (content.length === 72) return 'YouTube'
+  if (content.length >= 6 && content.length <= 10) return 'SoundCloud'
+  return ''
+}
+
+function frame(content) {
+  if (!content) return ''
+  if (content.length === 72) {
+    const match = content.match(/\=(.*)/)
+    const contentId = match ? match[1] : ''
+    return 'https://www.youtube.com/embed/videoseries?list=' + contentId
   }
+  if (content.length >= 6 && content.length <= 10) {
+    return `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/${content}&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false`
+  }
+  return ''
+}
 </script>
 
 <style lang="scss">
-  // @use '@/assets/scss/coriolanMedia' as media;
-  @use '@/assets/scss/coriolanRatio' as ratio;
-  @use '@/assets/scss/iframe-size';
+// @use '@/assets/scss/coriolanMedia' as media;
+@use '@/assets/scss/coriolanRatio' as ratio;
+@use '@/assets/scss/iframe-size';
 
-  .IframeTabs {
+.IframeTabs {
 
-    & a.isActive {
-      opacity: 1!important;
-    }
+  & a.isActive {
+    opacity: 1!important;
+  }
 
-    &__player {
-      @extend .sentimony-iframe;
+  &__player {
+    @extend .sentimony-iframe;
 
-      &-youtube {
-        @include ratio.ratio(100%,16,9);
+    &-youtube {
+      @include ratio.ratio(100%,16,9);
 
-        & iframe {
-          border-radius: 6px;
-          border: none;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 143%;
-          height: 143%;
-          transform: scale(.7);
-          transform-origin: top left;
-        }
+      & iframe {
+        border-radius: 6px;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 143%;
+        height: 143%;
+        transform: scale(.7);
+        transform-origin: top left;
       }
     }
   }
+}
 </style>

@@ -379,238 +379,224 @@
 </template>
 
 <script>
-  import sortBy from 'lodash/sortBy'
-  import moment from 'moment'
+import sortBy from 'lodash/sortBy'
+import moment from 'moment'
 
-  import axios from '@/plugins/axios'
-  import AppContent from '@/plugins/AppContent'
+import axios from '@/plugins/axios'
+import AppContent from '@/plugins/AppContent'
 
-  import SvgTriangle from '@/components/SvgTriangle'
-  import AppCover from '@/components/AppCover'
-  import AppBtn from '@/components/AppBtn'
-  import AppTabs from '@/components/AppTabs.vue'
-  import AppTab from '@/components/AppTab.vue'
-  import AppRelativeItem from '@/components/AppRelativeItem.vue'
+import SvgTriangle from '@/components/SvgTriangle'
+import AppCover from '@/components/AppCover'
+import AppBtn from '@/components/AppBtn'
+import AppTabs from '@/components/AppTabs.vue'
+import AppTab from '@/components/AppTab.vue'
+import AppRelativeItem from '@/components/AppRelativeItem.vue'
 
-  export default {
-    layout: 'default',
-    components: {
-      SvgTriangle,
-      AppCover,
-      AppBtn,
-      AppTabs,
-      AppTab,
-      AppRelativeItem
-    },
-    data() {
-      return {
-        routes: AppContent.routes,
-        titles: AppContent.titles,
-        icons: AppContent.icons,
-        texts: AppContent.texts
+export default {
+  layout: 'default',
+  components: {
+    SvgTriangle,
+    AppCover,
+    AppBtn,
+    AppTabs,
+    AppTab,
+    AppRelativeItem
+  },
+  data() {
+    return {
+      routes: AppContent.routes,
+      titles: AppContent.titles,
+      icons: AppContent.icons,
+      texts: AppContent.texts
+    }
+  },
+  // async asyncData({ route }) {
+  //   const { key } = route.params
+  //   const { data } = await axios.get(`releases/${key}.json`)
+  //   return { release: data }
+  // },
+  async asyncData({ route }) {
+    const { key } = route.params
+    const [releaseRes, releasesRes] = await Promise.all([
+      axios.get(`releases/${key}.json`),
+      axios.get('releases.json')
+    ])
+    const release = releaseRes.data
+    const releases = releasesRes.data
+    return { release, releases }
+  },
+  computed: {
+    releasesSortByDate() {
+      var releases = sortBy(this.releases, 'date').reverse()
+      return releases
+    }
+  },
+  filters: {
+    formatDate: function(date) {
+      var moment = require('moment')
+      if (date) {
+        return moment(String(date)).format('DD MMM YYYY')
       }
     },
-    // async asyncData({ route }) {
-    //   const { key } = route.params
-    //   const { data } = await axios.get(`releases/${key}.json`)
-    //   return { release: data }
-    // },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const [releaseRes, releasesRes] = await Promise.all([
-        axios.get(`releases/${key}.json`),
-        axios.get('releases.json')
-      ])
-      const release = releaseRes.data
-      const releases = releasesRes.data
-      return { release, releases }
-    },
-    computed: {
-      releasesSortByDate() {
-        var releases = sortBy(this.releases, 'date').reverse()
-        return releases
+    year: function(date) {
+      if (date) {
+        return moment(String(date)).format('YYYY')
       }
     },
-    filters: {
-      formatDate: function(date) {
-        var moment = require('moment')
-        if (date) {
-          return moment(String(date)).format('DD MMM YYYY')
-        }
-      },
-      year: function(date) {
-        if (date) {
-          return moment(String(date)).format('YYYY')
-        }
-      },
-      // SpotifyEmbed (spotify) {
-      //   if (spotify) {
-      //     let s = spotify.replace('https://open.spotify.com/album/', '');
-      //     return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
-      //   }
-      // },
-      YouTubeFullReleases(youtube) {
-        let ytfr = youtube.replace('https://youtu.be/', '')
-        if (youtube) {
-          return (
-            'https://www.youtube.com/watch?v=' +
-            ytfr +
-            '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU'
-          )
-        } else {
-          return ytfr
-        }
-      },
-      YouTubeIndividualTracks(youtube_playlist_id) {
-        let ytit = youtube_playlist_id.replace('https://youtu.be/', '')
-        if (youtube_playlist_id) {
-          return 'https://www.youtube.com/playlist?list=' + ytit + '&index=1'
-        } else {
-          return ytit
-        }
+    // SpotifyEmbed (spotify) {
+    //   if (spotify) {
+    //     let s = spotify.replace('https://open.spotify.com/album/', '');
+    //     return 'https://open.spotify.com/embed?uri=spotify:album:' + s + '&theme=white';
+    //   }
+    // },
+    YouTubeFullReleases(youtube) {
+      let ytfr = youtube.replace('https://youtu.be/', '')
+      if (youtube) {
+        return (
+          'https://www.youtube.com/watch?v=' +
+          ytfr +
+          '&list=PLp2GaPnw5O3Nhkwv3hkb1imrT6JNURnkU'
+        )
+      } else {
+        return ytfr
       }
     },
-    // methods: {
-    //   onLoad ({ route }) {
-    //     const { key } = route.params
-    //     console.log(key)
-    //   },
-    // },
-    // mounted () {
-    //   console.log('releases:', this.releases)
-    //   console.log('release:', this.release)
-    // },
-    head() {
-      return {
-        title: this.release.title,
-        meta: [
-          {
-            name: 'description',
-            content:               this.release.format +
-              ' with ' +
-              this.release.tracks_number +
-              ' tracks of ' +
-              this.release.style +
-              ' | ' +
-              this.release.date.split('-')[0]
-          },
-          {
-            property: 'og:image',
-            content: this.release.cover_og
-              ? this.release.cover_og
-              : 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
-          }
-        ]
+    YouTubeIndividualTracks(youtube_playlist_id) {
+      let ytit = youtube_playlist_id.replace('https://youtu.be/', '')
+      if (youtube_playlist_id) {
+        return 'https://www.youtube.com/playlist?list=' + ytit + '&index=1'
+      } else {
+        return ytit
       }
     }
+  },
+  // methods: {
+  //   onLoad ({ route }) {
+  //     const { key } = route.params
+  //     console.log(key)
+  //   },
+  // },
+  // mounted () {
+  //   console.log('releases:', this.releases)
+  //   console.log('release:', this.release)
+  // },
+  head() {
+    return {
+      title: this.release.title,
+      meta: [
+        { name: 'description', content: this.release.format + ' with ' + this.release.tracks_number + ' tracks of ' + this.release.style + ' | ' + this.release.date.split('-')[0] },
+        { property: 'og:image', content: this.release.cover_og ? this.release.cover_og : 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+      ]
+    }
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/coriolanMedia' as media;
-  @use '@/assets/scss/coriolanRatio' as ratio;
-  @use '@/assets/scss/content';
-  @use '@/assets/scss/page';
-  @use '@/assets/scss/iframe-size';
-  @use '@/assets/scss/v-img-restyle';
+@use '@/assets/scss/coriolanMedia' as media;
+@use '@/assets/scss/coriolanRatio' as ratio;
+@use '@/assets/scss/content';
+@use '@/assets/scss/page';
+@use '@/assets/scss/iframe-size';
+@use '@/assets/scss/v-img-restyle';
 
-  .page-release {
-    @extend .page;
+.page-release {
+  @extend .page;
+  position: relative;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 1278px;
+    text-align: left;
+    border-top: 1px solid rgba(#fff, 0.3);
+    padding: 1.8em 0 1.8em;
+    box-sizing: border-box;
     position: relative;
+    z-index: 40;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
 
-    &__wrapper {
-      margin: 0 auto;
-      max-width: 1278px;
-      text-align: left;
-      border-top: 1px solid rgba(#fff, 0.3);
-      padding: 1.8em 0 1.8em;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 40;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      flex-direction: column;
-
-      @include media.media(L) {
-        flex-direction: row;
-        padding-top: 40px;
-      }
-    }
-
-    &__media {
-      margin-bottom: 1em;
-      width: 100%;
-      position: relative;
-      // display: flex;
-      // align-items: flex-start;
-      // justify-content: space-between;
-
-      @include media.media(L) {
-        margin-top: 62px;
-        margin-bottom: 10em;
-        // width: auto;
-      }
-    }
-
-    &__title {
-      font-size: 18px;
-      line-height: 1.2;
-      margin: 0 0 0.1em;
-      color: #fff;
-
-      @include media.media(M) {
-        font-size: 30px;
-      }
-    }
-
-    &__player-tabs {
-      width: 100%;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    &__player {
-      &-coming {
-        padding: 1em 1.2em;
-        font-size: 14px;
-        color: rgba(#fff, 0.5);
-      }
-
-      &-iframe {
-        margin: 0 auto;
-        max-width: 540px;
-      }
-    }
-
-    &__bandcamp-player {
-      @extend .sentimony-iframe;
-    }
-
-    &__youtube-player {
-      @include ratio.ratio(100%, 16, 9);
-      @extend .sentimony-iframe;
-
-      &-iframe {
-        border-radius: 6px;
-        border: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 143%;
-        height: 143%;
-        transform: scale(0.7);
-        transform-origin: top left;
-      }
-    }
-
-    &__soundcloud-player {
-      // @include ratio.ratio(100%,16,9);
-      @extend .sentimony-iframe;
-    }
-
-    &__spotify-player-iframe {
-      @extend .sentimony-iframe;
+    @include media.media(L) {
+      flex-direction: row;
+      padding-top: 40px;
     }
   }
+
+  &__media {
+    margin-bottom: 1em;
+    width: 100%;
+    position: relative;
+    // display: flex;
+    // align-items: flex-start;
+    // justify-content: space-between;
+
+    @include media.media(L) {
+      margin-top: 62px;
+      margin-bottom: 10em;
+      // width: auto;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 0 0 0.1em;
+    color: #fff;
+
+    @include media.media(M) {
+      font-size: 30px;
+    }
+  }
+
+  &__player-tabs {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  &__player {
+    &-coming {
+      padding: 1em 1.2em;
+      font-size: 14px;
+      color: rgba(#fff, 0.5);
+    }
+
+    &-iframe {
+      margin: 0 auto;
+      max-width: 540px;
+    }
+  }
+
+  &__bandcamp-player {
+    @extend .sentimony-iframe;
+  }
+
+  &__youtube-player {
+    @include ratio.ratio(100%, 16, 9);
+    @extend .sentimony-iframe;
+
+    &-iframe {
+      border-radius: 6px;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 143%;
+      height: 143%;
+      transform: scale(0.7);
+      transform-origin: top left;
+    }
+  }
+
+  &__soundcloud-player {
+    // @include ratio.ratio(100%,16,9);
+    @extend .sentimony-iframe;
+  }
+
+  &__spotify-player-iframe {
+    @extend .sentimony-iframe;
+  }
+}
 </style>

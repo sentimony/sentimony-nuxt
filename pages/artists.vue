@@ -99,34 +99,34 @@
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
-  import sortBy from 'lodash/sortBy'
-  import AppContent from '@/plugins/AppContent'
+import axios from '@/plugins/axios'
+import sortBy from 'lodash/sortBy'
+import AppContent from '@/plugins/AppContent'
 
-  export default {
-    layout: 'default',
-    data() {
-      return {
-        texts: AppContent.texts,
-      }
-    },
-    async asyncData() {
-      const { data } = await axios.get('artists.json')
-      return { artists: data }
-    },
-    computed: {
-      sortByCategoryId () {
-        return sortBy(this.artists, 'category_id')
-      }
-    },
-    head: {
-      title: 'Artists',
-      meta: [
-        { name: 'description', content: 'Artists of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
-      ]
+export default {
+  layout: 'default',
+  data() {
+    return {
+      texts: AppContent.texts,
     }
+  },
+  async asyncData() {
+    const { data } = await axios.get('artists.json')
+    return { artists: data }
+  },
+  computed: {
+    sortByCategoryId () {
+      return sortBy(this.artists, 'category_id')
+    }
+  },
+  head: {
+    title: 'Artists',
+    meta: [
+      { name: 'description', content: 'Artists of Sentimony Records' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+    ]
   }
+}
 </script>
 
 <style lang="scss"></style>

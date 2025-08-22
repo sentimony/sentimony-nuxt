@@ -189,212 +189,212 @@
 </template>
 
 <script>
-  import sortBy from 'lodash/sortBy'
-  import moment from 'moment'
+import sortBy from 'lodash/sortBy'
+import moment from 'moment'
 
-  import axios from '@/plugins/axios'
-  import AppContent from '@/plugins/AppContent'
+import axios from '@/plugins/axios'
+import AppContent from '@/plugins/AppContent'
 
-  import SvgTriangle from '@/components/SvgTriangle.vue'
-  import AppCover from '@/components/AppCover'
-  import AppBtn from '@/components/AppBtn'
-  import AppTabs from '@/components/AppTabs.vue'
-  import AppTab from '@/components/AppTab.vue'
-  import AppRelativeItem from '@/components/AppRelativeItem.vue'
+import SvgTriangle from '@/components/SvgTriangle.vue'
+import AppCover from '@/components/AppCover'
+import AppBtn from '@/components/AppBtn'
+import AppTabs from '@/components/AppTabs.vue'
+import AppTab from '@/components/AppTab.vue'
+import AppRelativeItem from '@/components/AppRelativeItem.vue'
 
-  export default {
-    layout: 'default',
-    components: {
-      SvgTriangle,
-      AppCover,
-      AppBtn,
-      AppTabs,
-      AppTab,
-      AppRelativeItem,
-    },
-    data() {
-      return {
-        routes: AppContent.routes,
-        titles: AppContent.titles,
-        icons: AppContent.icons,
-      }
-    },
-    // async asyncData({ route }) {
-    //   const { key } = route.params
-    //   const { data } = await axios.get(`artists/${key}.json`)
-    //   return { artist: data }
-    // },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const [artistRes, releasesRes] = await Promise.all([
-        axios.get(`artists/${key}.json`),
-        axios.get('releases.json')
-      ]);
-      const artist = artistRes.data
-      const releases = releasesRes.data
-      return { artist, releases }
-    },
-    computed: {
-      releasesSortByDate() {
-        var releases = sortBy(this.releases, 'date').reverse()
-        return releases
-      }
-    },
-    filters: {
-      year: function (date) {
-        if (date) {
-          return moment(String(date)).format('YYYY');
-        }
-      }
-    },
-    head() {
-      return {
-        title: this.artist.title,
-        meta: [
-          { name: 'description', content: this.artist.style + ' ' + this.artist.category + ' from ' + this.artist.location },
-          { property: 'og:image', content: this.artist.photo_og ? this.artist.photo_og : 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg?01' }
-        ]
+export default {
+  layout: 'default',
+  components: {
+    SvgTriangle,
+    AppCover,
+    AppBtn,
+    AppTabs,
+    AppTab,
+    AppRelativeItem,
+  },
+  data() {
+    return {
+      routes: AppContent.routes,
+      titles: AppContent.titles,
+      icons: AppContent.icons,
+    }
+  },
+  // async asyncData({ route }) {
+  //   const { key } = route.params
+  //   const { data } = await axios.get(`artists/${key}.json`)
+  //   return { artist: data }
+  // },
+  async asyncData({ route }) {
+    const { key } = route.params
+    const [artistRes, releasesRes] = await Promise.all([
+      axios.get(`artists/${key}.json`),
+      axios.get('releases.json')
+    ]);
+    const artist = artistRes.data
+    const releases = releasesRes.data
+    return { artist, releases }
+  },
+  computed: {
+    releasesSortByDate() {
+      var releases = sortBy(this.releases, 'date').reverse()
+      return releases
+    }
+  },
+  filters: {
+    year: function (date) {
+      if (date) {
+        return moment(String(date)).format('YYYY');
       }
     }
+  },
+  head() {
+    return {
+      title: this.artist.title,
+      meta: [
+        { name: 'description', content: this.artist.style + ' ' + this.artist.category + ' from ' + this.artist.location },
+        { property: 'og:image', content: this.artist.photo_og ? this.artist.photo_og : 'https://content.sentimony.com/assets/img/artists/og-images/' + this.artist.slug + '.jpg?01' }
+      ]
+    }
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/coriolanMedia' as media;
-  @use '@/assets/scss/coriolanRatio' as ratio;
-  // @use '@/assets/scss/buttons';
-  // @use '@/assets/scss/content';
-  // @use '@/assets/scss/page';
-  // @use '@/assets/scss/v-img-restyle';
-  @use '@/assets/scss/page';
+@use '@/assets/scss/coriolanMedia' as media;
+@use '@/assets/scss/coriolanRatio' as ratio;
+// @use '@/assets/scss/buttons';
+// @use '@/assets/scss/content';
+// @use '@/assets/scss/page';
+// @use '@/assets/scss/v-img-restyle';
+@use '@/assets/scss/page';
 
-  .page-artist {
-    @extend .page;
+.page-artist {
+  @extend .page;
+  position: relative;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 1278px;
+    text-align: left;
+    border-top: 1px solid rgba(#fff,.3);
+    padding: 1.8em 0 1.8em;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 40;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @include media.media(L) {
+      flex-direction: row;
+      padding-top: 40px;
+    }
+  }
+
+  &__media {
+    margin-bottom: 1em;
+    width: 100%;
+    position: relative;
+    // display: flex;
+    // align-items: flex-start;
+    // justify-content: space-between;
+
+    @include media.media(L) {
+      margin-top: 62px;
+      margin-bottom: 10em;
+      // width: auto;
+    }
+  }
+
+  &__photo {
+    background-color: rgba(#000, 0.5);
+    box-shadow: 0 2px 10px 0 rgba(#000, 0.5);
+    border-radius: 2px;
+    min-width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-right: 1.4em;
     position: relative;
 
-    &__wrapper {
-      margin: 0 auto;
-      max-width: 1278px;
-      text-align: left;
-      border-top: 1px solid rgba(#fff,.3);
-      padding: 1.8em 0 1.8em;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 40;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      flex-direction: column;
-
-      @include media.media(L) {
-        flex-direction: row;
-        padding-top: 40px;
-      }
+    @include media.media(M) {
+      min-width: 190px;
+      height: 190px;
     }
 
-    &__media {
-      margin-bottom: 1em;
-      width: 100%;
-      position: relative;
-      // display: flex;
-      // align-items: flex-start;
-      // justify-content: space-between;
-
-      @include media.media(L) {
-        margin-top: 62px;
-        margin-bottom: 10em;
-        // width: auto;
-      }
+    &-link {
     }
 
-    &__photo {
-      background-color: rgba(#000, 0.5);
-      box-shadow: 0 2px 10px 0 rgba(#000, 0.5);
+    &-img {
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate3d(-50%,-50%,0);
+      display: block;
+      width: 100px;
+      height: auto;
       border-radius: 2px;
-      min-width: 100px;
-      height: 100px;
-      overflow: hidden;
-      margin-right: 1.4em;
-      position: relative;
 
       @include media.media(M) {
-        min-width: 190px;
-        height: 190px;
-      }
-
-      &-link {
-      }
-
-      &-img {
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate3d(-50%,-50%,0);
-        display: block;
-        width: 100px;
-        height: auto;
-        border-radius: 2px;
-
-        @include media.media(M) {
-          width: 190px;
-        }
-      }
-
-      &-coming {
-        padding: 1em 1.2em;
-        font-size: 10px;
-        color: rgba(#fff,.5);
-
-        @include media.media(M) {
-          font-size: 14px;
-        }
+        width: 190px;
       }
     }
 
-    &__style {
-      display: inline-block;
-      text-transform: capitalize;
-    }
-
-    &__title {
-      font-size: 18px;
-      line-height: 1.2;
-      margin: 0 0 .1em;
-      color: #fff;
+    &-coming {
+      padding: 1em 1.2em;
+      font-size: 10px;
+      color: rgba(#fff,.5);
 
       @include media.media(M) {
-        font-size: 30px;
-      }
-    }
-
-    &__player-tabs {
-      width: 100%;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    .iframe-holder {
-      max-width: 777px;
-      margin-left: auto;
-      margin-right: auto;
-
-      &__ratio {
-        position: relative;
-        @include ratio.ratio(100%,16,9);
-      }
-
-      &__iframe {
-        border: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        left: 0;
-        width: 143%;
-        height: 143%;
-        transform: scale(.7);
-        transform-origin: top left;
+        font-size: 14px;
       }
     }
   }
+
+  &__style {
+    display: inline-block;
+    text-transform: capitalize;
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 0 0 .1em;
+    color: #fff;
+
+    @include media.media(M) {
+      font-size: 30px;
+    }
+  }
+
+  &__player-tabs {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .iframe-holder {
+    max-width: 777px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__ratio {
+      position: relative;
+      @include ratio.ratio(100%,16,9);
+    }
+
+    &__iframe {
+      border: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      left: 0;
+      width: 143%;
+      height: 143%;
+      transform: scale(.7);
+      transform-origin: top left;
+    }
+  }
+}
 </style>

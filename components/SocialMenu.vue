@@ -1,0 +1,92 @@
+<template>
+  <div class="SocialMenu">
+    <div class="SocialMenu__caption">Follow Us:</div>
+    <div v-if="loadingStore.loading">Loading...</div>
+    <div v-else class="SocialMenu__list flex-wrap">
+      <a 
+        class="SocialMenu__link"
+        v-for="(i, index) in social.loadedSocial"
+        :key="index"
+        v-if="i.isVisibleFootr"
+        :href="i.url"
+        target="_blank" rel="noopener"
+      >
+        <img 
+          class="SocialMenu__icon"
+          :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'"
+          :alt="i.title + ' Icon'"
+        />
+        <span class="SocialMenu__tooltip">{{ i.title }}</span>
+      </a>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { onMounted } from '@nuxtjs/composition-api'
+import { useLoadingStore } from '@/stores/loading.ts'
+import { useSocialStore } from '@/stores/social.ts'
+
+const loadingStore = useLoadingStore()
+const social = useSocialStore()
+
+onMounted(() => {
+  social.loadSocial()
+})
+</script>
+
+<style lang="scss">
+@use '@/assets/scss/coriolanMedia' as media;
+
+.SocialMenu {
+  margin: 0 auto 24px;
+
+  &__caption {
+  }
+
+  &__list {
+    padding-top: 1.2em;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // width: 290px;
+
+    @include media.media(S) {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    padding: .1em .9em;
+    position: relative;
+    // display: block;
+  }
+
+  &__icon {
+    width: 20px;
+    display: inline-block;
+    vertical-align: inherit;
+  }
+
+  &__tooltip {
+    font-size: .75em;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate3d(-50%,-100%,0);
+    transition: opacity .2s ease;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(#8a0202, 1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fff;
+
+    .SocialMenu__link:hover & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+</style>

@@ -1,5 +1,4 @@
 @use 'coriolanVariables';
-// @use 'variables';
 @use 'coriolanMedia' as media;
 @use 'title';
 
@@ -7,6 +6,7 @@
   padding: 0 0.6em;
   // max-width: 1278px;
   margin: 0 auto;
+  position: relative;
   padding-bottom: 30px;
 
   @include media.media(M) {

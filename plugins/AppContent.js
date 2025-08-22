@@ -87,5 +87,19 @@ export default {
     comingPhoto: 'Photo<br>is<br>coming ⛄',
     comingCover: 'Cover<br>is<br>coming ⛄',
     comingMusic: 'Music<br>is<br>coming ⛄',
-  }
+  },
+  menu: [
+    { visibleFooter: true, visibleHeader: false, visibleSidebar: true, title: 'Home', route: '/', match: p => p.startsWith('/index') },
+    { visibleFooter: false, visibleHeader: false, visibleSidebar: false, title: 'News', route: '/news/', match: p => p.startsWith('/news') },
+    { visibleFooter: true, visibleHeader: true, visibleSidebar: true, title: 'Releases', route: '/releases/', match: p => p.startsWith('/releases') || p.startsWith('/release/') },
+    { visibleFooter: true, visibleHeader: true, visibleSidebar: true, title: 'Artists', route: '/artists/', match: p => p.startsWith('/artists') || p.startsWith('/artist/') },
+    { visibleFooter: true, visibleHeader: true, visibleSidebar: true, title: 'Videos', route: '/videos/', match: p => p.startsWith('/videos') || p.startsWith('/video/') },
+    { visibleFooter: true, visibleHeader: true, visibleSidebar: true, title: 'Playlists', route: '/playlists/', match: p => p.startsWith('/playlists') || p.startsWith('/playlist/') },
+    { visibleFooter: false, visibleHeader: false, visibleSidebar: false, title: 'Events', route: '/events/', match: p => p.startsWith('/events') || p.startsWith('/event/') },
+    { visibleFooter: false, visibleHeader: false, visibleSidebar: false, title: 'Friends', route: '/friends/', match: p => p.startsWith('/friends') || p.startsWith('/friend/') },
+    { visibleFooter: true, visibleHeader: false, visibleSidebar: true, title: 'Contacts', route: '/contacts/', match: p => p.startsWith('/contacts') },
+    { visibleFooter: false, visibleHeader: false, visibleSidebar: false, title: 'Tracks', route: '/tracks/', match: p => p.startsWith('/tracks') },
+    { visibleFooter: false, visibleHeader: false, visibleSidebar: false, title: 'Sitemap', route: '/sitemap/', match: p => p.startsWith('/sitemap') },
+    { visibleFooter: false, visibleHeader: false, visibleSidebar: false, title: '404', route: '/404/', match: p => p.startsWith('/404') },
+  ]
 }

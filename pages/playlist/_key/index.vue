@@ -4,73 +4,28 @@
       <SvgTriangle />
       <div class="page-playlist__wrapper">
         <div class="page-playlist__media">
+
           <AppCover
             :cover_th="playlist.cover_th"
             :cover_xl="playlist.cover_xl"
             category="playlists"
             :title="playlist.title"
-            v-ripple
+            v-ripple 
           />
 
-          <p v-if="playlist.style" class="small-info">
-            <span>{{ playlist.style }}</span>
-          </p>
-          <h1 v-if="playlist.title" class="page-playlist__title">
-            {{ playlist.title }}
-          </h1>
-
+          <p v-if="playlist.style" class="small-info"><span>{{ playlist.style }}</span></p>
+          <h1 v-if="playlist.title" class="page-playlist__title">{{ playlist.title }}</h1>
           <p class="small-info">Stream it:</p>
-          <AppBtn
-            redirect="false"
-            v-if="playlist.links.spotify"
-            :url="playlist.links.spotify"
-            :route="routes.spotify"
-            :title="titles.spotify"
-            :icon="icons.spotify"
-          />
-          <AppBtn
-            redirect="false"
-            v-if="playlist.links.apple_music"
-            :url="playlist.links.apple_music"
-            :route="routes.applemusic"
-            :title="titles.apple_music"
-            :icon="icons.apple"
-          />
-          <AppBtn
-            redirect="false"
-            v-if="playlist.links.youtube_music"
-            :url="playlist.links.youtube_music"
-            :route="routes.youtube_music"
-            :title="titles.youtube_music"
-            :icon="icons.youtube_music"
-          />
-          <!-- <AppBtn redirect="false" v-if="playlist.links.googleplay_music" :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay"/> -->
-          <AppBtn
-            redirect="false"
-            v-if="playlist.links.youtube"
-            :url="playlist.links.youtube"
-            :route="routes.youtube"
-            :title="titles.youtube_playlist"
-            :icon="icons.youtube"
-          />
-          <AppBtn
-            redirect="false"
-            v-if="playlist.links.deezer"
-            :url="playlist.links.deezer"
-            :route="routes.deezer"
-            :title="titles.deezer"
-            :icon="icons.deezer"
-          />
-          <!-- <AppBtn redirect="false" v-if="playlist.links.tidal" :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal"/> -->
-          <!-- <AppBtn redirect="false" v-if="playlist.links.napster" :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster"/> -->
-          <AppBtn
-            redirect="false"
-            v-if="playlist.links.soundcloud_url"
-            :url="playlist.links.soundcloud_url"
-            :route="routes.soundcloud"
-            :title="titles.soundcloud"
-            :icon="icons.soundcloud"
-          />
+
+          <AppBtn redirect="false" v-if="playlist.links.spotify" :url="playlist.links.spotify" :route="routes.spotify" :title="titles.spotify" :icon="icons.spotify" />
+          <AppBtn redirect="false" v-if="playlist.links.apple_music" :url="playlist.links.apple_music" :route="routes.applemusic" :title="titles.apple_music" :icon="icons.apple" />
+          <AppBtn redirect="false" v-if="playlist.links.youtube_music" :url="playlist.links.youtube_music" :route="routes.youtube_music" :title="titles.youtube_music" :icon="icons.youtube_music" />
+          <!-- <AppBtn redirect="false" v-if="playlist.links.googleplay_music" :url="playlist.links.googleplay_music" :route="routes.googleplaymusic" :title="titles.googleplay_music" :icon="icons.googleplay" /> -->
+          <AppBtn redirect="false" v-if="playlist.links.youtube" :url="playlist.links.youtube" :route="routes.youtube" :title="titles.youtube_playlist" :icon="icons.youtube" />
+          <AppBtn redirect="false" v-if="playlist.links.deezer" :url="playlist.links.deezer" :route="routes.deezer" :title="titles.deezer" :icon="icons.deezer" />
+          <!-- <AppBtn redirect="false" v-if="playlist.links.tidal" :url="playlist.links.tidal" :route="routes.tidal" :title="titles.tidal" :icon="icons.tidal" /> -->
+          <!-- <AppBtn redirect="false" v-if="playlist.links.napster" :url="playlist.links.napster" :route="routes.napster" :title="titles.napster" :icon="icons.napster" /> -->
+          <AppBtn redirect="false" v-if="playlist.links.soundcloud_url" :url="playlist.links.soundcloud_url" :route="routes.soundcloud" :title="titles.soundcloud" :icon="icons.soundcloud" />
         </div>
 
         <div class="page-playlist__player-tabs">
@@ -131,19 +86,38 @@
 
         <hr />
 
-        <p>Releases:</p>
-        <ol>
+        <p>Releases / Tracks:</p>
+
+        <!-- <ol>
           <li
             v-for="(i, index) in releasesSortByDate"
             :key="index"
-            v-if="
-              i.visible &&
-                i.at_playlists.includes(playlist.slug) &&
-                !i.coming_soon
-            "
+            v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
           >
             <AppRelativeItem :i="i" category="release" />
           </li>
+        </ol> -->
+
+        <ol style="width: 500px;display: inline-block;text-align: left;">
+          <div
+            v-for="(i, index) in releasesSortByDate"
+            :key="index"
+            v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
+          >
+            <div v-if="i.title" style="margin-bottom: 20px;">
+              <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title" style="width: 20px;margin-right: 6px;vertical-align: text-top;" />
+              <span>{{ i.title }}</span>
+            </div>
+
+            <div v-if="i.tracklistCompact" style="margin-bottom: 20px;">
+              <li
+                v-for="(iii, index) in i.tracklistCompact"
+                :key="'b' + index"
+                v-if="i.tracklistCompact"
+                v-html="iii.p"
+              />
+            </div>
+          </div>
         </ol>
 
       </div>
@@ -152,172 +126,164 @@
 </template>
 
 <script>
-  import sortBy from 'lodash/sortBy'
-  import moment from 'moment'
+import sortBy from 'lodash/sortBy'
+import moment from 'moment'
 
-  import axios from '@/plugins/axios'
-  import AppContent from '@/plugins/AppContent'
+import axios from '@/plugins/axios'
+import AppContent from '@/plugins/AppContent'
 
-  // import SwiperTop from '@/components/SwiperTop.vue'
-  import IframeTabs from '@/components/IframeTabs.vue'
-  import SvgTriangle from '@/components/SvgTriangle.vue'
-  import AppCover from '@/components/AppCover'
-  import AppBtn from '@/components/AppBtn'
-  // import AppTabs from '@/components/AppTabs.vue'
-  // import AppTab from '@/components/AppTab.vue'
-  import AppRelativeItem from '@/components/AppRelativeItem.vue'
+// import SwiperTop from '@/components/SwiperTop.vue'
+import IframeTabs from '@/components/IframeTabs.vue'
+import SvgTriangle from '@/components/SvgTriangle.vue'
+import AppCover from '@/components/AppCover'
+import AppBtn from '@/components/AppBtn'
+// import AppTabs from '@/components/AppTabs.vue'
+// import AppTab from '@/components/AppTab.vue'
+import AppRelativeItem from '@/components/AppRelativeItem.vue'
 
-  export default {
-    layout: 'default',
-    components: {
-      // SwiperTop,
-      IframeTabs,
-      SvgTriangle,
-      AppCover,
-      AppBtn,
-      // AppTabs,
-      // AppTab,
-      AppRelativeItem
-    },
-    data() {
-      return {
-        routes: AppContent.routes,
-        titles: AppContent.titles,
-        icons: AppContent.icons
+export default {
+  layout: 'default',
+  components: {
+    // SwiperTop,
+    IframeTabs,
+    SvgTriangle,
+    AppCover,
+    AppBtn,
+    // AppTabs,
+    // AppTab,
+    AppRelativeItem
+  },
+  data() {
+    return {
+      routes: AppContent.routes,
+      titles: AppContent.titles,
+      icons: AppContent.icons
+    }
+  },
+  async asyncData({ route }) {
+    const { key } = route.params
+    const [playlistRes, releasesRes] = await Promise.all([
+      axios.get(`playlists/${key}.json`),
+      axios.get('releases.json')
+    ])
+    const playlist = playlistRes.data
+    const releases = releasesRes.data
+    return { playlist, releases }
+  },
+  computed: {
+    releasesSortByDate() {
+      var releases = sortBy(this.releases, 'date').reverse()
+      return releases
+    }
+  },
+  filters: {
+    YouTubeEmbed(youtube) {
+      if (youtube) {
+        let y = youtube.replace('https://www.youtube.com/playlist?list=', '')
+        return (
+          'https://www.youtube-nocookie.com/embed/videoseries?list=' +
+          y +
+          '&loop=1'
+        )
       }
     },
-    async asyncData({ route }) {
-      const { key } = route.params
-      const [playlistRes, releasesRes] = await Promise.all([
-        axios.get(`playlists/${key}.json`),
-        axios.get('releases.json')
-      ])
-      const playlist = playlistRes.data
-      const releases = releasesRes.data
-      return { playlist, releases }
-    },
-    computed: {
-      releasesSortByDate() {
-        var releases = sortBy(this.releases, 'date').reverse()
-        return releases
-      }
-    },
-    filters: {
-      YouTubeEmbed(youtube) {
-        if (youtube) {
-          let y = youtube.replace('https://www.youtube.com/playlist?list=', '')
-          return (
-            'https://www.youtube-nocookie.com/embed/videoseries?list=' +
-            y +
-            '&loop=1'
-          )
-        }
-      },
-      year: function(date) {
-        if (date) {
-          return moment(String(date)).format('YYYY')
-        }
-      }
-    },
-    head() {
-      return {
-        title: this.playlist.title,
-        meta: [
-          {
-            name: 'description',
-            content:               this.playlist.style + ', ' + this.playlist.date.split('-')[0]
-          },
-          {
-            property: 'og:image',
-            content:               'https://content.sentimony.com/assets/img/playlists/og-images/' +
-              this.playlist.slug +
-              '.jpg?01'
-          }
-        ]
+    year: function(date) {
+      if (date) {
+        return moment(String(date)).format('YYYY')
       }
     }
+  },
+  head() {
+    return {
+      title: this.playlist.title,
+      meta: [
+        { name: 'description', content: this.playlist.style + ', ' + this.playlist.date.split('-')[0] },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/playlists/og-images/' + this.playlist.slug + '.jpg?01' }
+      ]
+    }
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/coriolanMedia' as media;
-  @use '@/assets/scss/coriolanRatio' as ratio;
-  @use '@/assets/scss/content';
-  @use '@/assets/scss/page';
-  @use '@/assets/scss/iframe-size';
-  @use '@/assets/scss/v-img-restyle';
+@use '@/assets/scss/coriolanMedia' as media;
+@use '@/assets/scss/coriolanRatio' as ratio;
+@use '@/assets/scss/content';
+@use '@/assets/scss/page';
+@use '@/assets/scss/iframe-size';
+@use '@/assets/scss/v-img-restyle';
 
-  .page-playlist {
-    @extend .page;
+.page-playlist {
+  @extend .page;
+  position: relative;
+
+  &__wrapper {
+    margin: 0 auto;
+    max-width: 1278px;
+    text-align: left;
+    border-top: 1px solid rgba(#fff, 0.3);
+    padding: 1.8em 0 1.8em;
+    box-sizing: border-box;
     position: relative;
+    z-index: 40;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
 
-    &__wrapper {
-      margin: 0 auto;
-      max-width: 1278px;
-      text-align: left;
-      border-top: 1px solid rgba(#fff, 0.3);
-      padding: 1.8em 0 1.8em;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 40;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      flex-direction: column;
-
-      @include media.media(L) {
-        flex-direction: row;
-        padding-top: 40px;
-      }
-    }
-
-    &__media {
-      margin-bottom: 1em;
-      width: 100%;
-      position: relative;
-
-      @include media.media(L) {
-        margin-top: 62px;
-        margin-bottom: 10em;
-      }
-    }
-
-    &__catalog-number {
-      text-transform: uppercase;
-    }
-
-    &__title {
-      font-size: 18px;
-      line-height: 1.2;
-      margin: 0 0 0.1em;
-      color: #fff;
-
-      @include media.media(M) {
-        font-size: 30px;
-      }
-    }
-
-    &__player-tabs {
-      width: 100%;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    &__youtube-player {
-      @include ratio.ratio(100%, 16, 9);
-      @extend .sentimony-iframe;
-
-      &-iframe {
-        border-radius: 6px;
-        border: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 143%;
-        height: 143%;
-        transform: scale(0.7);
-        transform-origin: top left;
-      }
+    @include media.media(L) {
+      flex-direction: row;
+      padding-top: 40px;
     }
   }
+
+  &__media {
+    margin-bottom: 1em;
+    width: 100%;
+    position: relative;
+
+    @include media.media(L) {
+      margin-top: 62px;
+      margin-bottom: 10em;
+    }
+  }
+
+  &__catalog-number {
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 0 0 0.1em;
+    color: #fff;
+
+    @include media.media(M) {
+      font-size: 30px;
+    }
+  }
+
+  &__player-tabs {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  &__youtube-player {
+    @include ratio.ratio(100%, 16, 9);
+    @extend .sentimony-iframe;
+
+    &-iframe {
+      border-radius: 6px;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 143%;
+      height: 143%;
+      transform: scale(0.7);
+      transform-origin: top left;
+    }
+  }
+}
 </style>

@@ -384,128 +384,125 @@
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
-  import sortBy from 'lodash/sortBy'
+import axios from '@/plugins/axios'
+import sortBy from 'lodash/sortBy'
 
-  export default {
-    data: () => ({
-      youtubeFrames: {
-        allTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn',
-        needToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
-      },
-      links_v2: [
-        {
-          url:
-            'diggersfactory bandcamp 24bit beatport junodownload spotify apple amazon deezer tidal qobuz soundcloud music.youtube youtu.be sentimony'
-        }
-      ]
-    }),
-    async asyncData({ route }) {
-      const [
-        artistsRes,
-        releasesRes,
-        playlistsRes,
-        videosRes
-      ] = await Promise.all([
-        axios.get('artists.json'),
-        axios.get('releases.json'),
-        axios.get('playlists.json'),
-        axios.get('videos.json')
-      ])
-      const artists = artistsRes.data
-      const releases = releasesRes.data
-      const playlists = playlistsRes.data
-      const videos = videosRes.data
-      return { artists, releases, playlists, videos }
+export default {
+  data: () => ({
+    youtubeFrames: {
+      allTracks: 'PLp2GaPnw5O3PWcqMkLjyj8lMroqjzVpDn',
+      needToWatch: 'PLKQBsIU26jOcIbXUbaDuSAUjUWHs4iwOH'
     },
-    computed: {
-      releasesSortByDate() {
-        return sortBy(this.releases, 'date').reverse()
-      },
-      artistsSortByCategoryId() {
-        return sortBy(this.artists, 'category_id')
-      },
-      playlistsSortByDate() {
-        return sortBy(this.playlists, 'date')
-      },
-      videosSortByDate() {
-        return sortBy(this.videos, 'date')
+    links_v2: [
+      {
+        url:
+          'diggersfactory bandcamp 24bit beatport junodownload spotify apple amazon deezer tidal qobuz soundcloud music.youtube youtu.be sentimony'
       }
+    ]
+  }),
+  async asyncData({ route }) {
+    const [
+      artistsRes,
+      releasesRes,
+      playlistsRes,
+      videosRes
+    ] = await Promise.all([
+      axios.get('artists.json'),
+      axios.get('releases.json'),
+      axios.get('playlists.json'),
+      axios.get('videos.json')
+    ])
+    const artists = artistsRes.data
+    const releases = releasesRes.data
+    const playlists = playlistsRes.data
+    const videos = videosRes.data
+    return { artists, releases, playlists, videos }
+  },
+  computed: {
+    releasesSortByDate() {
+      return sortBy(this.releases, 'date').reverse()
     },
-    filters: {
-      formatDate: function(date) {
-        var moment = require('moment')
-        if (date) {
-          return moment(String(date)).format('YYYY')
-          // return moment(String(date)).format('YYYY-MM-DD');
-        }
-      }
+    artistsSortByCategoryId() {
+      return sortBy(this.artists, 'category_id')
     },
-    head: {
-      title: 'Sitemap',
-      meta: [
-        { name: 'description', content: '' },
-        {
-          property: 'og:image',
-          content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
-        }
-      ]
+    playlistsSortByDate() {
+      return sortBy(this.playlists, 'date')
+    },
+    videosSortByDate() {
+      return sortBy(this.videos, 'date')
     }
+  },
+  filters: {
+    formatDate: function(date) {
+      var moment = require('moment')
+      if (date) {
+        return moment(String(date)).format('YYYY')
+        // return moment(String(date)).format('YYYY-MM-DD');
+      }
+    }
+  },
+  head: {
+    title: 'Sitemap',
+    meta: [
+      { name: 'description', content: '' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+    ]
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/coriolanClearfix' as clearfix;
-  @use '@/assets/scss/coriolanRatio' as ratio;
-  @use '@/assets/scss/iframe-size';
+@use '@/assets/scss/coriolanClearfix' as clearfix;
+@use '@/assets/scss/coriolanRatio' as ratio;
+@use '@/assets/scss/iframe-size';
 
-  .sitemap-page {
-    padding: 2em 0;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: left;
-    font-family: Roboto, Arial, sans-serif;
-    font-weight: 400;
+.sitemap-page {
+  padding: 2em 0;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
 
-    &__frame-holder {
-      @include ratio.ratio(100%, 16, 9);
-      @extend .sentimony-iframe;
-      margin-bottom: 20px;
-    }
-
-    &__frame {
-      border-radius: 6px;
-      border: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 143%;
-      height: 143%;
-      transform: scale(0.7);
-      transform-origin: top left;
-    }
-
-    table {
-      width: 100%;
-    }
+  &__frame-holder {
+    @include ratio.ratio(100%, 16, 9);
+    @extend .sentimony-iframe;
+    margin-bottom: 20px;
   }
 
-  .sitemap-link-list a {
-    text-decoration: underline;
+  &__frame {
+    border-radius: 6px;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 143%;
+    height: 143%;
+    transform: scale(0.7);
+    transform-origin: top left;
   }
 
-  .sitemap-link-list p {
-    @include clearfix.clearfix;
+  table {
+    width: 100%;
   }
+}
 
-  .sitemap-link-list img {
-    width: auto;
-    height: 56px;
-    // display: block;
-    float: left;
-    margin-right: 10px;
-    // margin-bottom: 10px;
-  }
+.sitemap-link-list a {
+  text-decoration: underline;
+}
+
+.sitemap-link-list p {
+  @include clearfix.clearfix;
+}
+
+.sitemap-link-list img {
+  width: auto;
+  height: 56px;
+  // display: block;
+  float: left;
+  margin-right: 10px;
+  // margin-bottom: 10px;
+}
 </style>
