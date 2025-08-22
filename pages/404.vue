@@ -62,54 +62,54 @@
 </template>
 
 <script>
-  import SvgTriangle from '@/components/SvgTriangle.vue'
+import SvgTriangle from '@/components/SvgTriangle.vue'
 
-  export default {
-    layout: 'error',
-    components: {
-      SvgTriangle,
-    },
-    data: () => ({
-      errorPageTitle: 'This page could not be found',
-      logoImg: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01',
-    }),
-    head: {
-      title: 'Home',
-      meta: [
-        { name: 'description', content: 'Home of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
-      ]
-    }
+export default {
+  layout: 'error',
+  components: {
+    SvgTriangle,
+  },
+  data: () => ({
+    errorPageTitle: 'This page could not be found',
+    logoImg: 'https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01',
+  }),
+  head: {
+    title: 'Home',
+    meta: [
+      { name: 'description', content: 'Home of Sentimony Records' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+    ]
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/coriolanMedia' as media;
-  @use '@/assets/scss/buttons';
+@use '@/assets/scss/coriolanMedia' as media;
+@use '@/assets/scss/buttons';
 
-  .app-btn {
-    margin-right: .5em;
-    display: inline-block;
-    // margin-top: .5em;
-    margin-bottom: .5em;
+.app-btn {
+  margin-right: .5em;
+  display: inline-block;
+  // margin-top: .5em;
+  margin-bottom: .5em;
 
-    &__btn {
-      @extend .btn;
+  &__btn {
+    @extend .btn;
 
-      &-img {
-        @extend .btn__img;
-        width: 16px;
-        height: 16px;
+    &-img {
+      @extend .btn__img;
+      width: 16px;
+      height: 16px;
 
-        @include media.media(M) {
-          width: 18px;
-          height: 18px;
-        }
-      }
-
-      &-text {
-        @extend .btn__text;
+      @include media.media(M) {
+        width: 18px;
+        height: 18px;
       }
     }
+
+    &-text {
+      @extend .btn__text;
+    }
   }
+}
 </style>

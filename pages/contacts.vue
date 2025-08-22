@@ -31,67 +31,67 @@
 </template>
 
 <script setup>
-  import { onMounted } from '@nuxtjs/composition-api'
-  import { useLoadingStore } from '@/stores/loading.ts'
-  import { useSocialStore } from '@/stores/social.ts'
+import { onMounted } from '@nuxtjs/composition-api'
+import { useLoadingStore } from '@/stores/loading.ts'
+import { useSocialStore } from '@/stores/social.ts'
 
-  const loadingStore = useLoadingStore()
-  const social = useSocialStore()
+const loadingStore = useLoadingStore()
+const social = useSocialStore()
 
-  onMounted(() => {
-    social.loadSocial()
-  })
+onMounted(() => {
+  social.loadSocial()
+})
 </script>
 
 <script>
-  export default {
-    data() {
-      return {
-        touch: "Let's be in touch:",
-        mailtoUrl: 'mailto:sentimony@gmail.com?subject=Hello, Sentimony Records',
-        email: 'sentimony@gmail.com',
-        follow: 'Follow Us:'
-      }
-    },
-    head: {
-      title: 'Contacts',
-      meta: [
-        { name: 'description', content: 'Contacts of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
-      ]
+export default {
+  data() {
+    return {
+      touch: "Let's be in touch:",
+      mailtoUrl: 'mailto:sentimony@gmail.com?subject=Hello, Sentimony Records',
+      email: 'sentimony@gmail.com',
+      follow: 'Follow Us:'
     }
+  },
+  head: {
+    title: 'Contacts',
+    meta: [
+      { name: 'description', content: 'Contacts of Sentimony Records' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+    ]
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/page';
+@use '@/assets/scss/page';
 
-  .contacts {
-    @extend .page;
+.contacts {
+  @extend .page;
 
-    &__link {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    &__icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
-
-  //   &__title {
-  //     color: lighten(#ccc, 10%);
-  //     font-weight: 700;
-  //     text-transform: uppercase;
-  //   }
-
-  //   nav {
-  //     a {
-  //       display: inline-block;
-  //       padding: 1em;
-  //     }
-  //   }
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+//   &__title {
+//     color: lighten(#ccc, 10%);
+//     font-weight: 700;
+//     text-transform: uppercase;
+//   }
+
+//   nav {
+//     a {
+//       display: inline-block;
+//       padding: 1em;
+//     }
+//   }
+}
 </style>

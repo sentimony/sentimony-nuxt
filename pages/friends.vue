@@ -12,30 +12,27 @@
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
+import axios from '@/plugins/axios'
 
-  export default {
-    async asyncData() {
-      const { data } = await axios.get('friends.json')
-      return { friends: data }
-    },
-    head: {
-      title: 'Friends',
-      meta: [
-        { name: 'description', content: 'Friends of Sentimony Records' },
-        {
-          property: 'og:image',
-          content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01'
-        }
-      ]
-    }
+export default {
+  async asyncData() {
+    const { data } = await axios.get('friends.json')
+    return { friends: data }
+  },
+  head: {
+    title: 'Friends',
+    meta: [
+      { name: 'description', content: 'Friends of Sentimony Records' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+    ]
   }
+}
 </script>
 
 <style lang="scss">
-  // @use '@/assets/scss/page';
+// @use '@/assets/scss/page';
 
-  // .friends {
-  //   @extend .page;
-  // }
+// .friends {
+//   @extend .page;
+// }
 </style>

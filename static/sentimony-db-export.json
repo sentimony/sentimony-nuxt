@@ -2222,7 +2222,7 @@
       "category_id": "120",
       "name": "Ihor Orlovskyi & Yulia Levchenko",
       "location": "Kyiv, Ukraine",
-      "style": "Psychill",
+      "style": "Psychill, Psybient",
       "photo_og": "https://content.sentimony.com/assets/img/artists/sphingida-01_og.jpg",
       "photo_th": "https://content.sentimony.com/assets/img/artists/sphingida-01_th.jpg",
       "photo_xl": "https://content.sentimony.com/assets/img/artists/sphingida-01_xl.jpg",
@@ -2331,7 +2331,7 @@
       "slug": "vonoom",
       "visible": false,
       "category": "musician",
-      "category_id": "114",
+      "category_id": "120",
       "name": "Michael Sundø",
       "location": "Copenhagen, Denmark",
       "style": "Psychill",
@@ -2387,22 +2387,22 @@
       "slug": "cygna",
       "visible": false,
       "category": "musician",
-      "category_id": "113",
-      "name": "",
-      "location": "",
+      "category_id": "120",
+      "name": "Mario Sammut",
+      "location": "Mdina, Malta",
       "style": "Psychill, Psybient",
       "photo_og": "https://content.sentimony.com/assets/img/artists/cygna-01_og.jpg",
       "photo_th": "https://content.sentimony.com/assets/img/artists/cygna-01_th.jpg",
       "photo_xl": "https://content.sentimony.com/assets/img/artists/cygna-01_xl.jpg",
       "information": "",
-      "soundcloud_url": "",
+      "soundcloud_url": "https://soundcloud.com/cygna",
       "soundcloud_label_playlist_id": "",
       "soundcloud_artist_playlist_id": "",
       "mixcloud": "",
       "youtube_playlist_id": "",
       "spotify": "",
-      "discogs": "",
-      "facebook": "",
+      "discogs": "https://www.discogs.com/artist/1488063-Mario-Sammut",
+      "facebook": "https://www.facebook.com/cygna",
       "facebook_personal": "",
       "instagram": "",
       "instagram_personal": "",
@@ -2940,10 +2940,10 @@
       "youtube_playlist_id": "",
       "spotify": "",
       "discogs": "",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/apivniuk",
       "facebook_personal": "https://www.facebook.com/apivniuk",
-      "instagram": "",
-      "instagram_personal": "",
+      "instagram": "https://www.instagram.com/antonpivniuk",
+      "instagram_personal": "https://www.instagram.com/antonpivniuk",
       "bandcamp_url": "",
       "youtube_url": "",
       "website": ""
@@ -3164,201 +3164,105 @@
       "date": "2008-11-01T12:00:00.000Z",
       "title": "Sentimony: Shift Space",
       "slug": "shift-space",
+      "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "info": "",
       "lineup": [
-        {
-          "musician": "Spectrum Vision"
-        },
-        {
-          "musician": "Chronos"
-        },
-        {
-          "musician": "Irukanji"
-        }
+        { "musician": "Spectrum Vision" },
+        { "musician": "Chronos" },
+        { "musician": "Irukanji" }
       ],
       "links": [
-        {
-          "id": "facebook",
-          "url": ""
-        },
-        {
-          "id": "psyshine",
-          "url": "http://forum.psyshine.org.ua/viewtopic.php?t=5435"
-        },
-        {
-          "id": "vkontakte",
-          "url": ""
-        }
+        { "id": "facebook", "url": "" },
+        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=5435" },
+        { "id": "vkontakte", "url": "" }
       ]
     },
     "alt-space": {
       "date": "2009-11-21T12:00:00.000Z",
       "title": "Sentimony: Alt Space",
       "slug": "alt-space",
+      "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "info": "",
       "lineup": [
-        {
-          "musician": "Flooting Grooves"
-        },
-        {
-          "musician": "Capsula"
-        },
-        {
-          "musician": "Spectrum Vision"
-        },
-        {
-          "musician": "Irukanji"
-        },
-        {
-          "musician": "NeiRula"
-        }
+        { "musician": "Flooting Grooves" },
+        { "musician": "Capsula" },
+        { "musician": "Spectrum Vision" },
+        { "musician": "Irukanji" },
+        { "musician": "NeiRula" }
       ],
       "links": [
-        {
-          "id": "facebook",
-          "url": ""
-        },
-        {
-          "id": "psyshine",
-          "url": "http://forum.psyshine.org.ua/viewtopic.php?t=7036"
-        },
-        {
-          "id": "vkontakte",
-          "url": ""
-        }
+        { "id": "facebook", "url": "" },
+        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=7036" },
+        { "id": "vkontakte", "url": "" }
       ]
     },
     "water-marks": {
       "date": "2010-08-28T12:00:00.000Z",
       "title": "Sentimony: Water Marks",
       "slug": "water-marks",
+      "visible": true,
       "location": "Kyiv boat station",
       "info": "",
       "lineup": [
-        {
-          "musician": "Senzar"
-        },
-        {
-          "musician": "Overdream feat. DubMyDub"
-        },
-        {
-          "musician": "Tentura"
-        },
-        {
-          "musician": "Irukanji feat. JazzyFlute"
-        },
-        {
-          "musician": "Hypnotriod"
-        },
-        {
-          "musician": "Unusual Cosmic Process | Psypheric"
-        }
+        { "musician": "Senzar" },
+        { "musician": "Overdream feat. DubMyDub" },
+        { "musician": "Tentura" },
+        { "musician": "Irukanji feat. JazzyFlute" },
+        { "musician": "Hypnotriod" },
+        { "musician": "Unusual Cosmic Process | Psypheric" }
       ],
       "links": [
-        {
-          "id": "facebook",
-          "url": ""
-        },
-        {
-          "id": "psyshine",
-          "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8288"
-        },
-        {
-          "id": "vkontakte",
-          "url": ""
-        }
+        { "id": "facebook", "url": "" },
+        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8288" },
+        { "id": "vkontakte", "url": "" }
       ]
     },
     "home-space": {
       "date": "2010-11-13T12:00:00.000Z",
       "title": "Sentimony: Home Space",
       "slug": "home-space",
+      "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "info": "",
       "lineup": [
-        {
-          "musician": "Psyfactor"
-        },
-        {
-          "musician": "Chronos"
-        },
-        {
-          "musician": "Spectrum Vision"
-        },
-        {
-          "musician": "Overdream feat. DubMyDub"
-        },
-        {
-          "musician": "Irukanji feat. JazzyFlute"
-        }
+        { "musician": "Psyfactor" },
+        { "musician": "Chronos" },
+        { "musician": "Spectrum Vision" },
+        { "musician": "Overdream feat. DubMyDub" },
+        { "musician": "Irukanji feat. JazzyFlute" }
       ],
       "links": [
-        {
-          "id": "facebook",
-          "url": ""
-        },
-        {
-          "id": "psyshine",
-          "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8475"
-        },
-        {
-          "id": "vkontakte",
-          "url": ""
-        }
+        { "id": "facebook", "url": "" },
+        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8475" },
+        { "id": "vkontakte", "url": "" }
       ]
     },
     "five-years": {
       "date": "2011-11-05T12:00:00.000Z",
       "title": "Sentimony: Five Years",
       "slug": "five-years",
+      "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "information": "<p></p><p></p><p></p>",
       "info": [
-          {
-            "p": ""
-          },
-          {
-            "p": ""
-          },
-          {
-            "p": ""
-          },
-          {
-            "p": ""
-          },
-          {
-            "p": ""
-          },
-          {
-            "p": ""
-          }
+        { "p": "" },
+        { "p": "" },
+        { "p": "" },
+        { "p": "" },
+        { "p": "" },
+        { "p": "" }
       ],
       "lineup": [
-        {
-          "musician": "Vonoom"
-        },
-        {
-          "musician": "Mindex"
-        },
-        {
-          "musician": "Irukanji"
-        }
+        { "musician": "Vonoom" },
+        { "musician": "Mindex" },
+        { "musician": "Irukanji" }
       ],
       "links": [
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/events/837358289645324"
-        },
-        {
-          "id": "psyshine",
-          "url": "http://forum.psyshine.org.ua/viewtopic.php?t=9394"
-        },
-        {
-          "id": "vkontakte",
-          "url": ""
-        }
+        { "id": "facebook", "url": "https://www.facebook.com/events/837358289645324" },
+        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=9394" },
+        { "id": "vkontakte", "url": "" }
       ]
     }
   },
@@ -3368,26 +3272,11 @@
       "slug": "another-dimension",
       "visible": true,
       "links": [
-        {
-          "id": "site",
-          "url": "http://anotherdimension.com.ua"
-        },
-        {
-          "id": "bandcamp",
-          "url": "https://anotherdimension.bandcamp.com"
-        },
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/anotherdimensionmusic"
-        },
-        {
-          "id": "soundcloud",
-          "url": "https://soundcloud.com/another-dimension-music"
-        },
-        {
-          "id": "youtube",
-          "url": ""
-        }
+        { "id": "site", "url": "http://anotherdimension.com.ua" },
+        { "id": "bandcamp", "url": "https://anotherdimension.bandcamp.com" },
+        { "id": "facebook", "url": "https://www.facebook.com/anotherdimensionmusic" },
+        { "id": "soundcloud", "url": "https://soundcloud.com/another-dimension-music" },
+        { "id": "youtube", "url": "" }
       ]
     },
     "clocktail": {
@@ -3395,26 +3284,11 @@
       "slug": "clocktail",
       "visible": false,
       "links": [
-        {
-          "id": "site",
-          "url": ""
-        },
-        {
-          "id": "bandcamp",
-          "url": "https://clocktailrecords1.bandcamp.com"
-        },
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/clocktailrecordsofficial"
-        },
-        {
-          "id": "soundcloud",
-          "url": ""
-        },
-        {
-          "id": "youtube",
-          "url": ""
-        }
+        { "id": "site", "url": "" },
+        { "id": "bandcamp", "url": "https://clocktailrecords1.bandcamp.com" },
+        { "id": "facebook", "url": "https://www.facebook.com/clocktailrecordsofficial" },
+        { "id": "soundcloud", "url": "" },
+        { "id": "youtube", "url": "" }
       ]
     },
     "moon-koradji": {
@@ -3422,26 +3296,11 @@
       "slug": "moon-koradji",
       "visible": true,
       "links": [
-        {
-          "id": "site",
-          "url": "http://moonkoradji.com"
-        },
-        {
-          "id": "bandcamp",
-          "url": "https://moonkoradjirecords.bandcamp.com"
-        },
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/MoonKoradjiRecords"
-        },
-        {
-          "id": "soundcloud",
-          "url": "https://soundcloud.com/moon-koradji-records"
-        },
-        {
-          "id": "youtube",
-          "url": "https://www.youtube.com/channel/UCHFjHqfqp5ffNlzkmxXNpGQ"
-        }
+        { "id": "site", "url": "http://moonkoradji.com" },
+        { "id": "bandcamp", "url": "https://moonkoradjirecords.bandcamp.com" },
+        { "id": "facebook", "url": "https://www.facebook.com/MoonKoradjiRecords" },
+        { "id": "soundcloud", "url": "https://soundcloud.com/moon-koradji-records" },
+        { "id": "youtube", "url": "https://www.youtube.com/channel/UCHFjHqfqp5ffNlzkmxXNpGQ" }
       ]
     },
     "space-baby": {
@@ -3449,26 +3308,11 @@
       "slug": "space-baby",
       "visible": true,
       "links": [
-        {
-          "id": "site",
-          "url": "http://spacebabyrec.com"
-        },
-        {
-          "id": "bandcamp",
-          "url": "https://spacebabyrecords.bandcamp.com"
-        },
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/SpaceBabyRecord"
-        },
-        {
-          "id": "soundcloud",
-          "url": "https://soundcloud.com/space-baby-records"
-        },
-        {
-          "id": "youtube",
-          "url": ""
-        }
+        { "id": "site", "url": "http://spacebabyrec.com" },
+        { "id": "bandcamp", "url": "https://spacebabyrecords.bandcamp.com" },
+        { "id": "facebook", "url": "https://www.facebook.com/SpaceBabyRecord" },
+        { "id": "soundcloud", "url": "https://soundcloud.com/space-baby-records" },
+        { "id": "youtube", "url": "" }
       ]
     },
     "treetrolla": {
@@ -3476,26 +3320,11 @@
       "slug": "treetrolla",
       "visible": true,
       "links": [
-        {
-          "id": "site",
-          "url": "http://www.treetrollarecords.com"
-        },
-        {
-          "id": "bandcamp",
-          "url": "https://treetrollarecords.bandcamp.com"
-        },
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/Treetrolla-Records-151989571518380"
-        },
-        {
-          "id": "soundcloud",
-          "url": "https://soundcloud.com/treetrollarecords"
-        },
-        {
-          "id": "youtube",
-          "url": ""
-        }
+        { "id": "site", "url": "http://www.treetrollarecords.com" },
+        { "id": "bandcamp", "url": "https://treetrollarecords.bandcamp.com" },
+        { "id": "facebook", "url": "https://www.facebook.com/Treetrolla-Records-151989571518380" },
+        { "id": "soundcloud", "url": "https://soundcloud.com/treetrollarecords" },
+        { "id": "youtube", "url": "" }
       ]
     },
     "zenon": {
@@ -3503,26 +3332,11 @@
       "slug": "zenon",
       "visible": false,
       "links": [
-        {
-          "id": "site",
-          "url": "http://zenonrecords.com"
-        },
-        {
-          "id": "bandcamp",
-          "url": "https://zenonrecords.bandcamp.com"
-        },
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/zenonrecords"
-        },
-        {
-          "id": "soundcloud",
-          "url": "https://soundcloud.com/zenon-records"
-        },
-        {
-          "id": "youtube",
-          "url": "https://www.youtube.com/channel/UChKHa67XvFQRdb_ec-OnuFA"
-        }
+        { "id": "site", "url": "http://zenonrecords.com" },
+        { "id": "bandcamp", "url": "https://zenonrecords.bandcamp.com" },
+        { "id": "facebook", "url": "https://www.facebook.com/zenonrecords" },
+        { "id": "soundcloud", "url": "https://soundcloud.com/zenon-records" },
+        { "id": "youtube", "url": "https://www.youtube.com/channel/UChKHa67XvFQRdb_ec-OnuFA" }
       ]
     },
     "parvati": {
@@ -3530,26 +3344,11 @@
       "slug": "parvati",
       "visible": false,
       "links": [
-        {
-          "id": "site",
-          "url": "https://parvati-records.com"
-        },
-        {
-          "id": "bandcamp",
-          "url": ""
-        },
-        {
-          "id": "facebook",
-          "url": "https://www.facebook.com/ParvatiRecords"
-        },
-        {
-          "id": "soundcloud",
-          "url": "https://soundcloud.com/p-30"
-        },
-        {
-          "id": "youtube",
-          "url": "https://www.youtube.com/channel/UCNzIzprSyTizN24d608skDg"
-        }
+        { "id": "site", "url": "https://parvati-records.com" },
+        { "id": "bandcamp", "url": "" },
+        { "id": "facebook", "url": "https://www.facebook.com/ParvatiRecords" },
+        { "id": "soundcloud", "url": "https://soundcloud.com/p-30" },
+        { "id": "youtube", "url": "https://www.youtube.com/channel/UCNzIzprSyTizN24d608skDg" }
       ]
     }
   },
@@ -9088,7 +8887,7 @@
       "title": "Psy DnB | Sentimony",
       "style": "Psy DnB",
       "date": "2017-01-01T12:05:00.000Z",
-      "visible": true,
+      "visible": false,
       "cover_og": "",
       "cover_th": "",
       "cover_xl": "",

@@ -85,70 +85,70 @@
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
+import axios from '@/plugins/axios'
 
-  export default {
-    async asyncData({ route }) {
-      const { key } = route.params
-      const { data } = await axios.get(`releases/${key}.json`)
-      return { release: data }
-    },
-    filters: {
-      formatDate: function (date) {
-        var moment = require('moment');
-        if (date) {
-          return moment(String(date)).format('YYYY');
-        }
-      },
-      youtubeMusicEmbed (youtubeMusic) {
-        if (youtubeMusic) {
-          let ym = youtubeMusic.replace('https://music.youtube.com/playlist?list=', '');
-          return 'https://www.youtube.com/embed/videoseries?loop=1&list=' + ym;
-        }
+export default {
+  async asyncData({ route }) {
+    const { key } = route.params
+    const { data } = await axios.get(`releases/${key}.json`)
+    return { release: data }
+  },
+  filters: {
+    formatDate: function (date) {
+      var moment = require('moment');
+      if (date) {
+        return moment(String(date)).format('YYYY');
       }
     },
-    head() {
-      return {
-        title: this.release.title,
-        meta: [
-          { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
-          { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + '/' + this.release.slug + '.jpg?01' }
-        ]
+    youtubeMusicEmbed (youtubeMusic) {
+      if (youtubeMusic) {
+        let ym = youtubeMusic.replace('https://music.youtube.com/playlist?list=', '');
+        return 'https://www.youtube.com/embed/videoseries?loop=1&list=' + ym;
       }
     }
+  },
+  head() {
+    return {
+      title: this.release.title,
+      meta: [
+        { name: 'description', content: this.release.tracks_number + ' tracks ' + this.release.style + ' ' + this.release.format + ', ' + this.release.date.split('-')[0] },
+        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/releases/og-images/' + '/' + this.release.slug + '.jpg?01' }
+      ]
+    }
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/coriolanRatio' as ratio;
-  @use '@/assets/scss/iframe-size';
+@use '@/assets/scss/coriolanRatio' as ratio;
+@use '@/assets/scss/iframe-size';
 
-  .youtube-page-item {
-    padding: 2em 0;
-    max-width: 400px;
-    margin: 0 auto;
-    font-size: 12px;
-    line-height: 1.2;
-    text-align: left;
-    font-family: Roboto, Arial, sans-serif;
-    font-weight: 400;
+.youtube-page-item {
+  padding: 2em 0;
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: left;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
 
-    &__frame-holder {
-      @include ratio.ratio(100%,16,9);
-      @extend .sentimony-iframe;
-      margin-bottom: 20px;
-    }
-
-    &__frame {
-      border-radius: 6px;
-      border: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 143%;
-      height: 143%;
-      transform: scale(.7);
-      transform-origin: top left;
-    }
+  &__frame-holder {
+    @include ratio.ratio(100%,16,9);
+    @extend .sentimony-iframe;
+    margin-bottom: 20px;
   }
+
+  &__frame {
+    border-radius: 6px;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 143%;
+    height: 143%;
+    transform: scale(.7);
+    transform-origin: top left;
+  }
+}
 </style>

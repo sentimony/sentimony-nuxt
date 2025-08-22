@@ -30,34 +30,34 @@
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
-  import sortBy from 'lodash/sortBy'
-  import AppContent from '@/plugins/AppContent'
+import axios from '@/plugins/axios'
+import sortBy from 'lodash/sortBy'
+import AppContent from '@/plugins/AppContent'
 
-  export default {
-    layout: 'default',
-    data() {
-      return {
-        texts: AppContent.texts,
-      }
-    },
-    async asyncData() {
-      const { data } = await axios.get('playlists.json')
-      return { playlists: data }
-    },
-    computed: {
-      sortByDate () {
-        return sortBy(this.playlists, 'date').reverse().reverse()
-      }
-    },
-    head: {
-      title: 'Playlists',
-      meta: [
-        { name: 'description', content: 'Playlists of Sentimony Records' },
-        { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
-      ]
+export default {
+  layout: 'default',
+  data() {
+    return {
+      texts: AppContent.texts,
     }
+  },
+  async asyncData() {
+    const { data } = await axios.get('playlists.json')
+    return { playlists: data }
+  },
+  computed: {
+    sortByDate () {
+      return sortBy(this.playlists, 'date').reverse().reverse()
+    }
+  },
+  head: {
+    title: 'Playlists',
+    meta: [
+      { name: 'description', content: 'Playlists of Sentimony Records' },
+      { property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/og%2Fog-default.jpg?alt=media&token=85a8d7a3-ab49-4cff-9df9-fd3e2478e780' }
+    ]
   }
+}
 </script>
 
 <style lang="scss"></style>

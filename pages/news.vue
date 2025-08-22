@@ -48,64 +48,64 @@
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
-  import sortBy from 'lodash/sortBy'
-  import moment from 'moment'
+import axios from '@/plugins/axios'
+import sortBy from 'lodash/sortBy'
+import moment from 'moment'
 
-  export default {
-    async asyncData() {
-      const [
-        releasesRes,
-        eventsRes,
-        // videosRes
-      ] = await Promise.all([
-        axios.get('releases.json'),
-        axios.get('events.json'),
-        // axios.get('videos.json')
-      ]);
-      const news = Object.assign(
-        releasesRes.data, 
-        eventsRes.data,
-        // videosRes.data
-      )
-      return { news }
-    },
-    computed: {
-      sortByDate () {
-        return sortBy(this.news, 'date').reverse()
+export default {
+  async asyncData() {
+    const [
+      releasesRes,
+      eventsRes,
+      // videosRes
+    ] = await Promise.all([
+      axios.get('releases.json'),
+      axios.get('events.json'),
+      // axios.get('videos.json')
+    ]);
+    const news = Object.assign(
+      releasesRes.data, 
+      eventsRes.data,
+      // videosRes.data
+    )
+    return { news }
+  },
+  computed: {
+    sortByDate () {
+      return sortBy(this.news, 'date').reverse()
+    }
+  },
+  filters: {
+    formatDate: function (date) {
+      if (date) {
+        return moment(String(date)).format('DD MMM YYYY');
       }
     },
-    filters: {
-      formatDate: function (date) {
-        if (date) {
-          return moment(String(date)).format('DD MMM YYYY');
-        }
-      },
-    },
-    head: {
-      title: 'News',
-      meta: [
-        { name: 'description', content: 'News of Sentimony Records' },
-        { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
-      ]
-    }
+  },
+  head: {
+    title: 'News',
+    meta: [
+      { name: 'description', content: 'News of Sentimony Records' },
+      { property: 'og:image', content: 'https://content.sentimony.com/assets/img/og-images/sentimony/og-default.jpg?01' }
+    ]
   }
+}
 </script>
 
 <style lang="scss">
-  // @use '@/assets/scss/coriolanMedia' as media;
-  
-  // .news {
-  //   padding-bottom: 30px;
+// @use '@/assets/scss/coriolanMedia' as media;
 
-  //   @include media.media(M) {
-  //     padding-bottom: 60px;
-  //   }
-  // }
+// .news {
+//   padding-bottom: 30px;
 
-  // .news-img {
-  //   height: 120px;
-  //   display: block;
-  //   margin: 0 auto;
-  // }
+//   @include media.media(M) {
+//     padding-bottom: 60px;
+//   }
+// }
+
+// .news-img {
+//   height: 120px;
+//   display: block;
+//   margin: 0 auto;
+// }
 </style>

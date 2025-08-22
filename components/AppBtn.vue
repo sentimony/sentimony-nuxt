@@ -56,44 +56,44 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      'url': String,
-      'route': String,
-      'title': String,
-      'icon': String,
-      'redirect': String,
-    }
+export default {
+  props: {
+    'url': String,
+    'route': String,
+    'title': String,
+    'icon': String,
+    'redirect': String,
   }
+}
 </script>
 
 <style lang="scss">
-  @use '@/assets/scss/coriolanMedia' as media;
-  @use '@/assets/scss/buttons';
+@use '@/assets/scss/coriolanMedia' as media;
+@use '@/assets/scss/buttons';
 
-  .app-btn {
-    margin-right: .5em;
-    display: inline-block;
-    // margin-top: .5em;
-    margin-bottom: .5em;
+.app-btn {
+  margin-right: .5em;
+  display: inline-block;
+  // margin-top: .5em;
+  margin-bottom: .5em;
 
-    &__btn {
-      @extend .btn;
+  &__btn {
+    @extend .btn;
 
-      &-img {
-        @extend .btn__img;
-        width: 16px;
-        height: 16px;
+    &-img {
+      @extend .btn__img;
+      width: 16px;
+      height: 16px;
 
-        @include media.media(M) {
-          width: 18px;
-          height: 18px;
-        }
-      }
-
-      &-text {
-        @extend .btn__text;
+      @include media.media(M) {
+        width: 18px;
+        height: 18px;
       }
     }
+
+    &-text {
+      @extend .btn__text;
+    }
   }
+}
 </style>

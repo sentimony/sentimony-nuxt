@@ -1,35 +1,34 @@
 <template>
   <span>
-    <span v-if="i.cover_th">
-      <img style="width:11px;height:auto;" :src="i.cover_th" :alt="i.title" />
-      |
+    <span v-if="i.cover_th" style="vertical-align:top;">
+      <img style="width:20px;margin-right:6px;" :src="i.cover_th" :alt="i.title" />
     </span>
-    {{ i.title }}
-    |
-    {{ i.date | year }}
-    |
-    <router-link v-ripple :to="'../../' + category + '/' + i.slug + '/'"
-      >Read More</router-link
-    >
+    <span>{{ i.title }}</span>
+    <span>({{ i.date | year }})</span>
+    <router-link 
+      v-ripple
+      :to="'../../' + category + '/' + i.slug + '/'"
+      v-html="'Read More'"
+    />
   </span>
 </template>
 
 <script>
-  import moment from 'moment'
+import moment from 'moment'
 
-  export default {
-    props: {
-      i: Object,
-      category: String
-    },
-    filters: {
-      year: function(date) {
-        if (date) {
-          return moment(String(date)).format('YYYY')
-        }
+export default {
+  props: {
+    i: Object,
+    category: String
+  },
+  filters: {
+    year: function(date) {
+      if (date) {
+        return moment(String(date)).format('YYYY')
       }
     }
   }
+}
 </script>
 
 <style lang="scss"></style>

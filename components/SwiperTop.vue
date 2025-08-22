@@ -55,65 +55,65 @@
 </template>
 
 <script>
-  import AppContent from '@/plugins/AppContent'
+import AppContent from '@/plugins/AppContent'
 
-  export default {
-    props: ['title', 'list', 'category', 'item'],
-    data() {
-      return {
-        isShown: false,
-        texts: AppContent.texts,
-        swiperOption: {
-          lazy: true,
-          // scrollbar: {
-          //   el: '.swiper-scrollbar',
-          //   hide: true
-          // },
-          mousewheelControl: true,
-          mousewheelForceToAxis: true,
-          freeMode: true,
-          slidesPerView: 'auto',
-          speed: 350,
-          // slidesPerGroup: 4,
-          slideToClickedSlide: true,
-          centeredSlides: true,
-          //  pagination: {
-          //   el: '.swiper-pagination',
-          //   clickable: true
-          // },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          }
+export default {
+  props: ['title', 'list', 'category', 'item'],
+  data() {
+    return {
+      isShown: false,
+      texts: AppContent.texts,
+      swiperOption: {
+        lazy: true,
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        //   hide: true
+        // },
+        mousewheelControl: true,
+        mousewheelForceToAxis: true,
+        freeMode: true,
+        slidesPerView: 'auto',
+        speed: 350,
+        // slidesPerGroup: 4,
+        slideToClickedSlide: true,
+        centeredSlides: true,
+        //  pagination: {
+        //   el: '.swiper-pagination',
+        //   clickable: true
+        // },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
         }
       }
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isShown = true
+    }, 1000)
+  },
+  methods: {
+    coming(category) {
+      return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingCover
     },
-    mounted() {
-      setTimeout(() => {
-        this.isShown = true
-      }, 1000)
-    },
-    methods: {
-      coming(category) {
-        return this.category == 'artists' ? this.texts.comingPhoto : this.texts.comingCover
-      },
-      rectangle(category) {
-        return this.category == 'videos' ? 'item--rectangle' : ''
-      }
+    rectangle(category) {
+      return this.category == 'videos' ? 'item--rectangle' : ''
     }
   }
+}
 </script>
 
 <style lang="scss">
-  .swiperTop {
-    opacity: 0;
-    // filter: blur(4px);
-    // backdrop-filter: blur(2px);
-    transition: opacity 0.4s ease;
+.swiperTop {
+  opacity: 0;
+  // filter: blur(4px);
+  // backdrop-filter: blur(2px);
+  transition: opacity 0.4s ease;
 
-    &.isShown {
-      opacity: 1;
-      // filter: blur(0px);
-    }
+  &.isShown {
+    opacity: 1;
+    // filter: blur(0px);
   }
+}
 </style>

@@ -5,22 +5,22 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      'title': String,
-    },
-    data() {
-      return {
-        isActive: true
-      }
+export default {
+  props: {
+    'title': String,
+  },
+  data() {
+    return {
+      isActive: true
     }
   }
+}
 </script>
 
 <style lang="css">
-  .app-tab {
-    padding: 12px;
-    background-color: rgba(204, 204, 204, 0.4);
-    border-radius: 0 9px 9px 9px;
-  }
+.app-tab {
+  padding: 12px;
+  background-color: rgba(204, 204, 204, 0.4);
+  border-radius: 0 9px 9px 9px;
+}
 </style>
