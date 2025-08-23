@@ -1,4 +1,4 @@
-<script setup lang="ts"></script>
+<script setup></script>
 
 <template>
   <div class="text-center">
@@ -6,4 +6,4 @@
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
