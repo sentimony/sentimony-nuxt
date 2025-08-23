@@ -10,6 +10,8 @@ _Web development of Sentimony Records site_
 
 https://icon-sets.iconify.design/mdi/?icon-filter=music&keyword=d
 
+https://tailwindcss.com/docs/letter-spacing
+
 [Netlify](https://www.netlify.com) - automatic deploy & free hosting platform
 
 <!-- ### Content

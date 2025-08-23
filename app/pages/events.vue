@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const { data, error } = await useAsyncData("events", () =>
   $fetch("https://sentimony-db.firebaseio.com/events.json")
 );
@@ -7,7 +7,7 @@ const { data, error } = await useAsyncData("events", () =>
 <template>
   <div class="text-center">
     <h1 class="text-lg mb-10">
-      <Icon name="mdi:event" width="24" height="24" />
+      <!-- <Icon name="mdi:event" width="24" height="24" /> -->
       Events
     </h1>
 
@@ -15,10 +15,10 @@ const { data, error } = await useAsyncData("events", () =>
       v-for="i in data"
     >
       <NuxtLink 
-        :to="'event' + '/' + i.slug" 
+        :to="'/event/' + i.slug" 
         class="mr-4"
       >
-        <NuxtImg
+        <!-- <NuxtImg
           v-if="i.cover_th"
           :src="i.cover_th"
           class="inline text-xs w-5 mr-1"
@@ -26,7 +26,7 @@ const { data, error } = await useAsyncData("events", () =>
           densities="x2"
           format="webp"
           :alt="i.title"
-        />
+        /> -->
         <span class="text-xs">{{ i.title }}</span>
       </NuxtLink>
     </span>
@@ -34,4 +34,4 @@ const { data, error } = await useAsyncData("events", () =>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

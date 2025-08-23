@@ -2,7 +2,7 @@
 
 <template>
   <div class="text-center">
-    <h1 class="text-lg mb-10">Contacts Page</h1>
+    <h1 class="text-lg mb-10">404 Page</h1>
   </div>
 </template>
 

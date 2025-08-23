@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 definePageMeta({
   layout: "ddos",
 });
@@ -10,4 +10,4 @@ definePageMeta({
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

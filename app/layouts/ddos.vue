@@ -1,13 +1,7 @@
-<script setup lang="ts"></script>
+<script setup></script>
 
 <template>
-  <div class="">
-    <div>Ddos Layout</div>
-    <Navigation />
-    <div class="p-10">
-      <slot />
-    </div>
-  </div>
+  <slot />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
