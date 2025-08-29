@@ -1,6 +1,6 @@
 <template>
   <div class="CallToAction">
-    <img class="CallToAction__bg" src="/geometrical-pussy.svg" alt="CallToAction bg" />
+    <img class="CallToAction__bg" src="/images/geometrical-pussy.svg" alt="CallToAction bg" />
     <div class="CallToAction__wrapper">
       <p>My fellow artists and I always love reading your feedback.</p>
       <p>

@@ -1,27 +1,25 @@
 # sentimony-nuxt
 
-_Web development of Sentimony Records site_
+Web development of Sentimony Records site with Nuxt 2, Firebase, Netlify, Pinia, Sass, Swiper
 
-### Used
+Main: [sentimony.com](https://sentimony.com)
 
-[NuxtJS](https://nuxtjs.org) - framework for server-rendered [VueJS](https://vuejs.org) applications
+Mirror: [sentimony-nuxt.netlify.app](https://sentimony-nuxt.netlify.app)
 
-[Firebase](https://firebase.google.com) - realtime database by [Google Developers](https://developers.google.com)
+## Deploy status
 
-[Netlify](https://www.netlify.com) - automatic deploy & free hosting platform
+[![Netlify Status](https://api.netlify.com/api/v1/badges/77f60e5a-3062-4880-9ee0-b8407611c9c1/deploy-status)](https://app.netlify.com/projects/sentimony-nuxt/deploys)
 
 <!-- ### Content
 
 [https://sentimony-db.firebaseio.com/.json](https://sentimony-db.firebaseio.com/.json) -->
 
-### Run
+## Run
 
-```
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm use 22.18.0
+```bash
 npm i
+
 npm run dev
 ```
 
-#### Have fun! :)
+Have fun! ;)
