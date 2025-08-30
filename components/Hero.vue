@@ -2,12 +2,12 @@
   <div class="Hero">
     <div class="Hero__wrapper">
       <div class="Hero__title">
-        <div class="julius-sans-one-regular" v-html="siteTitle" />
-        <div class="julius-sans-one-regular" v-html="siteSubTitle" />
-        <!-- <div class="courier-prime-regular" v-html="siteSubTitle" />
-        <div class="lekton-regular" v-html="siteSubTitle" /> -->
+        <div class="julius-sans-one-regular" v-html="siteTitle"></div>
+        <div class="julius-sans-one-regular" v-html="siteSubTitle"></div>
+        <!-- <div class="courier-prime-regular" v-html="siteSubTitle"></div>
+        <div class="lekton-regular" v-html="siteSubTitle"></div> -->
       </div>
-      <div class="Hero__description" v-html="siteDescription" />
+      <div class="Hero__description" v-html="siteDescription"></div>
     </div>
   </div>
 </template>

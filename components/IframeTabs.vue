@@ -3,13 +3,13 @@
     <div v-if="one" class="d-flex">
       <a
         v-for="(i, index) in one"
+        v-ripple
         :key="index"
         v-if="i !== ''"
         @click="chooseFrame(index)"
         style="background:rgba(204,204,204,.4);opacity:.5;"
         class="px-2 py-3 mr-2 d-flex pointer rounded-t-lg"
         :class="{ isActive: currentFrame === index }"
-        v-ripple
       >
         <img
           :src="'https://content.sentimony.com/assets/img/svg-icons/' + icon(i) + '.svg?01'"
@@ -18,9 +18,8 @@
         />
         <span
           style="line-height:20px"
-          v-html="title(i)"
           class="text-body-2"
-        ></span>
+        >{{ title(i) }}</span>
       </a>
     </div>
 
@@ -32,13 +31,15 @@
         style="background:rgba(204,204,204,.4);"
         :class="'IframeTabs__player IframeTabs__player-' + icon(currentContent)"
       >
-        <iframe
-          v-if="currentContent"
-          class="d-block"
-          :src="frame(currentContent)"
-          width="100"
-          height="450"
-        />
+        <client-only>
+          <iframe
+            v-if="currentContent"
+            class="d-block"
+            :src="frame(currentContent)"
+            width="100"
+            height="450"
+          />
+        </client-only>
       </div>
     </div>
   </div>
@@ -105,7 +106,6 @@ function frame(content) {
 @use '@/assets/scss/iframe-size';
 
 .IframeTabs {
-
   & a.isActive {
     opacity: 1!important;
   }

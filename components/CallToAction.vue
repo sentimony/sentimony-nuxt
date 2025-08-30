@@ -12,7 +12,7 @@
         pages.
       </p>
       <p>Thank you — I truly appreciate it ❤️</p>
-      <!-- <p><i>—Ihor</i></p> -->
+      <!-- <p><i>—Ihor</i/> -->
       <p>— Ihor</p>
     </div>
   </div>

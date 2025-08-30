@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; align-items: center; margin-bottom: 12px;">
+  <span style="display: flex; align-items: center;">
     
     <router-link 
       v-if="i.cover_th"
@@ -19,19 +19,19 @@
       <img style="display: block;" :src="i.photo_th" :alt="i.title + ' thumbnail'" />
     </router-link>
 
-    <div>
+    <span>
       <span>{{ i.title }}</span>
       <small v-if="i.date">({{ i.date | year }})</small>
 
-    <router-link 
-      v-ripple
-      :to="'../../' + category + '/' + i.slug + '/'"
-    >
-      <small>Read More</small>
-    </router-link>
-    </div>
+      <router-link 
+        v-ripple
+        :to="'../../' + category + '/' + i.slug + '/'"
+      >
+        <small>Read More</small>
+      </router-link>
+    </span>
     
-  </div>
+  </span>
 </template>
 
 <script>

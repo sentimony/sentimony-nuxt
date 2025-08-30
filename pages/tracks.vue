@@ -10,7 +10,7 @@
         v-if="i.visible"
       >
         <div v-if="i.title" style="margin-bottom: 20px;">
-          <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title" style="width: 20px;margin-right: 6px;vertical-align: text-top;"/>
+          <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title" style="width: 20px;margin-right: 6px;vertical-align: text-top;" />
           <span>{{ i.title }}</span>
         </div>
 

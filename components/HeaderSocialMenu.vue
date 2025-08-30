@@ -16,7 +16,7 @@
           :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
           :alt="i.title + ' Icon'"
         />
-        <div class="HeaderSocialMenu__link__tooltip HeaderSocialMenu__link__tooltip--bottom" v-html="i.title"/>
+        <div class="HeaderSocialMenu__link__tooltip HeaderSocialMenu__link__tooltip--bottom" v-html="i.title"></div>
       </a>
     </nav>
   </div>

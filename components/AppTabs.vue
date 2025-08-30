@@ -15,7 +15,7 @@
             :alt="i.title + ' Icon'"
             style="width:20px;"
           >
-          <span v-if="i.title" v-html="i.title" style="margin-left:6px;"/>
+          <span v-if="i.title" v-html="i.title" style="margin-left:6px;"></span>
         </div>
       </li>
     </ul>

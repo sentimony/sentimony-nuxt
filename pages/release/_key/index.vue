@@ -30,7 +30,7 @@
           </p>
 
           <p v-if="release.links.diggersfactory_url" class="">
-            <br />Purchase VINYL
+            <br>Purchase VINYL
           </p>
           <!-- <p v-else class="small-info">Download it soon</p> -->
           <AppBtn
@@ -43,7 +43,7 @@
           />
 
           <p v-if="release.coming_soon !== true" class="small-info">
-            <br />Download it
+            <br>Download it
           </p>
           <!-- <p v-else class="small-info"><br>Download it soon</p> -->
           <AppBtn
@@ -86,7 +86,7 @@
           />
 
           <p v-if="release.coming_soon !== true" class="small-info">
-            <br />Stream it
+            <br>Stream it
           </p>
           <!-- <p v-else class="small-info"><br>Stream it soon</p> -->
           <AppBtn
@@ -106,7 +106,7 @@
             :title="titles.apple_music"
             :icon="icons.apple_2"
           />
-          <!-- <AppBtn redirect="false" v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple"/> -->
+          <!-- <AppBtn redirect="false" v-if="release.links.itunes" :url="release.links.itunes" :route="routes.itunes" :title="titles.itunes" :icon="icons.apple" /> -->
 
           <AppBtn
             redirect="false"
@@ -207,7 +207,7 @@
                   frameborder="no"
                   allow="autoplay"
                   :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + release.links.soundcloud_demo_id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true'"
-                ></iframe>
+                />
               </div>
             </AppTab>
           </AppTabs> -->
@@ -215,20 +215,15 @@
           <AppTabs>
             <AppTab :icon="icons.bandcamp" :title="titles.bandcamp">
               <div class="page-release__bandcamp-player">
-                <iframe
-                  v-if="release.links.bandcamp_id"
-                  :class="
-                    'page-release__bandcamp-player-iframe tracks-' +
-                      release.tracks_number
-                  "
-                  :src="
-                    'https://bandcamp.com/EmbeddedPlayer/album=' +
-                      release.links.bandcamp_id +
-                      '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'
-                  "
-                  seamless
-                  :title="release.title + ' Bandcamp Iframe'"
-                ></iframe>
+                <client-only>
+                  <iframe
+                    v-if="release.links.bandcamp_id"
+                    :class="'page-release__bandcamp-player-iframe tracks-' + release.tracks_number"
+                    :src="'https://bandcamp.com/EmbeddedPlayer/album=' + release.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
+                    seamless
+                    :title="release.title + ' Bandcamp Iframe'"
+                  />
+                </client-only>
                 <div
                   v-if="!release.links.bandcamp_id"
                   class="page-release__player-coming"
@@ -243,19 +238,17 @@
               :title="titles.youtube_playlist"
             >
               <div class="page-release__youtube-player">
-                <iframe
-                  class="page-release__youtube-player-iframe"
-                  :src="
-                    'https://www.youtube-nocookie.com/embed/videoseries?list=' +
-                      release.links.youtube_playlist_id +
-                      '&loop=1'
-                  "
-                  :title="release.title + 'YouTube video player'"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
+                <client-only>
+                  <iframe 
+                    class="page-release__youtube-player-iframe" 
+                    :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + release.links.youtube_playlist_id + '&loop=1'"
+                    :title="release.title + 'YouTube video player'"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  />
+                </client-only>
               </div>
             </AppTab>
 
@@ -265,21 +258,16 @@
               :title="titles.soundcloud"
             >
               <div class="page-release__soundcloud-player">
-                <iframe
-                  :class="
-                    'page-release__soundcloud-player-iframe tracks-' +
-                      release.tracks_number
-                  "
-                  scrolling="no"
-                  height="450"
-                  allow="autoplay"
-                  :src="
-                    'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' +
-                      release.links.soundcloud_playlist_id +
-                      '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'
-                  "
-                  :title="release.title + ' SoundCloud Iframe'"
-                ></iframe>
+                <client-only>
+                  <iframe
+                    :class="'page-release__soundcloud-player-iframe tracks-' + release.tracks_number"
+                    scrolling="no"
+                    height="450"
+                    allow="autoplay"
+                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + release.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
+                    :title="release.title + ' SoundCloud Iframe'"
+                  />
+                </client-only>
               </div>
             </AppTab>
           </AppTabs>
@@ -292,34 +280,28 @@
         <div v-if="release.information" v-html="release.information" />
 
         <div v-if="release.tracklistCompact">
-          <hr />
-          <p>
-            <small><b>Tracklist:</b></small>
-          </p>
+          <hr>
+          <p><small><b>Tracklist:</b></small></p>
           <p
             v-for="(i, index) in release.tracklistCompact"
             :key="index"
             v-html="i.p"
-          ></p>
+          />
         </div>
 
         <div v-if="release.creditsCompact">
-          <hr />
-          <p>
-            <small><b>Credits:</b></small>
-          </p>
+          <hr>
+          <p><small><b>Credits:</b></small></p>
           <p
             v-for="(i, index) in release.creditsCompact"
             :key="index"
             v-html="i.p"
-          ></p>
+          />
         </div>
 
         <div v-if="release.links.discogs || release.links.soundcloud_demo_url">
-          <hr />
-          <p>
-            <small><b>Links:</b></small>
-          </p>
+          <hr>
+          <p><small><b>Links:</b></small></p>
         </div>
 
         <!-- <p v-if="release.links.junodownload">
@@ -331,21 +313,15 @@
         </p> -->
 
         <p v-if="release.links.beatspace">
-          <a :href="release.links.beatspace" target="_blank" rel="noopener"
-            >Beatspace</a
-          >
+          <a :href="release.links.beatspace" target="_blank" rel="noopener">Beatspace</a>
         </p>
 
         <p v-if="release.links.psyshop">
-          <a :href="release.links.psyshop" target="_blank" rel="noopener"
-            >Psyshop</a
-          >
+          <a :href="release.links.psyshop" target="_blank" rel="noopener">Psyshop</a>
         </p>
 
         <p v-if="release.links.ektoplazm">
-          <a :href="release.links.ektoplazm" target="_blank" rel="noopener"
-            >Ektoplazm</a
-          >
+          <a :href="release.links.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a>
         </p>
 
         <!-- <p v-if="release.links.youtube">
@@ -353,17 +329,12 @@
         </p> -->
 
         <p v-if="release.links.discogs">
-          <a :href="release.links.discogs" target="_blank" rel="noopener"
-            >Discogs</a
-          >
+          <a :href="release.links.discogs" target="_blank" rel="noopener">Discogs</a>
         </p>
 
         <div v-if="release.relative_releases">
-          <hr />
-
-          <p>
-            <small><b>Relative Releases:</b></small>
-          </p>
+          <hr>
+          <p><small><b>Relative Releases:</b></small></p>
           <p
             v-for="(i, index) in releasesSortedByDate"
             :key="index"
@@ -374,11 +345,8 @@
         </div>
 
         <div v-if="release.artists">
-          <hr />
-
-          <p>
-            <small><b>Relative Artists:</b></small>
-          </p>
+          <hr>
+          <p><small><b>Relative Artists:</b></small></p>
           <p
             v-for="(i, index) in artistsSortedByCategoryId"
             :key="index"
