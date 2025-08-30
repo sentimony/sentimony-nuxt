@@ -1,16 +1,37 @@
 <template>
-  <span>
-    <span v-if="i.cover_th" style="vertical-align:top;">
-      <img style="width:20px;margin-right:6px;" :src="i.cover_th" :alt="i.title" />
-    </span>
-    <span>{{ i.title }}</span>
-    <span>({{ i.date | year }})</span>
+  <div style="display: flex; align-items: center; margin-bottom: 12px;">
+    
+    <router-link 
+      v-if="i.cover_th"
+      v-ripple
+      :to="'../../' + category + '/' + i.slug + '/'"
+      style="max-width:24px;margin-right:8px;"
+    >
+      <img style="display: block;" :src="i.cover_th" :alt="i.title + ' thumbnail'" />
+    </router-link>
+
+    <router-link 
+      v-if="i.photo_th"
+      v-ripple
+      :to="'../../' + category + '/' + i.slug + '/'"
+      style="max-width:24px;margin-right:8px;"
+    >
+      <img style="display: block;" :src="i.photo_th" :alt="i.title + ' thumbnail'" />
+    </router-link>
+
+    <div>
+      <span>{{ i.title }}</span>
+      <small v-if="i.date">({{ i.date | year }})</small>
+
     <router-link 
       v-ripple
       :to="'../../' + category + '/' + i.slug + '/'"
-      v-html="'Read More'"
-    />
-  </span>
+    >
+      <small>Read More</small>
+    </router-link>
+    </div>
+    
+  </div>
 </template>
 
 <script>

@@ -365,11 +365,26 @@
             <small><b>Relative Releases:</b></small>
           </p>
           <p
-            v-for="(i, index) in releasesSortByDate"
+            v-for="(i, index) in releasesSortedByDate"
             :key="index"
             v-if="i.visible && release.relative_releases.includes(i.slug)"
           >
             <AppRelativeItem :i="i" category="release" />
+          </p>
+        </div>
+
+        <div v-if="release.artists">
+          <hr />
+
+          <p>
+            <small><b>Relative Artists:</b></small>
+          </p>
+          <p
+            v-for="(i, index) in artistsSortedByCategoryId"
+            :key="index"
+            v-if="i.visible && release.artists.includes(i.slug)"
+          >
+            <AppRelativeItem :i="i" category="artist" />
           </p>
         </div>
 
@@ -417,18 +432,24 @@ export default {
   // },
   async asyncData({ route }) {
     const { key } = route.params
-    const [releaseRes, releasesRes] = await Promise.all([
+    const [releaseRes, releasesRes, artistsRes] = await Promise.all([
       axios.get(`releases/${key}.json`),
-      axios.get('releases.json')
+      axios.get('releases.json'),
+      axios.get('artists.json')
     ])
     const release = releaseRes.data
     const releases = releasesRes.data
-    return { release, releases }
+    const artists = artistsRes.data
+    return { release, releases, artists }
   },
   computed: {
-    releasesSortByDate() {
+    releasesSortedByDate() {
       var releases = sortBy(this.releases, 'date').reverse()
       return releases
+    },
+    artistsSortedByCategoryId() {
+      var artists = sortBy(this.artists, 'category_id')
+      return artists
     }
   },
   filters: {

@@ -1,6 +1,11 @@
 @use 'coriolanVariables';
 @use 'coriolanMedia' as media;
 
+.body-2 { font-size: 12px; }
+.d-flex { display: flex; }
+.align-center { align-items: center; }
+.flex-wrap { flex-wrap: wrap; }
+
 .mt-1 { margin-top: 4px; }
 .mt-2 { margin-top: 8px; }
 .mt-3 { margin-top: 12px; }

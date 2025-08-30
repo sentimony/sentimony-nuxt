@@ -86,7 +86,10 @@
 
         <hr />
 
-        <p>Releases / Tracks:</p>
+        <p>
+          <small><b>Releases / Tracks:</b></small>
+        </p>
+        <!-- <p>Releases / Tracks:</p> -->
 
         <!-- <ol>
           <li
@@ -98,16 +101,19 @@
           </li>
         </ol> -->
 
-        <ol style="width: 500px;display: inline-block;text-align: left;">
+        <ol style="">
           <div
             v-for="(i, index) in releasesSortByDate"
             :key="index"
             v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
           >
-            <div v-if="i.title" style="margin-bottom: 20px;">
+
+            <AppRelativeItem :i="i" category="release" />
+
+            <!-- <div v-if="i.title" style="margin-bottom: 20px;">
               <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title" style="width: 20px;margin-right: 6px;vertical-align: text-top;" />
               <span>{{ i.title }}</span>
-            </div>
+            </div> -->
 
             <div v-if="i.tracklistCompact" style="margin-bottom: 20px;">
               <li
@@ -208,10 +214,10 @@ export default {
 <style lang="scss">
 @use '@/assets/scss/coriolanMedia' as media;
 @use '@/assets/scss/coriolanRatio' as ratio;
-@use '@/assets/scss/content';
+// @use '@/assets/scss/content';
 @use '@/assets/scss/page';
 @use '@/assets/scss/iframe-size';
-@use '@/assets/scss/v-img-restyle';
+// @use '@/assets/scss/v-img-restyle';
 
 .page-playlist {
   @extend .page;

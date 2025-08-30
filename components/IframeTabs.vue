@@ -128,6 +128,12 @@ function frame(content) {
         transform-origin: top left;
       }
     }
+
+    &-soundcloud {
+      & iframe {
+        height: 1000px;
+      }
+    }
   }
 }
 </style>

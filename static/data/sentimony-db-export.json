@@ -5066,11 +5066,11 @@
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
       ], 
       "tracklistCompact": [
-        { "p": "1 Juelz - Inner Borders | 135bpm" },
-        { "p": "2 Psydewise - Navaho Reject | 138bpm" },
-        { "p": "3 EleexR - Zemnosis | 138bpm" },
-        { "p": "4 eXoLT - Buzzooka | 136bpm" },
-        { "p": "5 Irukanji - Organix | 138bpm" }
+        { "p": "<small>1.</small> <b>Juelz</b> - Inner Borders <small>(135bpm)</small>" },
+        { "p": "<small>2.</small> <b>Psydewise</b> - Navaho Reject <small>(138bpm)</small>" },
+        { "p": "<small>3.</small> <b>EleexR</b> - Zemnosis <small>(138bpm)</small>" },
+        { "p": "<small>4.</small> <b>eXoLT</b> - Buzzooka <small>(136bpm)</small>" },
+        { "p": "<small>5.</small> <b>Irukanji</b> - Organix <small>(138bpm)</small>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-1-24bit",
@@ -7071,7 +7071,7 @@
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/irukanji/'>Irukanji</a> & <a href='/artist/eleexr/'>EleexR</a>" },
         { "p": "Cello By Dina Kononova (Track 2)" },
-        { "p": "Artwork By <a href='/artist/ka-art/'>KA</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
         { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
@@ -7325,7 +7325,7 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/eleexr/'>EleexR</a>" },
-        { "p": "Artwork By <a href='/artist/ka-art/'>KA</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
@@ -7374,8 +7374,8 @@
         { "p": "<small>4.</small> <b>Jai</b> - Maladaptive Daydream &nbsp;<small>138bpm</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/jai/'>Jai</a>" },
-        { "p": "Artwork By <a href='/artist/zhapa/'>Zhapa Rodríguez</a>" },
+        { "p": "Written & Produced By 🇲🇽 <a href='/artist/jai/'>Jai</a>" },
+        { "p": "Artwork By 🇲🇽 <a href='/artist/zhapa/'>Zhapa Rodríguez</a>" },
         { "p": "Mastered By Serious About Sound" }
       ],
       "links": {
@@ -7854,8 +7854,8 @@
         { "p": "<small>4.</small> <b>Jai</b> - Come From <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/jai/'>Jai</a>" },
-        { "p": "Artwork By <a href='/artist/zhapa/'>Zhapa Rodríguez</a>" },
+        { "p": "Written & Produced By 🇲🇽 <a href='/artist/jai/'>Jai</a>" },
+        { "p": "Artwork By 🇲🇽 <a href='/artist/zhapa/'>Zhapa Rodríguez</a>" },
         { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
@@ -8054,8 +8054,8 @@
         { "p": "<small>1.</small> <b>Boketto</b> - Pushback <small>(174bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By Harry Critchley (<a href='/artist/boketto/'>Boketto</a>)" },
-        { "p": "Artwork By <a href='/artist/ka-art/'>KA</a>" },
+        { "p": "Written & Produced By 🇬🇧 Harry Critchley (<a href='/artist/boketto/'>Boketto</a>)" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
