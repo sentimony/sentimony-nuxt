@@ -2,7 +2,7 @@
   <div class="contacts">
     <h1 class="contacts__caption">Contacts</h1>
     <p class="contacts__title">{{ touch }}</p>
-    <p><a :href="mailtoUrl">{{ email }}</a></p>
+    <p><a :href="mailtoUrl">{{ email }}</a>
     <br>
     <p class="contacts__title">{{ follow }}</p>
     <p v-if="loadingStore.loading">Loading...</p>

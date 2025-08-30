@@ -31,10 +31,7 @@
         <div class="page-playlist__player-tabs">
           <IframeTabs
             v-if="playlist.links.youtube || playlist.links.soundcloud_playlist_id"
-            :one="[
-              playlist.links.youtube,
-              playlist.links.soundcloud_playlist_id
-            ]"
+            :one="[playlist.links.youtube, playlist.links.soundcloud_playlist_id]"
           />
 
           <!-- <br> -->
@@ -54,7 +51,7 @@
                   allow="autoplay"
                   :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + playlist.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
                   :title="playlist.title + ' SoundCloud Iframe'"
-                ></iframe>
+                />
               </div>
             </AppTab>
             
@@ -72,7 +69,7 @@
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerpolicy="strict-origin-when-cross-origin"
                   allowfullscreen
-                ></iframe>
+                />
               </div>
             </AppTab>
           </AppTabs> -->
@@ -84,7 +81,7 @@
       <div class="content__wrapper">
         <div v-if="playlist.info" v-html="playlist.info" />
 
-        <hr />
+        <hr>
 
         <p>
           <small><b>Releases / Tracks:</b></small>
@@ -108,7 +105,7 @@
             v-if="i.visible && i.at_playlists.includes(playlist.slug) && !i.coming_soon"
           >
 
-            <AppRelativeItem :i="i" category="release" />
+            <AppRelativeItem :i="i" category="release"  style="margin-bottom: 8px;"/>
 
             <!-- <div v-if="i.title" style="margin-bottom: 20px;">
               <img v-if="i.cover_th" :src="i.cover_th" :alt="i.title" style="width: 20px;margin-right: 6px;vertical-align: text-top;" />

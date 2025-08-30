@@ -3,7 +3,7 @@
     <div class="">
 
       <div class="" style="position: relative;">
-        <SvgTriangle/>
+        <SvgTriangle />
 
         <br>
         <br>
@@ -26,7 +26,7 @@
         <!-- <p> -->
           <span class="app-btn">
             <nuxt-link class="app-btn__btn" to="/">
-              <img :src="logoImg" alt="Deezer Icon" class="app-btn__btn-img">
+              <img :src="logoImg" alt="Deezer Icon" class="app-btn__btn-img" />
               <span class="app-btn__btn-text">Home Page</span>
             </nuxt-link>
           </span>

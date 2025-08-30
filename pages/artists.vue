@@ -14,11 +14,13 @@
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.photo_th" class="item__img"
+              <img 
+                v-if="i.photo_th" 
+                class="item__img"
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
+              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto" />
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -37,11 +39,13 @@
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.photo_th" class="item__img"
+              <img 
+                v-if="i.photo_th"
+                class="item__img"
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
+              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto" />
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -60,11 +64,13 @@
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.photo_th" class="item__img"
+              <img 
+                v-if="i.photo_th"
+                class="item__img"
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
+              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto" />
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>
@@ -83,11 +89,13 @@
         <router-link v-ripple :to="'/artist/' + i.slug + '/'" class="item__link">
           <div class="item__wrapper">
             <div class="item__cover">
-              <img v-if="i.photo_th" class="item__img"
+              <img 
+                v-if="i.photo_th" 
+                class="item__img"
                 :src="i.photo_th"
                 :alt="i.title + ' Small Thumbnail'"
-              >
-              <div v-else class="item__soon" v-html="texts.comingPhoto"/>
+              />
+              <div v-else class="item__soon" v-html="texts.comingPhoto" />
             </div>
           </div>
           <div class="item__title">{{ i.title }}</div>

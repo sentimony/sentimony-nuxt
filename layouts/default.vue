@@ -1,6 +1,6 @@
 <template>
   <div class="flex-sticky">
-    <!-- <BaseBg/> -->
+    <!-- <BaseBg /> -->
     <div class="flex-sticky__fractal">
       <Fractal />
     </div>

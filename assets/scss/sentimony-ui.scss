@@ -66,8 +66,8 @@
 
 .sen-db { display: block; }
 .sen-dn { display: none; }
-.sen-o1 { opacity: 1; height: inherit; }
-.sen-o0 { opacity: 0; height: 0; }
+.sen-o1 { opacity: 1; overflow: hidden; height: inherit; }
+.sen-o0 { opacity: 0; overflow: hidden; height: 0; }
 
 .small-info {
   font-size: 10px;

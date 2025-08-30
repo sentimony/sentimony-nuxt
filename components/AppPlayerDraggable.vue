@@ -9,25 +9,23 @@
     <div class="AppPlayerDraggable__YouTubePlayer">
       <transition v-if="isDragging" name="fade">
         <div class="AppPlayerDraggable__TechnicalLayer">
-          Push me<br />
-          And then just touch me<br />
-          'Til I can get my<br />
-          Satisfaction<br />
+          Push me<br>
+          And then just touch me<br>
+          'Til I can get my<br>
+          Satisfaction<br>
         </div>
       </transition>
-      <iframe
-        :class="{ AppPlayerDraggable__YouTubePlayerIframe: true, isDragging }"
-        :src="
-          'https://www.youtube-nocookie.com/embed/videoseries?list=' +
-            youtube_playlist_id +
-            '&autoplay=1&mute=1&loop=1'
-        "
-        title="'YouTube video player'"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
+      <client-only>
+        <iframe
+          :class="{ AppPlayerDraggable__YouTubePlayerIframe: true, isDragging }"
+          :src=" 'https://www.youtube-nocookie.com/embed/videoseries?list=' + youtube_playlist_id + '&autoplay=1&mute=1&loop=1'"
+          title="'YouTube video player'"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        />
+      </client-only>
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@
         v-if="release.links.youtube_playlist_id"
         :src="'https://www.youtube.com/embed/videoseries?loop=1&list=' + release.links.youtube_playlist_id"
         :title="release.title + ' YouTube Iframe'"
-      ></iframe>
+      />
     </div> -->
     <br>
     <!-- <div class="youtube-page-item__frame-holder">
@@ -23,7 +23,7 @@
         v-if="release.links.youtube_music"
         :src="release.links.youtube_music | youtubeMusicEmbed"
         :title="release.title + ' YouTube Music Iframe'"
-      ></iframe>
+      />
     </div> -->
     <br>
     <!-- Bandcamp (FREE DOWNLOAD or donate): http://bit.ly/{{ release.cat_no }}-bandcamp<br>

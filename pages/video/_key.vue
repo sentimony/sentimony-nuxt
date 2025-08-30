@@ -32,11 +32,13 @@
               title="YouTube"
             >
               <div class="page-video__youtube-player">
-                <iframe
-                  class="page-video__youtube-player-iframe"
-                  :src="video.links.youtube | YouTubeVideoID"
-                  :title="video.title + ' YouTube Iframe'"
-                ></iframe>
+                <client-only>
+                  <iframe
+                    class="page-video__youtube-player-iframe"
+                    :src="video.links.youtube | YouTubeVideoID"
+                    :title="video.title + ' YouTube Iframe'"
+                  />
+                </client-only>
               </div>
             </AppTab>
           </AppTabs>
@@ -57,7 +59,7 @@
         <div v-if="video.credits">
           <hr>
           <p>Credits:</p>
-          <div v-html="video.credits"/>
+          <div v-html="video.credits" />
         </div>
 
       </div>
