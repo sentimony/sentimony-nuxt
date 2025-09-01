@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  css: ['~/assets/css/tailwind.css'],
   app: {
     head: {
       titleTemplate: '%s | Sentimony Records',
@@ -11,12 +12,10 @@ export default defineNuxtConfig({
       link: [
         // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap' },
         // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap' },
-        // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lekton&display=swap' },
-        // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap' },
-        // { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon-v2-green/apple-touch-icon.png' },
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'alternate icon', type: 'image/x-icon', href: '/favicon.ico' },
-        // { rel: 'manifest', href: '/favicon-v2-green/site.webmanifest' },
+        // { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon/favicon.svg' },
+        { rel: 'alternate icon', type: 'image/x-icon', href: '/favicon/favicon.ico' },
+        // { rel: 'manifest', href: '/favicon/site.webmanifest' },
       ]
     }
   },
@@ -29,10 +28,12 @@ export default defineNuxtConfig({
   ],
   googleFonts: {
     families: {
-      Montserrat: true,
-    }
+      Montserrat: [400, 500, 600, 700],
+      'Julius Sans One': true
+    },
+    display: 'swap'
   },
-  image: {
-    domains: ['https://content.sentimony.com']
-  }
+  // image: {
+  //   domains: ['https://content.sentimony.com']
+  // }
 })

@@ -1,54 +1,44 @@
-<script>
-export default {
-  data: () => ({
-    siteTitle: 'Sentimony',
-    siteSubTitle: 'Records',
-    siteDescription: 'Psychedelic Music Label'
-  })
-}
+<script setup lang="ts">
+const heroTitle = 'Sentimony<br>Records'
+const heroDescription = 'Psychedelic Music Label'
 </script>
 
 <template>
-  <div class="Hero">
+  <div 
+    class="Hero font-Julius
+    py-[7.5em]
+    sm:py-[8.5em]
+    md:py-[9.5em]
+    lg:py-[10.5em]
+    xl:py-[11.5em]"
+  >
     <div class="Hero__wrapper">
-      <div class="Hero__title">
-        <div class="julius-sans-one-regular" v-html="siteTitle" />
-        <div class="julius-sans-one-regular" v-html="siteSubTitle" />
-        <!-- <div class="courier-prime-regular" v-html="siteSubTitle" />
-        <div class="lekton-regular" v-html="siteSubTitle" /> -->
-      </div>
-      <div class="Hero__description" v-html="siteDescription" />
+      <div
+        class="Hero__title uppercase
+        text-[40px] tracking-[2px]
+        sm:text-[55px] sm:tracking-[5px]
+        md:text-[70px] md:tracking-[8px]
+        lg:text-[85px] lg:tracking-[11px]
+        xl:text-[100px] xl:tracking-[14px]"
+        v-html="heroTitle"
+      />
+      <div
+        class="Hero__description
+        text-[12px] tracking-[4px]
+        sm:text-[14px] sm:tracking-[8px]
+        md:text-[16px] md:tracking-[12px]
+        lg:text-[18px] lg:tracking-[16px]
+        xl:text-[20px] xl:tracking-[20px]"
+        v-html="heroDescription"
+      />
     </div>
   </div>
 </template>
 
 <style lang="scss">
-// @use '@/assets/scss/coriolanMedia' as media;
-
 .Hero {
   position: relative;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(#000, 0.5) 100%
-  );
-  padding: 7.5em 0;
-
-//   @include media.media(S) {
-//     padding: 8.5em 0;
-//   }
-
-//   @include media.media(M) {
-//     padding: 9.5em 0;
-//   }
-
-//   @include media.media(L) {
-//     padding: 10.5em 0;
-//   }
-
-//   @include media.media(XL) {
-//     padding: 11.5em 0;
-//   }
+  background: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.5) 100%);
 
   &__wrapper {
     max-width: 777px;
@@ -58,80 +48,13 @@ export default {
   }
 
   &__title {
-    // font-family: 'Julius Sans One', sans-serif;
     color: #fff;
     margin-bottom: 0.2em;
-    // font-weight: 400;
-    font-size: 40px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    .julius-sans-one-regular {
-      font-family: 'Julius Sans One', sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    // .courier-prime-regular {
-    //   font-family: 'Courier Prime', monospace;
-    //   font-weight: 400;
-    //   font-style: normal;
-    // }
-
-    // .lekton-regular {
-    //   font-family: 'Lekton', monospace;
-    //   font-weight: 400;
-    //   font-style: normal;
-    // }
-
-    // @include media.media(S) {
-    //   font-size: 55px;
-    //   letter-spacing: 5px;
-    // }
-
-    // @include media.media(M) {
-    //   font-size: 70px;
-    //   letter-spacing: 8px;
-    // }
-
-    // @include media.media(L) {
-    //   font-size: 85px;
-    //   letter-spacing: 11px;
-    // }
-
-    // @include media.media(XL) {
-    //   font-size: 100px;
-    //   letter-spacing: 14px;
-    // }
   }
 
   &__description {
-    font-family: 'Julius Sans One', sans-serif;
     color: #fff;
-    font-weight: 400;
     line-height: 2;
-    font-size: 12px;
-    letter-spacing: 4px;
-
-    // @include media.media(S) {
-    //   font-size: 14px;
-    //   letter-spacing: 8px;
-    // }
-
-    // @include media.media(M) {
-    //   font-size: 16px;
-    //   letter-spacing: 12px;
-    // }
-
-    // @include media.media(L) {
-    //   font-size: 18px;
-    //   letter-spacing: 16px;
-    // }
-
-    // @include media.media(XL) {
-    //   font-size: 20px;
-    //   letter-spacing: 20px;
-    // }
   }
 }
 </style>

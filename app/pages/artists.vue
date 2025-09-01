@@ -1,42 +1,88 @@
-<script setup>
-const { data, error } = await useAsyncData("artists", () =>
-  $fetch("https://sentimony-db.firebaseio.com/artists.json")
-);
+<script setup lang="ts">
+import { toArray } from '~/composables/toArray'
+
+const { data: artistsRaw } = await useFetch('https://sentimony-db.firebaseio.com/artists.json', { server: true })
+const artists = computed(() => toArray(artistsRaw.value, 'artists'))
+const artistsSortedByCategoryIdMusician = computed(() =>
+  [...artists.value]
+    .filter((r: any) => Boolean(r?.visible) && r?.category === 'musician')
+    .sort((a: any, b: any) =>
+      (a?.category_id ?? 0) - (b?.category_id ?? 0)
+    )
+)
+const artistsSortedByCategoryIdDj = computed(() =>
+  [...artists.value]
+    .filter((r: any) => Boolean(r?.visible) && r?.category === 'dj')
+    .sort((a: any, b: any) =>
+      (a?.category_id ?? 0) - (b?.category_id ?? 0)
+    )
+)
+const artistsSortedByCategoryIdMastering = computed(() =>
+  [...artists.value]
+    .filter((r: any) => Boolean(r?.visible) && r?.category === 'mastering')
+    .sort((a: any, b: any) =>
+      (a?.category_id ?? 0) - (b?.category_id ?? 0)
+    )
+)
+const artistsSortedByCategoryIdDesigner = computed(() =>
+  [...artists.value]
+    .filter((r: any) => Boolean(r?.visible) && r?.category === 'designer')
+    .sort((a: any, b: any) =>
+      (a?.category_id ?? 0) - (b?.category_id ?? 0)
+    )
+)
+const PageTitle = 'Artists';
+useSeoMeta({
+  title: PageTitle,
+  description: PageTitle + ' of Sentimony Records',
+  ogImage: '',
+});
 </script>
 
 <template>
-  <div class="text-center">
-    <h1 class="text-lg mb-10">
-      <!-- <Icon name="mdi:artist" width="24" height="24" /> -->
-      Artists
-    </h1>
+  <div class="px-1 pb-[30px] md:pb-[60px]">
 
-    <span
-      v-for="i in data"
-    >
-      <NuxtLink 
-        :to="'/artist/' + i.slug" 
-        class="mr-4"
-        v-if="i.visible"
-      >
-        <!-- <NuxtImg
-          v-if="i.photo_th"
-          :src="i.photo_th"
-          class="inline text-xs w-5 mr-1"
-          sizes="xs:20px"
-          densities="x2"
-          format="webp"
-          :alt="i.title"
-        /> -->
-        <img
-          v-if="i.photo_th"
-          :src="i.photo_th"
-          class="inline text-xs w-[20px] mr-[6px]"
-          :alt="i.title"
-        />
-        <span class="text-xs">{{ i.title }}</span>
-      </NuxtLink>
-    </span>
+    <h1 class="mb-4">{{ PageTitle }}</h1>
+
+    <h2 class="">Producers & Musicians</h2>
+    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+      <Item 
+        v-for="i in artistsSortedByCategoryIdMusician"
+        :key="i.slug"
+        route="artist"
+        :i="i"
+      />
+    </div>
+
+    <h2 class="">Djs</h2>
+    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+      <Item 
+        v-for="i in artistsSortedByCategoryIdDj"
+        :key="i.slug"
+        route="artist"
+        :i="i"
+      />
+    </div>
+
+    <h2 class="">Sound Engineers & Mastering Services</h2>
+    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+      <Item 
+        v-for="i in artistsSortedByCategoryIdMastering"
+        :key="i.slug"
+        route="artist"
+        :i="i"
+      />
+    </div>
+
+    <h2 class="">Visual Artists & Designers</h2>
+    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+      <Item 
+        v-for="i in artistsSortedByCategoryIdDesigner"
+        :key="i.slug"
+        route="artist"
+        :i="i"
+      />
+    </div>
 
   </div>
 </template>

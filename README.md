@@ -8,7 +8,7 @@ _Web development of Sentimony Records site_
 
 [Firebase](https://firebase.google.com) - realtime database by [Google Developers](https://developers.google.com)
 
-https://icon-sets.iconify.design/mdi/?icon-filter=music&keyword=d
+https://icon-sets.iconify.design
 
 https://tailwindcss.com/docs/letter-spacing
 
