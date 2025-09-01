@@ -1,42 +1,34 @@
-<script setup>
-const { data, error } = await useAsyncData("videos", () =>
-  $fetch("https://sentimony-db.firebaseio.com/videos.json")
-);
+<script setup lang="ts">
+const { data: videosRaw } = await useFetch('https://sentimony-db.firebaseio.com/videos.json', { server: true })
+const videos = computed(() => toArray(videosRaw.value, 'videos'))
+const videosSortedByDate = computed(() =>
+  [...videos.value]
+    .filter((r: any) => Boolean(r?.visible))
+    .sort((a: any, b: any) =>
+      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    )
+)
+const PageTitle = 'Videos';
+useSeoMeta({
+  title: PageTitle,
+  description: PageTitle + ' of Sentimony Records',
+  ogImage: '',
+});
 </script>
 
 <template>
-  <div class="text-center">
-    <h1 class="text-lg mb-10">
-      <!-- <Icon name="mdi:video-vintage" width="24" height="24" /> -->
-      Videos
-    </h1>
+  <div class="px-1 pb-[30px] md:pb-[60px]">
 
-    <span
-      v-for="i in data"
-    >
-      <NuxtLink 
-        :to="'/video/' + i.slug" 
-        class="mr-4"
-        v-if="i.visible"
-      >
-        <!-- <NuxtImg
-          v-if="i.cover_th"
-          :src="i.cover_th"
-          class="inline text-xs w-5 mr-1"
-          sizes="xs:20px"
-          densities="x2"
-          format="webp"
-          :alt="i.title"
-        /> -->
-        <img
-          v-if="i.cover_th"
-          :src="i.cover_th"
-          class="inline text-xs w-[20px] mr-[6px]"
-          :alt="i.title"
-        />
-        <span class="text-xs">{{ i.title }}</span>
-      </NuxtLink>
-    </span>
+    <h1 class="mb-4">{{ PageTitle }}</h1>
+
+    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+      <Item 
+        v-for="i in videosSortedByDate"
+        :key="i.slug"
+        route="video"
+        :i="i"
+      />
+    </div>
 
   </div>
 </template>

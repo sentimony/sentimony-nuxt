@@ -15,10 +15,10 @@ const nav = [
   // { title: 'ddos', route: '/ddos/' },
 ]
 const soc = [
-  { title: "Bandcamp", icon: "bandcamp", url: "https://sentimony.bandcamp.com/follow_me" },
-  { title: "Facebook", icon: "facebook", url: "https://www.facebook.com/sentimony.records" },
-  { title: "SoundCloud", icon: "soundcloud", url: "https://soundcloud.com/sentimony" },
-  { title: "YouTube", icon: "youtube", url: "https://www.youtube.com/@SentimonyRecords?sub_confirmation=1" },
+  { title: "Bandcamp", icon: "bandcamp", name: "cib:bandcamp", url: "https://sentimony.bandcamp.com/follow_me" },
+  { title: "Facebook", icon: "facebook", name: "fa7-brands:facebook", url: "https://www.facebook.com/sentimony.records" },
+  { title: "SoundCloud", icon: "soundcloud", name: "fa7-brands:soundcloud", url: "https://soundcloud.com/sentimony" },
+  { title: "YouTube", icon: "youtube", name: "fa:youtube", url: "https://www.youtube.com/@SentimonyRecords?sub_confirmation=1" },
   // { title: "Instagram", icon: "instagram", url: "https://www.instagram.com/sentimony.records" },
   // { title: "Patreon", icon: "patreon", url: "https://www.patreon.com/sentimony" },
   // { title: "TikTok", icon: "tiktok", url: "https://www.tiktok.com/@sentimony" },
@@ -36,14 +36,14 @@ const soc = [
 </script>
 
 <template>
-  <div class="container mb-10 border-b border-white/30">
-    <div class="flex justify-between items-center h-[75px]">
+  <div class="container px-2">
+    <div class="flex justify-between items-center h-[75px] border-b border-white/30">
 
       <div class="w-[232px]">
         <NuxtLink
           to="/"
-          class="HeaderMenu__main-menu-link transition-[background-color] ease-in-out duration-300 flex hover:bg-white/40 h-[56px] items-center justify-center rounded-[2px]"
-          active-class="bg-white/40"
+          class="HeaderMenu__main-menu-link transition-[background-color] ease-in-out duration-300 hover:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
+          active-class="bg-white/30"
         >
           <img 
             src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01" 
@@ -51,7 +51,7 @@ const soc = [
             class="w-[40px] mr-[12px]"
           />
           <div class="text-left">
-            <div class=" text-[16px]">Sentimony Records</div>
+            <div class="text-[16px]">Sentimony Records</div>
             <div class="opacity-[0.4] text-[12px] tracking-[0.4px]">Psychedelic Music Label</div>
           </div>
         </NuxtLink>
@@ -61,8 +61,8 @@ const soc = [
         <NuxtLink
           v-for="i in nav"
           :to="i.route"
-          class=" transition-opacity hover:bg-white/40 w-[110px] h-[56px] flex items-center justify-center rounded-[2px]"
-          active-class="bg-white/40"
+          class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/40 w-[110px] h-[56px] flex items-center justify-center rounded-[2px]"
+          active-class="bg-white/30"
         >
           <span>{{ i.title }}</span>
         </NuxtLink>
@@ -74,72 +74,20 @@ const soc = [
             <a
               v-for="i in soc"
               :href="i.url"
-              class="HeaderSoc__link w-[56px] h-[56px] hover:bg-white/40 flex items-center justify-center rounded-[2px]"
+              class="HeaderSoc__link transition-[background-color text] ease-in-out duration-300 text-white/[.5] hover:text-white/[1] hover:bg-white/30 w-[56px] h-[56px] flex items-center justify-center rounded-[2px] group"
               target="_blank" rel="noopener"
             >
-              <img
+              <!-- <img
                 :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
-                class="HeaderSoc__icon w-[24px]"
+                class="HeaderSoc__icon transition-[opacity] ease-in-out duration-300 w-[24px] opacity-[.5] group-hover:opacity-[1]"
                 :alt="i.title + ' Icon'"
-              />
+              /> -->
+              <Icon :name="i.name" size="22" />
               <!-- <div>{{ i.title }}</div> -->
             </a>
           </div>
         </div>
       </div>
-
-      <!-- <div>
-        <NuxtLink to="/">[
-          <Icon name="mdi:home" width="24" height="24" />
-          Home
-        ]</NuxtLink> | 
-        <NuxtLink to="/releases">[ 
-          <Icon name="mdi:music" width="24" height="24" />
-        Releases]</NuxtLink> | 
-        <NuxtLink to="/artists">[
-          <Icon name="mdi:artist" width="24" height="24" />
-          Artists
-        ]</NuxtLink> | 
-        <NuxtLink to="/videos">[
-          <Icon name="mdi:video-vintage" width="24" height="24" />
-          Videos
-        ]</NuxtLink> | 
-        <NuxtLink to="/playlists">[
-          <Icon name="mdi:playlist-music" width="24" height="24" />
-          Playlists
-        ]</NuxtLink>
-        <NuxtLink to="/contacts">[
-          <Icon name="mdi:gmail" width="24" height="24" />
-          Contacts
-        ]</NuxtLink>
-      </div> -->
-
-      <!-- <div>
-        <NuxtLink to="/events">[
-          <Icon name="mdi:event" width="24" height="24" />
-          Events
-        ]</NuxtLink> | 
-        <NuxtLink to="/friends">[
-          <Icon name="mdi:event" width="24" height="24" />
-          Friends
-        ]</NuxtLink> | 
-        <NuxtLink to="/news">[
-          <Icon name="mdi:event" width="24" height="24" />
-          News
-        ]</NuxtLink> | 
-        <NuxtLink to="/tracks">[
-          <Icon name="mdi:bug" width="24" height="24" />
-          Tracks
-        ]</NuxtLink>
-        <NuxtLink to="/sitemap">[
-          <Icon name="mdi:bug" width="24" height="24" />
-          Sitemap
-        ]</NuxtLink>
-        <NuxtLink to="/ddos">[
-          <Icon name="mdi:bug" width="24" height="24" />
-          Ddos
-        ]</NuxtLink>
-      </div> -->
 
     </div>
   </div>

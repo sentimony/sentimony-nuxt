@@ -1,16 +1,12 @@
-<script>
-export default defineComponent ({
-  data: () => ({
-    youtube_url: 'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1',
-    soundcloud_url: 'https://soundcloud.com/sentimony',
-    bandcamp_url: 'https://sentimony.bandcamp.com/follow_me',
-  })
-})
+<script setup lang="ts">
+const youtube_url = 'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1'
+const soundcloud_url = 'https://soundcloud.com/sentimony'
+const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 </script>
 
 <template>
   <div class="CallToAction relative">
-    <img class="CallToAction__bg" src="/geometrical-pussy.svg" alt="CallToAction bg" />
+    <img class="CallToAction__bg" src="/images/geometrical-pussy.svg" alt="CallToAction bg" />
     <div class="CallToAction__wrapper px-2 py-[30px] md:py-[60px]">
       <p>My fellow artists and I always love reading your feedback.</p>
       <p>

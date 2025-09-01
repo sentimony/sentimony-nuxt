@@ -10,27 +10,26 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="text-center">
-    <h1 class="text-lg mb-10">
-      <!-- <Icon name="mdi:music" width="24" height="24" /> -->
-      <span class="">{{ item.title }}</span>
-    </h1>
-    <div>
-      <!-- <NuxtImg
-        v-if="item.cover_th"
-        :src="item.cover_th"
-        class="inline text-xs w-[120px] mr-1"
-        sizes="xs:120px"
-        densities="x2"
-        format="webp"
-        :alt="item.title"
-      /> -->
-      <img
-        v-if="item.cover_th"
-        :src="item.cover_th"
-        class="inline text-xs w-[120px] mr-1"
-        :alt="item.title"
-      />
+  <div>
+    <div class="container border-t border-white/30">
+      <h1 class="mb-4"><span class="">{{ item.title }}</span></h1>
+      <div class="mb-10">
+        <!-- <NuxtImg
+          v-if="item.cover_th"
+          :src="item.cover_th"
+          class="inline text-xs w-[120px] mr-1"
+          sizes="xs:120px"
+          densities="x2"
+          format="webp"
+          :alt="item.title"
+        /> -->
+        <img
+          v-if="item.cover_th"
+          :src="item.cover_th"
+          class="inline text-xs w-[120px] mr-1"
+          :alt="item.title"
+        />
+      </div>
     </div>
   </div>
 </template>
