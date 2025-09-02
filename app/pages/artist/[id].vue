@@ -10,9 +10,8 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <div class="text-left">
     <div class="container border-t border-white/30">
-      <h1 class="mb-4"><span class="">{{ item.title }}</span></h1>
       <div class="mb-10">
         <!-- <NuxtImg
           v-if="item.photo_th"
@@ -29,8 +28,12 @@ useSeoMeta({
           class="inline text-xs w-[120px] mr-1"
           :alt="item.title"
         />
+        <h1 class="mb-4"><span class="">{{ item.title }}</span></h1>
       </div>
     </div>
+
+    <img src="/images/triangle.svg" alt="triangle bg" />
+
   </div>
 </template>
 

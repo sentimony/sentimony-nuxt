@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -14,4 +14,4 @@
   h4 { @apply text-[1em]; }
   h5 { @apply text-[0.83em]; }
   h6 { @apply text-[0.67em]; }
-}
+} */

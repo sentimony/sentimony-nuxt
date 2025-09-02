@@ -1,0 +1,46 @@
+<script setup lang="ts">
+import { computed, toRef } from 'vue'
+
+const props = defineProps<{
+  i?: any
+  category?: string
+}>()
+
+const i = toRef(props, 'i')
+const category = toRef(props, 'category')
+
+const year = computed(() => {
+  const d = i.value?.date as string | undefined
+  if (!d) return ''
+  const dt = new Date(d)
+  return isNaN(dt.getTime()) ? '' : String(dt.getFullYear())
+})
+</script>
+
+<template>
+  <span class="inline-flex items-center">
+    
+    <NuxtLink 
+      v-if="i.cover_th || i.photo_th"
+      :to="'/' + category + '/' + i.slug + '/'"
+      class="w-[24px] mr-2"
+    >
+      <img v-if="i.cover_th" :src="i.cover_th" class="block" :alt="i.title + ' thumbnail'" />
+      <img v-if="i.photo_th" :src="i.photo_th" class="block" :alt="i.title + ' thumbnail'" />
+    </NuxtLink>
+
+    <span>
+      <NuxtLink 
+        :to="'/' + category + '/' + i.slug + '/'"
+      >
+        <span v-if="i.title">{{ i.title }}</span>
+        <!-- <small>Read More</small> -->
+      </NuxtLink>
+
+      <small v-if="year" class="ml-1">({{ year }})</small>
+    </span>
+    
+  </span>
+</template>
+
+<style lang="scss"></style>

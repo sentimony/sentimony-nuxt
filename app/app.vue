@@ -6,4 +6,16 @@
   </NuxtLayout>
 </template>
 
-<style lang="scss"></style>
+<style lang="css">
+body {
+  @apply font-Montserrat antialiased text-[12px]/[1.4] md:text-[15px]/[1.5] text-white text-center bg-green-950 bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')] bg-center bg-no-repeat bg-cover bg-fixed;
+}
+h1, h2, h3, h4, h5, h6, p { @apply mb-[.3rem] md:mb-[.5rem]; }
+h1, h2, h3, h4, h5, h6 { @apply font-normal; }
+h1 { @apply text-[18px] md:text-[32px] my-[.5em]; }
+h2 { @apply text-[1.5em]; }
+h3 { @apply text-[1.17em]; }
+h4 { @apply text-[1em]; }
+h5 { @apply text-[0.83em]; }
+h6 { @apply text-[0.67em]; }
+</style>

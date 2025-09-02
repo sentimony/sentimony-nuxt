@@ -25,7 +25,7 @@ useSeoMeta({
       <Item 
         v-for="i in releasesSortedByDate"
         :key="i.slug"
-        route="release"
+        category="release"
         :i="i"
       />
     </div>

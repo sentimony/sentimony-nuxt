@@ -1,7 +1,16 @@
 <script setup lang="ts">
+type ItemEntity = {
+  slug: string
+  title?: string
+  cover_th?: string
+  photo_th?: string
+  coming_soon?: boolean
+  new?: boolean
+}
+
 defineProps<{
-  i?: any[];
-  route?: string;
+  i: ItemEntity
+  category?: string
 }>()
 </script>
 
@@ -10,10 +19,14 @@ defineProps<{
 
     <NuxtLink
       class="block group"
-      :to="'/' + route + '/' + i.slug + '/'"
+      :to="'/' + category + '/' + i.slug + '/'"
+      v-slot="{ isActive }"
     >
-      
-      <div class="relative mb-[4px] flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-[2px] transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30">
+
+      <div
+        class="relative mb-[4px] flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-[2px] transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30"
+        :class="isActive ? 'bg-white/30' : ''"
+      >
         <div class="w-[60px] md:w-[120px] h-[60px] md:h-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-[2px] bg-black/50">
           <img
             class="block rounded-[2px]"
