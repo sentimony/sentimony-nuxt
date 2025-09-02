@@ -5,9 +5,9 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 </script>
 
 <template>
-  <div class="CallToAction relative">
-    <img class="CallToAction__bg" src="/images/geometrical-pussy.svg" alt="CallToAction bg" />
-    <div class="CallToAction__wrapper px-2 py-[30px] md:py-[60px]">
+  <div class="Testimonials relative Content">
+    <img class="Testimonials__bg" src="/images/geometrical-pussy.svg" alt="Testimonials bg" />
+    <div class="Testimonials__wrapper px-2 py-[30px] md:py-[60px]">
       <p>My fellow artists and I always love reading your feedback.</p>
       <p>
         Find your favorite track and share your thoughts in the comments on our
@@ -24,7 +24,7 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 </template>
 
 <style lang="scss">
-.CallToAction {
+.Testimonials {
   color: #000;
   background-color: #fff;
   overflow: hidden;
@@ -51,9 +51,9 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
         2px 0 2px #fff,
         -2px 0 2px #fff;
 
-      a {
-        color: #0046ff;
-      }
+      // a {
+      //   color: #0046ff;
+      // }
     }
   }
 }

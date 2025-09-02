@@ -25,7 +25,7 @@ useSeoMeta({
       <Item 
         v-for="i in videosSortedByDate"
         :key="i.slug"
-        route="video"
+        category="video"
         :i="i"
       />
     </div>

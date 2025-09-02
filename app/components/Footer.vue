@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const route = useRoute()
+
 const nav = [
   { title: 'Home', route: '/' },
   // { title: 'News', route: '/news/' },
@@ -35,6 +37,19 @@ const soc = [
   { title: "Twitter", icon: "twitter", url: "https://twitter.com/sentimony" },
   { title: "YouTube", icon: "youtube", url: "https://www.youtube.com/@SentimonyRecords?sub_confirmation=1" },
 ]
+
+const activeMatchers: Record<string, string[]> = {
+  '/releases/': ['/releases/', '/release/'],
+  '/artists/': ['/artists/', '/artist/'],
+  '/videos/': ['/videos/', '/video/'],
+  '/playlists/': ['/playlists/', '/playlist/']
+}
+
+function isNavActive(link: string) {
+  if (link === '/') return route.path === '/'
+  const matchers = activeMatchers[link] || [link]
+  return matchers.some((p) => route.path.startsWith(p))
+}
 </script>
 
 <template>
@@ -48,9 +63,8 @@ const soc = [
               v-for="i in nav"
               :to="i.route"
               class="FooterNav__link"
-              active-class="isSelected"
-              exact
-            >
+              :class="isNavActive(i.route) ? 'isSelected' : ''"
+s            >
               {{ i.title }}
             </NuxtLink>
           </div>

@@ -49,33 +49,33 @@ const showPlaylists = computed(() => useRoute().path.startsWith('/playlist/'))
       <Header />
       <div class="flex flex-col justify-center">
         <Hero class="order-[0]" v-if="isIndex" />
-        <Swiper
+        <SwiperCopy
           class="transition-opacity ease-in-out duration-250 order-1"
           :class="(showReleases || isIndex) ? 'opacity-100]' : 'opacity-0 hidden'"
           title="Releases"
           :list="releasesSortedByDate"
-          route="release"
+          category="release"
         />
         <Swiper
           class="transition-opacity ease-in-out duration-250"
           :class="[(showArtists || isIndex) ? 'opacity-100]' : 'opacity-0 hidden', isIndex ? 'order-3' : 'order-1']"
           title="Artists"
           :list="artistsSortedByCategoryId"
-          route="artist"
+          category="artist"
         />
         <Swiper
           class="transition-opacity ease-in-out duration-250 order-[1]"
           :class="showVideos ? 'opacity-100]' : 'opacity-0 hidden'"
           title="Videos"
           :list="videosSortedByDate"
-          route="video"
+          category="video"
         />
         <Swiper
           class="transition-opacity ease-in-out duration-250 order-[1]"
           :class="showPlaylists ? 'opacity-100]' : 'opacity-0 hidden'"
           title="Playlists"
           :list="playlistsSortedByDate"
-          route="playlist"
+          category="playlist"
         />
         <div class="order-[2]">
           <slot />
@@ -83,7 +83,7 @@ const showPlaylists = computed(() => useRoute().path.startsWith('/playlist/'))
       </div>
     </div>
     <div class="StickyFooter__footer">
-      <CallToAction />
+      <Testimonials />
       <Footer />
     </div>
   </div>

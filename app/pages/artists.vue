@@ -44,12 +44,12 @@ useSeoMeta({
 
     <h1 class="mb-4">{{ PageTitle }}</h1>
 
-    <h2 class="">Producers & Musicians</h2>
+    <!-- <h2 class="">Producers & Musicians</h2> -->
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
       <Item 
         v-for="i in artistsSortedByCategoryIdMusician"
         :key="i.slug"
-        route="artist"
+        category="artist"
         :i="i"
       />
     </div>
@@ -59,7 +59,7 @@ useSeoMeta({
       <Item 
         v-for="i in artistsSortedByCategoryIdDj"
         :key="i.slug"
-        route="artist"
+        category="artist"
         :i="i"
       />
     </div>
@@ -69,7 +69,7 @@ useSeoMeta({
       <Item 
         v-for="i in artistsSortedByCategoryIdMastering"
         :key="i.slug"
-        route="artist"
+        category="artist"
         :i="i"
       />
     </div>
@@ -79,7 +79,7 @@ useSeoMeta({
       <Item 
         v-for="i in artistsSortedByCategoryIdDesigner"
         :key="i.slug"
-        route="artist"
+        category="artist"
         :i="i"
       />
     </div>

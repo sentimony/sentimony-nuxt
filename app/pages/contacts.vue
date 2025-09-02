@@ -10,7 +10,11 @@ useSeoMeta({
 <template>
   <div class="px-1 pb-[30px] md:pb-[60px]">
     <h1 class="mb-4">{{ PageTitle }}</h1>
+    <div>
+      <SwiperEleven />
+    </div>
   </div>
 </template>
 
 <style lang="scss"></style>
+

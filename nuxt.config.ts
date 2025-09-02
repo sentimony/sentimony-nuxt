@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  css: ['~/assets/css/tailwind.css'],
+  css: [
+    // '~/assets/css/tailwind.css',
+    '~/assets/scss/base.scss',
+    // 'swiper/scss',
+    // 'swiper/scss/navigation',
+    // 'swiper/scss/pagination',
+  ],
   app: {
     head: {
       titleTemplate: '%s | Sentimony Records',
@@ -29,6 +35,7 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       Montserrat: [400, 500, 600, 700],
+      'Montserrat': true,
       'Julius Sans One': true
     },
     display: 'swap'
