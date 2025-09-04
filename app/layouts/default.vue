@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SidebarMenu from '~/components/SidebarMenu.vue'
+
 const { data: releasesRaw } = await useFetch('https://sentimony-db.firebaseio.com/releases.json', { server: true })
 const { data: artistsRaw } = await useFetch('https://sentimony-db.firebaseio.com/artists.json', { server: true })
 const { data: videosRaw } = await useFetch('https://sentimony-db.firebaseio.com/videos.json', { server: true })
@@ -47,32 +49,36 @@ const showPlaylists = computed(() => useRoute().path.startsWith('/playlist/'))
     <div class="StickyFooter__content">
       <Fractal />
       <Header />
+      <div class="md:hidden">
+        <SidebarBtn />
+        <SidebarMenu />
+      </div>
       <div class="flex flex-col justify-center">
         <Hero class="order-[0]" v-if="isIndex" />
-        <SwiperCopy
-          class="transition-opacity ease-in-out duration-250 order-1"
-          :class="(showReleases || isIndex) ? 'opacity-100]' : 'opacity-0 hidden'"
+        <Swiper
+          class="order-1"
+          :class="(showReleases || isIndex) ? 'opacity-100' : 'opacity-0 hidden'"
           title="Releases"
           :list="releasesSortedByDate"
           category="release"
         />
         <Swiper
-          class="transition-opacity ease-in-out duration-250"
-          :class="[(showArtists || isIndex) ? 'opacity-100]' : 'opacity-0 hidden', isIndex ? 'order-3' : 'order-1']"
+          class=""
+          :class="[(showArtists || isIndex) ? 'opacity-100' : 'opacity-0 hidden', isIndex ? 'order-3' : 'order-1']"
           title="Artists"
           :list="artistsSortedByCategoryId"
           category="artist"
         />
         <Swiper
-          class="transition-opacity ease-in-out duration-250 order-[1]"
-          :class="showVideos ? 'opacity-100]' : 'opacity-0 hidden'"
+          class="order-[1]"
+          :class="showVideos ? 'opacity-100' : 'opacity-0 hidden'"
           title="Videos"
           :list="videosSortedByDate"
           category="video"
         />
         <Swiper
-          class="transition-opacity ease-in-out duration-250 order-[1]"
-          :class="showPlaylists ? 'opacity-100]' : 'opacity-0 hidden'"
+          class="order-[1]"
+          :class="showPlaylists ? 'opacity-100' : 'opacity-0 hidden'"
           title="Playlists"
           :list="playlistsSortedByDate"
           category="playlist"

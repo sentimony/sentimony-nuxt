@@ -41,11 +41,11 @@ function selectTab(i: number) {
         v-for="(tab, index) in tabs"
         :key="tab.id"
         @click="selectTab(index)"
-        class="inline-flex items-center h-[36px] md:h-[42px] text-[12px] md:text-[15px] tracking-tighter rounded-t-lg transition-[opacity] ease-in-out duration-300 text-white bg-white/30 px-2 md:px-3 mr-1 md:mr-2 last:mr-0"
+        class="inline-flex items-center h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-[opacity] ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 md:mr-1 last:mr-0"
         :class="index === selectedIndex ? 'cursor-default opacity-100' : 'cursor-pointer opacity-50 hover:opacity-100'"
       >
-        <Icon v-if="tab.info.icon" :name="tab.info.icon" size="16" />
-        <span v-if="tab.info.title" v-html="tab.info.title" class="hidden sm:inline ml-2" />
+        <Icon v-if="tab.info.icon" :name="tab.info.icon" size="18" />
+        <span v-if="tab.info.title" v-html="tab.info.title" class="ml-2" />
       </span>
     </div>
     <slot />

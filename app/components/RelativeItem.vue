@@ -30,14 +30,16 @@ const year = computed(() => {
     </NuxtLink>
 
     <span>
+      <span v-if="i.title">{{ i.title }}</span>
+      <small v-if="year" class="ml-1">({{ year }})</small>
+
       <NuxtLink 
         :to="'/' + category + '/' + i.slug + '/'"
+        class="ml-1"
       >
-        <span v-if="i.title">{{ i.title }}</span>
-        <!-- <small>Read More</small> -->
+        <small>Read More</small>
       </NuxtLink>
 
-      <small v-if="year" class="ml-1">({{ year }})</small>
     </span>
     
   </span>
