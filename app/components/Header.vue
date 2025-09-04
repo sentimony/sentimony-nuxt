@@ -50,59 +50,61 @@ function isNavActive(link: string) {
 </script>
 
 <template>
-  <div class="container px-2">
-    <div class="flex justify-between items-center h-[75px] border-b border-white/30">
+  <div class="px-2">
+    <div class="container">
+      <div class="flex justify-between items-center h-[75px] border-b border-white/30">
 
-      <!-- <div class="w-[232px]"> -->
-        <NuxtLink
-          to="/"
-          class="w-[232px] transition-[background-color] ease-in-out duration-300 hover:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
-          active-class="bg-white/30"
-        >
-          <img 
-            src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01" 
-            alt="Sentimony Records Logo SVG"
-            class="w-[40px] mr-[12px]"
-          />
-          <div class="text-left">
-            <div class="text-[16px]">Sentimony Records</div>
-            <div class="opacity-[0.4] text-[12px] tracking-[0.4px]">Psychedelic Music Label</div>
-          </div>
-        </NuxtLink>
-      <!-- </div> -->
+        <!-- <div class="w-[232px]"> -->
+          <NuxtLink
+            to="/"
+            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
+            active-class="bg-white/20"
+          >
+            <img 
+              src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01" 
+              alt="Sentimony Records Logo SVG"
+              class="w-[40px] mr-3"
+            />
+            <div class="text-left leading-[1.5] pr-1">
+              <div class="text-[16px]">Sentimony Records</div>
+              <div class="opacity-[0.4] text-[12px] tracking-[0.4px]">Psychedelic Music Label</div>
+            </div>
+          </NuxtLink>
+        <!-- </div> -->
 
-      <div class="hidden md:flex">
-        <NuxtLink
-          v-for="i in nav"
-          :to="i.route"
-          class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/40 w-[110px] h-[56px] flex items-center justify-center rounded-[2px]"
-          :class="isNavActive(i.route) ? 'bg-white/30' : ''"
-        >
-          <span>{{ i.title }}</span>
-        </NuxtLink>
+        <div class="hidden md:flex">
+          <NuxtLink
+            v-for="i in nav"
+            :to="i.route"
+            class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/30 md:px-3 lg:w-[110px] h-[56px] flex items-center justify-center rounded-[2px]"
+            :class="isNavActive(i.route) ? 'bg-white/20' : ''"
+          >
+            <span>{{ i.title }}</span>
+          </NuxtLink>
+        </div>
+
+        <!-- <div class="w-[232px]">
+          <div class=""> -->
+            <div class="hidden md:flex justify-between">
+              <a
+                v-for="i in soc"
+                :href="i.url"
+                class="transition-colors ease-in-out duration-300 text-white/[.5] hover:text-white/[1] hover:bg-white/30 md:w-[40px] lg:w-[56px] h-[56px] flex items-center justify-center rounded-[2px] group"
+                target="_blank" rel="noopener"
+              >
+                <!-- <img
+                  :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
+                  class="icon transition-[opacity] ease-in-out duration-300 w-[24px] opacity-[.5] group-hover:opacity-[1]"
+                  :alt="i.title + ' Icon'"
+                /> -->
+                <Icon :name="i.name" size="22" />
+                <!-- <div>{{ i.title }}</div> -->
+              </a>
+            </div>
+          <!-- </div>
+        </div> -->
+                
       </div>
-
-      <!-- <div class="w-[232px]">
-        <div class=""> -->
-          <div class="hidden md:flex justify-between">
-            <a
-              v-for="i in soc"
-              :href="i.url"
-              class="transition-[background-color text] ease-in-out duration-300 text-white/[.5] hover:text-white/[1] hover:bg-white/30 w-[56px] h-[56px] flex items-center justify-center rounded-[2px] group"
-              target="_blank" rel="noopener"
-            >
-              <!-- <img
-                :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
-                class="icon transition-[opacity] ease-in-out duration-300 w-[24px] opacity-[.5] group-hover:opacity-[1]"
-                :alt="i.title + ' Icon'"
-              /> -->
-              <Icon :name="i.name" size="22" />
-              <!-- <div>{{ i.title }}</div> -->
-            </a>
-          </div>
-        <!-- </div>
-      </div> -->
-
     </div>
   </div>
 </template>

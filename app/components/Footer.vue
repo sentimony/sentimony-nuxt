@@ -124,7 +124,9 @@ s            >
 
   &__list {
     border: 1px solid rgba(#fff, 0.1);
-    border-width: 1px 0;
+    border-width: 1px;
+    border-radius: 4px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -136,9 +138,12 @@ s            >
     transition: background-color 0.2s ease;
     color: #fff;
 
-    &.isSelected,
-    &:hover {
+    &.isSelected {
       background-color: rgba(#fff, 0.1);
+    }
+    
+    &:hover {
+      background-color: rgba(#fff, 0.2);
     }
   }
 }

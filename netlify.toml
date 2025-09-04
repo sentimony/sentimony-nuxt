@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/pages/404"
+  status = 404

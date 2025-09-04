@@ -3,6 +3,28 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { toArray } from '~/composables/toArray'
 
 const { id } = useRoute().params
+interface ReleaseItemLinks {
+  bandcamp_url?: string;
+  bandcamp24_url?: string;
+  beatport?: string;
+  junodownload?: string;
+  spotify?: string;
+  applemusic_url?: string;
+  youtube_music?: string;
+  deezer?: string;
+  amazon_music?: string;
+  tidal?: string;
+  qobuz?: string;
+  soundcloud_url?: string;
+  discogs?: string;
+  ektoplazm?: string;
+  beatspace?: string;
+  psyshop?: string;
+  bandcamp_id?: string;
+  youtube_playlist_id?: string;
+  soundcloud_playlist_id?: string;
+}
+
 interface ReleaseItem {
   title: string;
   cover_og?: string;
@@ -10,14 +32,23 @@ interface ReleaseItem {
   cat_no?: string;
   date?: string;
   style?: string;
+  format?: string;
   total_time?: string;
   information?: string;
   tracklistCompact?: Array<{ p: string }>;
   creditsCompact?: Array<{ p: string }>;
   relative_releases?: string[];
   artists?: string[];
+  tracks_number?: number;
+  links?: ReleaseItemLinks;
 }
-const { data: item } = await useFetch<ReleaseItem>(`https://sentimony-db.firebaseio.com/releases/${id}.json`, { server: true })
+const { data: item } = await useFetch<ReleaseItem>(
+  `https://sentimony-db.firebaseio.com/releases/${id}.json`,
+  {
+    server: true,
+    default: () => ({ title: '', links: {} as ReleaseItemLinks } as ReleaseItem),
+  }
+)
 const { data: releasesRaw } = await useFetch('https://sentimony-db.firebaseio.com/releases.json', { server: true })
 const { data: artistsRaw } = await useFetch('https://sentimony-db.firebaseio.com/artists.json', { server: true })
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
@@ -75,200 +106,211 @@ onBeforeUnmount(() => {
   triangleEl.value?.removeEventListener('load', updateTriangleHeight)
   window.removeEventListener('resize', updateTriangleHeight)
 })
+
+// Fallback HTML for missing players
+const comingMusic = '<div class="p-4 text-center text-white/70">Player coming soon</div>'
+const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming soon</div>'
 </script>
 
 <template>
   <div class="text-left">
+    <div class="px-2">
 
-    <div 
-      class="container px-2 relative" 
-      :style="'margin-bottom: -' + TriangleHeight * 0.66 + 'px;'" 
-    >
-      <div class="border-t border-white/30 pt-[1.8em] flex flex-col lg:flex-row">
-        <h1 class="mt-0">{{ item.title }}</h1>
-      </div>
-      <div class="flex flex-col lg:flex-row">
-        <div class="mb-4">
-          <!-- <NuxtImg
-            v-if="item.cover_th"
-            :src="item.cover_th"
-            class="inline text-xs w-[120px] mr-1"
-            sizes="xs:120px"
-            densities="x2"
-            format="webp"
-            :alt="item.title"
-          /> -->
-          <div class="float-left w-[100px] md:w-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/50">
-            <img
+      <div 
+        class="container relative" 
+        v-if="item"
+        :style="'margin-bottom: -' + TriangleHeight * 0.66 + 'px;'" 
+      >
+        <div class="border-t border-white/30">
+          <h1 class="text-center mt-[0.8em] mb-[1.2em]">{{ item.title }}</h1>
+        </div>
+        <div class="flex flex-col lg:flex-row">
+          <div class="mb-4">
+            <!-- <NuxtImg
               v-if="item.cover_th"
               :src="item.cover_th"
-              class=""
+              class="inline text-xs w-[120px] mr-1"
+              sizes="xs:120px"
+              densities="x2"
+              format="webp"
               :alt="item.title"
-            />
+            /> -->
+            <div class="float-left size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/50">
+              <img
+                v-if="item.cover_th"
+                :src="item.cover_th"
+                class=""
+                :alt="item.title"
+              />
+              <div
+                v-if="!item.cover_th"
+                v-html="comingArtwork"
+              />
+            </div>
+
+            <p><span class="text-white/50">Release Date:</span> {{ formattedDate }}</p>
+            <p><span class="text-white/50">Catalog Number:</span> {{ item.cat_no }}</p>
+            <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
+            <p><span class="text-white/50">Format:</span> {{ item.format }}</p>
+            <p><span class="text-white/50">Total Time:</span> {{ item.total_time }}</p>
+
+            <div class="clear-left">
+
+            <!-- <p>
+              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
+              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ formattedDate }}</span>
+            </p>
+            <h1 class="">{{ item.title }}</h1>
+            <p>
+              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.style }}</span>
+              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ item.total_time }}</span>
+            </p> -->
+            <!-- <br> -->
+            <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
+            <div v-if="item.links">
+              <BtnPrimary
+                v-if="item.links.bandcamp_url"
+                :url="item.links.bandcamp_url"
+                title="Bandcamp <small>(16bit)</small>"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.bandcamp24_url"
+                :url="item.links.bandcamp24_url"
+                title="Bandcamp <small>(24bit)</small>"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.beatport"
+                :url="item.links.beatport"
+                title="Beatport"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.junodownload"
+                :url="item.links.junodownload"
+                title="JunoDownload"
+                icon="cib:bandcamp"
+              />
+            </div>
+            </div>
+
+            <!-- <br> -->
+            <p><span class="text-[10px] md:text-[12px] text-white/50">Stream</span></p>
+            <div v-if="item.links">
+              <BtnPrimary
+                v-if="item.links.spotify"
+                :url="item.links.spotify"
+                title="Spotify"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.applemusic_url"
+                :url="item.links.applemusic_url"
+                title="Apple Music"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.youtube_music"
+                :url="item.links.youtube_music"
+                title="YouTube Music"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.deezer"
+                :url="item.links.deezer"
+                title="Deezer"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.amazon_music"
+                :url="item.links.amazon_music"
+                title="Amazon Music"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.tidal"
+                :url="item.links.tidal"
+                title="Tidal"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.qobuz"
+                :url="item.links.qobuz"
+                title="Qobuz"
+                icon="cib:bandcamp"
+              />
+              <BtnPrimary
+                v-if="item.links.soundcloud_url"
+                :url="item.links.soundcloud_url"
+                title="SoundCloud"
+                icon="fa7-brands:soundcloud"
+              />
+            </div>
+
           </div>
+          <div class="max-w-[540px] mx-auto w-[100%] mb-4">
 
-          <p><span class="text-white/50">Release Date:</span> {{ formattedDate }}</p>
-          <p><span class="text-white/50">Catalog Number:</span> {{ item.cat_no }}</p>
-          <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
-          <p><span class="text-white/50">Format:</span> {{ item.format }}</p>
-          <p><span class="text-white/50">Total Time:</span> {{ item.total_time }}</p>
+            <Tabs>
+              <Tab
+                icon="cib:bandcamp"
+                title="Bandcamp"
+              >
+                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                  <iframe
+                    v-if="item.links?.bandcamp_id"
+                    class="border-[0px] w-[100%]"
+                    :class="'BandcampIframe tracks-' + item.tracks_number"
+                    :src="'https://bandcamp.com/EmbeddedPlayer/album=' + (item.links?.bandcamp_id || '') + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
+                    seamless
+                    :title="item.title + ' Bandcamp Iframe'"
+                  />
+                  <div
+                    v-if="!item.links?.bandcamp_id"
+                    class="player-coming"
+                    v-html="comingMusic"
+                  />
+                </div>
+              </Tab>
 
-          <div class="clear-left">
+              <Tab
+                v-if="item.links?.youtube_playlist_id"
+                icon="cib:bandcamp"
+                title="YouTube"
+              >
+                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                  <iframe
+                    class="border-[0px] aspect-video"
+                    :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.links?.youtube_playlist_id || '') + '&loop=1'"
+                    :title="item.title + 'YouTube video player'"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  />
+                </div>
+              </Tab>
 
-          <!-- <p>
-            <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
-            <span class="text-[10px] md:text-[12px] text-white/50"> | {{ formattedDate }}</span>
-          </p>
-          <h1 class="">{{ item.title }}</h1>
-          <p>
-            <span class="text-[10px] md:text-[12px] text-white/50">{{ item.style }}</span>
-            <span class="text-[10px] md:text-[12px] text-white/50"> | {{ item.total_time }}</span>
-          </p> -->
-          <!-- <br> -->
-          <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
-          <div v-if="item.links">
-            <BtnPrimary
-              v-if="item.links.bandcamp_url"
-              :url="item.links.bandcamp_url"
-              title="Bandcamp <small>(16bit)</small>"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.bandcamp24_url"
-              :url="item.links.bandcamp24_url"
-              title="Bandcamp <small>(24bit)</small>"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.beatport"
-              :url="item.links.beatport"
-              title="Beatport"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.junodownload"
-              :url="item.links.junodownload"
-              title="JunoDownload"
-              icon="cib:bandcamp"
-            />
+              <Tab
+                v-if="item.links?.soundcloud_playlist_id"
+                icon="fa7-brands:soundcloud"
+                title="SoundCloud"
+              >
+                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                  <iframe
+                    class="border-[0px] w-[100%]"
+                    :class="'SoundcloudIframe tracks-' + item.tracks_number"
+                    scrolling="no"
+                    height="450"
+                    allow="autoplay"
+                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
+                    :title="item.title + ' SoundCloud Iframe'"
+                  />
+                </div>
+              </Tab>
+            </Tabs>
+
           </div>
-          </div>
-
-          <!-- <br> -->
-          <p><span class="text-[10px] md:text-[12px] text-white/50">Stream</span></p>
-          <div v-if="item.links">
-            <BtnPrimary
-              v-if="item.links.spotify"
-              :url="item.links.spotify"
-              title="Spotify"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.applemusic_url"
-              :url="item.links.applemusic_url"
-              title="Apple Music"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.youtube_music"
-              :url="item.links.youtube_music"
-              title="YouTube Music"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.deezer"
-              :url="item.links.deezer"
-              title="Deezer"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.amazon_music"
-              :url="item.links.amazon_music"
-              title="Amazon Music"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.tidal"
-              :url="item.links.tidal"
-              title="Tidal"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.qobuz"
-              :url="item.links.qobuz"
-              title="Qobuz"
-              icon="cib:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links.soundcloud_url"
-              :url="item.links.soundcloud_url"
-              title="SoundCloud"
-              icon="fa7-brands:soundcloud"
-            />
-          </div>
-
-        </div>
-        <div class="max-w-[540px] mx-auto w-[100%] mb-4">
-
-          <Tabs>
-            <Tab
-              icon="cib:bandcamp"
-              title="Bandcamp"
-            >
-              <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                <iframe
-                  v-if="item.links.bandcamp_id"
-                  class="border-[0px] w-[100%]"
-                  :class="'BandcampIframe tracks-' + item.tracks_number"
-                  :src="'https://bandcamp.com/EmbeddedPlayer/album=' + item.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
-                  seamless
-                  :title="item.title + ' Bandcamp Iframe'"
-                />
-                <div
-                  v-if="!item.links.bandcamp_id"
-                  class="player-coming"
-                  v-html="comingMusic"
-                />
-              </div>
-            </Tab>
-
-            <Tab
-              v-if="item.links.youtube_playlist_id"
-              icon="cib:bandcamp"
-              title="YouTube"
-            >
-              <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                <iframe
-                  class="border-[0px] aspect-video"
-                  :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + item.links.youtube_playlist_id + '&loop=1'"
-                  :title="item.title + 'YouTube video player'"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
-            </Tab>
-
-            <Tab
-              v-if="item.links.soundcloud_playlist_id"
-              icon="fa7-brands:soundcloud"
-              title="SoundCloud"
-            >
-              <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                <iframe
-                  class="border-[0px] w-[100%]"
-                  :class="'SoundcloudIframe tracks-' + item.tracks_number"
-                  scrolling="no"
-                  height="450"
-                  allow="autoplay"
-                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + item.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                  :title="item.title + ' SoundCloud Iframe'"
-                />
-              </div>
-            </Tab>
-          </Tabs>
-
         </div>
       </div>
     </div>
@@ -279,7 +321,7 @@ onBeforeUnmount(() => {
       <div class="pt-[50px] pb-[100px] px-2 text-xs text-white/60 text-center">{{ TriangleHeight }}</div>
     </div> -->
 
-    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black">
+    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black" v-if="item">
       <div class="container">
         <div class="max-w-[640px] mx-auto">
 
@@ -305,13 +347,13 @@ onBeforeUnmount(() => {
             />
           </div>
 
-          <div v-if="item.links.discogs || item.links.ektoplazm">
+          <div v-if="item.links?.discogs || item.links?.ektoplazm">
             <hr class="my-4 border-black/30">
             <p><small><b>Links:</b></small></p>
-            <p v-if="item.links.discogs"><a :href="item.links.discogs" target="_blank" rel="noopener">Discogs</a></p>
-            <p v-if="item.links.beatspace"><a :href="item.links.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
-            <p v-if="item.links.psyshop"><a :href="item.links.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
-            <p v-if="item.links.ektoplazm"><a :href="item.links.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
+            <p v-if="item.links?.discogs"><a :href="item.links?.discogs" target="_blank" rel="noopener">Discogs</a></p>
+            <p v-if="item.links?.beatspace"><a :href="item.links?.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
+            <p v-if="item.links?.psyshop"><a :href="item.links?.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
+            <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
           </div>
 
           <div v-if="item.relative_releases">
