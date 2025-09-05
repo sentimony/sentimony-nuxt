@@ -135,7 +135,10 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
               format="webp"
               :alt="item.title"
             /> -->
-            <div class="float-left size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/50">
+            <div 
+              class="float-left size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/50"
+              v-wave
+            >
               <img
                 v-if="item.cover_th"
                 :src="item.cover_th"

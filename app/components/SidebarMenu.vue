@@ -1,16 +1,32 @@
-<script setup>
-import { useMobmenuStore } from '@/stores/mobmenu.ts'
-
+<script setup lang="ts">
 const mobmenu = useMobmenuStore()
+const route = useRoute()
+
+const nav = [
+  { title: 'Home', route: '/' },
+  // { title: 'News', route: '/news/' },
+  { title: 'Releases', route: '/releases/' },
+  { title: 'Artists', route: '/artists/' },
+  { title: 'Videos', route: '/videos/' },
+  { title: 'Playlists', route: '/playlists/' },
+  // { title: 'Events', route: '/events/' },
+  // { title: 'Friends', route: '/friends/' },
+  { title: 'Contacts', route: '/contacts/' },
+  // { title: 'Tracks', route: '/tracks/' },
+  // { title: 'Sitemap', route: '/sitemap/' },
+  // { title: '404', route: '/404/' },
+  // { title: 'ddos', route: '/ddos/' },
+]
 </script>
 
 <template>
   <div class="sidebar0">
 
     <div 
-      class="sidebar1" 
+      class="sidebar1 backdrop-blur-sm" 
       :class="mobmenu.sidebarOpen ? 'is-open' : ''" 
       @click="mobmenu.toggleSidebar"
+      v-wave
     />
     
     <div
@@ -18,21 +34,17 @@ const mobmenu = useMobmenuStore()
       :class="mobmenu.sidebarOpen ? 'is-open' : ''" 
       @click="mobmenu.toggleSidebar"
     >
-      <!-- <nuxt-link
-        v-for="(i, index) in menu"
+      <NuxtLink
+        v-for="(i, index) in nav"
         :key="index"
-        v-if="i.visibleSidebar"
-        v-ripple
         :to="i.route"
         class="mobmenu__link"
         active-class="isSelected"
-        :class="{ 'isSelected': isSelected(i) }"
-        exact
-        v-html="i.title"
-      /> -->
-      
-      <div>link1</div>
-      <div>link2</div>
+        v-wave
+      >
+        {{ i.title }}
+      </NuxtLink>
+
       <!-- <div>{{ useMobmenuStore() }}</div> -->
 
       <hr style="border-color:#fff;opacity:.3;" />

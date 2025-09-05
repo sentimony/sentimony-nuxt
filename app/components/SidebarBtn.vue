@@ -1,49 +1,51 @@
-<script setup>
-import { useMobmenuStore } from '@/stores/mobmenu.ts'
-
+<script setup lang="ts">
 const mobmenu = useMobmenuStore()
 </script>
 
 <template>
-  <button 
-    class="SideBarBtn"
-    :class="mobmenu.sidebarOpen ? 'is-active' : ''"
+  <div 
+    class="SidebarBtn transition-all ease-in-out duration-300 hover:bg-white/30 mr-2"
+    :class="mobmenu.sidebarOpen ? 'isActive bg-white/20' : ''"
     @click="mobmenu.toggleSidebar"
+    v-wave
   >
-    <img class="headr__mob-menu-button-img" src="https://content.sentimony.com/assets/img/svg-icons/menu.svg?01">
-  </button>
+    <img 
+      class="w-[22px]" 
+      src="https://content.sentimony.com/assets/img/svg-icons/menu.svg?01"
+    >
+  </div>
 </template>
 
 <style lang="scss">
-.SideBarBtn {
+.SidebarBtn {
   position: fixed;
   z-index: 2000;
-  top: 12px;
-  right: 11px;
+  top: 9px;
+  right: 0;
   padding: 12px;
-  height: 50px;
-  width: 50px;
-  border: 3px solid transparent;
+  height: 56px;
+  width: 56px;
+  border: 2px solid transparent;
   border-radius: 50%;
-  background-color: transparent;
+  // background-color: transparent;
   color: red;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 0;
-  transition: transform .3s ease,
-              border-color .3s ease;
+  // transition: transform .3s ease,
+  //             border-color .3s ease;
 
   // &:focus {
   //   outline: none;
   //   border-color: white;
   // }
 
-  &.is-active {
+  &.isActive {
     outline: none;
-    border-color: white;
-    transform: rotate(90deg);
+    border-color: white;  
+    transform: rotate(180deg);
   }
 
   // &.is-active:focus {

@@ -28,18 +28,18 @@ defineProps<{
 </script>
 
 <template>
-  <div class="h-[164px] md:h-[260px] overflow-hidden">
-
-    <div class="mt-[.4em] mb-[.3  em] md:mt-[.6em] md:mb-[.5em]">
-      <div class="text-[12px] md:text-[18px]">{{ title }}</div>
-
-      <div :class="[
-        'swiper-pagination',
-        'swiper-pagination-' + category,
-      ]"></div>
-    </div>
+  <div class="overflow-hidden relative">
 
     <ClientOnly>
+
+      <div class="my-1 md:my-2">
+        <div class="text-[12px] md:text-[18px]">{{ title }}</div>
+
+        <div :class="[
+          'swiper-pagination',
+          'swiper-pagination-' + category,
+        ]"></div>    
+      </div>
 
       <Swiper
         :mousewheel="{ 
@@ -81,7 +81,7 @@ defineProps<{
           enabled: true,
         }"
       >
-        
+
         <SwiperSlide
           v-for="(i, idx) in list"
           :key="idx"
@@ -92,30 +92,44 @@ defineProps<{
           />
         </SwiperSlide>
 
-        <Icon 
-          name="fa7-solid:chevron-circle-left" 
-          size="44"
+        <button 
           class="swiper-button-next"
-        />
-        <Icon 
-          name="fa7-solid:chevron-circle-right" 
-          size="44" 
-          class="swiper-button-prev"
-        />
+          v-wave
+        >
+          <Icon 
+            name="fa7-solid:chevron-circle-left" 
+            size="44"
+            class="block"
+          />
+        </button>
 
+        <button
+          class="swiper-button-prev"
+          v-wave
+        >
+          <Icon 
+            name="fa7-solid:chevron-circle-right" 
+            size="44"
+            class="block"
+          />
+        </button>
       </Swiper>
+
     </ClientOnly>
 
   </div>
 </template>
 
 <style>
-.swiper { @apply overflow-visible }
-.swiper-slide { @apply w-[76px] md:w-[180px] }
+.swiper { @apply overflow-visible static }
+.swiper-slide { @apply w-[auto] }
 
 .swiper-pagination { @apply text-[8px] md:text-[12px] leading-none text-white/50 }
 
-.swiper-button-next { @apply transition-[color] ease-in-out duration-300 cursor-pointer absolute top-[48px] left-[6px] size-[44px] z-10 text-white/50 hover:text-white/100 hidden md:inline-block }
-.swiper-button-prev { @apply transition-[color] ease-in-out duration-300 cursor-pointer absolute top-[48px] right-[6px] size-[44px] z-10 text-white/50 hover:text-white/100 hidden md:inline-block }
+.swiper-button-next,
+.swiper-button-prev { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-white/50 hover:text-white/100 hover:bg-white/10 hover:backdrop-blur-sm hidden md:block p-4 }
+
+.swiper-button-next { @apply left-[0px] }
+.swiper-button-prev { @apply right-[0px] }
 .swiper-button-disabled { @apply text-white/10 pointer-events-none }
 </style>

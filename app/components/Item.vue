@@ -18,9 +18,10 @@ defineProps<{
   <div class="">
 
     <NuxtLink
-      class="w-[76px] md:w-[180px] block group"
+      class="w-[80px] md:w-[180px] block group rounded-[2px] py-1 md:py-3 mt-[-0.25rem] md:mt-[-0.75rem]"
       :to="'/' + category + '/' + i.slug + '/'"
       v-slot="{ isActive }"
+      v-wave
     >
 
       <div
@@ -43,15 +44,26 @@ defineProps<{
           />
           <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingPhoto"/> -->
         </div>
-        <div v-if="i.coming_soon" class="text-[7px] md:text-[10px] absolute top-[-5px] md:top-[0] right-[-5px] md:right-[0] bg-green-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] px-[.8em] py-[.2em] rounded-tr-sm rounded-bl-sm">Coming Soon</div>
-        <div v-if="i.new" class="text-[7px] md:text-[10px] absolute top-[-5px] md:top-[0] right-[-5px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] px-[.8em] py-[.2em] rounded-tr-sm rounded-bl-sm">Out Now</div>
+        <div v-if="i.coming_soon" class="text-[7px] md:text-[10px] absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-green-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] px-[.8em] py-[.2em] rounded-tr-sm rounded-bl-sm">Coming Soon</div>
+        <div v-if="i.new" class="text-[7px] md:text-[10px] absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] px-[.8em] py-[.2em] rounded-tr-sm rounded-bl-sm">Out Now</div>
       </div>
 
-      <div class="text-[8px] md:text-[12px] mb-[.5rem] px-[2px]">{{ i.title }}</div>
+      <div 
+        class="Clamp3 text-[8px] md:text-[12px]"
+        v-html="i.title"
+      />
 
     </NuxtLink>
 
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+// Limit title to 4 lines with ellipsis
+.Clamp3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</style>
