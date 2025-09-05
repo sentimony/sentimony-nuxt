@@ -16,6 +16,7 @@ const nav = [
   // { title: '404', route: '/404/' },
   // { title: 'ddos', route: '/ddos/' },
 ]
+
 const soc = [
   { title: "AppleMusic", icon: "apple-music-2", url: "https://itunes.apple.com/profile/sentimony" },
   { title: "Bandcamp", icon: "bandcamp", url: "https://sentimony.bandcamp.com/follow_me" },
@@ -64,7 +65,8 @@ function isNavActive(link: string) {
               :to="i.route"
               class="FooterNav__link"
               :class="isNavActive(i.route) ? 'isSelected' : ''"
-s            >
+              v-wave
+            >
               {{ i.title }}
             </NuxtLink>
           </div>
@@ -80,6 +82,7 @@ s            >
               :href="i.url"
               class="FooterSoc__link inline-block py-[.1em] px-[.9em]"
               target="_blank" rel="noopener"
+              v-wave
             >
               <img
                 v-if="i.icon"
@@ -106,8 +109,23 @@ s            >
       </div>
 
       <div class="text-[10px] mb-[20px]">
-        <div>Design By <NuxtLink class="text-white" to="/artist/apivniuk">Anton Pivniuk</NuxtLink></div>
-        <div>Development By <a class="text-white" href="https://github.com/sentimony/sentimony-nuxt" target="_blank" rel="noopener">Ihor Orlovskyi</a></div>
+        <div>
+          <span>Design By </span>
+          <NuxtLink 
+            class="text-white" 
+            to="/artist/apivniuk"
+            v-wave
+          >Anton Pivniuk</NuxtLink>
+        </div>
+        <div>
+          <span>Development By </span>
+          <a 
+            class="text-white"
+            href="https://github.com/sentimony/sentimony-nuxt"
+            target="_blank" rel="noopener"
+            v-wave
+          >Ihor Orlovskyi</a>
+        </div>
       </div>
 
     </div>

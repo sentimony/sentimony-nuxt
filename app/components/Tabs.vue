@@ -37,18 +37,23 @@ function selectTab(i: number) {
 <template>
   <div>
     <div>
+      
       <span
         v-for="(tab, index) in tabs"
         :key="tab.id"
         @click="selectTab(index)"
-        class="inline-flex items-center h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-[opacity] ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 md:mr-1 last:mr-0"
+        class="inline-flex items-center h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-[opacity] ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 md:mr-1 last:mr-0 backdrop-blur-sm"
         :class="index === selectedIndex ? 'cursor-default opacity-100' : 'cursor-pointer opacity-50 hover:opacity-100'"
+        v-wave
       >
         <Icon v-if="tab.info.icon" :name="tab.info.icon" size="18" />
         <span v-if="tab.info.title" v-html="tab.info.title" class="ml-2" />
       </span>
+    
     </div>
+    
     <slot />
+    
   </div>
 </template>
 

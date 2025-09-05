@@ -35,6 +35,7 @@ export default defineNuxtConfig({
     '@nuxt/icon', 
     '@nuxt/image', 
     '@pinia/nuxt',
+    'v-wave/nuxt',
   ],
   googleFonts: {
     families: {
@@ -45,5 +46,10 @@ export default defineNuxtConfig({
   },
   // image: {
   //   domains: ['https://content.sentimony.com']
-  // }
+  // },
+  vWave: {
+    // duration: 0.4,
+    // dissolveDuration: 0.15,
+    easing: 'ease-out',
+  },
 })
