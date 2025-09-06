@@ -1,13 +1,15 @@
 <script setup lang="ts">
-const { data: videosRaw } = await useFetch('https://sentimony-db.firebaseio.com/videos.json', { server: true })
-const videos = computed(() => toArray(videosRaw.value, 'videos'))
-const videosSortedByDate = computed(() =>
-  [...videos.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
-    )
-)
+// import { toArray } from '~/composables/toArray'
+
+// const { data: videosRaw } = await useVideos()
+// const videos = computed(() => toArray(videosRaw.value, 'videos'))
+// const videosSortedByDate = computed(() =>
+//   [...videos.value]
+//     .filter((r: any) => Boolean(r?.visible))
+//     .sort((a: any, b: any) =>
+//       new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+//     )
+// )
 const PageTitle = 'Videos';
 useSeoMeta({
   title: PageTitle,
@@ -19,7 +21,7 @@ useSeoMeta({
 <template>
   <div class="px-1 pb-[30px] md:pb-[60px]">
 
-    <h1 class="mb-4">{{ PageTitle }}</h1>
+    <!-- <h1 class="mb-4">{{ PageTitle }}</h1>
 
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
       <Item 
@@ -28,7 +30,7 @@ useSeoMeta({
         category="video"
         :i="i"
       />
-    </div>
+    </div> -->
 
   </div>
 </template>

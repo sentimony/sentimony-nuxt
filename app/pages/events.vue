@@ -1,22 +1,36 @@
-<script setup>
-const { data, error } = await useAsyncData("events", () =>
-  $fetch("https://sentimony-db.firebaseio.com/events.json")
-);
+<script setup lang="ts">
+const { data: eventsRaw } = await useEvents()
+const events = computed(() => toArray(eventsRaw.value, 'events'))
+const eventsSortedByDate = computed(() =>
+  [...events.value]
+    .filter((r: any) => Boolean(r?.visible))
+    .sort((a: any, b: any) =>
+      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    )
+)
+const PageTitle = 'Events';
+useSeoMeta({
+  title: PageTitle,
+  description: PageTitle + ' of Sentimony Records',
+  ogImage: '',
+});
+
+const { formatDate } = useDate()
 </script>
 
 <template>
-  <div class="text-center">
-    <h1 class="text-lg mb-10">
-      <!-- <Icon name="mdi:event" width="24" height="24" /> -->
-      Events
-    </h1>
+  <div class="px-1 pb-[30px] md:pb-[60px]">
 
-    <span
-      v-for="i in data"
+    <h1 class="mb-4">{{ PageTitle }}</h1>
+
+    <p
+      v-for="i in eventsSortedByDate"
+      :key="i.slug"
     >
       <NuxtLink 
-        :to="'/event/' + i.slug" 
-        class="mr-4"
+        :to="'/event/' + i.slug + '/'" 
+        class=""
+        v-wave
       >
         <!-- <NuxtImg
           v-if="i.cover_th"
@@ -27,9 +41,9 @@ const { data, error } = await useAsyncData("events", () =>
           format="webp"
           :alt="i.title"
         /> -->
-        <span class="text-xs">{{ i.title }}</span>
+        <span class="">{{ formatDate(i.date) }} @ {{ i.title }}</span>
       </NuxtLink>
-    </span>
+    </p>
 
   </div>
 </template>

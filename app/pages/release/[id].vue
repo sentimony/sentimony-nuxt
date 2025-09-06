@@ -29,6 +29,7 @@ interface ReleaseItem {
   title: string;
   cover_og?: string;
   cover_th?: string;
+  cover_xl?: string;
   cat_no?: string;
   date?: string;
   style?: string;
@@ -42,15 +43,13 @@ interface ReleaseItem {
   tracks_number?: number;
   links?: ReleaseItemLinks;
 }
-const { data: item } = await useFetch<ReleaseItem>(
-  `https://sentimony-db.firebaseio.com/releases/${id}.json`,
-  {
-    server: true,
-    default: () => ({ title: '', links: {} as ReleaseItemLinks } as ReleaseItem),
-  }
-)
-const { data: releasesRaw } = await useFetch('https://sentimony-db.firebaseio.com/releases.json', { server: true })
-const { data: artistsRaw } = await useFetch('https://sentimony-db.firebaseio.com/artists.json', { server: true })
+
+const { data: item } = await useRelease<ReleaseItem>(id as string, {
+  server: true,
+  default: () => ({ title: '', links: {} as ReleaseItemLinks } as ReleaseItem),
+})
+const { data: releasesRaw } = await useReleases()
+const { data: artistsRaw } = await useArtists()
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
 const artists = computed(() => toArray(artistsRaw.value, 'artists'))
 const releasesSortedByDate = computed(() =>
@@ -68,18 +67,10 @@ const artistsSortedByCategoryId = computed(() =>
     )
 )
 
-function formatDate(val?: string | number | Date | null): string {
-  if (!val) return ''
-  const d = new Date(val)
-  if (isNaN(d.getTime())) return ''
-  return new Intl.DateTimeFormat('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric'
-  }).format(d)
-}
-
+const { formatDate } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
+const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
+
 useSeoMeta({
   title: item.value?.title,
   description: (item.value?.title ?? '') + ' description',
@@ -124,32 +115,16 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
         <div class="border-t border-white/30">
           <h1 class="text-center mt-[0.8em] mb-[1.2em]">{{ item.title }}</h1>
         </div>
+        
         <div class="flex flex-col lg:flex-row">
-          <div class="mb-4">
-            <!-- <NuxtImg
-              v-if="item.cover_th"
-              :src="item.cover_th"
-              class="inline text-xs w-[120px] mr-1"
-              sizes="xs:120px"
-              densities="x2"
-              format="webp"
-              :alt="item.title"
-            /> -->
-            <div 
-              class="float-left size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/50"
-              v-wave
-            >
-              <img
-                v-if="item.cover_th"
-                :src="item.cover_th"
-                class=""
-                :alt="item.title"
-              />
-              <div
-                v-if="!item.cover_th"
-                v-html="comingArtwork"
-              />
-            </div>
+          <div class="w-full mb-4">
+
+            <OpenImage 
+              :image_th="item.cover_th"
+              :image_xl="item.cover_xl"
+              :alt="(item.title || 'Release') + ' cover'"
+              class="float-left"
+            />
 
             <p><span class="text-white/50">Release Date:</span> {{ formattedDate }}</p>
             <p><span class="text-white/50">Catalog Number:</span> {{ item.cat_no }}</p>
@@ -158,44 +133,43 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
             <p><span class="text-white/50">Total Time:</span> {{ item.total_time }}</p>
 
             <div class="clear-left">
-
-            <!-- <p>
-              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
-              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ formattedDate }}</span>
-            </p>
-            <h1 class="">{{ item.title }}</h1>
-            <p>
-              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.style }}</span>
-              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ item.total_time }}</span>
-            </p> -->
-            <!-- <br> -->
-            <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
-            <div v-if="item.links">
-              <BtnPrimary
-                v-if="item.links.bandcamp_url"
-                :url="item.links.bandcamp_url"
-                title="Bandcamp <small>(16bit)</small>"
-                icon="cib:bandcamp"
-              />
-              <BtnPrimary
-                v-if="item.links.bandcamp24_url"
-                :url="item.links.bandcamp24_url"
-                title="Bandcamp <small>(24bit)</small>"
-                icon="cib:bandcamp"
-              />
-              <BtnPrimary
-                v-if="item.links.beatport"
-                :url="item.links.beatport"
-                title="Beatport"
-                icon="cib:bandcamp"
-              />
-              <BtnPrimary
-                v-if="item.links.junodownload"
-                :url="item.links.junodownload"
-                title="JunoDownload"
-                icon="cib:bandcamp"
-              />
-            </div>
+              <!-- <p>
+                <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
+                <span class="text-[10px] md:text-[12px] text-white/50"> | {{ formattedDate }}</span>
+              </p>
+              <h1 class="">{{ item.title }}</h1>
+              <p>
+                <span class="text-[10px] md:text-[12px] text-white/50">{{ item.style }}</span>
+                <span class="text-[10px] md:text-[12px] text-white/50"> | {{ item.total_time }}</span>
+              </p> -->
+              <!-- <br> -->
+              <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
+              <div v-if="item.links">
+                <BtnPrimary
+                  v-if="item.links.bandcamp_url"
+                  :url="item.links.bandcamp_url"
+                  title="Bandcamp <small>(16bit)</small>"
+                  icon="cib:bandcamp"
+                />
+                <BtnPrimary
+                  v-if="item.links.bandcamp24_url"
+                  :url="item.links.bandcamp24_url"
+                  title="Bandcamp <small>(24bit)</small>"
+                  icon="cib:bandcamp"
+                />
+                <BtnPrimary
+                  v-if="item.links.beatport"
+                  :url="item.links.beatport"
+                  title="Beatport"
+                  icon="simple-icons:beatport"
+                />
+                <BtnPrimary
+                  v-if="item.links.junodownload"
+                  :url="item.links.junodownload"
+                  title="JunoDownload"
+                  icon="cib:bandcamp"
+                />
+              </div>
             </div>
 
             <!-- <br> -->
@@ -205,43 +179,43 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
                 v-if="item.links.spotify"
                 :url="item.links.spotify"
                 title="Spotify"
-                icon="cib:bandcamp"
+                icon="fa-brands:spotify"
               />
               <BtnPrimary
                 v-if="item.links.applemusic_url"
                 :url="item.links.applemusic_url"
                 title="Apple Music"
-                icon="cib:bandcamp"
+                icon="fa-brands:apple"
               />
               <BtnPrimary
                 v-if="item.links.youtube_music"
                 :url="item.links.youtube_music"
-                title="YouTube Music"
-                icon="cib:bandcamp"
+                title="YT Music"
+                icon="simple-icons:youtubemusic"
               />
               <BtnPrimary
                 v-if="item.links.deezer"
                 :url="item.links.deezer"
                 title="Deezer"
-                icon="cib:bandcamp"
+                icon="fa-brands:deezer"
               />
               <BtnPrimary
                 v-if="item.links.amazon_music"
                 :url="item.links.amazon_music"
                 title="Amazon Music"
-                icon="cib:bandcamp"
+                icon="fa7-brands:amazon"
               />
               <BtnPrimary
                 v-if="item.links.tidal"
                 :url="item.links.tidal"
                 title="Tidal"
-                icon="cib:bandcamp"
+                icon="fa7-brands:tidal"
               />
               <BtnPrimary
                 v-if="item.links.qobuz"
                 :url="item.links.qobuz"
                 title="Qobuz"
-                icon="cib:bandcamp"
+                icon="arcticons:qobuz"
               />
               <BtnPrimary
                 v-if="item.links.soundcloud_url"
@@ -252,9 +226,10 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
             </div>
 
           </div>
-          <div class="max-w-[540px] mx-auto w-[100%] mb-4">
+          <div class="max-w-[540px] mx-auto w-full mb-4">
 
             <Tabs>
+
               <Tab
                 icon="cib:bandcamp"
                 title="Bandcamp"
@@ -278,7 +253,7 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
 
               <Tab
                 v-if="item.links?.youtube_playlist_id"
-                icon="cib:bandcamp"
+                icon="fa:youtube"
                 title="YouTube"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -311,6 +286,25 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
                   />
                 </div>
               </Tab>
+
+              <Tab
+                v-if="item.links?.youtube_music"
+                icon="simple-icons:youtubemusic"
+                title="YT Music"
+              >
+                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                  <iframe
+                    class="border-[0px] aspect-video"
+                    :src="embedYTMusic"
+                    :title="item.title + 'YouTube video player'"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  />
+                </div>
+              </Tab>
+
             </Tabs>
 
           </div>

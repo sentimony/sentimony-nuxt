@@ -9,7 +9,7 @@ const nav = [
   { title: 'Artists', route: '/artists/' },
   { title: 'Videos', route: '/videos/' },
   { title: 'Playlists', route: '/playlists/' },
-  // { title: 'Events', route: '/events/' },
+  { title: 'Events', route: '/events/' },
   // { title: 'Friends', route: '/friends/' },
   { title: 'Contacts', route: '/contacts/' },
   // { title: 'Tracks', route: '/tracks/' },
@@ -17,123 +17,54 @@ const nav = [
   // { title: '404', route: '/404/' },
   // { title: 'ddos', route: '/ddos/' },
 ]
+
+const activeMatchers: Record<string, string[]> = {
+  '/releases/': ['/releases/', '/release/'],
+  '/artists/': ['/artists/', '/artist/'],
+  '/videos/': ['/videos/', '/video/'],
+  '/playlists/': ['/playlists/', '/playlist/'],
+  '/events/': ['/events/', '/event/'],
+}
+
+function isNavActive(link: string) {
+  if (link === '/') return route.path === '/'
+  const matchers = activeMatchers[link] || [link]
+  return matchers.some((p) => route.path.startsWith(p))
+}
 </script>
 
 <template>
-  <div class="sidebar0">
+  <!-- <div class=""> -->
 
-    <div 
-      class="sidebar1 backdrop-blur-sm" 
-      :class="mobmenu.sidebarOpen ? 'is-open' : ''" 
+    <!-- <div 
+      class="fixed left-full top-0 w-screen h-screen z-30 bg-black/30 backdrop-blur-sm" 
+      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''" 
       @click="mobmenu.toggleSidebar"
       v-wave
-    />
+    /> -->
     
     <div
-      class="sidebar2" 
-      :class="mobmenu.sidebarOpen ? 'is-open' : ''" 
+      class="flex flex-col fixed left-full w-[280px] h-screen top-0 z-40 bg-black/60 transition-transform duration-300 ease-in-out" 
+      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''" 
       @click="mobmenu.toggleSidebar"
     >
       <NuxtLink
         v-for="(i, index) in nav"
         :key="index"
         :to="i.route"
-        class="mobmenu__link"
-        active-class="isSelected"
+        class="flex items-center justify-center h-[42px] hover:bg-white/15 transition-background duration-300 ease-in-out"
+        :class="isNavActive(i.route) ? 'bg-white/10' : ''"
         v-wave
       >
         {{ i.title }}
       </NuxtLink>
 
-      <!-- <div>{{ useMobmenuStore() }}</div> -->
-
-      <hr style="border-color:#fff;opacity:.3;" />
+      <!-- <hr class="border-white/30" /> -->
 
       <!-- <HeaderSocialMenu style="display: flex; justify-content: center;" /> -->
     </div>
 
-
-  </div>
+  <!-- </div> -->
 </template>
 
-<!-- <script>
-import HeaderSocialMenu from '@/components/HeaderSocialMenu.vue'
-import AppContent from '@/plugins/AppContent';
-
-export default {
-  components: {
-    HeaderSocialMenu
-  },
-  data: () => ({
-    menu: AppContent.menu,
-  }),
-  methods: {
-    isSelected(i) { return i.match(this.$route.path) }
-  }
-}
-</script> -->
-
-<style lang="scss">
-// @use '@/assets/scss/page';
-// @use '@/assets/scss/main-menu-link';
-
-.sidebar0 {
-  z-index: 1000;
-  position: fixed;
-  left: 100%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-
-  &.is-open {
-    transform: translateX(-100%);
-  }
-}
-
-.sidebar1 {
-  z-index: 1000;
-  position: fixed;
-  left: 100%;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(#000, 0.5);
-
-  &.is-open {
-    transform: translateX(-100%);
-  }
-}
-
-.sidebar2 {
-  z-index: 1000;
-  position: fixed;
-  left: 100%;
-  top: 0;
-  width: 300px;
-  height: 100vh;
-  max-width: 90vw;
-  background-color: #000;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-
-  &.is-open {
-    transform: translateX(-100%);
-  }
-}
-
-.mobmenu {
-  // @extend .page;
-
-  &__link {
-    display: block;
-    padding: 12px 0;
-
-    &:hover,
-    &.isSelected {
-      background-color: rgba(#ccc, 0.4);
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

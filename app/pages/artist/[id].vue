@@ -1,6 +1,9 @@
-<script setup>
+<script setup lang="ts">
 const { id } = useRoute().params;
-const { data: item } = await useFetch(`https://sentimony-db.firebaseio.com/artists/${id}.json`);
+const { data: item } = await useArtist(id as string, {
+  server: true,
+  default: () => ({}),
+});
 
 useSeoMeta({
   title: item.value.title,
@@ -11,30 +14,174 @@ useSeoMeta({
 
 <template>
   <div class="text-left">
-    <div class="container border-t border-white/30">
-      <div class="mb-10">
-        <!-- <NuxtImg
-          v-if="item.photo_th"
-          :src="item.photo_th"
-          class="inline text-xs w-[120px] mr-1"
-          sizes="xs:120px"
-          densities="x2"
-          format="webp"
-          :alt="item.title"
-        /> -->
-        <img
-          v-if="item.photo_th"
-          :src="item.photo_th"
-          class="inline text-xs w-[120px] mr-1"
-          :alt="item.title"
-        />
-        <h1 class="mb-4"><span class="">{{ item.title }}</span></h1>
+    <div class="px-2">
+
+      <div class="container relative mb-10">
+
+        <div class="border-t border-white/30">
+          <h1 class="text-center mt-[0.8em] mb-[1.2em]">{{ item.title }}</h1>
+        </div>
+
+        <div class="flex flex-col lg:flex-row">
+          <div class="w-full mb-4">
+
+            <OpenImage 
+              :image_th="item.photo_th"
+              :image_xl="item.photo_xl"
+              :alt="(item.title || 'Artist') + ' photo'"
+              class="float-left"
+            />
+
+            <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
+            <p><span class="text-white/50">Name:</span> {{ item.name }}</p>
+            <p><span class="text-white/50">Location:</span> {{ item.location }}</p>
+
+            <div class="clear-left">
+              <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+              <BtnPrimary
+                v-if="item.spotify"
+                :url="item.spotify"
+                title="Spotify"
+                icon="fa-brands:spotify"
+              />
+              <BtnPrimary
+                v-if="item.soundcloud_url"
+                :url="item.soundcloud_url"
+                title="SoundCloud"
+                icon="fa-brands:soundcloud"
+              />
+              <BtnPrimary
+                v-if="item.facebook"
+                :url="item.facebook"
+                title="Facebook"
+                icon="fa-brands:facebook"
+              />
+              <BtnPrimary
+                v-if="item.instagram"
+                :url="item.instagram"
+                title="Instagram"
+                icon="fa-brands:instagram"
+              />
+              <BtnPrimary
+                v-if="item.youtube_url"
+                :url="item.youtube_url"
+                title="YouTube"
+                icon="fa:youtube"
+              />
+              <BtnPrimary
+                v-if="item.bandcamp_url"
+                :url="item.bandcamp_url"
+                title="Bandcamp"
+                icon="cib:bandcamp"
+              />
+            </div>
+
+          </div>
+          <div class="max-w-[540px] mx-auto w-full mb-4">
+
+            <Tabs>
+
+              <Tab
+                v-if="item.youtube_playlist_id"
+                icon="fa:youtube"
+                title="YouTube"
+              >
+                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                  <ClientOnly>
+                    <iframe 
+                      class="border-[0px] aspect-video"
+                      :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + item.youtube_playlist_id + '&loop=1'"
+                      :title="item.title + 'YouTube video player'"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    />
+                  </ClientOnly>
+                </div>
+              </Tab>
+
+              <Tab
+                v-if="item.soundcloud_track_id"
+                icon="fa-brands:soundcloud"
+                title="SoundCloud"
+              >
+                <ClientOnly>
+                  <iframe
+                    width="100%"
+                    height="300"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay" 
+                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + item.soundcloud_track_id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
+                  />
+                </ClientOnly>
+              </Tab>
+
+
+            <Tab
+              v-if="item.facebook"
+              icon="fa-brands:facebook"
+              title="Facebook"
+            >
+              <ClientOnly>
+                <iframe
+                  class="facebook-widget facebook-widget--size-sm md:hidden"
+                  :src="'https://www.facebook.com/plugins/page.php?href=' + item.facebook + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
+                  :title="item.title + ' Facebook Mobile Iframe'"
+                  scrolling="no"
+                  frameborder="0"
+                  allowTransparency="true"
+                />
+                <iframe
+                  class="facebook-widget facebook-widget--size-md hidden md:block"
+                  :src="'https://www.facebook.com/plugins/page.php?href=' + item.facebook + '%2F&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
+                  :title="item.title + ' Facebook Desktop Iframe'"
+                  scrolling="no"
+                  frameborder="0"
+                  allowTransparency="true"
+                />
+              </ClientOnly>
+            </Tab>
+
+
+            </Tabs>
+
+          </div>
+        </div>
+      
       </div>
     </div>
 
     <img src="/images/triangle.svg" alt="triangle bg" />
 
+    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black" v-if="item">
+      <div class="container">
+        <div class="max-w-[640px] mx-auto">
+
+          <div v-if="item.information" v-html="item.information" />
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.facebook-widget {
+  border: none;
+  overflow: hidden;
+  margin: 0 auto;
+
+  &--size-sm {
+    height: 98px;
+    width: 287px;
+  }
+
+  &--size-md {
+    width: 500px;
+    height: 130px;
+  }
+}
+</style>

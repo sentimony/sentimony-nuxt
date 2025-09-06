@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toArray } from '~/composables/toArray'
 
-const { data: artistsRaw } = await useFetch('https://sentimony-db.firebaseio.com/artists.json', { server: true })
+const { data: artistsRaw } = await useArtists()
 const artists = computed(() => toArray(artistsRaw.value, 'artists'))
 const artistsSortedByCategoryIdMusician = computed(() =>
   [...artists.value]

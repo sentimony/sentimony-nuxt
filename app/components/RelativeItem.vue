@@ -9,12 +9,8 @@ const props = defineProps<{
 const i = toRef(props, 'i')
 const category = toRef(props, 'category')
 
-const year = computed(() => {
-  const d = i.value?.date as string | undefined
-  if (!d) return ''
-  const dt = new Date(d)
-  return isNaN(dt.getTime()) ? '' : String(dt.getFullYear())
-})
+const { formatYear } = useDate()
+const year = computed(() => formatYear(i.value?.date))
 </script>
 
 <template>
