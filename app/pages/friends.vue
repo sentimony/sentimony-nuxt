@@ -1,7 +1,8 @@
-<script setup>
-const { data, error } = await useAsyncData("friends", () =>
-  $fetch("https://sentimony-db.firebaseio.com/friends.json")
-);
+<script setup lang="ts">
+import { toArray } from '~/composables/toArray'
+
+const { data: friendsRaw } = await useFriends()
+const friends = computed(() => toArray(friendsRaw.value, 'friends'))
 </script>
 
 <template>
@@ -11,9 +12,7 @@ const { data, error } = await useAsyncData("friends", () =>
       Friends
     </h1>
 
-    <span
-      v-for="i in data"
-    >
+    <span v-for="i in friends" :key="i.slug">
       <NuxtLink 
         :to="'/friend/' + i.slug" 
         class="mr-4"

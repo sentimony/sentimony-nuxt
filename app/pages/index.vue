@@ -21,7 +21,7 @@ useSeoMeta({
   <div class="index">
     <div class="index__wrapper">
       <p>
-        <img class="index__logo" :src="logoNewUrlv3" :alt="logoNewAltv3" />
+        <img class="index__logo" :src="logoNewUrlv1" :alt="logoNewAltv1" />
         <!-- <img class="index__logo" :src="logoOldUrl" :alt="logoOldAlt"/> -->
       </p>
       <div class="index__description" v-html="aboutDescription"></div>

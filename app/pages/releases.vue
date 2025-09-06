@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: releasesRaw } = await useFetch('https://sentimony-db.firebaseio.com/releases.json', { server: true })
+const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() =>
   [...releases.value]

@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s | Sentimony Records',
+      htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -42,7 +43,11 @@ export default defineNuxtConfig({
       'Montserrat': true,
       'Julius Sans One': true
     },
-    display: 'swap'
+    display: 'swap',
+    prefetch: true,
+    preconnect: true,
+    preload: true,
+    useStylesheet: true,
   },
   // image: {
   //   domains: ['https://content.sentimony.com']

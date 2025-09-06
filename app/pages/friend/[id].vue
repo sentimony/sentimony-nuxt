@@ -1,6 +1,9 @@
-<script setup>
+<script setup lang="ts">
 const { id } = useRoute().params;
-const { data: item } = await useFetch(`https://sentimony-db.firebaseio.com/friends/${id}.json`);
+const { data: item } = await useFriend(id as string, {
+  server: true,
+  default: () => ({}),
+});
 
 useSeoMeta({
   title: item.value.title,
