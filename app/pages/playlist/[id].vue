@@ -37,6 +37,13 @@ useSeoMeta({
             />
 
             <div class="clear-left">
+              <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+              <BtnPrimary
+                v-if="item.links.spotify"
+                :url="item.links.spotify"
+                title="Spotify"
+                icon="fa-brands:spotify"
+              />
             </div>
 
           </div>
