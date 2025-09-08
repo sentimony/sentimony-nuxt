@@ -24,7 +24,7 @@ useSeoMeta({
       <div class="container relative mb-10">
 
         <div class="border-t border-white/30">
-          <h1 class="text-center mt-[0.8em] mb-[1.2em]">{{ item.title }}</h1>
+          <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
         </div>
 
         <div class="flex flex-col lg:flex-row">
@@ -40,6 +40,13 @@ useSeoMeta({
             <p><span class="text-white/50">Release Date:</span> {{ formattedDate }}</p>
 
             <div class="clear-left">
+              <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+              <BtnPrimary
+                v-if="item.links.youtube"
+                :url="item.links.youtube"
+                title="YouTube"
+                icon="cib:bandcamp"
+              />
             </div>
 
           </div>
@@ -79,7 +86,16 @@ useSeoMeta({
 
           <div v-if="item.information" v-html="item.information" />
           
-          <div v-if="item.credits" v-html="item.credits" />
+          <div v-if="item.credits">
+            <hr class="my-4 border-black/30">
+            <p><small><b>Сredits:</b></small></p>
+            <!-- <p
+              v-for="(i, index) in item.credits"
+              :key="index"
+              v-html="i.p"
+            /> -->
+            <div v-html="item.credits" />
+          </div>
 
         </div>
       </div>

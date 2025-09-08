@@ -3166,7 +3166,8 @@
       "slug": "shift-space",
       "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "info": "",
+      "info": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>",
+      "information": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>",
       "lineup": [
         { "musician": "Spectrum Vision" },
         { "musician": "Chronos" },
@@ -3184,7 +3185,8 @@
       "slug": "alt-space",
       "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "info": "",
+      "info": "<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>",
+      "information": "<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>",
       "lineup": [
         { "musician": "Flooting Grooves" },
         { "musician": "Capsula" },
@@ -3204,7 +3206,8 @@
       "slug": "water-marks",
       "visible": true,
       "location": "Kyiv boat station",
-      "info": "",
+      "info": "<p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+      "information": "<p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
       "lineup": [
         { "musician": "Senzar" },
         { "musician": "Overdream feat. DubMyDub" },
@@ -3225,7 +3228,8 @@
       "slug": "home-space",
       "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "info": "",
+      "info": "<p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>",
+      "information": "<p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>",
       "lineup": [
         { "musician": "Psyfactor" },
         { "musician": "Chronos" },
@@ -3245,15 +3249,8 @@
       "slug": "five-years",
       "visible": true,
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "information": "<p/><p/><p/>",
-      "info": [
-        { "p": "" },
-        { "p": "" },
-        { "p": "" },
-        { "p": "" },
-        { "p": "" },
-        { "p": "" }
-      ],
+      "info": "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>",
+      "information": "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>",
       "lineup": [
         { "musician": "Vonoom" },
         { "musician": "Mindex" },

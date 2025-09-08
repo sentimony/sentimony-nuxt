@@ -9,7 +9,7 @@ const nav = [
   { title: 'Artists', route: '/artists/' },
   { title: 'Videos', route: '/videos/' },
   { title: 'Playlists', route: '/playlists/' },
-  { title: 'Events', route: '/events/' },
+  // { title: 'Events', route: '/events/' },
   // { title: 'Friends', route: '/friends/' },
   { title: 'Contacts', route: '/contacts/' },
   // { title: 'Tracks', route: '/tracks/' },

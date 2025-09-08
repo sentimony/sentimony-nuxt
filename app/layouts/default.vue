@@ -36,6 +36,7 @@ const playlistsSortedByDate = computed(() =>
     .sort((a: any, b: any) =>
       new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
     )
+    .reverse()
 )
 const route = useRoute()
 const isIndex = computed(() => route.path === '/')

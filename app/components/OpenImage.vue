@@ -11,7 +11,7 @@ const isOpen = ref(false)
 const open = () => { if (props.image_xl) isOpen.value = true }
 const close = () => { isOpen.value = false }
 
-const comingImage = '<div class="p-4 text-center text-white/70">Image coming soon</div>'
+const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>coming ⛄</div>'
 </script>
 
 <template>
@@ -29,23 +29,23 @@ const comingImage = '<div class="p-4 text-center text-white/70">Image coming soo
         :alt="alt"
       />
       <div
-        v-if="image_th == ''"
+        v-else
         v-html="comingImage"
       />
     </div>
-    
+
     <Transition name="modal-fade">
       <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center">
         <Transition name="backdrop-fade">
-        <div 
-          class="absolute inset-0 bg-black/70 backdrop-blur-sm" 
-          @click="close"
-          v-wave
-        />
+          <div 
+            class="absolute inset-0 bg-black/70 backdrop-blur-sm" 
+            @click="close"
+            v-wave
+          />
         </Transition>
         <Transition name="modal-zoom">
           <div 
-            class="relative max-w-[90vw] max-h-[90vh]" 
+            class="relative max-w-[98vw] max-h-[98vh] rounded-md" 
             @click.stop 
             v-wave="{
               duration: 3,
@@ -58,17 +58,27 @@ const comingImage = '<div class="p-4 text-center text-white/70">Image coming soo
             <button
               type="button"
               aria-label="Close"
-              class="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-white/90 text-black flex items-center justify-center shadow hover:bg-white"
+              class="fixed top-0 right-0 mr-2 mt-[9px] w-[56px] h-[56px] rounded-full bg-white/90 text-black flex items-center justify-center shadow hover:bg-white"
               @click="close"
               v-wave
             >
-              <Icon name="mdi:close" size="20" />
+              <Icon name="i-fa7-solid:close" size="22" />
             </button>
             <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
-              class="max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-lg "
+              class="max-w-[98vw] max-h-[98vh] object-contain rounded-md shadow-lg "
             />
+            <!-- <img
+              :src="props.image_xl"
+              :alt="props.alt || 'Image'"
+              class="absolute left-0 right-0 max-w-[98vw] max-h-[98vh] object-contain rounded-md shadow-lg "
+            />
+            <img
+              :src="props.image_th"
+              :alt="props.alt || 'Image'"
+              class="max-w-[98vw] max-h-[98vh] w-[98vw] h-auto  object-contain rounded-md shadow-lg "
+            /> -->
           </div>
         </Transition>
       </div>

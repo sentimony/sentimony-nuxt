@@ -9,6 +9,18 @@ const { data: item } = await usePlaylist(id as string, {
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
+const comingMusic = '<div class="p-4 text-[12px] text-white/50">Music is<br>coming ⛄</div>'
+
+const { data: releasesRaw } = await useReleases()
+const releases = computed(() => toArray(releasesRaw.value, 'releases'))
+const releasesSortedByDate = computed(() =>
+  [...releases.value]
+    .filter((r: any) => Boolean(r?.visible))
+    .sort((a: any, b: any) =>
+      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    )
+)
+
 useSeoMeta({
   title: item.value.title,
   description: item.value.title + ' description',
@@ -23,7 +35,7 @@ useSeoMeta({
       <div class="container relative mb-10">
 
         <div class="border-t border-white/30">
-          <h1 class="text-center mt-[0.8em] mb-[1.2em]">{{ item.title }}</h1>
+          <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
         </div>
 
         <div class="flex flex-col lg:flex-row">
@@ -36,6 +48,9 @@ useSeoMeta({
               class="float-left"
             />
 
+            <!-- <h1 class="text-center mt-0 mb-[1.2em]">{{ item.title }}</h1> -->
+            <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
+
             <div class="clear-left">
               <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
               <BtnPrimary
@@ -44,6 +59,36 @@ useSeoMeta({
                 title="Spotify"
                 icon="fa-brands:spotify"
               />
+              <BtnPrimary
+                v-if="item.links.apple_music"
+                :url="item.links.apple_music"
+                title="Apple Music"
+                icon="fa-brands:apple"
+              />              
+              <BtnPrimary
+                v-if="item.links.youtube_music"
+                :url="item.links.youtube_music"
+                title="YT Music"
+                icon="simple-icons:youtubemusic"
+              />
+              <BtnPrimary
+                v-if="item.links.deezer"
+                :url="item.links.deezer"
+                title="Deezer"
+                icon="fa-brands:deezer"
+              />
+              <BtnPrimary
+                v-if="item.links.youtube"
+                :url="item.links.youtube"
+                title="YouTube"
+                icon="fa:youtube"
+              />
+              <BtnPrimary
+                v-if="item.links.soundcloud_url"
+                :url="item.links.soundcloud_url"
+                title="SoundCloud"
+                icon="fa7-brands:soundcloud"
+              />
             </div>
 
           </div>
@@ -51,6 +96,28 @@ useSeoMeta({
 
             <Tabs>
               <Tab
+                icon="fa:youtube"
+                title="YouTube"
+              >
+                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                  <iframe
+                    v-if="item.links?.youtube"
+                    class="border-[0px] aspect-video"
+                    :src="embedYouTube"
+                    :title="item.title + 'YouTube video player'"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  />
+                  <div
+                    v-else
+                    v-html="comingMusic"
+                  />
+                </div>
+              </Tab>
+              <Tab
+                v-if="item.links?.soundcloud_playlist_id"
                 icon="fa7-brands:soundcloud"
                 title="SoundCloud"
               >
@@ -62,23 +129,6 @@ useSeoMeta({
                     allow="autoplay"
                     :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
                     :title="item.title + ' SoundCloud Iframe'"
-                  />
-                </div>
-              </Tab>
-              <Tab
-                v-if="item.links?.youtube"
-                icon="fa:youtube"
-                title="YouTube"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] aspect-video"
-                    :src="embedYouTube"
-                    :title="item.title + 'YouTube video player'"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
                   />
                 </div>
               </Tab>
@@ -114,6 +164,36 @@ useSeoMeta({
         <div class="max-w-[640px] mx-auto">
 
           <div v-if="item.info" v-html="item.info" />
+
+          <div>
+            <hr class="my-4 border-black/30">
+            <p><small><b>Releases / Tracks:</b></small></p>
+            <ol class="list-decimal ps-9">
+              <div
+                v-for="(i, index) in releasesSortedByDate"
+                :key="index"
+                class="mb-4"
+              >
+                <RelativeItem
+                  v-if="i.at_playlists.includes(item.slug)"
+                  :i="i"
+                  category="release"
+                  class="mb-2"
+                />
+
+                <div 
+                  v-if="i.at_playlists.includes(item.slug)"
+                >
+                  <li
+                    v-for="(iii, index) in i.tracklistCompact"
+                    :key="'b' + index"
+                    v-if="i.tracklistCompact"
+                    v-html="iii.p"
+                  />
+                </div>
+              </div>
+            </ol>
+          </div>
 
         </div>
       </div>
