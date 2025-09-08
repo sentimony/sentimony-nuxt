@@ -11,6 +11,7 @@ Jamstack development of Sentimony Records portfolio website
 * [Tailwind CSS](https://tailwindcss.com)
 * [Iconify](https://icon-sets.iconify.design)
 * [Swiper](https://swiperjs.com)
+* [RealFaviconGenerator](realfavicongenerator.net)
 
 ### Links: 
 

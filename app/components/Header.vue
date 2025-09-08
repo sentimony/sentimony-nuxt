@@ -96,7 +96,7 @@ function isNavActive(link: string) {
             >
               <!-- <img
                 :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
-                class="icon transition-[opacity] ease-in-out duration-300 w-[24px] opacity-[.5] group-hover:opacity-[1]"
+                class="icon transition-opacity ease-in-out duration-300 w-[24px] opacity-[.5] group-hover:opacity-[1]"
                 :alt="i.title + ' Icon'"
               /> -->
               <Icon :name="i.name" size="22" />

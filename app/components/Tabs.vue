@@ -42,8 +42,8 @@ function selectTab(i: number) {
         v-for="(tab, index) in tabs"
         :key="tab.id"
         @click="selectTab(index)"
-        class="inline-flex items-center h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-[opacity] ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 md:mr-1 last:mr-0 backdrop-blur-sm"
-        :class="index === selectedIndex ? 'cursor-default opacity-100' : 'cursor-pointer opacity-50 hover:opacity-100'"
+        class="inline-flex items-center cursor-pointer h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-opacity ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 md:mr-1 last:mr-0 backdrop-blur-sm"
+        :class="index === selectedIndex ? 'opacity-100' : 'opacity-50 hover:opacity-100'"
         v-wave
       >
         <Icon v-if="tab.info.icon" :name="tab.info.icon" size="18" />

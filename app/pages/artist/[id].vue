@@ -4,6 +4,15 @@ const { data: item } = await useArtist(id as string, {
   server: true,
   default: () => ({}),
 });
+const { data: releasesRaw } = await useReleases()
+const releases = computed(() => toArray(releasesRaw.value, 'releases'))
+const releasesSortedByDate = computed(() =>
+  [...releases.value]
+    .filter((r: any) => Boolean(r?.visible))
+    .sort((a: any, b: any) =>
+      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    )
+)
 
 useSeoMeta({
   title: item.value.title,
@@ -19,7 +28,7 @@ useSeoMeta({
       <div class="container relative mb-10">
 
         <div class="border-t border-white/30">
-          <h1 class="text-center mt-[0.8em] mb-[1.2em]">{{ item.title }}</h1>
+          <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
         </div>
 
         <div class="flex flex-col lg:flex-row">
@@ -160,6 +169,27 @@ useSeoMeta({
         <div class="max-w-[640px] mx-auto">
 
           <div v-if="item.information" v-html="item.information" />
+
+          <div>
+            <hr class="my-4 border-black/30">
+            <p><small><b>Releases with {{ item.title }}:</b></small></p>
+            <p
+              v-for="(i, index) in releasesSortedByDate"
+              :key="index"
+            >
+              <RelativeItem
+                v-if="i.artists.includes(item.slug)"
+                :i="i"
+                category="release"
+              />
+            </p>
+          </div>
+
+          <div v-if="item.discogs">
+            <hr class="my-4 border-black/30">
+            <p><small><b>Links:</b></small></p>
+            <p><a :href="item.discogs" target="_blank" rel="noopener">Discogs</a></p>
+          </div>
 
         </div>
       </div>

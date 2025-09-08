@@ -113,7 +113,7 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
         :style="'margin-bottom: -' + TriangleHeight * 0.66 + 'px;'" 
       >
         <div class="border-t border-white/30">
-          <h1 class="text-center mt-[0.8em] mb-[1.2em]">{{ item.title }}</h1>
+          <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
         </div>
         
         <div class="flex flex-col lg:flex-row">
@@ -216,6 +216,12 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
                 :url="item.links.qobuz"
                 title="Qobuz"
                 icon="arcticons:qobuz"
+              />
+              <BtnPrimary
+                v-if="item.links.youtube"
+                :url="item.links.youtube"
+                title="YouTube"
+                icon="fa:youtube"
               />
               <BtnPrimary
                 v-if="item.links.soundcloud_url"
@@ -344,15 +350,6 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
             />
           </div>
 
-          <div v-if="item.links?.discogs || item.links?.ektoplazm">
-            <hr class="my-4 border-black/30">
-            <p><small><b>Links:</b></small></p>
-            <p v-if="item.links?.discogs"><a :href="item.links?.discogs" target="_blank" rel="noopener">Discogs</a></p>
-            <p v-if="item.links?.beatspace"><a :href="item.links?.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
-            <p v-if="item.links?.psyshop"><a :href="item.links?.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
-            <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
-          </div>
-
           <div v-if="item.relative_releases">
             <hr class="my-4 border-black/30">
             <p><small><b>Relative Releases:</b></small></p>
@@ -381,6 +378,15 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
                 category="artist"
               />
             </p>
+          </div>
+
+          <div v-if="item.links?.discogs || item.links?.ektoplazm">
+            <hr class="my-4 border-black/30">
+            <p><small><b>Links:</b></small></p>
+            <p v-if="item.links?.discogs"><a :href="item.links?.discogs" target="_blank" rel="noopener">Discogs</a></p>
+            <p v-if="item.links?.beatspace"><a :href="item.links?.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
+            <p v-if="item.links?.psyshop"><a :href="item.links?.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
+            <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
           </div>
 
         </div>

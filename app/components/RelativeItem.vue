@@ -14,7 +14,7 @@ const year = computed(() => formatYear(i.value?.date))
 </script>
 
 <template>
-  <span class="inline-flex items-center">
+  <span class="flex items-center">
     
     <NuxtLink 
       v-if="i.cover_th || i.photo_th"
