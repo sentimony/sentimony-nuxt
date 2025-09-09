@@ -1,19 +1,25 @@
 <script setup lang="ts">
-const { id } = useRoute().params;
-const { data: item } = await useFriend(id as string, {
+interface FriendItem {
+  title: string
+  cover_og?: string
+  cover_th?: string
+}
+
+const { id } = useRoute().params
+const { data: item } = await useFriend<FriendItem>(id as string, {
   server: true,
-  default: () => ({}),
-});
+  default: () => ({ title: '' } as FriendItem),
+})
 
 useSeoMeta({
-  title: item.value.title,
-  description: item.value.title + ' description',
-  ogImage: item.value.cover_og,
-});
+  title: item.value?.title,
+  description: (item.value?.title ?? '') + ' description',
+  ogImage: item.value?.cover_og,
+})
 </script>
 
 <template>
-  <div class="text-center">
+  <div class="text-center" v-if="item">
     <h1 class="text-lg mb-10">
       <!-- <Icon name="mdi:music" width="24" height="24" /> -->
       <span class="">{{ item.title }}</span>

@@ -1,9 +1,32 @@
 <script setup lang="ts">
-const { id } = useRoute().params;
-const { data: item } = await useArtist(id as string, {
+import { computed } from 'vue'
+
+interface ArtistItem {
+  slug: string
+  title: string
+  cover_og?: string
+  photo_th?: string
+  photo_xl?: string
+  style?: string
+  name?: string
+  location?: string
+  information?: string
+  discogs?: string
+  youtube_playlist_id?: string
+  soundcloud_track_id?: string
+  spotify?: string
+  soundcloud_url?: string
+  facebook?: string
+  instagram?: string
+  youtube_url?: string
+  bandcamp_url?: string
+}
+
+const { id } = useRoute().params
+const { data: item } = await useArtist<ArtistItem>(id as string, {
   server: true,
-  default: () => ({}),
-});
+  default: () => ({ slug: '', title: '' } as ArtistItem),
+})
 const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() =>
@@ -15,17 +38,17 @@ const releasesSortedByDate = computed(() =>
 )
 
 useSeoMeta({
-  title: item.value.title,
-  description: item.value.title + ' description',
-  ogImage: item.value.cover_og,
-});
+  title: item.value?.title,
+  description: (item.value?.title ?? '') + ' description',
+  ogImage: item.value?.cover_og,
+})
 </script>
 
 <template>
   <div class="text-left">
     <div class="px-2">
 
-      <div class="container relative mb-10">
+      <div class="container relative mb-10" v-if="item">
 
         <div class="border-t border-white/30">
           <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
@@ -34,7 +57,7 @@ useSeoMeta({
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">
 
-            <OpenImage 
+            <OpenImage
               :image_th="item.photo_th"
               :image_xl="item.photo_xl"
               :alt="(item.title || 'Artist') + ' photo'"
@@ -97,9 +120,9 @@ useSeoMeta({
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
                   <ClientOnly>
-                    <iframe 
+                    <iframe
                       class="border-[0px] aspect-video"
-                      :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + item.youtube_playlist_id + '&loop=1'"
+                      :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
                       :title="item.title + 'YouTube video player'"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -121,8 +144,8 @@ useSeoMeta({
                     height="300"
                     scrolling="no"
                     frameborder="no"
-                    allow="autoplay" 
-                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + item.soundcloud_track_id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
+                    allow="autoplay"
+                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + (item.soundcloud_track_id || '') + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
                   />
                 </ClientOnly>
               </Tab>
@@ -136,7 +159,7 @@ useSeoMeta({
               <ClientOnly>
                 <iframe
                   class="facebook-widget facebook-widget--size-sm md:hidden"
-                  :src="'https://www.facebook.com/plugins/page.php?href=' + item.facebook + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
+                  :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                   :title="item.title + ' Facebook Mobile Iframe'"
                   scrolling="no"
                   frameborder="0"
@@ -144,7 +167,7 @@ useSeoMeta({
                 />
                 <iframe
                   class="facebook-widget facebook-widget--size-md hidden md:block"
-                  :src="'https://www.facebook.com/plugins/page.php?href=' + item.facebook + '%2F&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
+                  :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                   :title="item.title + ' Facebook Desktop Iframe'"
                   scrolling="no"
                   frameborder="0"
@@ -158,7 +181,7 @@ useSeoMeta({
 
           </div>
         </div>
-      
+
       </div>
     </div>
 

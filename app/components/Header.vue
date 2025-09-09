@@ -63,8 +63,8 @@ function isNavActive(link: string) {
             active-class="bg-white/20"
             v-wave
           >
-            <img 
-              src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01" 
+            <img
+              src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
               alt="Sentimony Records Logo SVG"
               class="w-[40px] mr-3"
             />
@@ -95,7 +95,7 @@ function isNavActive(link: string) {
               v-wave
             >
               <!-- <img
-                :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
+                :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'"
                 class="icon transition-opacity ease-in-out duration-300 w-[24px] opacity-[.5] group-hover:opacity-[1]"
                 :alt="i.title + ' Icon'"
               /> -->
@@ -103,7 +103,7 @@ function isNavActive(link: string) {
               <div class="HeaderSocTooltip">{{ i.title }}</div>
             </a>
           </div>
-          
+
           <div class="size-[56px] md:hidden" />
           <!-- <SidebarBtn class="md:hidden" /> -->
 
@@ -137,5 +137,5 @@ function isNavActive(link: string) {
       font-size: 8px;
     }
   }
-} 
+}
 </style>

@@ -45,9 +45,9 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
     text-align: left;
 
     p {
-      text-shadow: 
-        0 2px 2px #fff, 
-        0 -2px 2px #fff, 
+      text-shadow:
+        0 2px 2px #fff,
+        0 -2px 2px #fff,
         2px 0 2px #fff,
         -2px 0 2px #fff;
 

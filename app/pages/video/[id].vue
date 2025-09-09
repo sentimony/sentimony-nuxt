@@ -1,9 +1,27 @@
 <script setup lang="ts">
-const { id } = useRoute().params;
-const { data: item } = await useVideo(id as string, {
+import { computed } from 'vue'
+
+const { id } = useRoute().params
+
+interface VideoItemLinks {
+  youtube?: string;
+}
+
+interface VideoItem {
+  title: string;
+  date?: string;
+  cover_og?: string;
+  cover_th?: string;
+  cover_xl?: string;
+  information?: string;
+  credits?: string;
+  links?: VideoItemLinks;
+}
+
+const { data: item } = await useVideo<VideoItem>(id as string, {
   server: true,
-  default: () => ({}),
-});
+  default: () => ({ title: '', links: {} as VideoItemLinks } as VideoItem),
+})
 
 // Compute embeddable YouTube URL from short link
 const { embed } = useYouTube(computed(() => item.value?.links?.youtube))
@@ -11,17 +29,17 @@ const { formatDate } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
 
 useSeoMeta({
-  title: item.value.title,
-  description: item.value.title + ' description',
-  ogImage: item.value.cover_og,
-});
+  title: item.value?.title,
+  description: (item.value?.title ?? '') + ' description',
+  ogImage: item.value?.cover_og,
+})
 </script>
 
 <template>
   <div class="text-left">
     <div class="px-2">
 
-      <div class="container relative mb-10">
+      <div class="container relative mb-10" v-if="item">
 
         <div class="border-t border-white/30">
           <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
@@ -30,7 +48,7 @@ useSeoMeta({
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">
 
-            <OpenImage 
+            <OpenImage
               :image_th="item.cover_th"
               :image_xl="item.cover_xl"
               :alt="(item.title || 'Video') + ' cover'"
@@ -42,8 +60,8 @@ useSeoMeta({
             <div class="clear-left">
               <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
               <BtnPrimary
-                v-if="item.links.youtube"
-                :url="item.links.youtube"
+                v-if="item.links?.youtube"
+                :url="item.links?.youtube"
                 title="YouTube"
                 icon="cib:bandcamp"
               />
@@ -74,7 +92,7 @@ useSeoMeta({
 
           </div>
         </div>
-      
+
       </div>
     </div>
 
@@ -85,7 +103,7 @@ useSeoMeta({
         <div class="max-w-[640px] mx-auto">
 
           <div v-if="item.information" v-html="item.information" />
-          
+
           <div v-if="item.credits">
             <hr class="my-4 border-black/30">
             <p><small><b>Сredits:</b></small></p>

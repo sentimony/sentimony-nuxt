@@ -37,7 +37,7 @@ function selectTab(i: number) {
 <template>
   <div>
     <div>
-      
+
       <span
         v-for="(tab, index) in tabs"
         :key="tab.id"
@@ -49,11 +49,11 @@ function selectTab(i: number) {
         <Icon v-if="tab.info.icon" :name="tab.info.icon" size="18" />
         <span v-if="tab.info.title" v-html="tab.info.title" class="ml-2" />
       </span>
-    
+
     </div>
-    
+
     <slot />
-    
+
   </div>
 </template>
 

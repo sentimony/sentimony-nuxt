@@ -4,7 +4,7 @@ const heroDescription = 'Psychedelic Music Label'
 </script>
 
 <template>
-  <div 
+  <div
     class="Hero font-Julius
     py-[7.5em]
     sm:py-[8.5em]

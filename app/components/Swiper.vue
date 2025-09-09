@@ -1,25 +1,25 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
-import 'swiper/css/free-mode'; 
+import 'swiper/css/free-mode';
 import 'swiper/scss/keyboard';
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
 import 'swiper/scss/mousewheel';
 import { ref, watch, nextTick } from 'vue'
-import { 
-  FreeMode, 
-  Navigation, 
-  Keyboard, 
-  Pagination, 
-  Mousewheel 
+import {
+  FreeMode,
+  Navigation,
+  Keyboard,
+  Pagination,
+  Mousewheel
 } from 'swiper/modules';
 
-const modules = [ 
-  FreeMode, 
-  Keyboard, 
-  Navigation, 
-  Pagination, 
+const modules = [
+  FreeMode,
+  Keyboard,
+  Navigation,
+  Pagination,
   Mousewheel ,
 ];
 
@@ -70,14 +70,14 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
         <div :class="[
           'swiper-pagination',
           'swiper-pagination-' + category,
-        ]"></div>    
+        ]"></div>
       </div>
 
       <!-- <div class="text-[18px] md:text-[32px] my-[.5em] mb-4">{{ title }}</div> -->
 
       <Swiper
         :enabled="true"
-        :mousewheel="{ 
+        :mousewheel="{
           enabled: true,
           forceToAxis: true,
           sensitivity: 3,
@@ -85,7 +85,7 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
         }"
         :slides-per-view="'auto'"
         :space-between="0"
-        :free-mode="{ 
+        :free-mode="{
           enabled: true,
           sticky: true,
         }"
@@ -119,18 +119,18 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
           v-for="(i, idx) in list"
           :key="idx"
         >
-          <Item 
+          <Item
             :category="category"
             :i="i"
           />
         </SwiperSlide>
 
-        <button 
+        <button
           class="swiper-button-next"
           v-wave
         >
-          <Icon 
-            name="fa7-solid:chevron-circle-left" 
+          <Icon
+            name="fa7-solid:chevron-circle-left"
             size="44"
             class="block"
           />
@@ -140,8 +140,8 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
           class="swiper-button-prev"
           v-wave
         >
-          <Icon 
-            name="fa7-solid:chevron-circle-right" 
+          <Icon
+            name="fa7-solid:chevron-circle-right"
             size="44"
             class="block"
           />

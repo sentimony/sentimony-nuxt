@@ -15,8 +15,8 @@ const year = computed(() => formatYear(i.value?.date))
 
 <template>
   <span class="flex items-center">
-    
-    <NuxtLink 
+
+    <NuxtLink
       v-if="i.cover_th || i.photo_th"
       :to="'/' + category + '/' + i.slug + '/'"
       class="w-[24px] mr-2"
@@ -29,7 +29,7 @@ const year = computed(() => formatYear(i.value?.date))
       <span v-if="i.title">{{ i.title }}</span>
       <small v-if="year" class="ml-1">({{ year }})</small>
 
-      <NuxtLink 
+      <NuxtLink
         :to="'/' + category + '/' + i.slug + '/'"
         class="ml-1"
       >
@@ -37,7 +37,7 @@ const year = computed(() => formatYear(i.value?.date))
       </NuxtLink>
 
     </span>
-    
+
   </span>
 </template>
 

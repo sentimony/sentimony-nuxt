@@ -1,9 +1,33 @@
 <script setup lang="ts">
-const { id } = useRoute().params;
-const { data: item } = await usePlaylist(id as string, {
+import { computed } from 'vue'
+
+const { id } = useRoute().params
+
+interface PlaylistLinks {
+  spotify?: string
+  apple_music?: string
+  youtube_music?: string
+  deezer?: string
+  youtube?: string
+  soundcloud_url?: string
+  soundcloud_playlist_id?: string
+}
+
+interface PlaylistItem {
+  slug: string
+  title: string
+  style?: string
+  cover_og?: string
+  cover_th?: string
+  cover_xl?: string
+  info?: string
+  links?: PlaylistLinks
+}
+
+const { data: item } = await usePlaylist<PlaylistItem>(id as string, {
   server: true,
-  default: () => ({}),
-});
+  default: () => ({ slug: '', title: '', links: {} as PlaylistLinks } as PlaylistItem),
+})
 
 // YouTube embeds for playlist sources
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
@@ -22,17 +46,17 @@ const releasesSortedByDate = computed(() =>
 )
 
 useSeoMeta({
-  title: item.value.title,
-  description: item.value.title + ' description',
-  ogImage: item.value.cover_og,
-});
+  title: item.value?.title,
+  description: (item.value?.title ?? '') + ' description',
+  ogImage: item.value?.cover_og,
+})
 </script>
 
 <template>
   <div class="text-left">
     <div class="px-2">
 
-      <div class="container relative mb-10">
+      <div class="container relative mb-10" v-if="item">
 
         <div class="border-t border-white/30">
           <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
@@ -41,7 +65,7 @@ useSeoMeta({
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">
 
-            <OpenImage 
+            <OpenImage
               :image_th="item.cover_th"
               :image_xl="item.cover_xl"
               :alt="(item.title || 'Playlist') + ' cover'"
@@ -54,38 +78,38 @@ useSeoMeta({
             <div class="clear-left">
               <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
               <BtnPrimary
-                v-if="item.links.spotify"
-                :url="item.links.spotify"
+                v-if="item.links?.spotify"
+                :url="item.links?.spotify"
                 title="Spotify"
                 icon="fa-brands:spotify"
               />
               <BtnPrimary
-                v-if="item.links.apple_music"
-                :url="item.links.apple_music"
+                v-if="item.links?.apple_music"
+                :url="item.links?.apple_music"
                 title="Apple Music"
                 icon="fa-brands:apple"
-              />              
+              />
               <BtnPrimary
-                v-if="item.links.youtube_music"
-                :url="item.links.youtube_music"
+                v-if="item.links?.youtube_music"
+                :url="item.links?.youtube_music"
                 title="YT Music"
                 icon="simple-icons:youtubemusic"
               />
               <BtnPrimary
-                v-if="item.links.deezer"
-                :url="item.links.deezer"
+                v-if="item.links?.deezer"
+                :url="item.links?.deezer"
                 title="Deezer"
                 icon="fa-brands:deezer"
               />
               <BtnPrimary
-                v-if="item.links.youtube"
-                :url="item.links.youtube"
+                v-if="item.links?.youtube"
+                :url="item.links?.youtube"
                 title="YouTube"
                 icon="fa:youtube"
               />
               <BtnPrimary
-                v-if="item.links.soundcloud_url"
-                :url="item.links.soundcloud_url"
+                v-if="item.links?.soundcloud_url"
+                :url="item.links?.soundcloud_url"
                 title="SoundCloud"
                 icon="fa7-brands:soundcloud"
               />
@@ -153,7 +177,7 @@ useSeoMeta({
 
           </div>
         </div>
-      
+
       </div>
     </div>
 
@@ -181,7 +205,7 @@ useSeoMeta({
                   class="mb-2"
                 />
 
-                <div 
+                <div
                   v-if="i.at_playlists.includes(item.slug)"
                 >
                   <li

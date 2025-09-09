@@ -24,7 +24,7 @@ useSeoMeta({
     <!-- <h1 class="mb-4">{{ PageTitle }}</h1>
 
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
-      <Item 
+      <Item
         v-for="i in playlistsSortedByDate"
         :key="i.slug"
         category="playlist"

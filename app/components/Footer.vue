@@ -57,7 +57,7 @@ function isNavActive(link: string) {
 <template>
   <div class="relative z-100 bg-black text-white/50 text-xs leading-[1.4] md:leading-[1.5] px-1 py-[100px]">
     <div class="container flex flex-col items-center">
-      
+
       <div class="text-[14px] mb-[2em]">
         <div class="FooterNav__list flex justify-center flex-wrap">
           <NuxtLink
@@ -85,7 +85,7 @@ function isNavActive(link: string) {
             <Icon v-if="i.name" :name="i.name" size="22" />
             <img
               v-else
-              :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'" 
+              :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'"
               class="w-[22px]"
               :alt="i.title + ' Icon'"
             />
@@ -98,9 +98,9 @@ function isNavActive(link: string) {
         <div>2006 - {{ new Date().getFullYear() }} © Sentimony Records</div>
         <div>All Rights Reserved</div>
         <div>
-          <img 
-            class="w-[30px] block mx-auto mt-[4px]" 
-            src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01" 
+          <img
+            class="w-[30px] block mx-auto mt-[4px]"
+            src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
             alt="Sentimony Records Logo SVG"
           />
         </div>
@@ -109,15 +109,15 @@ function isNavActive(link: string) {
       <div class="text-[12px] mb-[20px]">
         <div>
           <span>Design By </span>
-          <NuxtLink 
-            class="text-white" 
+          <NuxtLink
+            class="text-white"
             to="/artist/apivniuk"
             v-wave
           >Anton Pivniuk</NuxtLink>
         </div>
         <div>
           <span>Development By </span>
-          <a 
+          <a
             class="text-white"
             href="https://github.com/sentimony/sentimony-nuxt"
             target="_blank" rel="noopener"

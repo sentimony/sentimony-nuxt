@@ -20,4 +20,3 @@ useSeoMeta({
 </template>
 
 <style lang="scss"></style>
-
