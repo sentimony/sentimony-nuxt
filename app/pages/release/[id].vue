@@ -21,6 +21,7 @@ interface ReleaseItemLinks {
   beatspace?: string;
   psyshop?: string;
   bandcamp_id?: string;
+  youtube?: string;
   youtube_playlist_id?: string;
   soundcloud_playlist_id?: string;
 }
@@ -107,19 +108,19 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
   <div class="text-left">
     <div class="px-2">
 
-      <div 
-        class="container relative" 
+      <div
+        class="container relative"
         v-if="item"
-        :style="'margin-bottom: -' + TriangleHeight * 0.66 + 'px;'" 
+        :style="'margin-bottom: -' + TriangleHeight * 0.66 + 'px;'"
       >
         <div class="border-t border-white/30">
           <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
         </div>
-        
+
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">
 
-            <OpenImage 
+            <OpenImage
               :image_th="item.cover_th"
               :image_xl="item.cover_xl"
               :alt="(item.title || 'Release') + ' cover'"
@@ -319,7 +320,7 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
     </div>
 
     <img ref="triangleEl" src="/images/triangle.svg" alt="Triangle SVG" @load="updateTriangleHeight" />
-    
+
     <!-- <div class="bg-[url('/images/triangle.svg?01')] bg-bottom bg-no-repeat">
       <div class="pt-[50px] pb-[100px] px-2 text-xs text-white/60 text-center">{{ TriangleHeight }}</div>
     </div> -->

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps<{
   image_th?: string
@@ -12,12 +12,29 @@ const open = () => { if (props.image_xl) isOpen.value = true }
 const close = () => { isOpen.value = false }
 
 const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>coming ⛄</div>'
+
+// Close on Escape key
+function onKeydown(e: KeyboardEvent) {
+  if (!isOpen.value) return
+  if (e.key === 'Escape' || e.key === 'Esc') {
+    e.preventDefault()
+    close()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKeydown)
+})
 </script>
 
 <template>
   <div>
 
-    <div 
+    <div
       class="cursor-pointer size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/50"
       v-wave
       @click="open"
@@ -37,16 +54,16 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
     <Transition name="modal-fade">
       <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center">
         <Transition name="backdrop-fade">
-          <div 
-            class="absolute inset-0 bg-black/70 backdrop-blur-sm" 
+          <div
+            class="absolute inset-0 bg-black/70 backdrop-blur-sm"
             @click="close"
             v-wave
           />
         </Transition>
         <Transition name="modal-zoom">
-          <div 
-            class="relative max-w-[98vw] max-h-[98vh] rounded-md" 
-            @click.stop 
+          <div
+            class="relative max-w-[90vw] max-h-[90vh] rounded-md"
+            @click.stop
             v-wave="{
               duration: 3,
               color: 'radial-gradient(closest-side, #fff, #1cb884)',
@@ -58,7 +75,7 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
             <button
               type="button"
               aria-label="Close"
-              class="fixed top-0 right-0 mr-2 mt-[9px] w-[56px] h-[56px] rounded-full bg-white/90 text-black flex items-center justify-center shadow hover:bg-white"
+              class="flex items-center justify-center fixed top-0 right-0 mr-2 mt-[9px] z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] hover:bg-white/30 size-[56px]"
               @click="close"
               v-wave
             >
@@ -67,17 +84,17 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
             <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
-              class="max-w-[98vw] max-h-[98vh] object-contain rounded-md shadow-lg "
+              class="max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-lg "
             />
             <!-- <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
-              class="absolute left-0 right-0 max-w-[98vw] max-h-[98vh] object-contain rounded-md shadow-lg "
+              class="absolute left-0 right-0 max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-lg "
             />
             <img
               :src="props.image_th"
               :alt="props.alt || 'Image'"
-              class="max-w-[98vw] max-h-[98vh] w-[98vw] h-auto  object-contain rounded-md shadow-lg "
+              class="max-w-[90vw] max-h-[90vh] w-[90vw] h-auto  object-contain rounded-md shadow-lg "
             /> -->
           </div>
         </Transition>
@@ -98,4 +115,3 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
 .modal-zoom-enter-active, .modal-zoom-leave-active { transition: opacity .2s ease, transform .2s ease; }
 .modal-zoom-enter-from, .modal-zoom-leave-to { opacity: 0; transform: scale(1.97); }
 </style>
-

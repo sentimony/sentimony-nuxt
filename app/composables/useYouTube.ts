@@ -24,7 +24,8 @@ function extractListId(input: string): string {
     }
     // Fallback: try to capture list=... from raw string
     const m = input.match(/list=([^&]+)/)
-    if (m) return m[1]
+    const id = m?.[1]
+    if (id) return id
     // Assume input is already a list id
     return input
   } catch {

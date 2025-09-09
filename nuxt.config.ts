@@ -25,7 +25,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-  devtools: { 
+  devtools: {
     enabled: true,
     // timeline: {
     //   enabled: true
@@ -33,10 +33,10 @@ export default defineNuxtConfig({
   },
   // debug: true,
   modules: [
-    '@nuxtjs/tailwindcss', 
-    '@nuxtjs/google-fonts', 
-    '@nuxt/icon', 
-    '@nuxt/image', 
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts',
+    '@nuxt/icon',
+    '@nuxt/image',
     '@pinia/nuxt',
     'v-wave/nuxt',
   ],

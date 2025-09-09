@@ -46,7 +46,7 @@ useSeoMeta({
 
     <!-- <h2 class="">Producers & Musicians</h2> -->
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
-      <Item 
+      <Item
         v-for="i in artistsSortedByCategoryIdMusician"
         :key="i.slug"
         category="artist"
@@ -56,7 +56,7 @@ useSeoMeta({
 
     <h2 class="">Djs</h2>
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
-      <Item 
+      <Item
         v-for="i in artistsSortedByCategoryIdDj"
         :key="i.slug"
         category="artist"
@@ -66,7 +66,7 @@ useSeoMeta({
 
     <h2 class="">Sound Engineers & Mastering Services</h2>
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
-      <Item 
+      <Item
         v-for="i in artistsSortedByCategoryIdMastering"
         :key="i.slug"
         category="artist"
@@ -76,7 +76,7 @@ useSeoMeta({
 
     <h2 class="">Visual Artists & Designers</h2>
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
-      <Item 
+      <Item
         v-for="i in artistsSortedByCategoryIdDesigner"
         :key="i.slug"
         category="artist"

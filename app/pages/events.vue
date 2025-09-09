@@ -27,8 +27,8 @@ const { formatDate } = useDate()
       v-for="i in eventsSortedByDate"
       :key="i.slug"
     >
-      <NuxtLink 
-        :to="'/event/' + i.slug + '/'" 
+      <NuxtLink
+        :to="'/event/' + i.slug + '/'"
         class=""
         v-wave
       >

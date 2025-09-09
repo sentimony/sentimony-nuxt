@@ -38,4 +38,3 @@ export function useDate() {
 
   return { formatDate, formatYear }
 }
-

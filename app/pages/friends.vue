@@ -13,8 +13,8 @@ const friends = computed(() => toArray(friendsRaw.value, 'friends'))
     </h1>
 
     <span v-for="i in friends" :key="i.slug">
-      <NuxtLink 
-        :to="'/friend/' + i.slug" 
+      <NuxtLink
+        :to="'/friend/' + i.slug"
         class="mr-4"
       >
         <!-- <NuxtImg

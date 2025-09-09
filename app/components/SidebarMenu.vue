@@ -36,16 +36,16 @@ function isNavActive(link: string) {
 <template>
   <!-- <div class=""> -->
 
-    <!-- <div 
-      class="fixed left-full top-0 w-screen h-screen z-30 bg-black/30 backdrop-blur-sm" 
-      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''" 
+    <!-- <div
+      class="fixed left-full top-0 w-screen h-screen z-30 bg-black/30 backdrop-blur-sm"
+      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''"
       @click="mobmenu.toggleSidebar"
       v-wave
     /> -->
-    
+
     <div
-      class="flex flex-col fixed left-full w-[280px] h-screen top-0 z-40 bg-black/60 transition-transform duration-300 ease-in-out" 
-      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''" 
+      class="flex flex-col fixed left-full w-[280px] h-screen top-0 z-40 bg-black/60 transition-transform duration-300 ease-in-out"
+      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''"
       @click="mobmenu.toggleSidebar"
     >
       <NuxtLink

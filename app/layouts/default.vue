@@ -53,7 +53,7 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
 <template>
   <div class="StickyFooter">
     <div class="StickyFooter__content">
-      
+
       <Fractal />
       <Header />
 

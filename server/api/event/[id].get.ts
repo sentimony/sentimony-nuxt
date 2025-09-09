@@ -9,4 +9,3 @@ export default defineCachedEventHandler(
     swr: true,
   }
 )
-

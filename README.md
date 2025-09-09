@@ -4,7 +4,7 @@
 
 Jamstack development of Sentimony Records portfolio website
 
-### Used: 
+### Used:
 * [Nuxt](https://nuxt.com)
 * [Firebase](https://firebase.google.com)
 * [Netlify](https://www.netlify.com)
@@ -13,7 +13,7 @@ Jamstack development of Sentimony Records portfolio website
 * [Swiper](https://swiperjs.com)
 * [RealFaviconGenerator](realfavicongenerator.net)
 
-### Links: 
+### Links:
 
 * [sentimony.com](https://sentimony.com)
 * [sentimony-nuxt.netlify.app](https://sentimony-nuxt.netlify.app)
