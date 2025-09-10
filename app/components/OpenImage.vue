@@ -35,15 +35,15 @@ onBeforeUnmount(() => {
   <div>
 
     <div
-      class="cursor-pointer size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/50"
+      class="cursor-pointer size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30"
       v-wave
       @click="open"
     >
       <img
         v-if="image_th"
         :src="image_th"
-        class=""
         :alt="alt"
+        class=""
       />
       <div
         v-else
@@ -53,13 +53,15 @@ onBeforeUnmount(() => {
 
     <Transition name="modal-fade">
       <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center">
+
         <Transition name="backdrop-fade">
           <div
-            class="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            class="absolute inset-0 bg-black/30 backdrop-blur-sm"
             @click="close"
             v-wave
           />
         </Transition>
+
         <Transition name="modal-zoom">
           <div
             class="relative max-w-[90vw] max-h-[90vh] rounded-md"
@@ -75,22 +77,25 @@ onBeforeUnmount(() => {
             <button
               type="button"
               aria-label="Close"
-              class="flex items-center justify-center fixed top-0 right-0 mr-2 mt-[9px] z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] hover:bg-white/30 size-[56px]"
+              class="flex items-center justify-center fixed top-0 right-0 mr-2 mt-[9px] z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] hover:bg-white/30 size-[56px] hover:rotate-[360deg]"
               @click="close"
               v-wave
             >
               <Icon name="i-fa7-solid:close" size="22" />
             </button>
+
             <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
               class="max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-lg "
             />
+
             <!-- <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
               class="absolute left-0 right-0 max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-lg "
             />
+
             <img
               :src="props.image_th"
               :alt="props.alt || 'Image'"
@@ -98,6 +103,7 @@ onBeforeUnmount(() => {
             /> -->
           </div>
         </Transition>
+
       </div>
     </Transition>
 

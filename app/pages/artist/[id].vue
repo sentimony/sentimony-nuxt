@@ -64,9 +64,9 @@ useSeoMeta({
               class="float-left"
             />
 
-            <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
-            <p><span class="text-white/50">Name:</span> {{ item.name }}</p>
-            <p><span class="text-white/50">Location:</span> {{ item.location }}</p>
+            <p v-if="item.name"><span class="text-white/50">Name:</span> {{ item.name }}</p>
+            <p v-if="item.location"><span class="text-white/50">Location:</span> {{ item.location }}</p>
+            <p v-if="item.style"><span class="text-white/50">Styles:</span> {{ item.style }}</p>
 
             <div class="clear-left">
               <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
@@ -119,7 +119,6 @@ useSeoMeta({
                 title="YouTube"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <ClientOnly>
                     <iframe
                       class="border-[0px] aspect-video"
                       :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
@@ -129,7 +128,6 @@ useSeoMeta({
                       referrerpolicy="strict-origin-when-cross-origin"
                       allowfullscreen
                     />
-                  </ClientOnly>
                 </div>
               </Tab>
 
@@ -138,7 +136,6 @@ useSeoMeta({
                 icon="fa-brands:soundcloud"
                 title="SoundCloud"
               >
-                <ClientOnly>
                   <iframe
                     width="100%"
                     height="300"
@@ -147,7 +144,6 @@ useSeoMeta({
                     allow="autoplay"
                     :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + (item.soundcloud_track_id || '') + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
                   />
-                </ClientOnly>
               </Tab>
 
 
@@ -156,7 +152,6 @@ useSeoMeta({
               icon="fa-brands:facebook"
               title="Facebook"
             >
-              <ClientOnly>
                 <iframe
                   class="facebook-widget facebook-widget--size-sm md:hidden"
                   :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
@@ -173,7 +168,6 @@ useSeoMeta({
                   frameborder="0"
                   allowTransparency="true"
                 />
-              </ClientOnly>
             </Tab>
 
 
