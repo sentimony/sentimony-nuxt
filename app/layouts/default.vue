@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SidebarMenu from '~/components/SidebarMenu.vue'
+// import SidebarMenu from '~/components/SidebarMenu.vue'
 
 const { data: releasesRaw } = await useReleases()
 const { data: artistsRaw } = await useArtists()
@@ -42,8 +42,8 @@ const route = useRoute()
 const isIndex = computed(() => route.path === '/')
 const showReleases = computed(() => route.path.startsWith('/release/'))
 const showArtists = computed(() => route.path.startsWith('/artist/'))
-const showVideos = computed(() => route.path.startsWith('/video'))
-const showPlaylists = computed(() => route.path.startsWith('/playlist'))
+const showVideos = computed(() => route.path.startsWith('/video/'))
+const showPlaylists = computed(() => route.path.startsWith('/playlist/'))
 const activeReleaseSlug = computed(() => showReleases.value ? String(route.params.id || '') : '')
 const activeArtistSlug = computed(() => showArtists.value ? String(route.params.id || '') : '')
 const activeVideoSlug = computed(() => showVideos.value ? String(route.params.id || '') : '')
@@ -57,9 +57,7 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
       <Fractal />
       <Header />
 
-      <Backdrop />
-      <SidebarBtn class="md:hidden" />
-      <SidebarMenu />
+      <OpenSidebar class="md:hidden" />
 
       <div class="flex flex-col justify-center">
         <Hero class="order-[0]" v-if="isIndex" />

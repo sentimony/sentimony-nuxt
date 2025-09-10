@@ -1,6 +1,13 @@
 <script setup lang="ts">
-const mobmenu = useMobmenuStore()
+import { ref, watch } from 'vue'
 const route = useRoute()
+
+const isOpen = ref(false)
+const toggleSidebar = () => { isOpen.value = !isOpen.value }
+const closeSidebar = () => { isOpen.value = false }
+
+// Close sidebar on route change
+watch(() => route.path, () => { isOpen.value = false })
 
 const nav = [
   { title: 'Home', route: '/' },
@@ -34,19 +41,37 @@ function isNavActive(link: string) {
 </script>
 
 <template>
-  <!-- <div class=""> -->
-
-    <!-- <div
-      class="fixed left-full top-0 w-screen h-screen z-30 bg-black/30 backdrop-blur-sm"
-      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''"
-      @click="mobmenu.toggleSidebar"
-      v-wave
-    /> -->
+  <div>
 
     <div
-      class="flex flex-col fixed left-full w-[280px] h-screen top-0 z-40 bg-black/60 transition-transform duration-300 ease-in-out"
-      :class="mobmenu.sidebarOpen ? '-translate-x-full' : ''"
-      @click="mobmenu.toggleSidebar"
+      class="fixed left-full top-0 w-screen h-screen z-30 bg-black/30 backdrop-blur-sm"
+      :class="isOpen ? '-translate-x-full' : ''"
+      @click="toggleSidebar"
+    />
+
+    <div
+      class="fixed top-0 right-0 mr-2 mt-[9px] z-50 flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
+      :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
+      @click="toggleSidebar"
+      v-wave
+    >
+      <Icon
+        name="fa7-solid:navicon"
+        size="22"
+        :class="isOpen ? 'hidden' : ''"
+
+      />
+      <Icon
+        name="fa7-solid:close"
+        size="22"
+        :class="isOpen ? '' : 'hidden'"
+      />
+    </div>
+
+    <div
+      class="fixed left-full w-[280px] h-screen top-0 z-40 transition-transform duration-300 ease-in-out flex flex-col bg-black/60"
+      :class="isOpen ? '-translate-x-full' : ''"
+      @click="toggleSidebar"
     >
       <NuxtLink
         v-for="(i, index) in nav"
@@ -64,7 +89,7 @@ function isNavActive(link: string) {
       <!-- <HeaderSocialMenu style="display: flex; justify-content: center;" /> -->
     </div>
 
-  <!-- </div> -->
+  </div>
 </template>
 
 <style lang="scss"></style>

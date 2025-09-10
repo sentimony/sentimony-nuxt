@@ -30,7 +30,9 @@ const isActive = computed(() => (id != null ? !!tabs?.isActiveById(id) : false))
     class="p-3 bg-white/30 rounded-tr-lg rounded-br-lg rounded-bl-lg backdrop-blur-sm"
     v-show="isActive"
   >
-    <slot />
+    <ClientOnly>
+      <slot />
+    </ClientOnly>
   </div>
 </template>
 
