@@ -2,10 +2,10 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import 'swiper/scss/keyboard';
+import 'swiper/css/keyboard';
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
-import 'swiper/scss/mousewheel';
+import 'swiper/css/mousewheel';
 import { ref, watch, nextTick } from 'vue'
 import {
   FreeMode,

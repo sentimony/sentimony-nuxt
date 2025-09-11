@@ -1,8 +1,19 @@
+import { createError } from 'h3'
+
 export default defineCachedEventHandler(
   async (event) => {
     const id = event.context.params?.id as string | undefined
-    if (!id) return null
-    return await $fetch(`https://sentimony-db.firebaseio.com/releases/${id}.json`)
+    if (!id) {
+      throw createError({ statusCode: 400, statusMessage: 'Missing release id' })
+    }
+
+    const data = await $fetch(`https://sentimony-db.firebaseio.com/releases/${id}.json`)
+
+    if (!data) {
+      throw createError({ statusCode: 404, statusMessage: 'Release not found' })
+    }
+
+    return data
   },
   {
     // Cache for 1 hour; serve stale while revalidating

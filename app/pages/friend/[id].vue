@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { createError } from '#app'
 interface FriendItem {
   title: string
   cover_og?: string
@@ -6,10 +7,15 @@ interface FriendItem {
 }
 
 const { id } = useRoute().params
-const { data: item } = await useFriend<FriendItem>(id as string, {
+const friendAsync = await useFriend<FriendItem>(id as string, {
   server: true,
-  default: () => ({ title: '' } as FriendItem),
 })
+const item = friendAsync.data
+const friendError = friendAsync.error
+
+if (friendError.value || !item.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Friend not found' })
+}
 
 useSeoMeta({
   title: item.value?.title,

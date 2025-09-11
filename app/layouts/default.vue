@@ -1,10 +1,37 @@
 <script setup lang="ts">
 // import SidebarMenu from '~/components/SidebarMenu.vue'
 
-const { data: releasesRaw } = await useReleases()
-const { data: artistsRaw } = await useArtists()
-const { data: videosRaw } = await useVideos()
-const { data: playlistsRaw } = await usePlaylists()
+const route = useRoute()
+const isIndex = computed(() => route.path === '/')
+const showReleases = computed(() => route.path.startsWith('/release/') || isIndex.value)
+const showArtists = computed(() => route.path.startsWith('/artist/') || isIndex.value)
+const showVideos = computed(() => route.path.startsWith('/video/'))
+const showPlaylists = computed(() => route.path.startsWith('/playlist/'))
+
+const { data: releasesRaw } = await useReleases({
+  server: showReleases.value,
+  lazy: !showReleases.value,
+  immediate: showReleases.value,
+  watch: [showReleases],
+})
+const { data: artistsRaw } = await useArtists({
+  server: showArtists.value,
+  lazy: !showArtists.value,
+  immediate: showArtists.value,
+  watch: [showArtists],
+})
+const { data: videosRaw } = await useVideos({
+  server: showVideos.value,
+  lazy: !showVideos.value,
+  immediate: showVideos.value,
+  watch: [showVideos],
+})
+const { data: playlistsRaw } = await usePlaylists({
+  server: showPlaylists.value,
+  lazy: !showPlaylists.value,
+  immediate: showPlaylists.value,
+  watch: [showPlaylists],
+})
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
 const artists = computed(() => toArray(artistsRaw.value, 'artists'))
 const videos = computed(() => toArray(videosRaw.value, 'videos'))
@@ -38,12 +65,6 @@ const playlistsSortedByDate = computed(() =>
     )
     .reverse()
 )
-const route = useRoute()
-const isIndex = computed(() => route.path === '/')
-const showReleases = computed(() => route.path.startsWith('/release/'))
-const showArtists = computed(() => route.path.startsWith('/artist/'))
-const showVideos = computed(() => route.path.startsWith('/video/'))
-const showPlaylists = computed(() => route.path.startsWith('/playlist/'))
 const activeReleaseSlug = computed(() => showReleases.value ? String(route.params.id || '') : '')
 const activeArtistSlug = computed(() => showArtists.value ? String(route.params.id || '') : '')
 const activeVideoSlug = computed(() => showVideos.value ? String(route.params.id || '') : '')
@@ -63,7 +84,7 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
         <Hero class="order-[0]" v-if="isIndex" />
         <Swiper
           class="order-1"
-          :class="(showReleases || isIndex) ? '' : 'hidden'"
+          :class="(showReleases) ? '' : 'hidden'"
           title="Releases"
           :list="releasesSortedByDate"
           category="release"
@@ -73,7 +94,7 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
         />
         <Swiper
           class=""
-          :class="[(showArtists || isIndex) ? '' : 'hidden', isIndex ? 'order-3' : 'order-1']"
+          :class="[(showArtists) ? '' : 'hidden', isIndex ? 'order-3' : 'order-1']"
           title="Artists"
           :list="artistsSortedByCategoryId"
           category="artist"

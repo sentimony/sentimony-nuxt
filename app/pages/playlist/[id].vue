@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { createError } from '#app'
 
 const { id } = useRoute().params
 
@@ -24,10 +25,15 @@ interface PlaylistItem {
   links?: PlaylistLinks
 }
 
-const { data: item } = await usePlaylist<PlaylistItem>(id as string, {
+const playlistAsync = await usePlaylist<PlaylistItem>(id as string, {
   server: true,
-  default: () => ({ slug: '', title: '', links: {} as PlaylistLinks } as PlaylistItem),
 })
+const item = playlistAsync.data
+const playlistError = playlistAsync.error
+
+if (playlistError.value || !item.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Playlist not found' })
+}
 
 // YouTube embeds for playlist sources
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
@@ -75,45 +81,45 @@ useSeoMeta({
             <!-- <h1 class="text-center mt-0 mb-[1.2em]">{{ item.title }}</h1> -->
             <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
 
-            <div class="clear-left">
-              <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
-              <BtnPrimary
-                v-if="item.links?.spotify"
-                :url="item.links?.spotify"
-                title="Spotify"
-                icon="fa-brands:spotify"
-              />
-              <BtnPrimary
-                v-if="item.links?.apple_music"
-                :url="item.links?.apple_music"
-                title="Apple Music"
-                icon="fa-brands:apple"
-              />
-              <BtnPrimary
-                v-if="item.links?.youtube_music"
-                :url="item.links?.youtube_music"
-                title="YT Music"
-                icon="simple-icons:youtubemusic"
-              />
-              <BtnPrimary
-                v-if="item.links?.deezer"
-                :url="item.links?.deezer"
-                title="Deezer"
-                icon="fa-brands:deezer"
-              />
-              <BtnPrimary
-                v-if="item.links?.youtube"
-                :url="item.links?.youtube"
-                title="YouTube"
-                icon="fa:youtube"
-              />
-              <BtnPrimary
-                v-if="item.links?.soundcloud_url"
-                :url="item.links?.soundcloud_url"
-                title="SoundCloud"
-                icon="fa7-brands:soundcloud"
-              />
-            </div>
+            <div class="clear-left" />
+
+            <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+            <BtnPrimary
+              v-if="item.links?.spotify"
+              :url="item.links?.spotify"
+              title="Spotify"
+              icon="fa-brands:spotify"
+            />
+            <BtnPrimary
+              v-if="item.links?.apple_music"
+              :url="item.links?.apple_music"
+              title="Apple Music"
+              icon="fa-brands:apple"
+            />
+            <BtnPrimary
+              v-if="item.links?.youtube_music"
+              :url="item.links?.youtube_music"
+              title="YT Music"
+              icon="simple-icons:youtubemusic"
+            />
+            <BtnPrimary
+              v-if="item.links?.deezer"
+              :url="item.links?.deezer"
+              title="Deezer"
+              icon="fa-brands:deezer"
+            />
+            <BtnPrimary
+              v-if="item.links?.youtube"
+              :url="item.links?.youtube"
+              title="YouTube"
+              icon="fa:youtube"
+            />
+            <BtnPrimary
+              v-if="item.links?.soundcloud_url"
+              :url="item.links?.soundcloud_url"
+              title="SoundCloud"
+              icon="fa7-brands:soundcloud"
+            />
 
           </div>
           <div class="max-w-[540px] mx-auto w-full mb-4">

@@ -11,16 +11,16 @@ Jamstack development of Sentimony Records portfolio website
 * [Tailwind CSS](https://tailwindcss.com)
 * [Iconify](https://icon-sets.iconify.design)
 * [Swiper](https://swiperjs.com)
-* [RealFaviconGenerator](realfavicongenerator.net)
+<!-- * [RealFaviconGenerator](https://realfavicongenerator.net) -->
 
 ### Links:
 
 * [sentimony.com](https://sentimony.com)
 * [sentimony-nuxt.netlify.app](https://sentimony-nuxt.netlify.app)
 
-<!-- ### Content
+<!-- ### Content -->
 
-[https://sentimony-db.firebaseio.com/.json](https://sentimony-db.firebaseio.com/.json) -->
+<!-- [https://sentimony-db.firebaseio.com/.json](https://sentimony-db.firebaseio.com/.json) -->
 
 ### Run
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { createError } from '#app'
 
 const { id } = useRoute().params
 
@@ -18,10 +19,15 @@ interface VideoItem {
   links?: VideoItemLinks;
 }
 
-const { data: item } = await useVideo<VideoItem>(id as string, {
+const videoAsync = await useVideo<VideoItem>(id as string, {
   server: true,
-  default: () => ({ title: '', links: {} as VideoItemLinks } as VideoItem),
 })
+const item = videoAsync.data
+const videoError = videoAsync.error
+
+if (videoError.value || !item.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Video not found' })
+}
 
 // Compute embeddable YouTube URL from short link
 const { embed } = useYouTube(computed(() => item.value?.links?.youtube))
@@ -57,15 +63,15 @@ useSeoMeta({
 
             <p><span class="text-white/50">Release Date:</span> {{ formattedDate }}</p>
 
-            <div class="clear-left">
-              <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
-              <BtnPrimary
-                v-if="item.links?.youtube"
-                :url="item.links?.youtube"
-                title="YouTube"
-                icon="cib:bandcamp"
-              />
-            </div>
+            <div class="clear-left"/>
+
+            <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+            <BtnPrimary
+              v-if="item.links?.youtube"
+              :url="item.links?.youtube"
+              title="YouTube"
+              icon="cib:bandcamp"
+            />
 
           </div>
           <div class="max-w-[540px] mx-auto w-full mb-4">

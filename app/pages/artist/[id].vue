@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { createError } from '#app'
 
 interface ArtistItem {
   slug: string
   title: string
-  cover_og?: string
+  photo_og?: string
   photo_th?: string
   photo_xl?: string
   style?: string
@@ -23,10 +24,15 @@ interface ArtistItem {
 }
 
 const { id } = useRoute().params
-const { data: item } = await useArtist<ArtistItem>(id as string, {
+const artistAsync = await useArtist<ArtistItem>(id as string, {
   server: true,
-  default: () => ({ slug: '', title: '' } as ArtistItem),
 })
+const item = artistAsync.data
+const artistError = artistAsync.error
+
+if (artistError.value || !item.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
+}
 const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() =>
@@ -40,7 +46,7 @@ const releasesSortedByDate = computed(() =>
 useSeoMeta({
   title: item.value?.title,
   description: (item.value?.title ?? '') + ' description',
-  ogImage: item.value?.cover_og,
+  ogImage: item.value?.photo_og,
 })
 </script>
 
@@ -68,45 +74,45 @@ useSeoMeta({
             <p v-if="item.location"><span class="text-white/50">Location:</span> {{ item.location }}</p>
             <p v-if="item.style"><span class="text-white/50">Styles:</span> {{ item.style }}</p>
 
-            <div class="clear-left">
-              <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
-              <BtnPrimary
-                v-if="item.spotify"
-                :url="item.spotify"
-                title="Spotify"
-                icon="fa-brands:spotify"
-              />
-              <BtnPrimary
-                v-if="item.soundcloud_url"
-                :url="item.soundcloud_url"
-                title="SoundCloud"
-                icon="fa-brands:soundcloud"
-              />
-              <BtnPrimary
-                v-if="item.facebook"
-                :url="item.facebook"
-                title="Facebook"
-                icon="fa-brands:facebook"
-              />
-              <BtnPrimary
-                v-if="item.instagram"
-                :url="item.instagram"
-                title="Instagram"
-                icon="fa-brands:instagram"
-              />
-              <BtnPrimary
-                v-if="item.youtube_url"
-                :url="item.youtube_url"
-                title="YouTube"
-                icon="fa:youtube"
-              />
-              <BtnPrimary
-                v-if="item.bandcamp_url"
-                :url="item.bandcamp_url"
-                title="Bandcamp"
-                icon="cib:bandcamp"
-              />
-            </div>
+            <div class="clear-left" />
+
+            <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+            <BtnPrimary
+              v-if="item.spotify"
+              :url="item.spotify"
+              title="Spotify"
+              icon="fa-brands:spotify"
+            />
+            <BtnPrimary
+              v-if="item.soundcloud_url"
+              :url="item.soundcloud_url"
+              title="SoundCloud"
+              icon="fa-brands:soundcloud"
+            />
+            <BtnPrimary
+              v-if="item.facebook"
+              :url="item.facebook"
+              title="Facebook"
+              icon="fa-brands:facebook"
+            />
+            <BtnPrimary
+              v-if="item.instagram"
+              :url="item.instagram"
+              title="Instagram"
+              icon="fa-brands:instagram"
+            />
+            <BtnPrimary
+              v-if="item.youtube_url"
+              :url="item.youtube_url"
+              title="YouTube"
+              icon="fa:youtube"
+            />
+            <BtnPrimary
+              v-if="item.bandcamp_url"
+              :url="item.bandcamp_url"
+              title="Bandcamp"
+              icon="cib:bandcamp"
+            />
 
           </div>
           <div class="max-w-[540px] mx-auto w-full mb-4">

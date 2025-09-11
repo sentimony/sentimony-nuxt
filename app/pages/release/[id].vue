@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { createError } from '#app'
 import { toArray } from '~/composables/toArray'
 
 const { id } = useRoute().params
@@ -45,10 +45,15 @@ interface ReleaseItem {
   links?: ReleaseItemLinks;
 }
 
-const { data: item } = await useRelease<ReleaseItem>(id as string, {
+const releaseAsync = await useRelease<ReleaseItem>(id as string, {
   server: true,
-  default: () => ({ title: '', links: {} as ReleaseItemLinks } as ReleaseItem),
 })
+const item = releaseAsync.data
+const releaseError = releaseAsync.error
+
+if (releaseError.value || !item.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Release not found' })
+}
 const { data: releasesRaw } = await useReleases()
 const { data: artistsRaw } = await useArtists()
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
@@ -78,41 +83,15 @@ useSeoMeta({
   ogImage: item.value?.cover_og,
 });
 
-// Triangle SVG height measurement
-const triangleEl = ref<HTMLImageElement | null>(null)
-const TriangleHeight = ref(0)
-
-function updateTriangleHeight() {
-  const el = triangleEl.value
-  if (!el) return
-  TriangleHeight.value = el.clientHeight || 0
-}
-
-onMounted(() => {
-  if (triangleEl.value?.complete) updateTriangleHeight()
-  triangleEl.value?.addEventListener('load', updateTriangleHeight)
-  window.addEventListener('resize', updateTriangleHeight)
-})
-
-onBeforeUnmount(() => {
-  triangleEl.value?.removeEventListener('load', updateTriangleHeight)
-  window.removeEventListener('resize', updateTriangleHeight)
-})
-
 // Fallback HTML for missing players
 const comingMusic = '<div class="p-4 text-center text-white/70">Player coming soon</div>'
-const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming soon</div>'
 </script>
 
 <template>
   <div class="text-left">
     <div class="px-2">
 
-      <div
-        class="container relative"
-        v-if="item"
-        :style="'margin-bottom: -' + TriangleHeight * 0.66 + 'px;'"
-      >
+      <div class="container relative" v-if="item">
         <div class="border-t border-white/30">
           <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
         </div>
@@ -133,104 +112,109 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
             <p><span class="text-white/50">Format:</span> {{ item.format }}</p>
             <p><span class="text-white/50">Total Time:</span> {{ item.total_time }}</p>
 
-            <div class="clear-left">
-              <!-- <p>
-                <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
-                <span class="text-[10px] md:text-[12px] text-white/50"> | {{ formattedDate }}</span>
-              </p>
-              <h1 class="">{{ item.title }}</h1>
-              <p>
-                <span class="text-[10px] md:text-[12px] text-white/50">{{ item.style }}</span>
-                <span class="text-[10px] md:text-[12px] text-white/50"> | {{ item.total_time }}</span>
-              </p> -->
-              <!-- <br> -->
-              <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
-              <div v-if="item.links">
-                <BtnPrimary
-                  v-if="item.links.bandcamp_url"
-                  :url="item.links.bandcamp_url"
-                  title="Bandcamp <small>(16bit)</small>"
-                  icon="cib:bandcamp"
-                />
-                <BtnPrimary
-                  v-if="item.links.bandcamp24_url"
-                  :url="item.links.bandcamp24_url"
-                  title="Bandcamp <small>(24bit)</small>"
-                  icon="cib:bandcamp"
-                />
-                <BtnPrimary
-                  v-if="item.links.beatport"
-                  :url="item.links.beatport"
-                  title="Beatport"
-                  icon="simple-icons:beatport"
-                />
-                <BtnPrimary
-                  v-if="item.links.junodownload"
-                  :url="item.links.junodownload"
-                  title="JunoDownload"
-                  icon="cib:bandcamp"
-                />
-              </div>
-            </div>
+            <div class="clear-left" />
+
+            <!-- <p>
+              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
+              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ formattedDate }}</span>
+            </p>
+            <h1 class="">{{ item.title }}</h1>
+            <p>
+              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.style }}</span>
+              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ item.total_time }}</span>
+            </p> -->
+            <!-- <br> -->
+
+            <p v-if="item.links.diggersfactory_url"><span class="text-[10px] md:text-[12px] text-white/50">Purchase VINYL</span></p>
+            <BtnPrimary
+              v-if="item.links.diggersfactory_url"
+              :url="item.links.diggersfactory_url"
+              title="Diggers Factory"
+              icon="cib:bandcamp"
+            />
+
+            <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
+            <BtnPrimary
+              v-if="item.links.bandcamp_url"
+              :url="item.links.bandcamp_url"
+              title="Bandcamp <small>(16bit)</small>"
+              icon="cib:bandcamp"
+            />
+            <BtnPrimary
+              v-if="item.links.bandcamp24_url"
+              :url="item.links.bandcamp24_url"
+              title="Bandcamp <small>(24bit)</small>"
+              icon="cib:bandcamp"
+            />
+            <BtnPrimary
+              v-if="item.links.beatport"
+              :url="item.links.beatport"
+              title="Beatport"
+              icon="simple-icons:beatport"
+            />
+            <BtnPrimary
+              v-if="item.links.junodownload"
+              :url="item.links.junodownload"
+              title="JunoDownload"
+              icon="cib:bandcamp"
+            />
 
             <!-- <br> -->
             <p><span class="text-[10px] md:text-[12px] text-white/50">Stream</span></p>
-            <div v-if="item.links">
-              <BtnPrimary
-                v-if="item.links.spotify"
-                :url="item.links.spotify"
-                title="Spotify"
-                icon="fa-brands:spotify"
-              />
-              <BtnPrimary
-                v-if="item.links.applemusic_url"
-                :url="item.links.applemusic_url"
-                title="Apple Music"
-                icon="fa-brands:apple"
-              />
-              <BtnPrimary
-                v-if="item.links.youtube_music"
-                :url="item.links.youtube_music"
-                title="YT Music"
-                icon="simple-icons:youtubemusic"
-              />
-              <BtnPrimary
-                v-if="item.links.deezer"
-                :url="item.links.deezer"
-                title="Deezer"
-                icon="fa-brands:deezer"
-              />
-              <BtnPrimary
-                v-if="item.links.amazon_music"
-                :url="item.links.amazon_music"
-                title="Amazon Music"
-                icon="fa7-brands:amazon"
-              />
-              <BtnPrimary
-                v-if="item.links.tidal"
-                :url="item.links.tidal"
-                title="Tidal"
-                icon="fa7-brands:tidal"
-              />
-              <BtnPrimary
-                v-if="item.links.qobuz"
-                :url="item.links.qobuz"
-                title="Qobuz"
-                icon="arcticons:qobuz"
-              />
-              <BtnPrimary
-                v-if="item.links.youtube"
-                :url="item.links.youtube"
-                title="YouTube"
-                icon="fa:youtube"
-              />
-              <BtnPrimary
-                v-if="item.links.soundcloud_url"
-                :url="item.links.soundcloud_url"
-                title="SoundCloud"
-                icon="fa7-brands:soundcloud"
-              />
-            </div>
+            <BtnPrimary
+              v-if="item.links.spotify"
+              :url="item.links.spotify"
+              title="Spotify"
+              icon="fa-brands:spotify"
+            />
+            <BtnPrimary
+              v-if="item.links.applemusic_url"
+              :url="item.links.applemusic_url"
+              title="Apple Music"
+              icon="fa-brands:apple"
+            />
+            <BtnPrimary
+              v-if="item.links.youtube_music"
+              :url="item.links.youtube_music"
+              title="YT Music"
+              icon="simple-icons:youtubemusic"
+            />
+            <BtnPrimary
+              v-if="item.links.deezer"
+              :url="item.links.deezer"
+              title="Deezer"
+              icon="fa-brands:deezer"
+            />
+            <BtnPrimary
+              v-if="item.links.amazon_music"
+              :url="item.links.amazon_music"
+              title="Amazon Music"
+              icon="fa7-brands:amazon"
+            />
+            <BtnPrimary
+              v-if="item.links.tidal"
+              :url="item.links.tidal"
+              title="Tidal"
+              icon="fa7-brands:tidal"
+            />
+            <BtnPrimary
+              v-if="item.links.qobuz"
+              :url="item.links.qobuz"
+              title="Qobuz"
+              icon="arcticons:qobuz"
+            />
+            <BtnPrimary
+              v-if="item.links.youtube"
+              :url="item.links.youtube"
+              title="YouTube"
+              icon="fa:youtube"
+            />
+            <BtnPrimary
+              v-if="item.links.soundcloud_url"
+              :url="item.links.soundcloud_url"
+              title="SoundCloud"
+              icon="fa7-brands:soundcloud"
+            />
 
           </div>
           <div class="max-w-[540px] mx-auto w-full mb-4">
@@ -319,7 +303,7 @@ const comingArtwork = '<div class="p-4 text-center text-white/70">Artwork coming
       </div>
     </div>
 
-    <img ref="triangleEl" src="/images/triangle.svg" alt="Triangle SVG" @load="updateTriangleHeight" />
+    <img src="/images/triangle.svg" alt="triangle bg" />
 
     <!-- <div class="bg-[url('/images/triangle.svg?01')] bg-bottom bg-no-repeat">
       <div class="pt-[50px] pb-[100px] px-2 text-xs text-white/60 text-center">{{ TriangleHeight }}</div>

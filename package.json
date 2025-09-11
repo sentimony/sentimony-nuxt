@@ -1,6 +1,6 @@
 {
   "name": "sentimony-nuxt",
-  "description": "Web development of Sentimony Records site",
+  "description": "Jamstack development of Sentimony Records portfolio website",
   "version": "1.0.0",
   "author": "Ihor Orlovskyi",
   "type": "module",
