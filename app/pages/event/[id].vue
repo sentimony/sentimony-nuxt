@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { computed } from 'vue'
+import { createError } from '#app'
 
 interface EventLink { id?: string; url?: string }
 interface EventLineup { musician?: string }
@@ -16,10 +17,15 @@ interface EventItem {
 
 const route = useRoute()
 const id = computed(() => String(route.params.id))
-const { data: item } = await useEvent<EventItem>(id.value, {
+const eventAsync = await useEvent<EventItem>(id.value, {
   server: true,
-  default: () => ({}) as EventItem,
 })
+const item = eventAsync.data
+const eventError = eventAsync.error
+
+if (eventError.value || !item.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Event not found' })
+}
 
 useSeoMeta({
   title: item.value?.title,
@@ -28,6 +34,9 @@ useSeoMeta({
 })
 
 const { formatDate } = useDate()
+
+// Template ref used in <img ref="triangleEl" .../>
+// const triangleEl = ref<HTMLImageElement | null>(null)
 </script>
 
 <template>
@@ -58,7 +67,7 @@ const { formatDate } = useDate()
       <p>{{ item?.location }}</p>
     </div>
 
-    <img ref="triangleEl" src="/images/triangle.svg" alt="Triangle SVG" />
+    <img src="/images/triangle.svg" alt="Triangle SVG" />
 
     <div class="Content text-left px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black">
       <div class="container">
