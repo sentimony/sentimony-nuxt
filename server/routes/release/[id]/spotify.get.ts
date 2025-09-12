@@ -14,6 +14,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: 'Spotify link not found' })
   }
 
-  // Use 302 for safety; change to 301 if you want it permanent
-  return sendRedirect(event, spotify, 302)
+  // Permanent redirect for SEO
+  return sendRedirect(event, spotify, 301)
 })

@@ -51,14 +51,13 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="text-left">
-    <div class="px-2">
+  <div class="text-left border-t border-white/30">
+    <div class="relative px-2 pb-[30px] md:pb-[60px]">
+      <SvgTriangle />
 
-      <div class="container relative mb-10" v-if="item">
+      <div class="container" v-if="item">
 
-        <div class="border-t border-white/30">
-          <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
-        </div>
+        <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">
@@ -125,15 +124,15 @@ useSeoMeta({
                 title="YouTube"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                    <iframe
-                      class="border-[0px] aspect-video"
-                      :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
-                      :title="item.title + 'YouTube video player'"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    />
+                  <iframe
+                    class="border-[0px] aspect-video"
+                    :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
+                    :title="item.title + 'YouTube video player'"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  />
                 </div>
               </Tab>
 
@@ -142,22 +141,21 @@ useSeoMeta({
                 icon="fa-brands:soundcloud"
                 title="SoundCloud"
               >
-                  <iframe
-                    width="100%"
-                    height="300"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + (item.soundcloud_track_id || '') + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
-                  />
+                <iframe
+                  width="100%"
+                  height="300"
+                  scrolling="no"
+                  frameborder="no"
+                  allow="autoplay"
+                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + (item.soundcloud_track_id || '') + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
+                />
               </Tab>
 
-
-            <Tab
-              v-if="item.facebook"
-              icon="fa-brands:facebook"
-              title="Facebook"
-            >
+              <Tab
+                v-if="item.facebook"
+                icon="fa-brands:facebook"
+                title="Facebook"
+              >
                 <iframe
                   class="facebook-widget facebook-widget--size-sm md:hidden"
                   :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
@@ -174,8 +172,7 @@ useSeoMeta({
                   frameborder="0"
                   allowTransparency="true"
                 />
-            </Tab>
-
+              </Tab>
 
             </Tabs>
 
@@ -185,36 +182,32 @@ useSeoMeta({
       </div>
     </div>
 
-    <img src="/images/triangle.svg" alt="triangle bg" />
-
     <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black" v-if="item">
-      <div class="container">
-        <div class="max-w-[640px] mx-auto">
+      <div class="max-w-[640px] mx-auto">
 
-          <div v-if="item.information" v-html="item.information" />
+        <div v-if="item.information" v-html="item.information" />
 
-          <div>
-            <hr class="my-4 border-black/30">
-            <p><small><b>Releases with {{ item.title }}:</b></small></p>
-            <p
-              v-for="(i, index) in releasesSortedByDate"
-              :key="index"
-            >
-              <RelativeItem
-                v-if="i.artists.includes(item.slug)"
-                :i="i"
-                category="release"
-              />
-            </p>
-          </div>
-
-          <div v-if="item.discogs">
-            <hr class="my-4 border-black/30">
-            <p><small><b>Links:</b></small></p>
-            <p><a :href="item.discogs" target="_blank" rel="noopener">Discogs</a></p>
-          </div>
-
+        <div>
+          <hr class="my-4 border-black/30">
+          <p><small><b>Releases with {{ item.title }}:</b></small></p>
+          <p
+            v-for="(i, index) in releasesSortedByDate"
+            :key="index"
+          >
+            <RelativeItem
+              v-if="i.artists.includes(item.slug)"
+              :i="i"
+              category="release"
+            />
+          </p>
         </div>
+
+        <div v-if="item.discogs">
+          <hr class="my-4 border-black/30">
+          <p><small><b>Links:</b></small></p>
+          <p><a :href="item.discogs" target="_blank" rel="noopener">Discogs</a></p>
+        </div>
+
       </div>
     </div>
 

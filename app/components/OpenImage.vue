@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
 
         <Transition name="modal-zoom">
           <div
-            class="relative max-w-[90vw] max-h-[90vh] rounded-md"
+            class="relative max-w-[90vw] max-h-[90vh] rounded-2xl"
             @click.stop
             v-wave="{
               duration: 3,
@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
             <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
-              class="max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-lg "
+              class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-lg "
             />
 
             <!-- <img

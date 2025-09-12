@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="text-center">
-    <h1 class="text-lg mb-10">Tracks Page</h1>
+  <div class="container">
+    <h1 class="mb-4">Tracks Page</h1>
   </div>
 </template>
 

@@ -9,10 +9,10 @@ export default defineEventHandler(async (event) => {
   const release = await $fetch<any>(`/api/release/${id}`).catch(() => null)
   const bandcamp = release?.links?.bandcamp_url as string | undefined
   if (bandcamp) {
-    return sendRedirect(event, bandcamp, 302)
+    return sendRedirect(event, bandcamp, 301)
   }
 
-  // Fallback: if 24-bit Bandcamp exists, redirect to it
+  // Fallback: if 24-bit Bandcamp exists, redirect to it (temporary)
   const bandcamp24 = release?.links?.bandcamp24_url as string | undefined
   if (bandcamp24) {
     return sendRedirect(event, bandcamp24, 302)

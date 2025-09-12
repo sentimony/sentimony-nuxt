@@ -12,11 +12,13 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="px-1 pb-[30px] md:pb-[60px]">
+  <div class="container">
+
     <h1 class="mb-4">{{ PageTitle }}</h1>
     <p class="contacts__title">{{ touch }}</p>
     <p><a :href="mailtoUrl">{{ email }}</a></p>
-  </div>
+
+</div>
 </template>
 
 <style lang="scss"></style>

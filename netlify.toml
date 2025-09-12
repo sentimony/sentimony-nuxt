@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = ".output/public"
+
+[functions]
+  directory = ".output/server"
+  node_bundler = "esbuild"
+
+# Ensure API routes resolve to the Nitro server function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/api/:splat"
+  status = 200
+
+# Catch-all to SSR server function
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200

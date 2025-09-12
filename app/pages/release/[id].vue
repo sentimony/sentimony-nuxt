@@ -88,13 +88,13 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 </script>
 
 <template>
-  <div class="text-left">
-    <div class="px-2">
+  <div class="text-left border-t border-white/30">
+    <div class="relative px-2 pb-[30px] md:pb-[60px]">
+      <SvgTriangle />
 
-      <div class="container relative" v-if="item">
-        <div class="border-t border-white/30">
-          <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
-        </div>
+      <div class="container" v-if="item">
+
+        <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">
@@ -303,80 +303,73 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
       </div>
     </div>
 
-    <img src="/images/triangle.svg" alt="triangle bg" />
-
-    <!-- <div class="bg-[url('/images/triangle.svg?01')] bg-bottom bg-no-repeat">
-      <div class="pt-[50px] pb-[100px] px-2 text-xs text-white/60 text-center">{{ TriangleHeight }}</div>
-    </div> -->
-
     <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black" v-if="item">
-      <div class="container">
-        <div class="max-w-[640px] mx-auto">
+      <div class="max-w-[640px] mx-auto">
 
-          <div v-if="item.information" v-html="item.information" />
+        <div v-if="item.information" v-html="item.information" />
 
-          <div v-if="item.tracklistCompact">
-            <hr class="my-4 border-black/30">
-            <p><small><b>Tracklist:</b></small></p>
-            <p
-              v-for="(i, index) in item.tracklistCompact"
-              :key="index"
-              v-html="i.p"
-            />
-          </div>
-
-          <div v-if="item.creditsCompact">
-            <hr class="my-4 border-black/30">
-            <p><small><b>Credits:</b></small></p>
-            <p
-              v-for="(ii, index) in item.creditsCompact"
-              :key="index"
-              v-html="ii.p"
-            />
-          </div>
-
-          <div v-if="item.relative_releases">
-            <hr class="my-4 border-black/30">
-            <p><small><b>Relative Releases:</b></small></p>
-            <p
-              v-for="(iii, index) in releasesSortedByDate"
-              :key="index"
-            >
-              <RelativeItem
-                v-if="item.relative_releases.includes(iii.slug)"
-                :i="iii"
-                category="release"
-              />
-            </p>
-          </div>
-
-          <div v-if="item.artists">
-            <hr class="my-4 border-black/30">
-            <p><small><b>Relative Artists:</b></small></p>
-            <p
-              v-for="(iiii, index) in artistsSortedByCategoryId"
-              :key="index"
-            >
-              <RelativeItem
-                v-if="item.artists.includes(iiii.slug)"
-                :i="iiii"
-                category="artist"
-              />
-            </p>
-          </div>
-
-          <div v-if="item.links?.discogs || item.links?.ektoplazm">
-            <hr class="my-4 border-black/30">
-            <p><small><b>Links:</b></small></p>
-            <p v-if="item.links?.discogs"><a :href="item.links?.discogs" target="_blank" rel="noopener">Discogs</a></p>
-            <p v-if="item.links?.beatspace"><a :href="item.links?.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
-            <p v-if="item.links?.psyshop"><a :href="item.links?.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
-            <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
-          </div>
-
+        <div v-if="item.tracklistCompact">
+          <hr class="my-4 border-black/30">
+          <p><small><b>Tracklist:</b></small></p>
+          <p
+            v-for="(i, index) in item.tracklistCompact"
+            :key="index"
+            v-html="i.p"
+          />
         </div>
+
+        <div v-if="item.creditsCompact">
+          <hr class="my-4 border-black/30">
+          <p><small><b>Credits:</b></small></p>
+          <p
+            v-for="(ii, index) in item.creditsCompact"
+            :key="index"
+            v-html="ii.p"
+          />
+        </div>
+
+        <div v-if="item.relative_releases">
+          <hr class="my-4 border-black/30">
+          <p><small><b>Relative Releases:</b></small></p>
+          <p
+            v-for="(iii, index) in releasesSortedByDate"
+            :key="index"
+          >
+            <RelativeItem
+              v-if="item.relative_releases.includes(iii.slug)"
+              :i="iii"
+              category="release"
+            />
+          </p>
+        </div>
+
+        <div v-if="item.artists">
+          <hr class="my-4 border-black/30">
+          <p><small><b>Relative Artists:</b></small></p>
+          <p
+            v-for="(iiii, index) in artistsSortedByCategoryId"
+            :key="index"
+          >
+            <RelativeItem
+              v-if="item.artists.includes(iiii.slug)"
+              :i="iiii"
+              category="artist"
+            />
+          </p>
+        </div>
+
+        <div v-if="item.links?.discogs || item.links?.ektoplazm">
+          <hr class="my-4 border-black/30">
+          <p><small><b>Links:</b></small></p>
+          <p v-if="item.links?.discogs"><a :href="item.links?.discogs" target="_blank" rel="noopener">Discogs</a></p>
+          <p v-if="item.links?.beatspace"><a :href="item.links?.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
+          <p v-if="item.links?.psyshop"><a :href="item.links?.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
+          <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
+        </div>
+
       </div>
     </div>
+
   </div>
 </template>
 

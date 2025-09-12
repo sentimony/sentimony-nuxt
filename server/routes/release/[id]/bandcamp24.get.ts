@@ -10,10 +10,9 @@ export default defineEventHandler(async (event) => {
   const url24 = release?.links?.bandcamp24_url as string | undefined
 
   if (url24) {
-    return sendRedirect(event, url24, 302)
+    return sendRedirect(event, url24, 301)
   }
 
-  // Fallback to the standard Bandcamp route
+  // Fallback to the standard Bandcamp route (temporary)
   return sendRedirect(event, `/release/${id}/bandcamp`, 302)
 })
-

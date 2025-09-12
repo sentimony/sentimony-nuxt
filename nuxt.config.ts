@@ -1,9 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  nitro: {
+    // Enable Netlify adapter (SSR via serverless function)
+    preset: 'netlify',
+  },
   css: [
     // '~/assets/css/tailwind.css',
-    '~/assets/scss/base.scss',
+    // '~/assets/scss/base.scss',
   ],
   app: {
     head: {
@@ -28,8 +32,8 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
     // timeline: {
-    //   enabled: true
-    // }
+    //   enabled: true,
+    // },
   },
   // debug: true,
   modules: [

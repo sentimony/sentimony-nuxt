@@ -8,6 +8,5 @@ export default defineEventHandler(async (event) => {
   const url = release?.links?.youtube_music as string | undefined
   if (!url) throw createError({ statusCode: 404, statusMessage: 'YouTube Music link not found' })
 
-  return sendRedirect(event, url, 302)
+  return sendRedirect(event, url, 301)
 })
-
