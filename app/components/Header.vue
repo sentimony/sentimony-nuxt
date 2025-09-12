@@ -1,61 +1,24 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 const route = useRoute()
+import { getHeaderNav, isNavActive as _navActive } from '~/constants/nav'
+import { getSocials } from '~/constants/soclinks'
+import { getIcon } from '~/constants/icons'
+const isNavActive = (link: string) => _navActive(route.path, link)
 
-const nav = [
-  // { title: 'Home', route: '/' },
-  // { title: 'News', route: '/news/' },
-  { title: 'Releases', route: '/releases/' },
-  { title: 'Artists', route: '/artists/' },
-  { title: 'Videos', route: '/videos/' },
-  { title: 'Playlists', route: '/playlists/' },
-  // { title: 'Events', route: '/events/' },
-  // { title: 'Friends', route: '/friends/' },
-  // { title: 'Contacts', route: '/contacts/' },
-  // { title: 'Tracks', route: '/tracks/' },
-  // { title: 'Sitemap', route: '/sitemap/' },
-  // { title: '404', route: '/404/' },
-  // { title: 'ddos', route: '/ddos/' },
-]
+// Header socials from constants with inHeader flag and resolved icons
+const soc = computed(() =>
+  getSocials({ inHeader: true }).map(l => ({ ...l, icon: getIcon(l.id) }))
+)
 
-const soc = [
-  { title: "Bandcamp", name: "cib:bandcamp", url: "https://sentimony.bandcamp.com/follow_me" },
-  { title: "Facebook", name: "fa7-brands:facebook", url: "https://www.facebook.com/sentimony.records" },
-  { title: "SoundCloud",name: "fa7-brands:soundcloud", url: "https://soundcloud.com/sentimony" },
-  { title: "YouTube", name: "fa:youtube", url: "https://www.youtube.com/@SentimonyRecords?sub_confirmation=1" },
-  // { title: "Instagram", name: "fa-brands:instagram", url: "https://www.instagram.com/sentimony.records" },
-  // { title: "Patreon", name: "fa-brands:patreon", url: "https://www.patreon.com/sentimony" },
-  // { title: "TikTok", name: "fa-brands:tiktok", url: "https://www.tiktok.com/@sentimony" },
-  // { title: "Beatport", name: "beatport", url: "https://www.beatport.com/label/sentimony-records/66490" },
-  // { title: "JunoDownload", name: "junodownload", url: "https://www.junodownload.com/labels/Sentimony/" },
-  // { title: "Twitter", name: "fa-brands:twitter", url: "https://twitter.com/sentimony" },
-  // { title: "Mixcloud", name: "fa-brands:mixcloud", url: "https://www.mixcloud.com/sentimony" },
-  // { title: "LinkedIn", name: "fa-brands:linkedin-in", url: "https://www.linkedin.com/company/3256285" },
-  // { title: "VKontakte", name: "fa-brands:vk", url: "https://vk.com/club1342946" },
-  // { title: "Discogs", name: "discogs", url: "https://www.discogs.com/label/82598-Sentimony-Records?sort=year&sort_order=desc&layout=big&&limit=100" },
-  // { title: "AppleMusic", name: "fa-brands:apple", url: "https://itunes.apple.com/profile/sentimony" },
-  // { title: "Spotify", name: "fa-brands:spotify", url: "https://open.spotify.com/user/4arwh3vuu5g9w1gqm89o09td7" },
-  // { title: "Deezer", name: "fa-brands:deezer", url: "https://www.deezer.com/us/profile/2697545682"  }
-]
-
-const activeMatchers: Record<string, string[]> = {
-  '/releases/': ['/releases/', '/release/'],
-  '/artists/': ['/artists/', '/artist/'],
-  '/videos/': ['/videos/', '/video/'],
-  '/playlists/': ['/playlists/', '/playlist/'],
-  '/events/': ['/events/', '/event/'],
-}
-
-function isNavActive(link: string) {
-  const matchers = activeMatchers[link] || [link]
-  return matchers.some((p) => route.path.startsWith(p))
-}
+// Active highlighting uses centralized helper
 </script>
 
 <template>
-  <div class="sticky top-0 left-0 w-full z-10">
-    <div class="px-2">
+  <div class="sticky top-0 left-0 w-full z-10 border-b border-white/30 bg-white/5 backdrop-blur-sm">
+    <div class="px-0">
       <div class="container">
-        <div class="flex justify-between items-center h-[75px] border-b border-white/30 bg-white/5 backdrop-blur-sm">
+        <div class="flex justify-between items-center h-[75px] px-2">
 
           <NuxtLink
             to="/"
@@ -76,7 +39,8 @@ function isNavActive(link: string) {
 
           <div class="hidden sm:flex">
             <NuxtLink
-              v-for="i in nav"
+              v-for="i in getHeaderNav()"
+              :key="i.route"
               :to="i.route"
               class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/30 sm:px-2 md:px-3 lg:px-4 h-[56px] flex items-center justify-center rounded-[2px]"
               :class="isNavActive(i.route) ? 'bg-white/20' : ''"
@@ -94,12 +58,8 @@ function isNavActive(link: string) {
               target="_blank" rel="noopener"
               v-wave
             >
-              <!-- <img
-                :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'"
-                class="icon transition-opacity ease-in-out duration-300 w-[24px] opacity-[.5] group-hover:opacity-[1]"
-                :alt="i.title + ' Icon'"
-              /> -->
-              <Icon :name="i.name" size="22" />
+              <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
+              <img v-else :src="i.icon.url" class="icon w-[24px]" :alt="i.title + ' Icon'" />
               <div class="HeaderSocTooltip">{{ i.title }}</div>
             </a>
           </div>

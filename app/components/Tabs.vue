@@ -35,7 +35,7 @@ function selectTab(i: number) {
 </script>
 
 <template>
-  <div>
+  <ClientOnly>
     <div>
 
       <span
@@ -54,7 +54,7 @@ function selectTab(i: number) {
 
     <slot />
 
-  </div>
+  </ClientOnly>
 </template>
 
 <style lang="scss"></style>

@@ -56,13 +56,12 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
 </script>
 
 <template>
-  <div :class="[
-    'overflow-hidden relative',
-    'swiper-' + category,
-    ]"
-  >
-
-    <ClientOnly>
+  <ClientOnly>
+    <div :class="[
+      'overflow-hidden relative',
+      'swiper-' + category,
+      ]"
+    >
 
       <div class="my-1 md:my-2">
         <div class="text-[12px] md:text-[18px]">{{ title }}</div>
@@ -148,9 +147,8 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
         </button>
       </Swiper>
 
-    </ClientOnly>
-
-  </div>
+    </div>
+  </ClientOnly>
 </template>
 
 <style>

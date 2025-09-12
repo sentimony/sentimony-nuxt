@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout name="default">
+  <!-- <NuxtLayout name="default"> -->
     <div class="flex flex-col py-20">
       <div class="text-5xl mb-4">{{ error?.statusCode }}</div>
       <div class="mb-6">{{ error?.statusMessage }}</div>
@@ -25,7 +25,7 @@ useHead({
         />
       </div>
     </div>
-  </NuxtLayout>
+  <!-- </NuxtLayout> -->
 </template>
 
 <style lang="scss"></style>

@@ -59,14 +59,13 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="text-left">
-    <div class="px-2">
+  <div class="text-left border-t border-white/30">
+    <div class="relative px-2 pb-[30px] md:pb-[60px]">
+      <SvgTriangle />
 
-      <div class="container relative mb-10" v-if="item">
+      <div class="container" v-if="item">
 
-        <div class="border-t border-white/30">
-          <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
-        </div>
+        <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">
@@ -187,45 +186,41 @@ useSeoMeta({
       </div>
     </div>
 
-    <img src="/images/triangle.svg" alt="triangle bg" />
-
     <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black" v-if="item">
-      <div class="container">
-        <div class="max-w-[640px] mx-auto">
+      <div class="max-w-[640px] mx-auto">
 
-          <div v-if="item.info" v-html="item.info" />
+        <div v-if="item.info" v-html="item.info" />
 
-          <div>
-            <hr class="my-4 border-black/30">
-            <p><small><b>Releases / Tracks:</b></small></p>
-            <ol class="list-decimal ps-9">
+        <div>
+          <hr class="my-4 border-black/30">
+          <p><small><b>Releases / Tracks:</b></small></p>
+          <ol class="list-decimal ps-9">
+            <div
+              v-for="(i, index) in releasesSortedByDate"
+              :key="index"
+              class="mb-4"
+            >
+              <RelativeItem
+                v-if="i.at_playlists.includes(item.slug)"
+                :i="i"
+                category="release"
+                class="mb-2"
+              />
+
               <div
-                v-for="(i, index) in releasesSortedByDate"
-                :key="index"
-                class="mb-4"
+                v-if="i.at_playlists.includes(item.slug)"
               >
-                <RelativeItem
-                  v-if="i.at_playlists.includes(item.slug)"
-                  :i="i"
-                  category="release"
-                  class="mb-2"
+                <li
+                  v-for="(iii, index) in i.tracklistCompact"
+                  :key="'b' + index"
+                  v-if="i.tracklistCompact"
+                  v-html="iii.p"
                 />
-
-                <div
-                  v-if="i.at_playlists.includes(item.slug)"
-                >
-                  <li
-                    v-for="(iii, index) in i.tracklistCompact"
-                    :key="'b' + index"
-                    v-if="i.tracklistCompact"
-                    v-html="iii.p"
-                  />
-                </div>
               </div>
-            </ol>
-          </div>
-
+            </div>
+          </ol>
         </div>
+
       </div>
     </div>
 

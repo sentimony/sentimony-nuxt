@@ -75,7 +75,7 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
   <div class="StickyFooter">
     <div class="StickyFooter__content">
 
-      <Fractal />
+      <!-- <Fractal /> -->
       <Header />
 
       <OpenSidebar class="md:hidden" />

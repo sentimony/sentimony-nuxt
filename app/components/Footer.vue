@@ -1,57 +1,15 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 const route = useRoute()
+import { getNav, isNavActive as _navActive } from '~/constants/nav'
+import { getSocials } from '~/constants/soclinks'
+import { getIcon } from '~/constants/icons'
+const isNavActive = (link: string) => _navActive(route.path, link)
 
-const nav = [
-  { title: 'Home', route: '/' },
-  // { title: 'News', route: '/news/' },
-  { title: 'Releases', route: '/releases/' },
-  { title: 'Artists', route: '/artists/' },
-  { title: 'Videos', route: '/videos/' },
-  { title: 'Playlists', route: '/playlists/' },
-  // { title: 'Events', route: '/events/' },
-  // { title: 'Friends', route: '/friends/' },
-  { title: 'Contacts', route: '/contacts/' },
-  // { title: 'Tracks', route: '/tracks/' },
-  // { title: 'Sitemap', route: '/sitemap/' },
-  // { title: '404', route: '/404/' },
-  // { title: 'ddos', route: '/ddos/' },
-]
+// Social links with resolved icons
+const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })))
 
-const soc = [
-  { title: "AppleMusic", name: "fa-brands:apple", url: "https://itunes.apple.com/profile/sentimony" },
-  { title: "Bandcamp", name: "cib:bandcamp", url: "https://sentimony.bandcamp.com/follow_me" },
-  { title: "Beatport", name: "simple-icons:beatport", url: "https://www.beatport.com/label/sentimony-records/66490" },
-  { title: "Deezer", name: "fa-brands:deezer", url: "https://www.deezer.com/us/profile/2697545682"  },
-  { title: "Discogs", name: "simple-icons:discogs", url: "https://www.discogs.com/label/82598-Sentimony-Records?sort=year&sort_order=desc&layout=big&&limit=100" },
-  { title: "Facebook", name: "fa-brands:facebook", url: "https://www.facebook.com/sentimony.records" },
-  { title: "Instagram", name: "fa-brands:instagram", url: "https://www.instagram.com/sentimony.records" },
-  { title: "JunoDownload", icon: "junodownload", url: "https://www.junodownload.com/labels/Sentimony/" },
-  { title: "Mixcloud", name: "fa-brands:mixcloud", url: "https://www.mixcloud.com/sentimony" },
-  { title: "Patreon", name: "fa-brands:patreon", url: "https://www.patreon.com/sentimony" },
-  { title: "SoundCloud", name: "fa-brands:soundcloud", url: "https://soundcloud.com/sentimony" },
-  { title: "Spotify", name: "fa-brands:spotify", url: "https://open.spotify.com/user/4arwh3vuu5g9w1gqm89o09td7" },
-  // { title: "Tumblr", name: "fa7-brands:tumblr", url: "https://sentimony.tumblr.com" },
-  // { title: "Giphy", name: "pixel:giphy", url: "https://giphy.com/channel/sentimony" },
-  // { title: "LinkedIn", name: "fa-brands:linkedin-in", url: "https://www.linkedin.com/company/3256285" },
-  // { title: "VKontakte", name: "fa-brands:vk", url: "https://vk.com/club1342946" },
-  { title: "TikTok", name: "fa-brands:tiktok", url: "https://www.tiktok.com/@sentimony" },
-  { title: "Twitter", name: "fa-brands:twitter", url: "https://twitter.com/sentimony" },
-  { title: "YouTube", name: "fa:youtube", url: "https://www.youtube.com/@SentimonyRecords?sub_confirmation=1" },
-]
-
-const activeMatchers: Record<string, string[]> = {
-  '/releases/': ['/releases/', '/release/'],
-  '/artists/': ['/artists/', '/artist/'],
-  '/videos/': ['/videos/', '/video/'],
-  '/playlists/': ['/playlists/', '/playlist/'],
-  '/events/': ['/events/', '/event/'],
-}
-
-function isNavActive(link: string) {
-  if (link === '/') return route.path === '/'
-  const matchers = activeMatchers[link] || [link]
-  return matchers.some((p) => route.path.startsWith(p))
-}
+// Active highlighting uses centralized helper
 </script>
 
 <template>
@@ -61,7 +19,8 @@ function isNavActive(link: string) {
       <div class="text-[14px] mb-[2em]">
         <div class="FooterNav__list flex justify-center flex-wrap">
           <NuxtLink
-            v-for="i in nav"
+            v-for="i in getNav()"
+            :key="i.route"
             :to="i.route"
             class="transition-colors ease-in-out duration-300 text-white/80 hover:text-white/100 hover:bg-white/20 p-[0.6em]"
             :class="isNavActive(i.route) ? 'bg-white/10' : ''"
@@ -78,18 +37,13 @@ function isNavActive(link: string) {
           <a
             v-for="i in soc"
             :href="i.url"
-            class="transition-all ease-in-out duration-300 p-2 relative size-[40px] flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/10 rounded-sm"
+            class="transition-all ease-in-out duration-300 p-2 relative size-[40px] flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/10 rounded-md"
             target="_blank" rel="noopener"
             v-wave
           >
-            <Icon v-if="i.name" :name="i.name" size="22" />
-            <img
-              v-else
-              :src="'https://content.sentimony.com/assets/img/svg-icons/' + i.icon + '.svg?01'"
-              class="w-[22px]"
-              :alt="i.title + ' Icon'"
-            />
-            <div class="FooterSoc__tooltip">{{ i.title }}</div>
+            <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
+            <img v-else :src="i.icon.url" class="w-[22px]" :alt="i.title + ' Icon'" />
+            <div class="FooterSoc__tooltip whitespace-nowrap">{{ i.title }}</div>
           </a>
         </div>
       </div>

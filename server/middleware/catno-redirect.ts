@@ -38,7 +38,7 @@ export default defineEventHandler(async (event) => {
   for (const [slug, release] of Object.entries(releases)) {
     const cat = String(release?.cat_no || '')
     if (cat.toUpperCase() === candidateNorm) {
-      return sendRedirect(event, `/release/${slug}`, 302)
+      return sendRedirect(event, `/release/${slug}`, 301)
     }
   }
 })

@@ -16,4 +16,9 @@ h3 { @apply text-[1.17em] }
 h4 { @apply text-[1em] }
 h5 { @apply text-[0.83em] }
 h6 { @apply text-[0.67em] }
+
+small { @apply opacity-60 }
+
+.container { @apply max-w-7xl }
+.Content a { @apply max-w-7xl text-blue-700 }
 </style>

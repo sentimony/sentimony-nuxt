@@ -19,7 +19,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="px-1 pb-[30px] md:pb-[60px]">
+  <div class="container">
 
     <h1 class="mb-4">{{ PageTitle }}</h1>
 
