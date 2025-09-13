@@ -9,17 +9,15 @@ export type NavItem = {
 
 export const NAV: NavItem[] = [
   { title: 'Home', route: '/' },
-  // { title: 'News', route: '/news/' },
+  { title: 'News', route: '/news/' },
   { title: 'Releases', route: '/releases/', inHeader: true },
   { title: 'Artists', route: '/artists/', inHeader: true },
   { title: 'Videos', route: '/videos/', inHeader: true },
   { title: 'Playlists', route: '/playlists/', inHeader: true },
   // { title: 'Events', route: '/events/' },
-  { title: 'Contacts', route: '/contacts/' },
   // { title: 'Friends', route: '/friends/' },
   // { title: 'Tracks', route: '/tracks/' },
-  // { title: 'Sitemap', route: '/sitemap/' },
-  // { title: 'ddos', route: '/ddos/' },
+  { title: 'Contacts', route: '/contacts/' },
 ]
 
 export function getNav(): NavItem[] {

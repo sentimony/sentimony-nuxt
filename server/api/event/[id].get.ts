@@ -7,7 +7,8 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 400, statusMessage: 'Missing event id' })
     }
 
-    const data = await $fetch(`https://sentimony-db.firebaseio.com/events/${id}.json`)
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    const data = await $fetch(`${firebaseBase}/events/${id}.json`)
 
     if (!data) {
       throw createError({ statusCode: 404, statusMessage: 'Event not found' })

@@ -7,7 +7,8 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 400, statusMessage: 'Missing playlist id' })
     }
 
-    const data = await $fetch(`https://sentimony-db.firebaseio.com/playlists/${id}.json`)
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    const data = await $fetch(`${firebaseBase}/playlists/${id}.json`)
 
     if (!data) {
       throw createError({ statusCode: 404, statusMessage: 'Playlist not found' })

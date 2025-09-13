@@ -75,33 +75,40 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
   <div class="StickyFooter">
     <div class="StickyFooter__content">
 
-      <!-- <Fractal /> -->
+      <Fractal />
       <Header />
 
       <OpenSidebar class="md:hidden" />
 
       <div class="flex flex-col justify-center">
-        <Hero class="order-[0]" v-if="isIndex" />
+
+        <!-- <Transition name="widget" mode="in-out"> -->
+          <Hero class="order-[0]" v-if="isIndex" />
+        <!-- </Transition> -->
+
         <Swiper
           class="order-1"
-          :class="(showReleases) ? '' : 'hidden'"
+          :class="[showReleases ? '' : 'hidden']"
           title="Releases"
           :list="releasesSortedByDate"
           category="release"
-          :centeredSlidesBounds=false
-          :centerInsufficientSlides=false
+          :centeredSlidesBounds="false"
+          :centerInsufficientSlides="false"
           :activeSlug="activeReleaseSlug"
+          :startLeft="true"
         />
+
         <Swiper
-          class=""
-          :class="[(showArtists) ? '' : 'hidden', isIndex ? 'order-3' : 'order-1']"
+          :class="[showArtists ? '' : 'hidden', isIndex ? 'order-3' : 'order-1']"
           title="Artists"
           :list="artistsSortedByCategoryId"
           category="artist"
-          :centeredSlidesBounds=false
-          :centerInsufficientSlides=false
+          :centeredSlidesBounds="false"
+          :centerInsufficientSlides="false"
           :activeSlug="activeArtistSlug"
+          :startLeft="true"
         />
+
         <Swiper
           class="order-[1]"
           :class="showVideos ? '' : 'hidden'"
@@ -112,20 +119,27 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
           :centerInsufficientSlides=true
           :activeSlug="activeVideoSlug"
         />
-        <Swiper
-          class="order-[1]"
-          :class="showPlaylists ? '' : 'hidden'"
-          title="Playlists"
-          :list="playlistsSortedByDate"
-          category="playlist"
-          :centeredSlidesBounds=true
-          :centerInsufficientSlides=true
-          :activeSlug="activePlaylistSlug"
-        />
+
+        <!-- <Transition name="widget" mode="in-out"> -->
+          <Swiper
+            class="order-[1]"
+            :class="showPlaylists ? '' : 'hidden'"
+            title="Playlists"
+            :list="playlistsSortedByDate"
+            category="playlist"
+            :centeredSlidesBounds=true
+            :centerInsufficientSlides=true
+            :activeSlug="activePlaylistSlug"
+          />
+        <!-- </Transition> -->
+
         <div class="order-[2]">
-          <slot />
+          <!-- <Transition name="page" mode="in-out"> -->
+            <slot />
+          <!-- </Transition> -->
         </div>
       </div>
+
     </div>
     <div class="StickyFooter__footer">
       <Testimonials />
@@ -156,4 +170,42 @@ body,
     display: block;
   }
 }
+
+// .fade-enter-active { transition: opacity 0.4s ease 0.4s; }
+// .fade-enter-from { opacity: 0; }
+// .fade-enter-to { opacity: 1; }
+// .fade-leave-active { transition: opacity 0.4s ease; }
+// .fade-leave-to { opacity: 0; }
+
+// .page-enter-active {
+//   transition: all 0.4s ease 0.4s;
+// }
+// .page-enter-from {
+//   opacity: 0;
+//   filter: blur(1rem);
+// }
+// .page-leave-active {
+//   transition: all 0.4s ease 0.0s;
+// }
+// .page-leave-to {
+//   opacity: 0;
+//   filter: blur(1rem);
+// }
+
+// .widget-enter-active {
+//   transition: all 0.4s ease 0.4s;
+// }
+// .widget-enter-from {
+//   opacity: 0;
+//   filter: blur(1rem);
+// }
+// .widget-leave-active {
+//   transition: all 0.4s ease 0.0s;
+// }
+// .widget-leave-to {
+//   opacity: 0;
+//   filter: blur(1rem);
+// }
+
+
 </style>

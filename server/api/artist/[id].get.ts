@@ -7,7 +7,8 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 400, statusMessage: 'Missing artist id' })
     }
 
-    const data = await $fetch(`https://sentimony-db.firebaseio.com/artists/${id}.json`)
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    const data = await $fetch(`${firebaseBase}/artists/${id}.json`)
 
     if (!data) {
       throw createError({ statusCode: 404, statusMessage: 'Artist not found' })

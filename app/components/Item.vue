@@ -48,10 +48,7 @@ defineProps<{
       <div v-if="i.new" class="text-[7px] md:text-[10px] absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] px-[.8em] py-[.2em] rounded-tr-sm rounded-bl-sm">Out Now</div>
     </div>
 
-    <div
-      class="line-clamp-2 text-[8px] md:text-[12px]"
-      v-html="i.title"
-    />
+    <div class="line-clamp-2 tracking-tight">{{ i.title }}</div>
 
   </NuxtLink>
 

@@ -26,14 +26,29 @@ const eventError = eventAsync.error
 if (eventError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Event not found' })
 }
+const { formatDate, formatYear } = useDate()
 
+// SEO meta
+const appConfig = useAppConfig()
+const { absoluteUrl } = useAbsoluteUrl()
+const year = computed(() => formatYear(item.value?.date))
+const PageDescription = computed(() => [
+  item.value?.title,
+  year.value,
+].filter(Boolean).join(' — '))
 useSeoMeta({
-  title: item.value?.title,
-  description: (item.value?.title ?? '') + ' description',
-  ogImage: item.value?.cover_og,
+  title: () => item.value?.title,
+  description: () => PageDescription.value,
+  ogTitle: () => item.value?.title,
+  ogDescription: () => PageDescription.value,
+  ogImage: () => item.value?.cover_og || item.value?.cover_th || appConfig.brand.defaultOgImage,
+  ogUrl: () => absoluteUrl.value,
+  twitterTitle: () => item.value?.title,
+  twitterDescription: () => PageDescription.value,
+  twitterImage: () => item.value?.cover_og || item.value?.cover_th || appConfig.brand.defaultOgImage,
+  twitterCard: 'summary'
 })
 
-const { formatDate } = useDate()
 
 // Template ref used in <img ref="triangleEl" .../>
 // const triangleEl = ref<HTMLImageElement | null>(null)
@@ -44,9 +59,9 @@ const { formatDate } = useDate()
     <div class="relative px-2 pb-[30px] md:pb-[60px]">
       <SvgTriangle />
 
-      <div class="max-w-[640px] mx-auto" v-if="item">
+      <div class="max-w-[640px] mx-auto relative" v-if="item">
 
-        <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
+        <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
         <div>
           <!-- <NuxtImg

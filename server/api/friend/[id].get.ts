@@ -7,7 +7,8 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 400, statusMessage: 'Missing friend id' })
     }
 
-    const data = await $fetch(`https://sentimony-db.firebaseio.com/friends/${id}.json`)
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    const data = await $fetch(`${firebaseBase}/friends/${id}.json`)
 
     if (!data) {
       throw createError({ statusCode: 404, statusMessage: 'Friend not found' })

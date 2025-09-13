@@ -9,12 +9,22 @@ const logoNewUrlv3 = "https://content.sentimony.com/assets/img/svg-icons/sentimo
 const logoNewAltv3 = "Sentimony Records Logo v3.3 SVG"
 const aboutDescription = "<p>Sentimony Records is an independent psychedelic music label founded in Kyiv, Ukraine, in the autumn of 2006 by the visionary Ihor Orlovskyi, also known by his moniker 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>.</p><p>The label's main mission is to contribute to the growth of talented psy-minded artists, enriching the global soundscape with unique and exciting musical journeys.</p><p>Over the years, Sentimony Records has focused on its most beloved psychedelic subgenres: <a href='/playlist/dark-prog-zenonesque/'>DarkProg Psytrance</a> and <a href='/playlist/psychill-psybient/'>Trippy Psychill</a>. Through a deep commitment to these styles, the label continues to captivate listeners and inspire the worldwide psychedelic music community.</p>"
 
-const PageTitle = 'Home';
+const appConfig = useAppConfig()
+const { absoluteUrl } = useAbsoluteUrl()
+const PageTitle = 'Home'
+const PageDescription = 'Sentimony Records — an independent psychedelic music label from Kyiv since 2006. DarkProg psytrance and psychill releases, artists, videos and events.'
 useSeoMeta({
   title: PageTitle,
-  description: PageTitle + ' of Sentimony Records',
-  ogImage: '',
-});
+  description: PageDescription,
+  ogTitle: PageTitle,
+  ogDescription: PageDescription,
+  ogImage: appConfig.brand.defaultOgImage,
+  ogUrl: () => absoluteUrl.value,
+  twitterTitle: PageTitle,
+  twitterDescription: PageDescription,
+  twitterImage: appConfig.brand.defaultOgImage,
+  twitterCard: 'summary'
+})
 </script>
 
 <template>
