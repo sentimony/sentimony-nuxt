@@ -7,7 +7,8 @@ export default defineCachedEventHandler(
       throw createError({ statusCode: 400, statusMessage: 'Missing video id' })
     }
 
-    const data = await $fetch(`https://sentimony-db.firebaseio.com/videos/${id}.json`)
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    const data = await $fetch(`${firebaseBase}/videos/${id}.json`)
 
     if (!data) {
       throw createError({ statusCode: 404, statusMessage: 'Video not found' })

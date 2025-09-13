@@ -54,17 +54,17 @@ onBeforeUnmount(() => {
     <Transition name="modal-fade">
       <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center">
 
-        <Transition name="backdrop-fade">
+        <!-- <Transition name="backdrop-fade"> -->
           <div
             class="absolute inset-0 bg-black/30 backdrop-blur-sm"
             @click="close"
             v-wave
           />
-        </Transition>
+        <!-- </Transition> -->
 
-        <Transition name="modal-zoom">
+        <!-- <Transition name="modal-zoom"> -->
           <div
-            class="relative max-w-[90vw] max-h-[90vh] rounded-2xl"
+            class="relative max-w-[90vw] max-h-[90vh] rounded-xl"
             @click.stop
             v-wave="{
               duration: 3,
@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
             <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
-              class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl shadow-lg "
+              class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-lg "
             />
 
             <!-- <img
@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
               class="max-w-[90vw] max-h-[90vh] w-[90vw] h-auto  object-contain rounded-md shadow-lg "
             /> -->
           </div>
-        </Transition>
+        <!-- </Transition> -->
 
       </div>
     </Transition>
@@ -115,9 +115,9 @@ onBeforeUnmount(() => {
 .modal-fade-enter-active, .modal-fade-leave-active { transition: opacity .2s ease; }
 .modal-fade-enter-from, .modal-fade-leave-to { opacity: 0; }
 
-.backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity .2s ease; }
-.backdrop-fade-enter-from, .backdrop-fade-leave-to { opacity: 0; }
+// .backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity .2s ease; }
+// .backdrop-fade-enter-from, .backdrop-fade-leave-to { opacity: 0; }
 
-.modal-zoom-enter-active, .modal-zoom-leave-active { transition: opacity .2s ease, transform .2s ease; }
-.modal-zoom-enter-from, .modal-zoom-leave-to { opacity: 0; transform: scale(1.97); }
+// .modal-zoom-enter-active, .modal-zoom-leave-active { transition: opacity .2s ease, transform .2s ease; }
+// .modal-zoom-enter-from, .modal-zoom-leave-to { opacity: 0; transform: scale(0.97); }
 </style>

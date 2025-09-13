@@ -69,16 +69,16 @@ watch(() => route.path, () => { isOpen.value = false })
 
       <!-- <HeaderSocialMenu style="display: flex; justify-content: center;" /> -->
 
-      <div class="flex flex-wrap p-4  ">
+      <div class="flex flex-wrap p-4">
         <a
           v-for="i in soc"
           :href="i.url"
-          class="flex flex-col items-center justify-center hover:bg-white/15 transition-background duration-300 ease-in-out w-[50%] py-4 text-[12px] rounded-md"
+          class="flex flex-col items-center justify-center hover:bg-white/15 transition-background duration-300 ease-in-out w-[50%] py-4 text-[12px] rounded-sm"
           target="_blank" rel="noopener"
           v-wave
         >
           <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="18" />
-          <img v-else :src="i.icon.url" class="icon w-[24px]" :alt="i.title + ' Icon'" />
+          <img v-else :src="i.icon.url" class="icon w-[18px]" :alt="i.title + ' Icon'" />
           <div class="mt-2">{{ i.title }}</div>
         </a>
       </div>

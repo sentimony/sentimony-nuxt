@@ -31,18 +31,28 @@ const artistsSortedByCategoryIdDesigner = computed(() =>
       (a?.category_id ?? 0) - (b?.category_id ?? 0)
     )
 )
-const PageTitle = 'Artists';
+const appConfig = useAppConfig()
+const { absoluteUrl } = useAbsoluteUrl()
+const PageTitle = 'Artists'
+const PageDescription = 'Discover Sentimony Records artists: psytrance darkprog and psychill producers, DJs, sound engineers and visual designers. Profiles, releases, links.'
 useSeoMeta({
   title: PageTitle,
-  description: PageTitle + ' of Sentimony Records',
-  ogImage: '',
-});
+  description: PageDescription,
+  ogTitle: PageTitle,
+  ogDescription: PageDescription,
+  ogImage: appConfig.brand.defaultOgImage,
+  ogUrl: () => absoluteUrl.value,
+  twitterTitle: PageTitle,
+  twitterDescription: PageDescription,
+  twitterImage: appConfig.brand.defaultOgImage,
+  twitterCard: 'summary'
+})
 </script>
 
 <template>
   <div class="container">
 
-    <h1 class="mb-4">{{ PageTitle }}</h1>
+    <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <!-- <h2 class="">Producers & Musicians</h2> -->
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">

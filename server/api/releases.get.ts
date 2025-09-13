@@ -1,7 +1,8 @@
 export default defineCachedEventHandler(
   async () => {
     // Proxy Firebase and allow Nitro to cache the result
-    return await $fetch('https://sentimony-db.firebaseio.com/releases.json')
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    return await $fetch(`${firebaseBase}/releases.json`)
   },
   {
     // Cache for 1 hour; serve stale while revalidating

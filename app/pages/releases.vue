@@ -8,18 +8,28 @@ const releasesSortedByDate = computed(() =>
       new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
     )
 )
-const PageTitle = 'Releases';
+const appConfig = useAppConfig()
+const { absoluteUrl } = useAbsoluteUrl()
+const PageTitle = 'Releases'
+const PageDescription = 'Sentimony Records releases: latest dark progressive psytrance and psychill albums, EPs and compilations with streaming and download links.'
 useSeoMeta({
   title: PageTitle,
-  description: PageTitle + ' of Sentimony Records',
-  ogImage: '',
-});
+  description: PageDescription,
+  ogTitle: PageTitle,
+  ogDescription: PageDescription,
+  ogImage: appConfig.brand.defaultOgImage,
+  ogUrl: () => absoluteUrl.value,
+  twitterTitle: PageTitle,
+  twitterDescription: PageDescription,
+  twitterImage: appConfig.brand.defaultOgImage,
+  twitterCard: 'summary'
+})
 </script>
 
 <template>
   <div class="container">
 
-    <h1 class="mb-4">{{ PageTitle }}</h1>
+    <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
       <Item

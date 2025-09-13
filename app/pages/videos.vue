@@ -10,18 +10,28 @@ const videosSortedByDate = computed(() =>
       new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
     )
 )
-const PageTitle = 'Videos';
+const appConfig = useAppConfig()
+const { absoluteUrl } = useAbsoluteUrl()
+const PageTitle = 'Videos'
+const PageDescription = 'Music videos and live performances from Sentimony Records artists: official clips, visualizers and show recordings in psytrance darkprog and psychill.'
 useSeoMeta({
   title: PageTitle,
-  description: PageTitle + ' of Sentimony Records',
-  ogImage: '',
-});
+  description: PageDescription,
+  ogTitle: PageTitle,
+  ogDescription: PageDescription,
+  ogImage: appConfig.brand.defaultOgImage,
+  ogUrl: () => absoluteUrl.value,
+  twitterTitle: PageTitle,
+  twitterDescription: PageDescription,
+  twitterImage: appConfig.brand.defaultOgImage,
+  twitterCard: 'summary'
+})
 </script>
 
 <template>
   <div class="container">
 
-    <h1 class="mb-4">{{ PageTitle }}</h1>
+    <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
       <Item

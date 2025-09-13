@@ -1,3 +1,5 @@
+![Sentimony Records Logo SVG](public/images/sentimony-records-logo-v3.3.svg "Sentimony Records Logo SVG")
+
 # sentimony-nuxt
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/77f60e5a-3062-4880-9ee0-b8407611c9c1/deploy-status)](https://app.netlify.com/projects/sentimony-nuxt/deploys)
@@ -30,4 +32,12 @@ npm i
 npm run dev
 ```
 
+### Deploy
+
+```bash
+netlify deploy
+```
+
 ### Have fun! ;)
+
+![Geometrical Pussy](public/images/geometrical-pussy.svg "Geometrical Pussy")

@@ -5,16 +5,16 @@ const heroDescription = 'Psychedelic Music Label'
 
 <template>
   <div
-    class="Hero font-Julius
+    class="Hero font-Julius relative leading-[1.4] text-white bg-gradient-to-b from-transparent to-black/50
     py-[7.5em]
     sm:py-[8.5em]
     md:py-[9.5em]
     lg:py-[10.5em]
     xl:py-[11.5em]"
   >
-    <div class="Hero__wrapper">
+    <div class="max-w-[777px] px-2 box-border mx-auto">
       <div
-        class="Hero__title uppercase
+        class="uppercase mb-[0.2em]
         text-[40px] tracking-[2px]
         sm:text-[55px] sm:tracking-[5px]
         md:text-[70px] md:tracking-[8px]
@@ -23,8 +23,7 @@ const heroDescription = 'Psychedelic Music Label'
         v-html="heroTitle"
       />
       <div
-        class="Hero__description
-        text-[12px] tracking-[4px]
+        class="text-[12px] tracking-[4px]
         sm:text-[14px] sm:tracking-[8px]
         md:text-[16px] md:tracking-[12px]
         lg:text-[18px] lg:tracking-[16px]
@@ -37,24 +36,7 @@ const heroDescription = 'Psychedelic Music Label'
 
 <style lang="scss">
 .Hero {
-  position: relative;
-  background: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.5) 100%);
-
-  &__wrapper {
-    max-width: 777px;
-    margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
-
-  &__title {
-    color: #fff;
-    margin-bottom: 0.2em;
-  }
-
-  &__description {
-    color: #fff;
-    line-height: 2;
-  }
+  // position: relative;
+  // background: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.5) 100%);
 }
 </style>

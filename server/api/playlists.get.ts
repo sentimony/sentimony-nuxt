@@ -1,6 +1,7 @@
 export default defineCachedEventHandler(
   async () => {
-    return await $fetch('https://sentimony-db.firebaseio.com/playlists.json')
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    return await $fetch(`${firebaseBase}/playlists.json`)
   },
   {
     maxAge: 60 * 60,

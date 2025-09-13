@@ -51,10 +51,24 @@ const releasesSortedByDate = computed(() =>
     )
 )
 
+// SEO meta
+const appConfig = useAppConfig()
+const { absoluteUrl } = useAbsoluteUrl()
+const PageDescription = computed(() => [
+  item.value?.title,
+  item.value?.style,
+].filter(Boolean).join(' — '))
 useSeoMeta({
-  title: item.value?.title,
-  description: (item.value?.title ?? '') + ' description',
-  ogImage: item.value?.cover_og,
+  title: () => item.value?.title,
+  description: () => PageDescription.value,
+  ogTitle: () => item.value?.title,
+  ogDescription: () => PageDescription.value,
+  ogImage: () => item.value?.cover_og || item.value?.cover_xl || appConfig.brand.defaultOgImage,
+  ogUrl: () => absoluteUrl.value,
+  twitterTitle: () => item.value?.title,
+  twitterDescription: () => PageDescription.value,
+  twitterImage: () => item.value?.cover_og || item.value?.cover_xl || appConfig.brand.defaultOgImage,
+  twitterCard: 'summary'
 })
 </script>
 
@@ -65,7 +79,7 @@ useSeoMeta({
 
       <div class="container" v-if="item">
 
-        <h1 class="text-center mt-[0.75em] mb-[0.75em]">{{ item.title }}</h1>
+        <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4">

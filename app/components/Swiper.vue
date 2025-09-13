@@ -1,164 +1,153 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/keyboard';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-import 'swiper/css/mousewheel';
-import { ref, watch, nextTick } from 'vue'
-import {
-  FreeMode,
-  Navigation,
-  Keyboard,
-  Pagination,
-  Mousewheel
-} from 'swiper/modules';
+import { ref, nextTick, watch } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/keyboard'
+import 'swiper/css/mousewheel'
+import { FreeMode, Navigation, Keyboard, Pagination, Mousewheel } from 'swiper/modules'
+import type { Swiper as SwiperInstance } from 'swiper/types'
 
-const modules = [
-  FreeMode,
-  Keyboard,
-  Navigation,
-  Pagination,
-  Mousewheel ,
-];
+const modules = [FreeMode, Keyboard, Navigation, Pagination, Mousewheel] as const
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   title?: string
   category?: string
   list?: any[]
   centeredSlidesBounds?: boolean
   centerInsufficientSlides?: boolean
   activeSlug?: string | null
-}>()
+  /** якшо true — на старті вирівнюємо зліва і чекаємо першу взаємодію */
+  startLeft?: boolean
+}>(), {
+  title: '',
+  category: '',
+  list: () => [],
+  centeredSlidesBounds: false,
+  centerInsufficientSlides: false,
+  activeSlug: '',
+  startLeft: false,
+})
 
-const swiperRef = ref<any | null>(null)
-function onSwiper(sw: any) {
-  swiperRef.value = sw
-  // try centering on first init
+const swiperRef = ref<SwiperInstance | null>(null)
+
+// керуємо опціями у рантаймі
+const centered = ref(!props.startLeft)
+const slideToClick = ref(!props.startLeft)
+
+function onSwiper(s: SwiperInstance) {
+  swiperRef.value = s
   nextTick(() => slideToActiveSlug())
 }
 
 function slideToActiveSlug() {
-  if (!swiperRef.value) return
+  const s = swiperRef.value
+  if (!s) return
   const slug = props.activeSlug || ''
   if (!slug) return
-  const list = props.list || []
-  const idx = list.findIndex((it: any) => it?.slug === slug)
-  if (idx >= 0) {
-    swiperRef.value.slideTo(idx, 0)
+  const idx = (props.list || []).findIndex((it: any) => it?.slug === slug)
+  if (idx >= 0) s.slideTo(idx, 0)
+}
+
+// вмикаємо центрування лише один раз — на першій взаємодії
+function enableCenteringOnce() {
+  if (centered.value) return
+  const s = swiperRef.value
+  if (!s) return
+
+  centered.value = true
+  slideToClick.value = true
+
+  // оновити параметри Swiper "на льоту"
+  s.params.centeredSlides = true
+  s.params.slideToClickedSlide = true
+  s.update()
+
+  // якщо це клік по слайду — одразу центруємо клікнутий
+  if (s.clickedIndex != null && s.clickedIndex >= 0) {
+    s.slideTo(s.clickedIndex, 0)
+  } else {
+    // для навігаційних кнопок/скролу/клавіатури просто
+    // перерендеримо поточний активний з урахуванням center
+    s.slideTo(s.activeIndex ?? 0, 0)
   }
 }
 
-watch(() => [props.activeSlug, (props.list || []).length], () => {
-  slideToActiveSlug()
-})
+// коли міняється активний slug або приходить список
+watch(() => [props.activeSlug, (props.list || []).length], () => nextTick(slideToActiveSlug))
 </script>
 
 <template>
-  <ClientOnly>
-    <div :class="[
-      'overflow-hidden relative',
-      'swiper-' + category,
-      ]"
-    >
+  <div
+    class="overflow-hidden"
+    :class="['transition-all ease duration-200 delay-200 relative overflow-hidden h-[174px] md:h-[284px]', 'swiper-' + (category || '')]"
+  >
+    <div class="mt-3 md:mt-5 text-lg md:text-2xl">{{ title }}</div>
 
-      <div class="my-1 md:my-2">
-        <div class="text-[12px] md:text-[18px]">{{ title }}</div>
-
-        <div :class="[
-          'swiper-pagination',
-          'swiper-pagination-' + category,
-        ]"></div>
-      </div>
-
-      <!-- <div class="text-[18px] md:text-[32px] my-[.5em] mb-4">{{ title }}</div> -->
+    <ClientOnly>
+      <div :class="['swiper-pagination mb-3 md:mb-5', 'swiper-pagination-' + (category || '')]" />
 
       <Swiper
-        :enabled="true"
-        :mousewheel="{
-          enabled: true,
-          forceToAxis: true,
-          sensitivity: 3,
-          thresholdDelta: 100,
-        }"
-        :slides-per-view="'auto'"
-        :space-between="0"
-        :free-mode="{
-          enabled: true,
-          sticky: true,
-        }"
         :modules="modules"
         @swiper="onSwiper"
-        :speed="300"
-        :centeredSlides="true"
-        :slideToClickedSlide="true"
-        :centeredSlidesBounds="centeredSlidesBounds"
-        :centerInsufficientSlides="centerInsufficientSlides"
-        :cssMode="false"
+
+        :enabled="true"
+        :slides-per-view="'auto'"
+        :space-between="0"
+
+        :free-mode="{ enabled: true, sticky: true }"
+
+        :centered-slides="centered"
+        :slide-to-clicked-slide="slideToClick"
+        :centered-slides-bounds="centeredSlidesBounds"
+        :center-insufficient-slides="centerInsufficientSlides"
+
+        :mousewheel="{ enabled: true, forceToAxis: true, sensitivity: 3, thresholdDelta: 100 }"
+        :keyboard="{ enabled: true }"
         :navigation="{
           enabled: true,
-          nextEl: '.swiper-button-prev',
-          prevEl: '.swiper-button-next',
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
           disabledClass: 'swiper-button-disabled',
         }"
         :pagination="{
           enabled: true,
-          el: '.swiper-pagination-' + category,
+          el: '.swiper-pagination-' + (category || ''),
           type: 'fraction',
         }"
-        :slidesOffsetBefore="0"
-        :slidesOffsetAfter="0"
-        :keyboard="{
-          enabled: true,
-        }"
-      >
+        :speed="300"
+        :css-mode="false"
 
-        <SwiperSlide
-          v-for="(i, idx) in list"
-          :key="idx"
-        >
-          <Item
-            :category="category"
-            :i="i"
-          />
+        @click="enableCenteringOnce"
+        @touchStart="enableCenteringOnce"
+        @keyPress="enableCenteringOnce"
+        @wheel.passive="enableCenteringOnce"
+      >
+        <SwiperSlide v-for="i in list" :key="i.slug">
+          <Item :category="category" :i="i" />
         </SwiperSlide>
 
-        <button
-          class="swiper-button-next"
-          v-wave
-        >
-          <Icon
-            name="fa7-solid:chevron-circle-left"
-            size="44"
-            class="block"
-          />
-        </button>
-
-        <button
-          class="swiper-button-prev"
-          v-wave
-        >
-          <Icon
-            name="fa7-solid:chevron-circle-right"
-            size="44"
-            class="block"
-          />
-        </button>
+        <button class="swiper-button-next" v-wave @click="enableCenteringOnce" />
+        <button class="swiper-button-prev" v-wave @click="enableCenteringOnce" />
       </Swiper>
-
-    </div>
-  </ClientOnly>
+    </ClientOnly>
+  </div>
 </template>
 
-<style>
+<style lang="scss">
 .swiper { @apply overflow-visible static }
 .swiper-slide { @apply w-[auto] }
 
-.swiper-pagination { @apply text-[8px] md:text-[12px] leading-none text-white/50 }
-.swiper-button-next,
-.swiper-button-prev { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-white/40 hover:text-white/80 hover:bg-white/5 hover:backdrop-blur-sm hidden md:block p-4 }
-.swiper-button-next { @apply left-[0px] }
-.swiper-button-prev { @apply right-[0px] }
+.swiper-pagination { @apply text-xs/3 md:text-sm/4 text-white/50 }
+
+.swiper-button-prev,
+.swiper-button-next { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-white/40 hover:text-white/80 hover:bg-white/5 hover:backdrop-blur-sm hidden md:block p-4 }
+.swiper-button-prev { @apply left-0 }
+.swiper-button-next { @apply right-0 }
+
+.swiper-button-prev svg,
+.swiper-button-next svg { @apply size-6 }
+.swiper-button-prev svg { @apply rotate-[180deg] }
+
 .swiper-button-disabled { @apply text-white/5 pointer-events-none }
 </style>
