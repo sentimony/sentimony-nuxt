@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const host = useRequestURL().hostname
 // import SidebarMenu from '~/components/SidebarMenu.vue'
 
 const route = useRoute()
@@ -72,10 +73,11 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
 </script>
 
 <template>
+  <!-- <Fractal v-if="host == '!localhost'" /> -->
+  <Fractal />
   <div class="StickyFooter">
     <div class="StickyFooter__content">
 
-      <Fractal />
       <Header />
 
       <OpenSidebar class="md:hidden" />
@@ -95,7 +97,6 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"
           :activeSlug="activeReleaseSlug"
-          :startLeft="true"
         />
 
         <Swiper
@@ -106,7 +107,6 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"
           :activeSlug="activeArtistSlug"
-          :startLeft="true"
         />
 
         <Swiper
@@ -206,6 +206,4 @@ body,
 //   opacity: 0;
 //   filter: blur(1rem);
 // }
-
-
 </style>

@@ -107,7 +107,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
 <template>
   <div class="text-left border-t border-white/30">
-    <div class="relative px-2 pb-[30px] md:pb-[60px]">
+    <div class="relative px-2">
       <SvgTriangle />
 
       <div class="container" v-if="item">
@@ -115,7 +115,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
-          <div class="w-full mb-4">
+          <div class="w-full mb-4 lg:mb-20 xl:mb-32 2xl:mb-56 ">
 
             <OpenImage
               :image_th="item.cover_th"

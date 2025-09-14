@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   runtimeConfig: {
+    // envName: process.env.NUXT_PUBLIC_ENV || 'prod',  // 'local' | 'stage' | 'prod' ...
     public: {
       // Base URL for Firebase Realtime DB
       firebaseBase: 'https://sentimony-db.firebaseio.com',

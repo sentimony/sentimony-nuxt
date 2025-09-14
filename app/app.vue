@@ -28,7 +28,8 @@ useHead({
 </template>
 
 <style lang="scss">
-body { @apply min-w-[320px] font-Montserrat antialiased text-xs md:text-sm text-white text-center bg-green-950 bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')] bg-center bg-no-repeat bg-cover bg-fixed }
+// html { @apply text-[16px] xl:text-[16px] }
+body { @apply min-w-[320px] font-Montserrat antialiased text-xs md:text-sm lg:text-base text-white text-center bg-green-950 bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')] bg-center bg-no-repeat bg-cover bg-fixed }
 // h1, h2, h3, h4, h5, h6, p { @apply mb-[.3rem] md:mb-[.5rem] }
 // h1, h2, h3, h4, h5, h6 { @apply font-normal }
 // h1 { @apply text-[18px] md:text-[32px] my-[.5em] }
@@ -44,4 +45,9 @@ small { @apply opacity-60 }
 
 .container { @apply max-w-7xl }
 .Content a { @apply text-blue-700 }
+
+// @theme {
+//   --container-8xl: 96rem;
+// }
+
 </style>
