@@ -13,9 +13,9 @@ useHead({
 </script>
 
 <template>
-  <!-- <NuxtLayout name="default"> -->
-    <div class="flex flex-col py-20">
-      <div class="text-5xl mb-4">{{ error?.statusCode }}</div>
+  <NuxtLayout name="empty">
+    <div class="max-w-xs flex flex-col justify-center h-[100vh] mx-auto px-2">
+      <div class="text-2xl md:text-4xl my-4 md:my-6">{{ error?.statusCode }}</div>
       <div class="mb-6">{{ error?.statusMessage }}</div>
       <div>
         <BtnPrimary
@@ -25,7 +25,7 @@ useHead({
         />
       </div>
     </div>
-  <!-- </NuxtLayout> -->
+  </NuxtLayout>
 </template>
 
 <style lang="scss"></style>

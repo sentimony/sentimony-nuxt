@@ -5,7 +5,7 @@ const heroDescription = 'Psychedelic Music Label'
 
 <template>
   <div
-    class="Hero font-Julius relative leading-[1.4] text-white bg-gradient-to-b from-transparent to-black/50
+    class="font-Julius relative leading-[1.4] text-white bg-gradient-to-b from-transparent to-black/50
     py-[7.5em]
     sm:py-[8.5em]
     md:py-[9.5em]
@@ -34,9 +34,4 @@ const heroDescription = 'Psychedelic Music Label'
   </div>
 </template>
 
-<style lang="scss">
-.Hero {
-  // position: relative;
-  // background: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.5) 100%);
-}
-</style>
+<style lang="scss"></style>

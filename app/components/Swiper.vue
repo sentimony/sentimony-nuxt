@@ -1,109 +1,118 @@
 <script setup lang="ts">
-import { ref, nextTick, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/keyboard'
+// import 'swiper/css/navigation'
+// import 'swiper/css/pagination'
 import 'swiper/css/mousewheel'
-import { FreeMode, Navigation, Keyboard, Pagination, Mousewheel } from 'swiper/modules'
-import type { Swiper as SwiperInstance } from 'swiper/types'
+import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
+import {
+  FreeMode,
+  Navigation,
+  Keyboard,
+  Pagination,
+  Mousewheel
+} from 'swiper/modules'
 
-const modules = [FreeMode, Keyboard, Navigation, Pagination, Mousewheel] as const
+const modules = [
+  FreeMode,
+  Keyboard,
+  Navigation,
+  Pagination,
+  Mousewheel,
+]
 
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   title?: string
   category?: string
   list?: any[]
   centeredSlidesBounds?: boolean
   centerInsufficientSlides?: boolean
   activeSlug?: string | null
-  /** якшо true — на старті вирівнюємо зліва і чекаємо першу взаємодію */
-  startLeft?: boolean
-}>(), {
-  title: '',
-  category: '',
-  list: () => [],
-  centeredSlidesBounds: false,
-  centerInsufficientSlides: false,
-  activeSlug: '',
-  startLeft: false,
-})
+}>()
 
-const swiperRef = ref<SwiperInstance | null>(null)
-
-// керуємо опціями у рантаймі
-const centered = ref(!props.startLeft)
-const slideToClick = ref(!props.startLeft)
-
-function onSwiper(s: SwiperInstance) {
-  swiperRef.value = s
+const swiperRef = ref<any | null>(null)
+function onSwiper(sw: any) {
+  swiperRef.value = sw
+  // try centering on first init
   nextTick(() => slideToActiveSlug())
 }
 
 function slideToActiveSlug() {
-  const s = swiperRef.value
-  if (!s) return
+  if (!swiperRef.value) return
   const slug = props.activeSlug || ''
   if (!slug) return
-  const idx = (props.list || []).findIndex((it: any) => it?.slug === slug)
-  if (idx >= 0) s.slideTo(idx, 0)
-}
-
-// вмикаємо центрування лише один раз — на першій взаємодії
-function enableCenteringOnce() {
-  if (centered.value) return
-  const s = swiperRef.value
-  if (!s) return
-
-  centered.value = true
-  slideToClick.value = true
-
-  // оновити параметри Swiper "на льоту"
-  s.params.centeredSlides = true
-  s.params.slideToClickedSlide = true
-  s.update()
-
-  // якщо це клік по слайду — одразу центруємо клікнутий
-  if (s.clickedIndex != null && s.clickedIndex >= 0) {
-    s.slideTo(s.clickedIndex, 0)
-  } else {
-    // для навігаційних кнопок/скролу/клавіатури просто
-    // перерендеримо поточний активний з урахуванням center
-    s.slideTo(s.activeIndex ?? 0, 0)
+  const list = props.list || []
+  const idx = list.findIndex((it: any) => it?.slug === slug)
+  if (idx >= 0) {
+    swiperRef.value.slideTo(idx, 0)
   }
 }
 
-// коли міняється активний slug або приходить список
-watch(() => [props.activeSlug, (props.list || []).length], () => nextTick(slideToActiveSlug))
+watch(() => [props.activeSlug, (props.list || []).length], () => {
+  slideToActiveSlug()
+})
+
+
+// timer
+// import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+// const isShown = ref(false)
+// let timer: ReturnType<typeof setTimeout> | null = null
+
+// onMounted(() => {
+//   timer = setTimeout(() => {
+//     isShown.value = true
+//   }, 1000)
+// })
+
+// onBeforeUnmount(() => {
+//   if (timer) clearTimeout(timer)
+// })
 </script>
 
 <template>
-  <div
-    class="overflow-hidden"
-    :class="['transition-all ease duration-200 delay-200 relative overflow-hidden h-[174px] md:h-[284px]', 'swiper-' + (category || '')]"
+  <div class=" overflow-hidden "
+    :class="['transition-all ease duration-200 delay-200 relative overflow-hidden h-[174px] md:h-[284px] lg:h-[292px] ', 'swiper-' + category]"
   >
-    <div class="mt-3 md:mt-5 text-lg md:text-2xl">{{ title }}</div>
+
+      <!-- <div class="my-3 md:my-5"> -->
+        <div class="mt-3 md:mt-5 text-lg md:text-2xl">{{ title }}</div>
 
     <ClientOnly>
-      <div :class="['swiper-pagination mb-3 md:mb-5', 'swiper-pagination-' + (category || '')]" />
+
+
+        <div :class="[
+          'swiper-pagination mb-3 md:mb-5',
+          'swiper-pagination-' + category
+        ]" />
+      <!-- </div> -->
+
+      <!-- <div class="text-[18px] md:text-[32px] my-[.5em] mb-4">{{ title }}</div> -->
 
       <Swiper
-        :modules="modules"
-        @swiper="onSwiper"
-
         :enabled="true"
+        :mousewheel="{
+          enabled: true,
+          forceToAxis: true,
+          sensitivity: 3,
+          thresholdDelta: 100,
+        }"
         :slides-per-view="'auto'"
         :space-between="0"
-
-        :free-mode="{ enabled: true, sticky: true }"
-
-        :centered-slides="centered"
-        :slide-to-clicked-slide="slideToClick"
-        :centered-slides-bounds="centeredSlidesBounds"
-        :center-insufficient-slides="centerInsufficientSlides"
-
-        :mousewheel="{ enabled: true, forceToAxis: true, sensitivity: 3, thresholdDelta: 100 }"
-        :keyboard="{ enabled: true }"
+        :free-mode="{
+          enabled: true,
+          sticky: true,
+        }"
+        :modules="modules"
+        @swiper="onSwiper"
+        :speed="300"
+        :centeredSlides="true"
+        :slideToClickedSlide="true"
+        :centeredSlidesBounds="centeredSlidesBounds"
+        :centerInsufficientSlides="centerInsufficientSlides"
+        :cssMode="false"
         :navigation="{
           enabled: true,
           nextEl: '.swiper-button-next',
@@ -112,24 +121,50 @@ watch(() => [props.activeSlug, (props.list || []).length], () => nextTick(slideT
         }"
         :pagination="{
           enabled: true,
-          el: '.swiper-pagination-' + (category || ''),
+          el: '.swiper-pagination-' + category,
           type: 'fraction',
         }"
-        :speed="300"
-        :css-mode="false"
-
-        @click="enableCenteringOnce"
-        @touchStart="enableCenteringOnce"
-        @keyPress="enableCenteringOnce"
-        @wheel.passive="enableCenteringOnce"
+        :slidesOffsetBefore="0"
+        :slidesOffsetAfter="0"
+        :keyboard="{
+          enabled: true,
+        }"
       >
-        <SwiperSlide v-for="i in list" :key="i.slug">
-          <Item :category="category" :i="i" />
+
+        <SwiperSlide
+          v-for="i in list"
+          :key="i.slug"
+        >
+          <!-- <div>{{ i.slug }}</div> -->
+          <Item
+            :category="category"
+            :i="i"
+          />
         </SwiperSlide>
 
-        <button class="swiper-button-next" v-wave @click="enableCenteringOnce" />
-        <button class="swiper-button-prev" v-wave @click="enableCenteringOnce" />
+        <button
+          class="swiper-button-next"
+          v-wave
+        >
+          <!-- <Icon
+            name="fa7-solid:chevron-circle-left"
+            size="44"
+            class="block"
+          /> -->
+        </button>
+
+        <button
+          class="swiper-button-prev"
+          v-wave
+        >
+          <!-- <Icon
+            name="fa7-solid:chevron-circle-right"
+            size="44"
+            class="block"
+          /> -->
+        </button>
       </Swiper>
+
     </ClientOnly>
   </div>
 </template>
