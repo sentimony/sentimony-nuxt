@@ -1,4 +1,12 @@
-[[redirects]]
-  from = "/*"
-  to = "/pages/404"
-  status = 404
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  framework = "nuxt"
+  command = "npx nuxi dev"
+  targetPort = 3000
