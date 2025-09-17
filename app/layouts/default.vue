@@ -100,6 +100,7 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
         />
 
         <Swiper
+          class=""
           :class="[showArtists ? '' : 'hidden', isIndex ? 'order-3' : 'order-1']"
           title="Artists"
           :list="artistsSortedByCategoryId"

@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "swiper": "^12.0.1",
-    "v-wave": "^3.0.3",
+    "v-wave": "^3.0.4",
     "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },

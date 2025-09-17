@@ -17,7 +17,7 @@ const soc = computed(() =>
 <template>
   <div class="sticky top-0 left-0 w-full z-10 border-b border-white/30 bg-white/5 backdrop-blur-sm">
     <div class="px-0">
-      <div class="container">
+      <div class="container max-w-7xl">
         <div class="flex justify-between items-center h-[75px] px-2">
 
           <NuxtLink

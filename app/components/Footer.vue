@@ -49,35 +49,35 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
       </div>
 
       <div class="text-[14px] mb-[24px]">
-        <div>2006 - {{ new Date().getFullYear() }} © Sentimony Records</div>
-        <div>All Rights Reserved</div>
-        <div>
+        <p>2006 - {{ new Date().getFullYear() }} © Sentimony Records</p>
+        <p>All Rights Reserved</p>
+        <p>
           <img
             class="w-[30px] block mx-auto mt-[4px]"
             src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
             alt="Sentimony Records Logo SVG"
           />
-        </div>
+        </p>
       </div>
 
-      <div class="text-[12px] mb-[20px]">
-        <div>
+      <div class="mb-[20px]">
+        <p>
           <span>Design By </span>
           <NuxtLink
-            class="text-white"
+            class="text-white py-2"
             to="/artist/apivniuk"
             v-wave
           >Anton Pivniuk</NuxtLink>
-        </div>
-        <div>
+        </p>
+        <p>
           <span>Development By </span>
           <a
-            class="text-white"
+            class="text-white py-2"
             href="https://github.com/sentimony/sentimony-nuxt"
             target="_blank" rel="noopener"
             v-wave
           >Ihor Orlovskyi</a>
-        </div>
+        </p>
       </div>
 
     </div>

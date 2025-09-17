@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { toArray } from '~/composables/toArray'
 
 definePageMeta({
-  layout: 'empty',
+  layout: 'default',
 })
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
@@ -27,6 +27,13 @@ const { data: releasesRaw } = await useReleases({ server: true })
 const releasesArr = computed(() => toArray<any>(releasesRaw.value, 'releases'))
 const releasedReleases = computed(() =>
   releasesArr.value.filter((r: any) => Boolean(r?.visible) && !Boolean(r?.coming_soon))
+)
+const sortByDate = computed(() =>
+  [...releasedReleases.value]
+    .filter((release: any) => Array.isArray(release?.tracklistCompact) && release.tracklistCompact.length > 0)
+    .sort((a: any, b: any) =>
+      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    )
 )
 const releases = computed(() => releasedReleases.value.length)
 const tracks = computed(() =>
@@ -57,24 +64,48 @@ const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.vi
 </script>
 
 <template>
-  <div class="max-w-xs flex flex-col justify-center h-[100vh] mx-auto px-2">
+  <div class="container max-w-4xl ">
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      <div class="mb-6">Releases<br>{{ releases }}</div>
-      <div class="mb-6">Tracks<br>{{ tracks }}</div>
-      <div class="mb-6">Artists<br>{{ artists }}</div>
-      <div class="mb-6">Videos<br>{{ videos }}</div>
-      <div class="mb-6">Playlists<br>{{ playlists }}</div>
-      <div class="mb-6">Events<br>{{ events }}</div>
-      <div class="mb-6">Friends<br>{{ friends }}</div>
+
+    <div class="flex justify-between my-12">
+      <div class="">Releases<br>{{ releases }}</div>
+      <div class="">Tracks<br>{{ tracks }}</div>
+      <div class="">Artists<br>{{ artists }}</div>
+      <div class="">Videos<br>{{ videos }}</div>
+      <div class="">Playlists<br>{{ playlists }}</div>
+      <div class="">Events<br>{{ events }}</div>
+      <div class="">Friends<br>{{ friends }}</div>
     </div>
-    <p class="mb-6">Tracks page is coming soon</p>
-    <div>
-      <BtnPrimary
-        url="/"
-        title="Go Home"
-        icon="fa7-solid:home"
-      />
+
+    <div class=" text-left pb-[30px] md:pb-[60px]">
+      <div class="max-w-[640px] mx-auto">
+
+        <hr class="my-4 border-white/30">
+        <p><small><b>Releases / Tracks:</b></small></p>
+
+        <ol class="list-decimal ps-9">
+          <div
+            v-for="(i, index) in sortByDate"
+            :key="i.slug || index"
+            class="mb-4"
+          >
+            <RelativeItem
+              :i="i"
+              category="release"
+              class="mb-2"
+            />
+
+            <div v-if="i.tracklistCompact" style="margin-bottom: 20px;">
+              <li
+                v-for="(iii, index) in i.tracklistCompact"
+                :key="'b' + index"
+                v-if="i.tracklistCompact"
+                v-html="iii.p"
+              />
+            </div>
+          </div>
+        </ol>
+      </div>
     </div>
 
   </div>

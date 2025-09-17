@@ -43,7 +43,7 @@ p { @apply mb-2 }
 
 small { @apply opacity-60 }
 
-.container { @apply max-w-7xl }
+// .container { @apply max-w-7xl }
 .Content a { @apply text-blue-700 }
 
 // @theme {
