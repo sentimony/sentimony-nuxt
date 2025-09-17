@@ -10,3 +10,6 @@
   framework = "nuxt"
   command = "npx nuxi dev"
   targetPort = 3000
+
+[[plugins]]
+package = "@netlify/plugin-lighthouse"

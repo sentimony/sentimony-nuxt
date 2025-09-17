@@ -17,26 +17,26 @@ defineProps<{
 <template>
 
   <NuxtLink
-    class="w-[80px] md:w-[180px] block group rounded-[2px] py-1 md:py-3 mt-[-0.25rem] md:mt-[-0.75rem]"
+    class="w-[80px] md:w-[180px] block group rounded-sm py-1 md:py-3 mt-[-0.25rem] md:mt-[-0.75rem]"
     :to="'/' + category + '/' + i.slug + '/'"
     v-slot="{ isActive }"
     v-wave
   >
 
     <div
-      class="relative mb-[4px] flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-[2px] transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30"
+      class="relative mb-[4px] flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30"
       :class="isActive ? 'bg-white/20' : ''"
     >
-      <div class="w-[60px] md:w-[120px] h-[60px] md:h-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-[2px] bg-black/50">
+      <div class="w-[60px] md:w-[120px] h-[60px] md:h-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50">
         <img
-          class="block rounded-[2px]"
+          class="block rounded-sm w-full h-auto "
           v-if="i.cover_th"
           :src="i.cover_th"
           :alt="i.title + ' Small Thumbnail'"
         />
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingCover"/> -->
         <img
-          class="block rounded-[2px]"
+          class="block rounded-sm w-full h-auto "
           v-if="i.photo_th"
           :src="i.photo_th"
           :alt="i.title + ' Small Thumbnail'"

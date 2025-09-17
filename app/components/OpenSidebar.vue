@@ -50,7 +50,7 @@ watch(() => route.path, () => { isOpen.value = false })
     </div>
 
     <div
-      class="fixed left-full w-[256px] h-screen top-0 z-40 transition-transform duration-300 ease-in-out flex flex-col bg-black/60"
+      class="fixed left-full w-[256px] h-screen top-0 z-40 transition-transform duration-300 ease-in-out flex flex-col bg-black/60 pt-2"
       :class="isOpen ? '-translate-x-full' : ''"
       @click="toggleSidebar"
     >
@@ -58,28 +58,28 @@ watch(() => route.path, () => { isOpen.value = false })
         v-for="i in getNav()"
         :key="i.route"
         :to="i.route"
-        class="flex items-center justify-center h-[48px] hover:bg-white/15 transition-background duration-300 ease-in-out text-[14px]"
+        class="flex items-center justify-center h-12 hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
         :class="isNavActive(i.route) ? 'bg-white/10' : ''"
         v-wave
       >
         {{ i.title }}
       </NuxtLink>
 
-      <hr class="border-white/30" />
+      <hr class="border-white/30 my-2" />
 
       <!-- <HeaderSocialMenu style="display: flex; justify-content: center;" /> -->
 
-      <div class="flex flex-wrap p-4">
+      <div class="flex flex-wrap">
         <a
           v-for="i in soc"
           :href="i.url"
-          class="flex flex-col items-center justify-center hover:bg-white/15 transition-background duration-300 ease-in-out w-[50%] py-4 text-[12px] rounded-sm"
+          class="flex flex-row items-center h-12 justify-center hover:bg-white/15 transition-background duration-300 ease-in-out w-full text-[12px]"
           target="_blank" rel="noopener"
           v-wave
         >
-          <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="18" />
+          <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="20" />
           <img v-else :src="i.icon.url" class="icon w-[18px]" :alt="i.title + ' Icon'" />
-          <div class="mt-2">{{ i.title }}</div>
+          <div class="ml-3">{{ i.title }}</div>
         </a>
       </div>
 

@@ -78,7 +78,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="container">
+  <div class="container max-w-lg">
 
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 

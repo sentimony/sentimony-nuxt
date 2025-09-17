@@ -73,8 +73,8 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
 </script>
 
 <template>
-  <div class=" overflow-hidden "
-    :class="['transition-all ease duration-200 delay-200 relative overflow-hidden h-[174px] md:h-[284px] lg:h-[292px] ', 'swiper-' + category]"
+  <div class="overflow-hidden"
+    :class="['relative overflow-hidden h-[174px] md:h-[284px] lg:h-[292px] ', 'swiper-' + category]"
   >
 
       <!-- <div class="my-3 md:my-5"> -->

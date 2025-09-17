@@ -1,4 +1,6 @@
-![Sentimony Records Logo SVG](public/images/sentimony-records-logo-v3.3.svg "Sentimony Records Logo SVG")
+<div style="background: #e5e7eb;border-radius: 1000px;width: 80px;margin: 0 0 16px;border: 2px solid #144B15;">
+  <img src="public/images/sentimony-records-logo-v3.3.svg" alt="Sentimony Records Logo SVG" title="Sentimony Records Logo SVG" style="display: block;padding: 6px;">
+</div>
 
 # sentimony-nuxt
 
@@ -40,4 +42,4 @@ netlify deploy
 
 ### Have fun! ;)
 
-![Geometrical Pussy](public/images/geometrical-pussy.svg "Geometrical Pussy")
+<!-- ![Geometrical Pussy](public/images/geometrical-pussy.svg "Geometrical Pussy") -->
