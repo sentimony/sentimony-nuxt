@@ -1,6 +1,6 @@
-<div style="background: #e5e7eb;border-radius: 1000px;width: 80px;margin: 0 0 16px;border: 2px solid #144B15;">
-  <img src="public/images/sentimony-records-logo-v3.3.svg" alt="Sentimony Records Logo SVG" title="Sentimony Records Logo SVG" style="display: block;padding: 6px;">
-</div>
+<p align="center">
+  <img src="./public/images/sentimony-records-logo-v3.3.svg" alt="Sentimony Records Logo SVG v3.3" title="Sentimony Records Logo SVG v3.3" width="48" height="48">
+</p>
 
 # sentimony-nuxt
 
@@ -9,18 +9,23 @@
 Jamstack development of Sentimony Records portfolio website
 
 ### Used:
-* [Nuxt](https://nuxt.com)
+* [Nuxt 4](https://nuxt.com)
 * [Firebase](https://firebase.google.com)
 * [Netlify](https://www.netlify.com)
-* [Tailwind CSS](https://tailwindcss.com)
+* [Tailwind 3](https://v3.tailwindcss.com)
 * [Iconify](https://icon-sets.iconify.design)
-* [Swiper](https://swiperjs.com)
+* [Swiper 12](https://swiperjs.com)
 <!-- * [RealFaviconGenerator](https://realfavicongenerator.net) -->
 
 ### Links:
 
 * [sentimony.com](https://sentimony.com)
 * [sentimony-nuxt.netlify.app](https://sentimony-nuxt.netlify.app)
+
+### Monitoring
+
+* [Prod Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/functions/server) or `netlify logs:function server`
+* [Requests Left](https://app.netlify.com/projects/sentimony-nuxt/configuration/functions#overview)
 
 <!-- ### Content -->
 

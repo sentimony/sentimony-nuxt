@@ -2,8 +2,10 @@
 type ItemEntity = {
   slug: string
   title?: string
-  cover_th?: string
+  artwork_th?: string
   photo_th?: string
+  cover_th?: string
+  flyer_th?: string
   coming_soon?: boolean
   new?: boolean
 }
@@ -27,20 +29,32 @@ defineProps<{
       class="relative mb-[4px] flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30"
       :class="isActive ? 'bg-white/20' : ''"
     >
-      <div class="w-[60px] md:w-[120px] h-[60px] md:h-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50">
+      <div class="size-[60px] md:size-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50">
         <img
-          class="block rounded-sm w-full h-auto "
+          class="rounded-sm size-[60px] md:size-[120px] object-cover"
           v-if="i.cover_th"
           :src="i.cover_th"
-          :alt="i.title + ' Small Thumbnail'"
+          :alt="i.title + ' Cover Thumbnail'"
         />
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingCover"/> -->
         <img
-          class="block rounded-sm w-full h-auto "
+          class="rounded-sm size-[60px] md:size-[120px] object-cover"
           v-if="i.photo_th"
           :src="i.photo_th"
-          :alt="i.title + ' Small Thumbnail'"
+          :alt="i.title + ' Photo Thumbnail'"
         />
+        <!-- <img
+          class="rounded-sm size-[60px] md:size-[120px] object-cover"
+          v-if="i.artwork_th"
+          :src="i.artwork_th"
+          :alt="i.title + ' Artwork Thumbnail'"
+        /> -->
+        <!-- <img
+          class="rounded-sm size-[60px] md:size-[120px] object-cover"
+          v-if="i.flyer_th"
+          :src="i.flyer_th"
+          :alt="i.title + ' Flyer Thumbnail'"
+        /> -->
         <!-- <div class="swiper-lazy-preloader"></div> -->
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingPhoto"/> -->
       </div>

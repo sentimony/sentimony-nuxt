@@ -50,17 +50,17 @@ const soc = computed(() =>
             </NuxtLink>
           </div>
 
-          <div class="HeaderSoc hidden md:flex justify-between">
+          <div class="hidden md:flex justify-between">
             <a
               v-for="i in soc"
               :href="i.url"
-              class="flex items-center justify-center transition-colors ease-in-out duration-300 text-white/50 hover:text-white/100 hover:bg-white/30 md:w-[46px] lg:w-[56px] h-[56px] rounded-[2px] group relative"
+              class="group tracking-[0.5em] flex items-center justify-center transition-colors ease-in-out duration-300 text-white/50 hover:text-white/100 hover:bg-white/30 md:w-[46px] lg:w-[56px] h-[56px] rounded-[2px] group relative"
               target="_blank" rel="noopener"
               v-wave
             >
               <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
               <img v-else :src="i.icon.url" class="icon w-[24px]" :alt="i.title + ' Icon'" />
-              <div class="HeaderSocTooltip">{{ i.title }}</div>
+              <div class="absolute left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100  group-hover:-translate-y-full transition-all ease-in-out duration-300 ">{{ i.title }}</div>
             </a>
           </div>
 
@@ -74,29 +74,4 @@ const soc = computed(() =>
   </div>
 </template>
 
-<style lang="scss">
-.HeaderSoc {
-  & .HeaderSocTooltip {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: .75;
-    transition: opacity .2s ease,
-                font-size .2s ease,
-                letter-spacing .2s ease;
-
-    letter-spacing: -4px;
-    font-size: 8px;
-    bottom: 2px;
-    opacity: 0;
-  }
-
-  & a:hover {
-    & .HeaderSocTooltip {
-      opacity: 1;
-      letter-spacing: 0px;
-      font-size: 8px;
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

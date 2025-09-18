@@ -20,6 +20,7 @@ export type IconKey =
   | 'spotify'
   | 'tiktok'
   | 'twitter'
+  | 'twitterX'
   | 'youtube'
 
 export type IconDef =
@@ -46,6 +47,7 @@ export const ICONS: Record<IconKey, IconDef> = {
   spotify:      { kind: 'iconify', name: 'fa-brands:spotify' },
   tiktok:       { kind: 'iconify', name: 'fa-brands:tiktok' },
   twitter:      { kind: 'iconify', name: 'fa-brands:twitter' },
+  twitterX:     { kind: 'iconify', name: 'fa7-brands:x-twitter' },
   youtube:      { kind: 'iconify', name: 'fa:youtube' },
 }
 

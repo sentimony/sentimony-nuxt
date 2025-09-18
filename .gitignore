@@ -2,7 +2,8 @@ node_modules/
 .nuxt/
 dist/
 sw.*
-
-# Local Netlify folder
-.netlify
+.netlify/
 .DS_Store
+
+# Script generated file
+public/_redirects

@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+// TODO: використовувати to замість url, iconify замість icon
 const props = defineProps<{
   url?: string
   icon?: string
+  img?: string
+  svg?: string
   title?: string
 }>()
 
 const url = props.url ?? ''
-const icon = props.icon ?? ''
+const icon = props.icon ?? false
+const img = props.img ?? false
+const svg = props.svg ?? false
 const title = props.title ?? ''
 
 // Treat absolute URLs as external links
@@ -23,7 +28,10 @@ const isExternal = computed(() => url.startsWith('https://'))
     :rel="isExternal ? 'noopener' : undefined"
     v-wave
   >
-    <Icon :name="icon" size="18" />
-    <span v-html="title" class="ml-2" />
+    <Icon class="mr-2" v-if="icon" :name="icon" size="19" />
+    <img class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
+    <span class="mr-2" v-if="svg" v-html="svg" />
+
+    <span class="mr-0" v-if="title" v-html="title" />
   </NuxtLink>
 </template>

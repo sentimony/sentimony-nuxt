@@ -28,7 +28,8 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="container">
+  <div class="container max-w-[112rem]">
+
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <div class=" pb-[30px] md:pb-[60px]">

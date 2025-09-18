@@ -69,7 +69,7 @@ useSeoMeta({
     <div class="relative px-2 pb-[30px] md:pb-[60px]">
       <SvgTriangle />
 
-      <div class="container relative" v-if="item">
+        <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
