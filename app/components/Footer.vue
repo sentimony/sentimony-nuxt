@@ -13,10 +13,10 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
 </script>
 
 <template>
-  <div class="relative z-100 bg-black text-white/50 text-xs leading-[1.4] md:leading-[1.5] px-1 py-[100px]">
+  <div class="relative z-100 bg-black text-white/50 leading-[1.4] md:leading-[1.5] px-1 py-24">
     <div class="container flex flex-col items-center">
 
-      <div class="text-[14px] mb-[2em]">
+      <div class="mb-10 text-sm">
         <div class="FooterNav__list flex justify-center flex-wrap">
           <NuxtLink
             v-for="i in getNav()"
@@ -31,7 +31,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
         </div>
       </div>
 
-      <div class="text-[14px] mb-[24px]">
+      <div class="mb-10 text-sm">
         <div class="">Follow Us:</div>
         <div class="pt-2 flex flex-wrap justify-center">
           <a
@@ -43,36 +43,36 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
           >
             <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
             <img v-else :src="i.icon.url" class="w-[22px]" :alt="i.title + ' Icon'" />
-            <div class="FooterSoc__tooltip whitespace-nowrap">{{ i.title }}</div>
+            <div class="FooterSoc__tooltip text-xs whitespace-nowrap">{{ i.title }}</div>
           </a>
         </div>
       </div>
 
-      <div class="text-[14px] mb-[24px]">
+      <div class="mb-24 text-sm">
         <p>2006 - {{ new Date().getFullYear() }} © Sentimony Records</p>
         <p>All Rights Reserved</p>
         <p>
           <img
-            class="w-[30px] block mx-auto mt-[4px]"
+            class="size-8 inline-block"
             src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
             alt="Sentimony Records Logo SVG"
           />
         </p>
       </div>
 
-      <div class="mb-[20px]">
+      <div class="text-xs">
         <p>
-          <span>Design By </span>
+          <span>Web Design By </span>
           <NuxtLink
-            class="text-white py-2"
+            class="text-white"
             to="/artist/apivniuk"
             v-wave
           >Anton Pivniuk</NuxtLink>
         </p>
         <p>
-          <span>Development By </span>
+          <span>Web Development By </span>
           <a
-            class="text-white py-2"
+            class="text-white"
             href="https://github.com/sentimony/sentimony-nuxt"
             target="_blank" rel="noopener"
             v-wave
@@ -89,30 +89,31 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
   &__list {
     border: 1px solid rgba(#fff, 0.1);
     border-width: 1px;
-    border-radius: 4px;
+    border-radius: 2px;
     overflow: hidden;
   }
 }
 
 .FooterSoc {
   &__tooltip {
-    font-size: 10px;
+    // font-size: 10px;
     position: absolute;
-    bottom: 100%;
+    bottom: 0;
     left: 50%;
-    transform: translate3d(-50%,0,0);
+    transform: translate(-50%, 133%);
     transition: all .3s ease-in-out;
     opacity: 0;
     visibility: hidden;
+    visibility: visible;
     background-color: rgba(#8a0202, 1);
-    padding: 1px 4px;
-    border-radius: 4px;
+    padding: 0 4px;
+    border-radius: 2px;
     color: #fff;
 
     a:hover & {
       opacity: 1;
       visibility: visible;
-      transform: translate3d(-50%,50%,0);
+      transform: translate(-50%, 66%);
     }
   }
 }

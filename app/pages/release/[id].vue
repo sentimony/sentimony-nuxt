@@ -110,7 +110,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
     <div class="relative px-2">
       <SvgTriangle />
 
-      <div class="container" v-if="item">
+      <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
@@ -174,7 +174,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links.junodownload"
               :url="item.links.junodownload"
               title="JunoDownload"
-              icon="cib:bandcamp"
+              img="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
             />
 
             <!-- <br> -->
@@ -207,7 +207,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links.amazon_music"
               :url="item.links.amazon_music"
               title="Amazon Music"
-              icon="fa7-brands:amazon"
+              img="https://content.sentimony.com/assets/img/svg-icons/amazon-music.svg?01"
             />
             <BtnPrimary
               v-if="item.links.tidal"
@@ -219,7 +219,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links.qobuz"
               :url="item.links.qobuz"
               title="Qobuz"
-              icon="arcticons:qobuz"
+              img="https://content.sentimony.com/assets/img/svg-icons/qobuz.svg?01"
             />
             <BtnPrimary
               v-if="item.links.youtube"

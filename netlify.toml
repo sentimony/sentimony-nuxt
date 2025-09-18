@@ -12,4 +12,4 @@
   targetPort = 3000
 
 [[plugins]]
-package = "@netlify/plugin-lighthouse"
+  package = "@netlify/plugin-lighthouse"

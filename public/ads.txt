@@ -1,0 +1,4 @@
+# ads.txt for sentimony.com
+# If you don't sell ads, this file can stay empty.
+# Add authorized sellers below, one per line. Example:
+# google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0

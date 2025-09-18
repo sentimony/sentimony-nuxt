@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
         v-if="image_th"
         :src="image_th"
         :alt="alt"
-        class=""
+        class=" size-[100px] sm:size-[190px] object-cover"
       />
       <div
         v-else
@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
 
         <!-- <Transition name="modal-zoom"> -->
           <div
-            class="relative max-w-[90vw] max-h-[90vh] rounded-xl"
+            class="relative max-w-[90vw] max-h-[90vh] rounded-sm"
             @click.stop
             v-wave="{
               duration: 3,
@@ -87,19 +87,19 @@ onBeforeUnmount(() => {
             <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
-              class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-lg "
+              class="max-w-[90vw] max-h-[90vh] object-contain rounded-sm shadow-lg "
             />
 
             <!-- <img
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
-              class="absolute left-0 right-0 max-w-[90vw] max-h-[90vh] object-contain rounded-md shadow-lg "
+              class="absolute left-0 right-0 max-w-[90vw] max-h-[90vh] object-contain rounded-sm shadow-lg "
             />
 
             <img
               :src="props.image_th"
               :alt="props.alt || 'Image'"
-              class="max-w-[90vw] max-h-[90vh] w-[90vw] h-auto  object-contain rounded-md shadow-lg "
+              class="max-w-[90vw] max-h-[90vh] w-[90vw] h-auto  object-contain rounded-sm shadow-lg "
             /> -->
           </div>
         <!-- </Transition> -->

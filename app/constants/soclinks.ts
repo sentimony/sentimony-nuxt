@@ -49,7 +49,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   // { id: 'linkedin',     title: 'LinkedIn',    url: LINKEDIN_URL },
   // { id: 'vk',           title: 'VKontakte',   url: VK_URL },
   { id: 'tiktok',       title: 'TikTok',      url: TIKTOK_URL },
-  { id: 'twitter',      title: 'Twitter',     url: TWITTER_URL },
+  { id: 'twitterX',     title: 'Twitter Х',   url: TWITTER_URL },
   { id: 'youtube',      title: 'YouTube',     url: YOUTUBE_URL, inHeader: true },
 ]
 

@@ -96,6 +96,104 @@
 /sencd096 /release/vorg-cyber-soul-day
 /sencd097 /release/syned-brain-dementor-mysterium-tremendum
 
+/SENCD001 /release/va-fantazma
+/SENCD002 /release/va-emptinesses
+/SENCD003 /release/sphingida-origin
+/SENCD004 /release/va-true-story
+/SENCD005 /release/spectrum-vision-lost-space-device
+/SENCD006 /release/irukanji-z-lisu
+/SENCD008 /release/va-ocean-scenes-higher-titans
+/SENCD017 /release/senzar-before-the-morning-sun
+/SENCD018 /release/va-grower
+/SENCD007 /release/va-time-loop-beyond-borders
+/SENCD019 /release/unusual-cosmic-process-weightlessness
+/SENCD009 /release/va-tempo-syndicate
+/SENCD020 /release/va-dancing-mavka
+/SENCD010 /release/va-absence-of-gravity
+/SENCD011 /release/va-special-places
+/SENCD012 /release/hypnotriod-seven-heavenly-edges
+/SENCD013 /release/specialmind-the-missing-particle
+/SENCD014 /release/tentura-aurora
+/SENCD015 /release/cifroteca-roof-raiser-wild-storm
+/SENCD021 /release/va-gamayun-tale
+/SENCD016 /release/psyfactor-retro-scientific
+/SENCD022 /release/ufomatka-the-ep
+/SENCD023 /release/tentura-beyond-illusion
+/SENCD024 /release/va-the-ten
+/SENCD025 /release/zymosis-insight
+/SENCD026 /release/overdream-beautiful-thinking
+/SENCD027 /release/ufomatka-altering-the-synaptic-controllers
+/SENCD028 /release/omnisound-destiny
+/SENCD029 /release/zymosis-nichn
+/SENCD030 /release/va-futured-vol-1
+/SENCD031 /release/psydewise-synaptic-elastic
+/SENCD032 /release/u-wave-autumn-discovery
+/SENCD033 /release/va-futured-vol-2
+/SENCD034 /release/aesthesia-perception
+/SENCD035 /release/juelz-dependence
+/SENCD036 /release/unusual-cosmic-process-brain-channel
+/SENCD037 /release/space-organ-deep-impressions
+/SENCD038 /release/psydewise-radio-dystopia
+/SENCD039 /release/artech-stringer-mode
+/SENCD040 /release/va-futured-vol-3
+/SENCD041 /release/va-gatekey-vol-1
+/SENCD042 /release/gojja-amber-current
+/SENCD043 /release/gaz-mask-quetzalcoatl
+/SENCD044 /release/boketto-yugen
+/SENCD045 /release/kabi-mboko
+/SENCD047 /release/boketto-outer
+/SENCD046 /release/zymosis-timeless
+/SENCD048 /release/va-futured-vol-4
+/SENCD049 /release/exolt-noise-no-sleep
+/SENCD050 /release/boketto-presence
+/SENCD051 /release/paracozm-vorg-too-weird-to-live-too-rare-to-die
+/SENCD052 /release/psypheric-pa-leting-etter
+/SENCD053 /release/boketto-immure
+/SENCD054 /release/va-gatekey-vol-2
+/SENCD055 /release/space-organ-behind-the-universe
+/SENCD056 /release/derotonin-motion-trickness
+/SENCD057 /release/unusual-cosmic-process-outlines
+/SENCD058 /release/gaz-mask-trippy-valley
+/SENCD059 /release/irukanji-rebuild
+/SENCD060 /release/vorg-echoes
+/SENCD061 /release/tystix-etherial-lense
+/SENCD062 /release/nuada-internal-quest
+/SENCD063 /release/unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea
+/SENCD064 /release/noob-psybot-fiends-obscure-litany
+/SENCD065 /release/va-futured-vol-5
+/SENCD066 /release/frog-prog-sacred-journey
+/SENCD067 /release/irukanji-eleexr-i-have-something-to-show-you
+/SENCD068 /release/from-vacuum-banglich
+/SENCD069 /release/declaration-of-unity-transpersonal
+/SENCD070 /release/psydewise-gain-of-funktion
+/SENCD072 /release/tystix-romanesca
+/SENCD071 /release/eleexr-behind-dark-mirrors
+/SENCD073 /release/jai-midi-bass
+/SENCD074 /release/paracozm-vorg-qube
+/SENCD075 /release/va-futured-vol-6
+/SENCD076 /release/space-organ-time-and-space
+/SENCD077 /release/urklang-psyral-lifeforms
+/SENCD078 /release/spacecraft-metamorphosis
+/SENCD079 /release/mushroomslice-astro-review
+/SENCD081 /release/kauyumari-transmuting
+/SENCD080 /release/nuada-tools-of-perception
+/SENCD083 /release/jai-come-from
+/SENCD082 /release/djeriko-cosmologia-fractalica
+/SENCD084 /release/fracktom-chronicles-of-chaos
+/SENCD085 /release/zymosis-memento
+/SENCD086 /release/boketto-pushback
+/SENCD087 /release/bensaid-lucid-vision
+/SENCD088 /release/from-vacuum-good-steps
+/SENCD089 /release/frog-prog-triangulum
+/SENCD090 /release/mirror-me-azure-skies-and-golden-valleys
+/SENCD091 /release/vorg-cyber-soul-night
+/SENCD092 /release/tystix-spectral
+/SENCD093 /release/tonal-sense-enveloping-rhythm
+/SENCD094 /release/zymosis-an-endless-sense-of-the-past
+/SENCD095 /release/va-futured-vol-7
+/SENCD096 /release/vorg-cyber-soul-day
+/SENCD097 /release/syned-brain-dementor-mysterium-tremendum
+
 /MirrorMe /artist/mirror-me
 
 /Dimitro /artist/dimitro
@@ -113,3 +211,19 @@
 /SynedBrain /artist/syned-brain
 /Dementor /artist/dementor
 /Jakanatura /artist/jakanatura
+
+/index.html /
+/event/shift-space/index.html /event/shift-space
+/artists/index.html /artists
+
+
+# /index.html  /  301!
+# /:page/index.html  /:page  301!
+/:section/:slug/index.html  /:section/:slug  301!
+
+
+
+
+
+/3years.ua.htm /event/alt-space
+/cds.sencd006.htm /release/irukanji-z-lisu
