@@ -9,15 +9,15 @@ export type NavItem = {
 
 export const NAV: NavItem[] = [
   { title: 'Home', route: '/' },
-  { title: 'News', route: '/news/' },
-  { title: 'Releases', route: '/releases/', inHeader: true },
-  { title: 'Artists', route: '/artists/', inHeader: true },
-  { title: 'Videos', route: '/videos/', inHeader: true },
-  { title: 'Playlists', route: '/playlists/', inHeader: true },
-  // { title: 'Events', route: '/events/' },
-  // { title: 'Friends', route: '/friends/' },
-  // { title: 'Tracks', route: '/tracks/' },
-  { title: 'Contacts', route: '/contacts/' },
+  { title: 'News', route: '/news' },
+  { title: 'Releases', route: '/releases', inHeader: true },
+  { title: 'Artists', route: '/artists', inHeader: true },
+  { title: 'Videos', route: '/videos', inHeader: true },
+  { title: 'Playlists', route: '/playlists', inHeader: true },
+  { title: 'Events', route: '/events' },
+  // { title: 'Friends', route: '/friends' },
+  // { title: 'Tracks', route: '/tracks' },
+  { title: 'Contacts', route: '/contacts' },
 ]
 
 export function getNav(): NavItem[] {
@@ -30,11 +30,11 @@ export function getHeaderNav(): NavItem[] {
 
 // Active route matchers used by header/footer/sidebar to highlight current section
 export const ACTIVE_MATCHERS: Record<string, string[]> = {
-  '/releases/': ['/releases/', '/release/'],
-  '/artists/': ['/artists/', '/artist/'],
-  '/videos/': ['/videos/', '/video/'],
-  '/playlists/': ['/playlists/', '/playlist/'],
-  '/events/': ['/events/', '/event/'],
+  '/releases': ['/releases', '/release/'],
+  '/artists': ['/artists', '/artist/'],
+  '/videos': ['/videos', '/video/'],
+  '/playlists': ['/playlists', '/playlist/'],
+  '/events': ['/events', '/event/'],
 }
 
 // Check if a given navigation link should be considered active for current path

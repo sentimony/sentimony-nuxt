@@ -20,14 +20,11 @@
     "sass-embedded": "^1.92.1"
   },
   "scripts": {
-    "prebuild": "npm run redirects:merge",
     "build": "nuxt build",
-    "pregenerate": "npm run redirects:merge",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "redirects:merge": "node ./scripts/merge-redirects.js"
+    "postinstall": "nuxt prepare"
   },
   "engines": {
     "node": "22.19.0",

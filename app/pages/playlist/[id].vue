@@ -99,39 +99,39 @@ useSeoMeta({
             <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
             <BtnPrimary
               v-if="item.links?.spotify"
-              :url="item.links?.spotify"
+              :to="item.links?.spotify"
               title="Spotify"
-              icon="fa-brands:spotify"
+              iconify="fa-brands:spotify"
             />
             <BtnPrimary
               v-if="item.links?.apple_music"
-              :url="item.links?.apple_music"
+              :to="item.links?.apple_music"
               title="Apple Music"
-              icon="fa-brands:apple"
+              iconify="fa-brands:apple"
             />
             <BtnPrimary
               v-if="item.links?.youtube_music"
-              :url="item.links?.youtube_music"
+              :to="item.links?.youtube_music"
               title="YT Music"
-              icon="simple-icons:youtubemusic"
+              iconify="simple-icons:youtubemusic"
             />
             <BtnPrimary
               v-if="item.links?.deezer"
-              :url="item.links?.deezer"
+              :to="item.links?.deezer"
               title="Deezer"
-              icon="fa-brands:deezer"
+              iconify="fa-brands:deezer"
             />
             <BtnPrimary
               v-if="item.links?.youtube"
-              :url="item.links?.youtube"
+              :to="item.links?.youtube"
               title="YouTube"
-              icon="fa:youtube"
+              iconify="fa:youtube"
             />
             <BtnPrimary
               v-if="item.links?.soundcloud_url"
-              :url="item.links?.soundcloud_url"
+              :to="item.links?.soundcloud_url"
               title="SoundCloud"
-              icon="fa7-brands:soundcloud"
+              iconify="fa7-brands:soundcloud"
             />
 
           </div>

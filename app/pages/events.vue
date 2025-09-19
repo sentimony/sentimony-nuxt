@@ -38,7 +38,7 @@ useSeoMeta({
         :key="i.slug"
       >
         <NuxtLink
-          :to="'/event/' + i.slug + '/'"
+          :to="'/event/' + i.slug"
           class=""
           v-wave
         >

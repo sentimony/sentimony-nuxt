@@ -1,6 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+    vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'swiper/vue',
+        'swiper/modules',
+      ]
+    },
+    // опційно: менше логів
+    // logLevel: 'warn'
+  },
   runtimeConfig: {
     // envName: process.env.NUXT_PUBLIC_ENV || 'prod',  // 'local' | 'stage' | 'prod' ...
     public: {
@@ -22,6 +34,7 @@ export default defineNuxtConfig({
     },
     // Incremental Static Regeneration for common pages to reduce SSR load
     '/': { isr: 300 },
+    '/news': { isr: 300 },
     '/releases': { isr: 300 },
     '/release/**': { isr: 300 },
     '/artists': { isr: 300 },
@@ -34,7 +47,6 @@ export default defineNuxtConfig({
     '/event/**': { isr: 300 },
     '/friends': { isr: 300 },
     '/friend/**': { isr: 300 },
-    '/news': { isr: 300 },
     '/tracks': { isr: 300 },
     '/contacts': { isr: 300 },
   },

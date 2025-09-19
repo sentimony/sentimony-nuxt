@@ -146,33 +146,33 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <p v-if="item.links.diggersfactory_url"><span class="text-[10px] md:text-[12px] text-white/50">Purchase VINYL</span></p>
             <BtnPrimary
               v-if="item.links.diggersfactory_url"
-              :url="item.links.diggersfactory_url"
+              :to="item.links.diggersfactory_url"
               title="Diggers Factory"
-              icon="cib:bandcamp"
+              iconify="cib:bandcamp"
             />
 
             <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
             <BtnPrimary
               v-if="item.links.bandcamp_url"
-              :url="item.links.bandcamp_url"
+              :to="item.links.bandcamp_url"
               title="Bandcamp <small>(16bit)</small>"
-              icon="cib:bandcamp"
+              iconify="cib:bandcamp"
             />
             <BtnPrimary
               v-if="item.links.bandcamp24_url"
-              :url="item.links.bandcamp24_url"
+              :to="item.links.bandcamp24_url"
               title="Bandcamp <small>(24bit)</small>"
-              icon="cib:bandcamp"
+              iconify="cib:bandcamp"
             />
             <BtnPrimary
               v-if="item.links.beatport"
-              :url="item.links.beatport"
+              :to="item.links.beatport"
               title="Beatport"
-              icon="simple-icons:beatport"
+              iconify="simple-icons:beatport"
             />
             <BtnPrimary
               v-if="item.links.junodownload"
-              :url="item.links.junodownload"
+              :to="item.links.junodownload"
               title="JunoDownload"
               img="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
             />
@@ -181,57 +181,57 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <p><span class="text-[10px] md:text-[12px] text-white/50">Stream</span></p>
             <BtnPrimary
               v-if="item.links.spotify"
-              :url="item.links.spotify"
+              :to="item.links.spotify"
               title="Spotify"
-              icon="fa-brands:spotify"
+              iconify="fa-brands:spotify"
             />
             <BtnPrimary
               v-if="item.links.applemusic_url"
-              :url="item.links.applemusic_url"
+              :to="item.links.applemusic_url"
               title="Apple Music"
-              icon="fa-brands:apple"
+              iconify="fa-brands:apple"
             />
             <BtnPrimary
               v-if="item.links.youtube_music"
-              :url="item.links.youtube_music"
+              :to="item.links.youtube_music"
               title="YT Music"
-              icon="simple-icons:youtubemusic"
+              iconify="simple-icons:youtubemusic"
             />
             <BtnPrimary
               v-if="item.links.deezer"
-              :url="item.links.deezer"
+              :to="item.links.deezer"
               title="Deezer"
-              icon="fa-brands:deezer"
+              iconify="fa-brands:deezer"
             />
             <BtnPrimary
               v-if="item.links.amazon_music"
-              :url="item.links.amazon_music"
+              :to="item.links.amazon_music"
               title="Amazon Music"
               img="https://content.sentimony.com/assets/img/svg-icons/amazon-music.svg?01"
             />
             <BtnPrimary
               v-if="item.links.tidal"
-              :url="item.links.tidal"
+              :to="item.links.tidal"
               title="Tidal"
-              icon="fa7-brands:tidal"
+              iconify="fa7-brands:tidal"
             />
             <BtnPrimary
               v-if="item.links.qobuz"
-              :url="item.links.qobuz"
+              :to="item.links.qobuz"
               title="Qobuz"
               img="https://content.sentimony.com/assets/img/svg-icons/qobuz.svg?01"
             />
             <BtnPrimary
               v-if="item.links.youtube"
-              :url="item.links.youtube"
+              :to="item.links.youtube"
               title="YouTube"
-              icon="fa:youtube"
+              iconify="fa:youtube"
             />
             <BtnPrimary
               v-if="item.links.soundcloud_url"
-              :url="item.links.soundcloud_url"
+              :to="item.links.soundcloud_url"
               title="SoundCloud"
-              icon="fa7-brands:soundcloud"
+              iconify="fa7-brands:soundcloud"
             />
 
           </div>

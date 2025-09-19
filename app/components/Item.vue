@@ -20,7 +20,7 @@ defineProps<{
 
   <NuxtLink
     class="w-[80px] md:w-[180px] block group rounded-sm py-1 md:py-3 mt-[-0.25rem] md:mt-[-0.75rem]"
-    :to="'/' + category + '/' + i.slug + '/'"
+    :to="'/' + category + '/' + i.slug"
     v-slot="{ isActive }"
     v-wave
   >

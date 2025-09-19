@@ -82,9 +82,9 @@ useSeoMeta({
             <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
             <BtnPrimary
               v-if="item.links?.youtube"
-              :url="item.links?.youtube"
+              :to="item.links?.youtube"
               title="YouTube"
-              icon="cib:bandcamp"
+              iconify="cib:bandcamp"
             />
 
           </div>

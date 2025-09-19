@@ -92,39 +92,39 @@ useSeoMeta({
             <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
             <BtnPrimary
               v-if="item.spotify"
-              :url="item.spotify"
+              :to="item.spotify"
               title="Spotify"
-              icon="fa-brands:spotify"
+              iconify="fa-brands:spotify"
             />
             <BtnPrimary
               v-if="item.soundcloud_url"
-              :url="item.soundcloud_url"
+              :to="item.soundcloud_url"
               title="SoundCloud"
-              icon="fa-brands:soundcloud"
+              iconify="fa-brands:soundcloud"
             />
             <BtnPrimary
               v-if="item.facebook"
-              :url="item.facebook"
+              :to="item.facebook"
               title="Facebook"
-              icon="fa-brands:facebook"
+              iconify="fa-brands:facebook"
             />
             <BtnPrimary
               v-if="item.instagram"
-              :url="item.instagram"
+              :to="item.instagram"
               title="Instagram"
-              icon="fa-brands:instagram"
+              iconify="fa-brands:instagram"
             />
             <BtnPrimary
               v-if="item.youtube_url"
-              :url="item.youtube_url"
+              :to="item.youtube_url"
               title="YouTube"
-              icon="fa:youtube"
+              iconify="fa:youtube"
             />
             <BtnPrimary
               v-if="item.bandcamp_url"
-              :url="item.bandcamp_url"
+              :to="item.bandcamp_url"
               title="Bandcamp"
-              icon="cib:bandcamp"
+              iconify="cib:bandcamp"
             />
 
           </div>

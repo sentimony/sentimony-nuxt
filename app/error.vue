@@ -20,14 +20,14 @@ useHead({
       <div class="mb-6">{{ error?.statusMessage }}</div>
       <div>
         <!-- <BtnPrimary
-          url="/"
+          to="/"
           title="Go Home"
-          icon="ic:sharp-home"
+          iconify="ic:sharp-home"
           img="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
           :svg="svg"
         /> -->
         <BtnPrimary
-          url="/"
+          to="/"
           title="Go Home"
           :svg="svg"
         />

@@ -13,3 +13,19 @@
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
+
+[[edge_functions]]
+  function = "block-rules"
+  pattern  = "/.*\\.php.*"
+
+[[edge_functions]]
+  function = "block-rules"
+  pattern  = "/wp-.*"
+
+[[edge_functions]]
+  function = "block-rules"
+  pattern  = "/wp/.*"
+
+[[edge_functions]]
+  function = "block-rules"
+  pattern  = "/wordpress.*"

@@ -4,6 +4,3 @@ dist/
 sw.*
 .netlify/
 .DS_Store
-
-# Script generated file
-public/_redirects
