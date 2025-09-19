@@ -38,7 +38,7 @@ useSeoMeta({
         :key="i.slug"
       >
         <NuxtLink
-          :to="'/friend/' + i.slug + '/'"
+          :to="'/friend/' + i.slug"
           class=""
           v-wave
         >

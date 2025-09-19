@@ -27,7 +27,7 @@ const newsItems = computed<NewsItem[]>(() => {
       date: i?.date,
       slug: i?.slug,
       title: i?.title,
-      href: `/release/${i?.slug}/`,
+      href: `/release/${i?.slug}`,
       category: 'release' as const,
       image: i?.cover_th || i?.photo_th,
     }))
@@ -38,7 +38,7 @@ const newsItems = computed<NewsItem[]>(() => {
       date: i?.date,
       slug: i?.slug,
       title: i?.title,
-      href: `/event/${i?.slug}/`,
+      href: `/event/${i?.slug}`,
       category: 'event' as const,
       image: i?.photo_th || i?.cover_th,
     }))
@@ -49,7 +49,7 @@ const newsItems = computed<NewsItem[]>(() => {
       date: i?.date,
       slug: i?.slug,
       title: i?.title,
-      href: `/video/${i?.slug}/`,
+      href: `/video/${i?.slug}`,
       category: 'video' as const,
       image: i?.cover_th || i?.photo_th,
     }))

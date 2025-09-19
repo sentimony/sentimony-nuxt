@@ -18,7 +18,7 @@ const year = computed(() => formatYear(i.value?.date))
 
     <NuxtLink
       v-if="i.cover_th || i.photo_th"
-      :to="'/' + category + '/' + i.slug + '/'"
+      :to="'/' + category + '/' + i.slug"
       class="w-[24px] mr-2"
     >
       <img v-if="i.cover_th" :src="i.cover_th" class="block" :alt="i.title + ' thumbnail'" />
@@ -30,7 +30,7 @@ const year = computed(() => formatYear(i.value?.date))
       <small v-if="year" class="ml-1">({{ year }})</small>
 
       <NuxtLink
-        :to="'/' + category + '/' + i.slug + '/'"
+        :to="'/' + category + '/' + i.slug"
         class="ml-1"
       >
         <small>Read More</small>
