@@ -42,7 +42,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
             v-wave
           >
             <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
-            <img v-else :src="i.icon.url" class="w-[22px]" :alt="i.title + ' Icon'" />
+            <img v-else :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
             <div class="FooterSoc__tooltip text-xs whitespace-nowrap">{{ i.title }}</div>
           </a>
         </div>
@@ -53,9 +53,10 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
         <p>All Rights Reserved</p>
         <p>
           <img
-            class="size-8 inline-block"
+            class="mx-auto"
             src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
             alt="Sentimony Records Logo SVG"
+            width="32" height="32"
           />
         </p>
       </div>

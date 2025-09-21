@@ -8,7 +8,7 @@
       "category_id": "101",
       "name": "Ihor Orlovskyi",
       "location": "Kyiv, Ukraine",
-      "style": "DarkProg Psytrance, Trippy Psychill",
+      "style": "Psychill, Psytrance, DarkProg, Twilight",
       "photo_og": "https://content.sentimony.com/assets/img/artists/irukanji-01_og.jpg",
       "photo_th": "https://content.sentimony.com/assets/img/artists/irukanji-01_th.jpg",
       "photo_xl": "https://content.sentimony.com/assets/img/artists/irukanji-01_xl.jpg",
@@ -20,6 +20,7 @@
       "youtube_artist_playlist_id": "PLAIai5Lge7pg9SpejhZnVtQILTAnSiMlV",
       "youtube_playlist_id": "PLp2GaPnw5O3MzxR4EF6nsV8ETCGoyUA_e",
       "spotify": "https://open.spotify.com/artist/76HMCkLOJJcJ39QH0Grv8I",
+      "applemusic_url": "https://music.apple.com/us/artist/irukanji/1271842900",
       "discogs": "https://www.discogs.com/artist/1375976-Irukanji",
       "facebook": "https://www.facebook.com/irukanji.psy",
       "facebook_personal": "https://www.facebook.com/ihororlovskyi",
@@ -27,7 +28,9 @@
       "instagram_personal": "https://www.instagram.com/ihororlovskyi",
       "bandcamp_url": "https://irukanji.bandcamp.com/follow_me",
       "youtube_url": "https://www.youtube.com/@Irukanji25?sub_confirmation=1",
-      "website": "https://irukanji.sentimony.com"
+      "youtubemusic_url": "",
+      "website": "https://irukanji.sentimony.com",
+      "wikipedia_url": ""
     },
     "zymosis": {
       "title": "Zymosis",
@@ -48,14 +51,17 @@
       "mixcloud": "",
       "youtube_playlist_id": "PLp2GaPnw5O3MWPpPY_-yzMN43PdBs3f96",
       "spotify": "https://open.spotify.com/artist/1xTFT2RmbMoHyKwfGb0rUI",
+      "applemusic_url": "https://music.apple.com/us/artist/zymosis/283617728",
       "discogs": "https://www.discogs.com/artist/588937-Zymosis",
       "facebook": "https://www.facebook.com/Zymosis.project",
-      "facebook_personal": "",
+      "facebook_personal": "https://www.facebook.com/zymosis.dimitro",
       "instagram": "https://www.instagram.com/dimitroz",
       "instagram_personal": "",
       "bandcamp_url": "https://zymosis.bandcamp.com",
       "youtube_url": "https://www.youtube.com/channel/UCmhsZZW1PYei4Wu9jGvM2mw",
-      "website": ""
+      "youtubemusic_url": "https://music.youtube.com/channel/UCmhsZZW1PYei4Wu9jGvM2mw",
+      "website": "",
+      "wikipedia_url": "https://uk.wikipedia.org/wiki/Zymosis"
     },
     "psydewise": {
       "title": "Psydewise",
@@ -3368,7 +3374,7 @@
       "artists": "harax sphingida solcast zymosis heinali frans-gosu ader-project",
       "relative_releases": "va-emptinesses va-true-story",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>«Fantazma» is the debut release of Sentimony Records -  psychedelic music label, based in Kyiv, Ukraine.</p><p>Eleven previously unreleased tracks, carefully selected by <a href='/artist/sphingida/'>Sphingida</a>, ranging from deep ambient to psychedelic idm and more up-tempo chillout music. All this tracks produced in Ukraine.</p><p>Sentimony Records was started in autumn 2006. Label's main mission is to release tracks of all the talented artists from Ukraine and other countries.</p><p>Feel the Ukrainian psychedelic chillout spirit!</p>",
+      "information": "<p>«Fantazma» is the debut release of Sentimony Records -  psychedelic music label, based in Kyiv, Ukraine.</p><p>Eleven previously unreleased tracks, carefully selected by <a href='/artist/sphingida'>Sphingida</a>, ranging from deep ambient to psychedelic idm and more up-tempo chillout music. All this tracks produced in Ukraine.</p><p>Sentimony Records was started in autumn 2006. Label's main mission is to release tracks of all the talented artists from Ukraine and other countries.</p><p>Feel the Ukrainian psychedelic chillout spirit!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Harax</b> - Dreamy <small>(80bpm)</small>" },
         { "p": "<small>02.</small> <b>Sphingida</b> - After This <small>(90bpm)</small>" },
@@ -3383,7 +3389,7 @@
         { "p": "<small>11.</small> <b>Sphingida</b> - Outside <small>(64bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Compiled By <a href='/artist/sphingida/'>Sphingida</a>" },
+        { "p": "Compiled By <a href='/artist/sphingida'>Sphingida</a>" },
         { "p": "Artwork By Synchronick" },
         { "p": "Mastered By Synchronick @ Don't Panic Records Studio" }
       ],
@@ -3428,10 +3434,10 @@
       "artists": "unstable-elements, sphingida, harax, zymosis, solcast, roof-raiser, heinali, aisaid, alexander-daf, atmik, apivniuk",
       "relative_releases": "va-fantazma va-true-story",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records proudly presents our second release - «Emptinesses» compiled by <a href='/artist/sphingida/'>Sphingida</a>. Carefully selected tracks from masters of chillout vibes.</p><p>The compilation describes a saturated voyage into the Emptinesses of ambient and downtempo escapes, atmospheric dreamy melodies with beautiful floating sounds.</p><p>Twelve chillout tracks of relaxed down beats and high spirit tunes. A perfect soundtrack to listen to at the crack of dawn, and during peaceful silent sunset.</p><p>Consider for a moment! Listen to the beauty of Emptinesses...</p>",
+      "information": "<p>Sentimony Records proudly presents our second release - «Emptinesses» compiled by <a href='/artist/sphingida'>Sphingida</a>. Carefully selected tracks from masters of chillout vibes.</p><p>The compilation describes a saturated voyage into the Emptinesses of ambient and downtempo escapes, atmospheric dreamy melodies with beautiful floating sounds.</p><p>Twelve chillout tracks of relaxed down beats and high spirit tunes. A perfect soundtrack to listen to at the crack of dawn, and during peaceful silent sunset.</p><p>Consider for a moment! Listen to the beauty of Emptinesses...</p>",
       "creditsCompact": [
-        { "p": "Compiled By <a href='/artist/sphingida/'>Sphingida</a>" },
-        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a>" },
+        { "p": "Compiled By <a href='/artist/sphingida'>Sphingida</a>" },
+        { "p": "Artwork By <a href='/artist/apivniuk'>Anton Pivniuk</a>" },
         { "p": "Mastered By Prok @ VioletRaySoundlab" }
       ],
       "tracklistCompact": [
@@ -3489,10 +3495,10 @@
       "artists": "sphingida, roof-raiser, apivniuk",
       "relative_releases": "irukanji-z-lisu",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records proudly presents «Origin» - debut album of <a href='/artist/sphingida/'>Sphingida</a> - psychedelic music project from Kyiv, Ukraine, founded in 2004 by Ihor Orlovskyi (<a href='/artist/irukanji/'>Irukanji</a>) and Julia Levchenko (Zea <a href='/artist/neirula/'>NeiRula</a>).</p><p>With an initial focus on experimenting with different musical instruments and technologies, from 2006 Sphingida started to take part in various psychedelic trance and ambient events.</p><p>«Origin» demonstrating a wide range of musical directions with an emphasis on downtempo and easy listening. In each track you will hear a mind-blowing mixture of gentle melodies, rigid synthetic sounds, and dynamic rhythms. Wise merging of styles and creative approach to the music make the sound of Sphingida absolutely unique.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records proudly presents «Origin» - debut album of <a href='/artist/sphingida'>Sphingida</a> - psychedelic music project from Kyiv, Ukraine, founded in 2004 by Ihor Orlovskyi (<a href='/artist/irukanji'>Irukanji</a>) and Julia Levchenko (Zea <a href='/artist/neirula'>NeiRula</a>).</p><p>With an initial focus on experimenting with different musical instruments and technologies, from 2006 Sphingida started to take part in various psychedelic trance and ambient events.</p><p>«Origin» demonstrating a wide range of musical directions with an emphasis on downtempo and easy listening. In each track you will hear a mind-blowing mixture of gentle melodies, rigid synthetic sounds, and dynamic rhythms. Wise merging of styles and creative approach to the music make the sound of Sphingida absolutely unique.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/sphingida/'>Sphingida</a>" },
-        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a>" },
+        { "p": "Written & Produced By <a href='/artist/sphingida'>Sphingida</a>" },
+        { "p": "Artwork By <a href='/artist/apivniuk'>Anton Pivniuk</a>" },
         { "p": "Mastered By Prok @ VioletRaySoundlab" }
       ],
       "tracklistCompact": [
@@ -3548,10 +3554,10 @@
       "artists": "spectrum-vision, chronos, dagas, astropilot, zymosis, liquid-mind, unusual-cosmic-process, frans-gosu, sphingida, unstable-elements, madgentel, taff, sol, harax, apivniuk",
       "relative_releases": "va-emptinesses va-true-story",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team proudly presents to you, friends, our fourth release - «True Story» compiled by <a href='/artist/sphingida/'>Sphingida</a>.</p><p>We cooked for you 12 awesome tracks from artists that you have known from our previous releases... and several new discoveries to please your ear and our hopes. And some well-known names... We wish you'll enjoy this compilation, which guides you through the true story about the adventures of an small Sentimon...</p><p>During listening you will be absorbed by classic ambient vibes in the start of journey and with increasing psy-ambient motion, downtempo and expressive uptempo energy.</p><p>Have a nice journey!</p>",
+      "information": "<p>Sentimony Records team proudly presents to you, friends, our fourth release - «True Story» compiled by <a href='/artist/sphingida'>Sphingida</a>.</p><p>We cooked for you 12 awesome tracks from artists that you have known from our previous releases... and several new discoveries to please your ear and our hopes. And some well-known names... We wish you'll enjoy this compilation, which guides you through the true story about the adventures of an small Sentimon...</p><p>During listening you will be absorbed by classic ambient vibes in the start of journey and with increasing psy-ambient motion, downtempo and expressive uptempo energy.</p><p>Have a nice journey!</p>",
       "creditsCompact": [
-        { "p": "Compiled By <a href='/artist/sphingida/'>Sphingida</a>" },
-        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a> & Olia Klapak" },
+        { "p": "Compiled By <a href='/artist/sphingida'>Sphingida</a>" },
+        { "p": "Artwork By <a href='/artist/apivniuk'>Anton Pivniuk</a> & Olia Klapak" },
         { "p": "Mastered By Prok @ VioletRaySoundlab" }
       ],
       "tracklistCompact": [
@@ -3609,7 +3615,7 @@
       "artists": "spectrum-vision, apivniuk",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records proudly presents «Lost Space Device» - debut album of <a href='/artist/spectrum-vision/'>Spectrum Vision</a> - psychedelic music project from Stupino city Moscow region, Russian Federation, founded in 2004 by Ivan (Ujo) and Alexander (1n0x).</p><p>The main focus of «Lost Space Device» is psychedelic downtempo and ambient works distinguished by subtle ethnic themes with deep dimensions and beautiful melodic leads.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records proudly presents «Lost Space Device» - debut album of <a href='/artist/spectrum-vision'>Spectrum Vision</a> - psychedelic music project from Stupino city Moscow region, Russian Federation, founded in 2004 by Ivan (Ujo) and Alexander (1n0x).</p><p>The main focus of «Lost Space Device» is psychedelic downtempo and ambient works distinguished by subtle ethnic themes with deep dimensions and beautiful melodic leads.</p><p>Have a nice trip!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Spectrum Vision</b> - Anna <small>(140bpm)</small>" },
         { "p": "<small>2.</small> <b>Spectrum Vision</b> - Electro System <small>(124bpm)</small>" },
@@ -3622,8 +3628,8 @@
         { "p": "<small>9.</small> <b>Spectrum Vision</b> - Pikake <small>(75bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/spectrum-vision/'>Spectrum Vision</a>" },
-        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a>" },
+        { "p": "Written & Produced By <a href='/artist/spectrum-vision'>Spectrum Vision</a>" },
+        { "p": "Artwork By <a href='/artist/apivniuk'>Anton Pivniuk</a>" },
         { "p": "Mastering By Prok @ VioletRaySoundlab" }
       ],
       "links": {
@@ -3666,7 +3672,7 @@
       "artists": "irukanji, sphingida, apivniuk",
       "relative_releases": "sphingida-origin irukanji-rebuild irukanji-eleexr-i-have-something-to-show-you",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records proudly presents «Z Lisu» (from Ukrainian its mean «From The Forest») - debut album of <a href='/artist/irukanji/'>Irukanji</a>.</p><p>Behind this name is standing talented musician and charismatic dj – Ihor Orlovskyi, member of Ukrainian duet <a href='/artist/sphingida/'>Sphingida</a> (2004 - 2008).</p><p>Also Ihor Orlovskyi is known as owner of Sentimony Records and its sublables Aqua Deep Music and Lookinglook Records.</p><p>Created in 2008 Irukanji combined all experimental ideas and fresh twisted downtempo style. Irukanji is breaking all rules and standing beyond the scope.</p><p>In his tracks you will hear crazy conversion between pure psychedelic down beats and mysterious tales.</p><p>Have a nice forest journey!</p>",
+      "information": "<p>Sentimony Records proudly presents «Z Lisu» (from Ukrainian its mean «From The Forest») - debut album of <a href='/artist/irukanji'>Irukanji</a>.</p><p>Behind this name is standing talented musician and charismatic dj – Ihor Orlovskyi, member of Ukrainian duet <a href='/artist/sphingida'>Sphingida</a> (2004 - 2008).</p><p>Also Ihor Orlovskyi is known as owner of Sentimony Records and its sublables Aqua Deep Music and Lookinglook Records.</p><p>Created in 2008 Irukanji combined all experimental ideas and fresh twisted downtempo style. Irukanji is breaking all rules and standing beyond the scope.</p><p>In his tracks you will hear crazy conversion between pure psychedelic down beats and mysterious tales.</p><p>Have a nice forest journey!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Irukanji</b> - Onset (In) <small>(72bpm)</small>" },
         { "p": "<small>02.</small> <b>Irukanji</b> - Swamp <small>(128bpm)</small>" },
@@ -3680,8 +3686,8 @@
         { "p": "<small>10.</small> <b>Irukanji</b> - End (Out) (feat. <b>NeiRula</b>) <small>(72bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a>" },
+        { "p": "Written & Produced By <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By <a href='/artist/apivniuk'>Anton Pivniuk</a>" },
         { "p": "Mastering By Prok @ VioletRaySoundlab" }
       ],
       "links": {
@@ -3725,11 +3731,11 @@
       "artists": "irukanji, cifroteca, overdream, already-maged, roof-raiser, saikozaurus, magmadivers, shivattva, tookytooky, calamus, shiva3, neirula, makus, juju",
       "relative_releases": "cifroteca-roof-raiser-wild-storm",
       "at_playlists": "sentimony-official",
-      "information": "<p>Sentimony Records is proud to introduce new musical direction more deeper musical appearance, new sublabel - Aqua Deep Music.</p><p>The first CD from the future series of releases - Ocean Scenes, was specially made for you to demonstrate the depth of pure psychedelic rhythms and active meditation.</p><p>Higher Titans presents 12 previously unreleased tracks compiled by 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>. All tracks produced by only Ukrainian established composers and promising newcomers.</p><p>Have a nice dive!</p>",
+      "information": "<p>Sentimony Records is proud to introduce new musical direction more deeper musical appearance, new sublabel - Aqua Deep Music.</p><p>The first CD from the future series of releases - Ocean Scenes, was specially made for you to demonstrate the depth of pure psychedelic rhythms and active meditation.</p><p>Higher Titans presents 12 previously unreleased tracks compiled by 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>. All tracks produced by only Ukrainian established composers and promising newcomers.</p><p>Have a nice dive!</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a> & <a href='https://www.facebook.com/cifroteca.music' target='_blank' rel='noopener'>Yuriy Iofik @ Cifroteca Studio</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a> & <a href='https://www.facebook.com/cifroteca.music' target='_blank' rel='noopener'>Yuriy Iofik @ Cifroteca Studio</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Irukanji</b> - Mammoth (In) <small>(130bpm)</small>" },
@@ -3786,11 +3792,11 @@
       "artists": "senzar, ariel-electron, erot, nasa, makus, juju",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Lookinglook Records (new sublabel of Sentimony Records) presents the debut album from Danish artist <a href='/artist/senzar/'>Senzar</a>, titled «Before The Morning Sun».</p><p>Senzar, who also goes by the name of Thoke Thomsen, is one of the most well-known Danish artists within psychedelic chillout. His works has appeared on well-established labels like Kagdilia Records, Yellow Sunshine Explosion, Ajana Records and Zealotry Music, and his music has brought him to play at parties like Full Moon Festival (Germany), VuuV Festival (Germany), Aurora Festival (Greece), Rhythms Of Peace Festival (Morocco), and Tribe of Frog (UK).</p><p>As a follower of psychedelic trance music and psychedelic trance parties since 1995, Thoke started DJ'ing and producing in 2002. Always with an open mind for both uplifting melodies and darker atmospheres - from chillout and ambient to progressive trance and darker psychedelic trance, although mostly with emphasis on the peaceful and harmonic effects of chillout.</p><p>«Before The Morning Sun» is a rich, colorful journey of mostly relaxing atmospheres, but also more dancefriendly grooves. From deep, melancholic and slowly evolving underwater soundscapes to uplifting, almost Goa-trance-like melodies and grooves inspired by progressive trance, house and breakbeat. This is an album to be enjoyed both in headphones on a clear summer-day, brightening up a cold winter morning, as well as dancing with your eyes closed. It really is a a truly diverse album, and it clearly shines through that Senzar has spent the last two years making it as personal and perfect as possible.</p><p>As an added bonus the album also contains remixes by two of Senzar's friends; progressive trance artist N.A.S.A., well-known for his releases on Iboga Records, Iono Music and many more labels, as well as the upcoming Danish artist <a href='/artist/erot/'>Erot</a>.</p><p>Have a nice flight!</p>",
+      "information": "<p>Lookinglook Records (new sublabel of Sentimony Records) presents the debut album from Danish artist <a href='/artist/senzar'>Senzar</a>, titled «Before The Morning Sun».</p><p>Senzar, who also goes by the name of Thoke Thomsen, is one of the most well-known Danish artists within psychedelic chillout. His works has appeared on well-established labels like Kagdilia Records, Yellow Sunshine Explosion, Ajana Records and Zealotry Music, and his music has brought him to play at parties like Full Moon Festival (Germany), VuuV Festival (Germany), Aurora Festival (Greece), Rhythms Of Peace Festival (Morocco), and Tribe of Frog (UK).</p><p>As a follower of psychedelic trance music and psychedelic trance parties since 1995, Thoke started DJ'ing and producing in 2002. Always with an open mind for both uplifting melodies and darker atmospheres - from chillout and ambient to progressive trance and darker psychedelic trance, although mostly with emphasis on the peaceful and harmonic effects of chillout.</p><p>«Before The Morning Sun» is a rich, colorful journey of mostly relaxing atmospheres, but also more dancefriendly grooves. From deep, melancholic and slowly evolving underwater soundscapes to uplifting, almost Goa-trance-like melodies and grooves inspired by progressive trance, house and breakbeat. This is an album to be enjoyed both in headphones on a clear summer-day, brightening up a cold winter morning, as well as dancing with your eyes closed. It really is a a truly diverse album, and it clearly shines through that Senzar has spent the last two years making it as personal and perfect as possible.</p><p>As an added bonus the album also contains remixes by two of Senzar's friends; progressive trance artist N.A.S.A., well-known for his releases on Iboga Records, Iono Music and many more labels, as well as the upcoming Danish artist <a href='/artist/erot'>Erot</a>.</p><p>Have a nice flight!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/senzar/'>Senzar</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/senzar'>Senzar</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Senzar</b> - Intro (feat. <b>Ariel Electron</b>) <small>(0bpm)</small>" },
@@ -3845,11 +3851,11 @@
       "artists": "atati, spectrum-vision, mahaon, locus, vonoom, overdream, ers, irukanji, shizolizer-gin, xylonite, unusual-cosmic-process, liquid-crystal, kalpataru-tree, makus, juju",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) team is pleased to present our second release - chillout compilation, titled «Grower», compiled by 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a> & Ju Ju.</p><p>This new release mixed different styles: from classic chillout with ambient to dub with downtempo. Tracks smoothly flow into one another and complement each other.</p><p>The compilation includes tracks as well-known projects, such as: <a href='/artist/overdream/'>Overdream</a> (Ukraine), <a href='/artist/spectrum-vision/'>Spectrum Vision</a> (Russia), <a href='/artist/spectrum-vision/'>Vonoom</a> (Denmark), <a href='/artist/irukanji/'>Irukanji</a> (Ukraine), Kalpataru Tree (USA), <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a> (Ukraine); and 'newcomers', such as: Atati (Ukraine), Mahaon (Russia), E.R.S. (India), <a href='/artist/shizolizer-gin/'>ShizoLizer Gin</a> (Ukraine), Xylonite (Russia) and Liquid Crystal (Russia).</p><p>Have a nice grow!</p>",
+      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) team is pleased to present our second release - chillout compilation, titled «Grower», compiled by 🇺🇦 <a href='/artist/irukanji'>Irukanji</a> & Ju Ju.</p><p>This new release mixed different styles: from classic chillout with ambient to dub with downtempo. Tracks smoothly flow into one another and complement each other.</p><p>The compilation includes tracks as well-known projects, such as: <a href='/artist/overdream'>Overdream</a> (Ukraine), <a href='/artist/spectrum-vision'>Spectrum Vision</a> (Russia), <a href='/artist/spectrum-vision'>Vonoom</a> (Denmark), <a href='/artist/irukanji'>Irukanji</a> (Ukraine), Kalpataru Tree (USA), <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a> (Ukraine); and 'newcomers', such as: Atati (Ukraine), Mahaon (Russia), E.R.S. (India), <a href='/artist/shizolizer-gin'>ShizoLizer Gin</a> (Ukraine), Xylonite (Russia) and Liquid Crystal (Russia).</p><p>Have a nice grow!</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a> & 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a> & 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Atati</b> - Versions <small>(60bpm)</small>" },
@@ -3906,9 +3912,9 @@
       "artists": "iooi, vonoom, cavedave, mindex, back-to-the-roots, khooman, spectrum-vision, neirula, lemonchill, astropilot, dagas, erot, shunya",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is happy to announce fresh full-length compilation! It's kind of new project from Sentimony team - VA «Time Loop: Beyond Borders» compiled by Zea (<a href='/artist/neirula/'>NeiRula</a>), starts new series of compilations under name Time Loop. We are happy to introduce you with known projects and a new perspective names from our opinion ;) Hope you will enjoy it!</p><p>Time Loop:<br>A time loop or temporal loop is a common plot device in science fiction (especially in universes where time travel is commonplace) in which time runs normally for a set period (usually a day or a few hours) but then skips back like a broken record. When the time loop 'resets', the memories of most characters are reset (i.e. they forget all that happened). The plot is advanced, however, by having one or more central characters retain their memory or become aware of the loop through deja vu.</p><p>Beyond Borders:<br>Take a journey through universe with your Divine Essence breaking up all borders. Become the ray of light that trickle through your Reality. Spiritual awakening and discover new orbital's. Feel the freshness of alien atmosphere's and dive in to the deepness of space oceans. Take a walk the most mystical forests. Follow the white rabbits and blue bird. Find yourself in twisted reality.</p><p>Fascinating an inner journey into profound states of love, inspiration, spiritual meditation, and self-approval!</p><p>Relax. Breathe deeply. Open your eyes!</p>",
+      "information": "<p>Sentimony Records is happy to announce fresh full-length compilation! It's kind of new project from Sentimony team - VA «Time Loop: Beyond Borders» compiled by Zea (<a href='/artist/neirula'>NeiRula</a>), starts new series of compilations under name Time Loop. We are happy to introduce you with known projects and a new perspective names from our opinion ;) Hope you will enjoy it!</p><p>Time Loop:<br>A time loop or temporal loop is a common plot device in science fiction (especially in universes where time travel is commonplace) in which time runs normally for a set period (usually a day or a few hours) but then skips back like a broken record. When the time loop 'resets', the memories of most characters are reset (i.e. they forget all that happened). The plot is advanced, however, by having one or more central characters retain their memory or become aware of the loop through deja vu.</p><p>Beyond Borders:<br>Take a journey through universe with your Divine Essence breaking up all borders. Become the ray of light that trickle through your Reality. Spiritual awakening and discover new orbital's. Feel the freshness of alien atmosphere's and dive in to the deepness of space oceans. Take a walk the most mystical forests. Follow the white rabbits and blue bird. Find yourself in twisted reality.</p><p>Fascinating an inner journey into profound states of love, inspiration, spiritual meditation, and self-approval!</p><p>Relax. Breathe deeply. Open your eyes!</p>",
       "creditsCompact": [
-        { "p": "Compiled By Zea (<a href='/artist/neirula/'>NeiRula</a>)" },
+        { "p": "Compiled By Zea (<a href='/artist/neirula'>NeiRula</a>)" },
         { "p": "Artwork By Flange" },
         { "p": "Mastered By Monno (Bimmelim Soundlabs)" }
       ],
@@ -3968,11 +3974,11 @@
       "artists": "unusual-cosmic-process makus, juju",
       "relative_releases": "psypheric-pa-leting-etter unusual-cosmic-process-brain-channel unusual-cosmic-process-outlines unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records (sublabel of Sentimony Records) is proud to present new compact disk - the debut album from Ukrainian project <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a>, titled «Weightlessness».</p><p>Unusual Cosmic Process, also known under the name of Runar Kristinsson. In 2000 year he started to work as a DJ in one of the Ukrainian nightclubs. But soon he realized that composing music brings him more pleasure than to engage in DJing. In this way, in 2006 he began to write his own music.</p><p>Now Runar works under three projects: Psypheric - in genre of psy prog; Optical Report - in genre of progressive; but main one, and the most interesting its his psy-ambient project - Unusual Cosmic Process.</p><p>Also project name should be known to chillout music lovers on his two previous releases - <a href='/release/va-true-story/'>VA «True Story»</a> (2008) and <a href='/release/va-grower/'>VA «Grower»</a> (2010).</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records (sublabel of Sentimony Records) is proud to present new compact disk - the debut album from Ukrainian project <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a>, titled «Weightlessness».</p><p>Unusual Cosmic Process, also known under the name of Runar Kristinsson. In 2000 year he started to work as a DJ in one of the Ukrainian nightclubs. But soon he realized that composing music brings him more pleasure than to engage in DJing. In this way, in 2006 he began to write his own music.</p><p>Now Runar works under three projects: Psypheric - in genre of psy prog; Optical Report - in genre of progressive; but main one, and the most interesting its his psy-ambient project - Unusual Cosmic Process.</p><p>Also project name should be known to chillout music lovers on his two previous releases - <a href='/release/va-true-story'>VA «True Story»</a> (2008) and <a href='/release/va-grower'>VA «Grower»</a> (2010).</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Unusual Cosmic Process</b> - Final Race <small>(126bpm)</small>" },
@@ -4024,11 +4030,11 @@
       "artists": "boggy-elf, shizolizer-gin, hypnotriod, unusual-cosmic-process, flooting-grooves, irukanji, sygnals, senzar, daoine-sidhe, wizack-twizack, primordial-ooze, spectrum-vision, makus, juju",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team is proud to introduce you label's ninth release and our two years labor - psychedelic music compilation entitled «Tempo Syndicate» compiled by 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>.</p><p>This new release contains 12 unique tracks of crystal clear psychedelic sound with deep bass vibration, spellbinding shaman rhythms and innovative ideas.</p><p>We recommend to listen this new CD in the evening and at night-time, especially at open space away from the city limits.</p><p>Have a nice dive!</p>",
+      "information": "<p>Sentimony Records team is proud to introduce you label's ninth release and our two years labor - psychedelic music compilation entitled «Tempo Syndicate» compiled by 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>.</p><p>This new release contains 12 unique tracks of crystal clear psychedelic sound with deep bass vibration, spellbinding shaman rhythms and innovative ideas.</p><p>We recommend to listen this new CD in the evening and at night-time, especially at open space away from the city limits.</p><p>Have a nice dive!</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a> & 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a> & 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> 🇺🇦 <b>Boggy Elf</b> - Dream Of Ashvattha (In) <small>(80bpm)</small>" },
@@ -4085,11 +4091,11 @@
       "artists": "pandemicus, jyotish, celestial-consciousness, ufomatka, spirit-medicine, sky-technology, zelur-project, shizolizer-gin, space-vibes-system, makus, juju",
       "relative_releases": "va-gamayun-tale",
       "at_playlists": "sentimony-official goa-trance",
-      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) is pleased to announce its fourth release, which today is the first Ukrainian 100% Goa trance compilation, titled «Dancing Mavka» compiled by <a href='/artist/sky-technology/'>Sky Technology</a>.</p><p>Under the psychedelic rhythms with classic Goa trance sound, we'll go on a sunny walk to the dancing Mavka - one of the Slavic mythical creatures living in swamps and forests.</p><p>The main feature of this compilation is that it consists of composition only Ukrainian projects. Some of them are already well known to fans of psychedelic electronic music, it is such projects as: Zelur Project (better known under the name of SynSUN project), <a href='/artist/sky-technology/'>Sky Technology</a>, Spirit Medicine, Celestial Consciousness and <a href='/artist/shizolizer-gin/'>ShizoLizer Gin</a>.</p><p>Another feature of this release is the fact that it's a debut for several 'newcomer-projects', such as: Pandemicus, Jyotish, <a href='/artist/ufomatka/'>Ufomatka</a> and Space Vibes System.</p><p>And yep, Mavka like Goa Trance. Enjoy!</p>",
+      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) is pleased to announce its fourth release, which today is the first Ukrainian 100% Goa trance compilation, titled «Dancing Mavka» compiled by <a href='/artist/sky-technology'>Sky Technology</a>.</p><p>Under the psychedelic rhythms with classic Goa trance sound, we'll go on a sunny walk to the dancing Mavka - one of the Slavic mythical creatures living in swamps and forests.</p><p>The main feature of this compilation is that it consists of composition only Ukrainian projects. Some of them are already well known to fans of psychedelic electronic music, it is such projects as: Zelur Project (better known under the name of SynSUN project), <a href='/artist/sky-technology'>Sky Technology</a>, Spirit Medicine, Celestial Consciousness and <a href='/artist/shizolizer-gin'>ShizoLizer Gin</a>.</p><p>Another feature of this release is the fact that it's a debut for several 'newcomer-projects', such as: Pandemicus, Jyotish, <a href='/artist/ufomatka'>Ufomatka</a> and Space Vibes System.</p><p>And yep, Mavka like Goa Trance. Enjoy!</p>",
       "creditsCompact": [
-        { "p": "Compiled By <a href='/artist/sky-technology/'>Sky Technology</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By <a href='/artist/sky-technology'>Sky Technology</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Pandemicus</b> - Out Of Space <small>(142bpm)</small>" },
@@ -4143,9 +4149,9 @@
       "artists": "reactive, astropilot, mary-bruk, spectrum-vision, alexander-daf, chronos, irukanji, cj-catalizer, psyfactor, neirula, unstable-elements",
       "relative_releases": "va-special-places",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>To the 50th anniversary of the first manned space flight, Sentimony Records, in collaboration with Home World Music Group, have prepared a special release - new psychedelic space-ambient music compilation entitled «Absence Of Gravity» compiled by <a href='/artist/spectrum-vision/'>Spectrum Vision</a>.</p><p>This new release contains 11 exclusive tracks from the talented creators of modern psy-ambient music. The compositions are full of experiments with abstract forms of classic ambient sound and mysterious atmosphere of space images.</p><p><i>«POEHALI!» HWM & SENTIMONY</i/>",
+      "information": "<p>To the 50th anniversary of the first manned space flight, Sentimony Records, in collaboration with Home World Music Group, have prepared a special release - new psychedelic space-ambient music compilation entitled «Absence Of Gravity» compiled by <a href='/artist/spectrum-vision'>Spectrum Vision</a>.</p><p>This new release contains 11 exclusive tracks from the talented creators of modern psy-ambient music. The compositions are full of experiments with abstract forms of classic ambient sound and mysterious atmosphere of space images.</p><p><i>«POEHALI!» HWM & SENTIMONY</i/>",
       "creditsCompact": [
-        { "p": "Compiled By <a href='/artist/spectrum-vision/'>Spectrum Vision</a>" },
+        { "p": "Compiled By <a href='/artist/spectrum-vision'>Spectrum Vision</a>" },
         { "p": "Artwork By 1n0x" },
         { "p": "Mastered By <a href='http://altar-records.com' target='_blank' rel='noopener'>Zen @ Altar Records Studio</a>" }
       ],
@@ -4205,11 +4211,11 @@
       "artists": "kd-expression, cygna, chronos, irukanji, astropilot, ambient-intelligent-application, rabitza, access-to-arasaka, field-rotation, nexar, 36, eguana, makus, juju",
       "relative_releases": "va-absence-of-gravity",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is happy to announce you label's eleventh release - «Special Places» - ambient, modern classical & score music compilation, compositions which have been carefully selected by <a href='/artist/astropilot/'>AstroPilot</a>.</p><p><i>«There is no person without a past, no person without their recollections... Everyone has his own personal place, whether it's a desolate house in the village from childhood, the path you were wandering together with your first love or the bank of the river where you contemplated the break of dawn... Each of us has own place, story and significant memories that we are connected to... Time and again, in our thoughts, memories of the past rush back to us as if it was yesterday and all of a sudden you are still talking to people who are no longer in your life - maybe even no longer alive...»</i/><p><i>Dima AstroPilot</i/>",
+      "information": "<p>Sentimony Records is happy to announce you label's eleventh release - «Special Places» - ambient, modern classical & score music compilation, compositions which have been carefully selected by <a href='/artist/astropilot'>AstroPilot</a>.</p><p><i>«There is no person without a past, no person without their recollections... Everyone has his own personal place, whether it's a desolate house in the village from childhood, the path you were wandering together with your first love or the bank of the river where you contemplated the break of dawn... Each of us has own place, story and significant memories that we are connected to... Time and again, in our thoughts, memories of the past rush back to us as if it was yesterday and all of a sudden you are still talking to people who are no longer in your life - maybe even no longer alive...»</i/><p><i>Dima AstroPilot</i/>",
       "creditsCompact": [
-        { "p": "Compiled By <a href='/artist/astropilot/'>AstroPilot</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By <a href='/artist/astropilot'>AstroPilot</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>K.D. Expression</b> - Alpae-3717 <small>(100bpm)</small>" },
@@ -4268,11 +4274,11 @@
       "artists": "hypnotriod, irukanji, tentura, unusual-cosmic-process, makus, apivniuk",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>«Seven Heavenly Edges» - is the first single released by Sentimony Records, introducing a talented Ukrainian producer and musician <a href='/artist/hypnotriod/'>Hypnotriod</a> (Ilia Pikin), also known for his passion for white shirts and experimental chillgressive sound.</p><p>We would like to offer you two original tracks of Hypnotriod and three remixes from well-known Ukrainian projects <a href='/artist/tentura/'>Tentura</a>, <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a> and collaboration between producer <a href='/artist/irukanji/'>Irukanji</a> and flutist JazzyFlute.</p><p>As a result, we have this so-called micro-compilation, which goes just perfect on a moon glade, sea coast or simply a bathtub with warm water and the lights switched off.</p><p>Have a good mood!</p>",
+      "information": "<p>«Seven Heavenly Edges» - is the first single released by Sentimony Records, introducing a talented Ukrainian producer and musician <a href='/artist/hypnotriod'>Hypnotriod</a> (Ilia Pikin), also known for his passion for white shirts and experimental chillgressive sound.</p><p>We would like to offer you two original tracks of Hypnotriod and three remixes from well-known Ukrainian projects <a href='/artist/tentura'>Tentura</a>, <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a> and collaboration between producer <a href='/artist/irukanji'>Irukanji</a> and flutist JazzyFlute.</p><p>As a result, we have this so-called micro-compilation, which goes just perfect on a moon glade, sea coast or simply a bathtub with warm water and the lights switched off.</p><p>Have a good mood!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/hypnotriod/'>Hypnotriod</a>" },
-        { "p": "Artwork By <a href='/artist/apivniuk/'>Anton Pivniuk</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/hypnotriod'>Hypnotriod</a>" },
+        { "p": "Artwork By <a href='/artist/apivniuk'>Anton Pivniuk</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "1 Hypnotriod - Seven Heavenly Edges | 125bmpbpm" },
@@ -4322,11 +4328,11 @@
       "artists": "specialmind, tentura, unusual-cosmic-process, makus, ader-art",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>«The Missing Particle» - is the second EP released by Sentimony Records, introducing <a href='/artist/specialmind/'>Specialmind</a> project - a psychedelic downtempo duo from Ukraine.</p><p>The project was formed in 2011 as a result of a collaboration between two talented musicians - Alexander Radchenko (<a href='/artist/crystal-vibe/'>Crystal Vibe</a>) and Evgeniy Pshonniy.</p><p>The idea of creating their own vision of psychedelic chillout music originated as a result of combination of various musical experience and mutual desire to create a conceptually new sound in this genre.</p><p>Have a nice trip!</p>",
+      "information": "<p>«The Missing Particle» - is the second EP released by Sentimony Records, introducing <a href='/artist/specialmind'>Specialmind</a> project - a psychedelic downtempo duo from Ukraine.</p><p>The project was formed in 2011 as a result of a collaboration between two talented musicians - Alexander Radchenko (<a href='/artist/crystal-vibe'>Crystal Vibe</a>) and Evgeniy Pshonniy.</p><p>The idea of creating their own vision of psychedelic chillout music originated as a result of combination of various musical experience and mutual desire to create a conceptually new sound in this genre.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/specialmind/'>Specialmind</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art/'>Ader</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/specialmind'>Specialmind</a>" },
+        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Specialmind</b> - The Missing Particle <small>(110bpm)</small>" },
@@ -4376,11 +4382,11 @@
       "artists": "tentura, makus, ader-art",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team is proudly pleased to announce new EP - «Aurora». At this time we're introducing you the debut single by <a href='/artist/tentura/'>Tentura</a> project, a well-known psychedelic chillout and deep trance duo from Kyiv, Ukraine.</p><p>The project was formed by two talented guys: composer Ader (Alexander Pidgorny) and psytrance Dj Maket (Stanislav Yastremsky). Quite often, Alexander and Stanislav perform their live performances at the Ukrainian festivals, open airs, and indoor parties.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records team is proudly pleased to announce new EP - «Aurora». At this time we're introducing you the debut single by <a href='/artist/tentura'>Tentura</a> project, a well-known psychedelic chillout and deep trance duo from Kyiv, Ukraine.</p><p>The project was formed by two talented guys: composer Ader (Alexander Pidgorny) and psytrance Dj Maket (Stanislav Yastremsky). Quite often, Alexander and Stanislav perform their live performances at the Ukrainian festivals, open airs, and indoor parties.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/tentura/'>Tentura</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art/'>Ader</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/tentura'>Tentura</a>" },
+        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Tentura</b> - Aurora <small>(110bpm)</small>" },
@@ -4429,11 +4435,11 @@
       "artists": "cifroteca, roof-raiser, makus",
       "relative_releases": "va-ocean-scenes-higher-titans",
       "at_playlists": "sentimony-official",
-      "information": "<p>Aqua Deep Music (sublabel of Sentimony Records) is pleased to announce its new psytrance release, split-album of two psychedelic minds <a href='/artist/cifroteca/'>Cifroteca</a> and <a href='/artist/roof-raiser/'>Roof Raiser</a> - talented sound producers from Ukraine.</p><p>Wild Storm - its always happens when guys come together and begin to synthesize music. Aliens space-ship on the ocean ... strange crackling ... knock-knock ... had to dive very deep, and get the bottom to find what they're looking for.</p><p>And dont forget to put your aqualung while listening!</p>",
+      "information": "<p>Aqua Deep Music (sublabel of Sentimony Records) is pleased to announce its new psytrance release, split-album of two psychedelic minds <a href='/artist/cifroteca'>Cifroteca</a> and <a href='/artist/roof-raiser'>Roof Raiser</a> - talented sound producers from Ukraine.</p><p>Wild Storm - its always happens when guys come together and begin to synthesize music. Aliens space-ship on the ocean ... strange crackling ... knock-knock ... had to dive very deep, and get the bottom to find what they're looking for.</p><p>And dont forget to put your aqualung while listening!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/cifroteca/'>Cifroteca</a> & <a href='/artist/roof-raiser/'>Roof Raiser</a>" },
+        { "p": "Written & Produced By <a href='/artist/cifroteca'>Cifroteca</a> & <a href='/artist/roof-raiser'>Roof Raiser</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/sanathana.swaroop' target='_blank' rel='noopener'>Swaroop Guhathakurta</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Cifroteca</b> - Unknown Signals <small>(148bpm)</small>" },
@@ -4490,11 +4496,11 @@
       "artists": "celestial-consciousness, magic-science, pharaom, nova-fractal, sky-technology, roof-raiser, prok, ufomatka, wanderlust, shizolizer-gin, jyotish, rexuss, makus, juju",
       "relative_releases": "va-dancing-mavka",
       "at_playlists": "sentimony-official goa-trance",
-      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) presents VA «Gamayun Tale» - a new Goa Trance story compiled by <a href='/artist/sky-technology/'>Sky Technology</a>.</p><p>Gamayun is a prophetic bird of slavic folklore. It is a symbol of wisdom and knowledge and lives on an island in the east, close to paradise.</p><p>And yep, Gamayun like Goa Trance. Enjoy!</p>",
+      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) presents VA «Gamayun Tale» - a new Goa Trance story compiled by <a href='/artist/sky-technology'>Sky Technology</a>.</p><p>Gamayun is a prophetic bird of slavic folklore. It is a symbol of wisdom and knowledge and lives on an island in the east, close to paradise.</p><p>And yep, Gamayun like Goa Trance. Enjoy!</p>",
       "creditsCompact": [
-        { "p": "Compiled By <a href='/artist/sky-technology/'>Sky Technology</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju/'>Ju Ju</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By <a href='/artist/sky-technology'>Sky Technology</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Celestial Consciousness</b> - Rise <small>(110bpm)</small>" },
@@ -4552,11 +4558,11 @@
       "artists": "psyfactor, makus, ader-art",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records presents its new release «Retro Scientific» - the newest creation of electron-synthetic Bachelor of Science, mushroom-innovator laureate and a pride of Russian psychedelic scene - <a href='/artist/psyfactor/'>Psyfactor</a>.</p><p>During this time he wrote at the strange silvery discs something special. You should have a laser to read them! This is a retro science. It studies the theory of electronic experimentation and broken beats. If something goes wrong, it can hurt the whole world. No matter how real it is.</p><p>Let's start experimenting!</p>",
+      "information": "<p>Sentimony Records presents its new release «Retro Scientific» - the newest creation of electron-synthetic Bachelor of Science, mushroom-innovator laureate and a pride of Russian psychedelic scene - <a href='/artist/psyfactor'>Psyfactor</a>.</p><p>During this time he wrote at the strange silvery discs something special. You should have a laser to read them! This is a retro science. It studies the theory of electronic experimentation and broken beats. If something goes wrong, it can hurt the whole world. No matter how real it is.</p><p>Let's start experimenting!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/psyfactor/'>Psyfactor</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art/'>Ader</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/psyfactor'>Psyfactor</a>" },
+        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Psyfactor</b> - Orbiter <small>(120bpm)</small>" },
@@ -4614,11 +4620,11 @@
       "artists": "ufomatka, makus",
       "relative_releases": "ufomatka-altering-the-synaptic-controllers",
       "at_playlists": "sentimony-official goa-trance",
-      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) presents the new Goa Trance release by our beloved artist - <a href='/artist/ufomatka/'>Ufomatka</a>.</p><p>«The E.P.» is an energetic bundle of 5 previously unreleased dance floor smashing tracks collected by the artist during the last several years.</p><p>Get it now and have fun!</p>",
+      "information": "<p>Lookinglook Records (sublabel of Sentimony Records) presents the new Goa Trance release by our beloved artist - <a href='/artist/ufomatka'>Ufomatka</a>.</p><p>«The E.P.» is an energetic bundle of 5 previously unreleased dance floor smashing tracks collected by the artist during the last several years.</p><p>Get it now and have fun!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/ufomatka/'>Ufomatka</a>" },
+        { "p": "Written & Produced By <a href='/artist/ufomatka'>Ufomatka</a>" },
         { "p": "Artwork By Ufomatka" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Ufomatka</b> - Afrodancerequesting <small>(145bpm)</small>" },
@@ -4667,11 +4673,11 @@
       "artists": "tentura, specialmind, makus, ader-art",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team proudly presents «Beyond Illusion» - new full-length album by <a href='/artist/tentura/'>Tentura</a> from Ukraine.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records team proudly presents «Beyond Illusion» - new full-length album by <a href='/artist/tentura'>Tentura</a> from Ukraine.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/tentura/'>Tentura</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art/'>Ader</a> & Andrei Verner" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/tentura'>Tentura</a>" },
+        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a> & Andrei Verner" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Tentura</b> - Alchemy <small>(120bpm)</small>" },
@@ -4725,11 +4731,11 @@
       "artists": "zymosis katya-chilly dagas hair encapsulate spectrum-vision astropilot crystal-vibe chronos overdream daoine-sidhe irukanji trootootoo, makus",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Specially for The Tenth Label Birthday, Sentimony Records team is ready to present a new psychill compilation «The Ten».</p><p>Here your will find The Ten exciting journeys by The Ten well-tried psychill minds carefully selected by <a href='/artist/irukanji/'>Irukanji</a>.</p><p>Have a nice trip!</p>",
+      "information": "<p>Specially for The Tenth Label Birthday, Sentimony Records team is ready to present a new psychill compilation «The Ten».</p><p>Here your will find The Ten exciting journeys by The Ten well-tried psychill minds carefully selected by <a href='/artist/irukanji'>Irukanji</a>.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By <a href='/artist/trootootoo'>Trootootoo</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Zymosis feat. Katya Chilly</b> - U Zemli <small>(140bpm)</small>" },
@@ -4783,11 +4789,11 @@
       "artists": "zymosis, katya-chilly artrama dimitro",
       "relative_releases": "zymosis-nichna zymosis-timeless zymosis-memento zymosis-an-endless-sense-of-the-past",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team is proud to present «Insight» - new <a href='/artist/zymosis/'>Zymosis</a> full-length album.</p><p><i>I was looking for Power, but I did not find anything ...</i/><p><i>Then I looked for God, but found nothing ...</i/><p><i>Then I looked for myself and did not find anything either.</i/><p><i>When my quest for Power, God and Myself merged, I found the Secret:<br>All that is and all that you know is the One Whole.<br>Everything that happens is part of a single action, which can be called a single life of the universe. Life is what it is. You can only understand and accept this. And only the Understanding - the pure One Whole Consciousness, which is in the beginning, remains only. This is the only existing reality. All the rest is an illusion, which includes all the variety of phenomena that arise in our perception.<br>When I realized this, Harmony and Peace found me ...</i/>",
+      "information": "<p>Sentimony Records team is proud to present «Insight» - new <a href='/artist/zymosis'>Zymosis</a> full-length album.</p><p><i>I was looking for Power, but I did not find anything ...</i/><p><i>Then I looked for God, but found nothing ...</i/><p><i>Then I looked for myself and did not find anything either.</i/><p><i>When my quest for Power, God and Myself merged, I found the Secret:<br>All that is and all that you know is the One Whole.<br>Everything that happens is part of a single action, which can be called a single life of the universe. Life is what it is. You can only understand and accept this. And only the Understanding - the pure One Whole Consciousness, which is in the beginning, remains only. This is the only existing reality. All the rest is an illusion, which includes all the variety of phenomena that arise in our perception.<br>When I realized this, Harmony and Peace found me ...</i/>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis/'>Zymosis</a>" },
-        { "p": "Artwork By <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis'>Zymosis</a>" },
+        { "p": "Artwork By <a href='/artist/artrama'>Andrew Kukla @ Artrama</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Zymosis</b> - Make A Wish <small>(90bpm)</small>" },
@@ -4843,11 +4849,11 @@
       "artists": "overdream artrama, makus",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records presents «Beautiful Thinking» - the brand new, fresh and banging psychedelic EP by <a href='/artist/overdream/'>Overdream</a> from Ukraine.</p><p>The tracks go from 80 to 118 bpm but stay deep and psychedelic all the way.</p><p>Check it out!</p>",
+      "information": "<p>Sentimony Records presents «Beautiful Thinking» - the brand new, fresh and banging psychedelic EP by <a href='/artist/overdream'>Overdream</a> from Ukraine.</p><p>The tracks go from 80 to 118 bpm but stay deep and psychedelic all the way.</p><p>Check it out!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/overdream/'>Overdream</a>" },
-        { "p": "Artwork By <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/overdream'>Overdream</a>" },
+        { "p": "Artwork By <a href='/artist/artrama'>Andrew Kukla @ Artrama</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Overdream</b> - Radical Utopian <small>(115bpm)</small>" },
@@ -4895,11 +4901,11 @@
       "artists": "ufomatka trootootoo dimitro",
       "relative_releases": "ufomatka-the-ep",
       "at_playlists": "sentimony-official goa-trance",
-      "information": "<p>Sentimony Records presents the new Goa Trance release «Altering The Synaptic Controllers» - the second EP by our beloved artist <a href='/artist/ufomatka/'>Ufomatka</a>.</p><p>The release name came from nowhere and the dick knows what it is, but it will all fuck us out :)</p><p>Get it now and have fun!</p>",
+      "information": "<p>Sentimony Records presents the new Goa Trance release «Altering The Synaptic Controllers» - the second EP by our beloved artist <a href='/artist/ufomatka'>Ufomatka</a>.</p><p>The release name came from nowhere and the dick knows what it is, but it will all fuck us out :)</p><p>Get it now and have fun!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/ufomatka/'>Ufomatka</a>" },
-        { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
-        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/ufomatka'>Ufomatka</a>" },
+        { "p": "Artwork By <a href='/artist/trootootoo'>Trootootoo</a>" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Ufomatka</b> - Multiplexer <small>(140bpm)</small>" },
@@ -4948,11 +4954,11 @@
       "artists": "omnisound masha-lichee tentura dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team is proud to present «Destiny» EP by Omnisound - new psybient & psychill project of Alexander Pidgornyi also known as <a href='/artist/tentura/'>Tentura</a>.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records team is proud to present «Destiny» EP by Omnisound - new psybient & psychill project of Alexander Pidgornyi also known as <a href='/artist/tentura'>Tentura</a>.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/omnisound/'>Omnisound</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art/'>Ader</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/omnisound'>Omnisound</a>" },
+        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Omnisound</b> - Open For More <small>(97bpm)</small>" },
@@ -5001,12 +5007,12 @@
       "artists": "zymosis dimitro",
       "relative_releases": "zymosis-insight zymosis-timeless zymosis-memento zymosis-an-endless-sense-of-the-past",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records presents «Nichna» - ethno and ambient EP by <a href='/artist/zymosis/'>Zymosis</a>, consisting of Ukrainian folk lullabies.</p><p>Have a nice sleep!</p>",
+      "information": "<p>Sentimony Records presents «Nichna» - ethno and ambient EP by <a href='/artist/zymosis'>Zymosis</a>, consisting of Ukrainian folk lullabies.</p><p>Have a nice sleep!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis/'>Zymosis</a>" },
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis'>Zymosis</a>" },
         { "p": "Track 1. Vocal By Olga Troyan & Viktoriya Grigo; Bandura By Illya Sukhuy<br>Track 2. Vocal By Olga Troyan & Anastasiya Ermakova<br>Track 3. Vocal By Olga Troyan<br>Track 4. Vocal By Olga Troyan<br>Track 5. Vocal By Olga Troyan; Symphonic Part By Boris Sevastyanov" },
         { "p": "Artwork By <a href='https://www.artstation.com/master-di' target='_blank' rel='noopener'>Dmitry Yurchenko @ Di-StudiO</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Zymosis</b> - Kotyk <small>(80bpm)</small>" },
@@ -5057,9 +5063,9 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records presents first dark prog and zenonesque release from new small-compilation series titled «Futured».</p><p>Have a good trip!</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Juelz</b> - Inner Borders <small>(135bpm)</small>" },
@@ -5108,11 +5114,11 @@
       "artists": "psydewise nifex matik, makus",
       "relative_releases": "psydewise-radio-dystopia psydewise-gain-of-funktion",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records team is proud to present second Dark Prog and Zenonesque release titled «Synaptic Elastic» EP by <a href='/artist/psydewise/'>Psydewise</a> from South Africa.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records team is proud to present second Dark Prog and Zenonesque release titled «Synaptic Elastic» EP by <a href='/artist/psydewise'>Psydewise</a> from South Africa.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇿🇦 <a href='/artist/psydewise/'>Psydewise</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By 🇿🇦 <a href='/artist/psydewise'>Psydewise</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Psydewise</b> - Blast! <small>(140bpm)</small>" },
@@ -5162,9 +5168,9 @@
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team is proud to present melodic ethno chillout release titled «Autumn Discovery» EP by U-Wave.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/u-wave/'>U-Wave</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/u-wave'>U-Wave</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>U-Wave</b> - Caravan Dream <small>(96bpm)</small>" },
@@ -5214,9 +5220,9 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records presents new Dark Prog and Zenonesque release - second episode from «Futured» series.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Irukanji</b> - Ale Yak? <small>(138bpm)</small>" },
@@ -5268,11 +5274,11 @@
       "artists": "aesthesia artrama dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team is proud to present new release titled «Perception» - debut melodic liquid psychill and psybient EP by <a href='/artist/aesthesia/'>Aesthesia</a> from Sweden.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records team is proud to present new release titled «Perception» - debut melodic liquid psychill and psybient EP by <a href='/artist/aesthesia'>Aesthesia</a> from Sweden.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇸🇪 <a href='/artist/aesthesia/'>Aesthesia</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇸🇪 <a href='/artist/aesthesia'>Aesthesia</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/artrama'>Andrew Kukla @ Artrama</a>" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Aesthesia</b> - Flow <small>(84bpm)</small>" },
@@ -5320,11 +5326,11 @@
       "artists": "juelz, hellquist, makus",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records team is proud to present new release titled «Dependence» - EP from Psytech to Dark Prog by <a href='/artist/juelz/'>Juelz</a> from Germany.</p><p>Have a deep trip!</p>",
+      "information": "<p>Sentimony Records team is proud to present new release titled «Dependence» - EP from Psytech to Dark Prog by <a href='/artist/juelz'>Juelz</a> from Germany.</p><p>Have a deep trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/juelz/'>Juelz</a>" },
+        { "p": "Written & Produced By <a href='/artist/juelz'>Juelz</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/den.mareta' target='_blank' rel='noopener'>Denni Mareta</a>" },
-        { "p": "Mastered By <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Mastered By <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Juelz</b> - Aznaa <small>(125bpm)</small>" },
@@ -5372,11 +5378,11 @@
       "artists": "unusual-cosmic-process matik dimitro",
       "relative_releases": "psypheric-pa-leting-etter unusual-cosmic-process-weightlessness unusual-cosmic-process-outlines unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team is proud to present new release titled «Brain Channel» - meditative psychill and hypnotic psybient EP by <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a> from Ukraine.</p><p>Stay P.L.U.R. and Enjoy!</p>",
+      "information": "<p>Sentimony Records team is proud to present new release titled «Brain Channel» - meditative psychill and hypnotic psybient EP by <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a> from Ukraine.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Unusual Cosmic Process</b> - Electric Fields <small>(110bpm)</small>" },
@@ -5424,10 +5430,10 @@
       "artists": "alchemy-circle space-organ hypogeo trootootoo",
       "relative_releases": "space-organ-behind-the-universe space-organ-time-and-space",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records team is proud to present 5th Zenonesque / Dark Prog release titled «Deep Impressions» EP by <a href='/artist/space-organ/'>Space Organ</a> from Brazil.</p><p>Have a deep trip!</p>",
+      "information": "<p>Sentimony Records team is proud to present 5th Zenonesque / Dark Prog release titled «Deep Impressions» EP by <a href='/artist/space-organ'>Space Organ</a> from Brazil.</p><p>Have a deep trip!</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇧🇷 <a href='/artist/space-organ/'>Space Organ</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/trootootoo/'>Trootootoo</a>" },
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/space-organ'>Space Organ</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/trootootoo'>Trootootoo</a>" },
         { "p": "Mastered By 🇧🇷 <a href='https://www.facebook.com/morbinmaster' target='_blank' rel='noopener'>Rafael Morbin @ Morbin Studios</a>" }
       ],
       "tracklistCompact": [
@@ -5476,10 +5482,10 @@
       "artists": "psydewise matik",
       "relative_releases": "psydewise-synaptic-elastic psydewise-gain-of-funktion",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to presents 6th product from Zenonesque & Dark Prog collection. Its release titled «Radio Dystopia» EP by talented <a href='/artist/psydewise/'>Psydewise</a> from South Africa.</p><p>Enjoy! And Huge thanks for your support.</p>",
+      "information": "<p>Sentimony Records is proud to presents 6th product from Zenonesque & Dark Prog collection. Its release titled «Radio Dystopia» EP by talented <a href='/artist/psydewise'>Psydewise</a> from South Africa.</p><p>Enjoy! And Huge thanks for your support.</p>",
       "creditsCompact": [
-        { "p": "Written & Produced By 🇿🇦 <a href='/artist/psydewise/'>Psydewise</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Written & Produced By 🇿🇦 <a href='/artist/psydewise'>Psydewise</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
         { "p": "Mastered By 🇿🇦 <a href='https://www.facebook.com/sam.wise.3194' target='_blank' rel='noopener'>Samuel J. Wise @ Macro-Dot Audio</a>" }
       ],
       "tracklistCompact": [
@@ -5528,7 +5534,7 @@
       "artists": "artech, 3pointz, matik, makus",
       "relative_releases": "",
       "at_playlists": "sentimony-official",
-      "information": "<p>Sentimony Records is proud to presents new release titled «Stringer Mode» - its Psytech & Minimal Deep Techno EP by <a href='/artist/artech/'>Artech</a> from Netherlands.</p><p>Have a deep trip!</p>",
+      "information": "<p>Sentimony Records is proud to presents new release titled «Stringer Mode» - its Psytech & Minimal Deep Techno EP by <a href='/artist/artech'>Artech</a> from Netherlands.</p><p>Have a deep trip!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Artech</b> - Stringer Mode <small>(125bpm)</small>" },
         { "p": "<small>2.</small> <b>Artech</b> - High Lander <small>(125bpm)</small>" },
@@ -5536,9 +5542,9 @@
         { "p": "<small>4.</small> <b>Artech</b> & <b>3Pointz</b> - Possible Chemistry <small>(118bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇳🇱 <a href='/artist/artech/'>Artech</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By 🇳🇱 <a href='/artist/artech'>Artech</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/artech-stringer-mode-ep-24bit",
@@ -5582,9 +5588,9 @@
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to presents new Dark Progressive release - third episode from «Futured» series.</p><p>Have a deep trip! And Huge thanks for your support.</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦🇱🇻 <a href='/artist/irukanji/'>Irukanji</a> & 🇺🇦 <a href='/artist/injir/'>Injir</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a> (Tracks #02 - #11) & 🇿🇦 <a href='https://www.facebook.com/sam.wise.3194' target='_blank' rel='noopener'>Samuel J. Wise @ Macro-Dot Audio</a> (Track 01)" }
+        { "p": "Compiled By 🇺🇦🇱🇻 <a href='/artist/irukanji'>Irukanji</a> & 🇺🇦 <a href='/artist/injir'>Injir</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a> (Tracks #02 - #11) & 🇿🇦 <a href='https://www.facebook.com/sam.wise.3194' target='_blank' rel='noopener'>Samuel J. Wise @ Macro-Dot Audio</a> (Track 01)" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Psydewise</b> - Pixelated Pupils <small>(139bpm)</small>" },
@@ -5641,10 +5647,10 @@
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Specially for the 13th label birthday, Sentimony Records ready to present a 1st episode from new psychill series titled «Gatekey».</p><p>Here your will find 25 variegated gatekeys carefully selected by Irukanji.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦🇱🇻 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> (Tracks #01, #03 - #25) & 🇺🇸 <a href='https://www.facebook.com/MindexMusic' target='_blank' rel='noopener'>Mindex</a> (Track 02)" },
-        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> (Tracks #07, #22)" }
+        { "p": "Compiled By 🇺🇦🇱🇻 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/artrama'>Andrew Kukla @ Artrama</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a> (Tracks #01, #03 - #25) & 🇺🇸 <a href='https://www.facebook.com/MindexMusic' target='_blank' rel='noopener'>Mindex</a> (Track 02)" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a> (Tracks #07, #22)" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Zymosis</b> - Last Call <small>(140bpm)</small>" },
@@ -5713,7 +5719,7 @@
       "artists": "gojja, makus",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new techno and dark progressive release titled «Amber Current» by <a href='/artist/gojja/'>Gojja</a>, from Sweden.</p><p>Have a deep trip!</p>",
+      "information": "<p>Sentimony Records is proud to present a new techno and dark progressive release titled «Amber Current» by <a href='/artist/gojja'>Gojja</a>, from Sweden.</p><p>Have a deep trip!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Gojja</b> - Amber Current <small>(131bpm)</small>" },
         { "p": "<small>02.</small> <b>Gojja</b> - Vermiculate Patterns <small>(128bpm)</small>" },
@@ -5721,9 +5727,9 @@
         { "p": "<small>04.</small> <b>Gojja</b> - Hummed Of Mystery <small>(131bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/gojja/'>Gojja</a>" },
+        { "p": "Written & Produced By <a href='/artist/gojja'>Gojja</a>" },
         { "p": "Artwork By <a href='https://madeinrealtime.com' target='_blank' rel='noopener'>Rafaël Campoli aka MadeInRealtime</a> (Chopped-Up, Rearranged, Flavoured and Blended Together) and Ernst Haeckel (Illustration, Images)" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gojja-amber-current-ep-24bit",
@@ -5765,7 +5771,7 @@
       "artists": "gaz-mask mojos-ears deuteroz paracozm jungle-symbol dimitro",
       "relative_releases": "gaz-mask-trippy-valley",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Quetzalcoatl» by <a href='/artist/gaz-mask/'>Gaz Mask</a>, from Brazil.</p><p>Have a deep trip!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Quetzalcoatl» by <a href='/artist/gaz-mask'>Gaz Mask</a>, from Brazil.</p><p>Have a deep trip!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Gaz Mask</b> & <b>Mojo's Ears</b> - Zeta Reticuli <small>(140bpm)</small>" },
         { "p": "<small>02.</small> <b>Gaz Mask</b> - Trick Or Treat <small>(142bpm)</small>" },
@@ -5773,9 +5779,9 @@
         { "p": "<small>04.</small> <b>Paracozm</b> - Multiverse (Gaz Mask Rmx II) <small>(139bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/gaz-mask/'>Gaz Mask</a>" },
-        { "p": "Artwork By <a href='/artist/jungle-symbol/'>Jungle Symbol</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/gaz-mask'>Gaz Mask</a>" },
+        { "p": "Artwork By <a href='/artist/jungle-symbol'>Jungle Symbol</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gaz-mask-quetzalcoatl-ep-24bit",
@@ -5817,7 +5823,7 @@
       "artists": "boketto",
       "relative_releases": "boketto-pushback boketto-outer boketto-presence boketto-immure",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new glitch hop and psychill release titled «Yugen» by <a href='/artist/boketto/'>Boketto</a>, from UK.</p><p>Yugen - a profound, mysterious sense of the beauty of the universe, and the sad beauty of human suffering.</p><p>Stay P.L.U.R. and Enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new glitch hop and psychill release titled «Yugen» by <a href='/artist/boketto'>Boketto</a>, from UK.</p><p>Yugen - a profound, mysterious sense of the beauty of the universe, and the sad beauty of human suffering.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Boketto</b> - Opia <small>(80bpm)</small>" },
         { "p": "<small>02.</small> <b>Boketto</b> - Alew <small>(110bpm)</small>" },
@@ -5826,7 +5832,7 @@
         { "p": "<small>05.</small> <b>Boketto</b> - Pendle <small>(110bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/boketto/'>Boketto</a>" },
+        { "p": "Written & Produced By <a href='/artist/boketto'>Boketto</a>" },
         { "p": "Artwork By Juozas Masiulis & Adam Russell" },
         { "p": "Mastered By Ross Gilbert @ CMC" }
       ],
@@ -5870,7 +5876,7 @@
       "artists": "kabi tystix psydewise matik dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «mBoko» by <a href='/artist/kabi/'>KAbi</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «mBoko» by <a href='/artist/kabi'>KAbi</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>KAbi</b> & <b>TyStix</b> - Dark Horse <small>(135bpm)</small>" },
         { "p": "<small>02.</small> <b>KAbi</b> - Confrogulated <small>(136bpm)</small>" },
@@ -5878,9 +5884,9 @@
         { "p": "<small>04.</small> <b>KAbi</b> - Ingibiginging <small>(139bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/kabi/'>KAbi</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/kabi'>KAbi</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/kabi-mboko-ep-24bit",
@@ -5922,7 +5928,7 @@
       "artists": "boketto aesthesia matik dimitro",
       "relative_releases": "boketto-pushback boketto-yugen boketto-presence boketto-immure",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new glitch hop and IDM release titled «Outer» by <a href='/artist/boketto/'>Boketto</a>, from UK.</p><p>Stay P.L.U.R. and Enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new glitch hop and IDM release titled «Outer» by <a href='/artist/boketto'>Boketto</a>, from UK.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Boketto</b> - Motion <small>(135bpm)</small>" },
         { "p": "<small>02.</small> <b>Boketto</b> - Meraki <small>(150bpm)</small>" },
@@ -5931,9 +5937,9 @@
         { "p": "<small>05.</small> <b>Aesthesia</b> - Flow (<b>Boketto</b> Rmx) <small>(170bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/boketto/'>Boketto</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/boketto'>Boketto</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-outer-ep-24bit",
@@ -5975,7 +5981,7 @@
       "artists": "zymosis, the-doox, overdream, hardcore-buddhist artrama dimitro",
       "relative_releases": "zymosis-insight zymosis-nichna zymosis-memento zymosis-an-endless-sense-of-the-past",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records proud to present «Timeless» - new full length album by <a href='/artist/zymosis/'>Zymosis</a>, from Ukraine.</p><p>Enjoy!</p>",
+      "information": "<p>Sentimony Records proud to present «Timeless» - new full length album by <a href='/artist/zymosis'>Zymosis</a>, from Ukraine.</p><p>Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Zymosis</b> - You Don't Have Time <small>(130bpm)</small>" },
         { "p": "<small>2.</small> <b>Zymosis</b> - Discover Yourself <small>(100bpm)</small>" },
@@ -5988,9 +5994,9 @@
         { "p": "<small>9.</small> <b>Zymosis</b> - An Expression Of Age <small>(128bpm)</small><br>* <small>- previously released at The Doox «ЛІРА» (UMIG Music, 2019)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis/'>Zymosis</a>" },
-        { "p": "Artwork By <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis'>Zymosis</a>" },
+        { "p": "Artwork By <a href='/artist/artrama'>Andrew Kukla @ Artrama</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/zymosis-timeless-24bit",
@@ -6058,9 +6064,9 @@
         { "p": "<small>22.</small> <b>🇮🇹 Egomorph</b> - Dark Shadows (<b>🇩🇪 Juelz</b> Rmx) <small>(125bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦🇱🇻 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Compiled By 🇺🇦🇱🇻 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-4-24bit",
@@ -6102,7 +6108,7 @@
       "artists": "exolt, makus",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new Dark Progressive release titled «Noise No Sleep» by <a href='/artist/exolt/'>eXoLT</a>, from Ukraine.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records is proud to present a new Dark Progressive release titled «Noise No Sleep» by <a href='/artist/exolt'>eXoLT</a>, from Ukraine.</p><p>Have a nice trip!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>eXoLT</b> - Noise No Sleep <small>(137bpm)</small>" },
         { "p": "<small>02.</small> <b>eXoLT</b> - You, Reflection And The Shadow <small>(137bpm)</small>" },
@@ -6110,9 +6116,9 @@
         { "p": "<small>04.</small> <b>eXoLT</b> - Dark Stage Magic <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/exolt/'>eXoLT</a>" },
+        { "p": "Written & Produced By <a href='/artist/exolt'>eXoLT</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/sanathana.swaroop' target='_blank' rel='noopener'>Swaroop Guhathakurta</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/exolt-noise-no-sleep-ep-24bit",
@@ -6153,7 +6159,7 @@
       "artists": "boketto matik dimitro",
       "relative_releases": "boketto-pushback boketto-yugen boketto-outer boketto-immure",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new Psychill and Psystep release titled «Presence» by <a href='/artist/boketto/'>Boketto</a>, from UK.</p><p>Stay P.L.U.R. and Enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new Psychill and Psystep release titled «Presence» by <a href='/artist/boketto'>Boketto</a>, from UK.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Boketto</b> - Innate <small>(130bpm)</small>" },
         { "p": "<small>02.</small> <b>Boketto</b> - Absolute <small>(140bpm)</small>" },
@@ -6162,9 +6168,9 @@
         { "p": "<small>05.</small> <b>Boketto</b> - Divide <small>(83.3bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/boketto/'>Boketto</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/boketto'>Boketto</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-presence-ep-24bit",
@@ -6205,16 +6211,16 @@
       "artists": "paracozm vorg matik dimitro",
       "relative_releases": "vorg-echoes paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-day vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Too Weird To Live, Too Rare To Die» by Brazilian duo <a href='/artist/paracozm/'>Paracozm</a> and <a href='/artist/vorg/'>VORG</a>.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Too Weird To Live, Too Rare To Die» by Brazilian duo <a href='/artist/paracozm'>Paracozm</a> and <a href='/artist/vorg'>VORG</a>.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Paracozm</b> & <b>VORG</b> - Too Weird To Live, Too Rare To Die <small>(133bpm)</small>" },
         { "p": "<small>02.</small> <b>Paracozm</b> & <b>VORG</b> - Mind Awake <small>(136bpm)</small>" },
         { "p": "<small>03.</small> <b>Paracozm</b> & <b>VORG</b> - The Code <small>(135bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/paracozm/'>Paracozm</a> & <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/paracozm'>Paracozm</a> & <a href='/artist/vorg'>VORG</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/paracozm-vorg-too-weird-to-live-too-rare-to-die-24bit",
@@ -6254,7 +6260,7 @@
       "artists": "psypheric unusual-cosmic-process matik dimitro",
       "relative_releases": "unusual-cosmic-process-brain-channel unusual-cosmic-process-weightlessness unusual-cosmic-process-outlines unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new chillgressive release titled «På Leting Etter» by <a href='/artist/psypheric/'>Psypheric</a>, from Ukraine.</p><p>Stay P.L.U.R. and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new chillgressive release titled «På Leting Etter» by <a href='/artist/psypheric'>Psypheric</a>, from Ukraine.</p><p>Stay P.L.U.R. and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Psypheric</b> - Mørk Skog <small>(110bpm)</small>" },
         { "p": "<small>02.</small> <b>Psypheric</b> - Dødt Vann <small>(120bpm)</small>" },
@@ -6262,9 +6268,9 @@
         { "p": "<small>04.</small> <b>Unusual Cosmic Process</b> - Útgarðar (<b>Psypheric</b> Rmx) <small>(120bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/psypheric/'>Psypheric</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/psypheric'>Psypheric</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psypheric-pa-leting-etter-24bit",
@@ -6304,15 +6310,15 @@
       "artists": "boketto dimitro",
       "relative_releases": "boketto-pushback boketto-yugen boketto-outer boketto-presence",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new Psybass release titled «Immure» by <a href='/artist/boketto/'>Boketto</a>, from UK.</p><p>Stay P.L.U.R. and Enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new Psybass release titled «Immure» by <a href='/artist/boketto'>Boketto</a>, from UK.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Boketto</b> - Infected <small>(100bpm)</small>" },
         { "p": "<small>02.</small> <b>Boketto</b> - Nest <small>(110bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/boketto/'>Boketto</a>" },
+        { "p": "Written & Produced By <a href='/artist/boketto'>Boketto</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/timo.vogelsang' target='_blank' rel='noopener'>Timo Vo</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-immure-ep-24bit",
@@ -6352,7 +6358,7 @@
       "artists": "zymosis mindex juelz boketto irukanji psydewise kauyumari delphic aukaro liquid-soma aesthesia vorg declaration-of-unity derotonin tystix jai kabi exolt crystal-vibe unusual-cosmic-process psypheric hardcore-buddhist scarlet-crown seamoon sourone omnisound roof-raiser braindrop gaz-mask specialmind artrama dimitro",
       "relative_releases": "va-gatekey-vol-1 va-gatekey-vol-3",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records proud to present a 2nd episode from «Gatekey» - freestyle psychill series.</p><p>This time you will find 27 varied gatekeys carefully selected by <a href='/artist/irukanji/'>Irukanji</a>.</p><p>Enjoy!</p>",
+      "information": "<p>Sentimony Records proud to present a 2nd episode from «Gatekey» - freestyle psychill series.</p><p>This time you will find 27 varied gatekeys carefully selected by <a href='/artist/irukanji'>Irukanji</a>.</p><p>Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>🇺🇦 Zymosis</b> - 7 Seconds <small>(142bpm)</small>" },
         { "p": "<small>02.</small> <b>🇬🇧 Boketto</b> - Magoa <small>(110bpm)</small>" },
@@ -6383,10 +6389,10 @@
         { "p": "<small>27.</small> <b>🇧🇷 Gaz Mask</b> - Seven Stages <small>(87.5bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/artrama/'>Andrew Kukla @ Artrama</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> (Tracks #01 - #03, #05 - #27) & 🇺🇸 <a href='https://www.facebook.com/MindexMusic' target='_blank' rel='noopener'>Mindex</a> (Track 04)" },
-        { "p": "Mixed By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> (Tracks #19, <!-- #20, --> #26)" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/artrama'>Andrew Kukla @ Artrama</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a> (Tracks #01 - #03, #05 - #27) & 🇺🇸 <a href='https://www.facebook.com/MindexMusic' target='_blank' rel='noopener'>Mindex</a> (Track 04)" },
+        { "p": "Mixed By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a> (Tracks #19, <!-- #20, --> #26)" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-gatekey-vol-2-24bit",
@@ -6428,7 +6434,7 @@
       "artists": "space-organ omega-sound trootootoo dimitro",
       "relative_releases": "space-organ-deep-impressions space-organ-time-and-space",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive and forest psytrance release titled «Behind The Universe» by <a href='/artist/space-organ/'>Space Organ</a>, from Brazil.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive and forest psytrance release titled «Behind The Universe» by <a href='/artist/space-organ'>Space Organ</a>, from Brazil.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Space Organ</b> - Bapho <small>(137bpm)</small>" },
         { "p": "<small>02.</small> <b>Space Organ</b> - Ollof <small>(140bpm)</small>" },
@@ -6436,9 +6442,9 @@
         { "p": "<small>04.</small> <b>Space Organ vs. Omega Sound</b> - Compbrake <small>(140bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/space-organ/'>Space Organ</a>" },
-        { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/space-organ'>Space Organ</a>" },
+        { "p": "Artwork By <a href='/artist/trootootoo'>Trootootoo</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/space-organ-behind-the-universe-ep-24bit",
@@ -6480,7 +6486,7 @@
       "artists": "derotonin",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new progressive and zenonesque release titled «Motion Trickness» by <a href='/artist/derotonin/'>derotonin</a>, from Australia.</p><p>It’s his second full length release and first within this style and tempo range, highlighting a change in pace for the derotonin project.</p><p>Playful and energetic, this release ventures toward the deep dancefloor while maintaining the unmistakable sound of earlier derotonin releases.</p><p>Hybridised in its style, the album is part tech, part prog and encompasses a full spectrum of the artist’s creative process triggers and musical motivations.</p><p>Driving, psychedelic and packed with intricate sound design, each track aims to build tension over sustained periods, taking the listener on a journey while dodging overly predictable song structures.</p><p>«Motion Trickness» by derotonin promises to be a refreshing addition to the dance floor.</p><p>Have a nice trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new progressive and zenonesque release titled «Motion Trickness» by <a href='/artist/derotonin'>derotonin</a>, from Australia.</p><p>It’s his second full length release and first within this style and tempo range, highlighting a change in pace for the derotonin project.</p><p>Playful and energetic, this release ventures toward the deep dancefloor while maintaining the unmistakable sound of earlier derotonin releases.</p><p>Hybridised in its style, the album is part tech, part prog and encompasses a full spectrum of the artist’s creative process triggers and musical motivations.</p><p>Driving, psychedelic and packed with intricate sound design, each track aims to build tension over sustained periods, taking the listener on a journey while dodging overly predictable song structures.</p><p>«Motion Trickness» by derotonin promises to be a refreshing addition to the dance floor.</p><p>Have a nice trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>derotonin</b> - Dolphinitely <small>(128bpm)</small>" },
         { "p": "<small>02.</small> <b>derotonin</b> - Monkeys Shoulder, Parrots Perch <small>(130bpm)</small>" },
@@ -6492,7 +6498,7 @@
         { "p": "<small>08.</small> <b>derotonin</b> - Feeder Mcgavin <small>(132bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/derotonin/'>derotonin</a>" },
+        { "p": "Written & Produced By <a href='/artist/derotonin'>derotonin</a>" },
         { "p": "Artwork By <a href='https://www.jessieggers.com' target='_blank' rel='noopener'>Jessica Eggers</a>" },
         { "p": "Mastered By <a href='https://www.zeamoonmastering.com' target='_blank' rel='noopener'>Simon Neumann @ Zeamoon Mastering</a>" }
       ],
@@ -6536,7 +6542,7 @@
       "artists": "unusual-cosmic-process matik, makus",
       "relative_releases": "unusual-cosmic-process-weightlessness psypheric-pa-leting-etter unusual-cosmic-process-brain-channel unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records team is proud to present new release titled «Outlines» - meditative psychill and hypnotic psybient EP by <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a> from Ukraine.</p><p>Stay P.L.U.R. and Enjoy!</p>",
+      "information": "<p>Sentimony Records team is proud to present new release titled «Outlines» - meditative psychill and hypnotic psybient EP by <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a> from Ukraine.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Unusual Cosmic Process</b> - Preasure <small>(90bpm)</small>" },
         { "p": "<small>02.</small> <b>Unusual Cosmic Process</b> - Diadema Setosum <small>(90bpm)</small>" },
@@ -6544,9 +6550,9 @@
         { "p": "<small>04.</small> <b>Unusual Cosmic Process</b> - Brockengespenst <small>(110bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/makus/'>Makus (Overdream Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-outlines-ep-24bit",
@@ -6588,7 +6594,7 @@
       "artists": "gaz-mask mojos-ears matik dimitro",
       "relative_releases": "gaz-mask-quetzalcoatl",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive & forest psytrance release titled «Trippy Valley» by <a href='/artist/gaz-mask/'>Gaz Mask</a>, from Brazil.</p><p>Have a deep trip!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive & forest psytrance release titled «Trippy Valley» by <a href='/artist/gaz-mask'>Gaz Mask</a>, from Brazil.</p><p>Have a deep trip!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Gaz Mask</b> & <b>Mojo's Ears</b> - Dizzy Transistors <small>(138bpm)</small>" },
         { "p": "<small>02.</small> <b>Gaz Mask</b> - Valle Sagrado <small>(140bpm)</small>" },
@@ -6596,9 +6602,9 @@
         { "p": "<small>04.</small> <b>Gaz Mask</b> - Zigurate <small>(143bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/gaz-mask/'>Gaz Mask</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/gaz-mask'>Gaz Mask</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/gaz-mask-trippy-valley-ep-24bit",
@@ -6638,7 +6644,7 @@
       "artists": "irukanji eleexr matik dimitro",
       "relative_releases": "irukanji-z-lisu irukanji-eleexr-i-have-something-to-show-you",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Rebuild» by Sentimony Records owner <a href='/artist/irukanji/'>Irukanji</a>, from Ukraine.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Rebuild» by Sentimony Records owner <a href='/artist/irukanji'>Irukanji</a>, from Ukraine.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Irukanji</b> - Deep Deep Deep <small>(138bpm)</small>" },
         { "p": "<small>02.</small> <b>Irukanji</b> & <b>EleexR</b> - It Will Grow <small>(139bpm)</small>" },
@@ -6646,9 +6652,9 @@
         { "p": "<small>04.</small> <b>Irukanji</b> - Natiform <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/irukanji-rebuild-ep-24bit",
@@ -6688,7 +6694,7 @@
       "artists": "vorg matik dimitro",
       "relative_releases": "paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-day vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Echoes» by <a href='/artist/vorg/'>VORG</a>, from Brazil.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Echoes» by <a href='/artist/vorg'>VORG</a>, from Brazil.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>VORG</b> - CICLE <small>(139bpm)</small>" },
         { "p": "<small>02.</small> <b>VORG</b> - The Maze <small>(137bpm)</small>" },
@@ -6697,9 +6703,9 @@
         { "p": "<small>05.</small> <b>VORG</b> - SILENCE <small>(149bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg'>VORG</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/vorg-echoes-ep-24bit",
@@ -6739,7 +6745,7 @@
       "artists": "tystix fivetimesno dimitro",
       "relative_releases": "tystix-romanesca tystix-spectral",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Etherial Lense» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Etherial Lense» by <a href='/artist/tystix'>TyStix</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>TyStix</b> - Canyon <small>(137bpm)</small>" },
         { "p": "<small>02.</small> <b>TyStix</b> - Light Path <small>(137bpm)</small>" },
@@ -6747,9 +6753,9 @@
         { "p": "<small>04.</small> <b>TyStix</b> - Entropy Engine <small>(142bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
+        { "p": "Written & Produced By <a href='/artist/tystix'>TyStix</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/FiveTimesNo' target='_blank' rel='noopener'>No No No No No</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/tystix-etherial-lense-ep-24bit",
@@ -6789,7 +6795,7 @@
       "artists": "nuada paul-pazdan dimitro",
       "relative_releases": "nuada-tools-of-perception",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new psyhech and dark progressive release titled «Internal Quest» by <a href='/artist/nuada/'>Nuada</a>, from Australia.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new psyhech and dark progressive release titled «Internal Quest» by <a href='/artist/nuada'>Nuada</a>, from Australia.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Nuada</b> - Deyja <small>(135bpm)</small>" },
         { "p": "<small>2.</small> <b>Nuada</b> - Wakan Tanka <small>(140bpm)</small>" },
@@ -6797,9 +6803,9 @@
         { "p": "<small>4.</small> <b>Nuada</b> - Back To Source <small>(144bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/nuada/'>Nuada</a>" },
+        { "p": "Written & Produced By <a href='/artist/nuada'>Nuada</a>" },
         { "p": "Artwork By <a href='https://www.instagram.com/iampurerage/' target='_blank' rel='noopener'>Paul Pazdan</a>" },
-        { "p": "Masteried By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Masteried By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/nuada-internal-quest-ep-24bit",
@@ -6839,15 +6845,15 @@
       "artists": "unusual-cosmic-process e-mantra dimitro",
       "relative_releases": "psypheric-pa-leting-etter unusual-cosmic-process-brain-channel unusual-cosmic-process-outlines unusual-cosmic-process-weightlessness",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new psychill release titled «Sunrise Over Black Sea» by collaboration of <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a>, from Ukraine and <a href='/artist/e-mantra/'>E-Mantra</a>, from Romania.</p><p>Stay P.L.U.R. and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new psychill release titled «Sunrise Over Black Sea» by collaboration of <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a>, from Ukraine and <a href='/artist/e-mantra'>E-Mantra</a>, from Romania.</p><p>Stay P.L.U.R. and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>🇺🇦 Unusual Cosmic Process</b> & <b>🇷🇴 E-Mantra</b> - Sunrise Over Black Sea <small>(105bpm)</small>" },
         { "p": "<small>02.</small> <b>🇷🇴 E-Mantra</b> & <b>🇺🇦 Unusual Cosmic Process</b> - Shore Of Light <small>(87bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/unusual-cosmic-process/'>Unusual Cosmic Process</a> & 🇷🇴 <a href='/artist/e-mantra/'>E-Mantra</a>" },
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/unusual-cosmic-process'>Unusual Cosmic Process</a> & 🇷🇴 <a href='/artist/e-mantra'>E-Mantra</a>" },
         { "p": "Artwork By 🇦🇿 <a href='https://www.instagram.com/eltunshukurov/' target='_blank' rel='noopener'>Eltun Shukurov</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/unusual-cosmic-process-e-mantra-sunrise-over-the-black-sea-ep-24bit-2",
@@ -6887,7 +6893,7 @@
       "artists": "noob-psybot geozen anomalie alientime stripes dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Obscure Litany» by <a href='/artist/noob-psybot/'>Noob Psybot</a>, from India and his friends.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive release titled «Obscure Litany» by <a href='/artist/noob-psybot'>Noob Psybot</a>, from India and his friends.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>🇮🇳 Noob Psybot</b> & <b>🇬🇷 Geozen</b> - Obscure Litany <small>(136bpm)</small>" },
         { "p": "<small>02.</small> <b>🇮🇳 Noob Psybot</b> & <b>🇮🇳 Noob Psybot</b> - Stoned Lizards <small>(136bpm)</small>" },
@@ -6895,9 +6901,9 @@
         { "p": "<small>04.</small> <b>🇮🇳 Noob Psybot</b> & <b>🇧🇷 Alien Time</b> - Run DMT <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇮🇳 <a href='/artist/noob-psybot/'>Noob Psybot</a>" },
+        { "p": "Written & Produced By 🇮🇳 <a href='/artist/noob-psybot'>Noob Psybot</a>" },
         { "p": "Artwork By 🌍 Stripes" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/noob-psybot-friends-obscure-litany-ep-24bit",
@@ -6966,9 +6972,9 @@
         { "p": "<small>25.</small> 🇮🇹 <b>Egomorph</b> - The Lost Canvas <small>(128bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a> & 🇺🇦🇲🇽 <a href='/artist/injir/'>Injir</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a> & 🇺🇦🇲🇽 <a href='/artist/injir'>Injir</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-5-24bit",
@@ -7008,16 +7014,16 @@
       "artists": "frog-prog pxeyes dimitro",
       "relative_releases": "frog-prog-triangulum",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Deep bass, melodic bridges, angular rhythms, and cosmic atmospheres on the border between dark and light sounds will blow your mind.</p><p>The new release of the <a href='/artist/frog-prog/'>Frog Prog</a> project from Ukraine sounds like something between the space and magic forest.</p><p>Welcome to the «Sacred Journey».</p>",
+      "information": "<p>Deep bass, melodic bridges, angular rhythms, and cosmic atmospheres on the border between dark and light sounds will blow your mind.</p><p>The new release of the <a href='/artist/frog-prog'>Frog Prog</a> project from Ukraine sounds like something between the space and magic forest.</p><p>Welcome to the «Sacred Journey».</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Frog Prog</b> - Mekbuda <small>(138bpm)</small>" },
         { "p": "<small>02.</small> <b>Frog Prog</b> - Dreamer 432 kHz <small>(138bpm)</small>" },
         { "p": "<small>03.</small> <b>Frog Prog</b> - Navajo Song <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/frog-prog/'>Frog Prog</a>" },
+        { "p": "Written & Produced By <a href='/artist/frog-prog'>Frog Prog</a>" },
         { "p": "Artwork By <a href='https://www.facebook.com/pxEYES' target='_blank' rel='noopener'>pxEYES</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/frog-prog-sacred-journey-ep-24bit",
@@ -7057,7 +7063,7 @@
       "artists": "irukanji eleexr ka-art dimitro",
       "relative_releases": "irukanji-z-lisu irukanji-rebuild eleexr-behind-dark-mirrors",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new epic dark progressive release titled «I Have Something To Show You» by <a href='/artist/irukanji/'>Irukanji</a> and <a href='/artist/eleexr/'>EleexR</a>, from Ukraine.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new epic dark progressive release titled «I Have Something To Show You» by <a href='/artist/irukanji'>Irukanji</a> and <a href='/artist/eleexr'>EleexR</a>, from Ukraine.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Irukanji</b> & <b>EleexR</b> - I Have Something <small>(138bpm)</small>" },
         { "p": "<small>02.</small> <b>Irukanji</b> & <b>EleexR</b> - Inside Your Head <small>(140bpm)</small>" },
@@ -7065,10 +7071,10 @@
         { "p": "<small>04.</small> <b>Irukanji</b> & <b>EleexR</b> - The Key <small>(137bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/irukanji/'>Irukanji</a> & <a href='/artist/eleexr/'>EleexR</a>" },
+        { "p": "Written & Produced By <a href='/artist/irukanji'>Irukanji</a> & <a href='/artist/eleexr'>EleexR</a>" },
         { "p": "Cello By Dina Kononova (Track 2)" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art'>KA</a>" },
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/irukanji-eleexr-i-have-something-to-show-you-ep-24bit",
@@ -7108,7 +7114,7 @@
       "artists": "from-vacuum dimitro",
       "relative_releases": "from-vacuum-good-steps",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new glitchy psybass release titled «Banglich» by <a href='/artist/from-vacuum/'>From Vacuum</a>, from USA.</p><p>Have a deep glitchy trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new glitchy psybass release titled «Banglich» by <a href='/artist/from-vacuum'>From Vacuum</a>, from USA.</p><p>Have a deep glitchy trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>From Vacuum</b> - Don't See <small>(57,5bpm)</small>" },
         { "p": "<small>2.</small> <b>From Vacuum</b> - Of The <small>(60bpm)</small>" },
@@ -7118,8 +7124,8 @@
         { "p": "<small>6.</small> <b>From Vacuum</b> - Power Full <small>(77-154bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written, Produced & Artwork By <a href='/artist/from-vacuum/'>From Vacuum</a>" },
-        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written, Produced & Artwork By <a href='/artist/from-vacuum'>From Vacuum</a>" },
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/from-vacuum-banglich-ep-24bit",
@@ -7159,7 +7165,7 @@
       "artists": "declaration-of-unity",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Transpersonal» by <a href='/artist/declaration-of-unity/'>Declaration of Unity</a>, from Greece.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Transpersonal» by <a href='/artist/declaration-of-unity'>Declaration of Unity</a>, from Greece.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Declaration of Unity</b> - Transpersonal <small>(135bpm)</small>" },
         { "p": "<small>02.</small> <b>Declaration of Unity</b> - Dotism <small>(138bpm)</small>" },
@@ -7167,7 +7173,7 @@
         { "p": "<small>04.</small> <b>Declaration of Unity</b> - Illusion Barrier <small>(120bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/declaration-of-unity/'>Declaration of Unity</a>" },
+        { "p": "Written & Produced By <a href='/artist/declaration-of-unity'>Declaration of Unity</a>" },
         { "p": "Beatbox Session By Odos Gaia (Track 3)" },
         { "p": "Art By Kjaersti Aandahl" },
         { "p": "Mixed & Mastered By <a href='https://www.facebook.com/profile.php?id=100007802205486' target='_blank' rel='noopener'>Spec @ Critical Studio</a>" }
@@ -7210,7 +7216,7 @@
       "artists": "psydewise matik dimitro",
       "relative_releases": "psydewise-synaptic-elastic psydewise-radio-dystopia",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Gain Of Funktion» by <a href='/artist/psydewise/'>Psydewise</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Gain Of Funktion» by <a href='/artist/psydewise'>Psydewise</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Psydewise</b> - Milkdrop <small>(138bpm)</small>" },
         { "p": "<small>02.</small> <b>Psydewise</b> - Southern Grunter <small>(138bpm)</small>" },
@@ -7219,9 +7225,9 @@
         { "p": "<small>05.</small> <b>Psydewise</b> - MK Ultra <small>(142bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/psydewise/'>Psydewise</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/psydewise'>Psydewise</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/psydewise-gain-of-funktion-ep-24bit",
@@ -7261,7 +7267,7 @@
       "artists": "tystix matik dimitro",
       "relative_releases": "tystix-etherial-lense tystix-spectral",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Romanesca» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Romanesca» by <a href='/artist/tystix'>TyStix</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>TyStix</b> - Just A Name <small>(134bpm)</small>" },
         { "p": "<small>02.</small> <b>TyStix</b> - Coastal Erosion <small>(137bpm)</small>" },
@@ -7269,9 +7275,9 @@
         { "p": "<small>04.</small> <b>TyStix</b> - Water Strider <small>(141bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/tystix'>TyStix</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/tystix-romanesca-ep-24bit",
@@ -7311,7 +7317,7 @@
       "artists": "eleexr irukanji vorg torus-knot ka-art dimitro",
       "relative_releases": "irukanji-eleexr-i-have-something-to-show-you",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Behind Dark Mirrors» by <a href='/artist/eleexr/'>EleexR</a>, from Ukraine.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Behind Dark Mirrors» by <a href='/artist/eleexr'>EleexR</a>, from Ukraine.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>EleexR</b> - Everybody Lies <small>(136bpm)</small>" },
         { "p": "<small>02.</small> <b>EleexR</b> - Behind Dark Mirrors <small>(136bpm)</small>" },
@@ -7320,9 +7326,9 @@
         { "p": "<small>05.</small> <b>EleexR</b> - Everybody Lies (<b>Torus Knot</b> Believes In Humanity Rmx) <small>(136bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/eleexr/'>EleexR</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/eleexr'>EleexR</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art'>KA</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/eleexr-behind-dark-mirrors-ep-24bit",
@@ -7362,7 +7368,7 @@
       "artists": "jai zhapa",
       "relative_releases": "jai-come-from",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Midi Bass» by <a href='/artist/jai/'>Jai</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «Midi Bass» by <a href='/artist/jai'>Jai</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Jai</b> - Midi Bass &nbsp;<small>138bpm</small>" },
         { "p": "<small>2.</small> <b>Jai</b> - Idea &nbsp;<small>138bpm</small>" },
@@ -7370,8 +7376,8 @@
         { "p": "<small>4.</small> <b>Jai</b> - Maladaptive Daydream &nbsp;<small>138bpm</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇲🇽 <a href='/artist/jai/'>Jai</a>" },
-        { "p": "Artwork By 🇲🇽 <a href='/artist/zhapa/'>Zhapa Rodríguez</a>" },
+        { "p": "Written & Produced By 🇲🇽 <a href='/artist/jai'>Jai</a>" },
+        { "p": "Artwork By 🇲🇽 <a href='/artist/zhapa'>Zhapa Rodríguez</a>" },
         { "p": "Mastered By Serious About Sound" }
       ],
       "links": {
@@ -7412,7 +7418,7 @@
       "artists": "paracozm vorg matik dimitro",
       "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die vorg-cyber-soul-night vorg-cyber-soul-day vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «QUBE» by Brazilian duo <a href='/artist/paracozm/'>Paracozm</a> and <a href='/artist/vorg/'>VORG</a>.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive and zenonesque release titled «QUBE» by Brazilian duo <a href='/artist/paracozm'>Paracozm</a> and <a href='/artist/vorg'>VORG</a>.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Paracozm</b> & <b>VORG</b> - As Above So Below <small>(134bpm)</small>" },
         { "p": "<small>02.</small> <b>Paracozm</b> & <b>VORG</b> - The Swarm <small>(137bpm)</small>" },
@@ -7421,9 +7427,9 @@
         { "p": "<small>05.</small> <b>Paracozm</b> & <b>VORG</b> - The Dream <small>(135bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/paracozm/'>Paracozm</a> & <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/paracozm'>Paracozm</a> & <a href='/artist/vorg'>VORG</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/paracozm-vorg-qube-ep-24bit",
@@ -7494,9 +7500,9 @@
         { "p": "<small>27.</small> 🇮🇹 <b>Egomorph</b> - Something Is Wrong <small>(140bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-6-24bit",
@@ -7536,7 +7542,7 @@
       "artists": "space-organ symetric stereodots irukanji alchemy-circle trootootoo, dimitro",
       "relative_releases": "space-organ-deep-impressions space-organ-behind-the-universe",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new DarkProg Psytrance full length album titled «Time And Space» by <a href='/artist/space-organ/'>Space Organ</a> from Brazil.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new DarkProg Psytrance full length album titled «Time And Space» by <a href='/artist/space-organ'>Space Organ</a> from Brazil.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01</small> Space Organ - Occult Melodies <small>(138bpm)</small>" },
         { "p": "<small>02</small> Space Organ & Symetric - Vexclaw <small>(142bpm)</small>" },
@@ -7550,9 +7556,9 @@
         { "p": "<small>10</small> Space Organ & Alchemy Circle - Alchemy Space <small>(137bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/space-organ/'>Space Organ</a>" },
-        { "p": "Artwork By <a href='/artist/trootootoo/'>Trootootoo</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/space-organ'>Space Organ</a>" },
+        { "p": "Artwork By <a href='/artist/trootootoo'>Trootootoo</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/space-organ-time-and-space-24bit",
@@ -7591,7 +7597,7 @@
       "artists": "urklang matik",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new Dark Progressive and Psytechno release titled «Psyral Lifeforms» by <a href='/artist/urklang/'>Urklang</a> from Austria.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new Dark Progressive and Psytechno release titled «Psyral Lifeforms» by <a href='/artist/urklang'>Urklang</a> from Austria.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Urklang</b> - Space Nomad <small>(136bpm)</small>" },
         { "p": "<small>2.</small> <b>Urklang</b> - Libertá <small>(136bpm)</small>" },
@@ -7601,8 +7607,8 @@
         { "p": "<small>6.</small> <b>Urklang</b> - Transformation <small>(140bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/urklang/'>Urklang</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
+        { "p": "Written & Produced By <a href='/artist/urklang'>Urklang</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
         { "p": "Mastered By <a href='https://www.zeamoonmastering.com' target='_blank' rel='noopener'>Simon Neumann @ Zeamoon Mastering</a>" }
       ],
       "links": {
@@ -7642,7 +7648,7 @@
       "artists": "spacecraft irukanji eleexr matik dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is happy to present new DarkProg Psytrance EP titled «Metamorphosis» by <a href='/artist/spacecraft/'>SpaceCraft</a> from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is happy to present new DarkProg Psytrance EP titled «Metamorphosis» by <a href='/artist/spacecraft'>SpaceCraft</a> from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>SpaceCraft</b> - Metamorphosis <small>(138bpm)</small>" },
         { "p": "<small>2.</small> <b>SpaceCraft</b> - Uncover <small>(138bpm)</small>" },
@@ -7650,9 +7656,9 @@
         { "p": "<small>4.</small> <b>Irukanji</b> & <b>EleexR</b> - I Have Something (<b>SpaceCraft</b> Rmx) <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/spacecraft/'>SpaceCraft</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/spacecraft'>SpaceCraft</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mixed & Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/spacecraft-metamorphosis-ep-24bit",
@@ -7691,7 +7697,7 @@
       "artists": "mushroomslice dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official goa-trance",
-      "information": "<p>Sentimony Records is happy to present the debut EP by Ukrainian artist <a href='/artist/mushroomslice/'>Mushroomslice</a>. «Astro Review» it is the 5-tracks EP filled with unique stories in experimental styles.</p><p>Stay P.L.U.R. and Enjoy!</p>",
+      "information": "<p>Sentimony Records is happy to present the debut EP by Ukrainian artist <a href='/artist/mushroomslice'>Mushroomslice</a>. «Astro Review» it is the 5-tracks EP filled with unique stories in experimental styles.</p><p>Stay P.L.U.R. and Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Mushroomslice</b> - Chandrayaan 3 <small>(138bpm)</small>" },
         { "p": "<small>2.</small> <b>Mushroomslice</b> - Gliese 581 C <small>(138bpm)</small>" },
@@ -7700,9 +7706,9 @@
         { "p": "<small>5.</small> <b>Mushroomslice</b> - Interference <small>(150bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/mushroomslice/'>Mushroomslice</a>" },
+        { "p": "Written & Produced By <a href='/artist/mushroomslice'>Mushroomslice</a>" },
         { "p": "Artwork By junky.fm aka Oleksii Kryvenko" },
-        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/mushroomslice-astro-review-ep-24bit",
@@ -7741,7 +7747,7 @@
       "artists": "kauyumari matik dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present new glitchy psybass release titled «Transmuting» by <a href='/artist/kauyumari/'>Kauyumari</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new glitchy psybass release titled «Transmuting» by <a href='/artist/kauyumari'>Kauyumari</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Kauyumari</b> - Eternal Transformation Of A Soul <small>(110bpm)</small>" },
         { "p": "<small>2.</small> <b>Kauyumari</b> - Legend Of The Cresent Moon Bear <small>(92bpm)</small>" },
@@ -7750,9 +7756,9 @@
         { "p": "<small>5.</small> <b>Kauyumari</b> - Unity <small>(134bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/kauyumari/'>Kauyumari</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Masteried By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/kauyumari'>Kauyumari</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Masteried By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/kauyumari-transmuting-ep-24bit",
@@ -7791,7 +7797,7 @@
       "artists": "nuada matik dimitro",
       "relative_releases": "nuada-internal-quest",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present new psytech, minimal and dark progressive release titled «Tools Of Perception» by <a href='/artist/nuada/'>Nuada</a>, from Australia.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new psytech, minimal and dark progressive release titled «Tools Of Perception» by <a href='/artist/nuada'>Nuada</a>, from Australia.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Nuada</b> - World Of Ideas <small>(140bpm)</small>" },
         { "p": "<small>2.</small> <b>Nuada</b> - Mirror To Nature <small>(138bpm)</small>" },
@@ -7801,9 +7807,9 @@
         { "p": "<small>6.</small> <b>Nuada</b> - Infinite Love <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/nuada/'>Nuada</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/nuada'>Nuada</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/nuada-tools-of-perception-24bit",
@@ -7842,7 +7848,7 @@
       "artists": "jai zhapa dimitro",
       "relative_releases": "jai-midi-bass",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present new dark progressive and psytech release titled «Come From» by <a href='/artist/jai/'>Jai</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new dark progressive and psytech release titled «Come From» by <a href='/artist/jai'>Jai</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Jai</b> - Couple Trouble <small>(132bpm)</small>" },
         { "p": "<small>2.</small> <b>Jai</b> - Many Substances <small>(135bpm)</small>" },
@@ -7850,9 +7856,9 @@
         { "p": "<small>4.</small> <b>Jai</b> - Come From <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇲🇽 <a href='/artist/jai/'>Jai</a>" },
-        { "p": "Artwork By 🇲🇽 <a href='/artist/zhapa/'>Zhapa Rodríguez</a>" },
-        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇲🇽 <a href='/artist/jai'>Jai</a>" },
+        { "p": "Artwork By 🇲🇽 <a href='/artist/zhapa'>Zhapa Rodríguez</a>" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/jai-come-from-ep-24bit",
@@ -7891,7 +7897,7 @@
       "artists": "djeriko tharok matik dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present new darkprog release titled «Cosmología Fractalica» by <a href='/artist/djeriko/'>Djeriko</a>, from Guatemala.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new darkprog release titled «Cosmología Fractalica» by <a href='/artist/djeriko'>Djeriko</a>, from Guatemala.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Djeriko</b> - Cosmología Fractalica <small>(136bpm)</small>" },
         { "p": "<small>2.</small> <b>Djeriko</b> - Submarino <small>(136bpm)</small>" },
@@ -7900,9 +7906,9 @@
         { "p": "<small>5.</small> <b>Tharok</b> & <b>Djeriko</b> - Out Of Orbit <small>(135bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/djeriko/'>Djeriko</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/djeriko'>Djeriko</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Stem Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/djeriko-cosmologi-a-fractalica-ep-24bit",
@@ -7941,7 +7947,7 @@
       "artists": "fracktom matik dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present new dark progressive and psytech release titled «Chronicles Of Chaos» by <a href='/artist/fracktom/'>Fracktom</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new dark progressive and psytech release titled «Chronicles Of Chaos» by <a href='/artist/fracktom'>Fracktom</a>, from Mexico.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Fracktom</b> - Dystophia <small>(135bpm)</small>" },
         { "p": "<small>2.</small> <b>Fracktom</b> - Apocalypsynth <small>(138bpm)</small>" },
@@ -7949,9 +7955,9 @@
         { "p": "<small>4.</small> <b>Fracktom</b> - Kindom Of False <small>(142bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/fracktom/'>Fracktom</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/fracktom'>Fracktom</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/fracktom-chronicles-of-chaos-ep-24bit",
@@ -8002,10 +8008,10 @@
         { "p": "<small>8.</small> <b>Zymosis</b> - Last Call (2024) <small>(140bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis/'>Zymosis</a>" },
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis'>Zymosis</a>" },
         { "p": "Tracks 2, 3, 8. Cello By 🇺🇦 Dina Kononova" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a> & Yurii Medved" }
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art'>KA</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a> & Yurii Medved" }
       ],
       "links": {
         "diggersfactory_url": "https://www.diggersfactory.com/vinyl/317332/zymosis-memento",
@@ -8045,14 +8051,14 @@
       "artists": "boketto ka-art dimitro",
       "relative_releases": "va-gatekey-vol-3 va-gatekey-vol-2 boketto-immure boketto-presence boketto-outer boketto-yugen",
       "at_playlists": "sentimony-official psydnb psychill-psybient",
-      "information": "<p>Sentimony Records proudly presents its debut single, alongside the label's first release of Drum & Bass with a pinch of trible and psychedelic vibes by <a href='/artist/boketto/'>Boketto</a> (UK), titled «Pushback».</p><p>With «Pushback», Boketto seeks to encapsulate the emotional journey of humanity, tracing our mysterious origins through to our present evolution.</p><p>This release is truly one-of-a-kind, marking the beginning of a new chapter for us: the Psychedelic Drum & Bass (PsyDnB) genre. We’ve already started work on the first PsyDnB compilation featuring talented, psyminded artists. Stay tuned and enjoy the ride!</p>",
+      "information": "<p>Sentimony Records proudly presents its debut single, alongside the label's first release of Drum & Bass with a pinch of trible and psychedelic vibes by <a href='/artist/boketto'>Boketto</a> (UK), titled «Pushback».</p><p>With «Pushback», Boketto seeks to encapsulate the emotional journey of humanity, tracing our mysterious origins through to our present evolution.</p><p>This release is truly one-of-a-kind, marking the beginning of a new chapter for us: the Psychedelic Drum & Bass (PsyDnB) genre. We’ve already started work on the first PsyDnB compilation featuring talented, psyminded artists. Stay tuned and enjoy the ride!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Boketto</b> - Pushback <small>(174bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇬🇧 Harry Critchley (<a href='/artist/boketto/'>Boketto</a>)" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇬🇧 Harry Critchley (<a href='/artist/boketto'>Boketto</a>)" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art'>KA</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/boketto-pushback-single",
@@ -8091,7 +8097,7 @@
       "artists": "bensaid matik dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present new dark progressive psytrance release titled «Lucid Vision» by <a href='/artist/bensaid/'>Bensaid</a>, from Chile.</p><p>Lucid vision comes from the authentic part that each person carries within, having to sculpt until reaching it, with progress until removing false programs that are not destined for the authentic purpose, and from there changing not only this reality, but also an infinite multitude of possibilities.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new dark progressive psytrance release titled «Lucid Vision» by <a href='/artist/bensaid'>Bensaid</a>, from Chile.</p><p>Lucid vision comes from the authentic part that each person carries within, having to sculpt until reaching it, with progress until removing false programs that are not destined for the authentic purpose, and from there changing not only this reality, but also an infinite multitude of possibilities.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Bensaid</b> - Lucid Vision <small>(140bpm)</small>" },
         { "p": "<small>2.</small> <b>Bensaid</b> - Esfera <small>(140bpm)</small>" },
@@ -8099,9 +8105,9 @@
         { "p": "<small>4.</small> <b>Bensaid</b> - Fractal Move <small>(142bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/bensaid/'>Bensaid</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/bensaid'>Bensaid</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/bensaid-lucid-vision-ep",
@@ -8140,7 +8146,7 @@
       "artists": "from-vacuum drevnii dimitro",
       "relative_releases": "from-vacuum-banglich",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new glitchy psybass release titled «Good Steps» by <a href='/artist/from-vacuum/'>From Vacuum</a>, from USA.</p><p>Have a deep glitchy trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new glitchy psybass release titled «Good Steps» by <a href='/artist/from-vacuum'>From Vacuum</a>, from USA.</p><p>Have a deep glitchy trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>01 1.1.</small> <b>From Vacuum</b> - Hop <small>(80bpm)</small>" },
         { "p": "<small>02 1.2.</small> <b>From Vacuum</b> - Feel It <small>(64bpm)</small>" },
@@ -8157,8 +8163,8 @@
         { "p": "<small>13 2.6.</small> <b>From Vacuum</b> - Dialogue With Me <small>(95bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written, Produced & Artwork By <a href='/artist/from-vacuum/'>From Vacuum</a>" },
-        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written, Produced & Artwork By <a href='/artist/from-vacuum'>From Vacuum</a>" },
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/from-vacuum-good-steps",
@@ -8197,7 +8203,7 @@
       "artists": "frog-prog slamthings dimitro",
       "relative_releases": "frog-prog-sacred-journey",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present new dark progressive psytrance release titled «Triangulum» by <a href='/artist/frog-prog/'>Frog Prog</a>, from Ukraine.</p><p>Triangulum Galaxy - a spiral galaxy located in the constellation of Triangulum. Its name, derived from the Greek word for «triangle,» reinforces the symbolic connection between the geometric form of the triangle and the broader universe.</p><p>Each of the three corners of the triangle can be seen as symbolic of key aspects of existence: body, mind, and spirit, or creation, preservation, and destruction. These three aspects are not separate but interconnected, forming a unified whole that reflects the cyclical nature of existence. This interconnectedness of parts mirrors the cosmic order that governs not only the individual but also the continuation of life and lineage across time.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new dark progressive psytrance release titled «Triangulum» by <a href='/artist/frog-prog'>Frog Prog</a>, from Ukraine.</p><p>Triangulum Galaxy - a spiral galaxy located in the constellation of Triangulum. Its name, derived from the Greek word for «triangle,» reinforces the symbolic connection between the geometric form of the triangle and the broader universe.</p><p>Each of the three corners of the triangle can be seen as symbolic of key aspects of existence: body, mind, and spirit, or creation, preservation, and destruction. These three aspects are not separate but interconnected, forming a unified whole that reflects the cyclical nature of existence. This interconnectedness of parts mirrors the cosmic order that governs not only the individual but also the continuation of life and lineage across time.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Frog Prog</b> - Darknes & Light <small>(138bpm)</small>" },
         { "p": "<small>2.</small> <b>Frog Prog</b> - Triángulum <small>(138bpm)</small>" },
@@ -8205,9 +8211,9 @@
         { "p": "<small>4.</small> <b>Frog Prog</b> - Future Music <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/frog-prog/'>Frog Prog</a>" },
+        { "p": "Written & Produced By <a href='/artist/frog-prog'>Frog Prog</a>" },
         { "p": "Artwork By slamthings" },
-        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/frog-prog-triangulum-ep",
@@ -8246,16 +8252,16 @@
       "artists": "mirror-me salamandra dimitro",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present new glitched and harmonic progressive psytrance release titled «Azure Skies And Golden Valleys» by <a href='/artist/mirror-me/'>Mirror Me</a>, from Poland.</p><p>Antoni created this EP with the sole wish that all the proceeds be donated to the Ukrainian people and army. Of course, we will fulfill his wish. Antoni, thank you so much for supporting our fight.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present new glitched and harmonic progressive psytrance release titled «Azure Skies And Golden Valleys» by <a href='/artist/mirror-me'>Mirror Me</a>, from Poland.</p><p>Antoni created this EP with the sole wish that all the proceeds be donated to the Ukrainian people and army. Of course, we will fulfill his wish. Antoni, thank you so much for supporting our fight.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Mirror Me</b> - Iridescent Daylight <small>(136bpm)</small>" },
         { "p": "<small>2.</small> <b>Mirror Me</b> - Sinusoidal Horizons <small>(138bpm)</small>" },
         { "p": "<small>3.</small> <b>Mirror Me</b> - Spectral Seafloor <small>(137bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/mirror-me/'>Mirror Me</a>" },
-        { "p": "Artwork By <a href='/artist/salamandra/'>Salamandra</a>" },
-        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/mirror-me'>Mirror Me</a>" },
+        { "p": "Artwork By <a href='/artist/salamandra'>Salamandra</a>" },
+        { "p": "Mastering By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/azure-skies-and-golden-valleys",
@@ -8294,7 +8300,7 @@
       "artists": "vorg matik dimitro",
       "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-day vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new bushprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg/'>VORG</a> from Brazil.</p><p>This is the first episode of trilogy of Cyber ​​Soul: Night, <a href='/release/vorg-cyber-soul-day/'>Day</a> and <a href='/release/vorg-cyber-soul-chill/'>Chill</a>, which will be released over the coming months.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new bushprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg'>VORG</a> from Brazil.</p><p>This is the first episode of trilogy of Cyber ​​Soul: Night, <a href='/release/vorg-cyber-soul-day'>Day</a> and <a href='/release/vorg-cyber-soul-chill'>Chill</a>, which will be released over the coming months.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>VORG</b> - Elastic <small>(139bpm)</small>" },
         { "p": "<small>2.</small> <b>VORG</b> - Orange And Green <small>(137bpm)</small>" },
@@ -8307,9 +8313,9 @@
         { "p": "<small>9.</small> <b>VORG</b> - Terms Of Life <small>(139bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg'>VORG</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/cyber-soul-night",
@@ -8348,7 +8354,7 @@
       "artists": "tystix matik dimitro",
       "relative_releases": "tystix-etherial-lense tystix-romanesca",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance release titled «Spectral» by <a href='/artist/tystix/'>TyStix</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance release titled «Spectral» by <a href='/artist/tystix'>TyStix</a>, from South Africa.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>TyStix</b> - Quanto <small>(135bpm)</small>" },
         { "p": "<small>2.</small> <b>TyStix</b> - Nimbus <small>(137bpm)</small>" },
@@ -8356,9 +8362,9 @@
         { "p": "<small>4.</small> <b>TyStix</b> - Optics <small>(138bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By <a href='/artist/tystix/'>TyStix</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By <a href='/artist/tystix'>TyStix</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/spectral",
@@ -8397,15 +8403,15 @@
       "artists": "tonal-sense matik",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new dark progressive psytrance EP titled «Enveloping Rhythm» by <a href='/artist/tonal-sense/'>Tonal Sense</a>, from Guatemala.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new dark progressive psytrance EP titled «Enveloping Rhythm» by <a href='/artist/tonal-sense'>Tonal Sense</a>, from Guatemala.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Tonal Sense</b> - Dark Sense <small>(138bpm)</small>" },
         { "p": "<small>2.</small> <b>Tonal Sense</b> - Sound Storm <small>(140bpm)</small>" },
         { "p": "<small>3.</small> <b>Tonal Sense</b> - Emveloping Rhythms <small>(142bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written, Produced, Mastered By 🇬🇹 <a href='/artist/tonal-sense/'>Tonal Sense</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" }
+        { "p": "Written, Produced, Mastered By 🇬🇹 <a href='/artist/tonal-sense'>Tonal Sense</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/enveloping-rhythm",
@@ -8444,15 +8450,15 @@
       "artists": "zymosis dimitro ka-art",
       "relative_releases": "zymosis-insight zymosis-nichna zymosis-timeless zymosis-memento",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a psychedelic electronica single titled «An Endless Sense Of The Past» by <a href='/artist/zymosis/'>Zymosis</a>, from Ukraine.</p><p>Have a nice trip!</p>",
+      "information": "<p>Sentimony Records is proud to present a psychedelic electronica single titled «An Endless Sense Of The Past» by <a href='/artist/zymosis'>Zymosis</a>, from Ukraine.</p><p>Have a nice trip!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Zymosis</b> - An Endless Sense Of The Past <small>(80/160bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis/'>Zymosis</a>" },
+        { "p": "Written & Produced By 🇺🇦 <a href='/artist/zymosis'>Zymosis</a>" },
         { "p": "Cello By 🇺🇦 Dina Kononova" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art'>KA</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/an-endless-sense-of-the-past",
@@ -8522,9 +8528,9 @@
         { "p": "<small>27.</small> 🇮🇳 <b>Noob Psybot</b> - Jakub's Ladder <small>(130bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/va-futured-vol-7",
@@ -8563,7 +8569,7 @@
       "artists": "vorg matik dimitro",
       "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-chill",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg/'>VORG</a> from Brazil.</p><p>This is the second episode of trilogy of Cyber ​​Soul: <a href='/release/vorg-cyber-soul-night/'>Night</a>, Day and <a href='/release/vorg-cyber-soul-chill/'>Chill</a>, which are released these months.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg'>VORG</a> from Brazil.</p><p>This is the second episode of trilogy of Cyber ​​Soul: <a href='/release/vorg-cyber-soul-night'>Night</a>, Day and <a href='/release/vorg-cyber-soul-chill'>Chill</a>, which are released these months.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>VORG</b> - Adventure Nature <small>(139bpm)</small>" },
         { "p": "<small>2.</small> <b>VORG</b> - Acid Kid <small>(137bpm)</small>" },
@@ -8576,9 +8582,9 @@
         { "p": "<small>9.</small> <b>VORG</b> - Nebula <small>(137bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg'>VORG</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/cyber-soul-day",
@@ -8617,7 +8623,7 @@
       "artists": "syned-brain dementor ka-art spirit-architect",
       "relative_releases": "",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
-      "information": "<p>Sentimony Records is proud to present a new forest progressive psytrance split album titled «MysteriUM TremendUM» by <a href='/artist/syned-brain/'>Syned Brain</a> and <a href='/artist/dementor/'>Dementor</a> from North Macedonia.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new forest progressive psytrance split album titled «MysteriUM TremendUM» by <a href='/artist/syned-brain'>Syned Brain</a> and <a href='/artist/dementor'>Dementor</a> from North Macedonia.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>Syned Brain</b> & <b>Dementor</b> - MysteriUM TremendUM <small>(140bpm)</small>" },
         { "p": "<small>2.</small> <b>Dementor</b> - Echoes Of The Abyss <small>(142bpm)</small>" },
@@ -8630,9 +8636,9 @@
         { "p": "<small>9.</small> <b>Syned Brain</b> - Veil Of Eternity <small>(140bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇲🇰 <a href='/artist/syned-brain/'>Syned Brain</a> (Denis Bogdanovski) & 🇲🇰 <a href='/artist/dementor/'>Dementor</a> (Bojan Taneski)" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art/'>KA</a> (Кateryna Bochkar)" },
-        { "p": "Mastered By 🇲🇰 <a href='/artist/spirit-architect/'>Spirit Architect</a> (Angel Zdravkovski)" }
+        { "p": "Written & Produced By 🇲🇰 <a href='/artist/syned-brain'>Syned Brain</a> (Denis Bogdanovski) & 🇲🇰 <a href='/artist/dementor'>Dementor</a> (Bojan Taneski)" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/ka-art'>KA</a> (Кateryna Bochkar)" },
+        { "p": "Mastered By 🇲🇰 <a href='/artist/spirit-architect'>Spirit Architect</a> (Angel Zdravkovski)" }
       ],
       "links": {
         "bandcamp24_url": "https://sentimony.bandcamp.com/album/syned-brain-dementor-mysterium-tremendum",
@@ -8671,7 +8677,7 @@
       "artists": "vorg matik dimitro",
       "relative_releases": "vorg-echoes paracozm-vorg-too-weird-to-live-too-rare-to-die paracozm-vorg-qube vorg-cyber-soul-night vorg-cyber-soul-day",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg/'>VORG</a> from Brazil.</p><p>This is the third episode of trilogy of Cyber ​​Soul: <a href='/release/vorg-cyber-soul-night/'>Night</a>, <a href='/release/vorg-cyber-soul-day/'>Day</a> and Chill, which have been released in recent months.</p><p>Have a wonderful trip and enjoy!</p>",
+      "information": "<p>Sentimony Records is proud to present a new darkprog psytrance and psytechno album titled «Cyber Soul: Night» by <a href='/artist/vorg'>VORG</a> from Brazil.</p><p>This is the third episode of trilogy of Cyber ​​Soul: <a href='/release/vorg-cyber-soul-night'>Night</a>, <a href='/release/vorg-cyber-soul-day'>Day</a> and Chill, which have been released in recent months.</p><p>Have a wonderful trip and enjoy!</p>",
       "tracklistCompact": [
         { "p": "<small>1.</small> <b>VORG</b> - 17 Earths <small>(127bpm)</small>" },
         { "p": "<small>2.</small> <b>VORG</b> - Impass <small>(137bpm)</small>" },
@@ -8681,9 +8687,9 @@
         { "p": "<small>6.</small> <b>VORG</b> - Our Reason <small>(117bpm)</small>" }
       ],
       "creditsCompact": [
-        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg/'>VORG</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik/'>Matik</a>" },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Written & Produced By 🇧🇷 <a href='/artist/vorg'>VORG</a>" },
+        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "",
@@ -8722,7 +8728,7 @@
       "artists": "irukanji",
       "relative_releases": "va-gatekey-vol-1 va-gatekey-vol-2",
       "at_playlists": "sentimony-official psychill-psybient",
-      "information": "<p>Sentimony Records proud to present a 3nd episode from «Gatekey» - freestyle psychill series.</p><p>This time you will find XX varied gatekeys carefully selected by 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>.</p><p>Enjoy!</p>",
+      "information": "<p>Sentimony Records proud to present a 3nd episode from «Gatekey» - freestyle psychill series.</p><p>This time you will find XX varied gatekeys carefully selected by 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>.</p><p>Enjoy!</p>",
       "tracklistCompact": [
         { "p": "<br><span class='sen-fs11 sen-ml18 sen-db'>Approved tracks: *</span>" },
         { "p": "<small>01.</small> <b>🇩🇪 Juelz</b> - Glitch Kidd <small>(93bpm)</small>" },
@@ -8753,9 +8759,9 @@
         { "p": "<br><span class='sen-fs11 sen-ml18 sen-db'>* - tracklist in alphabetical order</span>" }
       ],
       "creditsCompact": [
-        { "p": "Сompiled By 🇺🇦 <a href='/artist/irukanji/'>Irukanji</a>" },
+        { "p": "Сompiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
         { "p": "Artwork By " },
-        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro/'>Dimitro (Zymosis Studio)</a>" }
+        { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
         "bandcamp24_url": "",

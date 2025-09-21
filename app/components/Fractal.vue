@@ -61,7 +61,8 @@
       border-radius: 50%;
       position: absolute;
       transition: all 5.25s ease-in-out;
-      animation: turn 6.5s ease-in-out infinite;
+      animation: turn 6.5s ease-in-out;
+      // animation: turn 6.5s ease-in-out infinite;
     }
   }
 }
