@@ -21,6 +21,9 @@ interface ArtistItem {
   instagram?: string
   youtube_url?: string
   bandcamp_url?: string
+  applemusic_url?: string
+  youtubemusic_url?: string
+  wikipedia_url?: string
 }
 
 const { id } = useRoute().params
@@ -74,7 +77,7 @@ useSeoMeta({
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
-          <div class="w-full mb-4">
+          <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
 
             <OpenImage
               :image_th="item.photo_th"
@@ -89,7 +92,24 @@ useSeoMeta({
 
             <div class="clear-left" />
 
+            <div v-if="item.bandcamp_url">
+              <p><span class="text-[10px] md:text-[12px] text-white/50">Follow and support:</span></p>
+              <BtnPrimary
+                :to="item.bandcamp_url"
+                title="Bandcamp"
+                iconify="cib:bandcamp"
+              />
+            </div>
+
             <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+
+            <BtnPrimary
+              v-if="item.soundcloud_url"
+              :to="item.soundcloud_url"
+              title="SoundCloud"
+              iconify="fa-brands:soundcloud"
+            />
+
             <BtnPrimary
               v-if="item.spotify"
               :to="item.spotify"
@@ -97,10 +117,22 @@ useSeoMeta({
               iconify="fa-brands:spotify"
             />
             <BtnPrimary
-              v-if="item.soundcloud_url"
-              :to="item.soundcloud_url"
-              title="SoundCloud"
-              iconify="fa-brands:soundcloud"
+              v-if="item.applemusic_url"
+              :to="item.applemusic_url"
+              title="Apple Music"
+              iconify="fa-brands:apple"
+            />
+            <BtnPrimary
+              v-if="item.youtubemusic_url"
+              :to="item.youtubemusic_url"
+              title="YT Music"
+              iconify="simple-icons:youtubemusic"
+            />
+            <BtnPrimary
+              v-if="item.youtube_url"
+              :to="item.youtube_url"
+              title="YouTube"
+              iconify="fa:youtube"
             />
             <BtnPrimary
               v-if="item.facebook"
@@ -115,17 +147,19 @@ useSeoMeta({
               iconify="fa-brands:instagram"
             />
             <BtnPrimary
-              v-if="item.youtube_url"
-              :to="item.youtube_url"
-              title="YouTube"
-              iconify="fa:youtube"
+              v-if="item.discogs"
+              :to="item.discogs"
+              title="Discogs"
+              iconify="simple-icons:discogs"
             />
             <BtnPrimary
-              v-if="item.bandcamp_url"
-              :to="item.bandcamp_url"
-              title="Bandcamp"
-              iconify="cib:bandcamp"
+              v-if="item.wikipedia_url"
+              :to="item.wikipedia_url"
+              title="Wikipedia"
+              iconify="fa6-brands:wikipedia-w"
             />
+
+
 
           </div>
           <div class="max-w-[540px] mx-auto w-full mb-4">
@@ -216,11 +250,12 @@ useSeoMeta({
           </p>
         </div>
 
-        <div v-if="item.discogs">
+        <!-- <div v-if="item.wikipedia_url || item.discogs">
           <hr class="my-4 border-black/30">
           <p><small><b>Links:</b></small></p>
-          <p><a :href="item.discogs" target="_blank" rel="noopener">Discogs</a></p>
-        </div>
+          <p v-if="item.wikipedia_url"><a :href="item.wikipedia_url" target="_blank" rel="noopener">Wikipedia</a></p>
+          <p v-if="item.discogs"><a :href="item.discogs" target="_blank" rel="noopener">Discogs</a></p>
+        </div> -->
 
       </div>
     </div>

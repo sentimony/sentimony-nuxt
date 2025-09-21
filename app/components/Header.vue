@@ -29,7 +29,8 @@ const soc = computed(() =>
             <img
               src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
               alt="Sentimony Records Logo SVG"
-              class="w-[40px] mr-3"
+              class="mr-3"
+              width="40" height="40"
             />
             <div class="text-left leading-[1.5] pr-1">
               <div class="text-[16px]">Sentimony Records</div>
@@ -59,7 +60,7 @@ const soc = computed(() =>
               v-wave
             >
               <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
-              <img v-else :src="i.icon.url" class="icon w-[24px]" :alt="i.title + ' Icon'" />
+              <img v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="22" height="22">
               <div class="absolute left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100  group-hover:-translate-y-full transition-all ease-in-out duration-300 ">{{ i.title }}</div>
             </a>
           </div>

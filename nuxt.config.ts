@@ -1,18 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-    vite: {
-    optimizeDeps: {
-      include: [
-        '@vue/devtools-core',
-        '@vue/devtools-kit',
-        'swiper/vue',
-        'swiper/modules',
-      ]
-    },
-    // опційно: менше логів
-    // logLevel: 'warn'
-  },
+  // vite: {
+  //   optimizeDeps: {
+  //     include: [
+  //       '@vue/devtools-core',
+  //       '@vue/devtools-kit',
+  //       'swiper/vue',
+  //       'swiper/modules',
+  //     ]
+  //   },
+  //   // опційно: менше логів
+  //   // logLevel: 'warn'
+  // },
   runtimeConfig: {
     // envName: process.env.NUXT_PUBLIC_ENV || 'prod',  // 'local' | 'stage' | 'prod' ...
     public: {
@@ -33,22 +33,22 @@ export default defineNuxtConfig({
       }
     },
     // Incremental Static Regeneration for common pages to reduce SSR load
-    '/': { isr: 300 },
-    '/news': { isr: 300 },
-    '/releases': { isr: 300 },
-    '/release/**': { isr: 300 },
-    '/artists': { isr: 300 },
-    '/artist/**': { isr: 300 },
-    '/videos': { isr: 300 },
-    '/video/**': { isr: 300 },
-    '/playlists': { isr: 300 },
-    '/playlist/**': { isr: 300 },
-    '/events': { isr: 300 },
-    '/event/**': { isr: 300 },
-    '/friends': { isr: 300 },
-    '/friend/**': { isr: 300 },
-    '/tracks': { isr: 300 },
-    '/contacts': { isr: 300 },
+    '/': { isr: 86400 },
+    '/news': { isr: 86400 },
+    '/releases': { isr: 86400 },
+    '/release/**': { isr: 86400 },
+    '/artists': { isr: 86400 },
+    '/artist/**': { isr: 86400 },
+    '/videos': { isr: 86400 },
+    '/video/**': { isr: 86400 },
+    '/playlists': { isr: 86400 },
+    '/playlist/**': { isr: 86400 },
+    '/events': { isr: 86400 },
+    '/event/**': { isr: 86400 },
+    '/friends': { isr: 86400 },
+    '/friend/**': { isr: 86400 },
+    '/tracks': { isr: 86400 },
+    '/contacts': { isr: 86400 },
   },
   css: [
     // '~/assets/css/tailwind.css',

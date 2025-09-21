@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/images/sentimony-records-logo-v3.3.svg" alt="Sentimony Records Logo SVG v3.3" title="Sentimony Records Logo SVG v3.3" width="48" height="48">
+  <img src="./public/images/sentimony-records-logo-v3.3.svg" alt="Sentimony Records Logo SVG v3.3" title="Sentimony Records Logo SVG v3.3" width="56" height="56">
 </p>
 
 # sentimony-nuxt
@@ -24,7 +24,8 @@ Jamstack development of Sentimony Records portfolio website
 
 ### Monitoring
 
-* [Prod Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/functions/server) or `netlify logs:function server`
+* [Functions Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/functions/server) or `netlify logs:function server`
+* [Edge Functions Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/edge-functions)
 * [Requests Left](https://app.netlify.com/projects/sentimony-nuxt/configuration/functions#overview)
 
 <!-- ### Content -->
@@ -42,7 +43,13 @@ npm run dev
 ### Deploy
 
 ```bash
-netlify deploy
+firebase database:set / public/data/sentimony-db-export.json -P sentimony-db
+
+
+netlify deploy --alias stage --build
+
+
+netlify deploy --prod
 ```
 
 ### Have fun! ;)

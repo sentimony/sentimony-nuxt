@@ -1,7 +1,10 @@
 [build]
   command = "npm run build"
   functions = "netlify/functions"
-  publish = "dist"
+  edge_functions = "netlify/edge-functions"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
 
 [functions]
   node_bundler = "esbuild"
@@ -11,21 +14,22 @@
   command = "npx nuxi dev"
   targetPort = 3000
 
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-
+# .php / .PHP / .PhP … (у шляху)
 [[edge_functions]]
   function = "block-rules"
-  pattern  = "/.*\\.php.*"
+  pattern = "/.*\\.[Pp][Hh][Pp](?:$|/.*)"
 
+# будь-де є "wp-"
 [[edge_functions]]
   function = "block-rules"
-  pattern  = "/wp-.*"
+  pattern  = "/.*[Ww][Pp]-.*"
 
+# будь-де є "wp/"
 [[edge_functions]]
   function = "block-rules"
-  pattern  = "/wp/.*"
+  pattern  = "/.*[Ww][Pp]/.*"
 
+# будь-де є "wordpress"
 [[edge_functions]]
   function = "block-rules"
-  pattern  = "/wordpress.*"
+  pattern  = "/.*[Ww][Oo][Rr][Dd][Pp][Rr][Ee][Ss][Ss].*"
