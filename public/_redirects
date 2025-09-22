@@ -111,7 +111,6 @@
 /Dementor /artist/dementor
 /Jakanatura /artist/jakanatura
 
-# /index.html                   /
 
 # /:page/index.html             /:page
 # /:section/:slug/index.html    /:section/:slug
@@ -122,9 +121,12 @@
 # /release/:slug/official       /release/:slug
 # /release/:slug/official/      /release/:slug
 
-/3years.ua.htm                  /event/alt-space
+/index.html                     /
+/sencd003.htm                   /release/sphingida-origin
+/e.releases.sencd004.htm        /release/va-true-story
 /cds.sencd006.htm               /release/irukanji-z-lisu
 /artists.spectrumvision         /artist/spectrum-vision
+/3years.ua.htm                  /event/alt-space
 
 # /:section/:slug/              /:section/:slug
 # /:page/                       /:page
@@ -134,3 +136,10 @@
 
 /favicon/apple-touch-icon.png           /apple-touch-icon.png
 /favicon-v2-green/apple-touch-icon.png  /apple-touch-icon.png
+
+/release/sencd007_500.jpg https://content.sentimony.com/assets/img/releases/va-time-loop-beyond-borders_th.jpg
+/release/sencd011-500.jpg https://content.sentimony.com/assets/img/releases/va-special-places_th.jpg
+
+# Redirect all .jpg and .png requests to content subdomain
+# /*.jpg https://content.sentimony.com/:splat 301
+# /*.png https://content.sentimony.com/:splat 301
