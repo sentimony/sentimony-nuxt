@@ -65,13 +65,3 @@ export function logRequest(event: any) {
     console.log(`${left} ${arrowFwd} ${statusBox} ${pathCol}${arrowBack}`)
   })
 }
-
-// Event handler для middleware (якщо потрібно)
-export const requestLoggerHandler = defineEventHandler((event) => {
-  logRequest(event)
-})
-
-// Прямі експорти для використання в Nitro
-export default defineNitroPlugin(() => {
-  setupColoredConsole()
-})

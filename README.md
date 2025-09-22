@@ -6,7 +6,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/77f60e5a-3062-4880-9ee0-b8407611c9c1/deploy-status)](https://app.netlify.com/projects/sentimony-nuxt/deploys)
 
-Jamstack development of Sentimony Records portfolio website
+JAMstack development of Sentimony Records portfolio website
 
 ### Used:
 * [Nuxt 4](https://nuxt.com)

@@ -24,40 +24,85 @@ export default async (request: Request) => {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Not found (404)</title>
+  <title>404 · Sentimony Records</title>
   <style>
-    :root { --bg:#052e16; --fg:#e7e7ea; --muted:#9aa0a6; --card:#141416; --accent:#ff4d4f; }
-    @media (prefers-color-scheme: light) {
-      :root { --bg:#fafafa; --fg:#1f1f21; --muted:#5f6368; --card:#ffffff; --accent:#d93025; }
-    }
     * { box-sizing: border-box; }
-    body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji"; }
-    .wrap { min-height:100dvh; display:grid; place-items:center; padding:24px; }
-    .card { width:100%; max-width:720px; background:var(--card); border-radius:16px; padding:28px; box-shadow:0 6px 30px rgba(0,0,0,.15); }
-    .code { display:inline-grid; place-items:center; width:44px; height:44px; border-radius:12px; background:rgba(255,77,79,.15); color:var(--accent); font-weight:700; margin-bottom:12px; }
-    h1 { margin:8px 0 4px; font-size:24px; letter-spacing:.2px; }
-    p { margin:6px 0 0; color:var(--muted); }
-    .meta { margin-top:16px; padding-top:16px; border-top:1px solid rgba(127,127,127,.15); font-size:13px; color:var(--muted); word-break:break-all; }
-    .meta b { color:var(--fg); }
-    .actions { margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; }
-    .btn { appearance:none; border:0; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; background:#2b2c2f; color:var(--fg); }
-    @media (prefers-color-scheme: light) { .btn { background:#f3f4f6; } }
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #052e16, #064e2a, #065f32);
+      color: white;
+      // font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      font-family: Montserrat, sans-serif;
+      min-height: 100vh;
+      font-weight: 100;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      // background-attachment: fixed;
+      // background-color: rgb(5 46 22 / var(--tw-bg-opacity, 1));
+      // background-image: url(https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01);
+      // background-position: 50%;
+      // background-repeat: no-repeat;
+      // background-size: cover;
+    }
+    .container {
+      max-width: 384px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 0 8px;
+      text-align: center;
+    }
+    .status-code {
+      font-size: 2.25rem;
+      margin: 1.5rem 0;
+    }
+    .message {
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      height: 42px;
+      font-size: 15px;
+      letter-spacing: -0.025em;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 1.0);
+      background: transparent;
+      color: white;
+      padding: 0 16px;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      transition: background-color 0.3s ease-in-out;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .btn svg {
+      margin-right: 8px;
+      width: 19px;
+      height: 19px;
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="card" role="alert" aria-live="polite">
-      <div class="code">404</div>
-      <h1>Not found</h1>
-      <p>The resource you requested does not exist.</p>
-      <div class="meta">
-        <div><b>Path:</b> ${escapeHtml(url.pathname)}</div>
-      </div>
-      <div class="actions">
-        <a class="btn" href="/">Go to homepage</a>
-      </div>
-    </section>
-  </main>
+  <div class="container">
+    <div class="status-code">404</div>
+    <div class="message">The resource you requested does not exist</div>
+    <div>
+      <a href="/" class="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8z"/>
+        </svg>
+        <span>Go Home</span>
+      </a>
+    </div>
+  </div>
 </body>
 </html>`;
 
