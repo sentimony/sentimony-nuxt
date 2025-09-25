@@ -2,9 +2,9 @@ export default async (request: Request) => {
   const url = new URL(request.url);
   const path = url.pathname; // перевіряємо лише шлях (без query)
 
-  // .php у path або згадки wp-, wp/, wordpress у path
+  // .php (з будь-чим після) у path або згадки wp-, wp/, wordpress у path
   const bad =
-    /\.php(?:$|[/?#])/i.test(path) ||
+    /\.php/i.test(path) ||
     /(wp-|wp\/|wordpress)/i.test(path);
 
   if (!bad) return; // пропускаємо нормальні запити
@@ -35,8 +35,8 @@ export default async (request: Request) => {
       font-family: Montserrat, sans-serif;
       min-height: 100vh;
       font-weight: 100;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      // -webkit-font-smoothing: antialiased;
+      // -moz-osx-font-smoothing: grayscale;
       // background-attachment: fixed;
       // background-color: rgb(5 46 22 / var(--tw-bg-opacity, 1));
       // background-image: url(https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01);
