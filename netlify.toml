@@ -9,27 +9,24 @@
 [functions]
   node_bundler = "esbuild"
 
-[dev]
-  framework = "nuxt"
-  command = "npx nuxi dev"
-  targetPort = 3000
-
-# .php / .PHP / .PhP … (у шляху)
 [[edge_functions]]
-  function = "block-rules"
-  pattern = "/.*\\.[Pp][Hh][Pp](?:$|/.*)"
+  pattern = "/.*\\.[Pp][Hh][Pp].*"
+  function = "blocking"
 
-# будь-де є "wp-"
 [[edge_functions]]
-  function = "block-rules"
   pattern  = "/.*[Ww][Pp]-.*"
+  function = "blocking"
 
-# будь-де є "wp/"
 [[edge_functions]]
-  function = "block-rules"
   pattern  = "/.*[Ww][Pp]/.*"
+  function = "blocking"
 
-# будь-де є "wordpress"
 [[edge_functions]]
-  function = "block-rules"
   pattern  = "/.*[Ww][Oo][Rr][Dd][Pp][Rr][Ee][Ss][Ss].*"
+  function = "blocking"
+
+# Test: https://stage--sentimony-content.netlify.app/__test.PHP
+# Test: https://stage--sentimony-content.netlify.app/__test.Php7
+# Test: https://stage--sentimony-content.netlify.app/__testwP-
+# Test: https://stage--sentimony-content.netlify.app/__testWp/
+# Test: https://stage--sentimony-content.netlify.app/__testwoRdpress
