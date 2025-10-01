@@ -110,5 +110,3 @@ const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.vi
 
   </div>
 </template>
-
-<style lang="scss"></style>

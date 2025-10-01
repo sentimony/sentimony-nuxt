@@ -17,7 +17,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
     <div class="container flex flex-col items-center">
 
       <div class="mb-10 text-sm">
-        <div class="FooterNav__list flex justify-center flex-wrap">
+        <div class="flex justify-center flex-wrap overflow-hidden rounded-sm border border-white/10 ">
           <NuxtLink
             v-for="i in getNav()"
             :key="i.route"
@@ -86,15 +86,6 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
 </template>
 
 <style lang="scss">
-.FooterNav {
-  &__list {
-    border: 1px solid rgba(#fff, 0.1);
-    border-width: 1px;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-}
-
 .FooterSoc {
   &__tooltip {
     // font-size: 10px;
@@ -105,7 +96,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
     transition: all .3s ease-in-out;
     opacity: 0;
     visibility: hidden;
-    visibility: visible;
+    // visibility: visible;
     background-color: rgba(#8a0202, 1);
     padding: 0 4px;
     border-radius: 2px;

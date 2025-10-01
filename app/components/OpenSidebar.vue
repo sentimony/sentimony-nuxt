@@ -87,5 +87,3 @@ watch(() => route.path, () => { isOpen.value = false })
 
   </div>
 </template>
-
-<style lang="scss"></style>

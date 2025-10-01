@@ -33,5 +33,3 @@ const isActive = computed(() => (id != null ? !!tabs?.isActiveById(id) : false))
     <slot />
   </div>
 </template>
-
-<style lang="scss"></style>

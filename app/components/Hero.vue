@@ -33,5 +33,3 @@ const heroDescription = 'Psychedelic Music Label'
     </div>
   </div>
 </template>
-
-<style lang="scss"></style>

@@ -25,8 +25,30 @@
   pattern  = "/.*[Ww][Oo][Rr][Dd][Pp][Rr][Ee][Ss][Ss].*"
   function = "blocking"
 
-# Test: https://stage--sentimony-content.netlify.app/__test.PHP
-# Test: https://stage--sentimony-content.netlify.app/__test.Php7
-# Test: https://stage--sentimony-content.netlify.app/__testwP-
-# Test: https://stage--sentimony-content.netlify.app/__testWp/
-# Test: https://stage--sentimony-content.netlify.app/__testwoRdpress
+[[edge_functions]]
+  pattern  = ".*/([Aa]dmin|files|uploads)/.*"
+  function = "blocking"
+
+# Test: https://stage--sentimony-nuxt.netlify.app/__test.PHP
+# Test: https://stage--sentimony-nuxt.netlify.app/__test.Php7
+# Test: https://stage--sentimony-nuxt.netlify.app/__testwP-
+# Test: https://stage--sentimony-nuxt.netlify.app/__testWp/
+# Test: https://stage--sentimony-nuxt.netlify.app/__testwoRdpress
+# Test: https://stage--sentimony-nuxt.netlify.app/admin/controller/extension/extension/
+# Test: https://stage--sentimony-nuxt.netlify.app/files/
+# Test: https://stage--sentimony-nuxt.netlify.app/uploads/
+
+[[edge_functions]]
+  pattern = ".*/$"
+  function = "remove-trailing-slash"
+
+# Test: https://stage--sentimony-nuxt.netlify.app/release/va-fantazma/napster/
+# Test: https://stage--sentimony-nuxt.netlify.app/release/va-fantazma/junodownload/
+
+[[edge_functions]]
+  pattern = "/release/.*/googleplay.*"
+  function = "redirects"
+
+# Test: https://stage--sentimony-nuxt.netlify.app/release/va-futured-vol-1/googleplay/
+# Test: https://stage--sentimony-nuxt.netlify.app/release/zymosis-nichna/googleplaymarket/
+# Test: https://stage--sentimony-nuxt.netlify.app/release/irukanji-z-lisu/napster/

@@ -75,8 +75,8 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
 <template>
   <!-- <Fractal v-if="host == '!localhost'" /> -->
   <Fractal />
-  <div class="StickyFooter">
-    <div class="StickyFooter__content">
+  <div class="min-h-screen flex flex-col">
+    <div class="flex-1">
 
       <Header />
 
@@ -142,69 +142,9 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
       </div>
 
     </div>
-    <div class="StickyFooter__footer">
+    <div class="">
       <Testimonials />
       <Footer />
     </div>
   </div>
 </template>
-
-<style lang="scss">
-html,
-body,
-#__nuxt,
-#__layout {
-  height: 100%;
-}
-
-.StickyFooter {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-
-  &__content {
-    flex: 1;
-  }
-
-  &__footer {
-    display: block;
-  }
-}
-
-// .fade-enter-active { transition: opacity 0.4s ease 0.4s; }
-// .fade-enter-from { opacity: 0; }
-// .fade-enter-to { opacity: 1; }
-// .fade-leave-active { transition: opacity 0.4s ease; }
-// .fade-leave-to { opacity: 0; }
-
-// .page-enter-active {
-//   transition: all 0.4s ease 0.4s;
-// }
-// .page-enter-from {
-//   opacity: 0;
-//   filter: blur(1rem);
-// }
-// .page-leave-active {
-//   transition: all 0.4s ease 0.0s;
-// }
-// .page-leave-to {
-//   opacity: 0;
-//   filter: blur(1rem);
-// }
-
-// .widget-enter-active {
-//   transition: all 0.4s ease 0.4s;
-// }
-// .widget-enter-from {
-//   opacity: 0;
-//   filter: blur(1rem);
-// }
-// .widget-leave-active {
-//   transition: all 0.4s ease 0.0s;
-// }
-// .widget-leave-to {
-//   opacity: 0;
-//   filter: blur(1rem);
-// }
-</style>

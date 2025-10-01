@@ -35,14 +35,16 @@ defineProps<{
           v-if="i.cover_th"
           :src="i.cover_th"
           :alt="i.title + ' Cover Thumbnail'"
-        />
+          loading="lazy"
+        >
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingCover"/> -->
         <img
           class="rounded-sm size-[60px] md:size-[120px] object-cover"
           v-if="i.photo_th"
           :src="i.photo_th"
           :alt="i.title + ' Photo Thumbnail'"
-        />
+          loading="lazy"
+        >
         <!-- <img
           class="rounded-sm size-[60px] md:size-[120px] object-cover"
           v-if="i.artwork_th"
@@ -67,5 +69,3 @@ defineProps<{
   </NuxtLink>
 
 </template>
-
-<style lang="scss"></style>

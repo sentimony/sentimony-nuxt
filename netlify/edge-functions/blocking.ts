@@ -2,10 +2,11 @@ export default async (request: Request) => {
   const url = new URL(request.url);
   const path = url.pathname; // перевіряємо лише шлях (без query)
 
-  // .php (з будь-чим після) у path або згадки wp-, wp/, wordpress у path
+  // .php (з будь-чим після) у path або згадки wp-, wp/, wordpress у path, або /files/, /admin/, /uploads/
   const bad =
     /\.php/i.test(path) ||
-    /(wp-|wp\/|wordpress)/i.test(path);
+    /(wp-|wp\/|wordpress)/i.test(path) ||
+    /(\/files\/|\/admin\/|\/uploads\/)/i.test(path);
 
   if (!bad) return; // пропускаємо нормальні запити
 

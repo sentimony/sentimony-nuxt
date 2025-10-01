@@ -96,50 +96,93 @@
 /sencd096 /release/vorg-cyber-soul-day
 /sencd097 /release/syned-brain-dementor-mysterium-tremendum
 
-/MirrorMe /artist/mirror-me
-/Dimitro /artist/dimitro
-/Makus /artist/makus
-/SpiritArchitect /artist/spirit-architect
-/Salamandra /artist/salamandra
-/Matik /artist/matik
-/KA /artist/ka-art
-/TyStix /artist/tystix
-/TonalSense /artist/tonal-sense
-/Irukanji /artist/irukanji
-/VORG /artist/vorg
-/SynedBrain /artist/syned-brain
-/Dementor /artist/dementor
-/Jakanatura /artist/jakanatura
+/MirrorMe           /artist/mirror-me 301
+/Dimitro            /artist/dimitro 301
+/Makus              /artist/makus 301
+/SpiritArchitect    /artist/spirit-architect 301
+/Salamandra         /artist/salamandra 301
+/Matik              /artist/matik 301
+/KA                 /artist/ka-art 301
+/TyStix             /artist/tystix 301
+/TonalSense         /artist/tonal-sense 301
+/Irukanji           /artist/irukanji 301
+/VORG               /artist/vorg 301
+/SynedBrain         /artist/syned-brain 301
+/Dementor           /artist/dementor 301
+/Jakanatura         /artist/jakanatura 301
 
+/index.htm                      / 301
+/index.html                     / 301
+/news.htm                       /news 301
+/news.html                      /news 301
 
-# /:page/index.html             /:page
-# /:section/:slug/index.html    /:section/:slug
+/sencd001.htm                   /release/va-fantazma 301
+/sencd002.htm                   /release/va-emptinesses 301
+/sencd003.htm                   /release/sphingida-origin 301
+/sencd004.htm                   /release/va-true-story 301
+/sencd005.htm                   /release/spectrum-vision-lost-space-device 301
+/sencd006.htm                   /release/irukanji-z-lisu 301
+/sencd007.htm                   /release/va-time-loop-beyond-borders 301
+/sencd008.htm                   /release/va-ocean-scenes-higher-titans 301
 
-# /release/:slug/official       /release/:slug
-# /release/:slug/official/      /release/:slug
+/release/release/va-emptinesses /release/va-emptinesses 301
 
-# /release/:slug/official       /release/:slug
-# /release/:slug/official/      /release/:slug
+/e.releases.sencd002.htm        /release/va-emptinesses 301
+/u.releases.sencd002.htm        /release/va-emptinesses 301
+/r.releases.sencd002.htm        /release/va-emptinesses 301
 
-/index.html                     /
-/sencd003.htm                   /release/sphingida-origin
-/e.releases.sencd004.htm        /release/va-true-story
-/cds.sencd006.htm               /release/irukanji-z-lisu
-/artists.spectrumvision         /artist/spectrum-vision
-/3years.ua.htm                  /event/alt-space
+/e.releases.sencd003.htm        /release/sphingida-origin 301
+/u.releases.sencd003.htm        /release/sphingida-origin 301
+/r.releases.sencd003.htm        /release/sphingida-origin 301
 
-# /:section/:slug/              /:section/:slug
-# /:page/                       /:page
+/e.releases.sencd004.htm        /release/va-true-story 301
+/u.releases.sencd004.htm        /release/va-true-story 301
+/r.releases.sencd004.htm        /release/va-true-story 301
 
-/favicon/site.webmanifest           /site.webmanifest
-/favicon-v2-green/site.webmanifest  /site.webmanifest
+/cds.sencd005                   /release/spectrum-vision-lost-space-device 301
+/cds.sencd005.htm               /release/spectrum-vision-lost-space-device 301
 
-/favicon/apple-touch-icon.png           /apple-touch-icon.png
-/favicon-v2-green/apple-touch-icon.png  /apple-touch-icon.png
+/cds.sencd006                   /release/irukanji-z-lisu 301
+/cds.sencd006.htm               /release/irukanji-z-lisu 301
 
-/release/sencd007_500.jpg https://content.sentimony.com/assets/img/releases/va-time-loop-beyond-borders_th.jpg
-/release/sencd011-500.jpg https://content.sentimony.com/assets/img/releases/va-special-places_th.jpg
+/release/vorg-cyber-soul                /release/vorg-cyber-soul-night 301
+/release/vorg-cyber-soul/applemusic     /release/vorg-cyber-soul-night/applemusic 301
 
-# Redirect all .jpg and .png requests to content subdomain
-# /*.jpg https://content.sentimony.com/:splat 301
-# /*.png https://content.sentimony.com/:splat 301
+/fransgosu.htm                  /artist/frans-gosu 301
+/e.artists.harax.htm            /artist/harax 301
+/e.artists.sol.htm              /artist/sol 301
+/e.artists.sphingida.htm        /artist/sphingida 301
+/e.artists.fransgosu.htm        /artist/frans-gosu 301
+/e.artists.dagas.htm            /artist/dagas 301
+/artists.chronos                /artist/chronos 301
+/e.artists.hvoya.htm            /artist/hvoya 301
+/e.artists.liquidmind.htm       /artist/liquid-mind 301
+/e.artists.madgentel.htm        /artist/madgentel 301
+/artists.spectrumvision         /artist/spectrum-vision 301
+/artists.irukanji               /artist/irukanji 301
+/artists.irukanji.htm           /artist/irukanji 301
+
+/artist/shizoLizer-gin          /artist/shizolizer-gin 301
+/artist/ader-art                /artist/ader 301
+
+/events.senevent001             /event/shift-space 301
+/3years.ua.htm                  /event/shift-space 301
+/3years.ru.htm                  /event/shift-space 301
+/space-2008.htm                 /event/shift-space 301
+/space-2009.htm                 /event/alt-space 301
+/water-2010.htm                 /event/water-marks 301
+/space-2010.htm                 /event/home-space 301
+/space-2011.htm                 /event/five-years 301
+
+/favicon/favicon.svg               /favicon.svg 301
+/favicon-v2-green/favicon.svg      /favicon.svg 301
+/favicon/site.webmanifest           /site.webmanifest 301
+/favicon-v2-green/site.webmanifest  /site.webmanifest 301
+/favicon/apple-touch-icon.png           /apple-touch-icon.png 301
+/favicon-v2-green/apple-touch-icon.png  /apple-touch-icon.png 301
+/apple-touch-icon-precomposed.png       /apple-touch-icon.png 301
+
+/release/sencd007_500.jpg https://content.sentimony.com/assets/img/releases/va-time-loop-beyond-borders_xl.jpg 301
+/release/sencd011-500.jpg https://content.sentimony.com/assets/img/releases/va-special-places_xl.jpg 301
+
+/assets/img/svg-images/geometrical-pussy.svg https://content.sentimony.com/assets/img/svg-images/triangles.svg 301
