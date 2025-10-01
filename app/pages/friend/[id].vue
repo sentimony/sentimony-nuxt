@@ -64,7 +64,7 @@ useSeoMeta({
       </div>
     </div>
 
-    <div class="Content text-left px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black">
+    <div class="Content text-left px-2 pt-2 pb-[30px] md:pb-[60px]">
       <div class="max-w-[640px] mx-auto">
 
         <p>{{ item.title }}</p>
@@ -74,5 +74,3 @@ useSeoMeta({
 
   </div>
 </template>
-
-<style lang="scss"></style>

@@ -321,7 +321,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
       </div>
     </div>
 
-    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px] bg-[#e0ebe0] text-black" v-if="item">
+    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]" v-if="item">
       <div class="max-w-[640px] mx-auto">
 
         <div v-if="item.information" v-html="item.information" />

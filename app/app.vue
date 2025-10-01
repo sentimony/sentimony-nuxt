@@ -13,7 +13,6 @@ useHead({
   ]
 })
 
-
 // const loading = useLoadingIndicator({ duration: 2000 })
 // loading.start()
 // // ... await щось довге ...
@@ -42,5 +41,6 @@ p { @apply mb-2 }
 
 small { @apply opacity-60 }
 
+.Content { @apply text-black bg-[#b5ccb5] }
 .Content a { @apply text-blue-700 }
 </style>

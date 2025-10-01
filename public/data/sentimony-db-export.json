@@ -2982,9 +2982,9 @@
       "youtube_url": "",
       "website": ""
     },
-    "ader-art": {
+    "ader": {
       "title": "Ader",
-      "slug": "ader-art",
+      "slug": "ader",
       "visible": false,
       "category": "designer",
       "category_id": "411",
@@ -4325,13 +4325,13 @@
       "tracks_number": "5",
       "total_time": "45:34",
       "format": "EP",
-      "artists": "specialmind, tentura, unusual-cosmic-process, makus, ader-art",
+      "artists": "specialmind, tentura, unusual-cosmic-process, makus, ader",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>«The Missing Particle» - is the second EP released by Sentimony Records, introducing <a href='/artist/specialmind'>Specialmind</a> project - a psychedelic downtempo duo from Ukraine.</p><p>The project was formed in 2011 as a result of a collaboration between two talented musicians - Alexander Radchenko (<a href='/artist/crystal-vibe'>Crystal Vibe</a>) and Evgeniy Pshonniy.</p><p>The idea of creating their own vision of psychedelic chillout music originated as a result of combination of various musical experience and mutual desire to create a conceptually new sound in this genre.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/specialmind'>Specialmind</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4379,13 +4379,13 @@
       "tracks_number": "4",
       "total_time": "27:54",
       "format": "EP",
-      "artists": "tentura, makus, ader-art",
+      "artists": "tentura, makus, ader",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team is proudly pleased to announce new EP - «Aurora». At this time we're introducing you the debut single by <a href='/artist/tentura'>Tentura</a> project, a well-known psychedelic chillout and deep trance duo from Kyiv, Ukraine.</p><p>The project was formed by two talented guys: composer Ader (Alexander Pidgorny) and psytrance Dj Maket (Stanislav Yastremsky). Quite often, Alexander and Stanislav perform their live performances at the Ukrainian festivals, open airs, and indoor parties.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/tentura'>Tentura</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4555,13 +4555,13 @@
       "tracks_number": "11",
       "total_time": "1:19:35",
       "format": "Album",
-      "artists": "psyfactor, makus, ader-art",
+      "artists": "psyfactor, makus, ader",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records presents its new release «Retro Scientific» - the newest creation of electron-synthetic Bachelor of Science, mushroom-innovator laureate and a pride of Russian psychedelic scene - <a href='/artist/psyfactor'>Psyfactor</a>.</p><p>During this time he wrote at the strange silvery discs something special. You should have a laser to read them! This is a retro science. It studies the theory of electronic experimentation and broken beats. If something goes wrong, it can hurt the whole world. No matter how real it is.</p><p>Let's start experimenting!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/psyfactor'>Psyfactor</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4670,13 +4670,13 @@
       "tracks_number": "10",
       "total_time": "1:22:11",
       "format": "Album",
-      "artists": "tentura, specialmind, makus, ader-art",
+      "artists": "tentura, specialmind, makus, ader",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team proudly presents «Beyond Illusion» - new full-length album by <a href='/artist/tentura'>Tentura</a> from Ukraine.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/tentura'>Tentura</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a> & Andrei Verner" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a> & Andrei Verner" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4957,7 +4957,7 @@
       "information": "<p>Sentimony Records team is proud to present «Destiny» EP by Omnisound - new psybient & psychill project of Alexander Pidgornyi also known as <a href='/artist/tentura'>Tentura</a>.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/omnisound'>Omnisound</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [

@@ -5,11 +5,11 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 </script>
 
 <template>
-  <div class="Testimonials relative Content">
-    <img class="Testimonials__bg" src="/images/geometrical-pussy.svg" alt="Testimonials bg" />
-    <div class="Testimonials__wrapper px-2 py-[30px] md:py-[60px]">
-      <p>My fellow artists and I always love reading your feedback.</p>
-      <p>
+  <div class="relative Content text-black !bg-[#a1c0a1] overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg')] bg-center bg-no-repeat bg-cover bg-fixed">
+    <!-- <img class="absolute bottom-0 left-1/2 -translate-x-1/2" src="https://content.sentimony.com/assets/img/svg-images/mandala-01.svg" alt="Triangles Bg" /> -->
+    <div class="relative mx-auto px-2 py-[30px] md:py-[60px] box-border text-left max-w-lg [&>p>a]text-shadow-lg text-shadow-white">
+      <p class="drop-shadow-md">My fellow artists and I always love reading your feedback.</p>
+      <p class="drop-shadow-md">
         Find your favorite track and share your thoughts in the comments on our
         <a :href="youtube_url" target="_blank" rel="noopener">YouTube</a>,
         <a :href="soundcloud_url" target="_blank" rel="noopener">SoundCloud</a>
@@ -17,44 +17,8 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
         <a :href="bandcamp_url" target="_blank" rel="noopener">Bandcamp</a>
         pages.
       </p>
-      <p>Thank you — I truly appreciate it ❤️</p>
-      <p>— Ihor</p>
+      <p class="drop-shadow-md">Thank you — I truly appreciate it ❤️</p>
+      <p class="drop-shadow-md">— Ihor</p>
     </div>
   </div>
 </template>
-
-<style lang="scss">
-.Testimonials {
-  color: #000;
-  background-color: #fff;
-  overflow: hidden;
-
-  &__bg {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
-  }
-
-  &__wrapper {
-    max-width: 500px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    position: relative;
-    text-align: left;
-
-    p {
-      text-shadow:
-        0 2px 2px #fff,
-        0 -2px 2px #fff,
-        2px 0 2px #fff,
-        -2px 0 2px #fff;
-
-      // a {
-      //   color: #0046ff;
-      // }
-    }
-  }
-}
-</style>

@@ -6,8 +6,6 @@
     viewBox="0 0 1440 186"
     class="absolute left-[-2%] bottom-[-1px] w-[102%]"
   >
-    <path fill="#e0ebe0" fill-rule="evenodd" d="M1440 0l1440 186H0" />
+    <path fill="#b5ccb5" fill-rule="evenodd" d="M1440 0l1440 186H0" />
   </svg>
 </template>
-
-<style lang="scss"></style>

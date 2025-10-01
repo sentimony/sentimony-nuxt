@@ -56,5 +56,3 @@ function selectTab(i: number) {
 
   </ClientOnly>
 </template>
-
-<style lang="scss"></style>

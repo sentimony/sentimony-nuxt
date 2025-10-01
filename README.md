@@ -9,12 +9,12 @@
 JAMstack development of Sentimony Records portfolio website
 
 ### Used:
-* [Nuxt 4](https://nuxt.com)
+* [Nuxt](https://nuxt.com)
 * [Firebase](https://firebase.google.com)
-* [Netlify](https://www.netlify.com)
-* [Tailwind 3](https://v3.tailwindcss.com)
+* [Netlify](https://netlify.com)
+* [Tailwind](https://tailwindcss.com)
 * [Iconify](https://icon-sets.iconify.design)
-* [Swiper 12](https://swiperjs.com)
+* [Swiper](https://swiperjs.com)
 <!-- * [RealFaviconGenerator](https://realfavicongenerator.net) -->
 
 ### Links:
@@ -46,7 +46,7 @@ npm run dev
 firebase database:set / public/data/sentimony-db-export.json -P sentimony-db
 
 
-netlify deploy --alias stage --build
+netlify deploy --alias stage --context deploy-preview
 
 
 netlify deploy --prod
