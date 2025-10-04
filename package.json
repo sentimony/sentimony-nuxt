@@ -13,7 +13,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^5.5.5",
     "@nuxtjs/sitemap": "^7.4.7",
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.6.2",
     "nuxt": "^4.1.2",
     "sass-embedded": "^1.93.2"
   },

@@ -5,20 +5,22 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 </script>
 
 <template>
-  <div class="relative Content text-black !bg-[#a1c0a1] overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg')] bg-center bg-no-repeat bg-cover bg-fixed">
+  <div class="relative !bg-[#a1c0a1] overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg')] bg-center bg-no-repeat bg-cover bg-fixed">
     <!-- <img class="absolute bottom-0 left-1/2 -translate-x-1/2" src="https://content.sentimony.com/assets/img/svg-images/mandala-01.svg" alt="Triangles Bg" /> -->
-    <div class="relative mx-auto px-2 py-[30px] md:py-[60px] box-border text-left max-w-lg [&>p>a]text-shadow-lg text-shadow-white">
-      <p class="drop-shadow-md">My fellow artists and I always love reading your feedback.</p>
-      <p class="drop-shadow-md">
-        Find your favorite track and share your thoughts in the comments on our
-        <a :href="youtube_url" target="_blank" rel="noopener">YouTube</a>,
-        <a :href="soundcloud_url" target="_blank" rel="noopener">SoundCloud</a>
-        or
-        <a :href="bandcamp_url" target="_blank" rel="noopener">Bandcamp</a>
-        pages.
-      </p>
-      <p class="drop-shadow-md">Thank you — I truly appreciate it ❤️</p>
-      <p class="drop-shadow-md">— Ihor</p>
+    <div class="relative  px-4 py-8 md:py-16 box-border">
+      <div class="text-left mx-auto max-w-lg p-4 rounded-lg text-white border border-white/30 [&>p>a]:text-blue-500 hover:[&>p>a]:text-blue-400 backdrop-blur-lg">
+        <p>My fellow artists and I always love reading your feedback.</p>
+        <p>
+          Find your favorite track and share your thoughts in the comments on our
+          <a :href="youtube_url" target="_blank" rel="noopener">YouTube</a>,
+          <a :href="soundcloud_url" target="_blank" rel="noopener">SoundCloud</a>
+          or
+          <a :href="bandcamp_url" target="_blank" rel="noopener">Bandcamp</a>
+          pages.
+        </p>
+        <p>Thank you — I truly appreciate it ❤️</p>
+        <p>— Ihor</p>
+      </div>
     </div>
   </div>
 </template>

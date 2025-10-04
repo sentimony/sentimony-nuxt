@@ -20,6 +20,7 @@ const year = computed(() => formatYear(i.value?.date))
       v-if="i.cover_th || i.photo_th"
       :to="'/' + category + '/' + i.slug"
       class="w-[24px] mr-2"
+      v-wave
     >
       <img v-if="i.cover_th" :src="i.cover_th" class="block"
         :alt="i.title + ' thumbnail'"
@@ -39,6 +40,7 @@ const year = computed(() => formatYear(i.value?.date))
       <NuxtLink
         :to="'/' + category + '/' + i.slug"
         class="ml-1"
+        v-wave
       >
         <small>Read More</small>
       </NuxtLink>

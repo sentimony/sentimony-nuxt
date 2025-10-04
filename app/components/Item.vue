@@ -51,12 +51,13 @@ defineProps<{
           :src="i.artwork_th"
           :alt="i.title + ' Artwork Thumbnail'"
         /> -->
-        <!-- <img
+        <img
           class="rounded-sm size-[60px] md:size-[120px] object-cover"
-          v-if="i.flyer_th"
-          :src="i.flyer_th"
+          v-if="i.flyer_a_xl"
+          :src="i.flyer_a_xl"
           :alt="i.title + ' Flyer Thumbnail'"
-        /> -->
+          loading="lazy"
+        />
         <!-- <div class="swiper-lazy-preloader"></div> -->
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingPhoto"/> -->
       </div>
