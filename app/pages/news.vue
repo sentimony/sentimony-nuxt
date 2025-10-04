@@ -40,7 +40,7 @@ const newsItems = computed<NewsItem[]>(() => {
       title: i?.title,
       href: `/event/${i?.slug}`,
       category: 'event' as const,
-      image: i?.photo_th || i?.cover_th,
+      image: i?.flyer_a_xl,
     }))
 
   const v = videos.value
@@ -88,20 +88,29 @@ useSeoMeta({
           v-for="i in newsItems"
           :key="i.category + ':' + i.slug"
           :to="i.href"
-          class="flex items-center justify-between gap-4 py-4 md:py-6 group"
+          class="flex items-center justify-between p-4 group"
           v-wave
         >
-          <div class="flex items-center gap-4">
-            <div class="h-10 w-10 md:h-12 md:w-12 rounded-md bg-white/5 ring-1 ring-white/10 flex items-center justify-center overflow-hidden">
-              <img v-if="i.image" :src="i.image" :alt="i.title + ' Thumbnail'" class="h-full w-full object-cover" />
+          <div class="flex items-center">
+
+            <!-- <div class="w-12 rounded-md bg-white/5 ring-1 ring-white/10 flex items-center justify-center overflow-hidden"> -->
+              <img v-if="i.image"
+                :src="i.image"
+                :alt="i.title + ' Thumbnail'"
+                class="rounded-sm ring-1 ring-white/10"
+                width="48" height="48"
+                loading="lazy"
+              >
               <div v-else class="h-6 w-6 rounded bg-white/10"></div>
-            </div>
-            <div class="text-left">
-              <div class="text-base md:text-lg font-medium text-white transition-colors group-hover:text-white">{{ i.title }}</div>
+            <!-- </div> -->
+            <div class="text-left ml-4">
               <div class="text-xs md:text-sm text-white/50">{{ formatDate(i.date) }}</div>
+              <div class="text-base md:text-lg font-medium text-white transition-colors group-hover:text-white">{{ i.title }}</div>
             </div>
           </div>
-          <span class="text-white/40 group-hover:text-white/70 transition-colors">›</span>
+          <span class="ml-4 text-white/40 group-hover:text-white/70 transition-colors">
+            <Icon name="ic:baseline-arrow-forward-ios" size="18" />
+          </span>
         </NuxtLink>
       </div>
     </div>

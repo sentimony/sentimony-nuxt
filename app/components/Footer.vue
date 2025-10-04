@@ -37,13 +37,13 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
           <a
             v-for="i in soc"
             :href="i.url"
-            class="transition-all ease-in-out duration-300 p-2 relative size-[40px] flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/10 rounded-md"
+            class="group transition-all ease-in-out duration-300 p-2 relative size-[40px] flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/10 rounded-md"
             target="_blank" rel="noopener"
             v-wave
           >
             <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
             <img v-else :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
-            <div class="FooterSoc__tooltip text-xs whitespace-nowrap">{{ i.title }}</div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[133%] transition-all duration-300 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-[66%] bg-[#8a0202] px-1 rounded-sm text-white text-xs whitespace-nowrap">{{ i.title }}</div>
           </a>
         </div>
       </div>
@@ -85,28 +85,3 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
   </div>
 </template>
 
-<style lang="scss">
-.FooterSoc {
-  &__tooltip {
-    // font-size: 10px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 133%);
-    transition: all .3s ease-in-out;
-    opacity: 0;
-    visibility: hidden;
-    // visibility: visible;
-    background-color: rgba(#8a0202, 1);
-    padding: 0 4px;
-    border-radius: 2px;
-    color: #fff;
-
-    a:hover & {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, 66%);
-    }
-  }
-}
-</style>

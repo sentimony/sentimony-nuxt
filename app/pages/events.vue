@@ -32,28 +32,26 @@ useSeoMeta({
 
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
-    <div class=" pb-[30px] md:pb-[60px]">
-      <p
+    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+      <!-- <p
         v-for="i in eventsSortedByDate"
         :key="i.slug"
-      >
-        <NuxtLink
+      > -->
+        <Item
+          v-for="i in eventsSortedByDate"
+          :key="i.slug"
+          category="event"
+          :i="i"
+        />
+        <!-- <NuxtLink
           :to="'/event/' + i.slug"
           class=""
           v-wave
         >
-          <!-- <NuxtImg
-            v-if="i.cover_th"
-            :src="i.cover_th"
-            class="inline text-xs w-5 mr-1"
-            sizes="xs:20px"
-            densities="x2"
-            format="webp"
-            :alt="i.title"
-          /> -->
+          <img v-if="i.flyer_xl" :src="i.flyer_xl" :alt="i.title" width="120" class="mx-auto">
           <span class="">{{ formatDate(i.date) }} @ {{ i.title }}</span>
-        </NuxtLink>
-      </p>
+        </NuxtLink> -->
+      <!-- </p> -->
     </div>
 
   </div>

@@ -1602,7 +1602,7 @@
       "instagram_personal": "",
       "bandcamp_url": "https://chronosmusic.bandcamp.com",
       "youtube_url": "",
-      "website": "http://chronos-music.ru"
+      "website": "https://chronos-music.ru"
     },
     "cifroteca": {
       "title": "Cifroteca",
@@ -1854,7 +1854,7 @@
       "instagram_personal": "",
       "bandcamp_url": "https://heinali.bandcamp.com",
       "youtube_url": "",
-      "website": "http://www.heinali.info"
+      "website": "https://www.heinali.info"
     },
     "hypnotriod": {
       "title": "Hypnotriod",
@@ -2756,7 +2756,7 @@
       "instagram_personal": "",
       "bandcamp_url": "",
       "youtube_url": "https://www.youtube.com/@matik__1",
-      "website": "http://www.matikdesign.com"
+      "website": "https://www.matikdesign.com"
     },
     "trootootoo": {
       "title": "Trootootoo",
@@ -3171,9 +3171,10 @@
       "title": "Sentimony: Shift Space",
       "slug": "shift-space",
       "visible": true,
+      "flyer_a_xl": "https://content.sentimony.com/assets/img/events/shift-space_a_xl.jpg",
+      "flyer_b_xl": "https://content.sentimony.com/assets/img/events/shift-space_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "info": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>",
-      "information": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>",
       "lineup": [
         { "musician": "Spectrum Vision" },
         { "musician": "Chronos" },
@@ -3181,7 +3182,8 @@
       ],
       "links": [
         { "id": "facebook", "url": "" },
-        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=5435" },
+        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=5435" },
+        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2008/11/01/sentimony-shift-space" },
         { "id": "vkontakte", "url": "" }
       ]
     },
@@ -3190,9 +3192,10 @@
       "title": "Sentimony: Alt Space",
       "slug": "alt-space",
       "visible": true,
+      "flyer_a_xl": "https://content.sentimony.com/assets/img/events/alt-space_a_xl.jpg",
+      "flyer_b_xl": "https://content.sentimony.com/assets/img/events/alt-space_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "info": "<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>",
-      "information": "<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>",
       "lineup": [
         { "musician": "Flooting Grooves" },
         { "musician": "Capsula" },
@@ -3202,7 +3205,8 @@
       ],
       "links": [
         { "id": "facebook", "url": "" },
-        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=7036" },
+        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=7036" },
+        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2009/11/21/sentimony-alt-space" },
         { "id": "vkontakte", "url": "" }
       ]
     },
@@ -3211,9 +3215,10 @@
       "title": "Sentimony: Water Marks",
       "slug": "water-marks",
       "visible": true,
+      "flyer_a_xl": "https://content.sentimony.com/assets/img/events/water-marks_a_xl.jpg",
+      "flyer_b_xl": "https://content.sentimony.com/assets/img/events/water-marks_b_xl.jpg",
       "location": "Kyiv boat station",
       "info": "<p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
-      "information": "<p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
       "lineup": [
         { "musician": "Senzar" },
         { "musician": "Overdream feat. DubMyDub" },
@@ -3224,7 +3229,8 @@
       ],
       "links": [
         { "id": "facebook", "url": "" },
-        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8288" },
+        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8288" },
+        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2010/08/28/sentimony-water-marks" },
         { "id": "vkontakte", "url": "" }
       ]
     },
@@ -3233,9 +3239,10 @@
       "title": "Sentimony: Home Space",
       "slug": "home-space",
       "visible": true,
+      "flyer_a_xl": "https://content.sentimony.com/assets/img/events/home-space_a_xl.jpg",
+      "flyer_b_xl": "https://content.sentimony.com/assets/img/events/home-space_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "info": "<p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>",
-      "information": "<p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>",
       "lineup": [
         { "musician": "Psyfactor" },
         { "musician": "Chronos" },
@@ -3245,7 +3252,8 @@
       ],
       "links": [
         { "id": "facebook", "url": "" },
-        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8475" },
+        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8475" },
+        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2010/11/13/sentimony-home-space" },
         { "id": "vkontakte", "url": "" }
       ]
     },
@@ -3254,9 +3262,10 @@
       "title": "Sentimony: Five Years",
       "slug": "five-years",
       "visible": true,
+      "flyer_a_xl": "https://content.sentimony.com/assets/img/events/five-years_a_xl.jpg",
+      "flyer_b_xl": "https://content.sentimony.com/assets/img/events/five-years_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
       "info": "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>",
-      "information": "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>",
       "lineup": [
         { "musician": "Vonoom" },
         { "musician": "Mindex" },
@@ -3264,7 +3273,8 @@
       ],
       "links": [
         { "id": "facebook", "url": "https://www.facebook.com/events/837358289645324" },
-        { "id": "psyshine", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=9394" },
+        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=9394" },
+        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2011/11/05/sentimony-5-years" },
         { "id": "vkontakte", "url": "" }
       ]
     }
@@ -3275,7 +3285,7 @@
       "slug": "another-dimension",
       "visible": true,
       "links": [
-        { "id": "site", "url": "http://anotherdimension.com.ua" },
+        { "id": "site", "url": "https://anotherdimension.com.ua" },
         { "id": "bandcamp", "url": "https://anotherdimension.bandcamp.com" },
         { "id": "facebook", "url": "https://www.facebook.com/anotherdimensionmusic" },
         { "id": "soundcloud", "url": "https://soundcloud.com/another-dimension-music" },
@@ -3299,7 +3309,7 @@
       "slug": "moon-koradji",
       "visible": true,
       "links": [
-        { "id": "site", "url": "http://moonkoradji.com" },
+        { "id": "site", "url": "https://moonkoradji.com" },
         { "id": "bandcamp", "url": "https://moonkoradjirecords.bandcamp.com" },
         { "id": "facebook", "url": "https://www.facebook.com/MoonKoradjiRecords" },
         { "id": "soundcloud", "url": "https://soundcloud.com/moon-koradji-records" },
@@ -3311,7 +3321,7 @@
       "slug": "space-baby",
       "visible": true,
       "links": [
-        { "id": "site", "url": "http://spacebabyrec.com" },
+        { "id": "site", "url": "https://spacebabyrec.com" },
         { "id": "bandcamp", "url": "https://spacebabyrecords.bandcamp.com" },
         { "id": "facebook", "url": "https://www.facebook.com/SpaceBabyRecord" },
         { "id": "soundcloud", "url": "https://soundcloud.com/space-baby-records" },
@@ -3323,7 +3333,7 @@
       "slug": "treetrolla",
       "visible": true,
       "links": [
-        { "id": "site", "url": "http://www.treetrollarecords.com" },
+        { "id": "site", "url": "https://www.treetrollarecords.com" },
         { "id": "bandcamp", "url": "https://treetrollarecords.bandcamp.com" },
         { "id": "facebook", "url": "https://www.facebook.com/Treetrolla-Records-151989571518380" },
         { "id": "soundcloud", "url": "https://soundcloud.com/treetrollarecords" },
@@ -3335,7 +3345,7 @@
       "slug": "zenon",
       "visible": false,
       "links": [
-        { "id": "site", "url": "http://zenonrecords.com" },
+        { "id": "site", "url": "https://zenonrecords.com" },
         { "id": "bandcamp", "url": "https://zenonrecords.bandcamp.com" },
         { "id": "facebook", "url": "https://www.facebook.com/zenonrecords" },
         { "id": "soundcloud", "url": "https://soundcloud.com/zenon-records" },
@@ -3405,7 +3415,7 @@
         "spotify": "https://open.spotify.com/album/6Nc7LfYjjFvc6qe2zij4F1",
         "junodownload": "https://www.junodownload.com/products/fantazma/7077744-02",
         "discogs": "https://www.discogs.com/master/403901",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/fantazma",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/fantazma",
         "deezer": "https://www.deezer.com/us/album/46371552",
         "amazon_music": "https://music.amazon.com/albums/B074TVGD2R",
         "tidal": "https://listen.tidal.com/album/77545528",
@@ -3466,7 +3476,7 @@
         "spotify": "https://open.spotify.com/album/2zWZRazc1BBhucP5f3y7Op",
         "junodownload": "https://www.junodownload.com/products/emptinesses/7077745-02",
         "discogs": "https://www.discogs.com/master/403903",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/emptinesses",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/emptinesses",
         "deezer": "https://www.deezer.com/us/album/46371642",
         "amazon_music": "https://music.amazon.com/albums/B074TYRJ1Z",
         "tidal": "https://listen.tidal.com/album/77547310",
@@ -3525,7 +3535,7 @@
         "spotify": "https://open.spotify.com/album/4kScSuPVdrjdMBmTAIUUYf",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/446647",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/sphingida-origin",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/sphingida-origin",
         "deezer": "https://www.deezer.com/us/album/46371732",
         "amazon_music": "https://music.amazon.com/albums/B074TYDFC2",
         "tidal": "https://listen.tidal.com/album/77546178",
@@ -3586,7 +3596,7 @@
         "spotify": "https://open.spotify.com/album/3m5oxI96nSSKOvh6ess3eK",
         "junodownload": "https://www.junodownload.com/products/true-story/7081470-02",
         "discogs": "https://www.discogs.com/master/563060",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/true-story",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/true-story",
         "deezer": "https://www.deezer.com/us/album/46371822",
         "amazon_music": "https://music.amazon.com/albums/B074TXPMC7",
         "tidal": "https://listen.tidal.com/album/77547004",
@@ -3644,7 +3654,7 @@
         "spotify": "",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/494470",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/spectrum-vision-lost-space-device",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/spectrum-vision-lost-space-device",
         "deezer": "",
         "amazon_music": "",
         "tidal": "",
@@ -3702,7 +3712,7 @@
         "spotify": "https://open.spotify.com/album/3Id3sd4tUmvkcxCCDtYAwV",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/563062",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/irukanji-z-lisu",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/irukanji-z-lisu",
         "deezer": "https://www.deezer.com/us/album/46372172",
         "amazon_music": "https://music.amazon.com/albums/B074V2DB3D",
         "tidal": "https://listen.tidal.com/album/77547070",
@@ -3763,7 +3773,7 @@
         "spotify": "https://open.spotify.com/album/6srk3hhik02bwDZRba6wTf",
         "junodownload": "https://www.junodownload.com/products/ocean-scenes-higher-titans/7077749-02",
         "discogs": "https://www.discogs.com/master/538286",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/ocean-scenes-higher-titans",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/ocean-scenes-higher-titans",
         "deezer": "https://www.deezer.com/us/album/46372282",
         "amazon_music": "https://music.amazon.com/albums/B074TX4R7Z",
         "tidal": "https://listen.tidal.com/album/77545956",
@@ -3822,7 +3832,7 @@
         "spotify": "https://open.spotify.com/album/4JAbLZkVFSuTYrmxrOjoHz",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/331378",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/senzar-before-the-morning-sun",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/senzar-before-the-morning-sun",
         "deezer": "https://www.deezer.com/us/album/46435752",
         "amazon_music": "https://music.amazon.com/albums/B074VVNS6W",
         "tidal": "https://listen.tidal.com/album/77584553",
@@ -3883,7 +3893,7 @@
         "spotify": "https://open.spotify.com/album/1pbGzrQrL5Ifjr5CRE0CFx",
         "junodownload": "https://www.junodownload.com/products/grower/7077742-02",
         "discogs": "https://www.discogs.com/master/339908",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/grower",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/grower",
         "deezer": "https://www.deezer.com/us/album/46435812",
         "amazon_music": "https://music.amazon.com/albums/B074VT3XH3",
         "tidal": "https://listen.tidal.com/album/77583393",
@@ -3943,8 +3953,8 @@
         "spotify": "https://open.spotify.com/album/3MI4muE6TUekR4O3wgYk5q",
         "junodownload": "https://www.junodownload.com/products/time-loop-beyond-borders/7081469-02",
         "discogs": "https://www.discogs.com/master/563065",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/time-loop-beyond-borders",
-        "beatspace": "http://www.beatspace.com/sencd007cd-time-loop-beyond-borders.html",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/time-loop-beyond-borders",
+        "beatspace": "https://www.beatspace.com/sencd007cd-time-loop-beyond-borders.html",
         "psyshop": "https://www.psyshop.com/Time-Loop-Beyond-Borders/smy1cd007",
         "deezer": "https://www.deezer.com/us/album/46435862",
         "amazon_music": "https://music.amazon.com/albums/B074VZTT92",
@@ -4001,7 +4011,7 @@
         "spotify": "https://open.spotify.com/album/3NZVJwRa5R4Ds1qCGeh64x",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/349889",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/unusual-cosmic-process-weightlessness",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/unusual-cosmic-process-weightlessness",
         "deezer": "https://www.deezer.com/us/album/113463782",
         "amazon_music": "https://music.amazon.com/albums/B07YNBC9QJ",
         "tidal": "https://listen.tidal.com/album/119360468",
@@ -4062,7 +4072,7 @@
         "spotify": "https://open.spotify.com/album/6eLzoPFneG4OJyF0d1kwDN",
         "junodownload": "https://www.junodownload.com/products/tempo-syndicate/7077748-02",
         "discogs": "https://www.discogs.com/master/563066",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/tempo-syndicate",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/tempo-syndicate",
         "deezer": "https://www.deezer.com/us/album/46435992",
         "amazon_music": "https://music.amazon.com/albums/B074W6QZLK",
         "tidal": "https://listen.tidal.com/album/77585075",
@@ -4120,7 +4130,7 @@
         "spotify": "https://open.spotify.com/album/1kTRQsRd2DG2TcsLk3g2qQ",
         "junodownload": "https://www.junodownload.com/products/dancing-mavka/4304382-02",
         "discogs": "https://www.discogs.com/master/350184",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/dancing-mavka",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/dancing-mavka",
         "deezer": "https://www.deezer.com/us/album/113463752",
         "amazon_music": "https://music.amazon.com/albums/B07YN9P3K9",
         "tidal": "https://listen.tidal.com/album/119360476",
@@ -4153,7 +4163,7 @@
       "creditsCompact": [
         { "p": "Compiled By <a href='/artist/spectrum-vision'>Spectrum Vision</a>" },
         { "p": "Artwork By 1n0x" },
-        { "p": "Mastered By <a href='http://altar-records.com' target='_blank' rel='noopener'>Zen @ Altar Records Studio</a>" }
+        { "p": "Mastered By <a href='https://altar-records.com' target='_blank' rel='noopener'>Zen @ Altar Records Studio</a>" }
       ],
       "tracklistCompact": [
         { "p": "<small>01.</small> <b>Reactive</b> - Free Search <small>(118bpm)</small>" },
@@ -4180,8 +4190,8 @@
         "spotify": "https://open.spotify.com/album/64rSjFDiK8R4vVRgNidjxM",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/563069",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/absence-of-gravity",
-        "beatspace": "http://www.beatspace.com/sencd010cd-absence-of-gravity.html",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/absence-of-gravity",
+        "beatspace": "https://www.beatspace.com/sencd010cd-absence-of-gravity.html",
         "psyshop": "https://www.psyshop.com/Absence-Gravity-Sentimony/smy1cd010",
         "deezer": "https://www.deezer.com/us/album/46436032",
         "amazon_music": "https://music.amazon.com/albums/B074VYR1GY",
@@ -4243,8 +4253,8 @@
         "spotify": "https://open.spotify.com/album/7s7khkyGcFZTgSRfivuoE7",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/424687",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/special-places",
-        "beatspace": "http://www.beatspace.com/sencd011cd-special-places.html",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/special-places",
+        "beatspace": "https://www.beatspace.com/sencd011cd-special-places.html",
         "psyshop": "https://www.psyshop.com/Special-Places-Sentimony/smy1cd011",
         "deezer": "https://www.deezer.com/us/album/46436072",
         "amazon_music": "https://music.amazon.com/albums/B074W56991",
@@ -4299,7 +4309,7 @@
         "spotify": "https://open.spotify.com/album/5fpnT3AwZhE7LCCaoSEgcH",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/556014",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/hypnotriod-seven-heavenly-edges",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/hypnotriod-seven-heavenly-edges",
         "deezer": "https://www.deezer.com/us/album/46436112",
         "amazon_music": "https://music.amazon.com/albums/B074W3YT9N",
         "tidal": "https://listen.tidal.com/album/77584907",
@@ -4353,7 +4363,7 @@
         "spotify": "https://open.spotify.com/album/3gQJT8LTzKn1EH7PoNEJfV",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/601769",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/specialmind-the-missing-particle",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/specialmind-the-missing-particle",
         "deezer": "https://www.deezer.com/us/album/46436142",
         "amazon_music": "https://music.amazon.com/albums/B074W74RSV",
         "tidal": "https://listen.tidal.com/album/77583710",
@@ -4406,7 +4416,7 @@
         "spotify": "https://open.spotify.com/album/37oreOCCbkQ2DkChWoNVRf",
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/597257",
-        "ektoplazm": "http://www.ektoplazm.com/free-music/tentura-aurora",
+        "ektoplazm": "https://www.ektoplazm.com/free-music/tentura-aurora",
         "deezer": "https://www.deezer.com/us/album/46369932",
         "amazon_music": "https://music.amazon.com/albums/B074TX6DD1",
         "tidal": "https://listen.tidal.com/album/77546595",
@@ -4466,7 +4476,7 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/1165312",
         "ektoplazm": "",
-        "beatspace": "http://www.beatspace.com/sencd015-wild-storm.html",
+        "beatspace": "https://www.beatspace.com/sencd015-wild-storm.html",
         "psyshop": "https://www.psyshop.com/Wild-Storm-Cifroteca-RRaiser/smy1cd015",
         "deezer": "https://www.deezer.com/us/album/46436172",
         "amazon_music": "https://music.amazon.com/albums/B074VVK5BB",
@@ -4528,7 +4538,7 @@
         "junodownload": "https://www.junodownload.com/products/gamayun-tale/7077751-02",
         "discogs": "https://www.discogs.com/master/663801",
         "ektoplazm": "",
-        "beatspace": "http://www.beatspace.com/7694/Lookinglook+Records/Various/Gamayun+Tale/detail.aspx",
+        "beatspace": "https://www.beatspace.com/7694/Lookinglook+Records/Various/Gamayun+Tale/detail.aspx",
         "psyshop": "https://www.psyshop.com/Gamayun-Tale-Lookinglook/loo1cd005",
         "deezer": "https://www.deezer.com/us/album/113465672",
         "amazon_music": "https://music.amazon.com/albums/B07YNBMTP3",
@@ -4590,7 +4600,7 @@
         "junodownload": "",
         "discogs": "https://www.discogs.com/master/656758",
         "ektoplazm": "",
-        "beatspace": "http://www.beatspace.com/sencd016-retro-scientific.html",
+        "beatspace": "https://www.beatspace.com/sencd016-retro-scientific.html",
         "psyshop": "https://www.psyshop.com/Retro-Scientific-Psyfactor/smy1cd016",
         "deezer": "https://www.deezer.com/us/album/113463702",
         "amazon_music": "https://music.amazon.com/albums/B07YN7RSNT",
@@ -4819,7 +4829,7 @@
         "junodownload": "https://www.junodownload.com/products/zymosis-insight/3987751-02",
         "discogs": "https://www.discogs.com/master/1217106",
         "ektoplazm": "",
-        "beatspace": "http://www.beatspace.com/sencd025-insight.html",
+        "beatspace": "https://www.beatspace.com/sencd025-insight.html",
         "psyshop": "https://www.psyshop.com/Insight-Zymosis-Sentimony/smy1cd025",
         "deezer": "https://www.deezer.com/us/album/46370162",
         "amazon_music": "https://music.amazon.com/albums/B074V395Z2",
@@ -5900,7 +5910,7 @@
         "spotify": "https://open.spotify.com/album/6qNMmrzcP8LkeUKjhJe6iA",
         "junodownload": "",
         "discogs": "https://www.discogs.com/release/15977945",
-        "deezer": "http://www.deezer.com/album/137775922",
+        "deezer": "https://www.deezer.com/album/137775922",
         "amazon_music": "https://music.amazon.com/albums/B0868WN9FN",
         "tidal": "https://listen.tidal.com/album/135273732",
         "napster": "https://app.napster.com/artist/kabi/album/mboko",
@@ -6010,7 +6020,7 @@
         "spotify": "https://open.spotify.com/album/3aHhoCYLuvelGTZa43QoyJ",
         "junodownload": "https://www.junodownload.com/products/zymosis-timeless/4499980-02",
         "discogs": "https://www.discogs.com/release/15154333",
-        "deezer": "http://www.deezer.com/album/137777862",
+        "deezer": "https://www.deezer.com/album/137777862",
         "amazon_music": "https://music.amazon.com/albums/B0868VSSN1",
         "tidal": "https://tidal.com/album/135273831",
         "napster": "https://app.napster.com/artist/zymosis/album/timeless-457947595",
