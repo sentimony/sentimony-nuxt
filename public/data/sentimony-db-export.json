@@ -3174,17 +3174,15 @@
       "flyer_a_xl": "https://content.sentimony.com/assets/img/events/shift-space_a_xl.jpg",
       "flyer_b_xl": "https://content.sentimony.com/assets/img/events/shift-space_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "info": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>",
+      "info": "<p></p>",
       "lineup": [
         { "musician": "Spectrum Vision" },
         { "musician": "Chronos" },
         { "musician": "Irukanji" }
       ],
       "links": [
-        { "id": "facebook", "url": "" },
-        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=5435" },
-        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2008/11/01/sentimony-shift-space" },
-        { "id": "vkontakte", "url": "" }
+        { "id": "forum.psyshine.org.ua", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=5435" },
+        { "id": "psyshine.org.ua", "url": "http://psyshine.org.ua/parties/2008/11/01/sentimony-shift-space" }
       ]
     },
     "alt-space": {
@@ -3195,7 +3193,7 @@
       "flyer_a_xl": "https://content.sentimony.com/assets/img/events/alt-space_a_xl.jpg",
       "flyer_b_xl": "https://content.sentimony.com/assets/img/events/alt-space_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "info": "<p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>",
+      "info": "<p></p>",
       "lineup": [
         { "musician": "Flooting Grooves" },
         { "musician": "Capsula" },
@@ -3204,21 +3202,21 @@
         { "musician": "NeiRula" }
       ],
       "links": [
-        { "id": "facebook", "url": "" },
-        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=7036" },
-        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2009/11/21/sentimony-alt-space" },
-        { "id": "vkontakte", "url": "" }
+        { "id": "forum.psyshine.org.ua", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=7036" },
+        { "id": "psyshine.org.ua", "url": "http://psyshine.org.ua/parties/2009/11/21/sentimony-alt-space" },
+        { "id": "vk", "url": "http://vkontakte.ru/event12697516" }
       ]
     },
     "water-marks": {
       "date": "2010-08-28T12:00:00.000Z",
-      "title": "Sentimony: Water Marks",
+      "time": "22:00 - 08:00",
+      "title": "Sentimony: Water Marks1",
       "slug": "water-marks",
       "visible": true,
       "flyer_a_xl": "https://content.sentimony.com/assets/img/events/water-marks_a_xl.jpg",
       "flyer_b_xl": "https://content.sentimony.com/assets/img/events/water-marks_b_xl.jpg",
       "location": "Kyiv boat station",
-      "info": "<p>Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+      "info": "<p>On the eve of autumn, Sentimony Records invites friends to embark on a water journey.</p><p>At the territory of a boat station, we’ll host the first party in our new event series</p><p><b>SENTIMONY: WATER MARKS.</b></p><p>On the night of August 28–29, a picturesque bay near Kyiv will welcome you with music from Senzar (Denmark) and a number of live performances by Ukrainian artists.</p><p>The program includes: album and track premieres, debut shows, and collaborative experiments.</p><p>For adventurers and restless souls — active recreation on the water: boat rental at affordable prices under the supervision of a rescue team.</p><p>Face control, tea and sweets, an inexpensive bar, a cozy dancefloor, open-air cinema, candles, and nature — all to create the comfort and warmth essential for a Saturday chill-out concert.</p><p>Open-air night concert at a boat station in the Kyiv suburbs:</p><p>August 28 (Saturday), 2010</p><p>22:00 – 08:00</p>",
       "lineup": [
         { "musician": "Senzar" },
         { "musician": "Overdream feat. DubMyDub" },
@@ -3228,10 +3226,11 @@
         { "musician": "Unusual Cosmic Process | Psypheric" }
       ],
       "links": [
-        { "id": "facebook", "url": "" },
-        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8288" },
-        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2010/08/28/sentimony-water-marks" },
-        { "id": "vkontakte", "url": "" }
+        { "id": "facebook", "url": "http://www.facebook.com/event.php?eid=130283377015787" },
+        { "id": "forum.psyshine.org.ua", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8288" },
+        { "id": "psyshine.org.ua", "url": "http://psyshine.org.ua/parties/2010/08/28/sentimony-water-marks" },
+        { "id": "vk", "url": "http://vkontakte.ru/event19284578" },
+        { "id": "last.fm", "url": "http://www.lastfm.ru/event/1640512" }
       ]
     },
     "home-space": {
@@ -3242,7 +3241,7 @@
       "flyer_a_xl": "https://content.sentimony.com/assets/img/events/home-space_a_xl.jpg",
       "flyer_b_xl": "https://content.sentimony.com/assets/img/events/home-space_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "info": "<p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>",
+      "info": "<p></p>",
       "lineup": [
         { "musician": "Psyfactor" },
         { "musician": "Chronos" },
@@ -3251,10 +3250,11 @@
         { "musician": "Irukanji feat. JazzyFlute" }
       ],
       "links": [
-        { "id": "facebook", "url": "" },
-        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8475" },
-        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2010/11/13/sentimony-home-space" },
-        { "id": "vkontakte", "url": "" }
+        { "id": "facebook", "url": "http://www.facebook.com/event.php?eid=131233226928484" },
+        { "id": "forum.psyshine.org.ua", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=8475" },
+        { "id": "psyshine.org.ua", "url": "http://psyshine.org.ua/parties/2010/11/13/sentimony-home-space" },
+        { "id": "vk", "url": "http://vkontakte.ru/event20217648" },
+        { "id": "last.fm", "url": "http://last.fm/event/1704708" }
       ]
     },
     "five-years": {
@@ -3265,7 +3265,7 @@
       "flyer_a_xl": "https://content.sentimony.com/assets/img/events/five-years_a_xl.jpg",
       "flyer_b_xl": "https://content.sentimony.com/assets/img/events/five-years_b_xl.jpg",
       "location": "Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)",
-      "info": "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>",
+      "info": "<p></p>",
       "lineup": [
         { "musician": "Vonoom" },
         { "musician": "Mindex" },
@@ -3273,9 +3273,10 @@
       ],
       "links": [
         { "id": "facebook", "url": "https://www.facebook.com/events/837358289645324" },
-        { "id": "psyshine_forum", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=9394" },
-        { "id": "psyshine", "url": "http://psyshine.org.ua/parties/2011/11/05/sentimony-5-years" },
-        { "id": "vkontakte", "url": "" }
+        { "id": "forum.psyshine.org.ua", "url": "http://forum.psyshine.org.ua/viewtopic.php?t=9394" },
+        { "id": "psyshine.org.ua", "url": "http://psyshine.org.ua/parties/2011/11/05/sentimony-5-years" },
+        { "id": "vk", "url": "http://vkontakte.ru/event30984764" },
+        { "id": "last.fm", "url": "http://last.fm/event/2083080" }
       ]
     }
   },

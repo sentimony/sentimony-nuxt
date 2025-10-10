@@ -1,5 +1,7 @@
 import { createError } from 'h3'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineCachedEventHandler(
   async (event) => {
     const id = event.context.params?.id as string | undefined
@@ -8,7 +10,12 @@ export default defineCachedEventHandler(
     }
 
     const { public: { firebaseBase } } = useRuntimeConfig()
-    const data = await $fetch(`${firebaseBase}/releases/${id}.json`)
+    const url = `${firebaseBase}/releases/${id}.json`
+
+    // In development, add cache-busting timestamp
+    const data = isDev
+      ? await $fetch(`${url}?_t=${Date.now()}`)
+      : await $fetch(url)
 
     if (!data) {
       throw createError({ statusCode: 404, statusMessage: 'Release not found' })
@@ -17,8 +24,8 @@ export default defineCachedEventHandler(
     return data
   },
   {
-    // Cache for 1 hour; serve stale while revalidating
-    maxAge: 60 * 60,
-    swr: true,
+    // Cache for 1 hour in production; no cache in development
+    maxAge: isDev ? 0 : 60 * 60,
+    swr: !isDev,
   }
 )
