@@ -115,6 +115,8 @@
 /index.html                     / 301
 /news.htm                       /news 301
 /news.html                      /news 301
+/releases.htm                   /releases 301
+/releases.html                  /releases 301
 
 /sencd001.htm                   /release/va-fantazma 301
 /sencd002.htm                   /release/va-emptinesses 301
@@ -124,6 +126,13 @@
 /sencd006.htm                   /release/irukanji-z-lisu 301
 /sencd007.htm                   /release/va-time-loop-beyond-borders 301
 /sencd008.htm                   /release/va-ocean-scenes-higher-titans 301
+
+/e.artists.spectrumvision.htm
+/artist/madgentel
+/e.artists.taff.htm
+/artist/sol
+/e.artists.astropilot.htm
+/artist/hvoya
 
 /release/release/va-emptinesses /release/va-emptinesses 301
 
@@ -139,9 +148,16 @@
 /u.releases.sencd004.htm        /release/va-true-story 301
 /r.releases.sencd004.htm        /release/va-true-story 301
 
+/cds.sencd001                   /release/va-fantazma 301
+/cds.sencd001.htm               /release/va-fantazma 301
+/cds.sencd002                   /release/va-emptinesses 301
+/cds.sencd002.htm               /release/va-emptinesses 301
+/cds.sencd003                   /release/sphingida-origin 301
+/cds.sencd003.htm               /release/sphingida-origin 301
+/cds.sencd004                   /release/va-true-story 301
+/cds.sencd004.htm               /release/va-true-story 301
 /cds.sencd005                   /release/spectrum-vision-lost-space-device 301
 /cds.sencd005.htm               /release/spectrum-vision-lost-space-device 301
-
 /cds.sencd006                   /release/irukanji-z-lisu 301
 /cds.sencd006.htm               /release/irukanji-z-lisu 301
 
@@ -166,6 +182,7 @@
 /artist/ader-art                /artist/ader 301
 
 /events.senevent001             /event/shift-space 301
+/3years                         /event/shift-space 301
 /3years.ua.htm                  /event/shift-space 301
 /3years.ru.htm                  /event/shift-space 301
 /space-2008.htm                 /event/shift-space 301
@@ -186,3 +203,20 @@
 /release/sencd011-500.jpg https://content.sentimony.com/assets/img/releases/va-special-places_xl.jpg 301
 
 /assets/img/svg-images/geometrical-pussy.svg https://content.sentimony.com/assets/img/svg-images/triangles.svg 301
+
+
+/res/img/seneve001_1_250.gif                  https://content.sentimony.com/assets/img/events/shift-space_a_xl.jpg 301
+/res/img/seneve001_2_250.gif                  https://content.sentimony.com/assets/img/events/shift-space_b_xl.jpg 301
+
+/event/senevent002_380.gif                    https://content.sentimony.com/assets/img/events/alt-space_xl.jpg 301
+
+/event/water-2010/water-2010_flyer_a.jpg      https://content.sentimony.com/assets/img/events/water-marks_a_xl.jpg 301
+/event/water-2010/water-2010_flyer_b.jpg      https://content.sentimony.com/assets/img/events/water-marks_b_xl.jpg 301
+# /event/water-2010/senzar_150e.jpg             https://content.sentimony.com/assets/img/artists/senzar-01_th.jpg 301
+# /event/water-2010/overdream_150e.jpg          https://content.sentimony.com/assets/img/artists/overdream-01_th.jpg 301
+
+/event/space-2010/space-2010_flyer_a.jpg      https://content.sentimony.com/assets/img/events/home-space_a_xl.jpg 301
+/event/space-2010/space-2010_flyer_b.jpg      https://content.sentimony.com/assets/img/events/home-space_b_xl.jpg 301
+
+/event/space-2011/space-2011_flyer_a.jpg      https://content.sentimony.com/assets/img/events/five-years_a_xl.jpg 301
+/event/space-2011/space-2011_flyer_b.jpg      https://content.sentimony.com/assets/img/events/five-years_b_xl.jpg 301

@@ -9,6 +9,7 @@ interface EventItem {
   cover_og?: string
   cover_th?: string
   date?: string
+  time?: string
   location?: string
   info?: string
   lineup?: EventLineup[]
@@ -70,8 +71,9 @@ useSeoMeta({
           class="float-left"
         />
 
-        <p>{{ formatDate(item?.date) }}</p>
-        <p>{{ item?.location }}</p>
+        <p v-if="item.date">{{ formatDate(item?.date) }}</p>
+        <p v-if="item.location">{{ item?.location }}</p>
+        <p v-if="item.time">{{ item?.time }}</p>
 
         <div class="clear-left" />
 
@@ -81,13 +83,10 @@ useSeoMeta({
     <div class="Content text-left px-2 pt-2 pb-[30px] md:pb-[60px]">
       <div class="max-w-[640px] mx-auto">
 
-
         <p v-if="item?.info"><small><b>Info:</b></small></p>
         <div v-if="item?.info" v-html="item?.info" />
 
-
         <hr class="my-4 border-black/30">
-
 
         <OpenImage
           :image_th="item.flyer_b_xl"
@@ -101,7 +100,6 @@ useSeoMeta({
         <p v-for="(i, index) in item?.lineup || []" :key="i.musician || index">
           <span>{{ i.musician }}</span>
         </p>
-
 
         <hr class="my-4 border-black/30">
 

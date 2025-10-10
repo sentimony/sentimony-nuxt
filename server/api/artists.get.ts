@@ -1,12 +1,20 @@
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineCachedEventHandler(
   async () => {
-    // Proxy Firebase and allow Nitro to cache the result
     const { public: { firebaseBase } } = useRuntimeConfig()
-    return await $fetch(`${firebaseBase}/artists.json`)
+    const url = `${firebaseBase}/artists.json`
+
+    // In development, add cache-busting timestamp to bypass all caches
+    if (isDev) {
+      return await $fetch(`${url}?_t=${Date.now()}`)
+    }
+
+    return await $fetch(url)
   },
   {
-    // Cache for 1 hour; serve stale while revalidating
-    maxAge: 60 * 60,
-    swr: true,
+    // Cache for 1 hour in production; no cache in development
+    maxAge: isDev ? 0 : 60 * 60,
+    swr: !isDev,
   }
 )
