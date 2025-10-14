@@ -8,6 +8,7 @@ const showReleases = computed(() => route.path.startsWith('/release/') || isInde
 const showArtists = computed(() => route.path.startsWith('/artist/') || isIndex.value)
 const showVideos = computed(() => route.path.startsWith('/video/'))
 const showPlaylists = computed(() => route.path.startsWith('/playlist/'))
+const showEvents = computed(() => route.path.startsWith('/event/'))
 
 const { data: releasesRaw } = await useReleases({
   server: showReleases.value,
@@ -33,10 +34,17 @@ const { data: playlistsRaw } = await usePlaylists({
   immediate: showPlaylists.value,
   watch: [showPlaylists],
 })
+const { data: eventsRaw } = await useEvents({
+  server: showEvents.value,
+  lazy: !showEvents.value,
+  immediate: showEvents.value,
+  watch: [showEvents],
+})
 const releases = computed(() => toArray(releasesRaw.value, 'releases'))
 const artists = computed(() => toArray(artistsRaw.value, 'artists'))
 const videos = computed(() => toArray(videosRaw.value, 'videos'))
 const playlists = computed(() => toArray(playlistsRaw.value, 'playlists'))
+const events = computed(() => toArray(eventsRaw.value, 'events'))
 const releasesSortedByDate = computed(() =>
   [...releases.value]
     .filter((r: any) => Boolean(r?.visible))
@@ -66,10 +74,18 @@ const playlistsSortedByDate = computed(() =>
     )
     .reverse()
 )
+const eventsSortedByDate = computed(() =>
+  [...events.value]
+    .filter((r: any) => Boolean(r?.visible))
+    .sort((a: any, b: any) =>
+      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    )
+)
 const activeReleaseSlug = computed(() => showReleases.value ? String(route.params.id || '') : '')
 const activeArtistSlug = computed(() => showArtists.value ? String(route.params.id || '') : '')
 const activeVideoSlug = computed(() => showVideos.value ? String(route.params.id || '') : '')
 const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.params.id || '') : '')
+const activeEventSlug = computed(() => showEvents.value ? String(route.params.id || '') : '')
 </script>
 
 <template>
@@ -84,11 +100,10 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
 
       <div class="flex flex-col justify-center">
 
-        <!-- <Transition name="widget" mode="in-out"> -->
-          <Hero class="order-[0]" v-if="isIndex" />
-        <!-- </Transition> -->
+        <Hero class="order-[0]" v-if="isIndex" />
 
         <Swiper
+          :activeSlug="activeReleaseSlug"
           class="order-1"
           :class="[showReleases ? '' : 'hidden']"
           title="Releases"
@@ -96,10 +111,10 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
           category="release"
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"
-          :activeSlug="activeReleaseSlug"
         />
 
         <Swiper
+          :activeSlug="activeArtistSlug"
           class=""
           :class="[showArtists ? '' : 'hidden', isIndex ? 'order-3' : 'order-1']"
           title="Artists"
@@ -107,10 +122,10 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
           category="artist"
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"
-          :activeSlug="activeArtistSlug"
         />
 
         <Swiper
+          :activeSlug="activeVideoSlug"
           class="order-[1]"
           :class="showVideos ? '' : 'hidden'"
           title="Videos"
@@ -118,30 +133,37 @@ const activePlaylistSlug = computed(() => showPlaylists.value ? String(route.par
           category="video"
           :centeredSlidesBounds=true
           :centerInsufficientSlides=true
-          :activeSlug="activeVideoSlug"
         />
 
-        <!-- <Transition name="widget" mode="in-out"> -->
-          <Swiper
-            class="order-[1]"
-            :class="showPlaylists ? '' : 'hidden'"
-            title="Playlists"
-            :list="playlistsSortedByDate"
-            category="playlist"
-            :centeredSlidesBounds=true
-            :centerInsufficientSlides=true
-            :activeSlug="activePlaylistSlug"
-          />
-        <!-- </Transition> -->
+        <Swiper
+          :activeSlug="activePlaylistSlug"
+          class="order-[1]"
+          :class="showPlaylists ? '' : 'hidden'"
+          title="Playlists"
+          :list="playlistsSortedByDate"
+          category="playlist"
+          :centeredSlidesBounds=true
+          :centerInsufficientSlides=true
+        />
+
+        <Swiper
+          :activeSlug="activeEventSlug"
+          class="order-[1]"
+          :class="showEvents ? '' : 'hidden'"
+          title="Events"
+          :list="eventsSortedByDate"
+          category="event"
+          :centeredSlidesBounds=true
+          :centerInsufficientSlides=true
+        />
 
         <div class="order-[2]">
-          <!-- <Transition name="page" mode="in-out"> -->
-            <slot />
-          <!-- </Transition> -->
+          <slot/>
         </div>
-      </div>
 
+      </div>
     </div>
+
     <div class="">
       <Testimonials />
       <Footer />

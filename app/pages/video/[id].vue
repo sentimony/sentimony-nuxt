@@ -84,21 +84,21 @@ useSeoMeta({
               v-if="item.links?.youtube"
               :to="item.links?.youtube"
               title="YouTube"
-              iconify="cib:bandcamp"
+              iconify="fa:youtube"
             />
 
           </div>
-          <div class="max-w-[540px] mx-auto w-full mb-4">
+          <div class="relative max-w-[540px] mx-auto w-full mb-4">
 
             <Tabs>
               <Tab
                 v-if="item.links?.youtube"
-                icon="cib:bandcamp"
+                icon="fa:youtube"
                 title="YouTube"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
                   <iframe
-                    class="border-[0px] aspect-video"
+                    class="border-[0px] aspect-video w-full"
                     :src="embed"
                     :title="item.title + 'YouTube video player'"
                     frameborder="0"

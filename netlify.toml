@@ -46,6 +46,18 @@
 # Test: https://stage--sentimony-nuxt.netlify.app/release/va-fantazma/junodownload/
 
 [[edge_functions]]
+  pattern = "/.*\\.(htm|html|index.htm|index.html)$"
+  function = "redirects"
+
+# Test: https://sentimony.com/sencd097.htm
+# Test: https://sentimony.com/artists.htm
+# Test: https://sentimony.com/events.html
+# Test: https://sentimony.com/index.htm
+# Test: https://sentimony.com/index.html
+# Test: https://sentimony.com/artists/index.htm
+# Test: https://sentimony.com/events/index.html
+
+[[edge_functions]]
   pattern = "/release/.*/googleplay.*"
   function = "redirects"
 

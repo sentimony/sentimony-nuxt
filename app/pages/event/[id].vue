@@ -8,6 +8,8 @@ interface EventItem {
   title?: string
   cover_og?: string
   cover_th?: string
+  flyer_a_xl?: string
+  flyer_b_xl?: string
   date?: string
   time?: string
   location?: string

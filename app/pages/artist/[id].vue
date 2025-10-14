@@ -162,7 +162,7 @@ useSeoMeta({
 
 
           </div>
-          <div class="max-w-[540px] mx-auto w-full mb-4">
+          <div class="relative max-w-[540px] mx-auto w-full mb-4">
 
             <Tabs>
 
@@ -173,7 +173,7 @@ useSeoMeta({
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
                   <iframe
-                    class="border-[0px] aspect-video"
+                    class="border-[0px] aspect-video w-full"
                     :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
                     :title="item.title + 'YouTube video player'"
                     frameborder="0"

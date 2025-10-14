@@ -24,6 +24,7 @@ interface ReleaseItemLinks {
   youtube?: string;
   youtube_playlist_id?: string;
   soundcloud_playlist_id?: string;
+  diggersfactory_url?: string;
 }
 
 interface ReleaseItem {
@@ -65,13 +66,24 @@ const releasesSortedByDate = computed(() =>
       new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
     )
 )
-const artistsSortedByCategoryId = computed(() =>
-  [...artists.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      (a?.category_id ?? 0) - (b?.category_id ?? 0)
-    )
-)
+const artistsSortedByReleaseOrder = computed(() => {
+  const itemData = item.value as any
+  if (!itemData?.artists) return []
+
+  // Перетворюємо artists з строки в масив slug'ів
+  const artistsOrder = typeof itemData.artists === 'string'
+    ? itemData.artists.split(',').map((s: string) => s.trim())
+    : (Array.isArray(itemData.artists) ? itemData.artists : [])
+
+  // Фільтруємо і сортуємо артистів згідно порядку в релізі
+  return [...artists.value]
+    .filter((artist: any) => artistsOrder.includes(artist.slug))
+    .sort((a: any, b: any) => {
+      const indexA = artistsOrder.indexOf(a.slug)
+      const indexB = artistsOrder.indexOf(b.slug)
+      return indexA - indexB
+    })
+})
 
 const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
@@ -235,7 +247,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             />
 
           </div>
-          <div class="max-w-[540px] mx-auto w-full mb-4">
+          <div class="relative max-w-[540px] mx-auto w-full mb-4">
 
             <Tabs>
 
@@ -267,7 +279,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
                   <iframe
-                    class="border-[0px] aspect-video"
+                    class="border-[0px] aspect-video w-full"
                     :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.links?.youtube_playlist_id || '') + '&loop=1'"
                     :title="item.title + 'YouTube video player'"
                     frameborder="0"
@@ -303,7 +315,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
                   <iframe
-                    class="border-[0px] aspect-video"
+                    class="border-[0px] aspect-video w-full"
                     :src="embedYTMusic"
                     :title="item.title + 'YouTube video player'"
                     frameborder="0"
@@ -365,13 +377,14 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           <hr class="my-4 border-black/30">
           <p><small><b>Relative Artists:</b></small></p>
           <p
-            v-for="(iiii, index) in artistsSortedByCategoryId"
+            v-for="(iiii, index) in artistsSortedByReleaseOrder"
             :key="index"
+            class="mb-2 mr-4 last:mr-0"
           >
             <RelativeItem
-              v-if="item.artists.includes(iiii.slug)"
               :i="iiii"
               category="artist"
+              class=""
             />
           </p>
         </div>
