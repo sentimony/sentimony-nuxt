@@ -1,4 +1,4 @@
-export function useFriends() {
+export function useFriends(options: any = {}) {
   // Stable key to dedupe across views/layouts
-  return useAsyncData('friends', () => $fetch('/api/friends'))
+  return useAsyncData('friends', () => $fetch('/api/friends'), options)
 }

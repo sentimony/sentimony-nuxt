@@ -32,8 +32,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    // '~/assets/css/tailwind.css',
-    // '~/assets/scss/base.scss',
+    '~/assets/css/tailwind.css',
   ],
   // vite: {
   //   optimizeDeps: {

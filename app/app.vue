@@ -25,22 +25,3 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<style>
-body {
-  @apply
-  min-w-[320px] font-Montserrat antialiased text-xs md:text-sm lg:text-base text-white text-center
-  bg-green-950
-  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')]
-  /* bg-[url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5-sm.webp?alt=media&token=46b43e97-4b63-4b09-a35e-fca9535c0d12')] */
-  /* bg-[url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5-lg.webp?alt=media&token=8482e0e2-dd3c-445c-8082-9c11b416b326')] */
-  bg-center bg-no-repeat bg-cover bg-fixed
-}
-
-p { @apply mb-2 }
-
-small { @apply opacity-60 }
-
-.Content { @apply text-black bg-[#b5ccb5] }
-.Content a { @apply text-blue-700 }
-</style>

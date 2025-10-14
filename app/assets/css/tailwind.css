@@ -1,22 +1,20 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body { @apply min-w-[320px] font-Montserrat antialiased text-[12px]/[1.4] md:text-[15px]/[1.5] text-white text-center bg-green-950 bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')] bg-center bg-no-repeat bg-cover bg-fixed }
-h1, h2, h3, h4, h5, h6, p { @apply mb-[.3rem] md:mb-[.5rem] }
-h1, h2, h3, h4, h5, h6 { @apply font-normal }
-h1 { @apply text-[18px] md:text-[32px] my-[.5em] }
-h2 { @apply text-[1.5em] }
-h3 { @apply text-[1.17em] }
-h4 { @apply text-[1em] }
-h5 { @apply text-[0.83em] }
-h6 { @apply text-[0.67em] }
+body {
+  @apply
+  min-w-[320px] font-Montserrat antialiased text-xs md:text-sm lg:text-base text-white text-center
+  bg-green-950
+  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02')]
+  /* bg-[url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5-sm.webp?alt=media&token=46b43e97-4b63-4b09-a35e-fca9535c0d12')] */
+  /* bg-[url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5-lg.webp?alt=media&token=8482e0e2-dd3c-445c-8082-9c11b416b326')] */
+  bg-center bg-no-repeat bg-cover bg-fixed
+}
+
+p { @apply mb-2 }
 
 small { @apply opacity-60 }
 
-.container { @apply max-w-7xl }
-.Content a { @apply max-w-7xl text-blue-700 }
-
-@theme {
-  --container-8xl: 96rem;
-} */
+.Content { @apply text-black bg-[#b5ccb5] }
+.Content a { @apply text-blue-700 }

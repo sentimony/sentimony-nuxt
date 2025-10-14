@@ -14,38 +14,31 @@ const year = computed(() => formatYear(i.value?.date))
 </script>
 
 <template>
-  <span class="flex items-center">
+  <span class="inline-flex items-center">
 
     <NuxtLink
-      v-if="i.cover_th || i.photo_th"
       :to="'/' + category + '/' + i.slug"
-      class="w-[24px] mr-2"
+      class="pr-1 hover:bg-white/20 flex items-center rounded-md"
       v-wave
     >
-      <img v-if="i.cover_th" :src="i.cover_th" class="block"
+      <img v-if="i.cover_th"
+        :src="i.cover_th"
+        class="rounded-md ring-1 ring-white/50 w-[24px] mr-2"
         :alt="i.title + ' thumbnail'"
         loading="lazy"
       >
       <img
-        v-if="i.photo_th" :src="i.photo_th" class="block"
+        v-if="i.photo_th"
+        :src="i.photo_th"
+        class="rounded-full ring-1 ring-white/50 w-[24px] mr-2"
         :alt="i.title + ' thumbnail'"
         loading="lazy"
       >
+
+      <span v-if="i.title" class="mr-1">{{ i.title }}</span>
+      <small v-if="year" class="mr-1">({{ year }})</small>
+      <!-- <small>Read More</small> -->
     </NuxtLink>
-
-    <span>
-      <span v-if="i.title">{{ i.title }}</span>
-      <small v-if="year" class="ml-1">({{ year }})</small>
-
-      <NuxtLink
-        :to="'/' + category + '/' + i.slug"
-        class="ml-1"
-        v-wave
-      >
-        <small>Read More</small>
-      </NuxtLink>
-
-    </span>
 
   </span>
 </template>
