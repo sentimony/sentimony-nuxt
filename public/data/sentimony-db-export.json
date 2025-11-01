@@ -2664,9 +2664,9 @@
       "youtube_url": "",
       "website": ""
     },
-    "ader-art": {
+    "ader": {
       "title": "Ader",
-      "slug": "adader-arter",
+      "slug": "ader",
       "visible": false,
       "category": "designer",
       "category_id": "411"
@@ -3065,6 +3065,13 @@
       "bandcamp_url": "",
       "youtube_url": "",
       "website": ""
+    },
+    "yngvarr": {
+      "title": "Yngvarr",
+      "slug": "yngvarr",
+      "visible": false,
+      "category": "designer",
+      "category_id": "409"
     },
     "prok": {
       "title": "Prok",
@@ -3864,13 +3871,13 @@
       "tracks_number": "12",
       "total_time": "1:19:44",
       "format": "Compilation",
-      "artists": "irukanji, cifroteca, overdream, already-maged, roof-raiser, saikozaurus, magmadivers, shivattva, tookytooky, calamus, shiva3, neirula, makus, jet, juju",
+      "artists": "irukanji, cifroteca, overdream, already-maged, roof-raiser, saikozaurus, magmadivers, shivattva, tookytooky, calamus, shiva3, neirula, makus, jet, iorlovskyi, juju",
       "relative_releases": "cifroteca-roof-raiser-wild-storm",
       "at_playlists": "sentimony-official",
       "information": "<p>Sentimony Records is proud to introduce new musical direction more deeper musical appearance, new sublabel - Aqua Deep Music.</p><p>The first CD from the future series of releases - Ocean Scenes, was specially made for you to demonstrate the depth of pure psychedelic rhythms and active meditation.</p><p>Higher Titans presents 12 previously unreleased tracks compiled by 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>. All tracks produced by only Ukrainian established composers and promising newcomers.</p><p>Have a nice dive!</p>",
       "creditsCompact": [
         { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Artwork By 🇺🇦 <a href='/artist/juju'>Ju Ju</a> & <a href='/artist/iorlovskyi'>Ihor Orlovskyi</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a> & <a href='/artist/jet'>Jet (Cifroteca Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4163,13 +4170,13 @@
       "tracks_number": "12",
       "total_time": "1:19:40",
       "format": "Compilation",
-      "artists": "boggy-elf, shizolizer-gin, hypnotriod, unusual-cosmic-process, flooting-grooves, irukanji, sygnals, senzar, daoine-sidhe, wizack-twizack, primordial-ooze, spectrum-vision, makus, juju",
+      "artists": "boggy-elf, shizolizer-gin, hypnotriod, unusual-cosmic-process, flooting-grooves, irukanji, sygnals, senzar, daoine-sidhe, wizack-twizack, primordial-ooze, spectrum-vision, makus, iorlovskyi, juju",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team is proud to introduce you label's ninth release and our two years labor - psychedelic music compilation entitled «Tempo Syndicate» compiled by 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>.</p><p>This new release contains 12 unique tracks of crystal clear psychedelic sound with deep bass vibration, spellbinding shaman rhythms and innovative ideas.</p><p>We recommend to listen this new CD in the evening and at night-time, especially at open space away from the city limits.</p><p>Have a nice dive!</p>",
       "creditsCompact": [
         { "p": "Compiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>" },
-        { "p": "Artwork By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a> & 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
+        { "p": "Artwork By <a href='/artist/iorlovskyi'>Ihor Orlovskyi</a> & 🇺🇦 <a href='/artist/juju'>Ju Ju</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4461,13 +4468,13 @@
       "tracks_number": "5",
       "total_time": "45:34",
       "format": "EP",
-      "artists": "specialmind, tentura, unusual-cosmic-process, makus, ader-art",
+      "artists": "specialmind, tentura, unusual-cosmic-process, makus, ader,",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>«The Missing Particle» - is the second EP released by Sentimony Records, introducing <a href='/artist/specialmind'>Specialmind</a> project - a psychedelic downtempo duo from Ukraine.</p><p>The project was formed in 2011 as a result of a collaboration between two talented musicians - Alexander Radchenko (<a href='/artist/crystal-vibe'>Crystal Vibe</a>) and Evgeniy Pshonniy.</p><p>The idea of creating their own vision of psychedelic chillout music originated as a result of combination of various musical experience and mutual desire to create a conceptually new sound in this genre.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/specialmind'>Specialmind</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4515,13 +4522,13 @@
       "tracks_number": "4",
       "total_time": "27:54",
       "format": "EP",
-      "artists": "tentura, makus, ader-art",
+      "artists": "tentura, makus, ader,",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team is proudly pleased to announce new EP - «Aurora». At this time we're introducing you the debut single by <a href='/artist/tentura'>Tentura</a> project, a well-known psychedelic chillout and deep trance duo from Kyiv, Ukraine.</p><p>The project was formed by two talented guys: composer Ader (Alexander Pidgorny) and psytrance Dj Maket (Stanislav Yastremsky). Quite often, Alexander and Stanislav perform their live performances at the Ukrainian festivals, open airs, and indoor parties.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/tentura'>Tentura</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4691,13 +4698,13 @@
       "tracks_number": "11",
       "total_time": "1:19:35",
       "format": "Album",
-      "artists": "psyfactor, makus, ader-art",
+      "artists": "psyfactor, makus, ader,",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records presents its new release «Retro Scientific» - the newest creation of electron-synthetic Bachelor of Science, mushroom-innovator laureate and a pride of Russian psychedelic scene - <a href='/artist/psyfactor'>Psyfactor</a>.</p><p>During this time he wrote at the strange silvery discs something special. You should have a laser to read them! This is a retro science. It studies the theory of electronic experimentation and broken beats. If something goes wrong, it can hurt the whole world. No matter how real it is.</p><p>Let's start experimenting!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/psyfactor'>Psyfactor</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -4806,13 +4813,13 @@
       "tracks_number": "10",
       "total_time": "1:22:11",
       "format": "Album",
-      "artists": "tentura, specialmind, makus, ader-art",
+      "artists": "tentura, specialmind, makus, ader,",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team proudly presents «Beyond Illusion» - new full-length album by <a href='/artist/tentura'>Tentura</a> from Ukraine.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/tentura'>Tentura</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a> & Andrei Verner" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a> & Andrei Verner" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/makus'>Makus (Overdream Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -5087,13 +5094,13 @@
       "tracks_number": "5",
       "total_time": "36:26",
       "format": "EP",
-      "artists": "omnisound, masha-lichee, tentura, dimitro, ader-art",
+      "artists": "omnisound, masha-lichee, tentura, dimitro, ader,",
       "relative_releases": "",
       "at_playlists": "sentimony-official psychill-psybient",
       "information": "<p>Sentimony Records team is proud to present «Destiny» EP by Omnisound - new psybient & psychill project of Alexander Pidgornyi also known as <a href='/artist/tentura'>Tentura</a>.</p><p>Have a nice trip!</p>",
       "creditsCompact": [
         { "p": "Written & Produced By <a href='/artist/omnisound'>Omnisound</a>" },
-        { "p": "Artwork By <a href='/artist/ader-art'>Ader</a>" },
+        { "p": "Artwork By <a href='/artist/ader'>Ader</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "tracklistCompact": [
@@ -8799,18 +8806,18 @@
       "slug": "gaz-mask-12-years",
       "title": "Gaz Mask «12 Years»",
       "cat_no": "SENCD098",
-      "visible": false,
-      "date": "2025-10-31T12:00:00.000Z",
+      "visible": true,
+      "date": "2025-11-07T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
-      "cover_og": "",
-      "cover_th": "",
-      "cover_xl": "",
-      "style": "Progressive Dark Psytrance, TripProg",
+      "cover_og": "https://content.sentimony.com/assets/img/releases/gaz-mask-12-years_og.jpg",
+      "cover_th": "https://content.sentimony.com/assets/img/releases/gaz-mask-12-years_th.jpg",
+      "cover_xl": "https://content.sentimony.com/assets/img/releases/gaz-mask-12-years_xl.jpg",
+      "style": "Psytrance, Dark Progressive, TripProg",
       "tracks_number": "6",
       "total_time": "45:23",
       "format": "Album",
-      "artists": "gaz-mask, dimitro, matik",
+      "artists": "gaz-mask, dimitro, yngvarr",
       "relative_releases": "gaz-mask-quetzalcoatl gaz-mask-trippy-valley",
       "at_playlists": "sentimony-official dark-prog-zenonesque",
       "information": "<p>Sentimony Records is proud to present a new progressive dark psytrance album titled «12 Years» by <a href='/artist/gaz-mask'>Gaz Mask</a> from Brazil.</p><p>Have a deep trip!</p>",
@@ -8824,7 +8831,7 @@
       ],
       "creditsCompact": [
         { "p": "Written & Produced By 🇧🇷 <a href='/artist/gaz-mask'>Gaz Mask</a>" },
-        { "p": "Artwork By 🇦🇺 <a href='/artist/matik'>Matik</a>" },
+        { "p": "Artwork By <a href='/artist/yngvarr'>Yngvarr</a>" },
         { "p": "Mastered By 🇺🇦 <a href='/artist/dimitro'>Dimitro (Zymosis Studio)</a>" }
       ],
       "links": {
@@ -8850,7 +8857,7 @@
       "slug": "vorg-cyber-soul-chill",
       "title": "VORG «Cyber Soul: Chill»",
       "cat_no": "SENCD099",
-      "visible": false,
+      "visible": true,
       "date": "2025-11-28T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
