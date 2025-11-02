@@ -19,6 +19,7 @@ export const SPOTIFY_URL       = 'https://open.spotify.com/user/4arwh3vuu5g9w1gq
 export const TIKTOK_URL        = 'https://www.tiktok.com/@sentimony'
 export const TWITTER_URL       = 'https://twitter.com/sentimony'
 export const YOUTUBE_URL       = 'https://www.youtube.com/@SentimonyRecords?sub_confirmation=1'
+export const YOUTUBE_MUSIC_URL = 'https://music.youtube.com/channel/UCMvuVxLPE5VBjw0YH1uE4ig'
 export const TUMBLR_URL        = 'https://sentimony.tumblr.com'
 export const GIPHY_URL         = 'https://giphy.com/channel/sentimony'
 export const LINKEDIN_URL      = 'https://www.linkedin.com/company/3256285'
@@ -32,25 +33,26 @@ export type SocialLink = {
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { id: 'appleMusic',   title: 'Apple Music', url: APPLE_MUSIC_URL },
-  { id: 'bandcamp',     title: 'Bandcamp',    url: BANDCAMP_URL, inHeader: true },
-  { id: 'beatport',     title: 'Beatport',    url: BEATPORT_URL },
-  { id: 'deezer',       title: 'Deezer',      url: DEEZER_URL },
-  { id: 'discogs',      title: 'Discogs',     url: DISCOGS_URL },
-  { id: 'facebook',     title: 'Facebook',    url: FACEBOOK_URL, inHeader: true },
-  { id: 'instagram',    title: 'Instagram',   url: INSTAGRAM_URL },
-  { id: 'junoDownload', title: 'JunoDownload',url: JUNODOWNLOAD_URL },
-  { id: 'mixcloud',     title: 'Mixcloud',    url: MIXCLOUD_URL },
-  { id: 'patreon',      title: 'Patreon',     url: PATREON_URL },
-  { id: 'soundcloud',   title: 'SoundCloud',  url: SOUNDCLOUD_URL, inHeader: true },
-  { id: 'spotify',      title: 'Spotify',     url: SPOTIFY_URL },
-  // { id: 'tumblr',       title: 'Tumblr',      url: TUMBLR_URL },
-  // { id: 'giphy',        title: 'Giphy',       url: GIPHY_URL },
-  // { id: 'linkedin',     title: 'LinkedIn',    url: LINKEDIN_URL },
-  // { id: 'vk',           title: 'VKontakte',   url: VK_URL },
-  { id: 'tiktok',       title: 'TikTok',      url: TIKTOK_URL },
-  { id: 'twitterX',     title: 'Twitter Х',   url: TWITTER_URL },
-  { id: 'youtube',      title: 'YouTube',     url: YOUTUBE_URL, inHeader: true },
+  { id: 'appleMusic',   title: 'Apple Music',   url: APPLE_MUSIC_URL },
+  { id: 'bandcamp',     title: 'Bandcamp',      url: BANDCAMP_URL, inHeader: true },
+  { id: 'beatport',     title: 'Beatport',      url: BEATPORT_URL },
+  { id: 'deezer',       title: 'Deezer',        url: DEEZER_URL },
+  { id: 'discogs',      title: 'Discogs',       url: DISCOGS_URL },
+  { id: 'facebook',     title: 'Facebook',      url: FACEBOOK_URL, inHeader: true },
+  { id: 'instagram',    title: 'Instagram',     url: INSTAGRAM_URL },
+  { id: 'junoDownload', title: 'JunoDownload',  url: JUNODOWNLOAD_URL },
+  { id: 'mixcloud',     title: 'Mixcloud',      url: MIXCLOUD_URL },
+  { id: 'patreon',      title: 'Patreon',       url: PATREON_URL },
+  { id: 'soundcloud',   title: 'SoundCloud',    url: SOUNDCLOUD_URL, inHeader: true },
+  { id: 'spotify',      title: 'Spotify',       url: SPOTIFY_URL },
+  { id: 'tumblr',       title: 'Tumblr',        url: TUMBLR_URL },
+  { id: 'giphy',        title: 'Giphy',         url: GIPHY_URL },
+  { id: 'linkedin',     title: 'LinkedIn',      url: LINKEDIN_URL },
+  { id: 'vk',           title: 'VKontakte',     url: VK_URL },
+  { id: 'tiktok',       title: 'TikTok',        url: TIKTOK_URL },
+  { id: 'twitterX',     title: 'Twitter Х',     url: TWITTER_URL },
+  { id: 'youtube',      title: 'YouTube',       url: YOUTUBE_URL, inHeader: true },
+  { id: 'youtubeMusic', title: 'YouTube Music', url: YOUTUBE_MUSIC_URL },
 ]
 
 // export function getSocial(id: IconKey): SocialLink | undefined {
