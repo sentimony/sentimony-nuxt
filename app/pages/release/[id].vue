@@ -127,7 +127,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
-          <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
+          <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36 pr-2">
 
             <OpenImage
               :image_th="item.cover_th"

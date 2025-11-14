@@ -4,7 +4,7 @@
   "type": "module",
   "dependencies": {
     "@nuxt/icon": "^2.1.0",
-    "@nuxt/image": "^1.11.0",
+    "@nuxt/image": "^2.0.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "swiper": "^12.0.3",
     "v-wave": "^3.0.4"
@@ -13,8 +13,8 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^5.5.6",
     "@nuxtjs/sitemap": "^7.4.7",
-    "@types/node": "^24.9.2",
-    "nuxt": "^4.2.0",
+    "@types/node": "^24.10.1",
+    "nuxt": "^4.2.1",
     "sass-embedded": "^1.93.3"
   },
   "scripts": {
@@ -26,7 +26,7 @@
     "preinstall": "node -e \"console.log('npm_config_production=', process.env.npm_config_production)\""
   },
   "engines": {
-    "node": "22.20.0",
-    "npm": "10.9.3"
+    "node": "24.11.1",
+    "npm": "11.6.2"
   }
 }

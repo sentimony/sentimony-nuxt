@@ -22,7 +22,7 @@ type NewsItem = {
 
 const newsItems = computed<NewsItem[]>(() => {
   const r = releases.value
-    .filter((i: any) => Boolean(i?.visible))
+    .filter((i: any) => Boolean(i?.visible) && !i?.coming_soon)
     .map((i: any) => ({
       date: i?.date,
       slug: i?.slug,
