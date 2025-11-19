@@ -37,13 +37,13 @@ JAMstack development of Sentimony Records portfolio website
 ```bash
 npm i
 
-npm run dev
+npm run dev -- --host 0.0.0.0
 ```
 
 ### Deploy
 
 ```bash
-firebase database:set / public/data/sentimony-db-export.json -P sentimony-db
+firebase database:set / public/data/sentimony-db-export.json -P sentimony-db -f
 
 
 netlify deploy --alias stage --context deploy-preview

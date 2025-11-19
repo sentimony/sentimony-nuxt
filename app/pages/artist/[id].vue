@@ -205,7 +205,7 @@ useSeoMeta({
                 title="Facebook"
               >
                 <iframe
-                  class="facebook-widget facebook-widget--size-sm md:hidden"
+                  class="rounded-none overflow-hidden my-0 mx-auto w-[287px] h-[132px] md:hidden"
                   :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                   :title="item.title + ' Facebook Mobile Iframe'"
                   scrolling="no"
@@ -213,7 +213,7 @@ useSeoMeta({
                   allowTransparency="true"
                 />
                 <iframe
-                  class="facebook-widget facebook-widget--size-md hidden md:block"
+                  class="rounded-none overflow-hidden my-0 mx-auto w-[500px] h-[132px] hidden md:block"
                   :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
                   :title="item.title + ' Facebook Desktop Iframe'"
                   scrolling="no"
@@ -262,21 +262,3 @@ useSeoMeta({
 
   </div>
 </template>
-
-<style lang="scss">
-.facebook-widget {
-  border: none;
-  overflow: hidden;
-  margin: 0 auto;
-
-  &--size-sm {
-    height: 98px;
-    width: 287px;
-  }
-
-  &--size-md {
-    width: 500px;
-    height: 130px;
-  }
-}
-</style>

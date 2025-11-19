@@ -21,6 +21,3 @@ export default defineRobotsConfig({
     return []
   }
 })
-function defineRobotsConfig(arg0: { indexable: () => boolean; groups: { userAgent: string[]; allow: () => string[]; disallow: () => string[] }[]; sitemap: () => string[] }) {
-  throw new Error("Function not implemented.")
-}

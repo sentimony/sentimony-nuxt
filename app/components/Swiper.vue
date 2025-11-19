@@ -169,7 +169,7 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .swiper { @apply overflow-visible static }
 .swiper-slide { @apply w-[auto] }
 

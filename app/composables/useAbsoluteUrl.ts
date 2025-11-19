@@ -25,4 +25,3 @@ export function useAbsoluteUrl() {
 
   return { absoluteUrl, buildUrl }
 }
-

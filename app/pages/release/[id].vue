@@ -338,7 +338,9 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
         <div v-if="item.information" v-html="item.information" />
 
-        <div v-if="item.tracklistCompact">
+        <div v-if="item.tracklistCompact" 
+          class="Tracklist"
+        >
           <hr class="my-4 border-black/30">
           <p><small><b>Tracklist:</b></small></p>
           <p
