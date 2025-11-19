@@ -223,6 +223,7 @@ useSeoMeta({
 
               <div
                 v-if="i.at_playlists.includes(item.slug)"
+                class="Tracklist"
               >
                 <li
                   v-for="(iii, index) in i.tracklistCompact"

@@ -18,3 +18,5 @@ small { @apply opacity-60 }
 
 .Content { @apply text-black bg-[#b5ccb5] }
 .Content a { @apply text-blue-700 }
+
+.Tracklist i { @apply block pl-6 text-[80%] opacity-60 }

@@ -95,7 +95,9 @@ const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.vi
               class="mb-2"
             />
 
-            <div v-if="i.tracklistCompact" style="margin-bottom: 20px;">
+            <div v-if="i.tracklistCompact"
+              class="Tracklist"
+            >
               <li
                 v-for="(iii, index) in i.tracklistCompact"
                 :key="'b' + index"

@@ -84,4 +84,3 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
     </div>
   </div>
 </template>
-

@@ -110,14 +110,14 @@ onBeforeUnmount(() => {
   </div>
 </template>
 
-<style lang="scss">
-// Modal transitions
+<style>
+/* Modal transitions */
 .modal-fade-enter-active, .modal-fade-leave-active { transition: opacity .2s ease; }
 .modal-fade-enter-from, .modal-fade-leave-to { opacity: 0; }
 
-// .backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity .2s ease; }
-// .backdrop-fade-enter-from, .backdrop-fade-leave-to { opacity: 0; }
+/* .backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity .2s ease; } */
+/* .backdrop-fade-enter-from, .backdrop-fade-leave-to { opacity: 0; } */
 
-// .modal-zoom-enter-active, .modal-zoom-leave-active { transition: opacity .2s ease, transform .2s ease; }
-// .modal-zoom-enter-from, .modal-zoom-leave-to { opacity: 0; transform: scale(0.97); }
+/* .modal-zoom-enter-active, .modal-zoom-leave-active { transition: opacity .2s ease, transform .2s ease; } */
+/* .modal-zoom-enter-from, .modal-zoom-leave-to { opacity: 0; transform: scale(0.97); } */
 </style>
