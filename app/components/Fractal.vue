@@ -37,7 +37,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  // z-index: -1;
 
   &__petal {
     transform: translate3d(-50%, -50%, 0);
