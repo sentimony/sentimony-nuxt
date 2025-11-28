@@ -38,12 +38,19 @@
 # Test: https://stage--sentimony-nuxt.netlify.app/files/
 # Test: https://stage--sentimony-nuxt.netlify.app/uploads/
 
-[[edge_functions]]
-  pattern = ".*/$"
-  function = "remove-trailing-slash"
+# [[edge_functions]]
+#   pattern = ".*/$"
+#   function = "trailing-slash-remove"
 
-# Test: https://stage--sentimony-nuxt.netlify.app/release/va-fantazma/napster/
-# Test: https://stage--sentimony-nuxt.netlify.app/release/va-fantazma/junodownload/
+# Test: https://sentimony.com/release/va-fantazma/napster/
+# Test: https://sentimony.com/release/va-fantazma/junodownload/
+
+# [[edge_functions]]
+#   pattern = "^(?!.*/$).*$"
+#   function = "trailing-slash-add"
+
+# Test: https://sentimony.com/release/va-fantazma/napster
+# Test: https://sentimony.com/release/va-fantazma/junodownload
 
 [[edge_functions]]
   pattern = "/.*\\.(htm|html|index.htm|index.html)$"

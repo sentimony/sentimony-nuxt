@@ -89,9 +89,11 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
 </script>
 
 <template>
+  
   <!-- <Fractal v-if="host == '!localhost'" /> -->
-  <Fractal />
-  <div class="min-h-screen flex flex-col">
+  <Fractal class="z-[1]"/>
+  
+  <div class="min-h-screen flex flex-col relative z-[2]">
     <div class="flex-1">
 
       <Header />
@@ -168,5 +170,6 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
       <Testimonials />
       <Footer />
     </div>
+    
   </div>
 </template>
