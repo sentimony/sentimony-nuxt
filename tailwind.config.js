@@ -12,8 +12,8 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      Montserrat: "Montserrat, sans-serif",
-      Julius: "Julius Sans One, sans-serif",
+      montserrat: "Montserrat, sans-serif",
+      julius: "Julius Sans One, sans-serif",
     },
     container: {
       center: true,
