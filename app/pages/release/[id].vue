@@ -406,44 +406,40 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
   </div>
 </template>
 
-<style lang="scss">
-.BandcampIframe {
-  height: 276px;
-  &.tracks-1 { height: 176px; }
-  &.tracks-2 { height: 209px; }
-  &.tracks-3 { height: 242px; }
-  &.tracks-4 { height: 276px; }
-  &.tracks-5 { height: 309px; }
-  &.tracks-6 { height: 342px; }
-  &.tracks-7 { height: 376px; }
-  &.tracks-8 { height: 409px; }
-  &.tracks-9 { height: 442px; }
-  &.tracks-10 { height: 476px; }
-  &.tracks-11 { height: 509px; }
-  &.tracks-12 { height: 542px; }
-  &.tracks-13 { height: 575px; }
-  &.tracks-22 { height: 876px; }
-  &.tracks-25 { height: 976px; }
-  &.tracks-27 { height: 1042px; }
-}
+<style>
+.BandcampIframe { height: 276px; }
+.BandcampIframe.tracks-1 { height: 176px; }
+.BandcampIframe.tracks-2 { height: 209px; }
+.BandcampIframe.tracks-3 { height: 242px; }
+.BandcampIframe.tracks-4 { height: 276px; }
+.BandcampIframe.tracks-5 { height: 309px; }
+.BandcampIframe.tracks-6 { height: 342px; }
+.BandcampIframe.tracks-7 { height: 376px; }
+.BandcampIframe.tracks-8 { height: 409px; }
+.BandcampIframe.tracks-9 { height: 442px; }
+.BandcampIframe.tracks-10 { height: 476px; }
+.BandcampIframe.tracks-11 { height: 509px; }
+.BandcampIframe.tracks-12 { height: 542px; }
+.BandcampIframe.tracks-13 { height: 575px; }
+.BandcampIframe.tracks-22 { height: 876px; }
+.BandcampIframe.tracks-25 { height: 976px; }
+.BandcampIframe.tracks-27 { height: 1042px; }
 
-.SoundcloudIframe {
-  height: 400px;
-  &.tracks-1 { height: 290px; }
-  &.tracks-2 { height: 320px; }
-  &.tracks-3 { height: 360px; }
-  &.tracks-4 { height: 400px; }
-  &.tracks-5 { height: 430px; }
-  &.tracks-6 { height: 460px; }
-  &.tracks-7 { height: 500px; }
-  &.tracks-8 { height: 530px; }
-  &.tracks-9 { height: 560px; }
-  &.tracks-10 { height: 590px; }
-  &.tracks-11 { height: 620px; }
-  &.tracks-12 { height: 650px; }
-  &.tracks-13 { height: 680px; }
-  &.tracks-22 { height: 960px; }
-  &.tracks-25 { height: 1030px; }
-  &.tracks-27 { height: 1100px; }
-}
+.SoundcloudIframe { height: 400px; }
+.SoundcloudIframe.tracks-1 { height: 290px; }
+.SoundcloudIframe.tracks-2 { height: 320px; }
+.SoundcloudIframe.tracks-3 { height: 360px; }
+.SoundcloudIframe.tracks-4 { height: 400px; }
+.SoundcloudIframe.tracks-5 { height: 430px; }
+.SoundcloudIframe.tracks-6 { height: 460px; }
+.SoundcloudIframe.tracks-7 { height: 500px; }
+.SoundcloudIframe.tracks-8 { height: 530px; }
+.SoundcloudIframe.tracks-9 { height: 560px; }
+.SoundcloudIframe.tracks-10 { height: 590px; }
+.SoundcloudIframe.tracks-11 { height: 620px; }
+.SoundcloudIframe.tracks-12 { height: 650px; }
+.SoundcloudIframe.tracks-13 { height: 680px; }
+.SoundcloudIframe.tracks-22 { height: 960px; }
+.SoundcloudIframe.tracks-25 { height: 1030px; }
+.SoundcloudIframe.tracks-27 { height: 1100px; }
 </style>

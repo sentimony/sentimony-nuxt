@@ -5,7 +5,7 @@ const heroDescription = 'Psychedelic Music Label'
 
 <template>
   <div
-    class="font-Julius relative leading-[1.4] text-white bg-gradient-to-b from-transparent to-black/50
+    class="font-julius relative leading-[1.4] text-white bg-gradient-to-b from-transparent to-black/50
     py-[7.5em]
     sm:py-[8.5em]
     md:py-[9.5em]

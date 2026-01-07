@@ -40,7 +40,7 @@ useHead({
 <style>
 body.isError {
   @apply
-  font-Montserrat
+  font-montserrat
   /* font-[inherit] */
   bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')]
   /* bg-[url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5-sm.webp?alt=media&token=46b43e97-4b63-4b09-a35e-fca9535c0d12')] */
