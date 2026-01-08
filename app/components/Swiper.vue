@@ -30,6 +30,7 @@ const props = defineProps<{
   centeredSlidesBounds?: boolean
   centerInsufficientSlides?: boolean
   activeSlug?: string | null
+  pagination?: boolean
 }>()
 
 const swiperRef = ref<any | null>(null)
@@ -77,8 +78,9 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
     :class="['relative overflow-hidden h-[174px] md:h-[284px] lg:h-[292px] ', 'swiper-' + category]"
   >
 
-      <!-- <div class="my-3 md:my-5"> -->
-        <div class="mt-3 md:mt-5 text-lg md:text-2xl">{{ title }}</div>
+    <div :class="[
+      pagination ? 'mt-3 md:mt-5 text-lg md:text-2xl' : 'text-2xl md:text-4xl my-4 md:my-6'
+    ]">{{ title }}</div>
 
     <ClientOnly>
 
@@ -120,7 +122,7 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
           disabledClass: 'swiper-button-disabled',
         }"
         :pagination="{
-          enabled: true,
+          enabled: pagination ?? false,
           el: '.swiper-pagination-' + category,
           type: 'fraction',
         }"

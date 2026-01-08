@@ -113,6 +113,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           category="release"
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"
+          :pagination="true"
         />
 
         <Swiper
@@ -124,6 +125,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           category="artist"
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"
+          :pagination="false"
         />
 
         <Swiper
@@ -133,8 +135,9 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           title="Videos"
           :list="videosSortedByDate"
           category="video"
-          :centeredSlidesBounds=true
-          :centerInsufficientSlides=true
+          :centeredSlidesBounds="true"
+          :centerInsufficientSlides="true"
+          :pagination="false"
         />
 
         <Swiper
@@ -144,8 +147,9 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           title="Playlists"
           :list="playlistsSortedByDate"
           category="playlist"
-          :centeredSlidesBounds=true
-          :centerInsufficientSlides=true
+          :centeredSlidesBounds="true"
+          :centerInsufficientSlides="true"
+          :pagination="false"
         />
 
         <Swiper
@@ -155,8 +159,9 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           title="Events"
           :list="eventsSortedByDate"
           category="event"
-          :centeredSlidesBounds=true
-          :centerInsufficientSlides=true
+          :centeredSlidesBounds="true"
+          :centerInsufficientSlides="true"
+          :pagination="false"
         />
 
         <div class="order-[2]">
