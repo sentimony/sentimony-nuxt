@@ -10,7 +10,23 @@ export default {
     "nuxt.config.{js,ts}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        spin2: {
+          '0%': { transform: 'rotate(0deg)', },
+          // '25%': { },
+          // '80%': { },
+          '100%': { transform: 'rotate(360deg)', },
+        },
+        spin2rev: {
+          '0%': { },
+          '25%': { transform: 'rotate(0deg)', },
+          // '20%': { },
+          // '80%': { },
+          '100%': { transform: 'rotate(-360deg)', },
+        }
+      },
+    },
     fontFamily: {
       montserrat: "Montserrat, sans-serif",
       julius: "Julius Sans One, sans-serif",

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const heroTitle = 'Sentimony<br>Records'
+const heroTitle = 'Sentimony<br>'
+const heroSubTitle = '<span>R</span><span>e</span><span>c</span><span>o</span><span>r</span><span>d</span><span>s</span>'
 const heroDescription = 'Psychedelic Music Label'
 </script>
 
@@ -20,8 +21,17 @@ const heroDescription = 'Psychedelic Music Label'
         md:text-[70px] md:tracking-[8px]
         lg:text-[85px] lg:tracking-[11px]
         xl:text-[100px] xl:tracking-[14px]"
-        v-html="heroTitle"
-      />
+      >
+        
+        <div v-html="heroTitle"/>
+
+        <div
+          class="tracking-normal flex justify-center 
+          md:gap-3.5"
+          v-html="heroSubTitle"
+        />
+
+      </div>
       <div
         class="text-[12px] tracking-[4px]
         sm:text-[14px] sm:tracking-[8px]
