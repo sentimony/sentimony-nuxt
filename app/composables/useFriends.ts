@@ -1,4 +1,5 @@
-export function useFriends(options: any = {}) {
-  // Stable key to dedupe across views/layouts
-  return useAsyncData('friends', () => $fetch('/api/friends'), options)
+import type { FriendsResponse, AsyncDataOptions } from '~/types'
+
+export function useFriends(options: AsyncDataOptions<FriendsResponse> = {}) {
+  return useAsyncData<FriendsResponse>('friends', () => $fetch('/api/friends'), options)
 }

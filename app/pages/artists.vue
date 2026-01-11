@@ -1,36 +1,20 @@
 <script setup lang="ts">
-import { toArray } from '~/composables/toArray'
+import type { Artist, ArtistCategory } from '~/types'
 
 const { data: artistsRaw } = await useArtists()
-const artists = computed(() => toArray(artistsRaw.value, 'artists'))
-const artistsSortedByCategoryIdMusician = computed(() =>
-  [...artists.value]
-    .filter((r: any) => Boolean(r?.visible) && r?.category === 'musician')
-    .sort((a: any, b: any) =>
-      (a?.category_id ?? 0) - (b?.category_id ?? 0)
-    )
-)
-const artistsSortedByCategoryIdDj = computed(() =>
-  [...artists.value]
-    .filter((r: any) => Boolean(r?.visible) && r?.category === 'dj')
-    .sort((a: any, b: any) =>
-      (a?.category_id ?? 0) - (b?.category_id ?? 0)
-    )
-)
-const artistsSortedByCategoryIdMastering = computed(() =>
-  [...artists.value]
-    .filter((r: any) => Boolean(r?.visible) && r?.category === 'mastering')
-    .sort((a: any, b: any) =>
-      (a?.category_id ?? 0) - (b?.category_id ?? 0)
-    )
-)
-const artistsSortedByCategoryIdDesigner = computed(() =>
-  [...artists.value]
-    .filter((r: any) => Boolean(r?.visible) && r?.category === 'designer')
-    .sort((a: any, b: any) =>
-      (a?.category_id ?? 0) - (b?.category_id ?? 0)
-    )
-)
+const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
+
+const filterByCategory = (category: ArtistCategory) =>
+  computed(() =>
+    [...artists.value]
+      .filter(a => Boolean(a.visible) && a.category === category)
+      .sort((a, b) => (a.category_id ?? 0) - (b.category_id ?? 0))
+  )
+
+const artistsSortedByCategoryIdMusician = filterByCategory('musician')
+const artistsSortedByCategoryIdDj = filterByCategory('dj')
+const artistsSortedByCategoryIdMastering = filterByCategory('mastering')
+const artistsSortedByCategoryIdDesigner = filterByCategory('designer')
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageTitle = 'Artists'

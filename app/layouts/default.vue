@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { Release, Artist, Video, Playlist, Event } from '~/types'
+
 const host = useRequestURL().hostname
-// import SidebarMenu from '~/components/SidebarMenu.vue'
 
 const route = useRoute()
 const isIndex = computed(() => route.path === '/')
@@ -40,45 +41,47 @@ const { data: eventsRaw } = await useEvents({
   immediate: showEvents.value,
   watch: [showEvents],
 })
-const releases = computed(() => toArray(releasesRaw.value, 'releases'))
-const artists = computed(() => toArray(artistsRaw.value, 'artists'))
-const videos = computed(() => toArray(videosRaw.value, 'videos'))
-const playlists = computed(() => toArray(playlistsRaw.value, 'playlists'))
-const events = computed(() => toArray(eventsRaw.value, 'events'))
+
+const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
+const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
+const videos = computed(() => toArray<Video>(videosRaw.value, 'videos'))
+const playlists = computed(() => toArray<Playlist>(playlistsRaw.value, 'playlists'))
+const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
+
 const releasesSortedByDate = computed(() =>
   [...releases.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(r => Boolean(r.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 const artistsSortedByCategoryId = computed(() =>
   [...artists.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      (a?.category_id ?? 0) - (b?.category_id ?? 0)
+    .filter(a => Boolean(a.visible))
+    .sort((a, b) =>
+      (a.category_id ?? 0) - (b.category_id ?? 0)
     )
 )
 const videosSortedByDate = computed(() =>
   [...videos.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(v => Boolean(v.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 const playlistsSortedByDate = computed(() =>
   [...playlists.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(p => Boolean(p.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
     .reverse()
 )
 const eventsSortedByDate = computed(() =>
   [...events.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(e => Boolean(e.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 const activeReleaseSlug = computed(() => showReleases.value ? String(route.params.id || '') : '')

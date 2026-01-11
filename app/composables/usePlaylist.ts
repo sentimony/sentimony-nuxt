@@ -1,3 +1,5 @@
-export function usePlaylist<T = any>(id: string | number, options: any = {}) {
-  return useAsyncData<T>(`playlist:${id}`, () => $fetch(`/api/playlist/${id}`), options)
+import type { Playlist, AsyncDataOptions } from '~/types'
+
+export function usePlaylist(id: string | number, options: AsyncDataOptions<Playlist> = {}) {
+  return useAsyncData<Playlist>(`playlist:${id}`, () => $fetch(`/api/playlist/${id}`), options)
 }

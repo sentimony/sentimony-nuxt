@@ -1,28 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { createError } from '#app'
-
-interface EventLink { id?: string; url?: string }
-interface EventLineup { musician?: string }
-interface EventItem {
-  title?: string
-  cover_og?: string
-  cover_th?: string
-  flyer_a_xl?: string
-  flyer_b_xl?: string
-  date?: string
-  time?: string
-  location?: string
-  info?: string
-  lineup?: EventLineup[]
-  links?: EventLink[]
-}
 
 const route = useRoute()
 const id = computed(() => String(route.params.id))
-const eventAsync = await useEvent<EventItem>(id.value, {
-  server: true,
-})
+
+const eventAsync = await useEvent(id.value, { server: true })
 const item = eventAsync.data
 const eventError = eventAsync.error
 

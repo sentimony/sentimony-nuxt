@@ -3,24 +3,7 @@ import { createError } from '#app'
 
 const { id } = useRoute().params
 
-interface VideoItemLinks {
-  youtube?: string;
-}
-
-interface VideoItem {
-  title: string;
-  date?: string;
-  cover_og?: string;
-  cover_th?: string;
-  cover_xl?: string;
-  information?: string;
-  credits?: string;
-  links?: VideoItemLinks;
-}
-
-const videoAsync = await useVideo<VideoItem>(id as string, {
-  server: true,
-})
+const videoAsync = await useVideo(id as string, { server: true })
 const item = videoAsync.data
 const videoError = videoAsync.error
 

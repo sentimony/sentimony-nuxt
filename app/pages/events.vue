@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import type { Event } from '~/types'
+
 const { data: eventsRaw } = await useEvents()
-const events = computed(() => toArray(eventsRaw.value, 'events'))
+const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
 const eventsSortedByDate = computed(() =>
   [...events.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(e => Boolean(e.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
-const { formatDate } = useDate()
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageTitle = 'Events'

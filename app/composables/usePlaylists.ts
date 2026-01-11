@@ -1,4 +1,5 @@
-export function usePlaylists(options: any = {}) {
-  // useAsyncData with a stable key ensures deduplication across layout/page in SSR
-  return useAsyncData('playlists', () => $fetch('/api/playlists'), options)
+import type { PlaylistsResponse, AsyncDataOptions } from '~/types'
+
+export function usePlaylists(options: AsyncDataOptions<PlaylistsResponse> = {}) {
+  return useAsyncData<PlaylistsResponse>('playlists', () => $fetch('/api/playlists'), options)
 }

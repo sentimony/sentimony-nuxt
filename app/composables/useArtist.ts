@@ -1,3 +1,5 @@
-export function useArtist<T = any>(id: string | number, options: any = {}) {
-  return useAsyncData<T>(`artist:${id}`, () => $fetch(`/api/artist/${id}`), options)
+import type { Artist, AsyncDataOptions } from '~/types'
+
+export function useArtist(id: string | number, options: AsyncDataOptions<Artist> = {}) {
+  return useAsyncData<Artist>(`artist:${id}`, () => $fetch(`/api/artist/${id}`), options)
 }

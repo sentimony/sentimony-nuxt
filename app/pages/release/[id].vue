@@ -1,84 +1,40 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import { toArray } from '~/composables/toArray'
+import type { Release, Artist } from '~/types'
 
 const { id } = useRoute().params
-interface ReleaseItemLinks {
-  bandcamp_url?: string;
-  bandcamp24_url?: string;
-  beatport?: string;
-  junodownload?: string;
-  spotify?: string;
-  applemusic_url?: string;
-  youtube_music?: string;
-  deezer?: string;
-  amazon_music?: string;
-  tidal?: string;
-  qobuz?: string;
-  soundcloud_url?: string;
-  discogs?: string;
-  ektoplazm?: string;
-  beatspace?: string;
-  psyshop?: string;
-  bandcamp_id?: string;
-  youtube?: string;
-  youtube_playlist_id?: string;
-  soundcloud_playlist_id?: string;
-  diggersfactory_url?: string;
-}
 
-interface ReleaseItem {
-  title: string;
-  cover_og?: string;
-  cover_th?: string;
-  cover_xl?: string;
-  cat_no?: string;
-  date?: string;
-  style?: string;
-  format?: string;
-  total_time?: string;
-  information?: string;
-  tracklistCompact?: Array<{ p: string }>;
-  creditsCompact?: Array<{ p: string }>;
-  relative_releases?: string[];
-  artists?: string[];
-  tracks_number?: number;
-  links?: ReleaseItemLinks;
-}
-
-const releaseAsync = await useRelease<ReleaseItem>(id as string, {
-  server: true,
-})
+const releaseAsync = await useRelease(id as string, { server: true })
 const item = releaseAsync.data
 const releaseError = releaseAsync.error
 
 if (releaseError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Release not found' })
 }
+
 const { data: releasesRaw } = await useReleases()
 const { data: artistsRaw } = await useArtists()
-const releases = computed(() => toArray(releasesRaw.value, 'releases'))
-const artists = computed(() => toArray(artistsRaw.value, 'artists'))
+const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
+const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
+
 const releasesSortedByDate = computed(() =>
   [...releases.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(r => Boolean(r.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
+
 const artistsSortedByReleaseOrder = computed(() => {
-  const itemData = item.value as any
-  if (!itemData?.artists) return []
+  if (!item.value?.artists) return []
 
-  // Перетворюємо artists з строки в масив slug'ів
-  const artistsOrder = typeof itemData.artists === 'string'
-    ? itemData.artists.split(',').map((s: string) => s.trim())
-    : (Array.isArray(itemData.artists) ? itemData.artists : [])
+  const artistsOrder = typeof item.value.artists === 'string'
+    ? item.value.artists.split(',').map(s => s.trim())
+    : (Array.isArray(item.value.artists) ? item.value.artists : [])
 
-  // Фільтруємо і сортуємо артистів згідно порядку в релізі
   return [...artists.value]
-    .filter((artist: any) => artistsOrder.includes(artist.slug))
-    .sort((a: any, b: any) => {
+    .filter(artist => artistsOrder.includes(artist.slug))
+    .sort((a, b) => {
       const indexA = artistsOrder.indexOf(a.slug)
       const indexB = artistsOrder.indexOf(b.slug)
       return indexA - indexB
@@ -155,36 +111,36 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             </p> -->
             <!-- <br> -->
 
-            <p v-if="item.links.diggersfactory_url"><span class="text-[10px] md:text-[12px] text-white/50">Purchase VINYL</span></p>
+            <p v-if="item.links?.diggersfactory_url"><span class="text-[10px] md:text-[12px] text-white/50">Purchase VINYL</span></p>
             <BtnPrimary
-              v-if="item.links.diggersfactory_url"
-              :to="item.links.diggersfactory_url"
+              v-if="item.links?.diggersfactory_url"
+              :to="item.links?.diggersfactory_url"
               title="Diggers Factory"
               iconify="cib:bandcamp"
             />
 
             <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
             <BtnPrimary
-              v-if="item.links.bandcamp_url"
-              :to="item.links.bandcamp_url"
+              v-if="item.links?.bandcamp_url"
+              :to="item.links?.bandcamp_url"
               title="Bandcamp <small>(16bit)</small>"
               iconify="cib:bandcamp"
             />
             <BtnPrimary
-              v-if="item.links.bandcamp24_url"
-              :to="item.links.bandcamp24_url"
+              v-if="item.links?.bandcamp24_url"
+              :to="item.links?.bandcamp24_url"
               title="Bandcamp <small>(24bit)</small>"
               iconify="cib:bandcamp"
             />
             <BtnPrimary
-              v-if="item.links.beatport"
-              :to="item.links.beatport"
+              v-if="item.links?.beatport"
+              :to="item.links?.beatport"
               title="Beatport"
               iconify="simple-icons:beatport"
             />
             <BtnPrimary
-              v-if="item.links.junodownload"
-              :to="item.links.junodownload"
+              v-if="item.links?.junodownload"
+              :to="item.links?.junodownload"
               title="JunoDownload"
               img="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
             />
@@ -192,56 +148,56 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <!-- <br> -->
             <p><span class="text-[10px] md:text-[12px] text-white/50">Stream</span></p>
             <BtnPrimary
-              v-if="item.links.spotify"
-              :to="item.links.spotify"
+              v-if="item.links?.spotify"
+              :to="item.links?.spotify"
               title="Spotify"
               iconify="fa-brands:spotify"
             />
             <BtnPrimary
-              v-if="item.links.applemusic_url"
-              :to="item.links.applemusic_url"
+              v-if="item.links?.applemusic_url"
+              :to="item.links?.applemusic_url"
               title="Apple Music"
               iconify="fa-brands:apple"
             />
             <BtnPrimary
-              v-if="item.links.youtube_music"
-              :to="item.links.youtube_music"
+              v-if="item.links?.youtube_music"
+              :to="item.links?.youtube_music"
               title="YT Music"
               iconify="simple-icons:youtubemusic"
             />
             <BtnPrimary
-              v-if="item.links.deezer"
-              :to="item.links.deezer"
+              v-if="item.links?.deezer"
+              :to="item.links?.deezer"
               title="Deezer"
               iconify="fa-brands:deezer"
             />
             <BtnPrimary
-              v-if="item.links.amazon_music"
-              :to="item.links.amazon_music"
+              v-if="item.links?.amazon_music"
+              :to="item.links?.amazon_music"
               title="Amazon Music"
               img="https://content.sentimony.com/assets/img/svg-icons/amazon-music.svg?01"
             />
             <BtnPrimary
-              v-if="item.links.tidal"
-              :to="item.links.tidal"
+              v-if="item.links?.tidal"
+              :to="item.links?.tidal"
               title="Tidal"
               iconify="fa7-brands:tidal"
             />
             <BtnPrimary
-              v-if="item.links.qobuz"
-              :to="item.links.qobuz"
+              v-if="item.links?.qobuz"
+              :to="item.links?.qobuz"
               title="Qobuz"
               img="https://content.sentimony.com/assets/img/svg-icons/qobuz.svg?01"
             />
             <BtnPrimary
-              v-if="item.links.youtube"
-              :to="item.links.youtube"
+              v-if="item.links?.youtube"
+              :to="item.links?.youtube"
               title="YouTube"
               iconify="fa:youtube"
             />
             <BtnPrimary
-              v-if="item.links.soundcloud_url"
-              :to="item.links.soundcloud_url"
+              v-if="item.links?.soundcloud_url"
+              :to="item.links?.soundcloud_url"
               title="SoundCloud"
               iconify="fa7-brands:soundcloud"
             />

@@ -1,48 +1,25 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { createError } from '#app'
-
-interface ArtistItem {
-  slug: string
-  title: string
-  photo_og?: string
-  photo_th?: string
-  photo_xl?: string
-  style?: string
-  name?: string
-  location?: string
-  information?: string
-  discogs?: string
-  youtube_playlist_id?: string
-  soundcloud_track_id?: string
-  spotify?: string
-  soundcloud_url?: string
-  facebook?: string
-  instagram?: string
-  youtube_url?: string
-  bandcamp_url?: string
-  applemusic_url?: string
-  youtubemusic_url?: string
-  wikipedia_url?: string
-}
+import type { Release } from '~/types'
 
 const { id } = useRoute().params
-const artistAsync = await useArtist<ArtistItem>(id as string, {
-  server: true,
-})
+
+const artistAsync = await useArtist(id as string, { server: true })
 const item = artistAsync.data
 const artistError = artistAsync.error
 
 if (artistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
 }
+
 const { data: releasesRaw } = await useReleases()
-const releases = computed(() => toArray(releasesRaw.value, 'releases'))
+const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
+
 const releasesSortedByDate = computed(() =>
   [...releases.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(r => Boolean(r.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 
@@ -243,7 +220,7 @@ useSeoMeta({
             :key="index"
           >
             <RelativeItem
-              v-if="i.artists.includes(item.slug)"
+              v-if="i.artists?.includes(item.slug)"
               :i="i"
               category="release"
             />

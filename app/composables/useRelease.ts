@@ -1,4 +1,5 @@
-export function useRelease<T = any>(id: string | number, options: any = {}) {
-  // Stable key per release id; dedupes across layout/page in SSR
-  return useAsyncData<T>(`release:${id}`, () => $fetch(`/api/release/${id}`), options)
+import type { Release, AsyncDataOptions } from '~/types'
+
+export function useRelease(id: string | number, options: AsyncDataOptions<Release> = {}) {
+  return useAsyncData<Release>(`release:${id}`, () => $fetch(`/api/release/${id}`), options)
 }
