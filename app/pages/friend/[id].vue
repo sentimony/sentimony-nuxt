@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import { createError } from '#app'
-interface FriendItem {
-  title: string
-  cover_og?: string
-  cover_th?: string
-}
 
 const { id } = useRoute().params
-const friendAsync = await useFriend<FriendItem>(id as string, {
-  server: true,
-})
+
+const friendAsync = await useFriend(id as string, { server: true })
 const item = friendAsync.data
 const friendError = friendAsync.error
 

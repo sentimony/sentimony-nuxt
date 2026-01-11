@@ -23,10 +23,12 @@ const modules = [
   Mousewheel,
 ]
 
+import type { ItemCategory, ItemEntity } from '~/types'
+
 const props = defineProps<{
   title?: string
-  category?: string
-  list?: any[]
+  category?: ItemCategory
+  list?: ItemEntity[]
   centeredSlidesBounds?: boolean
   centerInsufficientSlides?: boolean
   activeSlug?: string | null

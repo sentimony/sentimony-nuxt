@@ -1,61 +1,53 @@
 <script setup lang="ts">
+import type { Release, Event, Video, NewsItem } from '~/types'
+
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 
-// Load three collections
 const { data: releasesRaw } = await useReleases()
 const { data: eventsRaw } = await useEvents()
 const { data: videosRaw } = await useVideos()
 
-const releases = computed(() => toArray(releasesRaw.value, 'releases'))
-const events = computed(() => toArray(eventsRaw.value, 'events'))
-const videos = computed(() => toArray(videosRaw.value, 'videos'))
-
-type NewsItem = {
-  date?: string | number | Date
-  slug: string
-  title: string
-  href: string
-  category: 'release' | 'event' | 'video'
-  image?: string
-}
+const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
+const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
+const videos = computed(() => toArray<Video>(videosRaw.value, 'videos'))
 
 const newsItems = computed<NewsItem[]>(() => {
   const r = releases.value
-    .filter((i: any) => Boolean(i?.visible) && !i?.coming_soon)
-    .map((i: any) => ({
-      date: i?.date,
-      slug: i?.slug,
-      title: i?.title,
-      href: `/release/${i?.slug}`,
+    .filter(i => Boolean(i.visible) && !i.coming_soon)
+    .map(i => ({
+      date: i.date,
+      slug: i.slug,
+      title: i.title,
+      href: `/release/${i.slug}`,
       category: 'release' as const,
-      image: i?.cover_th || i?.photo_th,
+      image: i.cover_th,
     }))
 
   const e = events.value
-    .filter((i: any) => Boolean(i?.visible))
-    .map((i: any) => ({
-      date: i?.date,
-      slug: i?.slug,
-      title: i?.title,
-      href: `/event/${i?.slug}`,
+    .filter(i => Boolean(i.visible))
+    .map(i => ({
+      date: i.date,
+      slug: i.slug,
+      title: i.title,
+      href: `/event/${i.slug}`,
       category: 'event' as const,
-      image: i?.flyer_a_xl,
+      image: i.flyer_a_xl,
     }))
 
   const v = videos.value
-    .filter((i: any) => Boolean(i?.visible))
-    .map((i: any) => ({
-      date: i?.date,
-      slug: i?.slug,
-      title: i?.title,
-      href: `/video/${i?.slug}`,
+    .filter(i => Boolean(i.visible))
+    .map(i => ({
+      date: i.date,
+      slug: i.slug,
+      title: i.title,
+      href: `/video/${i.slug}`,
       category: 'video' as const,
-      image: i?.cover_th || i?.photo_th,
+      image: i.cover_th,
     }))
 
   return [...r, ...e, ...v].sort(
-    (a, b) => new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    (a, b) => new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
   )
 })
 

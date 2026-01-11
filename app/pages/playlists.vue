@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { toArray } from '~/composables/toArray'
+import type { Playlist } from '~/types'
 
 const { data: playlistsRaw } = await usePlaylists()
-const playlists = computed(() => toArray(playlistsRaw.value, 'playlists'))
+const playlists = computed(() => toArray<Playlist>(playlistsRaw.value, 'playlists'))
 const playlistsSortedByDate = computed(() =>
   [...playlists.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(p => Boolean(p.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
     .reverse()
 )

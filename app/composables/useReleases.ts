@@ -1,4 +1,5 @@
-export function useReleases(options: any = {}) {
-  // useAsyncData with a stable key ensures deduplication across layout/page in SSR
-  return useAsyncData('releases', () => $fetch('/api/releases'), options)
+import type { ReleasesResponse, AsyncDataOptions } from '~/types'
+
+export function useReleases(options: AsyncDataOptions<ReleasesResponse> = {}) {
+  return useAsyncData<ReleasesResponse>('releases', () => $fetch('/api/releases'), options)
 }

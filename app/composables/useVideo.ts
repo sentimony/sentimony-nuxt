@@ -1,3 +1,5 @@
-export function useVideo<T = any>(id: string | number, options: any = {}) {
-  return useAsyncData<T>(`video:${id}`, () => $fetch(`/api/video/${id}`), options)
+import type { Video, AsyncDataOptions } from '~/types'
+
+export function useVideo(id: string | number, options: AsyncDataOptions<Video> = {}) {
+  return useAsyncData<Video>(`video:${id}`, () => $fetch(`/api/video/${id}`), options)
 }

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { toArray } from '~/composables/toArray'
+import type { Video } from '~/types'
 
 const { data: videosRaw } = await useVideos()
-const videos = computed(() => toArray(videosRaw.value, 'videos'))
+const videos = computed(() => toArray<Video>(videosRaw.value, 'videos'))
 const videosSortedByDate = computed(() =>
   [...videos.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(v => Boolean(v.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 const appConfig = useAppConfig()

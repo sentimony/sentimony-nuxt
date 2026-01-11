@@ -1,33 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { createError } from '#app'
+import type { Release } from '~/types'
 
 const { id } = useRoute().params
 
-interface PlaylistLinks {
-  spotify?: string
-  apple_music?: string
-  youtube_music?: string
-  deezer?: string
-  youtube?: string
-  soundcloud_url?: string
-  soundcloud_playlist_id?: string
-}
-
-interface PlaylistItem {
-  slug: string
-  title: string
-  style?: string
-  cover_og?: string
-  cover_th?: string
-  cover_xl?: string
-  info?: string
-  links?: PlaylistLinks
-}
-
-const playlistAsync = await usePlaylist<PlaylistItem>(id as string, {
-  server: true,
-})
+const playlistAsync = await usePlaylist(id as string, { server: true })
 const item = playlistAsync.data
 const playlistError = playlistAsync.error
 
@@ -35,19 +12,19 @@ if (playlistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Playlist not found' })
 }
 
-// YouTube embeds for playlist sources
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
 const comingMusic = '<div class="p-4 text-[12px] text-white/50">Music is<br>coming ⛄</div>'
 
 const { data: releasesRaw } = await useReleases()
-const releases = computed(() => toArray(releasesRaw.value, 'releases'))
+const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
+
 const releasesSortedByDate = computed(() =>
   [...releases.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(r => Boolean(r.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 
@@ -215,14 +192,14 @@ useSeoMeta({
               class="mb-4"
             >
               <RelativeItem
-                v-if="i.at_playlists.includes(item.slug)"
+                v-if="i.at_playlists?.includes(item.slug)"
                 :i="i"
                 category="release"
                 class="mb-2"
               />
 
               <div
-                v-if="i.at_playlists.includes(item.slug)"
+                v-if="i.at_playlists?.includes(item.slug)"
                 class="Tracklist"
               >
                 <li

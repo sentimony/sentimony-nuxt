@@ -1,18 +1,9 @@
 <script setup lang="ts">
-type ItemEntity = {
-  slug: string
-  title?: string
-  artwork_th?: string
-  photo_th?: string
-  cover_th?: string
-  flyer_th?: string
-  coming_soon?: boolean
-  new?: boolean
-}
+import type { ItemEntity, ItemCategory } from '~/types'
 
 defineProps<{
   i: ItemEntity
-  category?: string
+  category?: ItemCategory
 }>()
 </script>
 

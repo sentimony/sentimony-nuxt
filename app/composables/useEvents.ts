@@ -1,4 +1,5 @@
-export function useEvents(options: any = {}) {
-  // useAsyncData with a stable key ensures deduplication across layout/page in SSR
-  return useAsyncData('events', () => $fetch('/api/events'), options)
+import type { EventsResponse, AsyncDataOptions } from '~/types'
+
+export function useEvents(options: AsyncDataOptions<EventsResponse> = {}) {
+  return useAsyncData<EventsResponse>('events', () => $fetch('/api/events'), options)
 }

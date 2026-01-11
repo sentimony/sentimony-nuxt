@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import type { Release } from '~/types'
+
 const { data: releasesRaw } = await useReleases()
-const releases = computed(() => toArray(releasesRaw.value, 'releases'))
+const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() =>
   [...releases.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(r => Boolean(r.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 const appConfig = useAppConfig()

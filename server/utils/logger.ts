@@ -30,9 +30,9 @@ export function logRequest(event: any) {
   // IP адреса
   const ipRaw =
     getRequestHeader(event, 'x-nf-client-connection-ip')?.trim() ||
-    (getRequestHeader(event, 'x-forwarded-for') || '').split(',')[0].trim() ||
+    (getRequestHeader(event, 'x-forwarded-for') || '').split(',')[0]?.trim() ||
     getRequestHeader(event, 'x-real-ip')?.trim() ||
-    event.node.req.socket?.remoteAddress || ''
+    (event.node.req.socket?.remoteAddress || '')
 
   // Шлях + ?query
   const pathWithQuery = event.node.req.url || '/'

@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import type { Friend } from '~/types'
+
 const { data: friendsRaw } = await useFriends()
-const friends = computed(() => toArray(friendsRaw.value, 'friends'))
+const friends = computed(() => toArray<Friend>(friendsRaw.value, 'friends'))
 const friendsSortedByDate = computed(() =>
   [...friends.value]
-    .filter((r: any) => Boolean(r?.visible))
-    .sort((a: any, b: any) =>
-      new Date(b?.date ?? 0).getTime() - new Date(a?.date ?? 0).getTime()
+    .filter(f => Boolean(f.visible))
+    .sort((a, b) =>
+      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
 )
 

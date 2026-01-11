@@ -1,4 +1,5 @@
-export function useArtists(options: any = {}) {
-  // useAsyncData with a stable key ensures deduplication across layout/page in SSR
-  return useAsyncData('artists', () => $fetch('/api/artists'), options)
+import type { ArtistsResponse, AsyncDataOptions } from '~/types'
+
+export function useArtists(options: AsyncDataOptions<ArtistsResponse> = {}) {
+  return useAsyncData<ArtistsResponse>('artists', () => $fetch('/api/artists'), options)
 }
