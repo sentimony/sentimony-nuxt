@@ -46,7 +46,9 @@ export default defineNuxtConfig({
   //   // logLevel: 'warn'
   // },
   runtimeConfig: {
-    // envName: process.env.NUXT_PUBLIC_ENV || 'prod',  // 'local' | 'stage' | 'prod' ...
+    // Supabase (server-side only)
+    supabaseUrl: process.env.SUPABASE_URL || '',
+    supabaseServiceKey: process.env.SUPABASE_SERVICE_KEY || '',
     public: {
       // Base URL for Firebase Realtime DB
       firebaseBase: 'https://sentimony-db.firebaseio.com',
