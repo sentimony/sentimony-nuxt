@@ -14,13 +14,14 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^5.6.7",
     "@nuxtjs/sitemap": "^7.5.2",
-    "@types/node": "^25.0.6",
+    "@types/node": "^25.0.10",
     "nuxt": "^4.2.2"
   },
   "dependencies": {
-    "@nuxt/icon": "^2.2.0",
+    "@nuxt/icon": "^2.2.1",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "@supabase/supabase-js": "^2.91.0",
     "swiper": "^12.0.3",
     "v-wave": "^3.0.4"
   },
