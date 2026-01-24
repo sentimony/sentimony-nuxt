@@ -347,6 +347,9 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           </p>
         </div>
 
+        <!-- Tags from Supabase -->
+        <ReleaseTags :release-slug="item.slug" />
+
         <div v-if="item.links?.discogs || item.links?.ektoplazm">
           <hr class="my-4 border-black/30">
           <p><small><b>Links:</b></small></p>

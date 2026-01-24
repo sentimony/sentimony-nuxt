@@ -298,3 +298,60 @@ export interface CollectionOptions {
 
 /** AsyncData options type from Nuxt */
 export type AsyncDataOptions<T> = Parameters<typeof useAsyncData<T>>[2]
+
+// ============================================================================
+// Tag Types (Supabase)
+// ============================================================================
+
+/** API pagination info (Rick and Morty style) */
+export interface ApiInfo {
+  count: number
+  pages: number
+  next: string | null
+  prev: string | null
+}
+
+/** Tag type category */
+export interface TagType {
+  id: number
+  slug: string
+  title: string
+  title_plural: string
+  sort_order?: number
+  url: string
+}
+
+/** Tag entity */
+export interface Tag {
+  id: number
+  slug: string
+  title: string
+  description?: string
+  image_url?: string
+  country_code?: string
+  sort_order?: number
+  type: TagType
+  releases?: string[]
+  created_at?: string
+  url: string
+}
+
+/** API response for tag types list */
+export interface TagTypesResponse {
+  info: ApiInfo
+  results: TagType[]
+}
+
+/** API response for tags list */
+export interface TagsResponse {
+  info: ApiInfo
+  results: Tag[]
+}
+
+/** Query params for tags API */
+export interface TagsQueryParams {
+  page?: number
+  limit?: number
+  type?: string
+  name?: string
+}

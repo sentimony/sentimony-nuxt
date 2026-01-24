@@ -84,6 +84,8 @@ export default defineNuxtConfig({
     '/friend/**': { isr: 86400 },
     '/tracks': { isr: 86400 },
     '/contacts': { isr: 86400 },
+    '/tags': { isr: 86400 },
+    '/tag/**': { isr: 86400 },
   },
   modules: [
     '@nuxtjs/tailwindcss',
