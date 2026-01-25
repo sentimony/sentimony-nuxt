@@ -46,7 +46,9 @@ export default defineNuxtConfig({
   //   // logLevel: 'warn'
   // },
   runtimeConfig: {
-    // envName: process.env.NUXT_PUBLIC_ENV || 'prod',  // 'local' | 'stage' | 'prod' ...
+    // Supabase (server-side only)
+    supabaseUrl: process.env.SUPABASE_URL || '',
+    supabaseServiceKey: process.env.SUPABASE_SERVICE_KEY || '',
     public: {
       // Base URL for Firebase Realtime DB
       firebaseBase: 'https://sentimony-db.firebaseio.com',
@@ -82,6 +84,8 @@ export default defineNuxtConfig({
     '/friend/**': { isr: 86400 },
     '/tracks': { isr: 86400 },
     '/contacts': { isr: 86400 },
+    '/tags': { isr: 86400 },
+    '/tag/**': { isr: 86400 },
   },
   modules: [
     '@nuxtjs/tailwindcss',
