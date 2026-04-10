@@ -12,6 +12,7 @@ export const NAV: NavItem[] = [
   { title: 'News', route: '/news' },
   { title: 'Releases', route: '/releases', inHeader: true },
   { title: 'Artists', route: '/artists', inHeader: true },
+  { title: 'Tags', route: '/tags', inHeader: true },
   { title: 'Videos', route: '/videos', inHeader: true },
   { title: 'Playlists', route: '/playlists', inHeader: true },
   { title: 'Events', route: '/events' },
@@ -35,6 +36,7 @@ export const ACTIVE_MATCHERS: Record<string, string[]> = {
   '/videos': ['/videos', '/video/'],
   '/playlists': ['/playlists', '/playlist/'],
   '/events': ['/events', '/event/'],
+  '/tags': ['/tags', '/tag/'],
 }
 
 // Check if a given navigation link should be considered active for current path

@@ -38,23 +38,8 @@ export default defineCachedEventHandler(
       baseQuery = baseQuery.ilike('title', `%${name}%`)
     }
 
-    // Get total count with filters
-    const countQuery = supabase
-      .from('tags')
-      .select('id, tag_types!inner(slug)', { count: 'exact', head: true })
-      .eq('visible', true)
-
-    if (typeSlug) {
-      countQuery.eq('tag_types.slug', typeSlug)
-    }
-    if (name) {
-      countQuery.ilike('title', `%${name}%`)
-    }
-
-    const { count } = await countQuery
-
-    // Get paginated results
-    const { data, error } = await baseQuery
+    // Get paginated results (count: 'exact' already on baseQuery)
+    const { data, error, count } = await baseQuery
       .order('sort_order', { ascending: true })
       .order('title', { ascending: true })
       .range(offset, offset + limit - 1)

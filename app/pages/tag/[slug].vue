@@ -124,7 +124,7 @@ useSeoMeta({
       <div class="container max-w-7xl">
         <h2 class="text-xl md:text-2xl mb-4">
           Releases
-          <span class="text-white/50 text-base">({{ tagReleases.length }})</span>
+          <span class="text-black/50 text-base">({{ tagReleases.length }})</span>
         </h2>
 
         <!-- Releases grid -->
