@@ -7,3 +7,5 @@ sw.*
 .claude/
 CLAUDE.md
 0.0.0.0/
+skills-lock.json
+.agents/
