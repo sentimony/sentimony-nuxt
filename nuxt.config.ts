@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: {
@@ -52,6 +54,11 @@ export default defineNuxtConfig({
       firebaseBase: 'https://sentimony-db.firebaseio.com',
     },
   },
+  experimental: {
+    // Prevents duplicate "useAppConfig" import warning from nitropack vs @nuxt/nitro-server.
+    // Safe because useAppConfig is only used in client-side pages, not server routes.
+    serverAppConfig: false,
+  },
   nitro: {
     // Enable Netlify adapter (SSR via serverless function)
     preset: 'netlify',
@@ -65,23 +72,27 @@ export default defineNuxtConfig({
         'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
       }
     },
-    // Incremental Static Regeneration for common pages to reduce SSR load
-    '/': { isr: 86400 },
-    '/news': { isr: 86400 },
-    '/releases': { isr: 86400 },
-    '/release/**': { isr: 86400 },
-    '/artists': { isr: 86400 },
-    '/artist/**': { isr: 86400 },
-    '/videos': { isr: 86400 },
-    '/video/**': { isr: 86400 },
-    '/playlists': { isr: 86400 },
-    '/playlist/**': { isr: 86400 },
-    '/events': { isr: 86400 },
-    '/event/**': { isr: 86400 },
-    '/friends': { isr: 86400 },
-    '/friend/**': { isr: 86400 },
-    '/tracks': { isr: 86400 },
-    '/contacts': { isr: 86400 },
+    // Incremental Static Regeneration for common pages to reduce SSR load.
+    // Disabled in dev: ISR payload caching causes ENOTDIR errors locally
+    // (unstorage writes "/" as a file "payload", then fails to create "payload/artists" dir).
+    ...(!isDev && {
+      '/': { isr: 86400 },
+      '/news': { isr: 86400 },
+      '/releases': { isr: 86400 },
+      '/release/**': { isr: 86400 },
+      '/artists': { isr: 86400 },
+      '/artist/**': { isr: 86400 },
+      '/videos': { isr: 86400 },
+      '/video/**': { isr: 86400 },
+      '/playlists': { isr: 86400 },
+      '/playlist/**': { isr: 86400 },
+      '/events': { isr: 86400 },
+      '/event/**': { isr: 86400 },
+      '/friends': { isr: 86400 },
+      '/friend/**': { isr: 86400 },
+      '/tracks': { isr: 86400 },
+      '/contacts': { isr: 86400 },
+    }),
   },
   modules: [
     '@nuxtjs/tailwindcss',
