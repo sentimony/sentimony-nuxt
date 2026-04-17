@@ -1,9 +1,11 @@
 .DS_Store
 node_modules/
+.idea/
 .nuxt/
 dist/
 0.0.0.0/
 .netlify/
+!.netlify/state.json
+CLAUDE.md
 .claude/
 .agents/
-CLAUDE.md
