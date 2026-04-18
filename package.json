@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "firebase-tools": "^15.15.0",
-    "netlify-cli": "^24.11.3"
+    "netlify-cli": "^25.0.1"
   },
   "dependencies": {
     "@nuxt/icon": "^2.2.1",
@@ -29,7 +29,7 @@
     "v-wave": "^3.0.4"
   },
   "engines": {
-    "node": "24.14.1",
+    "node": "24.15.0",
     "npm": "11.12.1"
   }
 }
