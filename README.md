@@ -24,13 +24,9 @@ JAMstack development of Sentimony Records portfolio website
 
 ### Monitoring
 
-* [Functions Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/functions/server) or `netlify logs:function server`
+* [Functions Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/functions/server)
 * [Edge Functions Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/edge-functions)
 * [Requests Left](https://app.netlify.com/projects/sentimony-nuxt/configuration/functions#overview)
-
-<!-- ### Content -->
-
-<!-- [https://sentimony-db.firebaseio.com/.json](https://sentimony-db.firebaseio.com/.json) -->
 
 ### Run
 
@@ -43,15 +39,11 @@ npm run dev -- --host
 ### Deploy
 
 ```bash
-firebase database:set / public/data/sentimony-db-export.json -P sentimony-db -f
+npm run firebase
 
+npm run netlify:deploy:stage
 
-netlify deploy --alias stage --context deploy-preview
-
-
-netlify deploy --prod
+npm run netlify:deploy:prod
 ```
 
 ### Have fun! ;)
-
-<!-- ![Geometrical Pussy](public/images/geometrical-pussy.svg "Geometrical Pussy") -->

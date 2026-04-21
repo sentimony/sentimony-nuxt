@@ -135,4 +135,14 @@ export default defineNuxtConfig({
     discoverImages: false,
     discoverVideos: false,
   },
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        'swiper/vue',
+        'swiper/modules',
+      ]
+    }
+  },
 })
