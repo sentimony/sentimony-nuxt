@@ -1,10 +1,9 @@
 [build]
   command = "npm run build"
-  functions = "netlify/functions"
   edge_functions = "netlify/edge-functions"
 
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
 
 [functions]
   node_bundler = "esbuild"
