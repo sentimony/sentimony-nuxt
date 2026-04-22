@@ -1,11 +1,10 @@
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
 node_modules/
+*.log
 .nuxt/
 dist/
-sw.*
 .netlify/
-.DS_Store
-.claude/
-CLAUDE.md
-0.0.0.0/
-skills-lock.json
-.agents/
+!.netlify/state.json
