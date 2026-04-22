@@ -48,10 +48,10 @@ export default defineNuxtConfig({
   //   // logLevel: 'warn'
   // },
   runtimeConfig: {
-    // envName: process.env.NUXT_PUBLIC_ENV || 'prod',  // 'local' | 'stage' | 'prod' ...
     public: {
-      // Base URL for Firebase Realtime DB
       firebaseBase: 'https://sentimony-db.firebaseio.com',
+      supabaseUrl: process.env.SUPABASE_URL || '',
+      supabaseKey: process.env.SUPABASE_KEY || '',
     },
   },
   experimental: {
@@ -136,6 +136,14 @@ export default defineNuxtConfig({
     discoverVideos: false,
   },
   vite: {
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          if (warning.plugin === 'nuxt:module-preload-polyfill') return
+          warn(warning)
+        },
+      },
+    },
     optimizeDeps: {
       include: [
         '@vue/devtools-core',

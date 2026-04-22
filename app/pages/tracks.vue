@@ -68,13 +68,13 @@ const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.vi
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <div class="flex justify-between my-12">
-      <div class="">Releases<br>{{ releases }}</div>
       <div class="">Tracks<br>{{ tracks }}</div>
+      <div class="">Releases<br>{{ releases }}</div>
       <div class="">Artists<br>{{ artists }}</div>
-      <div class="">Videos<br>{{ videos }}</div>
       <div class="">Playlists<br>{{ playlists }}</div>
+      <div class="">Videos<br>{{ videos }}</div>
       <div class="">Events<br>{{ events }}</div>
-      <div class="">Friends<br>{{ friends }}</div>
+      <!-- <div class="">Friends<br>{{ friends }}</div> -->
     </div>
 
     <div class=" text-left pb-[30px] md:pb-[60px]">

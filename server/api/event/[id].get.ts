@@ -1,30 +1,29 @@
-import { createError } from 'h3'
-
 const isDev = process.env.NODE_ENV === 'development'
 
 export default defineCachedEventHandler(
   async (event) => {
     const id = event.context.params?.id as string | undefined
-    if (!id) {
-      throw createError({ statusCode: 400, statusMessage: 'Missing event id' })
+    if (!id) throw createError({ statusCode: 400, statusMessage: 'Missing event id' })
+
+    if (process.env.RELEASES_SOURCE === 'supabase') {
+      const { data, error } = await useSupabase()
+        .from('events')
+        .select('*')
+        .eq('slug', id)
+        .single()
+
+      if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
+      return data
     }
 
     const { public: { firebaseBase } } = useRuntimeConfig()
     const url = `${firebaseBase}/events/${id}.json`
+    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
 
-    // In development, add cache-busting timestamp
-    const data = isDev
-      ? await $fetch(`${url}?_t=${Date.now()}`)
-      : await $fetch(url)
-
-    if (!data) {
-      throw createError({ statusCode: 404, statusMessage: 'Event not found' })
-    }
-
+    if (!data) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
     return data
   },
   {
-    // Cache for 1 hour in production; no cache in development
     maxAge: isDev ? 0 : 60 * 60,
     swr: !isDev,
   }
