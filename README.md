@@ -11,11 +11,11 @@ JAMstack development of Sentimony Records portfolio website
 ### Used:
 * [Nuxt](https://nuxt.com)
 * [Firebase](https://firebase.google.com)
+* [Supabase](https://supabase.com)
 * [Netlify](https://netlify.com)
 * [Tailwind](https://tailwindcss.com)
 * [Iconify](https://icon-sets.iconify.design)
 * [Swiper](https://swiperjs.com)
-<!-- * [RealFaviconGenerator](https://realfavicongenerator.net) -->
 
 ### Links:
 
@@ -39,7 +39,9 @@ npm run dev -- --host
 ### Deploy
 
 ```bash
-npm run firebase
+npm run sync:firebase
+
+npm run sync:supabase
 
 npm run netlify:deploy:stage
 
