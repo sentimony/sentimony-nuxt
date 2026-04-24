@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "node --env-file=.env.local node_modules/.bin/nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -19,11 +19,13 @@
     "netlify-cli": "^25.1.1"
   },
   "dependencies": {
+    "@iconify-json/heroicons": "^1.2.3",
     "@nuxt/icon": "^2.2.1",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^6.0.7",
     "@nuxtjs/sitemap": "^8.0.13",
+    "@nuxtjs/supabase": "^2.0.6",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@supabase/supabase-js": "^2.104.0",
     "nuxt": "^4.4.2",
