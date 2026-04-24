@@ -26,10 +26,10 @@ export default {
           '100%': { transform: 'rotate(-360deg)', },
         }
       },
-    },
-    fontFamily: {
-      montserrat: "Montserrat, sans-serif",
-      julius: "Julius Sans One, sans-serif",
+      fontFamily: {
+        montserrat: "Montserrat, sans-serif",
+        julius: "Julius Sans One, sans-serif",
+      },
     },
     container: {
       center: true,

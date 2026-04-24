@@ -48,6 +48,7 @@ export default defineNuxtConfig({
   //   // logLevel: 'warn'
   // },
   runtimeConfig: {
+    supabaseServiceKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
     public: {
       firebaseBase: 'https://sentimony-db.firebaseio.com',
       supabaseUrl: process.env.SUPABASE_URL || '',
@@ -94,7 +95,17 @@ export default defineNuxtConfig({
       '/contacts': { isr: 86400 },
     }),
   },
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      exclude: ['/*'],
+    },
+  },
   modules: [
+    '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
@@ -150,6 +161,7 @@ export default defineNuxtConfig({
         '@vue/devtools-kit',
         'swiper/vue',
         'swiper/modules',
+        '@supabase/ssr',
       ]
     }
   },
