@@ -7,10 +7,16 @@ const user = useSupabaseUser()
 type LikedRelease = { slug: string, title: string, cover_th: string, date: string }
 type LikedTrack = { slug: string, title: string, artist_name: string, release_slug: string, track_number: number, bpm: number | null }
 type LikedArtist = { slug: string, title: string, photo_th: string }
+type LikedVideo = { slug: string, title: string, cover_th: string }
+type LikedPlaylist = { slug: string, title: string, cover_th: string }
+type LikedEvent = { slug: string, title: string, flyer_a_xl: string }
 
 const { data: likedReleases } = await useFetch<LikedRelease[]>('/api/likes/releases')
 const { data: likedTracks } = await useFetch<LikedTrack[]>('/api/track-likes/tracks')
 const { data: likedArtists } = await useFetch<LikedArtist[]>('/api/artist-likes/artists')
+const { data: likedVideos } = await useFetch<LikedVideo[]>('/api/video-likes/videos')
+const { data: likedPlaylists } = await useFetch<LikedPlaylist[]>('/api/playlist-likes/playlists')
+const { data: likedEvents } = await useFetch<LikedEvent[]>('/api/event-likes/events')
 
 async function signOut() {
   await supabase.auth.signOut()
@@ -66,6 +72,51 @@ async function signOut() {
           >
             <img :src="r.cover_th" :alt="r.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
             <p class="text-sm text-white/80 truncate">{{ r.title }}</p>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div v-if="likedVideos?.length" class="mb-10">
+        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Videos</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <NuxtLink
+            v-for="v in likedVideos"
+            :key="v.slug"
+            :to="`/video/${v.slug}`"
+            class="group"
+          >
+            <img v-if="v.cover_th" :src="v.cover_th" :alt="v.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
+            <p class="text-sm text-white/80 truncate">{{ v.title }}</p>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div v-if="likedPlaylists?.length" class="mb-10">
+        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Playlists</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <NuxtLink
+            v-for="p in likedPlaylists"
+            :key="p.slug"
+            :to="`/playlist/${p.slug}`"
+            class="group"
+          >
+            <img v-if="p.cover_th" :src="p.cover_th" :alt="p.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
+            <p class="text-sm text-white/80 truncate">{{ p.title }}</p>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div v-if="likedEvents?.length" class="mb-10">
+        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Events</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <NuxtLink
+            v-for="e in likedEvents"
+            :key="e.slug"
+            :to="`/event/${e.slug}`"
+            class="group"
+          >
+            <img v-if="e.flyer_a_xl" :src="e.flyer_a_xl" :alt="e.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
+            <p class="text-sm text-white/80 truncate">{{ e.title }}</p>
           </NuxtLink>
         </div>
       </div>
