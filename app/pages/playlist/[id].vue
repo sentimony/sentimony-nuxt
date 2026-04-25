@@ -3,6 +3,7 @@ import { createError } from '#app'
 import type { Release } from '~/types'
 
 const { id } = useRoute().params
+const { isLiked, toggleLike, likeCount, fetchCount } = usePlaylistLikes()
 
 const playlistAsync = await usePlaylist(id as string, { server: true })
 const item = playlistAsync.data
@@ -11,6 +12,10 @@ const playlistError = playlistAsync.error
 if (playlistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Playlist not found' })
 }
+
+onMounted(() => {
+  fetchCount(item.value!.slug)
+})
 
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
@@ -57,6 +62,19 @@ useSeoMeta({
       <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
+
+        <div class="flex justify-center mb-4">
+          <button
+            @click="toggleLike(item.slug)"
+            class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
+            :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+            v-wave
+          >
+            <Icon :name="isLiked(item.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
+            {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
+            <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
+          </button>
+        </div>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
