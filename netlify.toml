@@ -1,0 +1,72 @@
+[build]
+  command = "npm run build"
+  edge_functions = "netlify/edge-functions"
+
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[edge_functions]]
+  pattern = "/.*\\.[Pp][Hh][Pp].*"
+  function = "blocking"
+
+[[edge_functions]]
+  pattern  = "/.*[Ww][Pp]-.*"
+  function = "blocking"
+
+[[edge_functions]]
+  pattern  = "/.*[Ww][Pp]/.*"
+  function = "blocking"
+
+[[edge_functions]]
+  pattern  = "/.*[Ww][Oo][Rr][Dd][Pp][Rr][Ee][Ss][Ss].*"
+  function = "blocking"
+
+[[edge_functions]]
+  pattern  = ".*/([Aa]dmin|files|uploads)/.*"
+  function = "blocking"
+
+# Test: https://stage--sentimony-nuxt.netlify.app/__test.PHP
+# Test: https://stage--sentimony-nuxt.netlify.app/__test.Php7
+# Test: https://stage--sentimony-nuxt.netlify.app/__testwP-
+# Test: https://stage--sentimony-nuxt.netlify.app/__testWp/
+# Test: https://stage--sentimony-nuxt.netlify.app/__testwoRdpress
+# Test: https://stage--sentimony-nuxt.netlify.app/admin/controller/extension/extension/
+# Test: https://stage--sentimony-nuxt.netlify.app/files/
+# Test: https://stage--sentimony-nuxt.netlify.app/uploads/
+
+# [[edge_functions]]
+#   pattern = ".*/$"
+#   function = "trailing-slash-remove"
+
+# Test: https://sentimony.com/release/va-fantazma/napster/
+# Test: https://sentimony.com/release/va-fantazma/junodownload/
+
+# [[edge_functions]]
+#   pattern = "^(?!.*/$).*$"
+#   function = "trailing-slash-add"
+
+# Test: https://sentimony.com/release/va-fantazma/napster
+# Test: https://sentimony.com/release/va-fantazma/junodownload
+
+[[edge_functions]]
+  pattern = "/.*\\.(htm|html|index.htm|index.html)$"
+  function = "redirects"
+
+# Test: https://sentimony.com/sencd097.htm
+# Test: https://sentimony.com/artists.htm
+# Test: https://sentimony.com/events.html
+# Test: https://sentimony.com/index.htm
+# Test: https://sentimony.com/index.html
+# Test: https://sentimony.com/artists/index.htm
+# Test: https://sentimony.com/events/index.html
+
+[[edge_functions]]
+  pattern = "/release/.*/googleplay.*"
+  function = "redirects"
+
+# Test: https://stage--sentimony-nuxt.netlify.app/release/va-futured-vol-1/googleplay/
+# Test: https://stage--sentimony-nuxt.netlify.app/release/zymosis-nichna/googleplaymarket/
+# Test: https://stage--sentimony-nuxt.netlify.app/release/irukanji-z-lisu/napster/
