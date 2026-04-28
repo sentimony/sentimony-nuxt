@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/keyboard'
-// import 'swiper/css/navigation'
-// import 'swiper/css/pagination'
 import 'swiper/css/mousewheel'
 import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import {
@@ -38,7 +36,6 @@ const props = defineProps<{
 const swiperRef = ref<any | null>(null)
 function onSwiper(sw: any) {
   swiperRef.value = sw
-  // try centering on first init
   nextTick(() => slideToActiveSlug())
 }
 
@@ -56,23 +53,6 @@ function slideToActiveSlug() {
 watch(() => [props.activeSlug, (props.list || []).length], () => {
   slideToActiveSlug()
 })
-
-
-// timer
-// import { ref, onMounted, onBeforeUnmount } from 'vue'
-
-// const isShown = ref(false)
-// let timer: ReturnType<typeof setTimeout> | null = null
-
-// onMounted(() => {
-//   timer = setTimeout(() => {
-//     isShown.value = true
-//   }, 1000)
-// })
-
-// onBeforeUnmount(() => {
-//   if (timer) clearTimeout(timer)
-// })
 </script>
 
 <template>

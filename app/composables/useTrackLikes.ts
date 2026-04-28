@@ -11,6 +11,11 @@ export function useTrackLikes() {
     trackCounts.value[slug] = count
   }
 
+  async function fetchTrackCount(slug: string) {
+    const { count } = await $fetch<{ count: number }>(`/api/track-likes/count/${slug}`).catch(() => ({ count: 0 }))
+    trackCounts.value[slug] = count
+  }
+
   async function load() {
     if (!user.value || loaded.value) return
     const data = await $fetch<string[]>('/api/track-likes').catch(() => [])
@@ -52,5 +57,5 @@ export function useTrackLikes() {
     }
   }
 
-  return { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount }
+  return { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount, fetchTrackCount }
 }

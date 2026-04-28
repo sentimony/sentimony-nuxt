@@ -8,17 +8,12 @@ const isNavActive = (link: string) => _navActive(route.path, link)
 
 const isOpen = ref(false)
 const toggleSidebar = () => { isOpen.value = !isOpen.value }
-// const closeSidebar = () => { isOpen.value = false }
 
 const soc = computed(() =>
   getSocials({ inHeader: true }).map(l => ({ ...l, icon: getIcon(l.id) }))
 )
 
-// Close sidebar on route change
 watch(() => route.path, () => { isOpen.value = false })
-
-
-// Active highlighting uses centralized helper
 </script>
 
 <template>
@@ -66,8 +61,6 @@ watch(() => route.path, () => { isOpen.value = false })
       </NuxtLink>
 
       <hr class="border-white/30 my-2" />
-
-      <!-- <HeaderSocialMenu style="display: flex; justify-content: center;" /> -->
 
       <div class="flex flex-wrap">
         <a

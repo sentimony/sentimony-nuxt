@@ -18,7 +18,6 @@ onMounted(() => {
 })
 const { formatDate, formatYear } = useDate()
 
-// SEO meta
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const year = computed(() => formatYear(item.value?.date))
@@ -38,10 +37,6 @@ useSeoMeta({
   twitterImage: () => item.value?.cover_og || item.value?.cover_th || appConfig.brand.defaultOgImage,
   twitterCard: 'summary'
 })
-
-
-// Template ref used in <img ref="triangleEl" .../>
-// const triangleEl = ref<HTMLImageElement | null>(null)
 </script>
 
 <template>

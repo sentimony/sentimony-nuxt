@@ -7,12 +7,10 @@ const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" view
 const isError = props.error?.error
 
 const handleError = () => clearError({ redirect: '/' })
-// const handleError = () => clearError()
 
 const pageTitle = computed(() => String(props.error?.statusCode ?? 'Error'))
 useHead({
   title: pageTitle,
-  // Ensure our title formatting persists and does not get cleared
   titleTemplate: (title?: string) => title ? `${title} · Sentimony Records` : 'Sentimony Records',
   bodyAttrs: {
     class: isError ? 'isError' : ''
@@ -41,10 +39,6 @@ useHead({
 body.isError {
   @apply
   font-montserrat
-  /* font-[inherit] */
   bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')]
-  /* bg-[url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5-sm.webp?alt=media&token=46b43e97-4b63-4b09-a35e-fca9535c0d12')] */
-  /* bg-[url('https://firebasestorage.googleapis.com/v0/b/sentimony-db.appspot.com/o/backgrounds%2Ftrees-green_v5-lg.webp?alt=media&token=8482e0e2-dd3c-445c-8082-9c11b416b326')] */
-  /* bg-gradient-to-br from-[#052e16] via-[#064e2a] to-[#065f32] */
 }
 </style>

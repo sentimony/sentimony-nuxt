@@ -1,6 +1,3 @@
-// Typed helpers for navigation entries sourced from app/app.config.ts
-// Use these to keep type-safety and consistent filtering logic.
-
 export type NavItem = {
   title: string
   route: string
@@ -15,8 +12,6 @@ export const NAV: NavItem[] = [
   { title: 'Videos', route: '/videos', inHeader: true },
   { title: 'Playlists', route: '/playlists', inHeader: true },
   { title: 'Events', route: '/events' },
-  // { title: 'Friends', route: '/friends' },
-  // { title: 'Tracks', route: '/tracks' },
   { title: 'Contacts', route: '/contacts' },
 ]
 
@@ -28,7 +23,6 @@ export function getHeaderNav(): NavItem[] {
   return NAV.filter(i => i?.inHeader)
 }
 
-// Active route matchers used by header/footer/sidebar to highlight current section
 export const ACTIVE_MATCHERS: Record<string, string[]> = {
   '/releases': ['/releases', '/release/'],
   '/artists': ['/artists', '/artist/'],
@@ -37,7 +31,6 @@ export const ACTIVE_MATCHERS: Record<string, string[]> = {
   '/events': ['/events', '/event/'],
 }
 
-// Check if a given navigation link should be considered active for current path
 export function isNavActive(currentPath: string, link: string, matchers: Record<string, string[]> = ACTIVE_MATCHERS): boolean {
   if (link === '/') return currentPath === '/'
   const m = matchers[link] || [link]

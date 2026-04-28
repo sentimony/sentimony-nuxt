@@ -1,6 +1,3 @@
-// Central registry of icon identifiers used across the app.
-// Prefer Iconify names (e.g. 'fa-brands:spotify'). For custom SVGs, use an absolute URL.
-
 export type IconKey =
   | 'appleMusic'
   | 'bandcamp'

@@ -6,10 +6,7 @@ import { getSocials } from '~/constants/soclinks'
 import { getIcon } from '~/constants/icons'
 const isNavActive = (link: string) => _navActive(route.path, link)
 
-// Social links with resolved icons
 const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })))
-
-// Active highlighting uses centralized helper
 </script>
 
 <template>

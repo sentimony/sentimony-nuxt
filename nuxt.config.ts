@@ -1,15 +1,10 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 const isDev = process.env.NODE_ENV === 'development'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: {
     enabled: true,
-    // timeline: {
-    //   enabled: true,
-    // },
   },
-  // debug: true,
   site: {
     url: 'https://sentimony.com',
     name: 'Sentimony Records',
@@ -24,7 +19,6 @@ export default defineNuxtConfig({
         { name: 'apple-mobile-web-app-title', content: 'Sentimony Records' },
       ],
       link: [
-        // { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', href: '/favicon-96x96.png', sizes: '96x96' },
         { rel: 'shortcut icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
@@ -35,47 +29,28 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/tailwind.css',
   ],
-  // vite: {
-  //   optimizeDeps: {
-  //     include: [
-  //       '@vue/devtools-core',
-  //       '@vue/devtools-kit',
-  //       'swiper/vue',
-  //       'swiper/modules',
-  //     ]
-  //   },
-  //   // опційно: менше логів
-  //   // logLevel: 'warn'
-  // },
   runtimeConfig: {
-    supabaseServiceKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
+    supabaseSecretKey: process.env.NUXT_SUPABASE_SECRET_KEY || '',
+    supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || '',
     public: {
       firebaseBase: 'https://sentimony-db.firebaseio.com',
-      supabaseUrl: process.env.SUPABASE_URL || '',
-      supabaseKey: process.env.SUPABASE_KEY || '',
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || '',
+      supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY || '',
     },
   },
   experimental: {
-    // Prevents duplicate "useAppConfig" import warning from nitropack vs @nuxt/nitro-server.
-    // Safe because useAppConfig is only used in client-side pages, not server routes.
     serverAppConfig: false,
   },
   nitro: {
-    // Enable Netlify adapter (SSR via serverless function)
     preset: 'netlify',
   },
-  // Route-level optimizations for Netlify Functions/CDN
   ssr: true,
   routeRules: {
-    // Cache API responses on Netlify CDN for 1h, allow SWR for 24h
     '/api/**': {
       headers: {
         'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
       }
     },
-    // Incremental Static Regeneration for common pages to reduce SSR load.
-    // Disabled in dev: ISR payload caching causes ENOTDIR errors locally
-    // (unstorage writes "/" as a file "payload", then fails to create "payload/artists" dir).
     ...(!isDev && {
       '/': { isr: 86400 },
       '/news': { isr: 86400 },
@@ -96,8 +71,8 @@ export default defineNuxtConfig({
     }),
   },
   supabase: {
-    url: process.env.SUPABASE_URL,
-    key: process.env.SUPABASE_KEY,
+    url: process.env.NUXT_PUBLIC_SUPABASE_URL,
+    key: process.env.NUXT_PUBLIC_SUPABASE_KEY,
     redirectOptions: {
       login: '/login',
       callback: '/confirm',
@@ -130,14 +105,7 @@ export default defineNuxtConfig({
     preload: true,
     useStylesheet: true,
   },
-  // image: {
-  //   domains: ['https://content.sentimony.com']
-  // },
   vWave: {
-    // duration: 3,
-    // color: 'radial-gradient(closest-side, #fff, #1cb884)',
-    // initialOpacity: 0.7,
-    // finalOpacity: 0.3,
     easing: 'cubic-bezier(0,.57,.89,0)'
   },
   sitemap: {

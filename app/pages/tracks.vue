@@ -22,7 +22,6 @@ useSeoMeta({
   twitterCard: 'summary'
 })
 
-// Fetch releases and compute counts
 const { data: releasesRaw } = await useReleases({ server: true })
 const releasesArr = computed(() => toArray<any>(releasesRaw.value, 'releases'))
 const releasedReleases = computed(() =>
@@ -40,12 +39,10 @@ const tracks = computed(() =>
   releasedReleases.value.reduce((sum: number, r: any) => sum + (Number(r?.tracks_number) || 0), 0)
 )
 
-// Fetch artists and compute count of visible ones
 const { data: artistsRaw } = await useArtists({ server: true })
 const artistsArr = computed(() => toArray<any>(artistsRaw.value, 'artists'))
 const artists = computed(() => artistsArr.value.filter((a: any) => Boolean(a?.visible)).length)
 
-// Fetch videos, playlists, events, friends and compute visible counts
 const { data: videosRaw } = await useVideos({ server: true })
 const videosArr = computed(() => toArray<any>(videosRaw.value, 'videos'))
 const videos = computed(() => videosArr.value.filter((v: any) => Boolean(v?.visible)).length)

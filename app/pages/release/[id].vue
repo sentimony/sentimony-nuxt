@@ -55,7 +55,6 @@ const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
-// SEO meta
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const year = computed(() => formatYear(item.value?.date))
@@ -79,7 +78,6 @@ useSeoMeta({
   twitterCard: 'summary'
 });
 
-// Fallback HTML for missing players
 const comingMusic = '<div class="p-4 text-center text-white/70">Player coming soon</div>'
 </script>
 
@@ -327,7 +325,12 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               :key="track.slug"
               class="flex items-center justify-between gap-2"
             >
-              <span><small>{{ track.track_number < 10 ? ' ' + track.track_number : track.track_number }}.</small> <b>{{ track.artist_name }}</b> - {{ track.title }} <small v-if="track.bpm">({{ track.bpm }}bpm)</small></span>
+              <NuxtLink
+                :to="`/track/${track.slug}`"
+                class="hover:underline"
+              >
+                <small>{{ track.track_number < 10 ? ' ' + track.track_number : track.track_number }}.</small> <b>{{ track.artist_name }}</b> - {{ track.title }} <small v-if="track.bpm">({{ track.bpm }}bpm)</small>
+              </NuxtLink>
               <button
                 @click="toggleTrackLike(track.slug)"
                 class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-black/10 shrink-0"

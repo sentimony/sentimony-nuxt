@@ -28,7 +28,6 @@ const releasesSortedByDate = computed(() =>
     )
 )
 
-// SEO meta
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageDescription = computed(() => [

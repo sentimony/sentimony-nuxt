@@ -14,15 +14,11 @@ export default {
       keyframes: {
         spin2: {
           '0%': { transform: 'rotate(0deg)', },
-          // '25%': { },
-          // '80%': { },
           '100%': { transform: 'rotate(360deg)', },
         },
         spin2rev: {
           '0%': { },
           '25%': { transform: 'rotate(0deg)', },
-          // '20%': { },
-          // '80%': { },
           '100%': { transform: 'rotate(-360deg)', },
         }
       },
