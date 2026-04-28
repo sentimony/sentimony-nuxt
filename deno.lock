@@ -11,15 +11,18 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@iconify-json/heroicons@^1.2.3",
         "npm:@nuxt/icon@^2.2.1",
         "npm:@nuxt/image@2",
         "npm:@nuxtjs/google-fonts@^3.2.0",
         "npm:@nuxtjs/robots@^6.0.7",
         "npm:@nuxtjs/sitemap@^8.0.13",
+        "npm:@nuxtjs/supabase@^2.0.6",
         "npm:@nuxtjs/tailwindcss@^6.14.0",
+        "npm:@supabase/supabase-js@^2.104.0",
         "npm:@types/node@^25.6.0",
-        "npm:firebase-tools@^15.14.0",
-        "npm:netlify-cli@^23.7.3",
+        "npm:firebase-tools@^15.15.0",
+        "npm:netlify-cli@^25.1.1",
         "npm:nuxt@^4.4.2",
         "npm:swiper@^12.1.3",
         "npm:v-wave@^3.0.4"

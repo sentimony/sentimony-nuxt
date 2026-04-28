@@ -1,0 +1,10 @@
+import { createClient } from '@supabase/supabase-js'
+
+export function useSupabase() {
+  const { public: { supabaseUrl, supabaseKey } } = useRuntimeConfig()
+  return createClient(supabaseUrl, supabaseKey)
+}
+
+export function mapReleaseFromSupabase({ is_new, tracklist_compact, credits_compact, ...rest }: Record<string, unknown>) {
+  return { ...rest, new: is_new, tracklistCompact: tracklist_compact, creditsCompact: credits_compact }
+}

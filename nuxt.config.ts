@@ -48,10 +48,11 @@ export default defineNuxtConfig({
   //   // logLevel: 'warn'
   // },
   runtimeConfig: {
-    // envName: process.env.NUXT_PUBLIC_ENV || 'prod',  // 'local' | 'stage' | 'prod' ...
+    supabaseServiceKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
     public: {
-      // Base URL for Firebase Realtime DB
       firebaseBase: 'https://sentimony-db.firebaseio.com',
+      supabaseUrl: process.env.SUPABASE_URL || '',
+      supabaseKey: process.env.SUPABASE_KEY || '',
     },
   },
   experimental: {
@@ -94,7 +95,17 @@ export default defineNuxtConfig({
       '/contacts': { isr: 86400 },
     }),
   },
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      exclude: ['/*'],
+    },
+  },
   modules: [
+    '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
@@ -136,12 +147,21 @@ export default defineNuxtConfig({
     discoverVideos: false,
   },
   vite: {
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          if (warning.plugin === 'nuxt:module-preload-polyfill') return
+          warn(warning)
+        },
+      },
+    },
     optimizeDeps: {
       include: [
         '@vue/devtools-core',
         '@vue/devtools-kit',
         'swiper/vue',
         'swiper/modules',
+        '@supabase/ssr',
       ]
     }
   },

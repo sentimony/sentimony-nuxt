@@ -2,18 +2,22 @@ const isDev = process.env.NODE_ENV === 'development'
 
 export default defineCachedEventHandler(
   async () => {
-    const { public: { firebaseBase } } = useRuntimeConfig()
-    const url = `${firebaseBase}/releases.json`
+    if (process.env.RELEASES_SOURCE === 'supabase') {
+      const { data, error } = await useSupabase()
+        .from('releases')
+        .select('slug, title, cover_th, date, visible, coming_soon, is_new, artists, at_playlists')
+        .eq('visible', true)
+        .order('date', { ascending: false })
 
-    // In development, add cache-busting timestamp to bypass all caches
-    if (isDev) {
-      return await $fetch(`${url}?_t=${Date.now()}`)
+      if (error) throw createError({ statusCode: 500, statusMessage: error.message })
+      return data?.map(mapReleaseFromSupabase) ?? []
     }
 
-    return await $fetch(url)
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    const url = `${firebaseBase}/releases.json`
+    return isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
   },
   {
-    // Cache for 1 hour in production; no cache in development
     maxAge: isDev ? 0 : 60 * 60,
     swr: !isDev,
   }

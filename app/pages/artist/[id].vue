@@ -3,6 +3,7 @@ import { createError } from '#app'
 import type { Release } from '~/types'
 
 const { id } = useRoute().params
+const { isLiked, toggleLike, likeCount, fetchCount } = useArtistLikes()
 
 const artistAsync = await useArtist(id as string, { server: true })
 const item = artistAsync.data
@@ -11,6 +12,10 @@ const artistError = artistAsync.error
 if (artistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
 }
+
+onMounted(() => {
+  fetchCount(item.value!.slug)
+})
 
 const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
@@ -52,6 +57,19 @@ useSeoMeta({
         <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
+
+        <div class="flex justify-center mb-4">
+          <button
+            @click="toggleLike(item.slug)"
+            class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
+            :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+            v-wave
+          >
+            <Icon :name="isLiked(item.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
+            {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
+            <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
+          </button>
+        </div>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
@@ -176,28 +194,6 @@ useSeoMeta({
                 />
               </Tab>
 
-              <Tab
-                v-if="item.facebook"
-                icon="fa-brands:facebook"
-                title="Facebook"
-              >
-                <iframe
-                  class="rounded-none overflow-hidden my-0 mx-auto w-[287px] h-[132px] md:hidden"
-                  :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=287&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
-                  :title="item.title + ' Facebook Mobile Iframe'"
-                  scrolling="no"
-                  frameborder="0"
-                  allowTransparency="true"
-                />
-                <iframe
-                  class="rounded-none overflow-hidden my-0 mx-auto w-[500px] h-[132px] hidden md:block"
-                  :src="'https://www.facebook.com/plugins/page.php?href=' + (item.facebook || '') + '%2F&tabs&width=500&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=197035617008842'"
-                  :title="item.title + ' Facebook Desktop Iframe'"
-                  scrolling="no"
-                  frameborder="0"
-                  allowTransparency="true"
-                />
-              </Tab>
 
             </Tabs>
 

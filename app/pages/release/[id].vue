@@ -3,6 +3,16 @@ import { createError } from '#app'
 import type { Release, Artist } from '~/types'
 
 const { id } = useRoute().params
+const { isLiked, toggleLike, likeCount, fetchCount } = useLikes()
+const { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount } = useTrackLikes()
+
+type Track = { slug: string, title: string, artist_name: string, track_number: number, bpm: number | null, like_count: number }
+const { data: tracks } = await useFetch<Track[]>(`/api/tracks/${id}`)
+
+onMounted(() => {
+  fetchCount(item.value!.slug)
+  tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
+})
 
 const releaseAsync = await useRelease(id as string, { server: true })
 const item = releaseAsync.data
@@ -81,6 +91,19 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
       <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
+
+        <div class="flex justify-center mb-4">
+          <button
+            @click="toggleLike(item.slug)"
+            class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
+            :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+            v-wave
+          >
+            <Icon :name="isLiked(item.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
+            {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
+            <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
+          </button>
+        </div>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36 pr-2">
@@ -294,16 +317,35 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
         <div v-if="item.information" v-html="item.information" />
 
-        <div v-if="item.tracklistCompact" 
-          class="Tracklist"
-        >
+        <div v-if="tracks?.length || item.tracklistCompact" class="Tracklist">
           <hr class="my-4 border-black/30">
           <p><small><b>Tracklist:</b></small></p>
-          <p
-            v-for="(i, index) in item.tracklistCompact"
-            :key="index"
-            v-html="i.p"
-          />
+
+          <template v-if="tracks?.length">
+            <p
+              v-for="track in tracks"
+              :key="track.slug"
+              class="flex items-center justify-between gap-2"
+            >
+              <span><small>{{ track.track_number < 10 ? ' ' + track.track_number : track.track_number }}.</small> <b>{{ track.artist_name }}</b> - {{ track.title }} <small v-if="track.bpm">({{ track.bpm }}bpm)</small></span>
+              <button
+                @click="toggleTrackLike(track.slug)"
+                class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-black/10 shrink-0"
+                :class="isTrackLiked(track.slug) ? 'border-red-400/30 text-red-400' : 'border-black/30 text-black/60 hover:text-black/80'"
+              >
+                <Icon :name="isTrackLiked(track.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="12" />
+                <span v-if="trackLikeCount(track.slug) > 0">{{ trackLikeCount(track.slug) }}</span>
+              </button>
+            </p>
+          </template>
+
+          <template v-else>
+            <p
+              v-for="(i, index) in item.tracklistCompact"
+              :key="index"
+              v-html="i.p"
+            />
+          </template>
         </div>
 
         <div v-if="item.creditsCompact">

@@ -6,12 +6,11 @@ import { getSocials } from '~/constants/soclinks'
 import { getIcon } from '~/constants/icons'
 const isNavActive = (link: string) => _navActive(route.path, link)
 
-// Header socials from constants with inHeader flag and resolved icons
 const soc = computed(() =>
   getSocials({ inHeader: true }).map(l => ({ ...l, icon: getIcon(l.id) }))
 )
 
-// Active highlighting uses centralized helper
+const user = useSupabaseUser()
 </script>
 
 <template>
@@ -68,6 +67,14 @@ const soc = computed(() =>
               <div class="absolute  tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100  group-hover:-translate-y-full transition-all ease-in-out duration-300 z-10">{{ i.title }}</div>
             </div>
           </div>
+
+          <NuxtLink
+            :to="user ? '/profile' : '/login'"
+            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
+            v-wave
+          >
+            <Icon :name="user ? 'heroicons:user-circle' : 'heroicons:user'" size="22" />
+          </NuxtLink>
 
           <div class="size-[56px] md:hidden md:size-0" />
 
