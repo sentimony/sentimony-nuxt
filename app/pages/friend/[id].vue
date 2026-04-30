@@ -10,7 +10,7 @@ const friendError = friendAsync.error
 if (friendError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Friend not found' })
 }
-// SEO meta
+
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageDescription = computed(() => [item.value?.title].filter(Boolean).join(' — '))

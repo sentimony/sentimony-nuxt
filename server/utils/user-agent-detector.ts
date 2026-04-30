@@ -1,5 +1,3 @@
-// Детектор user-agent'ів для розпізнавання ботів та інструментів
-
 export interface UserAgentInfo {
   tag: string
   type: 'tool' | 'bot' | 'user'
@@ -41,19 +39,16 @@ export function detectUserAgent(userAgent: string): UserAgentInfo {
     return { tag: 'USER', type: 'user' }
   }
 
-  // Перевіряємо відомі інструменти
   const tool = knownTools.find(k => k.re.test(userAgent))
   if (tool) {
     return { tag: tool.tag, type: 'tool' }
   }
 
-  // Перевіряємо відомих ботів
   const bot = knownBots.find(k => k.re.test(userAgent))
   if (bot) {
     return { tag: bot.tag, type: 'bot' }
   }
 
-  // Перевіряємо загальні ознаки ботів
   if (genericBotRe.test(userAgent)) {
     return { tag: 'BOT', type: 'bot' }
   }

@@ -1,9 +1,4 @@
-// Central registry of external links used across the app.
-// Align ids with IconKey where it makes sense for easy pairing.
-
 import type { IconKey } from './icons'
-
-// Individual URL constants
 export const APPLE_MUSIC_URL   = 'https://music.apple.com/ua/playlist/sentimony-records-official-playlist/pl.u-GgA5eY6toa92kz6'
 export const BANDCAMP_URL      = 'https://sentimony.bandcamp.com/follow_me'
 export const BEATPORT_URL      = 'https://www.beatport.com/label/sentimony-records/66490'
@@ -55,21 +50,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { id: 'youtubeMusic', title: 'YouTube Music', url: YOUTUBE_MUSIC_URL },
 ]
 
-// export function getSocial(id: IconKey): SocialLink | undefined {
-//   return SOCIAL_LINKS.find(l => l.id === id)
-// }
-
 export function getSocials(opts?: { inHeader?: boolean }): SocialLink[] {
   if (opts && typeof opts.inHeader !== 'undefined') {
     return SOCIAL_LINKS.filter(l => Boolean(l.inHeader) === Boolean(opts.inHeader))
   }
   return SOCIAL_LINKS
 }
-
-// export function getSoclinks(): SocialLink[] {
-//   return SOCIAL_LINKS
-// }
-
-// export function getHeaderSoclinks(): SocialLink[] {
-//   return SOCIAL_LINKS.filter(i => i?.inHeader)
-// }

@@ -13,7 +13,6 @@ const close = () => { isOpen.value = false }
 
 const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>coming ⛄</div>'
 
-// Close on Escape key
 function onKeydown(e: KeyboardEvent) {
   if (!isOpen.value) return
   if (e.key === 'Escape' || e.key === 'Esc') {
@@ -53,16 +52,11 @@ onBeforeUnmount(() => {
 
     <Transition name="modal-fade">
       <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center">
-
-        <!-- <Transition name="backdrop-fade"> -->
           <div
             class="absolute inset-0 bg-black/30 backdrop-blur-sm"
             @click="close"
             v-wave
           />
-        <!-- </Transition> -->
-
-        <!-- <Transition name="modal-zoom"> -->
           <div
             class="relative max-w-[90vw] max-h-[90vh] rounded-sm"
             @click.stop
@@ -89,20 +83,7 @@ onBeforeUnmount(() => {
               :alt="props.alt || 'Image'"
               class="max-w-[90vw] max-h-[90vh] object-contain rounded-sm shadow-lg "
             />
-
-            <!-- <img
-              :src="props.image_xl"
-              :alt="props.alt || 'Image'"
-              class="absolute left-0 right-0 max-w-[90vw] max-h-[90vh] object-contain rounded-sm shadow-lg "
-            />
-
-            <img
-              :src="props.image_th"
-              :alt="props.alt || 'Image'"
-              class="max-w-[90vw] max-h-[90vh] w-[90vw] h-auto  object-contain rounded-sm shadow-lg "
-            /> -->
           </div>
-        <!-- </Transition> -->
 
       </div>
     </Transition>
@@ -111,13 +92,6 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-/* Modal transitions */
 .modal-fade-enter-active, .modal-fade-leave-active { transition: opacity .2s ease; }
 .modal-fade-enter-from, .modal-fade-leave-to { opacity: 0; }
-
-/* .backdrop-fade-enter-active, .backdrop-fade-leave-active { transition: opacity .2s ease; } */
-/* .backdrop-fade-enter-from, .backdrop-fade-leave-to { opacity: 0; } */
-
-/* .modal-zoom-enter-active, .modal-zoom-leave-active { transition: opacity .2s ease, transform .2s ease; } */
-/* .modal-zoom-enter-from, .modal-zoom-leave-to { opacity: 0; transform: scale(0.97); } */
 </style>

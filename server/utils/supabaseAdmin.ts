@@ -3,8 +3,8 @@ import { createClient } from '@supabase/supabase-js'
 export function supabaseAdmin() {
   const config = useRuntimeConfig()
   return createClient(
-    process.env.SUPABASE_URL!,
-    config.supabaseServiceKey,
+    config.supabaseUrl,
+    config.supabaseSecretKey,
     { auth: { autoRefreshToken: false, persistSession: false } }
   )
 }

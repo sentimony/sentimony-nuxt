@@ -1,6 +1,5 @@
 export default defineRobotsConfig({
   indexable: () => {
-    // Для staging заборонити індексацію
     return process.env.NUXT_SITE_ENV !== 'staging'
   },
   groups: [

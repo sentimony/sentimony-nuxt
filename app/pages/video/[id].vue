@@ -16,12 +16,10 @@ onMounted(() => {
   fetchCount(item.value!.slug)
 })
 
-// Compute embeddable YouTube URL from short link
 const { embed } = useYouTube(computed(() => item.value?.links?.youtube))
 const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
 
-// SEO meta
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const year = computed(() => formatYear(item.value?.date))

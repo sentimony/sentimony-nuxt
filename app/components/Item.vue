@@ -26,7 +26,7 @@ onMounted(() => {
   >
 
     <div
-      class="relative mb-[4px] flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30"
+      class="relative flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30 mb-[4px]"
       :class="isActive ? 'bg-white/20' : ''"
     >
       <div class="size-[60px] md:size-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50">

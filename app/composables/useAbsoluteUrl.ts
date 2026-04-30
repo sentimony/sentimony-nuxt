@@ -10,12 +10,10 @@ export function useAbsoluteUrl() {
 
   function buildUrl(target: string | URL): string {
     try {
-      // If already absolute, return as-is
       const u = new URL(String(target))
       u.hash = ''
       return u.toString()
     } catch {
-      // Resolve relative to current origin
       const origin = import.meta.client
         ? window.location.origin
         : `${reqUrl.protocol}//${reqUrl.host}`

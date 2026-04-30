@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { readFileSync } from 'fs'
 
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
+const supabase = createClient(process.env.NUXT_PUBLIC_SUPABASE_URL, process.env.NUXT_SUPABASE_SECRET_KEY)
 const data = JSON.parse(readFileSync('public/data/sentimony-db-export.json', 'utf-8'))
 
 const artistByTitle = new Map()

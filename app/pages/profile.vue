@@ -11,12 +11,12 @@ type LikedVideo = { slug: string, title: string, cover_th: string }
 type LikedPlaylist = { slug: string, title: string, cover_th: string }
 type LikedEvent = { slug: string, title: string, flyer_a_xl: string }
 
-const { data: likedReleases } = await useFetch<LikedRelease[]>('/api/likes/releases')
-const { data: likedTracks } = await useFetch<LikedTrack[]>('/api/track-likes/tracks')
-const { data: likedArtists } = await useFetch<LikedArtist[]>('/api/artist-likes/artists')
-const { data: likedVideos } = await useFetch<LikedVideo[]>('/api/video-likes/videos')
-const { data: likedPlaylists } = await useFetch<LikedPlaylist[]>('/api/playlist-likes/playlists')
-const { data: likedEvents } = await useFetch<LikedEvent[]>('/api/event-likes/events')
+const artists = usePaginatedLikes<LikedArtist>('/api/artist-likes/artists', 5)
+const releases = usePaginatedLikes<LikedRelease>('/api/likes/releases', 5)
+const tracks = usePaginatedLikes<LikedTrack>('/api/track-likes/tracks', 20)
+const videos = usePaginatedLikes<LikedVideo>('/api/video-likes/videos', 5)
+const playlists = usePaginatedLikes<LikedPlaylist>('/api/playlist-likes/playlists', 5)
+const events = usePaginatedLikes<LikedEvent>('/api/event-likes/events', 5)
 
 async function signOut() {
   await supabase.auth.signOut()
@@ -43,89 +43,26 @@ async function signOut() {
         </button>
       </div>
 
-      <div v-if="likedArtists?.length" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Artists</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          <NuxtLink
-            v-for="a in likedArtists"
-            :key="a.slug"
-            :to="`/artist/${a.slug}`"
-            class="group"
-          >
-            <img v-if="a.photo_th" :src="a.photo_th" :alt="a.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
-            <div v-else class="w-full aspect-square rounded mb-2 bg-white/10 flex items-center justify-center">
-              <Icon name="heroicons:user" size="40" class="text-white/30" />
-            </div>
-            <p class="text-sm text-white/80 truncate">{{ a.title }}</p>
-          </NuxtLink>
-        </div>
-      </div>
-
-      <div v-if="likedReleases?.length" class="mb-10">
+      <div v-if="releases.items.value.length || releases.loading.value" class="mb-10">
         <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Releases</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          <NuxtLink
-            v-for="r in likedReleases"
-            :key="r.slug"
-            :to="`/release/${r.slug}`"
-            class="group"
-          >
-            <img :src="r.cover_th" :alt="r.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
-            <p class="text-sm text-white/80 truncate">{{ r.title }}</p>
-          </NuxtLink>
+        <div class="flex flex-wrap">
+          <Item v-for="r in releases.items.value" :key="r.slug" :i="r" category="release" />
         </div>
+        <button
+          v-if="releases.hasMore.value"
+          :disabled="releases.loading.value"
+          @click="releases.loadMore()"
+          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+        >
+          {{ releases.loading.value ? 'Loading...' : `Show more 5 (${releases.total.value - releases.items.value.length} left)` }}
+        </button>
       </div>
 
-      <div v-if="likedVideos?.length" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Videos</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          <NuxtLink
-            v-for="v in likedVideos"
-            :key="v.slug"
-            :to="`/video/${v.slug}`"
-            class="group"
-          >
-            <img v-if="v.cover_th" :src="v.cover_th" :alt="v.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
-            <p class="text-sm text-white/80 truncate">{{ v.title }}</p>
-          </NuxtLink>
-        </div>
-      </div>
-
-      <div v-if="likedPlaylists?.length" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Playlists</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          <NuxtLink
-            v-for="p in likedPlaylists"
-            :key="p.slug"
-            :to="`/playlist/${p.slug}`"
-            class="group"
-          >
-            <img v-if="p.cover_th" :src="p.cover_th" :alt="p.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
-            <p class="text-sm text-white/80 truncate">{{ p.title }}</p>
-          </NuxtLink>
-        </div>
-      </div>
-
-      <div v-if="likedEvents?.length" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Events</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          <NuxtLink
-            v-for="e in likedEvents"
-            :key="e.slug"
-            :to="`/event/${e.slug}`"
-            class="group"
-          >
-            <img v-if="e.flyer_a_xl" :src="e.flyer_a_xl" :alt="e.title" class="w-full aspect-square object-cover rounded mb-2 transition-opacity group-hover:opacity-80">
-            <p class="text-sm text-white/80 truncate">{{ e.title }}</p>
-          </NuxtLink>
-        </div>
-      </div>
-
-      <div v-if="likedTracks?.length">
+      <div v-if="tracks.items.value.length || tracks.loading.value" class="mb-10">
         <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Tracks</h2>
         <div class="max-w-xl">
           <NuxtLink
-            v-for="t in likedTracks"
+            v-for="t in tracks.items.value"
             :key="t.slug"
             :to="`/release/${t.release_slug}`"
             class="flex items-center gap-3 py-1 hover:text-white/70 transition-colors"
@@ -133,6 +70,74 @@ async function signOut() {
             <span><b>{{ t.artist_name }}</b> - {{ t.title }} <small v-if="t.bpm">({{ t.bpm }}bpm)</small></span>
           </NuxtLink>
         </div>
+        <button
+          v-if="tracks.hasMore.value"
+          :disabled="tracks.loading.value"
+          @click="tracks.loadMore()"
+          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+        >
+          {{ tracks.loading.value ? 'Loading...' : `Show more 20 (${tracks.total.value - tracks.items.value.length} left)` }}
+        </button>
+      </div>
+
+      <div v-if="artists.items.value.length || artists.loading.value" class="mb-10">
+        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Artists</h2>
+        <div class="flex flex-wrap">
+          <Item v-for="a in artists.items.value" :key="a.slug" :i="a" category="artist" />
+        </div>
+        <button
+          v-if="artists.hasMore.value"
+          :disabled="artists.loading.value"
+          @click="artists.loadMore()"
+          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+        >
+          {{ artists.loading.value ? 'Loading...' : `Show more 5 (${artists.total.value - artists.items.value.length} left)` }}
+        </button>
+      </div>
+
+      <div v-if="playlists.items.value.length || playlists.loading.value" class="mb-10">
+        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Playlists</h2>
+        <div class="flex flex-wrap">
+          <Item v-for="p in playlists.items.value" :key="p.slug" :i="p" category="playlist" />
+        </div>
+        <button
+          v-if="playlists.hasMore.value"
+          :disabled="playlists.loading.value"
+          @click="playlists.loadMore()"
+          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+        >
+          {{ playlists.loading.value ? 'Loading...' : `Show more (${playlists.total.value - playlists.items.value.length} left)` }}
+        </button>
+      </div>
+
+      <div v-if="events.items.value.length || events.loading.value" class="mb-10">
+        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Events</h2>
+        <div class="flex flex-wrap">
+          <Item v-for="e in events.items.value" :key="e.slug" :i="e" category="event" />
+        </div>
+        <button
+          v-if="events.hasMore.value"
+          :disabled="events.loading.value"
+          @click="events.loadMore()"
+          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+        >
+          {{ events.loading.value ? 'Loading...' : `Show more (${events.total.value - events.items.value.length} left)` }}
+        </button>
+      </div>
+
+      <div v-if="videos.items.value.length || videos.loading.value" class="mb-10">
+        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Videos</h2>
+        <div class="flex flex-wrap">
+          <Item v-for="v in videos.items.value" :key="v.slug" :i="v" category="video" />
+        </div>
+        <button
+          v-if="videos.hasMore.value"
+          :disabled="videos.loading.value"
+          @click="videos.loadMore()"
+          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+        >
+          {{ videos.loading.value ? 'Loading...' : `Show more (${videos.total.value - videos.items.value.length} left)` }}
+        </button>
       </div>
 
     </div>
