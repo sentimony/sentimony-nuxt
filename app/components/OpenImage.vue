@@ -71,7 +71,7 @@ onBeforeUnmount(() => {
             <button
               type="button"
               aria-label="Close"
-              class="flex items-center justify-center fixed top-0 right-0 mr-2 mt-[9px] z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] hover:bg-white/30 size-[56px] hover:rotate-[360deg]"
+              class="flex items-center justify-center fixed top-0 right-0 mr-2 mt-[9px] z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] hover:bg-white/30 focus-visible:bg-white/30 size-[56px] hover:rotate-[360deg] focus-visible:rotate-[360deg]"
               @click="close"
               v-wave
             >

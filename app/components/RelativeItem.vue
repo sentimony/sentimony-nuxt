@@ -18,7 +18,7 @@ const year = computed(() => formatYear(i.value?.date))
 
     <NuxtLink
       :to="'/' + category + '/' + i.slug"
-      class="pr-1 hover:bg-white/20 flex items-center rounded-md"
+      class="pr-1 hover:bg-white/20 focus-visible:bg-white/20 flex items-center rounded-md"
       v-wave
     >
       <img v-if="i.cover_th"

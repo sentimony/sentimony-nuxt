@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { getNav, isNavActive as _navActive } from '~/constants/nav'
 import { getSocials } from '~/constants/soclinks'
 import { getIcon } from '~/constants/icons'
@@ -7,6 +7,7 @@ const route = useRoute()
 const isNavActive = (link: string) => _navActive(route.path, link)
 
 const isOpen = ref(false)
+const close = () => { isOpen.value = false }
 const toggleSidebar = () => { isOpen.value = !isOpen.value }
 
 const soc = computed(() =>
@@ -14,6 +15,28 @@ const soc = computed(() =>
 )
 
 watch(() => route.path, () => { isOpen.value = false })
+
+function onKeydown(e: KeyboardEvent) {
+  if (!isOpen.value) return
+  if (e.key === 'Escape' || e.key === 'Esc') {
+    e.preventDefault()
+    close()
+  }
+}
+
+watch(isOpen, (v) => {
+  if (typeof document === 'undefined') return
+  document.body.style.overflow = v ? 'hidden' : ''
+})
+
+onMounted(() => {
+  window.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKeydown)
+  if (typeof document !== 'undefined') document.body.style.overflow = ''
+})
 </script>
 
 <template>
@@ -22,11 +45,16 @@ watch(() => route.path, () => { isOpen.value = false })
     <div
       class="fixed left-full top-0 w-screen h-screen z-30 bg-black/30 backdrop-blur-sm"
       :class="isOpen ? '-translate-x-full' : ''"
-      @click="toggleSidebar"
+      :aria-hidden="!isOpen"
+      @click="close"
     />
 
-    <div
-      class="fixed top-0 right-0 mr-2 mt-[9px] z-50 flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
+    <button
+      type="button"
+      :aria-label="isOpen ? 'Close menu' : 'Open menu'"
+      :aria-expanded="isOpen"
+      aria-controls="mobile-sidebar"
+      class="fixed top-0 right-0 mr-2 mt-[9px] z-50 flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 focus-visible:bg-white/30 size-[56px]"
       :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
       @click="toggleSidebar"
       v-wave
@@ -42,18 +70,23 @@ watch(() => route.path, () => { isOpen.value = false })
         size="22"
         :class="isOpen ? '' : 'hidden'"
       />
-    </div>
+    </button>
 
     <div
+      id="mobile-sidebar"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site navigation"
+      :inert="!isOpen"
       class="fixed left-full w-[256px] h-screen top-0 z-40 transition-transform duration-300 ease-in-out flex flex-col bg-black/60 pt-2"
       :class="isOpen ? '-translate-x-full' : ''"
-      @click="toggleSidebar"
+      @click="close"
     >
       <NuxtLink
         v-for="i in getNav()"
         :key="i.route"
         :to="i.route"
-        class="flex items-center justify-center h-12 hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
+        class="flex items-center justify-center h-12 hover:bg-white/15 focus-visible:bg-white/15 text-base transition-background duration-300 ease-in-out"
         :class="isNavActive(i.route) ? 'bg-white/10' : ''"
         v-wave
       >
@@ -66,7 +99,7 @@ watch(() => route.path, () => { isOpen.value = false })
         <a
           v-for="i in soc"
           :href="i.url"
-          class="flex flex-row items-center h-12 justify-center hover:bg-white/15 transition-background duration-300 ease-in-out w-full text-[12px]"
+          class="flex flex-row items-center h-12 justify-center hover:bg-white/15 focus-visible:bg-white/15 transition-background duration-300 ease-in-out w-full text-[12px]"
           target="_blank" rel="noopener"
           v-wave
         >

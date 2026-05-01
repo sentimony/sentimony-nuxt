@@ -160,7 +160,7 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
 .swiper-pagination { @apply text-xs/3 md:text-sm/4 text-white/50 }
 
 .swiper-button-prev,
-.swiper-button-next { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-white/40 hover:text-white/80 hover:bg-white/5 hover:backdrop-blur-sm hidden md:block p-4 }
+.swiper-button-next { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-white/40 hover:text-white/80 focus-visible:text-white/80 hover:bg-white/5 focus-visible:bg-white/5 hover:backdrop-blur-sm focus-visible:backdrop-blur-sm hidden md:block p-4 }
 .swiper-button-prev { @apply left-0 }
 .swiper-button-next { @apply right-0 }
 

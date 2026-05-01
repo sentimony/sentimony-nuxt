@@ -26,7 +26,7 @@ onMounted(() => {
   >
 
     <div
-      class="relative flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30 mb-[4px]"
+      class="relative flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30 group-focus-visible:bg-white/30 mb-[4px]"
       :class="isActive ? 'bg-white/20' : ''"
     >
       <div class="size-[60px] md:size-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50">
@@ -71,8 +71,10 @@ onMounted(() => {
         v-if="showLikeButton"
         @click.prevent="toggleLike(i.slug)"
         class="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded transition-colors duration-200"
-        :class="isLiked(i.slug) ? 'text-red-400' : 'text-white/40 hover:text-white/70'"
+        :class="isLiked(i.slug) ? 'text-red-400' : 'text-white/40 hover:text-white/70 focus-visible:text-white/70'"
         :title="isLiked(i.slug) ? 'Unlike' : 'Like'"
+        :aria-label="isLiked(i.slug) ? 'Unlike ' + i.title : 'Like ' + i.title"
+        :aria-pressed="isLiked(i.slug)"
         v-wave
       >
         <Icon :name="isLiked(i.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="16" />

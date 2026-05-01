@@ -21,7 +21,7 @@ const user = useSupabaseUser()
 
           <NuxtLink
             to="/"
-            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
+            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-white/30 focus-visible:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
             active-class="bg-white/20"
             v-wave
           >
@@ -42,7 +42,7 @@ const user = useSupabaseUser()
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/30 sm:px-2 md:px-3 lg:px-4 h-[56px] flex items-center justify-center rounded-[2px]"
+              class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/30 focus-visible:bg-white/30 sm:px-2 md:px-3 lg:px-4 h-[56px] flex items-center justify-center rounded-[2px]"
               :class="isNavActive(i.route) ? 'bg-white/20' : ''"
               v-wave
             >
@@ -57,20 +57,22 @@ const user = useSupabaseUser()
             >
               <a
                 :href="i.url"
-                class="flex items-center justify-center transition-colors ease-in-out duration-300 text-white/50 hover:text-white/100 hover:bg-white/30 md:w-[46px] lg:w-[56px] h-[56px] rounded-[2px] relative z-30"
+                :aria-label="i.title"
+                class="flex items-center justify-center transition-colors ease-in-out duration-300 text-white/50 hover:text-white/100 focus-visible:text-white/100 hover:bg-white/30 focus-visible:bg-white/30 md:w-[46px] lg:w-[56px] h-[56px] rounded-[2px] relative z-30"
                 target="_blank" rel="noopener"
                 v-wave
               >
                 <Icon v-if="i.icon.kind === 'iconify'" class="" :name="i.icon.name" size="22" />
                 <img v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="22" height="22">
               </a>
-              <div class="absolute  tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100  group-hover:-translate-y-full transition-all ease-in-out duration-300 z-10">{{ i.title }}</div>
+              <div aria-hidden="true" class="absolute pointer-events-none tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100 group-hover:-translate-y-full group-focus-within:tracking-normal group-focus-within:opacity-100 group-focus-within:-translate-y-full transition-all ease-in-out duration-300 z-10">{{ i.title }}</div>
             </div>
           </div>
 
           <NuxtLink
             :to="user ? '/profile' : '/login'"
-            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
+            :aria-label="user ? 'Profile' : 'Sign in'"
+            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 focus-visible:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
             v-wave
           >
             <Icon :name="user ? 'heroicons:user-circle' : 'heroicons:user'" size="22" />
