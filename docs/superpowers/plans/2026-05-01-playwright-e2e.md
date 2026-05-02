@@ -12,7 +12,7 @@
 
 ## Context для виконавця
 
-**Передумова:** Плани 1-3 виконано (Vitest unit + server + component тести, 35 тестів зеленіють через `npm test`). `package.json` містить `test`/`test:watch`. `.env.local` існує і має `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY`.
+**Передумова:** Плани 1-3 виконано (Vitest unit + server + component тести, 35 тестів зеленіють через `npm test`). `package.json` містить `test`/`test:watch`. План `2026-05-02-test-environments` виконано — `.env.stage` (default для Playwright) і `.env.prod` (escape hatch) існують і містять `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY`. `.env.stage` вказує на `supabase-stage` проєкт.
 
 **Чому Playwright, а не Cypress/Selenium:**
 - Playwright швидший і має кращу інтеграцію з Nuxt (підтримує component-tests, network mocking, traces).
@@ -30,8 +30,8 @@
 3. **`release_likes` cleanup** — після кожного like-тесту, у `afterEach` робимо DELETE через service-role: `delete from release_likes where user_id = ?`. Це підстраховка на випадок, якщо тест впав посеред cycle і не зміг сам почистити.
 
 **Безпека production-даних:**
-- Якщо `.env.local` вказує на **production Supabase**, тест створить там реального користувача і запис у `release_likes`. Хоч cleanup є, краще використовувати окремий **test-проєкт Supabase** або **локальний Supabase CLI** (`supabase start`).
-- У CI — обов'язково test-проєкт. У плані не змушую переключатись зараз, але **Notes** містять explicit warning.
+- `.env.stage` гарантовано вказує на `supabase-stage` (див. spec `2026-05-02-test-environments-design.md`). Test-user створюється там, не у проді.
+- У CI використовується той самий стек stage-secrets через GitHub Secrets (Roadmap R1 спеку).
 
 **CI vs local:**
 - Локально: `nuxt dev` через Playwright webServer, `reuseExistingServer: true` (швидше при ітераціях).
@@ -83,7 +83,7 @@ npx playwright install chromium --with-deps
 
 Expected: `@playwright/test` і `dotenv` додані в `devDependencies`. Chromium binary завантажений (~150MB у `~/.cache/ms-playwright`).
 
-`dotenv` потрібен у `globalSetup`/`globalTeardown` для завантаження `.env.local` у Node-процесі (Playwright запускає setup-скрипти через свій runner, без `--env-file=` прапорця, який має `npm run dev`).
+`dotenv` потрібен у `globalSetup`/`globalTeardown` для завантаження `.env.stage` у Node-процесі (Playwright запускає setup-скрипти через свій runner, без `--env-file=` прапорця, який має `npm run dev`).
 
 Якщо `--with-deps` падає на macOS (system deps reserved для Linux) — запустити без нього: `npx playwright install chromium`.
 
@@ -131,9 +131,9 @@ export default defineConfig({
 
 В `package.json` секція `scripts`:
 ```json
-"test:e2e": "playwright test",
-"test:e2e:ui": "playwright test --ui",
-"test:e2e:headed": "playwright test --headed"
+"test:e2e": "node --env-file=.env.stage node_modules/.bin/playwright test",
+"test:e2e:ui": "node --env-file=.env.stage node_modules/.bin/playwright test --ui",
+"test:e2e:headed": "node --env-file=.env.stage node_modules/.bin/playwright test --headed"
 ```
 
 - [ ] **Step 4: Оновити `.gitignore`**
@@ -196,7 +196,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { getAdminClient, TEST_USER_EMAIL_PREFIX } from './helpers/supabase-admin'
 
-loadDotenv({ path: '.env.local' })
+loadDotenv({ path: '.env.stage' })
 
 export default async function globalSetup() {
   const admin = getAdminClient()
@@ -235,7 +235,7 @@ import { join } from 'node:path'
 import { config as loadDotenv } from 'dotenv'
 import { getAdminClient } from './helpers/supabase-admin'
 
-loadDotenv({ path: '.env.local' })
+loadDotenv({ path: '.env.stage' })
 
 export default async function globalTeardown() {
   const fixturePath = join(process.cwd(), '.playwright-fixture.json')
@@ -273,9 +273,9 @@ export default async function globalTeardown() {
 Run: `npx playwright test --list 2>&1 | tail -5`
 Expected: список тестів (поки порожній — створимо в наступних таск-ах). globalSetup пробує створити користувача навіть на порожньому списку — це ОК для перевірки, але:
 
-**WARNING:** Якщо `.env.local` вказує на production Supabase, цей запуск створить там реального користувача. Перш ніж запускати, переконайся, що Supabase URL — тестовий (або готовий до тестових даних). Якщо сумніваєшся — пропусти sanity-check, або тимчасово закоментуй `globalSetup` у config.
+globalSetup створить test-user у `supabase-stage` (через `.env.stage`). Безпечно — це окремий проєкт, не prod.
 
-Якщо запустилось і user створений — `cat .playwright-fixture.json` має показати JSON з `userId`/`email`/`password`. globalTeardown теж запуститься і видалить user-а наприкінці.
+Перевір після прогону: `cat .playwright-fixture.json` має показати JSON з `userId`/`email`/`password`. globalTeardown запуститься після тестів і видалить user-а та фікстуру.
 
 - [ ] **Step 6: Commit**
 
@@ -337,15 +337,25 @@ git commit -m "test(e2e): add login helper"
 **Files:**
 - Create: `tests/e2e/login-and-like.spec.ts`
 
-- [ ] **Step 1: Створити test-файл**
+- [ ] **Step 1: Створити `tests/e2e/helpers/seed-data.ts`**
+
+`tests/e2e/helpers/seed-data.ts`:
+```ts
+export const E2E_FIXED_RELEASE_SLUG = '<підставити slug з 10 синкнутих у stage>'
+```
+
+Цей дефолт спрацьовує, коли `E2E_TEST_RELEASE_SLUG` env-var не задано. Зручно для нових контриб'юторів — після `npm run sync:supabase:stage` тест запускається без додаткової конфігурації.
+
+- [ ] **Step 2: Створити test-файл**
 
 `tests/e2e/login-and-like.spec.ts`:
 ```ts
 import { test, expect } from '@playwright/test'
 import { loginViaUI, loadFixture } from './helpers/auth'
 import { getAdminClient } from './helpers/supabase-admin'
+import { E2E_FIXED_RELEASE_SLUG } from './helpers/seed-data'
 
-const RELEASE_SLUG = process.env.E2E_TEST_RELEASE_SLUG
+const RELEASE_SLUG = process.env.E2E_TEST_RELEASE_SLUG ?? E2E_FIXED_RELEASE_SLUG
 
 test.describe('login and like-cycle', () => {
   test.skip(!RELEASE_SLUG, 'E2E_TEST_RELEASE_SLUG env-var not set')
@@ -384,25 +394,21 @@ test.describe('login and like-cycle', () => {
 - `name: /^Like$/` — точний match, не `/Like/i`, бо «Liked» теж збігається з `/Like/`. Regex `/^Like$/` ловить тільки текст без «d» наприкінці.
 - `afterEach` — додаткова страховка cleanup.
 
-- [ ] **Step 2: Задати env-var і запустити**
+- [ ] **Step 3: Задати env-var і запустити**
 
-Знайти будь-який видимий release slug у Supabase (через SQL, через UI чи `npm run dev` + `/releases`). Записати його як `E2E_TEST_RELEASE_SLUG` у `.env.local`:
+Slug має бути одним з 10 релізів синкнутих у `supabase-stage` через `npm run sync:supabase:stage`. Перевірити доступні: `https://<stage-ref>.supabase.co` → Table editor → releases. Записати у `.env.stage`:
 ```
 E2E_TEST_RELEASE_SLUG=actual-release-slug
 ```
 
-Run:
-```bash
-NUXT_PUBLIC_SUPABASE_URL=$(grep NUXT_PUBLIC_SUPABASE_URL .env.local | cut -d= -f2-) \
-NUXT_SUPABASE_SECRET_KEY=$(grep NUXT_SUPABASE_SECRET_KEY .env.local | cut -d= -f2-) \
-E2E_TEST_RELEASE_SLUG=$(grep E2E_TEST_RELEASE_SLUG .env.local | cut -d= -f2-) \
-npx playwright test login-and-like
-```
+Альтернативно: створити `tests/e2e/helpers/seed-data.ts` з fallback-константою (див. Step 2).
 
-Або простіше — Playwright config авто-loads env через webServer + globalSetup loads через dotenv. Спробуй:
+Run:
 ```bash
 npm run test:e2e -- login-and-like
 ```
+
+Це використовує `--env-file=.env.stage` (з `package.json` `test:e2e` script), а globalSetup додатково підвантажує `.env.stage` через dotenv для test-runner-а.
 
 Expected: 1 test passed. Час ~10–15s (включає dev-server boot, login, like-cycle, cleanup).
 
@@ -412,12 +418,12 @@ Expected: 1 test passed. Час ~10–15s (включає dev-server boot, login
 - «Like button не знайдено» → перевір, що release/[id].vue рендерить `<button>` з текстом «Like» (рядок 101 у компоненті: `{{ isLiked(item.slug) ? 'Liked' : 'Like' }}`).
 - «після reload Liked зник» → це регресія в `useLikes.load()` — баг в SSR-payload restoration. Дослідити (це той самий код, що покритий планом 1).
 
-- [ ] **Step 3: Прогон з UI-mode для дослідження** (опційно)
+- [ ] **Step 4: Прогон з UI-mode для дослідження** (опційно)
 
 Run: `npm run test:e2e:ui`
 Це відкриває Playwright UI з timeline, traces. Корисно для перших дебаг-сесій.
 
-- [ ] **Step 4: Commit**
+- [ ] **Step 5: Commit**
 
 ```bash
 git add tests/e2e/login-and-like.spec.ts
@@ -529,17 +535,17 @@ Expected:
 - [ ] **Step 2: Подвійний прогон — стабільність**
 
 Run: `npm run test:e2e && npm run test:e2e`
-Expected: обидва прогони зелені. globalSetup кожного разу створює нового користувача (timestamp у email), teardown чистить його. Якщо teardown пропустився — лишиться "осиротілий" user; перевір через `select * from auth.users where email like 'playwright-%'` у Supabase.
+Expected: обидва прогони зелені. globalSetup кожного разу створює нового користувача (timestamp у email), teardown чистить його. Якщо teardown пропустився — лишиться "осиротілий" user; перевір через `select * from auth.users where email like 'playwright-%'` у **stage-Supabase** (`supabase-stage` проєкт).
 
 - [ ] **Step 3: Type-check + build перевірка**
 
 Run: `npx vue-tsc --noEmit && npm run build`
 Expected: 0 type errors, build success. Тестова інфраструктура `tests/e2e/` не потрапляє в Nuxt-build.
 
-- [ ] **Step 4: Перевірити, що `.env.local` не закомічений**
+- [ ] **Step 4: Перевірити, що `.env.stage` / `.env.prod` не закомічені**
 
-Run: `git status && git ls-files .env.local`
-Expected: `.env.local` НЕ в git (має бути в `.gitignore`). Якщо закомічений — критична помилка, видалити з історії окремо.
+Run: `git status && git ls-files .env.stage .env.prod`
+Expected: жоден з env-файлів НЕ в git (мають бути в `.gitignore`). Якщо закомічений — критична помилка, видалити з історії окремо.
 
 - [ ] **Step 5: Final commit якщо щось ще додалось**
 
@@ -552,15 +558,12 @@ git status
 
 ## Notes для виконавця
 
-**Production-Supabase warning:**
-Якщо `.env.local` вказує на production Supabase, тести створять там реального user-а та запис у `release_likes`. Cleanup є, але:
-- Перебій під час teardown → orphan user.
-- Race з RLS → не зможе видалити user-а.
+**Test-Supabase invariant:**
+`.env.stage` має вказувати на `supabase-stage` проєкт (див. spec `2026-05-02-test-environments-design.md`). Перевірити: запустити `npm run dev` → DevTools network → URL має йти на stage-ref, не prod-ref.
 
-**Sane defaults для test environment:**
-1. **Окремий test-проєкт Supabase** (рекомендую). Дублювати schema через `supabase db push` з production migrations.
-2. **Локальний Supabase CLI** (`supabase start`) для CI з нуля. Це окрема ініціатива.
-3. **Тимчасово в production**, з ручним cleanup — лише якщо знаєш, що робиш. Перевіряй `select * from auth.users where email like 'playwright-%'` перед/після прогону.
+CI коли з'явиться (Roadmap R1 спеку) використовуватиме той самий стек stage-secrets через GitHub Secrets (`E2E_SUPABASE_URL`, `E2E_SUPABASE_KEY`, `E2E_SUPABASE_SECRET_KEY`, `E2E_TEST_RELEASE_SLUG`).
+
+Локальний Docker-Supabase (`supabase start`) — окрема ініціатива, Roadmap R2.
 
 **CI scaffold:**
 

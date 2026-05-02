@@ -4,16 +4,21 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "node --env-file=.env.local node_modules/.bin/nuxt dev",
+    "dev": "node --env-file=.env.stage node_modules/.bin/nuxt dev --host",
+    "dev:prod": "node --env-file=.env.prod node_modules/.bin/nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "sync:firebase": "firebase database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
-    "sync:supabase": "node --env-file=.env.local scripts/sync-supabase.mjs",
+    "sync:supabase:stage": "node --env-file=.env.stage scripts/sync-supabase.mjs --subset=stage",
+    "sync:supabase:prod": "node --env-file=.env.prod scripts/sync-supabase.mjs",
     "deploy:stage": "netlify deploy --alias stage --context deploy-preview",
-    "deploy:prod": "netlify deploy --prod",
+    "deploy:prod": "netlify deploy --prod --context production",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:e2e": "node --env-file=.env.stage node_modules/.bin/playwright test",
+    "test:e2e:ui": "node --env-file=.env.stage node_modules/.bin/playwright test --ui",
+    "test:e2e:headed": "node --env-file=.env.stage node_modules/.bin/playwright test --headed"
   },
   "devDependencies": {
     "@nuxt/test-utils": "^4.0.3",
@@ -22,6 +27,7 @@
     "firebase-tools": "^15.16.0",
     "happy-dom": "^20.9.0",
     "netlify-cli": "^26.0.0",
+    "supabase": "^2.98.0",
     "vitest": "^4.1.5"
   },
   "dependencies": {

@@ -10,5 +10,7 @@ dist/
 .netlify/
 !.netlify/state.json
 
-.env.local
+.env.prod
+.env.stage
+.playwright-fixture.json
 coverage/

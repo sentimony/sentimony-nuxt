@@ -8,11 +8,25 @@ Sentimony Records — JAMstack portfolio website for a psychedelic music label. 
 
 Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.netlify.app`
 
+Security
+- Never print secrets or full environment variable values.
+- Use placeholders for secrets in examples.
+- `.env.prod` НІКОЛИ не комітити — service_role key дає повний доступ до БД.
+- `sync:supabase:prod` запускати свідомо. Захисний `--confirm` prompt — Roadmap (див. `docs/superpowers/specs/2026-05-02-test-environments-design.md` Section 6 R4).
+
+## Git policy
+
+- Користувач коммітить руками. Не запускати `git commit` / `git push` в Bash, навіть якщо skill (brainstorming, writing-plans, executing-plans, subagent-driven-development) пропонує commit-крок.
+- Замість commit-кроку — лишати файли як unstaged/untracked і нагадувати user-у `[user commits manually]`. У планах commit-кроки писати у тому самому форматі (без bash-команди).
+- Виняток: якщо user **прямо** просить «закомітити» у поточному запиті.
+- Запропонований commit-меседж можна вивести як текст у відповідь — користувач скопіює.
+
 ## Commands
 
 ```bash
-# Development (requires .env.local)
-npm run dev -- --host
+# Development (вимагає .env.stage; .env.prod лише для escape hatch)
+npm run dev               # → supabase-stage, з --host (default workflow)
+npm run dev:prod          # escape hatch: дебаг прод-багу
 
 # Build & deploy
 npm run build
@@ -20,15 +34,65 @@ npm run deploy:stage
 npm run deploy:prod
 
 # Tests
-npm test              # run all tests once
-npm run test:watch    # watch mode
+npm test                  # vitest unit/component (run all once)
+npm run test:watch        # vitest watch mode
+npm run test:e2e          # → supabase-stage, обов'язково
+npm run test:e2e:ui       # Playwright UI mode
 
 # Sync data sources
-npm run sync:firebase   # exports Firebase DB → public/data/sentimony-db-export.json
-npm run sync:supabase   # syncs data to Supabase
+npm run sync:firebase             # exports Firebase DB → public/data/sentimony-db-export.json
+npm run sync:supabase:stage       # 10 топ-артистів + 10 свіжих релізів + всі events/videos/playlists/tracks
+npm run sync:supabase:prod        # повний sync, тільки для прода
+
+# Database migrations (Supabase CLI)
+supabase migration new <name>     # нова schema-міграція
+supabase db push                  # apply до залінкованого проєкту (stage/prod)
+supabase db diff --linked         # діфф локальної schema vs залінкованого проєкту
 ```
 
-`.env.local` must define: `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY`. Optional: `RELEASES_SOURCE=supabase` to switch a data source from Firebase to Supabase.
+`.env.stage` (default) і `.env.prod` (escape hatch) обидва мають містити: `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY`. Опційно у `.env.stage`: `RELEASES_SOURCE=supabase`, `E2E_TEST_RELEASE_SLUG=<slug>`. Reference templates — `.env.example.stage` / `.env.example.prod` (committed).
+
+## Environments
+
+Три деплой-environment-и шерять два Supabase-проєкти:
+
+| Environment | Trigger | Supabase project | Env-vars джерело |
+|---|---|---|---|
+| Local | `npm run dev` | `supabase-stage` | `.env.stage` |
+| Stage | Netlify deploy-preview / branch-deploy | `supabase-stage` | Netlify UI (per-context) |
+| Prod | Netlify production (master) | `supabase-prod` | Netlify UI (per-context) |
+
+**Invariants:**
+- `npm run dev` за замовчуванням → stage. Запустити проти prod можна тільки явно через `npm run dev:prod` (escape hatch).
+- `npm run test:e2e` обов'язково через `.env.stage`. Жоден E2E не торкається prod-БД.
+- Schema живе у `supabase/migrations/` як single source of truth (див. секцію Database migrations).
+- Netlify per-context env-vars налаштовані через Site settings → Environment variables. `netlify.toml` НЕ містить keys — все через UI для consistency.
+
+Detail design: `docs/superpowers/specs/2026-05-02-test-environments-design.md`.
+
+## Database migrations
+
+Schema-зміни виключно через `supabase/migrations/*.sql`. **Жодних змін через Supabase web UI** — це порушує єдине джерело правди і призведе до schema-drift між stage і prod.
+
+Workflow:
+
+```
+1. supabase migration new <name>          # створює <ts>_<name>.sql
+2. Заповнити SQL вручну (CREATE/ALTER/...)
+3. supabase link --project-ref <stage-ref>
+4. supabase db push                        # apply до stage
+5. npm run dev → smoke
+6. npm run sync:supabase:stage             # якщо нова таблиця/колонка потребує даних
+7. npm test && npm run test:e2e
+8. (commit migration файл)
+9. supabase link --project-ref <prod-ref>
+10. supabase db push                       # apply до prod
+11. npm run deploy:prod
+```
+
+Recovery:
+- Stage broken → `supabase db reset --linked` (зносить stage, реаплаїть всі міграції) → `npm run sync:supabase:stage`.
+- Prod не зачіпається до кроку 10. Якщо помилка на 9-10 — видалити migration файл, виправити, повторити.
 
 ## Architecture
 
