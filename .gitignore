@@ -13,4 +13,6 @@ dist/
 .env.prod
 .env.stage
 .playwright-fixture.json
+playwright-report/
+test-results/
 coverage/

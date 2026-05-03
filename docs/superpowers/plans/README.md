@@ -20,13 +20,27 @@
 
 **Лінійний порядок (для виконавця, що не хоче розгалужень):**
 
-~~1.~~ ~~2.~~ ~~3.~~ (✅ виконано) → 4. → 5.
+~~1.~~ ~~2.~~ ~~3.~~ ~~4.~~ (✅ виконано) → 5.
 
 Кожен наступний крок припускає, що попередні виконано. План 5 (`likes-factory`) має fallback-режим без тестів, але рекомендується мати safety-net з планів 1–4 перед рефакторингом.
 
 ---
 
 ## Плани
+
+### ⚠️ [`2026-05-02-test-environments.md`](./2026-05-02-test-environments.md) — Supabase stage + migrations prerequisite
+
+**Статус на 2026-05-03:** Task 1 schema частина фактично виконана на `sentimony-stage` (`fxznrlgeabeqqwqajchq`) через Supabase SQL Editor, бо `supabase db push` / `migration repair` з локальної мережі впираються в Supabase pooler timeout.
+
+**Підтверджено:** baseline tables/policies присутні; `pg_tables.rowsecurity = true` для очікуваних public tables. `npx supabase --version` працює (`2.98.0`).
+
+**Залишилось:** коли pooler/direct DB connection стабілізується, виконати `npx supabase migration repair 20260502235044 --status applied --db-url "$POOLER_DB_URL"` для sync migration history. До цього майбутній `db push` може намагатися повторно застосувати baseline.
+
+### [`2026-05-03-api-cache-purge.md`](./2026-05-03-api-cache-purge.md) — Targeted Nitro API cache purge
+
+**Мета:** Додати protected endpoint для точкового скидання Nitro API cache (`/api/releases` першим), щоб stale cached responses можна було прибирати без повного restart/redeploy.
+
+**Контекст:** Після переходу local/stage на Supabase `/api/releases` може віддати старий Firebase response із `.nuxt/cache/nitro/handlers`, тоді list page показує 100+ релізів, а detail route для релізів поза stage subset дає 404. Tactical fix: dev no-cache для `/api/releases`; durable follow-up: deterministic cache keys + admin purge endpoint.
 
 ### ✅ 1. [`2026-05-01-vitest-setup.md`](./2026-05-01-vitest-setup.md) — Vitest infrastructure + baseline тести
 
@@ -89,21 +103,30 @@
 
 ---
 
-### 4. [`2026-05-01-playwright-e2e.md`](./2026-05-01-playwright-e2e.md) — Playwright E2E smoke
+### ✅ 4. [`2026-05-01-playwright-e2e.md`](./2026-05-01-playwright-e2e.md) — Playwright E2E smoke
+
+**Виконано:** 2026-05-02.
 
 **Мета:** Покрити два critical user-flow E2E-смоками: (a) login + like-cycle release; (b) mobile menu open/close. Інтеграційне покриття Nuxt SSR ↔ Supabase auth ↔ likes API.
 
 **Виходи:**
 - `playwright.config.ts`, `tests/e2e/global-setup.ts`, `tests/e2e/global-teardown.ts`.
-- `tests/e2e/helpers/`, `tests/e2e/login-and-like.spec.ts`, `tests/e2e/mobile-menu.spec.ts` (3 тести).
-- `npm run test:e2e` скрипти.
-- CI scaffold (`.github/workflows/test.yml`) у Notes.
+- `tests/e2e/helpers/supabase-admin.ts`, `tests/e2e/helpers/auth.ts`.
+- `tests/e2e/login-and-like.spec.ts`, `tests/e2e/mobile-menu.spec.ts` (3 тести — всі зелені).
+- `npm run test:e2e` / `test:e2e:ui` / `test:e2e:headed` скрипти (вже були в `package.json`).
+- `vitest.config.ts` — додано `exclude: ['tests/e2e/**']`.
 
-**Час:** ~3–4 год.
+**Відхилення від плану:**
+- `global-setup.ts` зроблено умовним: якщо `E2E_TEST_RELEASE_SLUG` не задано — user не створюється і auth тест пропускається (`test.skip`). Mobile-menu тести працюють без auth.
+- `.env.stage` замість `.env.local` у `loadDotenv()` (глобальне налаштування проєкту).
+- `likeBtn` selector: `:text-is("Like")` і `hasText: /^Like\b/` не працюють для text-вузлів у `filter`. Фікс → `getByRole('button', { name: /^Like$/ })`.
+- `likedBtn` потребує regex `/^Liked/` без `exact: true`, бо кнопка показує "Liked 1" (з лічильником) — `exact: 'Liked'` не матчив.
+- `waitForLoadState('networkidle')` не резолвиться через Nuxt HMR WebSocket. Фікс → `page.waitForResponse(r => r.url().includes('/api/likes') && r.request().method() === 'POST')` перед кліком.
+- `page.waitForLoadState('networkidle')` після goto не потрібен; натомість достатньо `waitForResponse` для count endpoint (`.catch(() => {})` якщо не спрацює).
+- Vitest підхоплював E2E spec-файли через `include: ['tests/**/*.spec.ts']`. Фікс → `exclude: ['tests/e2e/**']` у `vitest.config.ts`.
+- `loginViaUI` потребує `waitForLoadState('networkidle')` після `goto('/login')` і збільшеного timeout 20s для `waitForURL('/profile')` (Supabase auth може бути повільним при першому запиті).
 
-**Залежності:** Плани 1–3 рекомендовані (для повного test-suite перед merge), але технічно потребує лише робочого Nuxt-проєкту і test-Supabase.
-
-**Передумови:** Окремий test-Supabase-проєкт або локальний `supabase start`. `E2E_TEST_RELEASE_SLUG` env-var з реальним slug-ом релізу.
+**Залежності:** Плани 1–3 рекомендовані. Потребує `supabase-stage` проєкту і `E2E_TEST_RELEASE_SLUG` для login+like тесту.
 
 ---
 

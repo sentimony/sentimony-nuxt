@@ -1,6 +1,10 @@
+import { usesSupabaseContentSource } from '../../utils/supabase'
+
 export default defineEventHandler(async (event) => {
   const releaseSlug = getRouterParam(event, 'release_slug')
   if (!releaseSlug) throw createError({ statusCode: 400, statusMessage: 'Missing release_slug' })
+
+  if (!usesSupabaseContentSource()) return []
 
   const { data: tracks, error } = await supabaseAdmin()
     .from('tracks')

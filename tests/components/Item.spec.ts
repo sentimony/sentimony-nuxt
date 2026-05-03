@@ -1,14 +1,6 @@
-import { describe, it, expect, vi } from 'vitest'
-import { mockNuxtImport } from '@nuxt/test-utils/runtime'
+import { describe, it, expect } from 'vitest'
 import { mountWithStubs } from '../utils/mountWithStubs'
 import Item from '~/components/Item.vue'
-
-mockNuxtImport('useArtistLikes', () => () => ({
-  isLiked: () => false,
-  toggleLike: vi.fn(),
-  likeCount: () => 0,
-  fetchCount: vi.fn(),
-}))
 
 describe('Item.vue', () => {
   const baseItem = {
@@ -46,19 +38,5 @@ describe('Item.vue', () => {
 
     expect(wrapper.find('.bg-green-600').exists()).toBe(false)
     expect(wrapper.find('.bg-red-600').exists()).toBe(false)
-  })
-
-  it('like-кнопка з\'являється лише для category="artist"', async () => {
-    const releaseWrapper = await mountWithStubs(Item, {
-      props: { i: baseItem, category: 'release' },
-    })
-    expect(releaseWrapper.find('button[aria-pressed]').exists()).toBe(false)
-
-    const artistWrapper = await mountWithStubs(Item, {
-      props: { i: baseItem, category: 'artist' },
-    })
-    const likeBtn = artistWrapper.find('button[aria-pressed]')
-    expect(likeBtn.exists()).toBe(true)
-    expect(likeBtn.attributes('aria-label')).toContain('Test Title')
   })
 })

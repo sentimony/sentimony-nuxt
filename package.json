@@ -8,7 +8,7 @@
     "dev:prod": "node --env-file=.env.prod node_modules/.bin/nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "node scripts/nuxt-prepare.mjs",
     "sync:firebase": "firebase database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
     "sync:supabase:stage": "node --env-file=.env.stage scripts/sync-supabase.mjs --subset=stage",
     "sync:supabase:prod": "node --env-file=.env.prod scripts/sync-supabase.mjs",
@@ -22,8 +22,10 @@
   },
   "devDependencies": {
     "@nuxt/test-utils": "^4.0.3",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0",
     "@vue/test-utils": "^2.4.10",
+    "dotenv": "^17.4.2",
     "firebase-tools": "^15.16.0",
     "happy-dom": "^20.9.0",
     "netlify-cli": "^26.0.0",
@@ -46,6 +48,6 @@
   },
   "engines": {
     "node": "v24.15.0",
-    "npm": "11.12.1"
+    "npm": ">=11.12.1 <12"
   }
 }

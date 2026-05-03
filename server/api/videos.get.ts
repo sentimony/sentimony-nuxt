@@ -2,7 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 export default defineCachedEventHandler(
   async () => {
-    if (process.env.RELEASES_SOURCE === 'supabase') {
+    if (usesSupabaseContentSource()) {
       const { data, error } = await useSupabase()
         .from('videos')
         .select('slug, title, cover_th, date, visible')

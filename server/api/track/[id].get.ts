@@ -88,7 +88,7 @@ export default defineCachedEventHandler(
 )
 
 async function fetchRelease(releaseSlug: string): Promise<Release | null> {
-  if (process.env.RELEASES_SOURCE === 'supabase') {
+  if (usesSupabaseContentSource()) {
     const { data } = await useSupabase()
       .from('releases')
       .select('*')

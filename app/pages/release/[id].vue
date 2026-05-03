@@ -54,6 +54,9 @@ const artistsSortedByReleaseOrder = computed(() => {
 const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
+const usesFirebaseTracklist = computed(() =>
+  process.env.RELEASES_SOURCE?.toLowerCase() === 'firebase' && Boolean(item.value?.tracklistCompact?.length)
+)
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
@@ -319,7 +322,15 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           <hr class="my-4 border-black/30">
           <p><small><b>Tracklist:</b></small></p>
 
-          <template v-if="tracks?.length">
+          <template v-if="usesFirebaseTracklist">
+            <p
+              v-for="(i, index) in item.tracklistCompact"
+              :key="index"
+              v-html="i.p"
+            />
+          </template>
+
+          <template v-else-if="tracks?.length">
             <p
               v-for="track in tracks"
               :key="track.slug"

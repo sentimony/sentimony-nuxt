@@ -7,6 +7,7 @@ export default defineVitestConfig({
     setupFiles: ['./tests/setup.ts'],
     globals: true,
     include: ['tests/**/*.spec.ts'],
+    exclude: ['tests/e2e/**'],
   },
   resolve: {
     alias: {
