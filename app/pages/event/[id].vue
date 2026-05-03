@@ -48,7 +48,18 @@ useSeoMeta({
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
-        <div class="flex justify-center mb-4">
+        <OpenImage
+          :image_th="item.flyer_a_xl"
+          :image_xl="item.flyer_a_xl"
+          :alt="(item.title || 'event') + ' flyer'"
+          class="float-left"
+        />
+
+        <p v-if="item.date">{{ formatDate(item?.date) }}</p>
+        <p v-if="item.location">{{ item?.location }}</p>
+        <p v-if="item.time">{{ item?.time }}</p>
+
+        <div class="flex justify-start mb-4">
           <button
             @click="toggleLike(item.slug)"
             class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
@@ -60,17 +71,6 @@ useSeoMeta({
             <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
           </button>
         </div>
-
-        <OpenImage
-          :image_th="item.flyer_a_xl"
-          :image_xl="item.flyer_a_xl"
-          :alt="(item.title || 'event') + ' flyer'"
-          class="float-left"
-        />
-
-        <p v-if="item.date">{{ formatDate(item?.date) }}</p>
-        <p v-if="item.location">{{ item?.location }}</p>
-        <p v-if="item.time">{{ item?.time }}</p>
 
         <div class="clear-left" />
 

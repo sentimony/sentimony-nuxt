@@ -2,6 +2,27 @@ export default defineEventHandler(async (event) => {
   const releaseSlug = getRouterParam(event, 'release_slug')
   if (!releaseSlug) throw createError({ statusCode: 400, statusMessage: 'Missing release_slug' })
 
+  if (process.env.RELEASES_SOURCE === 'firebase') {
+    const { public: { firebaseBase } } = useRuntimeConfig()
+    const url = `${firebaseBase}/tracks.json`
+    const allTracks = await $fetch(url)
+
+    if (!allTracks) return []
+
+    const releaseTracks = Object.values(allTracks as Record<string, any>)
+      .filter(t => t.release_slug === releaseSlug)
+      .sort((a, b) => (a.track_number || 0) - (b.track_number || 0))
+
+    return releaseTracks.map((t: any) => ({
+      slug: t.slug,
+      title: t.title,
+      artist_name: t.artist_name,
+      track_number: t.track_number,
+      bpm: t.bpm,
+      like_count: t.like_count ?? 0,
+    }))
+  }
+
   const { data: tracks, error } = await supabaseAdmin()
     .from('tracks')
     .select('slug, title, artist_slug, artist_name, track_number, bpm')

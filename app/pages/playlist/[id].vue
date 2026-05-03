@@ -62,19 +62,6 @@ useSeoMeta({
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
-        <div class="flex justify-center mb-4">
-          <button
-            @click="toggleLike(item.slug)"
-            class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-            :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
-            v-wave
-          >
-            <Icon :name="isLiked(item.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
-            {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
-            <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
-          </button>
-        </div>
-
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
 
@@ -87,6 +74,19 @@ useSeoMeta({
 
             <!-- <h1 class="text-center mt-0 mb-[1.2em]">{{ item.title }}</h1> -->
             <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
+
+            <div class="flex justify-start mb-4">
+              <button
+                @click="toggleLike(item.slug)"
+                class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
+                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+                v-wave
+              >
+                <Icon :name="isLiked(item.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
+                {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
+                <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
+              </button>
+            </div>
 
             <div class="clear-left" />
 
