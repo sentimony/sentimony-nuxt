@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111111">
+    <title>Offline · Sentimony Records</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Montserrat, Arial, sans-serif;
+        background: #111111;
+        color: #f5f5f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 32px 20px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 38%),
+          #111111;
+      }
+
+      main {
+        width: min(100%, 520px);
+      }
+
+      img {
+        width: 72px;
+        height: 72px;
+        display: block;
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        margin: 0 0 16px;
+        font-family: "Julius Sans One", Montserrat, Arial, sans-serif;
+        font-size: clamp(2rem, 8vw, 4rem);
+        font-weight: 400;
+        line-height: 0.95;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 0 0 28px;
+        color: #d8d8d8;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid #f5f5f5;
+        color: #f5f5f5;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/web-app-manifest-192x192.png" alt="">
+      <h1>You are offline</h1>
+      <p>Sentimony Records is installed, but this page needs a network connection. Reconnect and return to the site.</p>
+      <a href="/">Try again</a>
+    </main>
+  </body>
+</html>
