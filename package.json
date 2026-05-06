@@ -16,18 +16,18 @@
   "devDependencies": {
     "@types/node": "^25.6.0",
     "firebase-tools": "^15.16.0",
-    "netlify-cli": "^26.0.0"
+    "netlify-cli": "^26.0.1"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.3",
-    "@nuxt/icon": "^2.2.1",
+    "@nuxt/icon": "^2.2.2",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^6.0.8",
     "@nuxtjs/sitemap": "^8.0.15",
     "@nuxtjs/supabase": "^2.0.6",
     "@nuxtjs/tailwindcss": "^6.14.0",
-    "@supabase/supabase-js": "^2.105.1",
+    "@supabase/supabase-js": "^2.105.3",
     "nuxt": "^4.4.4",
     "swiper": "^12.1.4",
     "v-wave": "^3.0.4"

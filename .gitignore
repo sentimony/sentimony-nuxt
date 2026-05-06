@@ -17,4 +17,5 @@ playwright-report/
 test-results/
 coverage/
 
-.claude
+/.agents
+/.claude
