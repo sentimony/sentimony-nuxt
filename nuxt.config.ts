@@ -93,6 +93,11 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
   ],
+  image: {
+    provider: 'netlifyImageCdn',
+    domains: ['content.sentimony.com'],
+    netlifyImageCdn: { baseURL: '/.netlify/images' },
+  },
   googleFonts: {
     families: {
       'Montserrat': {

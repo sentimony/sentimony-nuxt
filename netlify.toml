@@ -2,6 +2,9 @@
   command = "npm run build"
   edge_functions = "netlify/edge-functions"
 
+[images]
+  remote_images = ["https://content\\.sentimony\\.com/.*"]
+
 [context.production]
   command = "npm run build"
 
