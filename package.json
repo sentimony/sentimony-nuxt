@@ -8,6 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "test": "vitest run",
+    "typecheck": "vue-tsc --noEmit",
     "sync:firebase": "firebase database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
     "sync:supabase": "node --env-file=.env.local scripts/sync-supabase.mjs",
     "deploy:stage": "npm run sync:firebase && netlify deploy --alias stage --context deploy-preview",
@@ -15,8 +17,11 @@
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
+    "@vue/test-utils": "^2.4.10",
     "firebase-tools": "^15.16.0",
-    "netlify-cli": "^26.0.1"
+    "happy-dom": "^20.9.0",
+    "netlify-cli": "^26.0.1",
+    "vitest": "^4.1.5"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.3",
