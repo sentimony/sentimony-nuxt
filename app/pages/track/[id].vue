@@ -314,13 +314,14 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               class="shrink-0 block w-[64px] h-[64px] rounded-full overflow-hidden ring-1 ring-black/20 bg-black/10"
               v-wave
             >
-              <img
+              <NuxtImg
                 v-if="artist.photo_th"
                 :src="artist.photo_th"
                 :alt="(artist.title || 'Artist') + ' photo'"
                 class="w-full h-full object-cover"
-                loading="lazy"
-              >
+                width="64"
+                height="64"
+              />
             </NuxtLink>
             <div class="min-w-0">
               <p class="m-0">

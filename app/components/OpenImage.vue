@@ -38,11 +38,13 @@ onBeforeUnmount(() => {
       v-wave
       @click="open"
     >
-      <img
+      <NuxtImg
         v-if="image_th"
         :src="image_th"
         :alt="alt"
         class=" size-[100px] sm:size-[190px] object-cover"
+        width="190"
+        height="190"
       />
       <div
         v-else
@@ -78,7 +80,7 @@ onBeforeUnmount(() => {
               <Icon name="i-fa7-solid:close" size="22" />
             </button>
 
-            <img
+            <NuxtImg
               :src="props.image_xl"
               :alt="props.alt || 'Image'"
               class="max-w-[90vw] max-h-[90vh] object-contain rounded-sm shadow-lg "

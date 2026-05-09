@@ -47,11 +47,13 @@ useSeoMeta({
             format="webp"
             :alt="item.title"
           /> -->
-          <img
+          <NuxtImg
             v-if="item.cover_th"
             :src="item.cover_th"
             class="inline text-xs w-[120px] mr-1"
             :alt="item.title"
+            width="120"
+            height="120"
           />
 
         </div>
