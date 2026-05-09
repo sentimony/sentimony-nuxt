@@ -17,6 +17,7 @@ onMounted(() => {
 })
 
 const { embed } = useYouTube(computed(() => item.value?.links?.youtube))
+const { activeTab, setActiveTab } = useTabState('video', 'youtube')
 const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
 
@@ -88,27 +89,19 @@ useSeoMeta({
 
           </div>
           <div class="relative max-w-[540px] mx-auto w-full mb-4">
-
-            <Tabs>
-              <Tab
+            <ClientOnly>
+              <div
                 v-if="item.links?.youtube"
-                icon="fa:youtube"
-                title="YouTube"
+                class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]"
               >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] aspect-video w-full"
-                    :src="embed"
-                    :title="item.title + 'YouTube video player'"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  />
-                </div>
-              </Tab>
-            </Tabs>
-
+                <LazyIframe
+                  :active="activeTab === 'youtube'"
+                  :src="embed || ''"
+                  :title="(item.title || 'Video') + ' YouTube'"
+                  @request-activate="setActiveTab('youtube')"
+                />
+              </div>
+            </ClientOnly>
           </div>
         </div>
 
