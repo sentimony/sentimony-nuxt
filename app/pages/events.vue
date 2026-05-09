@@ -49,7 +49,7 @@ useSeoMeta({
           class=""
           v-wave
         >
-          <img v-if="i.flyer_xl" :src="i.flyer_xl" :alt="i.title" width="120" class="mx-auto">
+          <NuxtImg v-if="i.flyer_xl" :src="i.flyer_xl" :alt="i.title" width="120" class="mx-auto" />
           <span class="">{{ formatDate(i.date) }} @ {{ i.title }}</span>
         </NuxtLink> -->
       <!-- </p> -->
