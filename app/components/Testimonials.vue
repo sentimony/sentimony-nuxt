@@ -7,7 +7,6 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 <template>
   <!-- <div class="relative bg-sage-alt overflow-hidden"> -->
   <div class="relative !bg-sage-alt overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg')] bg-center bg-no-repeat bg-cover bg-fixed">
-    <!-- <img class="absolute bottom-0 left-1/2 -translate-x-1/2" src="https://content.sentimony.com/assets/img/svg-images/mandala-01.svg" alt="Triangles Bg" /> -->
     <div class="relative  px-4 py-8 md:py-16 box-border">
       <div class="text-left mx-auto max-w-lg p-4 rounded-lg text-black border border-black/5 [&>p>a]:text-blue-500 hover:[&>p>a]:text-blue-400 backdrop-blur-md bg-sage">
         <p>My fellow artists and I always love reading your feedback.</p>
