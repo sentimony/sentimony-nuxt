@@ -77,6 +77,21 @@ All shared TypeScript types live in `app/types/index.ts`. Entities extend `BaseE
 
 Each page calls `useSeoMeta()` with full OG + Twitter card tags. Brand defaults (defaultOgImage, site URL) come from `app/app.config.ts`. The sitemap is suppressed on staging (`stage--`) deployments.
 
+### Tailwind CSS
+
+Tailwind v3.4 via `@nuxtjs/tailwindcss`. Config: `tailwind.config.js`. CSS entry: `app/assets/css/tailwind.css`.
+
+**Semantic color tokens** (use these, never raw hex):
+
+| Token | Hex | Usage |
+|---|---|---|
+| `sage` | `#b5ccb5` | Light section backgrounds (`.Content`, Testimonials card, `SvgTriangle`) |
+| `sage-alt` | `#a1c0a1` | Testimonials section background |
+| `crimson` | `#8a0202` | Footer tooltip background |
+| `brand` | `#1cb884` | Brand accent |
+
+Full design system audit: `DESIGN.md`.
+
 ## Code style
 
 Коментарі в коді не використовуємо. Код має бути самодокументованим через назви змінних і функцій.

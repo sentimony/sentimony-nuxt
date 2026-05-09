@@ -11,6 +11,12 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        sage: '#b5ccb5',
+        'sage-alt': '#a1c0a1',
+        crimson: '#8a0202',
+        brand: '#1cb884',
+      },
       keyframes: {
         spin2: {
           '0%': { transform: 'rotate(0deg)', },

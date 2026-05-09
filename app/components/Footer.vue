@@ -40,7 +40,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
           >
             <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
             <img v-else :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
-            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[133%] transition-all duration-300 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-[66%] bg-[#8a0202] px-1 rounded-sm text-white text-xs whitespace-nowrap">{{ i.title }}</div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[133%] transition-all duration-300 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-[66%] bg-crimson px-1 rounded-sm text-white text-xs whitespace-nowrap">{{ i.title }}</div>
           </a>
         </div>
       </div>

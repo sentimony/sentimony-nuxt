@@ -9,6 +9,7 @@
 JAMstack development of Sentimony Records portfolio website
 
 ### Used:
+* [Vue.js](https://vuejs.org)
 * [Nuxt](https://nuxt.com)
 * [Firebase](https://firebase.google.com)
 * [Supabase](https://supabase.com)
