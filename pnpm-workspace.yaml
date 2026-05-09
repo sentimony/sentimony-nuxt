@@ -1,0 +1,9 @@
+verifyDepsBeforeRun: false
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  netlify-cli: true
+  protobufjs: true
+  re2: true
+  sharp: true
+  unix-dgram: true
