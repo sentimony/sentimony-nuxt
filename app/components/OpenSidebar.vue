@@ -71,7 +71,7 @@ watch(() => route.path, () => { isOpen.value = false })
           v-wave
         >
           <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="20" />
-          <img v-else :src="i.icon.url" class="icon w-[18px]" :alt="i.title + ' Icon'" />
+          <NuxtImg v-else :src="i.icon.url" class="icon w-[18px]" :alt="i.title + ' Icon'" width="18" height="18" />
           <div class="ml-3">{{ i.title }}</div>
         </a>
       </div>
