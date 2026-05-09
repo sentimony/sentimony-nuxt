@@ -19,6 +19,13 @@ useHead({
 </script>
 
 <template>
+  <NuxtImg
+    src="https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01"
+    class="fixed inset-0 -z-10 w-full h-full object-cover pointer-events-none"
+    alt=""
+    width="1920"
+    height="1080"
+  />
   <div class="max-w-sm flex flex-col justify-center min-h-screen mx-auto px-2 text-center text-white ">
     <div class="text-2xl md:text-4xl my-4 md:my-6">{{ error?.statusCode }}</div>
     <div class="mb-6">{{ error?.statusMessage }}</div>
@@ -37,8 +44,6 @@ useHead({
 
 <style>
 body.isError {
-  @apply
-  font-montserrat
-  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')]
+  @apply font-montserrat
 }
 </style>
