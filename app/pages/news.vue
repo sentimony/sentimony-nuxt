@@ -86,13 +86,13 @@ useSeoMeta({
           <div class="flex items-center">
 
             <!-- <div class="w-12 rounded-md bg-white/5 ring-1 ring-white/10 flex items-center justify-center overflow-hidden"> -->
-              <img v-if="i.image"
+              <NuxtImg v-if="i.image"
                 :src="i.image"
                 :alt="i.title + ' Thumbnail'"
                 class="rounded-sm ring-1 ring-white/30 group-hover:ring-white/60"
                 width="48" height="48"
                 loading="lazy"
-              >
+              />
               <div v-else class="h-6 w-6 rounded bg-white/10"></div>
             <!-- </div> -->
             <div class="text-left ml-4">
