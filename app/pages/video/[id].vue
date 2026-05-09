@@ -98,6 +98,10 @@ useSeoMeta({
                   :active="activeTab === 'youtube'"
                   :src="embed || ''"
                   :title="(item.title || 'Video') + ' YouTube'"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  :allowfullscreen="true"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  iframe-class="border-[0px] aspect-video w-full"
                   @request-activate="setActiveTab('youtube')"
                 />
               </div>

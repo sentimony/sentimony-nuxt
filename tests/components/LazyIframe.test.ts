@@ -36,4 +36,31 @@ describe('LazyIframe', () => {
     expect(wrapper.emitted('request-activate')).toBeTruthy()
     expect(wrapper.emitted('request-activate')!.length).toBe(1)
   })
+
+  it('passes through custom allow + allowfullscreen + iframeClass when active', () => {
+    const wrapper = mount(LazyIframe, {
+      props: {
+        active: true,
+        src: 'https://example.com/embed',
+        title: 'YouTube',
+        allow: 'accelerometer; autoplay; encrypted-media; picture-in-picture',
+        allowfullscreen: true,
+        iframeClass: 'aspect-video w-full custom-cls',
+      },
+      global: { stubs: { Icon: true } },
+    })
+    const iframe = wrapper.find('iframe')
+    expect(iframe.attributes('allow')).toBe('accelerometer; autoplay; encrypted-media; picture-in-picture')
+    expect(iframe.attributes('allowfullscreen')).toBeDefined()
+    expect(iframe.attributes('class')).toBe('aspect-video w-full custom-cls')
+  })
+
+  it('omits allowfullscreen attribute when default (false)', () => {
+    const wrapper = mount(LazyIframe, {
+      props: { active: true, src: 'https://example.com', title: 'X' },
+      global: { stubs: { Icon: true } },
+    })
+    const iframe = wrapper.find('iframe')
+    expect(iframe.attributes('allowfullscreen')).toBeUndefined()
+  })
 })

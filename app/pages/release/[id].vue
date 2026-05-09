@@ -58,33 +58,41 @@ const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.valu
 const { activeTab, setActiveTab } = useTabState('release', 'youtube')
 
 const availableTabs = computed(() => {
-  const t: { platform: string, icon: string, title: string, src: string }[] = []
+  const t: { platform: string; icon: string; title: string; src: string; allow?: string; allowfullscreen?: boolean; referrerpolicy?: string; iframeClass?: string }[] = []
   if (item.value?.links?.bandcamp_id) {
     t.push({
-      platform: 'bandcamp',
-      icon: 'cib:bandcamp',
-      title: 'Bandcamp',
+      platform: 'bandcamp', icon: 'cib:bandcamp', title: 'Bandcamp',
       src: 'https://bandcamp.com/EmbeddedPlayer/album=' + item.value.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/',
+      iframeClass: 'border-[0px] w-full BandcampIframe tracks-' + (item.value.tracks_number ?? ''),
     })
   }
   if (item.value?.links?.youtube_playlist_id) {
     t.push({
-      platform: 'youtube',
-      icon: 'fa:youtube',
-      title: 'YouTube',
+      platform: 'youtube', icon: 'fa:youtube', title: 'YouTube',
       src: 'https://www.youtube-nocookie.com/embed/videoseries?list=' + item.value.links.youtube_playlist_id + '&loop=1',
+      allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
+      allowfullscreen: true,
+      referrerpolicy: 'strict-origin-when-cross-origin',
+      iframeClass: 'border-[0px] aspect-video w-full',
     })
   }
   if (item.value?.links?.soundcloud_playlist_id) {
     t.push({
-      platform: 'soundcloud',
-      icon: 'fa7-brands:soundcloud',
-      title: 'SoundCloud',
+      platform: 'soundcloud', icon: 'fa7-brands:soundcloud', title: 'SoundCloud',
       src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + item.value.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false',
+      allow: 'autoplay',
+      iframeClass: 'border-[0px] w-full SoundcloudIframe tracks-' + (item.value.tracks_number ?? ''),
     })
   }
   if (item.value?.links?.youtube_music) {
-    t.push({ platform: 'youtubemusic', icon: 'simple-icons:youtubemusic', title: 'YT Music', src: embedYTMusic.value || '' })
+    t.push({
+      platform: 'youtubemusic', icon: 'simple-icons:youtubemusic', title: 'YT Music',
+      src: embedYTMusic.value || '',
+      allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
+      allowfullscreen: true,
+      referrerpolicy: 'strict-origin-when-cross-origin',
+      iframeClass: 'border-[0px] aspect-video w-full',
+    })
   }
   return t
 })
@@ -288,6 +296,10 @@ useSeoMeta({
                         :active="true"
                         :src="t.src"
                         :title="t.title"
+                        :allow="t.allow"
+                        :allowfullscreen="t.allowfullscreen"
+                        :referrerpolicy="t.referrerpolicy"
+                        :iframe-class="t.iframeClass"
                       />
                     </div>
                   </template>

@@ -1,9 +1,18 @@
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   active: boolean
   src: string
   title: string
-}>()
+  allow?: string
+  allowfullscreen?: boolean
+  referrerpolicy?: string
+  iframeClass?: string
+}>(), {
+  allow: 'autoplay; encrypted-media',
+  allowfullscreen: false,
+  referrerpolicy: undefined,
+  iframeClass: 'w-full h-full',
+})
 defineEmits<{
   'request-activate': []
 }>()
@@ -15,8 +24,10 @@ defineEmits<{
     :src="src"
     :title="title"
     loading="lazy"
-    allow="autoplay; encrypted-media"
-    class="w-full h-full"
+    :allow="allow"
+    :allowfullscreen="allowfullscreen || undefined"
+    :referrerpolicy="referrerpolicy"
+    :class="iframeClass"
   />
   <button
     v-else
