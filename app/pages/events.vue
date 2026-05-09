@@ -34,16 +34,12 @@ useSeoMeta({
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
-      <!-- <p
+      <Item
         v-for="i in eventsSortedByDate"
         :key="i.slug"
-      > -->
-        <Item
-          v-for="i in eventsSortedByDate"
-          :key="i.slug"
-          category="event"
-          :i="i"
-        />
+        category="event"
+        :i="i"
+      />
     </div>
 
   </div>
