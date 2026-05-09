@@ -27,7 +27,7 @@ const isExternal = computed(() => /^(https?:|mailto:|tel:)/i.test(to.value))
     v-wave
   >
     <Icon class="mr-2" v-if="iconify" :name="iconify" size="19" />
-    <img class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
+    <NuxtImg class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19" />
     <span class="mr-2" v-if="svg" v-html="svg" />
 
     <span class="mr-0" v-if="title" v-html="title" />
@@ -41,7 +41,7 @@ const isExternal = computed(() => /^(https?:|mailto:|tel:)/i.test(to.value))
     v-wave
   >
     <Icon class="mr-2" v-if="iconify" :name="iconify" size="19" />
-    <img class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
+    <NuxtImg class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19" />
     <span class="mr-2" v-if="svg" v-html="svg" />
 
     <span class="mr-0" v-if="title" v-html="title" />
