@@ -25,7 +25,7 @@ const user = useSupabaseUser()
             active-class="bg-white/20"
             v-wave
           >
-            <img
+            <NuxtImg
               src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
               alt="Sentimony Records Logo SVG"
               class="mr-3"
@@ -62,7 +62,7 @@ const user = useSupabaseUser()
                 v-wave
               >
                 <Icon v-if="i.icon.kind === 'iconify'" class="" :name="i.icon.name" size="22" />
-                <img v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="22" height="22">
+                <NuxtImg v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="22" height="22" />
               </a>
               <div class="absolute  tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100  group-hover:-translate-y-full transition-all ease-in-out duration-300 z-10">{{ i.title }}</div>
             </div>
