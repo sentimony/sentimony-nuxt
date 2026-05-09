@@ -55,6 +55,45 @@ const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
+const { activeTab, setActiveTab } = useTabState('release', 'youtube')
+
+const availableTabs = computed(() => {
+  const t: { platform: string, icon: string, title: string, src: string }[] = []
+  if (item.value?.links?.bandcamp_id) {
+    t.push({
+      platform: 'bandcamp',
+      icon: 'cib:bandcamp',
+      title: 'Bandcamp',
+      src: 'https://bandcamp.com/EmbeddedPlayer/album=' + item.value.links.bandcamp_id + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/',
+    })
+  }
+  if (item.value?.links?.youtube_playlist_id) {
+    t.push({
+      platform: 'youtube',
+      icon: 'fa:youtube',
+      title: 'YouTube',
+      src: 'https://www.youtube-nocookie.com/embed/videoseries?list=' + item.value.links.youtube_playlist_id + '&loop=1',
+    })
+  }
+  if (item.value?.links?.soundcloud_playlist_id) {
+    t.push({
+      platform: 'soundcloud',
+      icon: 'fa7-brands:soundcloud',
+      title: 'SoundCloud',
+      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + item.value.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false',
+    })
+  }
+  if (item.value?.links?.youtube_music) {
+    t.push({ platform: 'youtubemusic', icon: 'simple-icons:youtubemusic', title: 'YT Music', src: embedYTMusic.value || '' })
+  }
+  return t
+})
+
+const effectiveTab = computed(() => {
+  const platforms = availableTabs.value.map(t => t.platform)
+  return platforms.includes(activeTab.value) ? activeTab.value : (platforms[0] ?? '')
+})
+
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const year = computed(() => formatYear(item.value?.date))
@@ -77,8 +116,6 @@ useSeoMeta({
   twitterImage: () => item.value?.cover_og || item.value?.cover_xl || appConfig.brand.defaultOgImage,
   twitterCard: 'summary'
 });
-
-const comingMusic = '<div class="p-4 text-center text-white/70">Player coming soon</div>'
 </script>
 
 <template>
@@ -225,86 +262,38 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
           </div>
           <div class="relative max-w-[540px] mx-auto w-full mb-4">
-
-            <Tabs>
-
-              <Tab
-                icon="cib:bandcamp"
-                title="Bandcamp"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    v-if="item.links?.bandcamp_id"
-                    class="border-[0px] w-[100%]"
-                    :class="'BandcampIframe tracks-' + item.tracks_number"
-                    :src="'https://bandcamp.com/EmbeddedPlayer/album=' + (item.links?.bandcamp_id || '') + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
-                    seamless
-                    :title="item.title + ' Bandcamp Iframe'"
-                  />
-                  <div
-                    v-if="!item.links?.bandcamp_id"
-                    class="player-coming"
-                    v-html="comingMusic"
-                  />
+            <ClientOnly>
+              <div v-if="availableTabs.length">
+                <div class="flex">
+                  <button
+                    v-for="t in availableTabs"
+                    :key="t.platform"
+                    type="button"
+                    class="inline-flex items-center cursor-pointer h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-opacity ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 last:mr-0 backdrop-blur-sm"
+                    :class="t.platform === effectiveTab ? 'opacity-100' : 'opacity-50 hover:opacity-100'"
+                    v-wave
+                    @click="setActiveTab(t.platform)"
+                  >
+                    <Icon :name="t.icon" size="18" />
+                    <span class="ml-2">{{ t.title }}</span>
+                  </button>
                 </div>
-              </Tab>
-
-              <Tab
-                v-if="item.links?.youtube_playlist_id"
-                icon="fa:youtube"
-                title="YouTube"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] aspect-video w-full"
-                    :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.links?.youtube_playlist_id || '') + '&loop=1'"
-                    :title="item.title + 'YouTube video player'"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  />
+                <div class="p-3 bg-white/30 rounded-tr-lg rounded-br-lg rounded-bl-lg backdrop-blur-sm">
+                  <template v-for="t in availableTabs" :key="t.platform">
+                    <div
+                      v-if="t.platform === effectiveTab"
+                      class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]"
+                    >
+                      <LazyIframe
+                        :active="true"
+                        :src="t.src"
+                        :title="t.title"
+                      />
+                    </div>
+                  </template>
                 </div>
-              </Tab>
-
-              <Tab
-                v-if="item.links?.soundcloud_playlist_id"
-                icon="fa7-brands:soundcloud"
-                title="SoundCloud"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] w-[100%]"
-                    :class="'SoundcloudIframe tracks-' + item.tracks_number"
-                    scrolling="no"
-                    height="450"
-                    allow="autoplay"
-                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                    :title="item.title + ' SoundCloud Iframe'"
-                  />
-                </div>
-              </Tab>
-
-              <Tab
-                v-if="item.links?.youtube_music"
-                icon="simple-icons:youtubemusic"
-                title="YT Music"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] aspect-video w-full"
-                    :src="embedYTMusic"
-                    :title="item.title + 'YouTube video player'"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  />
-                </div>
-              </Tab>
-
-            </Tabs>
-
+              </div>
+            </ClientOnly>
           </div>
         </div>
       </div>
