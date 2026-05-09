@@ -34,11 +34,3 @@ useHead({
     </div>
   </div>
 </template>
-
-<style>
-body.isError {
-  @apply
-  font-montserrat
-  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')]
-}
-</style>
