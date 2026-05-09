@@ -20,7 +20,26 @@ onMounted(() => {
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
-const comingMusic = '<div class="p-4 text-[12px] text-white/50">Music is<br>coming ⛄</div>'
+const { activeTab, setActiveTab } = useTabState('playlist', 'youtube')
+
+const availableTabs = computed(() => {
+  const t: { platform: string; icon: string; title: string; src: string }[] = []
+  if (item.value?.links?.youtube) {
+    t.push({ platform: 'youtube', icon: 'fa:youtube', title: 'YouTube', src: embedYouTube.value || '' })
+  }
+  if (item.value?.links?.soundcloud_playlist_id) {
+    t.push({
+      platform: 'soundcloud',
+      icon: 'fa7-brands:soundcloud',
+      title: 'SoundCloud',
+      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + item.value.links.soundcloud_playlist_id + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false',
+    })
+  }
+  if (item.value?.links?.youtube_music) {
+    t.push({ platform: 'youtubemusic', icon: 'simple-icons:youtubemusic', title: 'YT Music', src: embedYTMusic.value || '' })
+  }
+  return t
+})
 
 const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
@@ -130,64 +149,35 @@ useSeoMeta({
 
           </div>
           <div class="relative max-w-[540px] mx-auto w-full mb-4">
-
-            <Tabs>
-              <Tab
-                icon="fa:youtube"
-                title="YouTube"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    v-if="item.links?.youtube"
-                    class="border-[0px] aspect-video w-full"
-                    :src="embedYouTube"
-                    :title="item.title + 'YouTube video player'"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  />
-                  <div
-                    v-else
-                    v-html="comingMusic"
-                  />
+            <ClientOnly>
+              <div>
+                <div class="flex">
+                  <button
+                    v-for="t in availableTabs"
+                    :key="t.platform"
+                    type="button"
+                    @click="setActiveTab(t.platform)"
+                    class="inline-flex items-center cursor-pointer h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-opacity ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 last:mr-0 backdrop-blur-sm"
+                    :class="t.platform === activeTab ? 'opacity-100' : 'opacity-50 hover:opacity-100'"
+                    v-wave
+                  >
+                    <Icon :name="t.icon" size="18" />
+                    <span class="ml-2">{{ t.title }}</span>
+                  </button>
                 </div>
-              </Tab>
-              <Tab
-                v-if="item.links?.soundcloud_playlist_id"
-                icon="fa7-brands:soundcloud"
-                title="SoundCloud"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] w-[100%] h-[100vh]"
-                    scrolling="no"
-                    height="450"
-                    allow="autoplay"
-                    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                    :title="item.title + ' SoundCloud Iframe'"
-                  />
+                <div class="p-3 bg-white/30 rounded-tr-lg rounded-br-lg rounded-bl-lg backdrop-blur-sm">
+                  <template v-for="t in availableTabs" :key="t.platform">
+                    <div v-if="t.platform === activeTab" class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                      <LazyIframe
+                        :active="true"
+                        :src="t.src"
+                        :title="t.title"
+                      />
+                    </div>
+                  </template>
                 </div>
-              </Tab>
-              <Tab
-                v-if="item.links?.youtube_music"
-                icon="simple-icons:youtubemusic"
-                title="YT Music"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] aspect-video w-full"
-                    :src="embedYTMusic"
-                    :title="item.title + 'YouTube video player'"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  />
-                </div>
-              </Tab>
-            </Tabs>
-
+              </div>
+            </ClientOnly>
           </div>
         </div>
 
