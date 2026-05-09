@@ -31,15 +31,11 @@ useSeoMeta({
   <div class="bg-black/50">
     <div class="max-w-lg mx-auto px-2 py-10">
       <p>
-        <img class="mx-auto" :src="logoNewUrlv1" :alt="logoNewAltv1" width="60" height="60">
-        <!-- <img class="mx-auto" :src="logoOldUrl" :alt="logoOldAlt" width="60" height="60"> -->
+        <NuxtImg class="mx-auto" :src="logoNewUrlv1" :alt="logoNewAltv1" width="60" height="60" />
       </p>
       <div class="text-left indent-5 [&>p>a]:text-green-500 hover:[&>p>a]:text-green-300" v-html="aboutDescription" />
       <p>
-        <!-- <img class="mx-auto" :src="logoNewUrlv1" :alt="logoNewAltv1" width="60" height="60"> -->
-        <!-- <img class="mx-auto" :src="logoNewUrlv2" :alt="logoNewAltv3" width="60" height="60"> -->
-        <!-- <img class="mx-auto" :src="logoNewUrlv3" :alt="logoNewAltv3" width="60" height="60"> -->
-        <img class="mx-auto" :src="logoOldUrl" :alt="logoOldAlt" width="60" height="60">
+        <NuxtImg class="mx-auto" :src="logoOldUrl" :alt="logoOldAlt" width="60" height="60" />
       </p>
     </div>
   </div>
