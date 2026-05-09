@@ -11,12 +11,14 @@
     "sync:firebase": "firebase database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
     "sync:supabase": "node --env-file=.env.local scripts/sync-supabase.mjs",
     "deploy:stage": "npm run sync:firebase && netlify deploy --alias stage --context deploy-preview",
-    "deploy:prod": "npm run sync:firebase && netlify deploy --prod --context production"
+    "deploy:prod": "npm run sync:firebase && netlify deploy --prod --context production",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
     "firebase-tools": "^15.16.0",
-    "netlify-cli": "^26.0.1"
+    "netlify-cli": "^26.0.1",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.3",
