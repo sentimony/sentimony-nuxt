@@ -39,7 +39,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
             v-wave
           >
             <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
-            <img v-else :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
+            <NuxtImg v-else :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
             <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[133%] transition-all duration-300 ease-in-out opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-[66%] bg-crimson px-1 rounded-sm text-white text-xs whitespace-nowrap">{{ i.title }}</div>
           </a>
         </div>
@@ -49,7 +49,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
         <p>2006 - {{ new Date().getFullYear() }} © Sentimony Records</p>
         <p>All Rights Reserved</p>
         <p>
-          <img
+          <NuxtImg
             class="mx-auto"
             src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
             alt="Sentimony Records Logo SVG"
