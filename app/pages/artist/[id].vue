@@ -28,6 +28,36 @@ const releasesSortedByDate = computed(() =>
     )
 )
 
+const { activeTab, setActiveTab } = useTabState('artist', 'youtube')
+
+const availableTabs = computed(() => {
+  const t: { platform: string; icon: string; title: string; src: string; allow?: string; allowfullscreen?: boolean; referrerpolicy?: string; iframeClass?: string }[] = []
+  if (item.value?.youtube_playlist_id) {
+    t.push({
+      platform: 'youtube', icon: 'fa:youtube', title: 'YouTube',
+      src: 'https://www.youtube-nocookie.com/embed/videoseries?list=' + item.value.youtube_playlist_id + '&loop=1',
+      allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
+      allowfullscreen: true,
+      referrerpolicy: 'strict-origin-when-cross-origin',
+      iframeClass: 'border-[0px] aspect-video w-full',
+    })
+  }
+  if (item.value?.soundcloud_track_id) {
+    t.push({
+      platform: 'soundcloud', icon: 'fa-brands:soundcloud', title: 'SoundCloud',
+      src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + item.value.soundcloud_track_id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+      allow: 'autoplay',
+      iframeClass: 'border-[0px] w-full h-[300px]',
+    })
+  }
+  return t
+})
+
+const effectiveTab = computed(() => {
+  const platforms = availableTabs.value.map(t => t.platform)
+  return platforms.includes(activeTab.value) ? activeTab.value : (platforms[0] ?? '')
+})
+
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageDescription = computed(() => [
@@ -157,45 +187,39 @@ useSeoMeta({
 
           </div>
           <div class="relative max-w-[540px] mx-auto w-full mb-4">
-
-            <Tabs>
-
-              <Tab
-                v-if="item.youtube_playlist_id"
-                icon="fa:youtube"
-                title="YouTube"
-              >
-                <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
-                  <iframe
-                    class="border-[0px] aspect-video w-full"
-                    :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
-                    :title="item.title + 'YouTube video player'"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                  />
+            <ClientOnly>
+              <div v-if="availableTabs.length">
+                <div class="flex">
+                  <button
+                    v-for="t in availableTabs"
+                    :key="t.platform"
+                    type="button"
+                    @click="setActiveTab(t.platform)"
+                    class="inline-flex items-center cursor-pointer h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-opacity ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 last:mr-0 backdrop-blur-sm"
+                    :class="t.platform === effectiveTab ? 'opacity-100' : 'opacity-50 hover:opacity-100'"
+                    v-wave
+                  >
+                    <Icon :name="t.icon" size="18" />
+                    <span class="ml-2">{{ t.title }}</span>
+                  </button>
                 </div>
-              </Tab>
-
-              <Tab
-                v-if="item.soundcloud_track_id"
-                icon="fa-brands:soundcloud"
-                title="SoundCloud"
-              >
-                <iframe
-                  width="100%"
-                  height="300"
-                  scrolling="no"
-                  frameborder="no"
-                  allow="autoplay"
-                  :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + (item.soundcloud_track_id || '') + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
-                />
-              </Tab>
-
-
-            </Tabs>
-
+                <div class="p-3 bg-white/30 rounded-tr-lg rounded-br-lg rounded-bl-lg backdrop-blur-sm">
+                  <template v-for="t in availableTabs" :key="t.platform">
+                    <div v-if="t.platform === effectiveTab" class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
+                      <LazyIframe
+                        :active="true"
+                        :src="t.src"
+                        :title="t.title"
+                        :allow="t.allow"
+                        :allowfullscreen="t.allowfullscreen"
+                        :referrerpolicy="t.referrerpolicy"
+                        :iframe-class="t.iframeClass"
+                      />
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </ClientOnly>
           </div>
         </div>
 
