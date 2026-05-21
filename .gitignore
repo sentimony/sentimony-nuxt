@@ -1,21 +1,25 @@
 Thumbs.db
 .DS_Store
-.idea/
 
-node_modules/
-.nuxt/
-.output
-dist/
+/node_modules/
+*.log
+/.nuxt/
+/.output/
+/dist/
 
-.netlify/
-!.netlify/state.json
-
+# .env
 .env.local
+/.env/*
+!/.env/.env.example
+!/.env/.env.test.example
 
-.playwright-fixture.json
-playwright-report/
-test-results/
-coverage/
+/supabase/*
+!/supabase/migrations
 
-/.agents
-/.claude
+/.netlify/*
+!/.netlify/state.json
+
+/.agents/
+/.claude/
+# /memory/
+# skills-lock.json

@@ -1,4 +1,7 @@
 const isDev = process.env.NODE_ENV === 'development'
+const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
+const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
+const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY || ''
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -34,12 +37,12 @@ export default defineNuxtConfig({
     '~/assets/css/tailwind.css',
   ],
   runtimeConfig: {
-    supabaseSecretKey: process.env.NUXT_SUPABASE_SECRET_KEY || '',
-    supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || '',
+    supabaseSecretKey,
+    supabaseUrl,
     public: {
       firebaseBase: 'https://sentimony-db.firebaseio.com',
-      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL || '',
-      supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_KEY || '',
+      supabaseUrl,
+      supabaseKey,
     },
   },
   experimental: {
@@ -75,8 +78,8 @@ export default defineNuxtConfig({
     }),
   },
   supabase: {
-    url: process.env.NUXT_PUBLIC_SUPABASE_URL,
-    key: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+    url: supabaseUrl,
+    key: supabaseKey,
     redirectOptions: {
       login: '/login',
       callback: '/confirm',

@@ -3,20 +3,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "node --env-file=.env.local node_modules/.bin/nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "build": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt build",
+    "dev": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt dev",
+    "generate": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt generate",
+    "preview": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt preview",
     "postinstall": "nuxt prepare",
-    "sync:firebase": "firebase database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
-    "sync:supabase": "node --env-file=.env.local scripts/sync-supabase.mjs",
-    "deploy:stage": "npm run sync:firebase && netlify deploy --alias stage --context deploy-preview",
-    "deploy:prod": "npm run sync:firebase && netlify deploy --prod --context production"
+    "sync:firebase": "npx -y firebase-tools@15 database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
+    "sync:supabase": "node --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
+    "deploy:stage": "npm run sync:firebase && npx -y netlify-cli@26 deploy --alias stage --context deploy-preview",
+    "deploy:prod": "npm run sync:firebase && npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0",
-    "firebase-tools": "^15.16.0",
-    "netlify-cli": "^26.0.1"
+    "@types/node": "^25.9.0"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.3",
@@ -25,15 +23,15 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^6.0.8",
     "@nuxtjs/sitemap": "^8.0.15",
-    "@nuxtjs/supabase": "^2.0.6",
+    "@nuxtjs/supabase": "^2.0.8",
     "@nuxtjs/tailwindcss": "^6.14.0",
-    "@supabase/supabase-js": "^2.105.3",
-    "nuxt": "^4.4.4",
+    "@supabase/supabase-js": "^2.106.0",
+    "nuxt": "^4.4.6",
     "swiper": "^12.1.4",
     "v-wave": "^3.0.4"
   },
   "engines": {
-    "node": "24.15.0",
-    "npm": "11.12.1"
+    "node": ">=24.15.0",
+    "npm": ">=11.12.0"
   }
 }
