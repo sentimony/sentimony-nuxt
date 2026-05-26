@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, onBeforeUnmount, reactive, watch } from 'vue'
+import { inject, onBeforeUnmount, reactive, watch } from 'vue'
 
 const props = defineProps<{
   title?: string
@@ -9,7 +9,6 @@ const props = defineProps<{
 const tabs = inject<{
   registerTab: (info: { title?: string; icon?: string }) => number
   unregisterTab: (id: number) => void
-  isActiveById: (id: number) => boolean
 }>('tabs')
 
 const info = reactive({ title: props.title, icon: props.icon })
@@ -21,15 +20,14 @@ watch(() => props.icon, (v) => { info.icon = v })
 onBeforeUnmount(() => {
   if (id != null) tabs?.unregisterTab(id)
 })
-
-const isActive = computed(() => (id != null ? !!tabs?.isActiveById(id) : false))
 </script>
 
 <template>
-  <div
+  <TabsContent
+    v-if="id != null"
+    :value="id"
     class="p-3 bg-white/30 rounded-tr-lg rounded-br-lg rounded-bl-lg backdrop-blur-sm"
-    v-show="isActive"
   >
     <slot />
-  </div>
+  </TabsContent>
 </template>

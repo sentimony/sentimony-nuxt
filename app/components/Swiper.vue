@@ -154,6 +154,8 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
 </template>
 
 <style>
+@reference "../assets/css/tailwind.css";
+
 .swiper { @apply overflow-visible static }
 .swiper-slide { @apply w-[auto] }
 

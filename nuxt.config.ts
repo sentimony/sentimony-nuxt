@@ -1,3 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
+
 const isDev = process.env.NODE_ENV === 'development'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
@@ -88,7 +90,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/supabase',
-    '@nuxtjs/tailwindcss',
+    'reka-ui/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
     '@nuxt/image',
@@ -115,6 +117,10 @@ export default defineNuxtConfig({
   vWave: {
     easing: 'cubic-bezier(0,.57,.89,0)'
   },
+  image: {
+    provider: isDev ? 'ipx' : 'netlify',
+    domains: ['content.sentimony.com'],
+  },
   sitemap: {
     enabled: !process.env.URL?.includes('stage') && process.env.CONTEXT !== 'deploy-preview',
     autoLastmod: true,
@@ -122,6 +128,9 @@ export default defineNuxtConfig({
     discoverVideos: false,
   },
   vite: {
+    plugins: [
+      tailwindcss(),
+    ],
     build: {
       rollupOptions: {
         onwarn(warning, warn) {

@@ -3,18 +3,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt build",
-    "dev": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt dev",
-    "generate": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt generate",
-    "preview": "node --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt preview",
-    "postinstall": "nuxt prepare",
+    "build": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt build",
+    "dev": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt dev",
+    "generate": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt generate",
+    "preview": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt preview",
+    "postinstall": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt prepare",
     "sync:firebase": "npx -y firebase-tools@15 database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
-    "sync:supabase": "node --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
+    "sync:supabase": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
+    "verify:pwa": "node scripts/verify-pwa.mjs",
     "deploy:stage": "npm run sync:firebase && npx -y netlify-cli@26 deploy --alias stage --context deploy-preview",
     "deploy:prod": "npm run sync:firebase && npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@types/node": "^25.9.0"
+    "@tailwindcss/vite": "^4.3.0",
+    "@types/node": "^25.9.1",
+    "tailwindcss": "^4.3.0"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.3",
@@ -23,10 +26,10 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^6.0.8",
     "@nuxtjs/sitemap": "^8.0.15",
-    "@nuxtjs/supabase": "^2.0.8",
-    "@nuxtjs/tailwindcss": "^6.14.0",
-    "@supabase/supabase-js": "^2.106.0",
+    "@nuxtjs/supabase": "^2.0.9",
+    "@supabase/supabase-js": "^2.106.2",
     "nuxt": "^4.4.6",
+    "reka-ui": "^2.9.8",
     "swiper": "^12.1.4",
     "v-wave": "^3.0.4"
   },

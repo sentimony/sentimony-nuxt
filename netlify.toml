@@ -11,6 +11,9 @@
 [functions]
   node_bundler = "esbuild"
 
+[images]
+  remote_images = ["https://content\\.sentimony\\.com/.*"]
+
 [[edge_functions]]
   pattern = "/.*\\.[Pp][Hh][Pp].*"
   function = "blocking"

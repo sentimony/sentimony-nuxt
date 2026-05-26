@@ -11,7 +11,7 @@ Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.
 ## Commands
 
 ```bash
-# Development (requires .env.local)
+# Development (requires .env/.env)
 npm run dev -- --host
 
 # Build & deploy
@@ -24,7 +24,7 @@ npm run sync:firebase   # exports Firebase DB → public/data/sentimony-db-expor
 npm run sync:supabase   # syncs data to Supabase
 ```
 
-`.env.local` must define: `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY`. Optional: `RELEASES_SOURCE=supabase` to switch a data source from Firebase to Supabase.
+Local env lives in `.env/.env` (team defaults, gitignored); `.env/.env.local` holds personal overrides. The npm scripts load `.env/.env` then `.env/.env.local`. Define: `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical Nuxt names `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY` also work). Optional: `RELEASES_SOURCE=supabase` to switch a data source from Firebase to Supabase.
 
 ## Architecture
 
