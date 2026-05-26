@@ -36,6 +36,8 @@ useHead({
 </template>
 
 <style>
+@reference "./assets/css/tailwind.css";
+
 body.isError {
   @apply
   font-montserrat

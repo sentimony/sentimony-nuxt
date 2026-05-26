@@ -1,3 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
+
 const isDev = process.env.NODE_ENV === 'development'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
@@ -88,7 +90,6 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/supabase',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
     '@nuxt/image',
@@ -122,6 +123,9 @@ export default defineNuxtConfig({
     discoverVideos: false,
   },
   vite: {
+    plugins: [
+      tailwindcss(),
+    ],
     build: {
       rollupOptions: {
         onwarn(warning, warn) {
