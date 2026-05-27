@@ -11,6 +11,7 @@ const soc = computed(() =>
 )
 
 const user = useSupabaseUser()
+const userInitial = computed(() => user.value?.email?.[0] ?? '')
 </script>
 
 <template>
@@ -73,7 +74,11 @@ const user = useSupabaseUser()
             class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
             v-wave
           >
-            <Icon :name="user ? 'heroicons:user-circle' : 'heroicons:user'" size="22" />
+            <span
+              v-if="user"
+              class="flex items-center justify-center size-[32px] rounded-full bg-white/20 text-[16px] uppercase leading-none"
+            >{{ userInitial }}</span>
+            <Icon v-else name="heroicons:user" size="22" />
           </NuxtLink>
 
           <div class="size-[56px] md:hidden md:size-0" />

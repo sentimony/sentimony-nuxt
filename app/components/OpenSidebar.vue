@@ -18,26 +18,18 @@ watch(() => route.path, () => { isOpen.value = false })
 <template>
   <DialogRoot v-model:open="isOpen">
 
-    <button
+    <DialogTrigger
       type="button"
       aria-label="Menu"
-      :aria-expanded="isOpen"
-      class="fixed top-0 right-0 mr-2 mt-[9px] z-50 flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
+      class="fixed top-0 right-0 mr-2 mt-[9px] z-50 pointer-events-auto flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
       :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
-      @click="isOpen = !isOpen"
       v-wave
     >
       <Icon
-        name="fa7-solid:navicon"
+        :name="isOpen ? 'fa7-solid:close' : 'fa7-solid:navicon'"
         size="22"
-        :class="isOpen ? 'hidden' : ''"
       />
-      <Icon
-        name="fa7-solid:close"
-        size="22"
-        :class="isOpen ? '' : 'hidden'"
-      />
-    </button>
+    </DialogTrigger>
 
     <DialogPortal>
       <DialogOverlay class="reka-fade fixed inset-0 z-30 bg-black/30 backdrop-blur-sm" />
