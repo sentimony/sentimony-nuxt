@@ -7,35 +7,47 @@ const route = useRoute()
 const isNavActive = (link: string) => _navActive(route.path, link)
 
 const isOpen = ref(false)
+const triggerRef = ref<HTMLElement | null>(null)
 
 const soc = computed(() =>
   getSocials({ inHeader: true }).map(l => ({ ...l, icon: getIcon(l.id) }))
 )
 
+const onInteractOutside = (e: CustomEvent) => {
+  const target = (e.detail.originalEvent as Event).target as Node | null
+  if (target && triggerRef.value?.contains(target)) e.preventDefault()
+}
+
 watch(() => route.path, () => { isOpen.value = false })
 </script>
 
 <template>
-  <DialogRoot v-model:open="isOpen">
+  <DialogRoot v-model:open="isOpen" :modal="false">
 
-    <DialogTrigger
-      type="button"
-      aria-label="Menu"
-      class="fixed top-0 right-0 mr-2 mt-[9px] z-50 pointer-events-auto flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
-      :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
-      v-wave
-    >
-      <Icon
-        :name="isOpen ? 'fa7-solid:close' : 'fa7-solid:navicon'"
-        size="22"
-      />
+    <DialogTrigger as-child>
+      <button
+        ref="triggerRef"
+        type="button"
+        :aria-label="isOpen ? 'Close menu' : 'Menu'"
+        class="fixed top-0 right-0 mr-2 mt-[9px] z-50 flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
+        :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
+        v-wave
+      >
+        <Icon v-if="isOpen" name="fa7-solid:close" size="22" />
+        <Icon v-else name="fa7-solid:navicon" size="22" />
+      </button>
     </DialogTrigger>
 
-    <DialogPortal>
-      <DialogOverlay class="reka-fade fixed inset-0 z-30 bg-black/30 backdrop-blur-sm" />
+    <div
+      class="fixed left-full w-screen h-screen top-0 z-30 bg-black/30 backdrop-blur-sm transition-transform duration-300 ease-in-out"
+      :class="isOpen ? '-translate-x-full pointer-events-auto' : 'pointer-events-none'"
+      @click="isOpen = false"
+    />
 
+    <DialogPortal>
       <DialogContent
         class="drawer fixed left-full w-[256px] h-screen top-0 z-40 flex flex-col bg-black/60 pt-2 focus:outline-none"
+        @interact-outside="onInteractOutside"
       >
         <VisuallyHidden>
           <DialogTitle>Menu</DialogTitle>
@@ -75,13 +87,10 @@ watch(() => route.path, () => { isOpen.value = false })
 </template>
 
 <style>
-@keyframes reka-fade-in { from { opacity: 0 } to { opacity: 1 } }
-@keyframes reka-fade-out { from { opacity: 1 } to { opacity: 0 } }
-.reka-fade[data-state="open"] { animation: reka-fade-in .3s ease }
-.reka-fade[data-state="closed"] { animation: reka-fade-out .3s ease }
-
-@keyframes drawer-in { from { transform: translateX(0) } to { transform: translateX(-100%) } }
-@keyframes drawer-out { from { transform: translateX(-100%) } to { transform: translateX(0) } }
-.drawer[data-state="open"] { animation: drawer-in .3s ease forwards }
-.drawer[data-state="closed"] { animation: drawer-out .3s ease forwards }
+@keyframes sweep-in { from { transform: translateX(0) } to { transform: translateX(-100%) } }
+@keyframes sweep-out { from { transform: translateX(-100%) } to { transform: translateX(0) } }
+.reka-overlay[data-state="open"],
+.drawer[data-state="open"] { animation: sweep-in .3s ease forwards }
+.reka-overlay[data-state="closed"],
+.drawer[data-state="closed"] { animation: sweep-out .3s ease forwards }
 </style>

@@ -24,13 +24,13 @@
     "@nuxt/icon": "^2.2.2",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/robots": "^6.0.8",
+    "@nuxtjs/robots": "^6.0.9",
     "@nuxtjs/sitemap": "^8.0.15",
     "@nuxtjs/supabase": "^2.0.9",
     "@supabase/supabase-js": "^2.106.2",
     "nuxt": "^4.4.6",
     "reka-ui": "^2.9.8",
-    "swiper": "^12.1.4",
+    "swiper": "^12.2.0",
     "v-wave": "^3.0.4"
   },
   "engines": {
