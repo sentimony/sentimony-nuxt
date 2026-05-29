@@ -29,7 +29,7 @@ watch(() => route.path, () => { isOpen.value = false })
         ref="triggerRef"
         type="button"
         :aria-label="isOpen ? 'Close menu' : 'Menu'"
-        class="fixed top-0 right-0 mr-2 mt-[9px] z-50 flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
+        class="fixed top-0 right-0 mr-2 mt-[9px] z-50 lg:hidden flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
         :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
         v-wave
       >
@@ -39,14 +39,14 @@ watch(() => route.path, () => { isOpen.value = false })
     </DialogTrigger>
 
     <div
-      class="fixed left-full w-screen h-screen top-0 z-30 bg-black/30 backdrop-blur-sm transition-transform duration-300 ease-in-out"
+      class="fixed left-full w-screen h-screen top-0 z-30 lg:hidden bg-black/30 backdrop-blur-sm transition-transform duration-300 ease-in-out"
       :class="isOpen ? '-translate-x-full pointer-events-auto' : 'pointer-events-none'"
       @click="isOpen = false"
     />
 
     <DialogPortal>
       <DialogContent
-        class="drawer fixed left-full w-[256px] h-screen top-0 z-40 flex flex-col bg-black/60 pt-2 focus:outline-none"
+        class="drawer fixed left-full w-[256px] h-screen top-0 z-40 lg:hidden flex flex-col bg-black/60 pt-2 focus:outline-none"
         @interact-outside="onInteractOutside"
       >
         <VisuallyHidden>
@@ -89,8 +89,6 @@ watch(() => route.path, () => { isOpen.value = false })
 <style>
 @keyframes sweep-in { from { transform: translateX(0) } to { transform: translateX(-100%) } }
 @keyframes sweep-out { from { transform: translateX(-100%) } to { transform: translateX(0) } }
-.reka-overlay[data-state="open"],
 .drawer[data-state="open"] { animation: sweep-in .3s ease forwards }
-.reka-overlay[data-state="closed"],
 .drawer[data-state="closed"] { animation: sweep-out .3s ease forwards }
 </style>

@@ -22,6 +22,9 @@ npm run deploy:prod
 # Sync data sources
 npm run sync:firebase   # exports Firebase DB → public/data/sentimony-db-export.json
 npm run sync:supabase   # syncs data to Supabase
+
+# PWA
+npm run verify:pwa      # validate manifest + custom service worker
 ```
 
 Local env lives in `.env/.env` (team defaults, gitignored); `.env/.env.local` holds personal overrides. The npm scripts load `.env/.env` then `.env/.env.local`. Define: `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical Nuxt names `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY` also work). Optional: `RELEASES_SOURCE=supabase` to switch a data source from Firebase to Supabase.
@@ -46,7 +49,9 @@ Each entity has two composables:
 - `useXxx()` — wraps `useAsyncData` + `$fetch('/api/xxx')` for collection
 - `useXxxLikes()` — manages optimistic like/unlike with Supabase auth guard
 
-Likes redirect unauthenticated users to `/login`. The `useLikes()` composable at `app/composables/useLikes.ts` is the release-likes implementation; entity-specific variants (artists, videos, tracks, events, playlists) follow the same pattern.
+Likes redirect unauthenticated users to `/signin`. The `useLikes()` composable at `app/composables/useLikes.ts` is the release-likes implementation; entity-specific variants (artists, videos, tracks, events, playlists) follow the same pattern.
+
+Auth pages (`app/pages/`): `signin`, `signup`, `forgot-password`, `reset-password`, `confirm`. Routing is wired via `@nuxtjs/supabase` `redirectOptions` in `nuxt.config.ts`.
 
 The `toArray()` helper (`app/composables/toArray.ts`) normalises Firebase object-keyed responses and Supabase array responses into a uniform array.
 
@@ -57,6 +62,14 @@ All pages are in `app/pages/`. Pattern: list page (`releases.vue`) + detail page
 ### Rendering strategy (ISR)
 
 In production, most routes use ISR with `maxAge: 86400` (configured in `nuxt.config.ts` `routeRules`). ISR is intentionally disabled in dev to avoid a known `unstorage` ENOTDIR bug. API routes are CDN-cached for 1 hour with 24-hour SWR.
+
+### PWA
+
+Manual SW setup (no module): `public/custom-sw.js` (precache + offline fallback), registered by `app/plugins/pwa.client.ts`. The SW registers **in production only** (`import.meta.dev` guard) to avoid stale caches persisting on `localhost:3000` across projects. Assets: `public/site.webmanifest`, `public/offline.html`. Run `npm run verify:pwa` after changing any of these.
+
+### UI components (shadcn-vue)
+
+`components.json` (new-york style, lucide icons) drives generation. Primitives live in `app/components/ui/*` and are auto-imported via `~/components/ui` with `pathPrefix: false` (configured in `nuxt.config.ts`). The `cn()` class-merge helper is in `app/lib/utils.ts`. Built on reka-ui.
 
 ### Netlify Edge Functions (`netlify/edge-functions/`)
 

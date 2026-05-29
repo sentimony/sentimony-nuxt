@@ -20,7 +20,7 @@ const events = usePaginatedLikes<LikedEvent>('/api/event-likes/events', 5)
 
 async function signOut() {
   await supabase.auth.signOut()
-  navigateTo('/login')
+  navigateTo('/signin')
 }
 </script>
 

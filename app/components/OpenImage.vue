@@ -51,7 +51,7 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
 
         <DialogClose
           aria-label="Close"
-          class="flex items-center justify-center fixed top-0 right-0 mr-2 mt-[9px] z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] hover:bg-white/30 size-[56px] hover:rotate-[360deg]"
+          class="flex items-center justify-center absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] bg-black/40 backdrop-blur-sm hover:bg-white/30 size-[56px] hover:rotate-[360deg]"
           v-wave
         >
           <Icon name="i-fa7-solid:close" size="22" />

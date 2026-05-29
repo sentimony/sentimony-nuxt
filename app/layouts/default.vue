@@ -96,7 +96,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
   <!-- <Fractal v-if="host == '!localhost'" /> -->
   <Fractal class="z-[1]"/>
 
-  <OpenSidebar class="md:hidden" />
+  <OpenSidebar />
 
   <div class="min-h-screen flex flex-col relative z-[2]">
     <div class="flex-1">

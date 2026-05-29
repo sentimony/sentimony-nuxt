@@ -22,6 +22,12 @@ export default async (request: Request) => {
     return Response.redirect(`${url.origin}${newPath}`, 301);
   }
 
+  if (/^\/login\/?$/.test(path)) {
+    const newPath = '/signin';
+    console.log(`${gray}${ip} => ${magenta}${path} => ${green}${newPath}${reset}`);
+    return Response.redirect(`${url.origin}${newPath}`, 301);
+  }
+
   if (/^\/release\/[^\/]+\/googleplay/.test(path)) {
     const match = path.match(/^(\/release\/[^\/]+)\/googleplay.*$/);
     if (match) {

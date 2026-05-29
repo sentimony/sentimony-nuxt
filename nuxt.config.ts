@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s · Sentimony Records',
-      htmlAttrs: { lang: 'en' },
+      htmlAttrs: { lang: 'en', class: 'dark' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,6 +37,10 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/tailwind.css',
+  ],
+  components: [
+    { path: '~/components/ui', pathPrefix: false, extensions: ['vue'] },
+    '~/components',
   ],
   runtimeConfig: {
     supabaseSecretKey,
@@ -83,7 +87,7 @@ export default defineNuxtConfig({
     url: supabaseUrl,
     key: supabaseKey,
     redirectOptions: {
-      login: '/login',
+      login: '/signin',
       callback: '/confirm',
       exclude: ['/*'],
     },

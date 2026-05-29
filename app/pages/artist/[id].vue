@@ -60,12 +60,17 @@ useSeoMeta({
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
 
-            <OpenImage
-              :image_th="item.photo_th"
-              :image_xl="item.photo_xl"
-              :alt="(item.title || 'Artist') + ' photo'"
-              class="float-left"
-            />
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+
+              <div class="shrink-0">
+                <OpenImage
+                  :image_th="item.photo_th"
+                  :image_xl="item.photo_xl"
+                  :alt="(item.title || 'Artist') + ' photo'"
+                />
+              </div>
+
+              <div class="flex-1 min-w-0">
 
             <p v-if="item.name"><span class="text-white/50">Name:</span> {{ item.name }}</p>
             <p v-if="item.location"><span class="text-white/50">Location:</span> {{ item.location }}</p>
@@ -84,7 +89,9 @@ useSeoMeta({
               </button>
             </div>
 
-            <div class="clear-left" />
+              </div>
+
+            </div>
 
             <div v-if="item.bandcamp_url">
               <p><span class="text-[10px] md:text-[12px] text-white/50">Follow and support:</span></p>

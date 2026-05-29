@@ -76,3 +76,9 @@
 # Test: https://stage--sentimony-nuxt.netlify.app/release/va-futured-vol-1/googleplay/
 # Test: https://stage--sentimony-nuxt.netlify.app/release/zymosis-nichna/googleplaymarket/
 # Test: https://stage--sentimony-nuxt.netlify.app/release/irukanji-z-lisu/napster/
+
+[[edge_functions]]
+  pattern = "/login/?$"
+  function = "redirects"
+
+# Test: https://stage--sentimony-nuxt.netlify.app/login

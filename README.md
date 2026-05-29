@@ -14,6 +14,8 @@ JAMstack development of Sentimony Records portfolio website
 * [Supabase](https://supabase.com)
 * [Netlify](https://netlify.com)
 * [Tailwind](https://tailwindcss.com)
+* [Reka UI](https://reka-ui.com)
+* [shadcn-vue](https://www.shadcn-vue.com)
 * [Iconify](https://icon-sets.iconify.design)
 * [Swiper](https://swiperjs.com)
 

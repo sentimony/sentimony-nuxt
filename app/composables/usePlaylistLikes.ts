@@ -33,7 +33,7 @@ export function usePlaylistLikes() {
 
   async function toggleLike(slug: string) {
     if (!user.value) {
-      navigateTo('/login')
+      navigateTo('/signin')
       return
     }
     if (isLiked(slug)) {

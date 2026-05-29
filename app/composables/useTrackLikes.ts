@@ -37,7 +37,7 @@ export function useTrackLikes() {
 
   async function toggleTrackLike(slug: string) {
     if (!user.value) {
-      navigateTo('/login')
+      navigateTo('/signin')
       return
     }
     if (isTrackLiked(slug)) {

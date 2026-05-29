@@ -18,7 +18,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
   <div class="sticky top-0 left-0 w-full z-20 border-b border-white/30 bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
-        <div class="flex justify-between items-center h-[75px] px-2">
+        <div class="relative flex justify-between items-center h-[75px] px-2">
 
           <NuxtLink
             to="/"
@@ -38,12 +38,12 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             </div>
           </NuxtLink>
 
-          <div class="hidden sm:flex">
+          <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/30 sm:px-2 md:px-3 lg:px-4 h-[56px] flex items-center justify-center rounded-[2px]"
+              class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-white/30 lg:px-4 h-[56px] flex items-center justify-center rounded-[2px]"
               :class="isNavActive(i.route) ? 'bg-white/20' : ''"
               v-wave
             >
@@ -51,14 +51,16 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             </NuxtLink>
           </div>
 
-          <div class="hidden md:flex justify-between">
+          <div class="flex items-center">
+
+          <div class="hidden xl:flex">
             <div
               v-for="i in soc"
               class="relative z-30 group"
             >
               <a
                 :href="i.url"
-                class="flex items-center justify-center transition-colors ease-in-out duration-300 text-white/50 hover:text-white/100 hover:bg-white/30 md:w-[46px] lg:w-[56px] h-[56px] rounded-[2px] relative z-30"
+                class="flex items-center justify-center transition-colors ease-in-out duration-300 text-white/80 hover:text-white/100 hover:bg-white/30 md:w-[46px] lg:w-[56px] h-[56px] rounded-[2px] relative z-30"
                 target="_blank" rel="noopener"
                 v-wave
               >
@@ -70,7 +72,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           </div>
 
           <NuxtLink
-            :to="user ? '/profile' : '/login'"
+            :to="user ? '/profile' : '/signin'"
             class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
             v-wave
           >
@@ -81,9 +83,9 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             <Icon v-else name="heroicons:user" size="22" />
           </NuxtLink>
 
-          <div class="size-[56px] md:hidden md:size-0" />
+          <div class="size-[56px] lg:hidden" />
 
-          <!-- <OpenSidebar class="md:hidden" /> -->
+          </div>
 
         </div>
       </div>

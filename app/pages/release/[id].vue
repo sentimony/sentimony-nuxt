@@ -93,12 +93,17 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36 pr-2">
 
-            <OpenImage
-              :image_th="item.cover_th"
-              :image_xl="item.cover_xl"
-              :alt="(item.title || 'Release') + ' cover'"
-              class="float-left"
-            />
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+
+              <div class="shrink-0">
+                <OpenImage
+                  :image_th="item.cover_th"
+                  :image_xl="item.cover_xl"
+                  :alt="(item.title || 'Release') + ' cover'"
+                />
+              </div>
+
+              <div class="flex-1 min-w-0">
 
             <p><span class="text-white/50">Release Date:</span> {{ formattedDate }}</p>
             <p><span class="text-white/50">Catalog Number:</span> {{ item.cat_no }}</p>
@@ -119,7 +124,9 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               </button>
             </div>
 
-            <div class="clear-left" />
+              </div>
+
+            </div>
 
             <!-- <p>
               <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
