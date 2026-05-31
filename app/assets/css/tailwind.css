@@ -86,6 +86,14 @@ body {
   bg-center bg-no-repeat bg-cover bg-fixed
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff !important;
+  caret-color: #fff;
+  transition: background-color 600000s 0s, -webkit-text-fill-color 600000s 0s;
+}
+
 p { @apply mb-2 }
 
 small { @apply opacity-60 }

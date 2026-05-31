@@ -2,7 +2,6 @@
 const supabase = useSupabaseClient()
 
 const password = ref('')
-const showPassword = ref(false)
 const loading = ref(false)
 const message = ref('')
 const error = ref('')
@@ -35,24 +34,11 @@ async function submit() {
           <form @submit.prevent="submit" class="flex flex-col gap-4">
             <div class="flex flex-col gap-1.5">
               <Label for="password" class="text-xs text-white/50 tracking-widest uppercase">New Password</Label>
-              <div class="relative">
-                <Input
-                  id="password"
-                  v-model="password"
-                  :type="showPassword ? 'text' : 'password'"
-                  required
-                  autocomplete="new-password"
-                  placeholder="••••••••"
-                  class="pr-10"
-                />
-                <button
-                  type="button"
-                  @click="showPassword = !showPassword"
-                  class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer text-white/40 hover:text-white/80 transition-colors"
-                >
-                  <Icon :name="showPassword ? 'heroicons:eye-slash' : 'heroicons:eye'" size="18" />
-                </button>
-              </div>
+              <PasswordInput
+                id="password"
+                v-model="password"
+                autocomplete="new-password"
+              />
             </div>
 
             <Alert v-if="error" variant="destructive">
@@ -63,7 +49,8 @@ async function submit() {
             </Alert>
 
             <Button type="submit" variant="outline" :disabled="loading" class="w-full cursor-pointer">
-              {{ loading ? 'Loading…' : 'Update Password' }}
+              <Icon v-if="loading" name="heroicons:arrow-path" class="animate-spin" />
+              Update Password
             </Button>
           </form>
         </CardContent>
@@ -71,13 +58,3 @@ async function submit() {
     </div>
   </div>
 </template>
-
-<style scoped>
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #fff !important;
-  caret-color: #fff;
-  transition: background-color 600000s 0s, -webkit-text-fill-color 600000s 0s;
-}
-</style>

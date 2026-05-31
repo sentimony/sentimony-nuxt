@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
+import * as z from 'zod'
+
 const props = defineProps<{ mode: 'signin' | 'signup' | 'forgot' }>()
 
 const supabase = useSupabaseClient()
@@ -8,12 +12,30 @@ watchEffect(() => {
   if (user.value && props.mode !== 'forgot') navigateTo('/profile')
 })
 
-const email = ref('')
-const password = ref('')
-const showPassword = ref(false)
 const loading = ref(false)
 const message = ref('')
 const error = ref('')
+
+const validationSchema = toTypedSchema(
+  z.object({
+    email: z.string().email('Please enter a valid email.'),
+    password: z.string(),
+  }).superRefine((values, ctx) => {
+    if (props.mode === 'signin' && values.password.length < 1) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['password'], message: 'Password is required.' })
+    }
+    if (props.mode === 'signup' && values.password.length < 6) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['password'], message: 'Password must be at least 6 characters.' })
+    }
+  }),
+)
+
+const { defineField, errors, handleSubmit } = useForm<{ email: string; password: string }>({
+  validationSchema,
+  initialValues: { email: '', password: '' },
+})
+const [email] = defineField('email')
+const [password] = defineField('password')
 
 const title = computed(() => ({
   signin: 'Sign In',
@@ -27,21 +49,24 @@ const submitLabel = computed(() => ({
   forgot: 'Send Reset Link',
 }[props.mode]))
 
-async function submit() {
+const submit = handleSubmit(async () => {
   loading.value = true
   error.value = ''
   message.value = ''
 
+  const emailValue = String(email.value ?? '')
+  const passwordValue = String(password.value ?? '')
+
   if (props.mode === 'signin') {
-    const { error: err } = await supabase.auth.signInWithPassword({ email: email.value, password: password.value })
+    const { error: err } = await supabase.auth.signInWithPassword({ email: emailValue, password: passwordValue })
     if (err) error.value = err.message
     else navigateTo('/profile')
   } else if (props.mode === 'signup') {
-    const { error: err } = await supabase.auth.signUp({ email: email.value, password: password.value })
+    const { error: err } = await supabase.auth.signUp({ email: emailValue, password: passwordValue })
     if (err) error.value = err.message
     else message.value = 'Check your email to confirm your account.'
   } else {
-    const { error: err } = await supabase.auth.resetPasswordForEmail(email.value, {
+    const { error: err } = await supabase.auth.resetPasswordForEmail(emailValue, {
       redirectTo: `${window.location.origin}/reset-password`,
     })
     if (err) error.value = err.message
@@ -49,7 +74,7 @@ async function submit() {
   }
 
   loading.value = false
-}
+})
 </script>
 
 <template>
@@ -61,7 +86,7 @@ async function submit() {
 
       <Card class="border-white/20 backdrop-blur-sm text-left">
         <CardContent>
-          <form @submit.prevent="submit" class="flex flex-col gap-4">
+          <form @submit="submit" novalidate class="flex flex-col gap-4">
             <div class="flex flex-col gap-1.5">
               <Label for="email" class="text-xs text-white/50 tracking-widest uppercase">Email</Label>
               <Input
@@ -71,29 +96,20 @@ async function submit() {
                 required
                 autocomplete="email"
                 placeholder="your@email.com"
+                :aria-invalid="!!errors.email"
               />
+              <span v-if="errors.email" class="text-xs text-destructive">{{ errors.email }}</span>
             </div>
 
             <div v-if="mode !== 'forgot'" class="flex flex-col gap-1.5">
               <Label for="password" class="text-xs text-white/50 tracking-widest uppercase">Password</Label>
-              <div class="relative">
-                <Input
-                  id="password"
-                  v-model="password"
-                  :type="showPassword ? 'text' : 'password'"
-                  required
-                  :autocomplete="mode === 'signin' ? 'current-password' : 'new-password'"
-                  placeholder="••••••••"
-                  class="pr-10"
-                />
-                <button
-                  type="button"
-                  @click="showPassword = !showPassword"
-                  class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer text-white/40 hover:text-white/80 transition-colors"
-                >
-                  <Icon :name="showPassword ? 'heroicons:eye-slash' : 'heroicons:eye'" size="18" />
-                </button>
-              </div>
+              <PasswordInput
+                id="password"
+                v-model="password"
+                :autocomplete="mode === 'signin' ? 'current-password' : 'new-password'"
+                :invalid="!!errors.password"
+              />
+              <span v-if="errors.password" class="text-xs text-destructive">{{ errors.password }}</span>
               <NuxtLink
                 v-if="mode === 'signin'"
                 to="/forgot-password"
@@ -111,7 +127,8 @@ async function submit() {
             </Alert>
 
             <Button type="submit" variant="outline" :disabled="loading" class="w-full cursor-pointer">
-              {{ loading ? 'Loading…' : submitLabel }}
+              <Icon v-if="loading" name="heroicons:arrow-path" class="animate-spin" />
+              {{ submitLabel }}
             </Button>
           </form>
         </CardContent>
@@ -134,13 +151,3 @@ async function submit() {
     </div>
   </div>
 </template>
-
-<style scoped>
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #fff !important;
-  caret-color: #fff;
-  transition: background-color 600000s 0s, -webkit-text-fill-color 600000s 0s;
-}
-</style>

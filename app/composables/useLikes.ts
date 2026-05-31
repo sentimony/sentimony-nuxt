@@ -1,3 +1,5 @@
+import { toast } from 'vue-sonner'
+
 export function useLikes() {
   const user = useSupabaseUser()
   const likedSlugs = useState<string[]>('likes', () => [])
@@ -42,6 +44,7 @@ export function useLikes() {
       await $fetch(`/api/likes/${slug}`, { method: 'DELETE' }).catch(() => {
         likedSlugs.value = [...likedSlugs.value, slug]
         likeCounts.value[slug] = (likeCounts.value[slug] ?? 0) + 1
+        toast.error('Could not update favourites. Please try again.')
       })
     } else {
       likedSlugs.value = [...likedSlugs.value, slug]
@@ -49,6 +52,7 @@ export function useLikes() {
       await $fetch('/api/likes', { method: 'POST', body: { slug } }).catch(() => {
         likedSlugs.value = likedSlugs.value.filter(s => s !== slug)
         likeCounts.value[slug] = Math.max(0, (likeCounts.value[slug] ?? 1) - 1)
+        toast.error('Could not update favourites. Please try again.')
       })
     }
   }

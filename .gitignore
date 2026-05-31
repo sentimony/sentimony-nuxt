@@ -22,4 +22,4 @@ Thumbs.db
 /.agents/
 /.claude/
 # /memory/
-# skills-lock.json
+skills-lock.json
