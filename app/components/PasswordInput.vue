@@ -26,7 +26,7 @@ const show = ref(false)
       @click="show = !show"
       class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer text-white/40 hover:text-white/80 transition-colors"
     >
-      <Icon :name="show ? 'heroicons:eye-slash' : 'heroicons:eye'" size="18" />
+      <Icon :name="show ? 'lucide:eye-off' : 'lucide:eye'" size="18" />
     </button>
   </div>
 </template>

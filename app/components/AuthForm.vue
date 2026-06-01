@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
 
 const props = defineProps<{ mode: 'signin' | 'signup' | 'forgot' }>()
 
@@ -16,19 +14,20 @@ const loading = ref(false)
 const message = ref('')
 const error = ref('')
 
-const validationSchema = toTypedSchema(
-  z.object({
-    email: z.string().email('Please enter a valid email.'),
-    password: z.string(),
-  }).superRefine((values, ctx) => {
-    if (props.mode === 'signin' && values.password.length < 1) {
-      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['password'], message: 'Password is required.' })
-    }
-    if (props.mode === 'signup' && values.password.length < 6) {
-      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['password'], message: 'Password must be at least 6 characters.' })
-    }
-  }),
-)
+const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
+
+const validationSchema = {
+  email(value: string) {
+    if (!value) return 'Email is required.'
+    return emailRegex.test(value) || 'Please enter a valid email.'
+  },
+  password(value: string) {
+    if (props.mode === 'forgot') return true
+    if (!value) return 'Password is required.'
+    if (props.mode === 'signup' && value.length < 6) return 'Password must be at least 6 characters.'
+    return true
+  },
+}
 
 const { defineField, errors, handleSubmit } = useForm<{ email: string; password: string }>({
   validationSchema,
@@ -39,7 +38,7 @@ const [password] = defineField('password')
 
 const title = computed(() => ({
   signin: 'Sign In',
-  signup: 'Create Account',
+  signup: 'Sign Up',
   forgot: 'Reset Password',
 }[props.mode]))
 
@@ -127,7 +126,8 @@ const submit = handleSubmit(async () => {
             </Alert>
 
             <Button type="submit" variant="outline" :disabled="loading" class="w-full cursor-pointer">
-              <Icon v-if="loading" name="heroicons:arrow-path" class="animate-spin" />
+              <Icon v-if="loading" name="lucide:loader-circle" class="animate-spin" />
+              <Icon v-else-if="mode !== 'forgot'" name="lucide:log-in" />
               {{ submitLabel }}
             </Button>
           </form>
@@ -136,7 +136,7 @@ const submit = handleSubmit(async () => {
 
       <div class="text-center mt-4 text-sm text-white/40">
         <span v-if="mode === 'signin'">
-          No account?
+          Don't have an account?
           <NuxtLink to="/signup" class="cursor-pointer text-white/70 hover:text-white underline ml-1">Sign Up</NuxtLink>
         </span>
         <span v-else-if="mode === 'signup'">

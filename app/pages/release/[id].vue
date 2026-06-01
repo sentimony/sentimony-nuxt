@@ -63,7 +63,7 @@ const PageDescription = computed(() => [
   item.value?.style,
   item.value?.format,
   year.value,
-].filter(Boolean).join(' — '))
+].filter(Boolean).join(' - '))
 
 useSeoMeta({
   title: () => item.value?.title,
@@ -118,7 +118,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
                 v-wave
               >
-                <Icon :name="isLiked(item.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
+                <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -144,7 +144,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links?.diggersfactory_url"
               :to="item.links?.diggersfactory_url"
               title="Diggers Factory"
-              iconify="cib:bandcamp"
+              img="https://content.sentimony.com/assets/img/svg-icons/diggers-factory.svg?01"
             />
 
             <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
@@ -152,13 +152,13 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links?.bandcamp_url"
               :to="item.links?.bandcamp_url"
               title="Bandcamp <small>(16bit)</small>"
-              iconify="cib:bandcamp"
+              iconify="simple-icons:bandcamp"
             />
             <BtnPrimary
               v-if="item.links?.bandcamp24_url"
               :to="item.links?.bandcamp24_url"
               title="Bandcamp <small>(24bit)</small>"
-              iconify="cib:bandcamp"
+              iconify="simple-icons:bandcamp"
             />
             <BtnPrimary
               v-if="item.links?.beatport"
@@ -179,13 +179,13 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links?.spotify"
               :to="item.links?.spotify"
               title="Spotify"
-              iconify="fa-brands:spotify"
+              iconify="simple-icons:spotify"
             />
             <BtnPrimary
               v-if="item.links?.applemusic_url"
               :to="item.links?.applemusic_url"
               title="Apple Music"
-              iconify="fa-brands:apple"
+              iconify="simple-icons:applemusic"
             />
             <BtnPrimary
               v-if="item.links?.youtube_music"
@@ -197,19 +197,19 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links?.deezer"
               :to="item.links?.deezer"
               title="Deezer"
-              iconify="fa-brands:deezer"
+              iconify="simple-icons:deezer"
             />
             <BtnPrimary
               v-if="item.links?.amazon_music"
               :to="item.links?.amazon_music"
               title="Amazon Music"
-              img="https://content.sentimony.com/assets/img/svg-icons/amazon-music.svg?01"
+              iconify="simple-icons:amazonmusic"
             />
             <BtnPrimary
               v-if="item.links?.tidal"
               :to="item.links?.tidal"
               title="Tidal"
-              iconify="fa7-brands:tidal"
+              iconify="simple-icons:tidal"
             />
             <BtnPrimary
               v-if="item.links?.qobuz"
@@ -221,13 +221,21 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links?.youtube"
               :to="item.links?.youtube"
               title="YouTube"
-              iconify="fa:youtube"
+              iconify="simple-icons:youtube"
             />
             <BtnPrimary
               v-if="item.links?.soundcloud_url"
               :to="item.links?.soundcloud_url"
               title="SoundCloud"
-              iconify="fa7-brands:soundcloud"
+              iconify="simple-icons:soundcloud"
+            />
+
+            <p v-if="item.links?.discogs"><span class="text-[10px] md:text-[12px] text-white/50">Add to your collection</span></p>
+            <BtnPrimary
+              v-if="item.links?.discogs"
+              :to="item.links?.discogs"
+              title="Discogs"
+              iconify="simple-icons:discogs"
             />
 
           </div>
@@ -236,7 +244,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <Tabs>
 
               <Tab
-                icon="cib:bandcamp"
+                icon="simple-icons:bandcamp"
                 title="Bandcamp"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -258,7 +266,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
               <Tab
                 v-if="item.links?.youtube_playlist_id"
-                icon="fa:youtube"
+                icon="simple-icons:youtube"
                 title="YouTube"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -276,7 +284,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
               <Tab
                 v-if="item.links?.soundcloud_playlist_id"
-                icon="fa7-brands:soundcloud"
+                icon="simple-icons:soundcloud"
                 title="SoundCloud"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -343,7 +351,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-black/10 shrink-0"
                 :class="isTrackLiked(track.slug) ? 'border-red-400/30 text-red-400' : 'border-black/30 text-black/60 hover:text-black/80'"
               >
-                <Icon :name="isTrackLiked(track.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="12" />
+                <Icon name="lucide:heart" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="12" />
                 <span v-if="trackLikeCount(track.slug) > 0">{{ trackLikeCount(track.slug) }}</span>
               </button>
             </p>
@@ -399,10 +407,9 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           </p>
         </div>
 
-        <div v-if="item.links?.discogs || item.links?.ektoplazm">
+        <div v-if="item.links?.beatspace || item.links?.psyshop || item.links?.ektoplazm">
           <hr class="my-4 border-black/30">
           <p><small><b>Links:</b></small></p>
-          <p v-if="item.links?.discogs"><a :href="item.links?.discogs" target="_blank" rel="noopener">Discogs</a></p>
           <p v-if="item.links?.beatspace"><a :href="item.links?.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
           <p v-if="item.links?.psyshop"><a :href="item.links?.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
           <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>

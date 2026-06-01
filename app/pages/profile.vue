@@ -37,8 +37,9 @@ async function signOut() {
 
         <button
           @click="signOut"
-          class="transition-colors duration-300 border border-white/30 rounded px-4 py-2 hover:bg-white/20 text-sm mt-2"
+          class="transition-colors duration-300 border border-white/30 rounded px-4 py-2 hover:bg-white/20 text-sm mt-2 flex items-center justify-center gap-2"
         >
+          <Icon name="lucide:log-out" size="18" />
           Sign Out
         </button>
       </div>

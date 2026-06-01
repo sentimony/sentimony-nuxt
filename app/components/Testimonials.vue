@@ -9,18 +9,18 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
   <div class="relative !bg-[#a1c0a1] overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg')] bg-center bg-no-repeat bg-cover bg-fixed">
     <!-- <img class="absolute bottom-0 left-1/2 -translate-x-1/2" src="https://content.sentimony.com/assets/img/svg-images/mandala-01.svg" alt="Triangles Bg" /> -->
     <div class="relative  px-4 py-8 md:py-16 box-border">
-      <div class="text-left mx-auto max-w-lg p-4 rounded-lg text-black border border-black/5 [&>p>a]:text-blue-500 hover:[&>p>a]:text-blue-400 backdrop-blur-md bg-[#b5ccb5]">
+      <div class="text-left mx-auto max-w-lg p-4 rounded-lg backdrop-blur-md bg-white/70 border border-white/40 text-stone-800">
         <p>My fellow artists and I always love reading your feedback.</p>
         <p>
           Find your favorite track and share your thoughts in the comments on our
-          <a :href="youtube_url" target="_blank" rel="noopener">YouTube</a>,
-          <a :href="soundcloud_url" target="_blank" rel="noopener">SoundCloud</a>
+          <a :href="youtube_url" target="_blank" rel="noopener" class="inline-flex items-center gap-1 align-middle rounded-md border border-emerald-700/20 bg-emerald-600/10 px-2 py-0.5 text-[13px] font-medium text-emerald-700 transition-colors hover:bg-emerald-600/20 hover:text-emerald-900"><Icon name="simple-icons:youtube" />YouTube</a>,
+          <a :href="soundcloud_url" target="_blank" rel="noopener" class="inline-flex items-center gap-1 align-middle rounded-md border border-emerald-700/20 bg-emerald-600/10 px-2 py-0.5 text-[13px] font-medium text-emerald-700 transition-colors hover:bg-emerald-600/20 hover:text-emerald-900"><Icon name="simple-icons:soundcloud" />SoundCloud</a>
           or
-          <a :href="bandcamp_url" target="_blank" rel="noopener">Bandcamp</a>
+          <a :href="bandcamp_url" target="_blank" rel="noopener" class="inline-flex items-center gap-1 align-middle rounded-md border border-emerald-700/20 bg-emerald-600/10 px-2 py-0.5 text-[13px] font-medium text-emerald-700 transition-colors hover:bg-emerald-600/20 hover:text-emerald-900"><Icon name="simple-icons:bandcamp" />Bandcamp</a>
           pages.
         </p>
-        <p>Thank you — I truly appreciate it ❤️</p>
-        <p>— Ihor</p>
+        <p>Thank you - I truly appreciate it <Icon name="lucide:heart" mode="svg" class="inline-block align-middle [&_path]:fill-current text-red-500" /></p>
+        <p>- Ihor</p>
       </div>
     </div>
   </div>

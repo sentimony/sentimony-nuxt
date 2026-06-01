@@ -1,94 +1,59 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code working in this repository.
 
 ## Project Overview
 
-Sentimony Records — JAMstack portfolio website for a psychedelic music label. Built with Nuxt 4 (SSR via Netlify serverless), Supabase (auth + likes), Firebase Realtime Database (content source), and Tailwind CSS.
+Sentimony Records - JAMstack portfolio for a psychedelic music label. Nuxt 4 (SSR via Netlify serverless), Supabase (auth + likes), Firebase Realtime DB (legacy content source), Tailwind v4.
 
 Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.netlify.app`
 
 ## Commands
 
 ```bash
-# Development (requires .env/.env)
-npm run dev -- --host
-
-# Build & deploy
+npm run dev -- --host   # dev (requires .env/.env)
 npm run build
 npm run deploy:stage
 npm run deploy:prod
-
-# Sync data sources
-npm run sync:firebase   # exports Firebase DB → public/data/sentimony-db-export.json
-npm run sync:supabase   # syncs data to Supabase
-
-# PWA
+npm run sync:firebase   # export Firebase DB → public/data/sentimony-db-export.json
+npm run sync:supabase   # sync data to Supabase
 npm run verify:pwa      # validate manifest + custom service worker
+npx nuxi typecheck      # vue-tsc type check
 ```
 
-Local env lives in `.env/.env` (team defaults, gitignored); `.env/.env.local` holds personal overrides. The npm scripts load `.env/.env` then `.env/.env.local`. Define: `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical Nuxt names `NUXT_PUBLIC_SUPABASE_URL`, `NUXT_PUBLIC_SUPABASE_KEY`, `NUXT_SUPABASE_SECRET_KEY` also work). Optional: `RELEASES_SOURCE=supabase` to switch a data source from Firebase to Supabase.
+Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). Optional `RELEASES_SOURCE=supabase` switches a data source from Firebase to Supabase.
 
 ## Architecture
 
-### Data sources (dual-backend)
+**Data sources (dual-backend).** Server handlers (`server/api/`) use `defineCachedEventHandler` (1h cache) and check `process.env.RELEASES_SOURCE` to fetch from Supabase or Firebase - Firebase is legacy/default, Supabase the migration target. Firebase Realtime DB holds content (releases, artists, videos, events, playlists, friends); Supabase holds Postgres content (migration target) + auth + likes/favourites.
 
-Server API handlers (`server/api/`) use `defineCachedEventHandler` with a 1-hour cache. Each handler checks `process.env.RELEASES_SOURCE` to decide whether to fetch from Supabase or Firebase. Firebase is the legacy/default source; Supabase is the new path being migrated to.
+**Server utils.** `server/utils/supabase.ts` - anon client + snake_case→camelCase mappers. `server/utils/supabaseAdmin.ts` - service-role client for privileged writes.
 
-- **Firebase Realtime DB** — content (releases, artists, videos, events, playlists, friends)
-- **Supabase** — Postgres for content (migration target) + auth + likes/favourites system
+**Composables.** Each entity has `useXxx()` (wraps `useAsyncData` + `$fetch('/api/xxx')`) and `useXxxLikes()` (optimistic like/unlike with Supabase auth guard; unauth → `/signin`). `useLikes()` (`app/composables/useLikes.ts`) is the release reference; artist/video/track/event/playlist variants follow it. A failed like reverts the optimistic update and fires `toast.error` (vue-sonner); `<Toaster>` is mounted once in `app/app.vue`. `toArray()` (`app/composables/toArray.ts`) normalises Firebase object-keyed and Supabase array responses into one array.
 
-### Server utilities
+**Auth.** Pages `signin`, `signup`, `forgot-password`, `reset-password`, `confirm` (routing via `@nuxtjs/supabase` `redirectOptions` in `nuxt.config.ts`). `signin`/`signup`/`forgot` share `app/components/AuthForm.vue` - validated by `vee-validate` with a function-based per-mode schema (`forgot` omits password, `signin` requires it, `signup` `min(6)`), **not** zod (`@vee-validate/zod` needs zod 3 but the project has zod 4 via nuxtseo - they conflict). `PasswordInput.vue` is the shared password field with show/hide toggle; server errors show in an inline `Alert`.
 
-- `server/utils/supabase.ts` — anonymous Supabase client + field mappers (snake_case → camelCase)
-- `server/utils/supabaseAdmin.ts` — service-role client (used for privileged writes)
+**Pages.** All in `app/pages/`; list page (`releases.vue`) + detail (`release/[id].vue`). `Item` is the universal card across list pages.
 
-### Composables pattern
+**Rendering (ISR).** Production routes use ISR `maxAge: 86400` (`nuxt.config.ts` `routeRules`); disabled in dev to dodge an `unstorage` ENOTDIR bug. API routes are CDN-cached 1h + 24h SWR.
 
-Each entity has two composables:
-- `useXxx()` — wraps `useAsyncData` + `$fetch('/api/xxx')` for collection
-- `useXxxLikes()` — manages optimistic like/unlike with Supabase auth guard
+**Styling (Tailwind v4).** Via the `@tailwindcss/vite` plugin - **no** `tailwind.config`/`postcss.config`. Theme tokens, dark variant, always-dark palette, and a global `input:-webkit-autofill` override live in `app/assets/css/tailwind.css` (`@theme` / `@theme inline`).
 
-Likes redirect unauthenticated users to `/signin`. The `useLikes()` composable at `app/composables/useLikes.ts` is the release-likes implementation; entity-specific variants (artists, videos, tracks, events, playlists) follow the same pattern.
+**PWA.** Manual SW (no module): `public/custom-sw.js` (precache + offline fallback), registered by `app/plugins/pwa.client.ts` **in production only** (`import.meta.dev` guard) to avoid stale `localhost:3000` caches. Assets: `public/site.webmanifest`, `public/offline.html`. Run `npm run verify:pwa` after touching these.
 
-Auth pages (`app/pages/`): `signin`, `signup`, `forgot-password`, `reset-password`, `confirm`. Routing is wired via `@nuxtjs/supabase` `redirectOptions` in `nuxt.config.ts`.
+**UI (shadcn-vue).** `components.json` (new-york). Primitives in `app/components/ui/*`, auto-imported via `~/components/ui` with `pathPrefix: false` + `extensions: ['vue']`; `cn()` in `app/lib/utils.ts`; built on reka-ui. Gotchas:
+- Auto-import keys off the `.vue` **filename**, not the `index.ts` barrel - `Sonner.vue` → `<Sonner>`, not `Toaster`. Import explicitly when export name ≠ filename (`<Toaster>` in `app/app.vue`).
+- **No** `@lucide/vue` despite `components.json` saying `lucide` - icons use `@nuxt/icon` with **lucide** as primary (`<Icon name="lucide:…" />`, native 24px/stroke-2); **tabler** is the auxiliary set for glyphs lucide lacks. Swap lucide imports after `shadcn-vue add`. Lucide has no solid variants - fill an outline icon by forcing SVG render mode and overriding the path's `fill="none"`: `<Icon name="lucide:heart" mode="svg" :class="liked && '[&_path]:fill-current'" />` (plain `fill-current` on the `<svg>` is beaten by the path's own `fill="none"`; mask/css mode has no path to target).
+- **Brand icons → Simple Icons** (`<Icon name="simple-icons:…" />`); registry in `app/constants/icons.ts` maps each `IconKey` to a `simple-icons:*` name. A few marks Simple Icons lacks stay as custom SVG (`kind: 'svg'` / `img=`/`@nuxt/image`): JunoDownload, Amazon Music, Qobuz.
+- No global `border-border` base layer (many bare `border` utilities rely on `currentColor`) - set borders per instance (auth Cards use `border-white/20`).
 
-The `toArray()` helper (`app/composables/toArray.ts`) normalises Firebase object-keyed responses and Supabase array responses into a uniform array.
+**Netlify Edge Functions** (`netlify/edge-functions/`): `blocking.ts` (403 for PHP/WP/admin scanner probes), `redirects.ts` (legacy `.htm`/`.html` + dead platform links).
 
-### Pages & routing
+**Constants.** `app/constants/nav.ts` (nav items + `inHeader`; `isNavActive()` for section-level active), `icons.ts` (icon registry - Iconify names + custom SVG URLs), `soclinks.ts` (social links).
 
-All pages are in `app/pages/`. Pattern: list page (`releases.vue`) + detail page (`release/[id].vue`). The `Item` component is the universal card used across all list pages.
+**Types.** Shared types in `app/types/index.ts`. Entities extend `BaseEntity` (`slug`, `title`, `visible`, `date`); API responses typed `XxxResponse` as `Record<string, Xxx> | Xxx[]` for both backends.
 
-### Rendering strategy (ISR)
-
-In production, most routes use ISR with `maxAge: 86400` (configured in `nuxt.config.ts` `routeRules`). ISR is intentionally disabled in dev to avoid a known `unstorage` ENOTDIR bug. API routes are CDN-cached for 1 hour with 24-hour SWR.
-
-### PWA
-
-Manual SW setup (no module): `public/custom-sw.js` (precache + offline fallback), registered by `app/plugins/pwa.client.ts`. The SW registers **in production only** (`import.meta.dev` guard) to avoid stale caches persisting on `localhost:3000` across projects. Assets: `public/site.webmanifest`, `public/offline.html`. Run `npm run verify:pwa` after changing any of these.
-
-### UI components (shadcn-vue)
-
-`components.json` (new-york style, lucide icons) drives generation. Primitives live in `app/components/ui/*` and are auto-imported via `~/components/ui` with `pathPrefix: false` (configured in `nuxt.config.ts`). The `cn()` class-merge helper is in `app/lib/utils.ts`. Built on reka-ui.
-
-### Netlify Edge Functions (`netlify/edge-functions/`)
-
-- `blocking.ts` — returns 403 for PHP/WordPress/admin scanner probes
-- `redirects.ts` — handles legacy `.htm`/`.html` URL redirects and dead platform links (Google Play)
-
-### Constants
-
-- `app/constants/nav.ts` — navigation items with `inHeader` flag; `isNavActive()` handles section-level active state
-- `app/constants/icons.ts` — centralised icon registry; supports Iconify names and custom SVG URLs
-- `app/constants/soclinks.ts` — social link definitions
-
-### Types
-
-All shared TypeScript types live in `app/types/index.ts`. Entities extend `BaseEntity` (`slug`, `title`, `visible`, `date`). API responses are typed as `XxxResponse` with union `Record<string, Xxx> | Xxx[]` to handle both Firebase and Supabase shapes.
-
-### SEO
-
-Each page calls `useSeoMeta()` with full OG + Twitter card tags. Brand defaults (defaultOgImage, site URL) come from `app/app.config.ts`. The sitemap is suppressed on staging (`stage--`) deployments.
+**SEO.** Every page calls `useSeoMeta()` (full OG + Twitter tags); brand defaults in `app/app.config.ts`; sitemap suppressed on `stage--` deploys.
 
 ## Code style
 

@@ -49,7 +49,7 @@ async function submit() {
             </Alert>
 
             <Button type="submit" variant="outline" :disabled="loading" class="w-full cursor-pointer">
-              <Icon v-if="loading" name="heroicons:arrow-path" class="animate-spin" />
+              <Icon v-if="loading" name="lucide:loader-circle" class="animate-spin" />
               Update Password
             </Button>
           </form>

@@ -33,7 +33,7 @@ const { absoluteUrl } = useAbsoluteUrl()
 const PageDescription = computed(() => [
   item.value?.title,
   item.value?.style,
-].filter(Boolean).join(' — '))
+].filter(Boolean).join(' - '))
 useSeoMeta({
   title: () => item.value?.title,
   description: () => PageDescription.value,
@@ -83,7 +83,7 @@ useSeoMeta({
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
                 v-wave
               >
-                <Icon :name="isLiked(item.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
+                <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -98,7 +98,7 @@ useSeoMeta({
               <BtnPrimary
                 :to="item.bandcamp_url"
                 title="Bandcamp"
-                iconify="cib:bandcamp"
+                iconify="simple-icons:bandcamp"
               />
             </div>
 
@@ -108,20 +108,20 @@ useSeoMeta({
               v-if="item.soundcloud_url"
               :to="item.soundcloud_url"
               title="SoundCloud"
-              iconify="fa-brands:soundcloud"
+              iconify="simple-icons:soundcloud"
             />
 
             <BtnPrimary
               v-if="item.spotify"
               :to="item.spotify"
               title="Spotify"
-              iconify="fa-brands:spotify"
+              iconify="simple-icons:spotify"
             />
             <BtnPrimary
               v-if="item.applemusic_url"
               :to="item.applemusic_url"
               title="Apple Music"
-              iconify="fa-brands:apple"
+              iconify="simple-icons:applemusic"
             />
             <BtnPrimary
               v-if="item.youtubemusic_url"
@@ -133,19 +133,19 @@ useSeoMeta({
               v-if="item.youtube_url"
               :to="item.youtube_url"
               title="YouTube"
-              iconify="fa:youtube"
+              iconify="simple-icons:youtube"
             />
             <BtnPrimary
               v-if="item.facebook"
               :to="item.facebook"
               title="Facebook"
-              iconify="fa-brands:facebook"
+              iconify="simple-icons:facebook"
             />
             <BtnPrimary
               v-if="item.instagram"
               :to="item.instagram"
               title="Instagram"
-              iconify="fa-brands:instagram"
+              iconify="simple-icons:instagram"
             />
             <BtnPrimary
               v-if="item.discogs"
@@ -169,7 +169,7 @@ useSeoMeta({
 
               <Tab
                 v-if="item.youtube_playlist_id"
-                icon="fa:youtube"
+                icon="simple-icons:youtube"
                 title="YouTube"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -187,7 +187,7 @@ useSeoMeta({
 
               <Tab
                 v-if="item.soundcloud_track_id"
-                icon="fa-brands:soundcloud"
+                icon="simple-icons:soundcloud"
                 title="SoundCloud"
               >
                 <iframe

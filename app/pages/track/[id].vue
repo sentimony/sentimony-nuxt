@@ -50,16 +50,16 @@ const PageDescription = computed(() => [
   artistsTitleLine.value,
   release.value?.title,
   releaseYear.value,
-].filter(Boolean).join(' — '))
+].filter(Boolean).join(' - '))
 
 useSeoMeta({
-  title: () => `${track.value.title} — ${artistsTitleLine.value}`,
+  title: () => `${track.value.title} - ${artistsTitleLine.value}`,
   description: () => PageDescription.value,
-  ogTitle: () => `${track.value.title} — ${artistsTitleLine.value}`,
+  ogTitle: () => `${track.value.title} - ${artistsTitleLine.value}`,
   ogDescription: () => PageDescription.value,
   ogImage: () => release.value?.cover_og || release.value?.cover_xl || appConfig.brand.defaultOgImage,
   ogUrl: () => absoluteUrl.value,
-  twitterTitle: () => `${track.value.title} — ${artistsTitleLine.value}`,
+  twitterTitle: () => `${track.value.title} - ${artistsTitleLine.value}`,
   twitterDescription: () => PageDescription.value,
   twitterImage: () => release.value?.cover_og || release.value?.cover_xl || appConfig.brand.defaultOgImage,
   twitterCard: 'summary',
@@ -114,7 +114,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             :class="isTrackLiked(track.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
             v-wave
           >
-            <Icon :name="isTrackLiked(track.slug) ? 'heroicons:heart-solid' : 'heroicons:heart'" size="18" />
+            <Icon name="lucide:heart" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="18" />
             {{ isTrackLiked(track.slug) ? 'Liked' : 'Like' }}
             <span v-if="trackLikeCount(track.slug) > 0" class="opacity-50">{{ trackLikeCount(track.slug) }}</span>
           </button>
@@ -149,13 +149,13 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               v-if="release?.links?.bandcamp_url"
               :to="release.links.bandcamp_url"
               title="Bandcamp"
-              iconify="cib:bandcamp"
+              iconify="simple-icons:bandcamp"
             />
             <BtnPrimary
               v-if="release?.links?.bandcamp24_url"
               :to="release.links.bandcamp24_url"
               title="Bandcamp <small>(24bit)</small>"
-              iconify="cib:bandcamp"
+              iconify="simple-icons:bandcamp"
             />
             <BtnPrimary
               v-if="release?.links?.beatport"
@@ -177,13 +177,13 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               v-if="release?.links?.spotify"
               :to="release.links.spotify"
               title="Spotify"
-              iconify="fa-brands:spotify"
+              iconify="simple-icons:spotify"
             />
             <BtnPrimary
               v-if="release?.links?.applemusic_url"
               :to="release.links.applemusic_url"
               title="Apple Music"
-              iconify="fa-brands:apple"
+              iconify="simple-icons:applemusic"
             />
             <BtnPrimary
               v-if="release?.links?.youtube_music"
@@ -195,13 +195,13 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               v-if="release?.links?.youtube"
               :to="release.links.youtube"
               title="YouTube"
-              iconify="fa:youtube"
+              iconify="simple-icons:youtube"
             />
             <BtnPrimary
               v-if="release?.links?.soundcloud_url"
               :to="release.links.soundcloud_url"
               title="SoundCloud"
-              iconify="fa7-brands:soundcloud"
+              iconify="simple-icons:soundcloud"
             />
 
           </div>
@@ -211,7 +211,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
               <Tab
                 v-if="hasBandcamp"
-                icon="cib:bandcamp"
+                icon="simple-icons:bandcamp"
                 title="Bandcamp"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -227,7 +227,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
               <Tab
                 v-if="hasSoundcloud"
-                icon="fa7-brands:soundcloud"
+                icon="simple-icons:soundcloud"
                 title="SoundCloud"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -245,7 +245,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
               <Tab
                 v-if="hasYoutube"
-                icon="fa:youtube"
+                icon="simple-icons:youtube"
                 title="YouTube"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
@@ -281,7 +281,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
               <Tab
                 v-if="!hasBandcamp && !hasSoundcloud && !hasYoutube && !hasYTMusic"
-                icon="heroicons:musical-note"
+                icon="lucide:music"
                 title="Player"
               >
                 <div
@@ -327,7 +327,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
                 <NuxtLink :to="`/artist/${artist.slug}`" class="font-bold hover:underline">
                   {{ artist.title }}
                 </NuxtLink>
-                <small v-if="artist.location" class="text-black/60"> — {{ artist.location }}</small>
+                <small v-if="artist.location" class="text-black/60"> - {{ artist.location }}</small>
               </p>
               <p v-if="artist.style" class="m-0 text-[12px] text-black/60">{{ artist.style }}</p>
             </div>
@@ -356,12 +356,12 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               class="hover:underline"
             >
               <small>{{ t.track_number < 10 ? ' ' + t.track_number : t.track_number }}.</small>
-              <b class="ml-1">{{ t.artist_name }}</b> — {{ t.title }}
+              <b class="ml-1">{{ t.artist_name }}</b> - {{ t.title }}
               <small v-if="t.bpm" class="text-black/60">({{ t.bpm }}bpm)</small>
             </NuxtLink>
             <span v-else class="text-black/50">
               <small>{{ t.track_number < 10 ? ' ' + t.track_number : t.track_number }}.</small>
-              <b class="ml-1">{{ t.artist_name }}</b> — {{ t.title }}
+              <b class="ml-1">{{ t.artist_name }}</b> - {{ t.title }}
               <small v-if="t.bpm">({{ t.bpm }}bpm)</small>
               <small> · current</small>
             </span>
@@ -377,7 +377,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             class="m-0"
           >
             <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">
-              <b>{{ t.artist_name }}</b> — {{ t.title }}
+              <b>{{ t.artist_name }}</b> - {{ t.title }}
               <small v-if="t.bpm" class="text-black/60">({{ t.bpm }}bpm)</small>
             </NuxtLink>
           </p>

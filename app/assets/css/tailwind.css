@@ -88,10 +88,11 @@ body {
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
   -webkit-text-fill-color: #fff !important;
   caret-color: #fff;
-  transition: background-color 600000s 0s, -webkit-text-fill-color 600000s 0s;
+  transition: background-color 600000s 0s;
 }
 
 p { @apply mb-2 }

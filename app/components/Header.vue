@@ -72,15 +72,23 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           </div>
 
           <NuxtLink
-            :to="user ? '/profile' : '/signin'"
+            v-if="user"
+            to="/profile"
             class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
             v-wave
           >
             <span
-              v-if="user"
               class="flex items-center justify-center size-[32px] rounded-full bg-white/20 text-[16px] uppercase leading-none"
             >{{ userInitial }}</span>
-            <Icon v-else name="heroicons:user" size="22" />
+          </NuxtLink>
+          <NuxtLink
+            v-else
+            to="/signin"
+            class="transition-colors ease-in-out duration-300 inline-flex items-center justify-center gap-2 border border-white/30 hover:bg-white/20 hover:border-white/50 px-4 h-9 rounded-md text-sm"
+            v-wave
+          >
+            <Icon name="lucide:log-in" size="18" />
+            <span class="hidden sm:inline">Sign In</span>
           </NuxtLink>
 
           <div class="size-[56px] lg:hidden" />
