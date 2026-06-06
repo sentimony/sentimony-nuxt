@@ -25,6 +25,12 @@ useSeoMeta({
   twitterImage: appConfig.brand.defaultOgImage,
   twitterCard: 'summary'
 })
+
+useHead({
+  bodyAttrs: {
+    class: 'homepage-route',
+  },
+})
 </script>
 
 <template>

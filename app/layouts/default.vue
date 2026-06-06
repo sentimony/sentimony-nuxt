@@ -92,6 +92,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
 </script>
 
 <template>
+  <HomepageAtmosphere v-if="isIndex" />
   
   <!-- <Fractal v-if="host == '!localhost'" /> -->
   <Fractal class="z-[1]"/>

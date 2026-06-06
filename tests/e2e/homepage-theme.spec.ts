@@ -4,7 +4,9 @@ const forestUrl = 'https://content.sentimony.com/assets/img/backgrounds/trees-or
 
 async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
   await page.addInitScript((initialTheme) => {
-    localStorage.setItem('theme', initialTheme)
+    if (localStorage.getItem('theme') === null) {
+      localStorage.setItem('theme', initialTheme)
+    }
   }, theme)
   await page.goto(path)
 }
