@@ -13,8 +13,8 @@
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
     "verify:pwa": "node scripts/verify-pwa.mjs",
-    "deploy:stage": "npm run sync:firebase && npx -y netlify-cli@26 deploy --alias stage --context deploy-preview",
-    "deploy:prod": "npm run sync:firebase && npx -y netlify-cli@26 deploy --prod --context production"
+    "deploy:stage": "npm run sync:firebase && npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --alias stage --context deploy-preview",
+    "deploy:prod": "npm run sync:firebase && npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
