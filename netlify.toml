@@ -5,9 +5,6 @@
 [context.production]
   command = "npm run build"
 
-[[context.production.plugins]]
-  package = "@netlify/plugin-lighthouse"
-
 [functions]
   node_bundler = "esbuild"
 
