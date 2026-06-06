@@ -10,11 +10,14 @@
     "postinstall": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt prepare",
     "sync:firebase": "npx -y firebase-tools@15 database:set / public/data/sentimony-db-export.json -P sentimony-db -f",
     "sync:supabase": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots",
     "verify:pwa": "node scripts/verify-pwa.mjs",
     "deploy:stage": "npm run sync:firebase && npx -y netlify-cli@26 deploy --alias stage --context deploy-preview",
     "deploy:prod": "npm run sync:firebase && npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/vite": "^4.3.0",
     "@types/node": "^25.9.1",
     "playwright": "^1.60.0",

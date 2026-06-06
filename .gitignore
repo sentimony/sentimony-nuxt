@@ -24,3 +24,6 @@ Thumbs.db
 /.superpowers/
 # /memory/
 skills-lock.json
+
+/playwright-report/
+/test-results/
