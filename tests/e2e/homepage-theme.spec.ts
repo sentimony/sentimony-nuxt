@@ -20,11 +20,11 @@ async function readAtmosphereStyles(page: Page) {
 }
 
 test('uses one theme-aware forest source only on the homepage', async ({ page }) => {
-  const forestRequests = new Set<string>()
+  const forestRequests: string[] = []
   page.on('request', (request) => {
     const url = request.url()
     if (url.includes('/backgrounds/trees-')) {
-      forestRequests.add(url)
+      forestRequests.push(url)
     }
   })
 
@@ -49,7 +49,7 @@ test('uses one theme-aware forest source only on the homepage', async ({ page })
   const darkStyles = await readAtmosphereStyles(page)
   expect(darkStyles.backgroundImage).toBe(lightStyles.backgroundImage)
   expect(darkStyles.filter).not.toBe(lightStyles.filter)
-  expect([...forestRequests]).toEqual([forestUrl])
+  expect(forestRequests).toEqual([forestUrl])
 
   await page.goto('/contacts')
   await expect(atmosphere).toHaveCount(0)
