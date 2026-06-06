@@ -29,8 +29,8 @@ const imgHeight = computed(() =>
   >
 
     <div
-      class="relative flex items-center justify-center w-[70px] md:w-[140px] p-[5px] md:p-[10px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30 mb-[4px]"
-      :class="isActive ? 'bg-white/20' : ''"
+      class="relative flex items-center justify-center w-[70px] md:w-[140px] p-[5px] md:p-[10px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-black/10 dark:group-hover:bg-white/30 mb-[4px]"
+      :class="isActive ? 'bg-black/10 dark:bg-white/20' : ''"
     >
       <div
         class="w-[60px] md:w-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50 overflow-hidden"
@@ -76,8 +76,8 @@ const imgHeight = computed(() =>
         <!-- <div class="swiper-lazy-preloader"></div> -->
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingPhoto"/> -->
       </div>
-      <div v-if="i.coming_soon" class="text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-green-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Coming Soon</div>
-      <div v-if="i.new" class="text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Out Now</div>
+      <div v-if="i.coming_soon" class="text-white text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-green-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Coming Soon</div>
+      <div v-if="i.new" class="text-white text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Out Now</div>
     </div>
 
     <div class="line-clamp-2 tracking-tight">{{ i.title }}</div>

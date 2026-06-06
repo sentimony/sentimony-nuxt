@@ -33,7 +33,7 @@ watch(() => route.path, () => {
 
 <template>
   <div 
-    class="fixed inset-0"
+    class="fractal-orbit fixed inset-0"
     :class="{ 'animate-[spin2_6.0s_ease-in-out]': isAnimating }"
   >
     <div
@@ -45,7 +45,7 @@ watch(() => route.path, () => {
       }"
     >
       <div
-        class="absolute w-32 h-64 rounded-full transition-all duration-[1.2s] ease-in-out"
+        class="fractal-petal absolute w-32 h-64 rounded-full transition-all duration-[1.2s] ease-in-out"
         :class="{ '!w-64 !h-32 !duration-[4.0s] !delay-[0.0s] animate-[spin2rev_6.0s_ease-in-out]': isAnimating }"
         :style="{
           background: 'radial-gradient(ellipse at 50% 0, rgba(255, 255, 255, 0.05) 0%, rgba(138, 2, 2, 0) 50%, rgba(0, 0, 0, 0.33) 100%)',
@@ -54,3 +54,13 @@ watch(() => route.path, () => {
     </div>
   </div>
 </template>
+
+<style>
+@media (prefers-reduced-motion: reduce) {
+  .fractal-orbit,
+  .fractal-petal {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>

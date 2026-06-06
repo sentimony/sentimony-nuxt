@@ -34,18 +34,17 @@ useHead({
 </script>
 
 <template>
-  <div class="bg-black/50">
+  <div data-testid="homepage-about" class="bg-background/90 dark:bg-black/50">
     <div class="max-w-lg mx-auto px-2 py-10">
       <p>
-        <img class="mx-auto" :src="logoNewUrlv1" :alt="logoNewAltv1" width="60" height="60">
-        <!-- <img class="mx-auto" :src="logoOldUrl" :alt="logoOldAlt" width="60" height="60"> -->
+        <img class="mx-auto invert dark:invert-0" :src="logoNewUrlv1" :alt="logoNewAltv1" width="60" height="60">
       </p>
-      <div class="text-left indent-5 [&>p>a]:text-green-500 hover:[&>p>a]:text-green-300" v-html="aboutDescription" />
+      <div
+        class="text-left indent-5 [&>p>a]:text-emerald-800 [&>p>a:hover]:text-emerald-950 dark:[&>p>a]:text-green-500 dark:[&>p>a:hover]:text-green-300"
+        v-html="aboutDescription"
+      />
       <p>
-        <!-- <img class="mx-auto" :src="logoNewUrlv1" :alt="logoNewAltv1" width="60" height="60"> -->
-        <!-- <img class="mx-auto" :src="logoNewUrlv2" :alt="logoNewAltv3" width="60" height="60"> -->
-        <!-- <img class="mx-auto" :src="logoNewUrlv3" :alt="logoNewAltv3" width="60" height="60"> -->
-        <img class="mx-auto" :src="logoOldUrl" :alt="logoOldAlt" width="60" height="60">
+        <img class="mx-auto invert dark:invert-0" :src="logoOldUrl" :alt="logoOldAlt" width="60" height="60">
       </p>
     </div>
   </div>

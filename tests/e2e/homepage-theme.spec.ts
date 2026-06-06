@@ -11,6 +11,31 @@ async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
   await page.goto(path)
 }
 
+async function waitForHomepageAssets(page: Page) {
+  await page.getByTestId('homepage-atmosphere').waitFor()
+  await page.evaluate(async (url) => {
+    const image = new Image()
+    image.src = url
+    await Promise.all([
+      image.decode(),
+      document.fonts.ready,
+    ])
+  }, forestUrl)
+}
+
+async function waitForHomepageHydration(page: Page) {
+  await page.waitForFunction(() => {
+    const button = document.querySelector('button[aria-label^="Switch to "]')
+    if (!button) return false
+
+    return Object.getOwnPropertySymbols(button).some((symbol) => {
+      if (symbol.description !== '_vei') return false
+      const handlers = Reflect.get(button, symbol) as { onClick?: unknown } | undefined
+      return typeof handlers?.onClick === 'function'
+    })
+  })
+}
+
 async function readAtmosphereStyles(page: Page) {
   return page.getByTestId('homepage-atmosphere').evaluate((element) => {
     const imageLayer = getComputedStyle(element, '::before')
@@ -61,3 +86,153 @@ test('uses one theme-aware forest source only on the homepage', async ({ page })
   })
   expect(nonHomeBackground).toContain('trees-green_v5')
 })
+
+test('persists selected theme across reload', async ({ page }) => {
+  await openWithTheme(page, 'dark')
+  await waitForHomepageHydration(page)
+
+  await page.getByRole('button', { name: 'Switch to light theme' }).click()
+  await expect(page.locator('html')).not.toHaveClass(/dark/)
+
+  await page.reload()
+
+  await expect(page.locator('html')).not.toHaveClass(/dark/)
+  await expect(page.getByRole('button', { name: 'Switch to dark theme' })).toBeVisible()
+})
+
+test('loads only the approved forest asset on the homepage', async ({ page }) => {
+  const cdpSession = await page.context().newCDPSession(page)
+  await cdpSession.send('Network.setCacheDisabled', { cacheDisabled: true })
+  await page.addInitScript(() => performance.setResourceTimingBufferSize(2_000))
+
+  await openWithTheme(page, 'dark')
+  await waitForHomepageAssets(page)
+  await page.waitForFunction((url) => {
+    return performance
+      .getEntriesByType('resource')
+      .some(entry => entry.name === url)
+  }, forestUrl)
+
+  const forestRequests = await page.evaluate(() => {
+    return performance
+      .getEntriesByType('resource')
+      .map(entry => entry.name)
+      .filter(name => name.includes('/backgrounds/trees-'))
+  })
+
+  expect(forestRequests).toEqual([forestUrl])
+})
+
+test('keeps the homepage legible when the forest image is unavailable', async ({ page }) => {
+  await page.route(forestUrl, route => route.abort())
+  await openWithTheme(page, 'light')
+
+  await expect(page.getByTestId('homepage-hero')).toBeVisible()
+  await expect(page.getByTestId('homepage-about')).toBeVisible()
+
+  const fallbackColor = await page.getByTestId('homepage-atmosphere').evaluate((element) => {
+    return getComputedStyle(element).backgroundColor
+  })
+  expect(fallbackColor).not.toBe('rgba(0, 0, 0, 0)')
+})
+
+test('uses theme foregrounds and stable read surfaces', async ({ page }) => {
+  await openWithTheme(page, 'light')
+  await waitForHomepageAssets(page)
+
+  const hero = page.getByTestId('homepage-hero')
+  const about = page.getByTestId('homepage-about')
+  const header = page.getByTestId('site-header')
+
+  const lightStyles = await Promise.all([
+    hero.evaluate((element) => getComputedStyle(element).color),
+    about.evaluate((element) => getComputedStyle(element).backgroundColor),
+    header.evaluate((element) => getComputedStyle(element).backgroundColor),
+  ])
+
+  expect(lightStyles[1]).not.toBe('rgba(0, 0, 0, 0)')
+  expect(lightStyles[2]).not.toBe('rgba(0, 0, 0, 0)')
+
+  await page.getByRole('button', { name: 'Switch to dark theme' }).click()
+  await expect(page.locator('html')).toHaveClass(/dark/)
+
+  const darkStyles = await Promise.all([
+    hero.evaluate((element) => getComputedStyle(element).color),
+    about.evaluate((element) => getComputedStyle(element).backgroundColor),
+    header.evaluate((element) => getComputedStyle(element).backgroundColor),
+  ])
+
+  expect(darkStyles[0]).not.toBe(lightStyles[0])
+  expect(darkStyles[1]).not.toBe(lightStyles[1])
+  expect(darkStyles[2]).not.toBe(lightStyles[2])
+
+  const themeToggle = page.getByRole('button', { name: 'Switch to light theme' })
+  await themeToggle.focus()
+  await expect(themeToggle).toBeFocused()
+  await expect(themeToggle).toHaveClass(/focus-visible:ring-2/)
+})
+
+test('switches instantly with reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.addInitScript(() => {
+    localStorage.setItem('theme', 'dark')
+    const testWindow = window as Window & { __viewTransitionCalls: number }
+    testWindow.__viewTransitionCalls = 0
+    Object.defineProperty(document, 'startViewTransition', {
+      configurable: true,
+      value: () => {
+        testWindow.__viewTransitionCalls += 1
+        return { ready: Promise.resolve() }
+      },
+    })
+  })
+  await page.goto('/')
+  await waitForHomepageHydration(page)
+
+  await page.getByRole('button', { name: 'Switch to light theme' }).click()
+
+  await expect(page.locator('html')).not.toHaveClass(/dark/)
+  const calls = await page.evaluate(() => {
+    return (window as Window & { __viewTransitionCalls: number }).__viewTransitionCalls
+  })
+  expect(calls).toBe(0)
+  await expect(page.locator('.fractal-orbit')).toHaveCSS('animation-name', 'none')
+})
+
+test('switches themes when View Transitions are unavailable', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('theme', 'dark')
+    Object.defineProperty(document, 'startViewTransition', {
+      configurable: true,
+      value: undefined,
+    })
+  })
+  await page.goto('/')
+  await waitForHomepageHydration(page)
+
+  await page.getByRole('button', { name: 'Switch to light theme' }).click()
+
+  await expect(page.locator('html')).not.toHaveClass(/dark/)
+  await expect(page.getByRole('button', { name: 'Switch to dark theme' })).toBeVisible()
+})
+
+for (const viewport of [
+  { name: 'minimum-mobile', width: 320, height: 700 },
+  { name: 'tablet', width: 768, height: 1024 },
+  { name: 'wide-desktop', width: 1440, height: 900 },
+]) {
+  test(`keeps the homepage inside the ${viewport.name} viewport`, async ({ page }) => {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height })
+    await openWithTheme(page, 'light')
+
+    const hero = page.getByTestId('homepage-hero')
+    await expect(hero).toBeVisible()
+    await expect(hero).toBeInViewport()
+
+    const dimensions = await page.evaluate(() => ({
+      clientWidth: document.documentElement.clientWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+    }))
+    expect(dimensions.scrollWidth).toBe(dimensions.clientWidth)
+  })
+}

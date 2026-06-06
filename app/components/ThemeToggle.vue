@@ -6,7 +6,7 @@ const { isDark, toggle } = useTheme()
   <button
     type="button"
     :aria-label="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
-    class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
+    class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-black/10 dark:hover:bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
     @click="toggle($event)"
     v-wave
   >
