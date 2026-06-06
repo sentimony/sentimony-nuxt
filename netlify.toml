@@ -5,11 +5,12 @@
 [context.production]
   command = "npm run build"
 
-[[context.production.plugins]]
-  package = "@netlify/plugin-lighthouse"
-
-[[context.deploy-preview.plugins]]
-  package = "@netlify/plugin-lighthouse"
+# Lighthouse temporarily disabled (slows deploys); uncomment to re-enable.
+# [[context.production.plugins]]
+#   package = "@netlify/plugin-lighthouse"
+#
+# [[context.deploy-preview.plugins]]
+#   package = "@netlify/plugin-lighthouse"
 
 [functions]
   node_bundler = "esbuild"
