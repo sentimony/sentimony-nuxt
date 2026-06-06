@@ -139,7 +139,7 @@ The system is flat by default and separates surfaces with tonal layering, not sh
 ### Named Rules
 **The Tonal Layering Rule.** Surfaces separate by alpha tint, never by raised shadow. Black/white overlays at 5–30% build the entire hierarchy. The only drop-shadow permitted is the soft `0 2px 10px rgba(0,0,0,0.5)` under cover art and badges — anything darker or larger reads as 2014 skeuomorphism and is forbidden.
 
-**The Photographic Depth Rule.** The homepage uses one source photograph, `trees-origin_v1.jpg`, in both themes. Dark mode deepens it into a green-black nocturnal canopy; light mode lowers contrast and saturation beneath a pale green morning veil. Theme identity comes from filters and overlays, never separate exported background images.
+**The Photographic Depth Rule.** Each homepage theme owns its photograph. Dark mode keeps the legacy green-black nocturnal canopy `trees-green_v5.jpg` exactly as the rest of the dark site renders it - no filters, no overlays. Light mode uses the brighter source `trees-origin_v1.jpg` with lowered contrast and saturation beneath a pale green morning veil; its theme identity comes from filters and overlays, never a separately exported edit of the photo.
 
 ## 5. Components
 

@@ -54,22 +54,13 @@
 }
 
 .dark .homepage-atmosphere::before {
-  filter: brightness(0.58) contrast(1.12) saturate(0.68);
+  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02");
+  background-position: 50% 50%;
+  filter: none;
 }
 
 .dark .homepage-atmosphere::after {
-  background:
-    radial-gradient(
-      circle at 50% 40%,
-      oklch(0.3 0.035 155 / 12%) 0%,
-      transparent 52%
-    ),
-    linear-gradient(
-      to bottom,
-      oklch(0.08 0.02 155 / 42%) 0%,
-      oklch(0.12 0.025 155 / 24%) 48%,
-      oklch(0.06 0.015 155 / 68%) 100%
-    );
+  background: none;
 }
 
 .dark body.homepage-route {

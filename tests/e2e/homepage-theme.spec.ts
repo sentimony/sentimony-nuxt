@@ -1,6 +1,9 @@
 import { expect, test, type Page } from '@playwright/test'
 
-const forestUrl = 'https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg'
+const forestUrls = {
+  light: 'https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg',
+  dark: 'https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02',
+} as const
 
 async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
   await page.addInitScript((initialTheme) => {
@@ -11,7 +14,7 @@ async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
   await page.goto(path)
 }
 
-async function waitForHomepageAssets(page: Page) {
+async function waitForHomepageAssets(page: Page, theme: 'light' | 'dark') {
   await page.getByTestId('homepage-atmosphere').waitFor()
   await page.evaluate(async (url) => {
     const image = new Image()
@@ -20,7 +23,7 @@ async function waitForHomepageAssets(page: Page) {
       image.decode(),
       document.fonts.ready,
     ])
-  }, forestUrl)
+  }, forestUrls[theme])
 }
 
 async function waitForHomepageHydration(page: Page) {
@@ -46,7 +49,7 @@ async function readAtmosphereStyles(page: Page) {
   })
 }
 
-test('uses one theme-aware forest source only on the homepage', async ({ page }) => {
+test('uses theme-specific forest sources only on the homepage', async ({ page }) => {
   const forestRequests: string[] = []
   page.on('request', (request) => {
     const url = request.url()
@@ -68,15 +71,15 @@ test('uses one theme-aware forest source only on the homepage', async ({ page })
   expect(homeBackground).toBe('none')
 
   const lightStyles = await readAtmosphereStyles(page)
-  expect(lightStyles.backgroundImage).toContain(forestUrl)
+  expect(lightStyles.backgroundImage).toContain(forestUrls.light)
 
   await page.getByRole('button', { name: 'Switch to dark theme' }).click()
   await expect(page.locator('html')).toHaveClass(/dark/)
 
   const darkStyles = await readAtmosphereStyles(page)
-  expect(darkStyles.backgroundImage).toBe(lightStyles.backgroundImage)
-  expect(darkStyles.filter).not.toBe(lightStyles.filter)
-  expect(forestRequests).toEqual([forestUrl])
+  expect(darkStyles.backgroundImage).toContain(forestUrls.dark)
+  expect(darkStyles.backgroundImage).not.toContain(forestUrls.light)
+  expect(forestRequests).toEqual([forestUrls.light, forestUrls.dark])
 
   await page.goto('/contacts')
   await expect(atmosphere).toHaveCount(0)
@@ -106,12 +109,12 @@ test('loads only the approved forest asset on the homepage', async ({ page }) =>
   await page.addInitScript(() => performance.setResourceTimingBufferSize(2_000))
 
   await openWithTheme(page, 'dark')
-  await waitForHomepageAssets(page)
+  await waitForHomepageAssets(page, 'dark')
   await page.waitForFunction((url) => {
     return performance
       .getEntriesByType('resource')
       .some(entry => entry.name === url)
-  }, forestUrl)
+  }, forestUrls.dark)
 
   const forestRequests = await page.evaluate(() => {
     return performance
@@ -120,11 +123,11 @@ test('loads only the approved forest asset on the homepage', async ({ page }) =>
       .filter(name => name.includes('/backgrounds/trees-'))
   })
 
-  expect(forestRequests).toEqual([forestUrl])
+  expect(forestRequests).toEqual([forestUrls.dark])
 })
 
 test('keeps the homepage legible when the forest image is unavailable', async ({ page }) => {
-  await page.route(forestUrl, route => route.abort())
+  await page.route(forestUrls.light, route => route.abort())
   await openWithTheme(page, 'light')
 
   await expect(page.getByTestId('homepage-hero')).toBeVisible()
@@ -138,7 +141,7 @@ test('keeps the homepage legible when the forest image is unavailable', async ({
 
 test('uses theme foregrounds and stable read surfaces', async ({ page }) => {
   await openWithTheme(page, 'light')
-  await waitForHomepageAssets(page)
+  await waitForHomepageAssets(page, 'light')
 
   const hero = page.getByTestId('homepage-hero')
   const about = page.getByTestId('homepage-about')
@@ -240,7 +243,7 @@ for (const viewport of [
 for (const theme of ['light', 'dark'] as const) {
   test(`matches the approved ${theme} homepage treatment`, async ({ page }) => {
     await openWithTheme(page, theme)
-    await waitForHomepageAssets(page)
+    await waitForHomepageAssets(page, theme)
 
     await expect(page).toHaveScreenshot(`homepage-${theme}.png`, {
       animations: 'disabled',
