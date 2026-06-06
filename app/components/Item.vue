@@ -5,6 +5,18 @@ const props = defineProps<{
   i: ItemEntity
   category?: ItemCategory
 }>()
+
+const aspectClass = computed(() =>
+  props.category === 'video' ? 'aspect-video'
+    : props.category === 'event' ? 'aspect-[440/620]'
+      : 'aspect-square'
+)
+const imgWidth = computed(() =>
+  props.category === 'video' ? 240 : props.category === 'event' ? 220 : 120
+)
+const imgHeight = computed(() =>
+  props.category === 'video' ? 135 : props.category === 'event' ? 310 : 120
+)
 </script>
 
 <template>
@@ -17,44 +29,47 @@ const props = defineProps<{
   >
 
     <div
-      class="relative flex items-center justify-center w-[70px] md:w-[140px] h-[70px] md:h-[140px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30 mb-[4px]"
+      class="relative flex items-center justify-center w-[70px] md:w-[140px] p-[5px] md:p-[10px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-white/30 mb-[4px]"
       :class="isActive ? 'bg-white/20' : ''"
     >
-      <div class="size-[60px] md:size-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50">
+      <div
+        class="w-[60px] md:w-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50 overflow-hidden"
+        :class="aspectClass"
+      >
         <NuxtImg
-          class="rounded-sm size-[60px] md:size-[120px] object-cover"
+          class="rounded-sm w-full h-full object-cover"
           v-if="i.cover_th"
           :src="i.cover_th"
           :alt="i.title + ' Cover Thumbnail'"
-          width="120"
-          height="120"
+          :width="imgWidth"
+          :height="imgHeight"
           fit="cover"
           loading="lazy"
         />
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingCover"/> -->
         <NuxtImg
-          class="rounded-sm size-[60px] md:size-[120px] object-cover"
+          class="rounded-sm w-full h-full object-cover"
           v-if="i.photo_th"
           :src="i.photo_th"
           :alt="i.title + ' Photo Thumbnail'"
-          width="120"
-          height="120"
+          :width="imgWidth"
+          :height="imgHeight"
           fit="cover"
           loading="lazy"
         />
         <!-- <img
-          class="rounded-sm size-[60px] md:size-[120px] object-cover"
+          class="rounded-sm w-full h-full object-cover"
           v-if="i.artwork_th"
           :src="i.artwork_th"
           :alt="i.title + ' Artwork Thumbnail'"
         /> -->
         <NuxtImg
-          class="rounded-sm size-[60px] md:size-[120px] object-cover"
+          class="rounded-sm w-full h-full object-cover"
           v-if="i.flyer_a_xl"
           :src="i.flyer_a_xl"
           :alt="i.title + ' Flyer Thumbnail'"
-          width="120"
-          height="120"
+          :width="imgWidth"
+          :height="imgHeight"
           fit="cover"
           loading="lazy"
         />

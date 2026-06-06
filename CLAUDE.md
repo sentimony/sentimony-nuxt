@@ -23,6 +23,8 @@ npx nuxi typecheck      # vue-tsc type check
 
 Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). Optional `RELEASES_SOURCE=supabase` switches a data source from Firebase to Supabase.
 
+The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed `TMPDIR=/tmp` - don't remove it. Nuxt 4.4.7's vite-node IPC uses a Unix socket under `os.tmpdir()`; on macOS the default `$TMPDIR` (`/var/folders/…/T/`) pushes the socket path past the 104-char `sun_path` limit → `connect EINVAL …sock` on the first request. `/tmp` keeps it short. Harmless on Linux/Netlify (already short) and Windows (named pipes, not affected).
+
 ## Architecture
 
 **Data sources (dual-backend).** Server handlers (`server/api/`) use `defineCachedEventHandler` (1h cache) and check `process.env.RELEASES_SOURCE` to fetch from Supabase or Firebase - Firebase is legacy/default, Supabase the migration target. Firebase Realtime DB holds content (releases, artists, videos, events, playlists, friends); Supabase holds Postgres content (migration target) + auth + likes/favourites.
@@ -37,7 +39,7 @@ Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) -
 
 **Rendering (ISR).** Production routes use ISR `maxAge: 86400` (`nuxt.config.ts` `routeRules`); disabled in dev to dodge an `unstorage` ENOTDIR bug. API routes are CDN-cached 1h + 24h SWR.
 
-**Styling (Tailwind v4).** Via the `@tailwindcss/vite` plugin - **no** `tailwind.config`/`postcss.config`. Theme tokens, dark variant, always-dark palette, and a global `input:-webkit-autofill` override live in `app/assets/css/tailwind.css` (`@theme` / `@theme inline`).
+**Styling (Tailwind v4).** Via the `@tailwindcss/vite` plugin - **no** `tailwind.config`/`postcss.config`. Theme tokens (light in `:root`, dark in `.dark` - source order matters since both are specificity-equal), the `dark` variant, and a global `input:-webkit-autofill` override (tied to `var(--foreground)`) live in `app/assets/css/tailwind.css` (`@theme` / `@theme inline`). `body` splits per theme; `.dark body` keeps the forest bg + white text. Default is dark (set pre-paint by an inline script in `app.head`, persisted in `localStorage['theme']`); `useTheme()` + `<ThemeToggle>` switch with a View Transitions circular reveal. Many components still hardcode `text-white/X` etc. (baked in for dark) - light theme is token-level only, not yet polished per-component.
 
 **PWA.** Manual SW (no module): `public/custom-sw.js` (precache + offline fallback), registered by `app/plugins/pwa.client.ts` **in production only** (`import.meta.dev` guard) to avoid stale `localhost:3000` caches. Assets: `public/site.webmanifest`, `public/offline.html`. Run `npm run verify:pwa` after touching these.
 

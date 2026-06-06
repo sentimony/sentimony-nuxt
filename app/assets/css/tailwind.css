@@ -10,6 +10,35 @@
 :root {
   --radius: 0.5rem;
 
+  --background: oklch(0.97 0.01 155);
+  --foreground: oklch(0.18 0.02 155);
+
+  --card: oklch(0 0 0 / 4%);
+  --card-foreground: oklch(0.18 0.02 155);
+
+  --popover: oklch(0.99 0.005 155);
+  --popover-foreground: oklch(0.18 0.02 155);
+
+  --primary: oklch(0.2 0.02 155);
+  --primary-foreground: oklch(0.98 0 0);
+
+  --secondary: oklch(0 0 0 / 6%);
+  --secondary-foreground: oklch(0.18 0.02 155);
+
+  --muted: oklch(0 0 0 / 5%);
+  --muted-foreground: oklch(0 0 0 / 50%);
+
+  --accent: oklch(0 0 0 / 8%);
+  --accent-foreground: oklch(0.18 0.02 155);
+
+  --destructive: oklch(0.6 0.2 22);
+
+  --border: oklch(0 0 0 / 15%);
+  --input: oklch(0 0 0 / 15%);
+  --ring: oklch(0 0 0 / 40%);
+}
+
+.dark {
   --background: oklch(0.16 0.02 155);
   --foreground: oklch(1 0 0);
 
@@ -80,18 +109,30 @@
 
 body {
   @apply
-  min-w-[320px] font-montserrat antialiased text-xs md:text-sm lg:text-base text-white text-center
+  min-w-[320px] font-montserrat antialiased text-xs md:text-sm lg:text-base text-center
+  text-foreground bg-background
+}
+
+.dark body {
+  @apply
+  text-white
   bg-green-950
   bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02')]
   bg-center bg-no-repeat bg-cover bg-fixed
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-text-fill-color: #fff !important;
-  caret-color: #fff;
+  -webkit-text-fill-color: var(--foreground) !important;
+  caret-color: var(--foreground);
   transition: background-color 600000s 0s;
 }
 

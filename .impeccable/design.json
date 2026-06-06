@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-06T00:00:00Z",
+  "title": "Design System: Sentimony Records",
+  "extensions": {
+    "colorMeta": {
+      "forest-night": {
+        "role": "primary",
+        "displayName": "Forest Night",
+        "canonical": "oklch(0.16 0.02 155)",
+        "tonalRamp": ["oklch(0.15 0.02 155)", "oklch(0.24 0.02 155)", "oklch(0.34 0.02 155)", "oklch(0.45 0.02 155)", "oklch(0.56 0.018 155)", "oklch(0.7 0.015 155)", "oklch(0.85 0.012 155)", "oklch(0.97 0.01 155)"]
+      },
+      "forest-ink": {
+        "role": "neutral",
+        "displayName": "Forest Ink",
+        "canonical": "oklch(0.18 0.02 155)",
+        "tonalRamp": ["oklch(0.16 0.02 155)", "oklch(0.26 0.02 155)", "oklch(0.36 0.02 155)", "oklch(0.46 0.018 155)", "oklch(0.58 0.016 155)", "oklch(0.72 0.013 155)", "oklch(0.86 0.011 155)", "oklch(0.97 0.01 155)"]
+      },
+      "bone-white": {
+        "role": "neutral",
+        "displayName": "Bone White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": ["oklch(0.18 0 0)", "oklch(0.3 0 0)", "oklch(0.42 0 0)", "oklch(0.54 0 0)", "oklch(0.66 0 0)", "oklch(0.78 0 0)", "oklch(0.9 0 0)", "oklch(1 0 0)"]
+      },
+      "oxblood": {
+        "role": "secondary",
+        "displayName": "Oxblood",
+        "canonical": "oklch(0.34 0.16 28)",
+        "tonalRamp": ["oklch(0.2 0.12 28)", "oklch(0.27 0.14 28)", "oklch(0.34 0.16 28)", "oklch(0.44 0.17 28)", "oklch(0.55 0.18 28)", "oklch(0.68 0.15 28)", "oklch(0.8 0.1 28)", "oklch(0.92 0.05 28)"]
+      },
+      "spore-sage": {
+        "role": "secondary",
+        "displayName": "Spore Sage",
+        "canonical": "oklch(0.82 0.03 150)",
+        "tonalRamp": ["oklch(0.3 0.03 150)", "oklch(0.42 0.035 150)", "oklch(0.54 0.04 150)", "oklch(0.66 0.04 150)", "oklch(0.74 0.035 150)", "oklch(0.82 0.03 150)", "oklch(0.9 0.02 150)", "oklch(0.96 0.01 150)"]
+      },
+      "signal-red": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "oklch(0.6 0.2 22)",
+        "tonalRamp": ["oklch(0.3 0.13 22)", "oklch(0.4 0.16 22)", "oklch(0.5 0.19 22)", "oklch(0.6 0.2 22)", "oklch(0.68 0.19 22)", "oklch(0.78 0.15 22)", "oklch(0.87 0.09 22)", "oklch(0.94 0.04 22)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Julius Sans One, uppercase, wide tracking. Hero wordmark only." },
+      "body": { "displayName": "Body", "purpose": "Montserrat Regular. All reading copy, navigation, UI. Center-aligned by default." },
+      "label": { "displayName": "Label", "purpose": "Montserrat, uppercase, 0.2em+ tracking. Micro labels and badges, 4 words max." }
+    },
+    "shadows": [
+      { "name": "cover-lift", "value": "0 2px 10px 0 rgba(0,0,0,0.5)", "purpose": "The single sanctioned drop-shadow. Lifts cover art / thumbnails and status badges off the canvas." },
+      { "name": "frosted-header", "value": "backdrop-filter: blur(4px)", "purpose": "The sticky header floats as a translucent frosted bar over the forest photo." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default ease-in-out for color, background, and transform state transitions (200-300ms)." },
+      { "name": "theme-reveal", "value": "clip-path circle expand, 450ms ease-in-out", "purpose": "View Transitions circular reveal from the toggle's click point when switching theme; honors prefers-reduced-motion." },
+      { "name": "v-wave-ripple", "value": "material ripple via v-wave directive", "purpose": "Tactile ripple on every interactive link, nav item, and button." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Inverted-ink primary action: white fill with dark text in the default dark theme.",
+      "html": "<button class=\"ds-btn-primary\">Listen now</button>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:36px; padding:8px 16px; border:none; border-radius:6px; background:oklch(1 0 0); color:oklch(0.18 0.02 155); font-family:'Montserrat',sans-serif; font-size:14px; font-weight:400; cursor:pointer; transition:background .2s ease-in-out, transform .2s ease-in-out; } .ds-btn-primary:hover { background:oklch(1 0 0 / 90%); } .ds-btn-primary:active { transform:translateY(1px); } .ds-btn-primary:focus-visible { outline:none; box-shadow:0 0 0 3px oklch(1 0 0 / 50%); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Bare border on a translucent fill; the header Sign In action. Icon inlined.",
+      "html": "<button class=\"ds-btn-outline\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4\"/><polyline points=\"10 17 15 12 10 7\"/><line x1=\"15\" y1=\"12\" x2=\"3\" y2=\"12\"/></svg><span>Sign In</span></button>",
+      "css": ".ds-btn-outline { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:36px; padding:8px 16px; border:1px solid oklch(1 0 0 / 20%); border-radius:6px; background:oklch(1 0 0 / 4%); color:oklch(1 0 0); font-family:'Montserrat',sans-serif; font-size:14px; font-weight:400; cursor:pointer; transition:background .3s ease-in-out, border-color .3s ease-in-out; } .ds-btn-outline:hover { background:oklch(1 0 0 / 12%); border-color:oklch(1 0 0 / 40%); } .ds-btn-outline:focus-visible { outline:none; box-shadow:0 0 0 3px oklch(1 0 0 / 50%); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation item: ghost button that frosts on hover and holds a subtle fill when active.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" aria-current=\"page\" href=\"#\">Releases</a><a class=\"ds-nav-link\" href=\"#\">Artists</a><a class=\"ds-nav-link\" href=\"#\">Videos</a></nav>",
+      "css": ".ds-nav { display:flex; gap:4px; } .ds-nav-link { display:inline-flex; align-items:center; justify-content:center; height:56px; padding:0 16px; border-radius:2px; background:transparent; color:oklch(1 0 0); font-family:'Montserrat',sans-serif; font-size:16px; font-weight:400; text-decoration:none; transition:background-color .3s ease-in-out; } .ds-nav-link:hover { background:oklch(1 0 0 / 30%); } .ds-nav-link[aria-current=\"page\"] { background:oklch(1 0 0 / 20%); }"
+    },
+    {
+      "name": "Thumbnail Card",
+      "kind": "card",
+      "refersTo": "card-thumb",
+      "description": "The signature Item card: cover framed in black/50 with the cover-lift shadow and a 2-line title. Hover raises a translucent backdrop.",
+      "html": "<a class=\"ds-thumb\" href=\"#\"><span class=\"ds-thumb__frame\"><span class=\"ds-thumb__art\"></span></span><span class=\"ds-thumb__title\">Time Loop: Beyond Borders</span></a>",
+      "css": ".ds-thumb { display:block; width:140px; text-decoration:none; color:oklch(1 0 0); font-family:'Montserrat',sans-serif; } .ds-thumb__frame { display:block; width:120px; aspect-ratio:1 / 1; margin:0 auto 6px; border-radius:4px; background:oklch(0 0 0 / 50%); box-shadow:0 2px 10px 0 rgba(0,0,0,0.5); overflow:hidden; transition:outline .2s ease-in-out; outline:0 solid oklch(1 0 0 / 0%); } .ds-thumb__art { display:block; width:100%; height:100%; background:linear-gradient(135deg, oklch(0.45 0.09 155), oklch(0.22 0.05 320)); } .ds-thumb__title { display:block; font-size:14px; line-height:1.3; } .ds-thumb:hover .ds-thumb__frame { outline:6px solid oklch(1 0 0 / 12%); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "shadcn input: single border on a translucent fill, 3px ring on focus, on-theme placeholder.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"your@email.com\" />",
+      "css": ".ds-input { width:240px; height:36px; padding:0 12px; border:1px solid oklch(1 0 0 / 20%); border-radius:6px; background:oklch(1 0 0 / 4%); color:oklch(1 0 0); font-family:'Montserrat',sans-serif; font-size:14px; } .ds-input::placeholder { color:oklch(1 0 0 / 50%); } .ds-input:focus-visible { outline:none; border-color:oklch(1 0 0 / 50%); box-shadow:0 0 0 3px oklch(1 0 0 / 50%); }"
+    },
+    {
+      "name": "Hero Wordmark",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "The home hero thesis: Julius Sans One capitals, white over the forest, size and tracking scaling together.",
+      "html": "<div class=\"ds-hero\"><div class=\"ds-hero__title\">Sentimony</div><div class=\"ds-hero__sub\">Records</div><div class=\"ds-hero__desc\">Psychedelic Music Label</div></div>",
+      "css": ".ds-hero { font-family:'Julius Sans One',sans-serif; font-weight:400; text-transform:uppercase; color:oklch(1 0 0); text-align:center; line-height:1.4; } .ds-hero__title { font-size:70px; letter-spacing:8px; margin:0 0 0.2em; } .ds-hero__sub { font-size:70px; letter-spacing:11px; } .ds-hero__desc { font-size:16px; letter-spacing:12px; margin-top:1em; }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "badge-out-now",
+      "description": "Tiny corner status tag on cover art: Out Now (red-600) or Coming Soon (green-600).",
+      "html": "<span class=\"ds-badge ds-badge--out\">Out Now</span> <span class=\"ds-badge ds-badge--soon\">Coming Soon</span>",
+      "css": ".ds-badge { display:inline-block; padding:4px 6px; border-radius:2px; font-family:'Montserrat',sans-serif; font-size:10px; line-height:1; color:#fff; box-shadow:0 2px 10px 0 rgba(0,0,0,0.5); } .ds-badge--out { background:#dc2626; } .ds-badge--soon { background:#16a34a; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Forest Séance",
+    "overview": "Sentimony is a nocturnal psychedelic rite held in a green-black forest. The default theme is dark, and the deepest layer of the page is a photographic canopy of trees seen at dusk; everything above it floats in translucent green-tinted neutrals. The interface does not announce itself. It is quiet, atmospheric, and near-monochrome, so that the music's artwork and the artists' names are the only things that carry real color. Hierarchy is built from scale, letter-spacing, and translucency, never from loud chrome. The type carries the ritual: display words are set in the thin inscriptional capitals of Julius Sans One and widen their tracking as they grow, while body and UI sit in a single regular weight of Montserrat. There is no bold anywhere; the whole site is drawn with one stroke weight. The single concession to heat is oxblood, a clotted blood-red that appears only on hover-revealed micro-surfaces.",
+    "keyCharacteristics": [
+      "Dark-default, with a photographic forest as the lowest layer; light theme is a pale-mist secondary.",
+      "Green-tinted monochrome neutrals (every neutral carries hue 155, no true grays).",
+      "One stroke weight (Regular 400) for both display and body; hierarchy from scale + tracking + case.",
+      "Tonal layering by alpha, not shadow; depth comes from translucency and the background photo.",
+      "A single rare accent (oxblood #8a0202); color otherwise belongs to artwork."
+    ],
+    "rules": [
+      { "name": "The Green Monochrome Rule", "body": "Every neutral carries hue 155 at low chroma (0.01-0.02). There are no true grays. A neutral that reads cool-blue or warm-cream is wrong; tint it back toward forest green.", "section": "colors" },
+      { "name": "The Oxblood Rule", "body": "Oxblood (#8a0202) is the only saturated hue permitted to touch chrome, and only on hover-revealed micro-surfaces. Forbidden on buttons, headings, backgrounds, and anything visible at rest.", "section": "colors" },
+      { "name": "The Artwork-Owns-Color Rule", "body": "The interface is monochrome so release covers, artist photos, and event flyers are the only saturated objects on screen. Never add a colored UI element that competes with the art.", "section": "colors" },
+      { "name": "The Single-Weight Rule", "body": "Only Regular (400) is loaded for both families. Build all hierarchy from scale, letter-spacing, and case. Synthetic bold is forbidden.", "section": "typography" },
+      { "name": "The Breathing Caps Rule", "body": "Display capitals widen their tracking as they grow (about 0.05em at 40px up to 0.14em at 100px). Tight display type is forbidden; large capitals must breathe like a slow chant.", "section": "typography" },
+      { "name": "The Tonal Layering Rule", "body": "Surfaces separate by alpha tint, never raised shadow. Black/white overlays at 5-30% build the hierarchy. The only drop-shadow permitted is the soft 0 2px 10px rgba(0,0,0,0.5) under cover art and badges.", "section": "elevation" },
+      { "name": "The Photographic Depth Rule", "body": "In dark mode the deepest layer is the forest photograph, fixed and full-bleed; frosted blurred panels float over it. Never flatten the dark theme to a solid fill that hides the photo.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every neutral on hue 155 at low chroma (0.01-0.02). Tint toward forest green, never cool-blue or warm-cream.",
+      "Do build hierarchy from scale, letter-spacing, and case. Only Regular (400) exists, go larger or wider, never heavier.",
+      "Do widen display tracking as type grows (up to 0.14em at 100px). Large capitals must breathe.",
+      "Do separate surfaces with alpha overlays (5-30%) tinted by the theme's ink (white/X in dark, black/X in light). Use the dark: variant pattern so the dark theme stays pixel-identical when you touch the light one.",
+      "Do let release covers, artist photos, and flyers be the only saturated objects on screen.",
+      "Do keep the dark theme's forest photograph visible; float frosted, blurred panels over it.",
+      "Do set borders per instance (e.g. border-white/20); there is no global border-border base layer."
+    ],
+    "donts": [
+      "Don't introduce a cream / sand / beige background. The light theme is pale green Mist (oklch(0.97 0.01 155)), never warm paper.",
+      "Don't add neon cyber-rave chrome: no purple-pink gradients, no glow, no glassmorphism as decoration, no gradient text.",
+      "Don't build a corporate-streaming wall of flat, bright, identical cards. Cards here are quiet thumbnails framed in black/50.",
+      "Don't ship generic SaaS / AI-dashboard scaffolding: no cream hero, no tiny uppercase eyebrow above every section, no numbered 01 / 02 section markers, no identical icon-heading-text card grids.",
+      "Don't use 2014 skeuomorphism: no deep shadows, no bevels, no gradient or embossed buttons. The only shadow allowed is 0 2px 10px rgba(0,0,0,0.5).",
+      "Don't use Oxblood (#8a0202) anywhere visible at rest. It is hover-only, micro-surface-only.",
+      "Don't reach for bold or synthetic-bold weights, and never set body sentences in all-caps. Uppercase is for display and labels of 4 words or fewer.",
+      "Don't use border-left/border-right greater than 1px as a colored accent stripe."
+    ]
+  }
+}
