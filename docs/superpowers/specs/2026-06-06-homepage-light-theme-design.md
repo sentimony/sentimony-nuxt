@@ -1,7 +1,8 @@
 # Homepage Light Theme Design
 
 **Date:** 2026-06-06
-**Status:** Approved design, awaiting implementation plan
+**Status:** Implemented
+**Implemented:** 2026-06-06
 **Surface:** `/`
 
 ## Goal

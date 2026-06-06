@@ -236,3 +236,18 @@ for (const viewport of [
     expect(dimensions.scrollWidth).toBe(dimensions.clientWidth)
   })
 }
+
+for (const theme of ['light', 'dark'] as const) {
+  test(`matches the approved ${theme} homepage treatment`, async ({ page }) => {
+    await openWithTheme(page, theme)
+    await waitForHomepageAssets(page)
+
+    await expect(page).toHaveScreenshot(`homepage-${theme}.png`, {
+      animations: 'disabled',
+      mask: [
+        page.locator('.swiper-release'),
+        page.locator('.swiper-artist'),
+      ],
+    })
+  })
+}
