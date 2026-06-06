@@ -21,13 +21,13 @@ npm run verify:pwa      # validate manifest + custom service worker
 npx nuxi typecheck      # vue-tsc type check
 ```
 
-Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). Optional `RELEASES_SOURCE=supabase` switches a data source from Firebase to Supabase. `NETLIFY_AUTH_TOKEN` in `.env/.env.local` (personal access token of the site-owning Netlify account) makes `deploy:stage`/`deploy:prod` independent of the active `netlify switch` account.
+Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). Optional `RELEASES_SOURCE=supabase` switches a data source from Firebase to Supabase - **baked at build time** into `runtimeConfig.releasesSource` (Netlify UI env vars never reach function runtime on CLI deploys); runtime override via `NUXT_RELEASES_SOURCE` still works where env injection exists. `NETLIFY_AUTH_TOKEN` in `.env/.env.local` (personal access token of the site-owning Netlify account) makes `deploy:stage`/`deploy:prod` independent of the active `netlify switch` account.
 
 The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed `TMPDIR=/tmp` - don't remove it. Nuxt 4.4.7's vite-node IPC uses a Unix socket under `os.tmpdir()`; on macOS the default `$TMPDIR` (`/var/folders/…/T/`) pushes the socket path past the 104-char `sun_path` limit → `connect EINVAL …sock` on the first request. `/tmp` keeps it short. Harmless on Linux/Netlify (already short) and Windows (named pipes, not affected).
 
 ## Architecture
 
-**Data sources (dual-backend).** Server handlers (`server/api/`) use `defineCachedEventHandler` (1h cache) and check `process.env.RELEASES_SOURCE` to fetch from Supabase or Firebase - Firebase is legacy/default, Supabase the migration target. Firebase Realtime DB holds content (releases, artists, videos, events, playlists, friends); Supabase holds Postgres content (migration target) + auth + likes/favourites.
+**Data sources (dual-backend).** Server handlers (`server/api/`) use `defineCachedEventHandler` (1h cache) and check `useRuntimeConfig().releasesSource` to fetch from Supabase or Firebase - Firebase is legacy/default, Supabase the migration target. Firebase Realtime DB holds content (releases, artists, videos, events, playlists, friends); Supabase holds Postgres content (migration target) + auth + likes/favourites.
 
 **Server utils.** `server/utils/supabase.ts` - anon client + snake_case→camelCase mappers. `server/utils/supabaseAdmin.ts` - service-role client for privileged writes.
 

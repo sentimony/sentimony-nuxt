@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
   const releaseSlug = getRouterParam(event, 'release_slug')
   if (!releaseSlug) throw createError({ statusCode: 400, statusMessage: 'Missing release_slug' })
 
-  if (process.env.RELEASES_SOURCE === 'firebase') {
+  if (useRuntimeConfig().releasesSource === 'firebase') {
     const { public: { firebaseBase } } = useRuntimeConfig()
     const url = `${firebaseBase}/tracks.json`
     const allTracks = await $fetch(url)
