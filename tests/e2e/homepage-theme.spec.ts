@@ -20,13 +20,28 @@ async function readAtmosphereStyles(page: Page) {
 }
 
 test('uses one theme-aware forest source only on the homepage', async ({ page }) => {
+  const forestRequests = new Set<string>()
+  page.on('request', (request) => {
+    const url = request.url()
+    if (url.includes('/backgrounds/trees-')) {
+      forestRequests.add(url)
+    }
+  })
+
   await openWithTheme(page, 'light')
 
   const atmosphere = page.getByTestId('homepage-atmosphere')
   await expect(atmosphere).toBeVisible()
 
+  const body = page.locator('body')
+  await expect(body).toHaveClass(/homepage-route/)
+  const homeBackground = await body.evaluate((element) => {
+    return getComputedStyle(element).backgroundImage
+  })
+  expect(homeBackground).toBe('none')
+
   const lightStyles = await readAtmosphereStyles(page)
-  expect(lightStyles.backgroundImage).toContain('trees-origin_v1.jpg')
+  expect(lightStyles.backgroundImage).toContain(forestUrl)
 
   await page.getByRole('button', { name: 'Switch to dark theme' }).click()
   await expect(page.locator('html')).toHaveClass(/dark/)
@@ -34,16 +49,13 @@ test('uses one theme-aware forest source only on the homepage', async ({ page })
   const darkStyles = await readAtmosphereStyles(page)
   expect(darkStyles.backgroundImage).toBe(lightStyles.backgroundImage)
   expect(darkStyles.filter).not.toBe(lightStyles.filter)
+  expect([...forestRequests]).toEqual([forestUrl])
 
   await page.goto('/contacts')
   await expect(atmosphere).toHaveCount(0)
-  await expect(page.locator('body')).not.toHaveClass(/homepage-route/)
-  const nonHomeBackground = await page.locator('body').evaluate((element) => {
+  await expect(body).not.toHaveClass(/homepage-route/)
+  const nonHomeBackground = await body.evaluate((element) => {
     return getComputedStyle(element).backgroundImage
   })
   expect(nonHomeBackground).toContain('trees-green_v5')
-})
-
-test('references the approved source URL', async () => {
-  expect(forestUrl).toBe('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg')
 })

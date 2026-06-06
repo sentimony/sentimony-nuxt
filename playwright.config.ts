@@ -44,7 +44,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev -- --port 3000',
+    command: 'npm run dev -- --port=3000',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
