@@ -51,6 +51,7 @@ watch(() => route.path, () => { isOpen.value = false })
       >
         <VisuallyHidden>
           <DialogTitle>Menu</DialogTitle>
+          <DialogDescription>Site navigation and social links</DialogDescription>
         </VisuallyHidden>
 
         <NuxtLink
