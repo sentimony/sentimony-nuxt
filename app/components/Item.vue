@@ -29,8 +29,8 @@ const imgHeight = computed(() =>
   >
 
     <div
-      class="relative flex items-center justify-center w-[70px] md:w-[140px] p-[5px] md:p-[10px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-black/10 dark:group-hover:bg-white/30 mb-[4px]"
-      :class="isActive ? 'bg-black/10 dark:bg-white/20' : ''"
+      class="relative flex items-center justify-center w-[70px] md:w-[140px] p-[5px] md:p-[10px] mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-black/30 dark:group-hover:bg-white/30 mb-[4px]"
+      :class="isActive ? 'bg-black/20 dark:bg-white/20' : ''"
     >
       <div
         class="w-[60px] md:w-[120px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50 overflow-hidden"
