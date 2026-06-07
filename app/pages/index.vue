@@ -34,8 +34,13 @@ useHead({
 </script>
 
 <template>
-  <div data-testid="homepage-about" class="bg-background/90 dark:bg-black/50">
-    <div class="max-w-lg mx-auto px-2 py-10">
+  <div data-testid="homepage-about" class="relative overflow-hidden bg-white dark:bg-black">
+    <div
+      class="absolute inset-0 bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg')] bg-cover bg-center"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-white/50 dark:bg-black/50" aria-hidden="true" />
+    <div class="relative max-w-lg mx-auto px-2 py-10">
       <p>
         <img class="mx-auto invert dark:invert-0" :src="logoNewUrlv1" :alt="logoNewAltv1" width="60" height="60">
       </p>
@@ -43,6 +48,14 @@ useHead({
         class="text-left indent-5 [&>p>a]:text-emerald-800 [&>p>a:hover]:text-emerald-950 dark:[&>p>a]:text-green-500 dark:[&>p>a:hover]:text-green-300"
         v-html="aboutDescription"
       />
+      <NuxtLink to="/artist/irukanji" class="mt-8 mb-4 flex justify-center">
+        <img
+          src="https://content.sentimony.com/assets/img/artists/irukanji-01_th.jpg"
+          alt="Irukanji avatar"
+          width="80" height="80"
+          class="size-20 rounded-full object-cover ring-1 ring-black/30 dark:ring-white/30"
+        >
+      </NuxtLink>
       <p>
         <img class="mx-auto invert dark:invert-0" :src="logoOldUrl" :alt="logoOldAlt" width="60" height="60">
       </p>

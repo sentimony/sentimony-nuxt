@@ -3,6 +3,7 @@ import { expect, test, type Page } from '@playwright/test'
 const forestUrls = {
   light: 'https://content.sentimony.com/assets/img/backgrounds/trees-white_v1.jpg',
   dark: 'https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02',
+  about: 'https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg',
 } as const
 
 async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
@@ -16,14 +17,16 @@ async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
 
 async function waitForHomepageAssets(page: Page, theme: 'light' | 'dark') {
   await page.getByTestId('homepage-atmosphere').waitFor()
-  await page.evaluate(async (url) => {
-    const image = new Image()
-    image.src = url
+  await page.evaluate(async (urls) => {
     await Promise.all([
-      image.decode(),
+      ...urls.map((url) => {
+        const image = new Image()
+        image.src = url
+        return image.decode()
+      }),
       document.fonts.ready,
     ])
-  }, forestUrls[theme])
+  }, [forestUrls[theme], forestUrls.about])
 }
 
 async function waitForHomepageHydration(page: Page) {
@@ -72,6 +75,7 @@ test('uses theme-specific forest sources only on the homepage', async ({ page })
 
   const lightStyles = await readAtmosphereStyles(page)
   expect(lightStyles.backgroundImage).toContain(forestUrls.light)
+  expect(forestRequests).not.toContain(forestUrls.dark)
 
   await page.getByRole('button', { name: 'Switch to dark theme' }).click()
   await expect(page.locator('html')).toHaveClass(/dark/)
@@ -79,7 +83,9 @@ test('uses theme-specific forest sources only on the homepage', async ({ page })
   const darkStyles = await readAtmosphereStyles(page)
   expect(darkStyles.backgroundImage).toContain(forestUrls.dark)
   expect(darkStyles.backgroundImage).not.toContain(forestUrls.light)
-  expect(forestRequests).toEqual([forestUrls.light, forestUrls.dark])
+  await expect.poll(() => [...forestRequests].sort()).toEqual(
+    [forestUrls.light, forestUrls.dark, forestUrls.about].sort(),
+  )
 
   await page.goto('/contacts')
   await expect(atmosphere).toHaveCount(0)
@@ -110,11 +116,10 @@ test('loads only the approved forest asset on the homepage', async ({ page }) =>
 
   await openWithTheme(page, 'dark')
   await waitForHomepageAssets(page, 'dark')
-  await page.waitForFunction((url) => {
-    return performance
-      .getEntriesByType('resource')
-      .some(entry => entry.name === url)
-  }, forestUrls.dark)
+  await page.waitForFunction((urls) => {
+    const names = performance.getEntriesByType('resource').map(entry => entry.name)
+    return urls.every(url => names.includes(url))
+  }, [forestUrls.dark, forestUrls.about])
 
   const forestRequests = await page.evaluate(() => {
     return performance
@@ -123,7 +128,7 @@ test('loads only the approved forest asset on the homepage', async ({ page }) =>
       .filter(name => name.includes('/backgrounds/trees-'))
   })
 
-  expect(forestRequests).toEqual([forestUrls.dark])
+  expect([...forestRequests].sort()).toEqual([forestUrls.dark, forestUrls.about].sort())
 })
 
 test('keeps the homepage legible when the forest image is unavailable', async ({ page }) => {
