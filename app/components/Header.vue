@@ -15,15 +15,15 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
 </script>
 
 <template>
-  <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/30 dark:border-white/30 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
+  <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/30 dark:border-white/30 bg-white/40 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
         <div class="relative flex justify-between items-center h-[75px] px-2">
 
           <NuxtLink
             to="/"
-            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-black/30 dark:hover:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
-            active-class="bg-black/20 dark:bg-white/20"
+            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-black/15 dark:hover:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
+            active-class="bg-black/10 dark:bg-white/20"
             v-wave
           >
             <img
@@ -43,8 +43,8 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-sm hover:bg-black/30 dark:hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
-              :class="isNavActive(i.route) ? 'bg-black/20 dark:bg-white/20' : ''"
+              class="transition-[background-color] ease-in-out duration-300 text-sm hover:bg-black/15 dark:hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
+              :class="isNavActive(i.route) ? 'bg-black/10 dark:bg-white/20' : ''"
               v-wave
             >
               <Icon :name="i.icon" size="18" />
@@ -61,7 +61,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             >
               <a
                 :href="i.url"
-                class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-black/30 dark:hover:bg-white/30 size-9 rounded-md relative z-30"
+                class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-black/15 dark:hover:bg-white/30 size-9 rounded-md relative z-30"
                 target="_blank" rel="noopener"
                 v-wave
               >
@@ -77,19 +77,19 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           <NuxtLink
             v-if="user"
             to="/profile"
-            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-black/30 dark:hover:bg-white/30 size-9 rounded-md"
-            :class="isNavActive('/profile') ? 'bg-black/20 dark:bg-white/20' : ''"
+            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-black/15 dark:hover:bg-white/30 size-9 rounded-md"
+            :class="isNavActive('/profile') ? 'bg-black/10 dark:bg-white/20' : ''"
             v-wave
           >
             <span
-              class="flex items-center justify-center size-7 rounded-full bg-black/20 dark:bg-white/20 text-sm uppercase leading-none"
+              class="flex items-center justify-center size-7 rounded-full bg-black/10 dark:bg-white/20 text-sm uppercase leading-none"
             >{{ userInitial }}</span>
           </NuxtLink>
           <NuxtLink
             v-else
             to="/signin"
-            class="transition-colors ease-in-out duration-300 inline-flex items-center justify-center gap-2 border border-black/30 dark:border-white/30 hover:bg-black/20 dark:hover:bg-white/20 hover:border-black/50 dark:hover:border-white/50 px-4 h-9 rounded-md text-sm"
-            :class="isNavActive('/signin') ? 'bg-black/20 dark:bg-white/20 border-black/50 dark:border-white/50' : ''"
+            class="transition-colors ease-in-out duration-300 inline-flex items-center justify-center gap-2 border border-black/20 dark:border-white/30 hover:bg-black/10 dark:hover:bg-white/20 hover:border-black/30 dark:hover:border-white/50 px-4 h-9 rounded-md text-sm"
+            :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20 border-black/30 dark:border-white/50' : ''"
             v-wave
           >
             <Icon name="lucide:log-in" size="18" />
