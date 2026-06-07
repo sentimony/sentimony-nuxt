@@ -12,7 +12,7 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
       <div class="text-left mx-auto max-w-lg p-4 rounded-lg backdrop-blur-md bg-white/70 border border-white/40 text-stone-800">
         <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1">
           <img
-            src="https://content.sentimony.com/assets/img/artists/irukanji-01_th.jpg"
+            src="https://content.sentimony.com/assets/img/artists/irukanji-02_xl.jpg"
             alt="Irukanji avatar"
             width="40" height="40"
             class="size-10 rounded-full object-cover ring-1 ring-black/20"
