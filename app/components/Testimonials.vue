@@ -6,9 +6,10 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 
 <template>
   <!-- <div class="relative bg-[#a1c0a1] overflow-hidden"> -->
-  <div class="relative !bg-[#a1c0a1] overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg'),url('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg')] bg-center bg-no-repeat bg-cover bg-fixed">
+  <div class="relative overflow-hidden bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg')] bg-center bg-cover bg-fixed">
     <!-- <img class="absolute bottom-0 left-1/2 -translate-x-1/2" src="https://content.sentimony.com/assets/img/svg-images/mandala-01.svg" alt="Triangles Bg" /> -->
-    <div class="relative  px-4 py-8 md:py-16 box-border">
+    <Fractal :inverted="true" :contained="true" />
+    <div class="relative px-4 py-8 md:py-16 box-border">
       <div class="text-left mx-auto max-w-lg p-4 rounded-lg backdrop-blur-md bg-white/70 border border-white/40 text-stone-800">
         <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1">
           <img

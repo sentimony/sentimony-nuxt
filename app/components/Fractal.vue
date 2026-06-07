@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
 
+const props = withDefaults(defineProps<{
+  inverted?: boolean
+  contained?: boolean
+}>(), { inverted: false, contained: false })
+
 const route = useRoute()
 const { isDark } = useTheme()
 const isAnimating = ref(false)
@@ -16,11 +21,12 @@ const petalRotations = computed(() => {
   }))
 })
 
-const petalGradient = computed(() =>
-  isDark.value
+const petalGradient = computed(() => {
+  const dark = props.inverted ? !isDark.value : isDark.value
+  return dark
     ? 'radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.33) 100%)'
     : 'radial-gradient(ellipse at 50% 0, rgba(0,0,0,0.05) 0%, rgba(138,2,2,0) 50%, rgba(255,255,255,0.33) 100%)'
-)
+})
 
 const startAnimation = () => {
   isAnimating.value = true
@@ -40,9 +46,9 @@ watch(() => route.path, () => {
 </script>
 
 <template>
-  <div 
-    class="fractal-orbit fixed inset-0"
-    :class="{ 'animate-[spin2_6.0s_ease-in-out]': isAnimating }"
+  <div
+    class="fractal-orbit"
+    :class="[contained ? 'absolute inset-0' : 'fixed inset-0', { 'animate-[spin2_6.0s_ease-in-out]': isAnimating }]"
   >
     <div
       v-for="petal in petalRotations"
