@@ -51,7 +51,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             </NuxtLink>
           </div>
 
-          <div class="flex items-center">
+          <div class="flex items-center gap-2">
 
           <div class="hidden xl:flex">
             <div
@@ -76,11 +76,11 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           <NuxtLink
             v-if="user"
             to="/profile"
-            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
+            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/30 size-9 rounded-md"
             v-wave
           >
             <span
-              class="flex items-center justify-center size-[32px] rounded-full bg-black/10 dark:bg-white/20 text-[16px] uppercase leading-none"
+              class="flex items-center justify-center size-7 rounded-full bg-black/10 dark:bg-white/20 text-sm uppercase leading-none"
             >{{ userInitial }}</span>
           </NuxtLink>
           <NuxtLink
@@ -93,7 +93,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             <span class="hidden sm:inline">Sign In</span>
           </NuxtLink>
 
-          <div class="size-[56px] lg:hidden" />
+          <div class="size-9 lg:hidden" />
 
           </div>
 

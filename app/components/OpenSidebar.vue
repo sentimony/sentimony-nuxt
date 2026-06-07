@@ -29,12 +29,12 @@ watch(() => route.path, () => { isOpen.value = false })
         ref="triggerRef"
         type="button"
         :aria-label="isOpen ? 'Close menu' : 'Menu'"
-        class="fixed top-0 right-0 mr-2 mt-[9px] z-50 lg:hidden flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-[2px] hover:bg-white/30 size-[56px]"
+        class="fixed top-0 right-0 mr-2 mt-[19px] z-50 lg:hidden flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-md hover:bg-white/30 size-9"
         :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
         v-wave
       >
-        <Icon v-if="isOpen" name="fa7-solid:close" size="22" />
-        <Icon v-else name="fa7-solid:navicon" size="22" />
+        <Icon v-if="isOpen" name="fa7-solid:close" size="18" />
+        <Icon v-else name="fa7-solid:navicon" size="18" />
       </button>
     </DialogTrigger>
 
