@@ -29,8 +29,8 @@ watch(() => route.path, () => { isOpen.value = false })
         ref="triggerRef"
         type="button"
         :aria-label="isOpen ? 'Close menu' : 'Menu'"
-        class="fixed top-0 right-0 mr-2 mt-[19px] z-50 lg:hidden flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-md hover:bg-white/30 size-9"
-        :class="isOpen ? 'bg-white/20 rotate-[360deg]' : ''"
+        class="fixed top-0 right-0 mr-2 mt-[19px] z-50 lg:hidden flex items-center justify-center transition ease-in-out duration-300 cursor-pointer rounded-md hover:bg-black/10 dark:hover:bg-white/30 size-9"
+        :class="isOpen ? 'bg-black/10 dark:bg-white/20 rotate-[360deg]' : ''"
         v-wave
       >
         <Icon v-if="isOpen" name="fa7-solid:close" size="18" />
@@ -46,7 +46,7 @@ watch(() => route.path, () => { isOpen.value = false })
 
     <DialogPortal>
       <DialogContent
-        class="drawer fixed left-full w-[256px] h-screen top-0 z-40 lg:hidden flex flex-col bg-black/60 pt-2 focus:outline-none"
+        class="drawer fixed left-full w-[256px] h-screen top-0 z-40 lg:hidden flex flex-col bg-background/90 dark:bg-black/60 backdrop-blur-sm pt-2 focus:outline-none"
         @interact-outside="onInteractOutside"
       >
         <VisuallyHidden>
@@ -58,20 +58,20 @@ watch(() => route.path, () => { isOpen.value = false })
           v-for="i in getNav()"
           :key="i.route"
           :to="i.route"
-          class="flex items-center justify-center h-12 hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
-          :class="isNavActive(i.route) ? 'bg-white/10' : ''"
+          class="flex items-center justify-center h-12 hover:bg-black/10 dark:hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
+          :class="isNavActive(i.route) ? 'bg-black/10 dark:bg-white/10' : ''"
           v-wave
         >
           {{ i.title }}
         </NuxtLink>
 
-        <hr class="border-white/30 my-2" />
+        <hr class="border-black/20 dark:border-white/30 my-2" />
 
         <div class="flex flex-wrap">
           <a
             v-for="i in soc"
             :href="i.url"
-            class="flex flex-row items-center h-12 justify-center hover:bg-white/15 transition-background duration-300 ease-in-out w-full text-[12px]"
+            class="flex flex-row items-center h-12 justify-center hover:bg-black/10 dark:hover:bg-white/15 transition-background duration-300 ease-in-out w-full text-[12px]"
             target="_blank" rel="noopener"
             v-wave
           >
