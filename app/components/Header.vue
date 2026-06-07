@@ -78,6 +78,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             v-if="user"
             to="/profile"
             class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/30 size-9 rounded-md"
+            :class="isNavActive('/profile') ? 'bg-black/10 dark:bg-white/20' : ''"
             v-wave
           >
             <span
@@ -88,6 +89,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             v-else
             to="/signin"
             class="transition-colors ease-in-out duration-300 inline-flex items-center justify-center gap-2 border border-black/20 dark:border-white/30 hover:bg-black/10 dark:hover:bg-white/20 hover:border-black/40 dark:hover:border-white/50 px-4 h-9 rounded-md text-sm"
+            :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20 border-black/40 dark:border-white/50' : ''"
             v-wave
           >
             <Icon name="lucide:log-in" size="18" />

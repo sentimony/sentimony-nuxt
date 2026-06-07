@@ -30,6 +30,7 @@ export const ACTIVE_MATCHERS: Record<string, string[]> = {
   '/videos': ['/videos', '/video/'],
   '/playlists': ['/playlists', '/playlist/'],
   '/events': ['/events', '/event/'],
+  '/signin': ['/signin', '/signup', '/forgot-password', '/reset-password'],
 }
 
 export function isNavActive(currentPath: string, link: string, matchers: Record<string, string[]> = ACTIVE_MATCHERS): boolean {
