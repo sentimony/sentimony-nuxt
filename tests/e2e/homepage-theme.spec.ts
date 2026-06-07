@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test'
 
 const forestUrls = {
-  light: 'https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg',
+  light: 'https://content.sentimony.com/assets/img/backgrounds/trees-white_v1.jpg',
   dark: 'https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02',
 } as const
 
