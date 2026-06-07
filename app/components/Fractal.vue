@@ -2,6 +2,7 @@
 import { ref, computed, watch, onMounted } from 'vue'
 
 const route = useRoute()
+const { isDark } = useTheme()
 const isAnimating = ref(false)
 
 const PETAL_COUNT = 24
@@ -15,6 +16,12 @@ const petalRotations = computed(() => {
   }))
 })
 
+const petalGradient = computed(() =>
+  isDark.value
+    ? 'radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.33) 100%)'
+    : 'radial-gradient(ellipse at 50% 0, rgba(0,0,0,0.05) 0%, rgba(138,2,2,0) 50%, rgba(255,255,255,0.33) 100%)'
+)
+
 const startAnimation = () => {
   isAnimating.value = true
   setTimeout(() => {
@@ -27,6 +34,10 @@ onMounted(() => {
 })
 
 watch(() => route.path, () => {
+  startAnimation()
+})
+
+watch(isDark, () => {
   startAnimation()
 })
 </script>
@@ -47,9 +58,7 @@ watch(() => route.path, () => {
       <div
         class="fractal-petal absolute w-32 h-64 rounded-full transition-all duration-[1.2s] ease-in-out"
         :class="{ '!w-64 !h-32 !duration-[4.0s] !delay-[0.0s] animate-[spin2rev_6.0s_ease-in-out]': isAnimating }"
-        :style="{
-          background: 'radial-gradient(ellipse at 50% 0, rgba(255, 255, 255, 0.05) 0%, rgba(138, 2, 2, 0) 50%, rgba(0, 0, 0, 0.33) 100%)',
-        }"
+        :style="{ background: petalGradient }"
       />
     </div>
   </div>
