@@ -37,9 +37,6 @@ watch(() => route.path, () => {
   startAnimation()
 })
 
-watch(isDark, () => {
-  startAnimation()
-})
 </script>
 
 <template>
