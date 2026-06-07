@@ -58,11 +58,12 @@ watch(() => route.path, () => { isOpen.value = false })
           v-for="i in getNav()"
           :key="i.route"
           :to="i.route"
-          class="flex items-center justify-center h-12 hover:bg-black/10 dark:hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
+          class="flex items-center justify-center gap-2 h-12 hover:bg-black/10 dark:hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
           :class="isNavActive(i.route) ? 'bg-black/10 dark:bg-white/10' : ''"
           v-wave
         >
-          {{ i.title }}
+          <Icon :name="i.icon" size="18" />
+          <span>{{ i.title }}</span>
         </NuxtLink>
 
         <hr class="border-black/20 dark:border-white/30 my-2" />

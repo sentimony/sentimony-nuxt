@@ -12,7 +12,7 @@ export const NAV: NavItem[] = [
   { title: 'Artists', route: '/artists', icon: 'lucide:keyboard-music', inHeader: true },
   { title: 'Videos', route: '/videos', icon: 'lucide:monitor-play', inHeader: true },
   { title: 'Playlists', route: '/playlists', icon: 'lucide:list-music', inHeader: true },
-  { title: 'Events', route: '/events', icon: 'lucide:calendar-days' },
+  { title: 'Events', route: '/events', icon: 'lucide:tent-tree' },
   { title: 'Contacts', route: '/contacts', icon: 'lucide:mail' },
 ]
 
