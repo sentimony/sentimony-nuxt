@@ -139,7 +139,7 @@ The system is flat by default and separates surfaces with tonal layering, not sh
 ### Named Rules
 **The Tonal Layering Rule.** Surfaces separate by alpha tint, never by raised shadow. Black/white overlays at 5–30% build the entire hierarchy. The only drop-shadow permitted is the soft `0 2px 10px rgba(0,0,0,0.5)` under cover art and badges — anything darker or larger reads as 2014 skeuomorphism and is forbidden.
 
-**The Photographic Depth Rule.** Each homepage theme owns its photograph, shown plain - no filters, no overlays on the image itself. Dark mode keeps the legacy green-black nocturnal canopy `trees-green_v5.jpg` exactly as the rest of the dark site renders it; light mode uses the purpose-made pale canopy `trees-white_v1.jpg`. Read-surface contrast comes from translucent background veils on content strips, never from grading the photo. The about quote strip is the one strip that carries its own photograph - the original `trees-origin_v1.jpg` canopy, shared by both themes beneath a mirrored 50% veil (`white/50` light, `black/50` dark).
+**The Photographic Depth Rule.** Each homepage theme owns its photograph, shown plain - no filters, no overlays on the image itself. Dark mode keeps the legacy green-black nocturnal canopy `trees-green_v5.jpg` exactly as the rest of the dark site renders it; light mode uses the purpose-made pale canopy `trees-white_v1.jpg`. Read-surface contrast comes from translucent background veils on content strips, never from grading the photo. The testimonial strip is the one strip that carries its own photograph - the original `trees-origin_v1.jpg` canopy beneath the mandala SVG, identical in both themes.
 
 ## 5. Components
 

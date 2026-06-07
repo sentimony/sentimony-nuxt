@@ -6,7 +6,7 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 
 <template>
   <!-- <div class="relative bg-[#a1c0a1] overflow-hidden"> -->
-  <div class="relative !bg-[#a1c0a1] overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg')] bg-center bg-no-repeat bg-cover bg-fixed">
+  <div class="relative !bg-[#a1c0a1] overflow-hidden bg-[url('https://content.sentimony.com/assets/img/svg-images/mandala-01.svg'),url('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg')] bg-center bg-no-repeat bg-cover bg-fixed">
     <!-- <img class="absolute bottom-0 left-1/2 -translate-x-1/2" src="https://content.sentimony.com/assets/img/svg-images/mandala-01.svg" alt="Triangles Bg" /> -->
     <div class="relative  px-4 py-8 md:py-16 box-border">
       <div class="text-left mx-auto max-w-lg p-4 rounded-lg backdrop-blur-md bg-white/70 border border-white/40 text-stone-800">
@@ -20,7 +20,17 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
           pages.
         </p>
         <p>Thank you - I truly appreciate it <Icon name="lucide:heart" mode="svg" class="inline-block align-middle [&_path]:fill-current text-red-500" /></p>
-        <p>- Ihor</p>
+        <p class="flex items-center gap-3">
+          <NuxtLink to="/artist/irukanji" class="shrink-0">
+            <img
+              src="https://content.sentimony.com/assets/img/artists/irukanji-01_th.jpg"
+              alt="Irukanji avatar"
+              width="48" height="48"
+              class="size-12 rounded-full object-cover ring-1 ring-black/20"
+            >
+          </NuxtLink>
+          <span>- Ihor</span>
+        </p>
       </div>
     </div>
   </div>
