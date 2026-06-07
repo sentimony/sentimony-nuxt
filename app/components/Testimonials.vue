@@ -14,8 +14,8 @@ const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
           <img
             src="https://content.sentimony.com/assets/img/artists/irukanji-02_xl.jpg"
             alt="Irukanji avatar"
-            width="40" height="40"
-            class="size-10 rounded-full object-cover ring-1 ring-black/20"
+            width="72" height="72"
+            class="size-18 rounded-full object-cover ring-1 ring-black/20"
           >
         </NuxtLink>
         <p>My fellow artists and I always love reading your feedback.</p>
