@@ -44,7 +44,7 @@ onBeforeUnmount(() => stopPointerTracking?.())
 <template>
   <div
     data-testid="homepage-hero"
-    class="font-julius relative leading-[1.4] text-foreground bg-gradient-to-b from-background/70 via-background/75 to-background/85 dark:from-transparent dark:via-transparent dark:to-black/50
+    class="font-julius relative leading-[1.4] text-foreground bg-gradient-to-b from-transparent via-transparent to-white/50 dark:to-black/50
     py-[7.5em]
     sm:py-[8.5em]
     md:py-[9.5em]
