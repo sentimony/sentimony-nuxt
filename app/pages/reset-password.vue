@@ -29,11 +29,11 @@ async function submit() {
         New Password
       </h1>
 
-      <Card class="border-white/20 backdrop-blur-sm text-left">
+      <Card class="border-black/20 dark:border-white/20 backdrop-blur-sm text-left">
         <CardContent>
           <form @submit.prevent="submit" class="flex flex-col gap-4">
             <div class="flex flex-col gap-1.5">
-              <Label for="password" class="text-xs text-white/50 tracking-widest uppercase">New Password</Label>
+              <Label for="password" class="text-xs text-foreground/50 tracking-widest uppercase">New Password</Label>
               <PasswordInput
                 id="password"
                 v-model="password"

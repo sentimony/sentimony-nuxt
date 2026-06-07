@@ -75,12 +75,12 @@ useSeoMeta({
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <div class="pb-[30px] md:pb-[60px]">
-      <div class="divide-y divide-white/10">
+      <div class="divide-y divide-foreground/10">
         <NuxtLink
           v-for="i in newsItems"
           :key="i.category + ':' + i.slug"
           :to="i.href"
-          class="flex items-center justify-between p-4 group hover:bg-white/20"
+          class="flex items-center justify-between p-4 group hover:bg-foreground/10"
           v-wave
         >
           <div class="flex items-center">
@@ -89,18 +89,18 @@ useSeoMeta({
               <img v-if="i.image"
                 :src="i.image"
                 :alt="i.title + ' Thumbnail'"
-                class="rounded-sm ring-1 ring-white/30 group-hover:ring-white/60"
+                class="rounded-sm ring-1 ring-foreground/30 group-hover:ring-foreground/60"
                 width="48" height="48"
                 loading="lazy"
               >
-              <div v-else class="h-6 w-6 rounded bg-white/10"></div>
+              <div v-else class="h-6 w-6 rounded bg-foreground/10"></div>
             <!-- </div> -->
             <div class="text-left ml-4">
-              <div class="text-xs md:text-sm text-white/50">{{ formatDate(i.date) }}</div>
-              <div class="text-base md:text-lg font-medium text-white transition-colors">{{ i.title }}</div>
+              <div class="text-xs md:text-sm text-foreground/50">{{ formatDate(i.date) }}</div>
+              <div class="text-base md:text-lg font-medium text-foreground transition-colors">{{ i.title }}</div>
             </div>
           </div>
-          <span class="ml-4 text-white/40 group-hover:text-white/70 transition-colors">
+          <span class="ml-4 text-foreground/40 group-hover:text-foreground/70 transition-colors">
             <Icon name="ic:baseline-arrow-forward-ios" size="18" />
           </span>
         </NuxtLink>

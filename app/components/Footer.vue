@@ -10,7 +10,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
 </script>
 
 <template>
-  <div class="relative z-100 bg-black text-white/50 leading-[1.4] md:leading-[1.5] px-1 py-24">
+  <div class="relative z-100 bg-black/90 dark:bg-black/75 text-white/50 leading-[1.4] md:leading-[1.5] px-1 py-24">
     <div class="container flex flex-col items-center">
 
       <div class="mb-10 text-sm">

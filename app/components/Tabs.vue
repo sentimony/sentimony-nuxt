@@ -33,7 +33,7 @@ provide('tabs', { registerTab, unregisterTab })
           v-for="tab in tabs"
           :key="tab.id"
           :value="tab.id"
-          class="inline-flex items-center cursor-pointer h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-opacity ease-in-out duration-300 text-white bg-white/30 px-3 md:px-4 mr-1 md:mr-1 last:mr-0 backdrop-blur-sm opacity-50 hover:opacity-100 data-[state=active]:opacity-100"
+          class="inline-flex items-center cursor-pointer h-[36px] md:h-[42px] text-[8px] md:text-[12px] tracking-tighter rounded-t-lg transition-opacity ease-in-out duration-300 text-foreground bg-white/50 dark:bg-white/30 px-3 md:px-4 mr-1 md:mr-1 last:mr-0 backdrop-blur-sm opacity-50 hover:opacity-100 data-[state=active]:opacity-100"
           v-wave
         >
           <Icon v-if="tab.info.icon" :name="tab.info.icon" size="18" />

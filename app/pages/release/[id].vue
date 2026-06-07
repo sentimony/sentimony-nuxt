@@ -82,10 +82,8 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 </script>
 
 <template>
-  <div class="text-left border-t border-white/30">
-    <div class="relative px-2">
-      <SvgTriangle />
-
+  <div class="text-left border-t border-black/20 dark:border-white/20">
+    <div class="relative z-[2] px-2">
       <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
@@ -105,17 +103,17 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
               <div class="flex-1 min-w-0">
 
-            <p><span class="text-white/50">Release Date:</span> {{ formattedDate }}</p>
-            <p><span class="text-white/50">Catalog Number:</span> {{ item.cat_no }}</p>
-            <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
-            <p><span class="text-white/50">Format:</span> {{ item.format }}</p>
-            <p><span class="text-white/50">Total Time:</span> {{ item.total_time }}</p>
+            <p><span class="text-foreground/50">Release Date:</span> {{ formattedDate }}</p>
+            <p><span class="text-foreground/50">Catalog Number:</span> {{ item.cat_no }}</p>
+            <p><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
+            <p><span class="text-foreground/50">Format:</span> {{ item.format }}</p>
+            <p><span class="text-foreground/50">Total Time:</span> {{ item.total_time }}</p>
 
             <div class="flex justify-start mb-4">
               <button
                 @click="toggleLike(item.slug)"
                 class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
                 v-wave
               >
                 <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
@@ -129,17 +127,17 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             </div>
 
             <!-- <p>
-              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.cat_no }}</span>
-              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ formattedDate }}</span>
+              <span class="text-[10px] md:text-[12px] text-foreground/50">{{ item.cat_no }}</span>
+              <span class="text-[10px] md:text-[12px] text-foreground/50"> | {{ formattedDate }}</span>
             </p>
             <h1 class="">{{ item.title }}</h1>
             <p>
-              <span class="text-[10px] md:text-[12px] text-white/50">{{ item.style }}</span>
-              <span class="text-[10px] md:text-[12px] text-white/50"> | {{ item.total_time }}</span>
+              <span class="text-[10px] md:text-[12px] text-foreground/50">{{ item.style }}</span>
+              <span class="text-[10px] md:text-[12px] text-foreground/50"> | {{ item.total_time }}</span>
             </p> -->
             <!-- <br> -->
 
-            <p v-if="item.links?.diggersfactory_url"><span class="text-[10px] md:text-[12px] text-white/50">Purchase VINYL</span></p>
+            <p v-if="item.links?.diggersfactory_url"><span class="text-[10px] md:text-[12px] text-foreground/50">Purchase VINYL</span></p>
             <BtnPrimary
               v-if="item.links?.diggersfactory_url"
               :to="item.links?.diggersfactory_url"
@@ -147,7 +145,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               img="https://content.sentimony.com/assets/img/svg-icons/diggers-factory.svg?01"
             />
 
-            <p><span class="text-[10px] md:text-[12px] text-white/50">Download</span></p>
+            <p><span class="text-[10px] md:text-[12px] text-foreground/50">Download</span></p>
             <BtnPrimary
               v-if="item.links?.bandcamp_url"
               :to="item.links?.bandcamp_url"
@@ -174,7 +172,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             />
 
             <!-- <br> -->
-            <p><span class="text-[10px] md:text-[12px] text-white/50">Stream</span></p>
+            <p><span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span></p>
             <BtnPrimary
               v-if="item.links?.spotify"
               :to="item.links?.spotify"
@@ -230,7 +228,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               iconify="simple-icons:soundcloud"
             />
 
-            <p v-if="item.links?.discogs"><span class="text-[10px] md:text-[12px] text-white/50">Add to your collection</span></p>
+            <p v-if="item.links?.discogs"><span class="text-[10px] md:text-[12px] text-foreground/50">Add to your collection</span></p>
             <BtnPrimary
               v-if="item.links?.discogs"
               :to="item.links?.discogs"
@@ -326,6 +324,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
     </div>
 
     <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]" v-if="item">
+      <SvgTriangle />
       <div class="max-w-[640px] mx-auto">
 
         <div v-if="item.information" v-html="item.information" />

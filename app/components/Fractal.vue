@@ -4,6 +4,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 const props = withDefaults(defineProps<{
   inverted?: boolean
   contained?: boolean
+  scheme?: 'dark' | 'light'
 }>(), { inverted: false, contained: false })
 
 const route = useRoute()
@@ -22,7 +23,7 @@ const petalRotations = computed(() => {
 })
 
 const petalGradient = computed(() => {
-  const dark = props.inverted ? !isDark.value : isDark.value
+  const dark = props.scheme !== undefined ? props.scheme === 'dark' : (props.inverted ? !isDark.value : isDark.value)
   return dark
     ? 'radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.33) 100%)'
     : 'radial-gradient(ellipse at 50% 0, rgba(0,0,0,0.05) 0%, rgba(138,2,2,0) 50%, rgba(255,255,255,0.33) 100%)'
@@ -46,23 +47,25 @@ watch(() => route.path, () => {
 </script>
 
 <template>
-  <div
-    class="fractal-orbit"
-    :class="[contained ? 'absolute inset-0' : 'fixed inset-0', { 'animate-[spin2_6.0s_ease-in-out]': isAnimating }]"
-  >
+  <div :class="contained ? 'absolute inset-0' : 'fixed inset-0'">
     <div
-      v-for="petal in petalRotations"
-      :key="petal.id"
-      class="absolute top-1/2 left-1/2 origin-[0] -translate-x-1/2 -translate-y-1/2"
-      :style="{
-        transform: `rotate(${petal.rotation}deg)`,
-      }"
+      class="fractal-orbit absolute inset-0"
+      :class="{ 'animate-[spin2_6.0s_ease-in-out]': isAnimating }"
     >
       <div
-        class="fractal-petal absolute w-32 h-64 rounded-full transition-all duration-[1.2s] ease-in-out"
-        :class="{ '!w-64 !h-32 !duration-[4.0s] !delay-[0.0s] animate-[spin2rev_6.0s_ease-in-out]': isAnimating }"
-        :style="{ background: petalGradient }"
-      />
+        v-for="petal in petalRotations"
+        :key="petal.id"
+        class="absolute top-1/2 left-1/2 origin-[0] -translate-x-1/2 -translate-y-1/2"
+        :style="{
+          transform: `rotate(${petal.rotation}deg)`,
+        }"
+      >
+        <div
+          class="fractal-petal absolute w-32 h-64 rounded-full transition-all duration-[1.2s] ease-in-out"
+          :class="{ '!w-64 !h-32 !duration-[4.0s] !delay-[0.0s] animate-[spin2rev_6.0s_ease-in-out]': isAnimating }"
+          :style="{ background: petalGradient }"
+        />
+      </div>
     </div>
   </div>
 </template>

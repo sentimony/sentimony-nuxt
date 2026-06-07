@@ -20,7 +20,7 @@
   position: absolute;
   content: "";
   inset: -2vmax;
-  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-white_v1.jpg");
+  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-light_v1.jpg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -32,7 +32,7 @@
 }
 
 .dark .homepage-atmosphere::before {
-  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02");
+  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-dark_v1.jpg");
   background-position: 50% 50%;
 }
 

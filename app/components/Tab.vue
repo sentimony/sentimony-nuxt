@@ -26,7 +26,7 @@ onBeforeUnmount(() => {
   <TabsContent
     v-if="id != null"
     :value="id"
-    class="p-3 bg-white/30 rounded-tr-lg rounded-br-lg rounded-bl-lg backdrop-blur-sm"
+    class="p-3 bg-white/50 dark:bg-white/30 rounded-tr-lg rounded-br-lg rounded-bl-lg backdrop-blur-sm"
   >
     <slot />
   </TabsContent>

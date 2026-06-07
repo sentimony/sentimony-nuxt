@@ -75,7 +75,7 @@ The type carries the ritual. Display words are set in the thin, inscriptional ca
 This system explicitly rejects the saturated defaults of its category. It is not a neon cyber-rave (no purple-pink gradients, no glow, no glass), not a corporate streaming clone (no flat bright card walls, no neutral sterility), not a generic SaaS or AI dashboard (no cream background, no eyebrow kickers, no identical card grids), and not 2014 skeuomorphism (no deep shadows, no bevels, no gradient buttons). Color lives in the photography and the cover art; the chrome stays out of the way.
 
 **Key Characteristics:**
-- Dark-default, with the legacy nocturnal green-black canopy photograph; the homepage light theme pairs it with its own pale Morning Veil canopy (`trees-white_v1.jpg`).
+- Dark-default, with the legacy nocturnal green-black canopy photograph; the homepage light theme pairs it with its own pale Morning Veil canopy (`trees-light_v1.jpg`).
 - Green-tinted monochrome neutrals (every neutral carries hue 155, no true grays).
 - One stroke weight (Regular 400) for both display and body; hierarchy from scale + tracking + case.
 - Tonal layering by alpha, not shadow; depth comes from translucency and the background photo.
@@ -139,7 +139,7 @@ The system is flat by default and separates surfaces with tonal layering, not sh
 ### Named Rules
 **The Tonal Layering Rule.** Surfaces separate by alpha tint, never by raised shadow. Black/white overlays at 5–30% build the entire hierarchy. The only drop-shadow permitted is the soft `0 2px 10px rgba(0,0,0,0.5)` under cover art and badges — anything darker or larger reads as 2014 skeuomorphism and is forbidden.
 
-**The Photographic Depth Rule.** Each homepage theme owns its photograph, shown plain - no filters, no overlays on the image itself. Dark mode keeps the legacy green-black nocturnal canopy `trees-green_v5.jpg` exactly as the rest of the dark site renders it; light mode uses the purpose-made pale canopy `trees-white_v1.jpg`. Read-surface contrast comes from translucent background veils on content strips, never from grading the photo. The testimonial strip is the one strip that carries its own photograph - the original `trees-origin_v1.jpg` canopy beneath the mandala SVG, identical in both themes.
+**The Photographic Depth Rule.** Each homepage theme owns its photograph, shown plain - no filters, no overlays on the image itself. Dark mode keeps the legacy green-black nocturnal canopy `trees-dark_v1.jpg` exactly as the rest of the dark site renders it; light mode uses the purpose-made pale canopy `trees-light_v1.jpg`. Read-surface contrast comes from translucent background veils on content strips, never from grading the photo. The testimonial strip is the one strip that carries its own photograph - the original `trees-origin_v1.jpg` canopy beneath the mandala SVG, identical in both themes.
 
 ## 5. Components
 
