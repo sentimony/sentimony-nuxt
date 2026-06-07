@@ -38,15 +38,16 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             </div>
           </NuxtLink>
 
-          <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2">
+          <div class="hidden lg:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-black/10 dark:hover:bg-white/30 lg:px-4 h-[56px] flex items-center justify-center rounded-[2px]"
+              class="transition-[background-color] ease-in-out duration-300 text-sm hover:bg-black/10 dark:hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
               :class="isNavActive(i.route) ? 'bg-black/10 dark:bg-white/20' : ''"
               v-wave
             >
+              <Icon :name="i.icon" size="18" />
               <span>{{ i.title }}</span>
             </NuxtLink>
           </div>
