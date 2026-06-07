@@ -13,6 +13,10 @@ const soc = computed(() =>
   getSocials({ inHeader: true }).map(l => ({ ...l, icon: getIcon(l.id) }))
 )
 
+const { isDark, toggle } = useTheme()
+const user = useSupabaseUser()
+const userInitial = computed(() => user.value?.email?.[0] ?? '')
+
 const onInteractOutside = (e: CustomEvent) => {
   const target = (e.detail.originalEvent as Event).target as Node | null
   if (target && triggerRef.value?.contains(target)) e.preventDefault()
@@ -64,6 +68,41 @@ watch(() => route.path, () => { isOpen.value = false })
         >
           <Icon :name="i.icon" size="18" />
           <span>{{ i.title }}</span>
+        </NuxtLink>
+
+        <hr class="border-black/20 dark:border-white/30 my-2" />
+
+        <button
+          type="button"
+          :aria-label="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
+          class="flex items-center justify-center gap-2 h-12 hover:bg-black/10 dark:hover:bg-white/15 text-base transition-background duration-300 ease-in-out cursor-pointer"
+          @click="toggle($event)"
+          v-wave
+        >
+          <Icon v-if="isDark" name="lucide:sun" size="18" />
+          <Icon v-else name="lucide:moon" size="18" />
+          <span>{{ isDark ? 'Light theme' : 'Dark theme' }}</span>
+        </button>
+
+        <NuxtLink
+          v-if="user"
+          to="/profile"
+          class="flex items-center justify-center gap-2 h-12 hover:bg-black/10 dark:hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
+          :class="isNavActive('/profile') ? 'bg-black/10 dark:bg-white/10' : ''"
+          v-wave
+        >
+          <span class="flex items-center justify-center size-6 rounded-full bg-black/10 dark:bg-white/20 text-xs uppercase leading-none">{{ userInitial }}</span>
+          <span>Profile</span>
+        </NuxtLink>
+        <NuxtLink
+          v-else
+          to="/signin"
+          class="flex items-center justify-center gap-2 h-12 hover:bg-black/10 dark:hover:bg-white/15 text-base transition-background duration-300 ease-in-out"
+          :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/10' : ''"
+          v-wave
+        >
+          <Icon name="lucide:log-in" size="18" />
+          <span>Sign In</span>
         </NuxtLink>
 
         <hr class="border-black/20 dark:border-white/30 my-2" />
