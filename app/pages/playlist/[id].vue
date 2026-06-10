@@ -54,10 +54,8 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="text-left border-t border-white/30">
-    <div class="relative px-2 pb-[30px] md:pb-[60px]">
-      <SvgTriangle />
-
+  <div class="text-left border-t border-black/20 dark:border-white/20">
+    <div class="relative z-[2] px-2 pb-[30px] md:pb-[60px]">
       <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
@@ -73,13 +71,13 @@ useSeoMeta({
             />
 
             <!-- <h1 class="text-center mt-0 mb-[1.2em]">{{ item.title }}</h1> -->
-            <p><span class="text-white/50">Styles:</span> {{ item.style }}</p>
+            <p><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
 
             <div class="flex justify-start mb-4">
               <button
                 @click="toggleLike(item.slug)"
-                class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+                class="inline-flex items-center gap-1 px-2 py-0.5 text-[13px] font-medium rounded-md border transition-[background-color,border-color] ease-in-out duration-300 hover:bg-white/30"
+                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:border-foreground/40'"
                 v-wave
               >
                 <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
@@ -90,7 +88,7 @@ useSeoMeta({
 
             <div class="clear-left" />
 
-            <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+            <p><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
             <BtnPrimary
               v-if="item.links?.spotify"
               :to="item.links?.spotify"
@@ -195,6 +193,7 @@ useSeoMeta({
     </div>
 
     <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]" v-if="item">
+      <SvgTriangle />
       <div class="max-w-[640px] mx-auto">
 
         <div v-if="item.info" v-html="item.info" />

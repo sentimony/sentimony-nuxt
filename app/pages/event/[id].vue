@@ -40,10 +40,8 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="text-left border-t border-white/30">
-    <div class="relative px-2 pb-[30px] md:pb-[60px]">
-      <SvgTriangle />
-
+  <div class="text-left border-t border-black/20 dark:border-white/20">
+    <div class="relative z-[2] px-2 pb-[30px] md:pb-[60px]">
       <div class="max-w-[640px] mx-auto relative" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
@@ -78,6 +76,7 @@ useSeoMeta({
     </div>
 
     <div class="Content text-left px-2 pt-2 pb-[30px] md:pb-[60px]">
+      <SvgTriangle />
       <div class="max-w-[640px] mx-auto">
 
         <p v-if="item?.info"><small><b>Info:</b></small></p>

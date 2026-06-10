@@ -111,13 +111,15 @@ body {
   @apply
   min-w-[320px] font-montserrat antialiased text-xs md:text-sm lg:text-base text-center
   text-foreground bg-background
+  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-light_v1.jpg')]
+  bg-center bg-no-repeat bg-cover bg-fixed
 }
 
 .dark body {
   @apply
   text-white
   bg-green-950
-  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?02')]
+  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-dark_v1.jpg')]
   bg-center bg-no-repeat bg-cover bg-fixed
 }
 
@@ -140,7 +142,16 @@ p { @apply mb-2 }
 
 small { @apply opacity-60 }
 
-.Content { @apply text-black bg-[#b5ccb5] }
-.Content a { @apply text-blue-700 }
+.Content { @apply relative z-[1] text-black bg-[#b5ccb5] border-b border-black/20 }
+.dark .Content { @apply text-white bg-[#2a4030] border-white/20 }
+.Content svg path { fill: #b5ccb5 }
+.dark .Content svg path { fill: #2a4030 }
+.Content a { @apply text-emerald-700 transition-colors duration-300 }
+.Content a:hover { @apply text-emerald-900 }
+.dark .Content a { @apply text-emerald-300 }
+.dark .Content a:hover { @apply text-emerald-100 }
+
+.Content hr { @apply border-black/20 }
+.dark .Content hr { @apply border-white/20 }
 
 .Tracklist i { @apply block pl-6 text-[80%] opacity-60 }

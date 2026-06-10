@@ -83,11 +83,11 @@ const submit = handleSubmit(async () => {
         {{ title }}
       </h1>
 
-      <Card class="border-white/20 backdrop-blur-sm text-left">
+      <Card class="border-black/20 dark:border-white/20 backdrop-blur-sm text-left">
         <CardContent>
           <form @submit="submit" novalidate class="flex flex-col gap-4">
             <div class="flex flex-col gap-1.5">
-              <Label for="email" class="text-xs text-white/50 tracking-widest uppercase">Email</Label>
+              <Label for="email" class="text-xs text-foreground/50 tracking-widest uppercase">Email</Label>
               <Input
                 id="email"
                 v-model="email"
@@ -101,7 +101,7 @@ const submit = handleSubmit(async () => {
             </div>
 
             <div v-if="mode !== 'forgot'" class="flex flex-col gap-1.5">
-              <Label for="password" class="text-xs text-white/50 tracking-widest uppercase">Password</Label>
+              <Label for="password" class="text-xs text-foreground/50 tracking-widest uppercase">Password</Label>
               <PasswordInput
                 id="password"
                 v-model="password"
@@ -112,7 +112,7 @@ const submit = handleSubmit(async () => {
               <NuxtLink
                 v-if="mode === 'signin'"
                 to="/forgot-password"
-                class="self-end mt-1 text-xs text-white/40 hover:text-white/70 underline cursor-pointer"
+                class="self-end mt-1 text-xs text-foreground/40 hover:text-foreground/70 underline cursor-pointer"
               >
                 Forgot password?
               </NuxtLink>
@@ -134,18 +134,18 @@ const submit = handleSubmit(async () => {
         </CardContent>
       </Card>
 
-      <div class="text-center mt-4 text-sm text-white/40">
+      <div class="text-center mt-4 text-sm text-foreground/40">
         <span v-if="mode === 'signin'">
           Don't have an account?
-          <NuxtLink to="/signup" class="cursor-pointer text-white/70 hover:text-white underline ml-1">Sign Up</NuxtLink>
+          <NuxtLink to="/signup" class="cursor-pointer text-foreground/70 hover:text-foreground underline ml-1">Sign Up</NuxtLink>
         </span>
         <span v-else-if="mode === 'signup'">
           Already have an account?
-          <NuxtLink to="/signin" class="cursor-pointer text-white/70 hover:text-white underline ml-1">Sign In</NuxtLink>
+          <NuxtLink to="/signin" class="cursor-pointer text-foreground/70 hover:text-foreground underline ml-1">Sign In</NuxtLink>
         </span>
         <span v-else>
           Remembered it?
-          <NuxtLink to="/signin" class="cursor-pointer text-white/70 hover:text-white underline ml-1">Sign In</NuxtLink>
+          <NuxtLink to="/signin" class="cursor-pointer text-foreground/70 hover:text-foreground underline ml-1">Sign In</NuxtLink>
         </span>
       </div>
     </div>

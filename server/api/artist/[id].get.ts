@@ -5,7 +5,7 @@ export default defineCachedEventHandler(
     const id = event.context.params?.id as string | undefined
     if (!id) throw createError({ statusCode: 400, statusMessage: 'Missing artist id' })
 
-    if (process.env.RELEASES_SOURCE === 'supabase') {
+    if (useRuntimeConfig().releasesSource === 'supabase') {
       const { data, error } = await useSupabase()
         .from('artists')
         .select('*')

@@ -75,7 +75,7 @@ The type carries the ritual. Display words are set in the thin, inscriptional ca
 This system explicitly rejects the saturated defaults of its category. It is not a neon cyber-rave (no purple-pink gradients, no glow, no glass), not a corporate streaming clone (no flat bright card walls, no neutral sterility), not a generic SaaS or AI dashboard (no cream background, no eyebrow kickers, no identical card grids), and not 2014 skeuomorphism (no deep shadows, no bevels, no gradient buttons). Color lives in the photography and the cover art; the chrome stays out of the way.
 
 **Key Characteristics:**
-- Dark-default, with a photographic forest as the lowest layer; light theme is a pale-mist secondary.
+- Dark-default, with the legacy nocturnal green-black canopy photograph; the homepage light theme pairs it with its own pale Morning Veil canopy (`trees-light_v1.jpg`).
 - Green-tinted monochrome neutrals (every neutral carries hue 155, no true grays).
 - One stroke weight (Regular 400) for both display and body; hierarchy from scale + tracking + case.
 - Tonal layering by alpha, not shadow; depth comes from translucency and the background photo.
@@ -94,7 +94,7 @@ A green-tinted monochrome built on a single hue (155), where saturation is ratio
 - **Spore Sage** (`#b5ccb5`): A soft living green. Carries the decorative triangle divider (`SvgTriangle`) and the legacy `.Content` reading surface. Organic, botanical, low-saturation.
 
 ### Neutral
-- **Morning Mist** (`oklch(0.97 0.01 155)`): The light theme canvas. A pale green-tinted off-white, never a warm cream.
+- **Morning Mist** (`oklch(0.97 0.01 155)`): The light theme canvas. A pale green-tinted off-white, never a warm cream. On the homepage it is used as a translucent atmospheric veil over the original forest photograph, not as a flat replacement for imagery.
 - **Forest Ink** (`oklch(0.18 0.02 155)`): Near-black green. Body text and active icons in the light theme; the primary surface fill in light mode.
 - **Tonal overlays** (`oklch(1 0 0 / 5–30%)` in dark, `oklch(0 0 0 / 5–30%)` in light): The workhorses. Cards, hovers, active states, borders, and frosted panels are all built from white-or-black alpha at low percentages, tinted by the theme's own ink.
 
@@ -139,7 +139,7 @@ The system is flat by default and separates surfaces with tonal layering, not sh
 ### Named Rules
 **The Tonal Layering Rule.** Surfaces separate by alpha tint, never by raised shadow. Black/white overlays at 5–30% build the entire hierarchy. The only drop-shadow permitted is the soft `0 2px 10px rgba(0,0,0,0.5)` under cover art and badges — anything darker or larger reads as 2014 skeuomorphism and is forbidden.
 
-**The Photographic Depth Rule.** In dark mode, the deepest layer is the forest photograph, fixed and full-bleed. Frosted, blurred panels float over it. Never flatten the dark theme to a solid fill that hides the photo.
+**The Photographic Depth Rule.** Each homepage theme owns its photograph, shown plain - no filters, no overlays on the image itself. Dark mode keeps the legacy green-black nocturnal canopy `trees-dark_v1.jpg` exactly as the rest of the dark site renders it; light mode uses the purpose-made pale canopy `trees-light_v1.jpg`. Read-surface contrast comes from translucent background veils on content strips, never from grading the photo. The testimonial strip is the one strip that carries its own photograph - the original `trees-origin_v1.jpg` canopy beneath the mandala SVG, identical in both themes.
 
 ## 5. Components
 
@@ -167,7 +167,7 @@ Built on shadcn-vue (new-york) primitives over reka-ui, themed with the green-mo
 - **Footer:** A self-contained black slab (`bg-black text-white/50`), intentionally dark in both themes. A bordered pill of full nav links, a social-icon row whose icons reveal Oxblood tooltips on hover, copyright, and credits.
 
 ### Signature: The Hero Wordmark
-The home hero is the system's thesis statement: "SENTIMONY" stacked over a letter-spaced "R E C O R D S", set in Julius Sans One, uppercase, white, over a `to-black/50` gradient that grounds it against the forest. Size and tracking scale together across five breakpoints (40px/2px up to 100px/14px). This is the one place where type is the whole design.
+The home hero is the system's thesis statement: "SENTIMONY" stacked over a letter-spaced "R E C O R D S", set in Julius Sans One, uppercase, Forest Ink in light mode and Bone White in dark mode, over a theme-aware gradient (`from-background/70 … to-background/85` in light, `to-black/50` in dark) that grounds it against the forest. Size and tracking scale together across five breakpoints (40px/2px up to 100px/14px). This is the one place where type is the whole design.
 
 ### Theme Toggle
 A sun/moon glyph that switches themes with a View Transitions circular-reveal: a `clip-path` circle expands from the click point (450ms, ease-in-out). Honors `prefers-reduced-motion` by swapping instantly.

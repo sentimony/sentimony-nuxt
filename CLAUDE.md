@@ -21,13 +21,13 @@ npm run verify:pwa      # validate manifest + custom service worker
 npx nuxi typecheck      # vue-tsc type check
 ```
 
-Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). Optional `RELEASES_SOURCE=supabase` switches a data source from Firebase to Supabase.
+Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). Optional `RELEASES_SOURCE=supabase` switches a data source from Firebase to Supabase - **baked at build time** into `runtimeConfig.releasesSource` (Netlify UI env vars never reach function runtime on CLI deploys); runtime override via `NUXT_RELEASES_SOURCE` still works where env injection exists. `NETLIFY_AUTH_TOKEN` in `.env/.env.local` (personal access token of the site-owning Netlify account) makes `deploy:stage`/`deploy:prod` independent of the active `netlify switch` account.
 
 The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed `TMPDIR=/tmp` - don't remove it. Nuxt 4.4.7's vite-node IPC uses a Unix socket under `os.tmpdir()`; on macOS the default `$TMPDIR` (`/var/folders/…/T/`) pushes the socket path past the 104-char `sun_path` limit → `connect EINVAL …sock` on the first request. `/tmp` keeps it short. Harmless on Linux/Netlify (already short) and Windows (named pipes, not affected).
 
 ## Architecture
 
-**Data sources (dual-backend).** Server handlers (`server/api/`) use `defineCachedEventHandler` (1h cache) and check `process.env.RELEASES_SOURCE` to fetch from Supabase or Firebase - Firebase is legacy/default, Supabase the migration target. Firebase Realtime DB holds content (releases, artists, videos, events, playlists, friends); Supabase holds Postgres content (migration target) + auth + likes/favourites.
+**Data sources (dual-backend).** Server handlers (`server/api/`) use `defineCachedEventHandler` (1h cache) and check `useRuntimeConfig().releasesSource` to fetch from Supabase or Firebase - Firebase is legacy/default, Supabase the migration target. Firebase Realtime DB holds content (releases, artists, videos, events, playlists, friends); Supabase holds Postgres content (migration target) + auth + likes/favourites.
 
 **Server utils.** `server/utils/supabase.ts` - anon client + snake_case→camelCase mappers. `server/utils/supabaseAdmin.ts` - service-role client for privileged writes.
 
@@ -39,7 +39,7 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 **Rendering (ISR).** Production routes use ISR `maxAge: 86400` (`nuxt.config.ts` `routeRules`); disabled in dev to dodge an `unstorage` ENOTDIR bug. API routes are CDN-cached 1h + 24h SWR.
 
-**Styling (Tailwind v4).** Via the `@tailwindcss/vite` plugin - **no** `tailwind.config`/`postcss.config`. Theme tokens (light in `:root`, dark in `.dark` - source order matters since both are specificity-equal), the `dark` variant, and a global `input:-webkit-autofill` override (tied to `var(--foreground)`) live in `app/assets/css/tailwind.css` (`@theme` / `@theme inline`). `body` splits per theme; `.dark body` keeps the forest bg + white text. Default is dark (set pre-paint by an inline script in `app.head`, persisted in `localStorage['theme']`); `useTheme()` + `<ThemeToggle>` switch with a View Transitions circular reveal. Many components still hardcode `text-white/X` etc. (baked in for dark) - light theme is token-level only, not yet polished per-component.
+**Styling (Tailwind v4).** Via the `@tailwindcss/vite` plugin - **no** `tailwind.config`/`postcss.config`. Theme tokens (light in `:root`, dark in `.dark` - source order matters since both are specificity-equal), the `dark` variant, and a global `input:-webkit-autofill` override (tied to `var(--foreground)`) live in `app/assets/css/tailwind.css` (`@theme` / `@theme inline`). `body` still provides the legacy dark forest background for non-home routes. The homepage mounts `HomepageAtmosphere.vue` only on `/`; light theme shows the purpose-made `trees-light_v1.jpg` plain, dark theme shows the legacy `trees-dark_v1.jpg` plain (same URL as the non-home `body` background, so the browser cache is shared) behind the existing fractal/content layers. Default is dark (set pre-paint by an inline script in `app.head`, persisted in `localStorage['theme']`); `useTheme()` + `<ThemeToggle>` switch with a View Transitions circular reveal. Many components still hardcode `text-white/X` etc. (baked in for dark) - light theme is token-level only, not yet polished per-component.
 
 **PWA.** Manual SW (no module): `public/custom-sw.js` (precache + offline fallback), registered by `app/plugins/pwa.client.ts` **in production only** (`import.meta.dev` guard) to avoid stale `localhost:3000` caches. Assets: `public/site.webmanifest`, `public/offline.html`. Run `npm run verify:pwa` after touching these.
 
@@ -60,3 +60,13 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 ## Code style
 
 Коментарі в коді не використовуємо. Код має бути самодокументованим через назви змінних і функцій.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).

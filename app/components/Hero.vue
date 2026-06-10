@@ -6,14 +6,15 @@ const heroDescription = 'Psychedelic Music Label'
 
 <template>
   <div
-    class="font-julius relative leading-[1.4] text-white bg-gradient-to-b from-transparent to-black/50
+    data-testid="homepage-hero"
+    class="font-julius relative leading-[1.4] text-foreground bg-gradient-to-b from-transparent via-transparent to-white/50 dark:to-black/50
     py-[7.5em]
     sm:py-[8.5em]
     md:py-[9.5em]
     lg:py-[10.5em]
     xl:py-[11.5em]"
   >
-    <div class="max-w-[777px] px-2 box-border mx-auto">
+    <div class="relative max-w-[777px] px-2 box-border mx-auto">
       <div
         class="uppercase mb-[0.2em]
         text-[40px] tracking-[2px]

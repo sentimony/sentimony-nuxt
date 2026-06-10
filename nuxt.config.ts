@@ -4,6 +4,7 @@ const isDev = process.env.NODE_ENV === 'development'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
 const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY || ''
+const releasesSource = process.env.NUXT_RELEASES_SOURCE || process.env.RELEASES_SOURCE || 'firebase'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -51,6 +52,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     supabaseSecretKey,
     supabaseUrl,
+    releasesSource,
     public: {
       firebaseBase: 'https://sentimony-db.firebaseio.com',
       supabaseUrl,

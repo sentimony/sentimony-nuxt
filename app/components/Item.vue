@@ -76,8 +76,8 @@ const imgHeight = computed(() =>
         <!-- <div class="swiper-lazy-preloader"></div> -->
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingPhoto"/> -->
       </div>
-      <div v-if="i.coming_soon" class="text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-green-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Coming Soon</div>
-      <div v-if="i.new" class="text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Out Now</div>
+      <div v-if="i.coming_soon" class="text-white text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-green-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Coming Soon</div>
+      <div v-if="i.new" class="text-white text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Out Now</div>
     </div>
 
     <div class="line-clamp-2 tracking-tight">{{ i.title }}</div>

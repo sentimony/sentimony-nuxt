@@ -159,10 +159,10 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
 .swiper { @apply overflow-visible static }
 .swiper-slide { @apply w-[auto] }
 
-.swiper-pagination { @apply text-xs/3 md:text-sm/4 text-white/50 }
+.swiper-pagination { @apply text-xs/3 md:text-sm/4 text-foreground/50 }
 
 .swiper-button-prev,
-.swiper-button-next { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-white/40 hover:text-white/80 hover:bg-white/5 hover:backdrop-blur-sm hidden md:block p-4 }
+.swiper-button-next { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-foreground/40 hover:text-foreground/80 hover:bg-black/5 dark:hover:bg-white/5 hover:backdrop-blur-sm hidden md:block p-4 }
 .swiper-button-prev { @apply left-0 }
 .swiper-button-next { @apply right-0 }
 
@@ -170,5 +170,5 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
 .swiper-button-next svg { @apply size-6 }
 .swiper-button-prev svg { @apply rotate-[180deg] }
 
-.swiper-button-disabled { @apply text-white/5 pointer-events-none }
+.swiper-button-disabled { @apply text-foreground/10 pointer-events-none }
 </style>

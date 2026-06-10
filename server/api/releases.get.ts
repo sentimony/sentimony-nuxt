@@ -2,7 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 export default defineCachedEventHandler(
   async () => {
-    if (process.env.RELEASES_SOURCE === 'supabase') {
+    if (useRuntimeConfig().releasesSource === 'supabase') {
       const { data, error } = await useSupabase()
         .from('releases')
         .select('slug, title, cover_th, date, visible, coming_soon, is_new, artists, at_playlists')

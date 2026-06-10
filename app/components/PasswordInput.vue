@@ -24,7 +24,7 @@ const show = ref(false)
     <button
       type="button"
       @click="show = !show"
-      class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer text-white/40 hover:text-white/80 transition-colors"
+      class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer text-foreground/40 hover:text-foreground/80 transition-colors"
     >
       <Icon :name="show ? 'lucide:eye-off' : 'lucide:eye'" size="18" />
     </button>

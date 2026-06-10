@@ -74,19 +74,17 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 </script>
 
 <template>
-  <div class="text-left border-t border-white/30">
-    <div class="relative px-2">
-      <SvgTriangle />
-
+  <div class="text-left border-t border-black/20 dark:border-white/20">
+    <div class="relative z-[2] px-2">
       <div class="container max-w-7xl">
 
-        <p class="text-center text-[11px] md:text-[13px] text-white/60 mt-4 md:mt-6">
+        <p class="text-center text-[11px] md:text-[13px] text-foreground/60 mt-4 md:mt-6">
           <span>Track</span>
           <span v-if="release"> · </span>
           <NuxtLink
             v-if="release"
             :to="`/release/${release.slug}`"
-            class="hover:text-white transition-colors"
+            class="hover:text-foreground transition-colors"
           >
             {{ release.title }}
           </NuxtLink>
@@ -96,7 +94,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
         <h1 class="text-center text-2xl md:text-4xl my-2 md:my-4">{{ track.title }}</h1>
 
-        <p class="text-center text-sm md:text-base text-white/80 mb-4">
+        <p class="text-center text-sm md:text-base text-foreground/80 mb-4">
           <template v-for="(artist, index) in artists" :key="artist.slug">
             <NuxtLink
               :to="`/artist/${artist.slug}`"
@@ -111,7 +109,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
           <button
             @click="toggleTrackLike(track.slug)"
             class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-            :class="isTrackLiked(track.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+            :class="isTrackLiked(track.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
             v-wave
           >
             <Icon name="lucide:heart" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="18" />
@@ -131,19 +129,19 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               class="float-left"
             />
 
-            <p v-if="release"><span class="text-white/50">Release:</span>
+            <p v-if="release"><span class="text-foreground/50">Release:</span>
               <NuxtLink :to="`/release/${release.slug}`" class="ml-1 hover:underline">{{ release.title }}</NuxtLink>
             </p>
-            <p v-if="releaseDate"><span class="text-white/50">Release Date:</span> {{ releaseDate }}</p>
-            <p v-if="release?.cat_no"><span class="text-white/50">Catalog Number:</span> {{ release.cat_no }}</p>
-            <p v-if="release?.style"><span class="text-white/50">Styles:</span> {{ release.style }}</p>
-            <p v-if="track.bpm"><span class="text-white/50">BPM:</span> {{ track.bpm }}</p>
-            <p><span class="text-white/50">Track No:</span> {{ track.track_number }}</p>
+            <p v-if="releaseDate"><span class="text-foreground/50">Release Date:</span> {{ releaseDate }}</p>
+            <p v-if="release?.cat_no"><span class="text-foreground/50">Catalog Number:</span> {{ release.cat_no }}</p>
+            <p v-if="release?.style"><span class="text-foreground/50">Styles:</span> {{ release.style }}</p>
+            <p v-if="track.bpm"><span class="text-foreground/50">BPM:</span> {{ track.bpm }}</p>
+            <p><span class="text-foreground/50">Track No:</span> {{ track.track_number }}</p>
 
             <div class="clear-left" />
 
             <p v-if="release?.links?.bandcamp_url">
-              <span class="text-[10px] md:text-[12px] text-white/50">Buy / Download</span>
+              <span class="text-[10px] md:text-[12px] text-foreground/50">Buy / Download</span>
             </p>
             <BtnPrimary
               v-if="release?.links?.bandcamp_url"
@@ -171,7 +169,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             />
 
             <p v-if="release?.links?.spotify || release?.links?.applemusic_url || release?.links?.youtube_music || release?.links?.soundcloud_url">
-              <span class="text-[10px] md:text-[12px] text-white/50">Stream</span>
+              <span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span>
             </p>
             <BtnPrimary
               v-if="release?.links?.spotify"
@@ -298,6 +296,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
     </div>
 
     <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]">
+      <SvgTriangle />
       <div class="max-w-[640px] mx-auto">
 
         <div v-if="artists.length">

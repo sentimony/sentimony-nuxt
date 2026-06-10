@@ -15,15 +15,15 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
 </script>
 
 <template>
-  <div class="sticky top-0 left-0 w-full z-20 border-b border-black/10 dark:border-white/30 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
+  <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
         <div class="relative flex justify-between items-center h-[75px] px-2">
 
           <NuxtLink
             to="/"
-            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-black/10 dark:hover:bg-white/30 h-[56px] flex items-center justify-center rounded-[2px]"
-            active-class="bg-black/10 dark:bg-white/20"
+            class="w-[230px] transition-[background-color,border-color] ease-in-out duration-300 border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 h-[56px] flex items-center justify-center rounded-md"
+            :class="route.path === '/' ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
             v-wave
           >
             <img
@@ -38,34 +38,35 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
             </div>
           </NuxtLink>
 
-          <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2">
+          <div class="hidden lg:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-[16px] hover:bg-black/10 dark:hover:bg-white/30 lg:px-4 h-[56px] flex items-center justify-center rounded-[2px]"
-              :class="isNavActive(i.route) ? 'bg-black/10 dark:bg-white/20' : ''"
+              class="transition-[background-color,border-color] ease-in-out duration-300 text-sm border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
+              :class="isNavActive(i.route) ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
               v-wave
             >
+              <Icon :name="i.icon" size="18" />
               <span>{{ i.title }}</span>
             </NuxtLink>
           </div>
 
-          <div class="flex items-center">
+          <div class="flex items-center gap-2">
 
-          <div class="hidden xl:flex">
+          <div class="hidden xl:flex gap-2">
             <div
               v-for="i in soc"
               class="relative z-30 group"
             >
               <a
                 :href="i.url"
-                class="flex items-center justify-center transition-colors ease-in-out duration-300 text-foreground/80 hover:text-foreground hover:bg-black/10 dark:hover:bg-white/30 md:w-[46px] lg:w-[56px] h-[56px] rounded-[2px] relative z-30"
+                class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-white/30 size-9 rounded-md relative z-30"
                 target="_blank" rel="noopener"
                 v-wave
               >
-                <Icon v-if="i.icon.kind === 'iconify'" class="" :name="i.icon.name" size="22" />
-                <img v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="22" height="22">
+                <Icon v-if="i.icon.kind === 'iconify'" class="" :name="i.icon.name" size="18" />
+                <img v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="18" height="18">
               </a>
               <div class="absolute  tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100  group-hover:-translate-y-full transition-all ease-in-out duration-300 z-10">{{ i.title }}</div>
             </div>
@@ -76,24 +77,26 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           <NuxtLink
             v-if="user"
             to="/profile"
-            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/30 w-[46px] lg:w-[56px] h-[56px] rounded-[2px]"
+            class="transition-[background-color,border-color] ease-in-out duration-300 flex items-center justify-center border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 size-9 rounded-md"
+            :class="isNavActive('/profile') ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
             v-wave
           >
             <span
-              class="flex items-center justify-center size-[32px] rounded-full bg-black/10 dark:bg-white/20 text-[16px] uppercase leading-none"
+              class="flex items-center justify-center size-7 rounded-full bg-white/20 text-sm uppercase leading-none"
             >{{ userInitial }}</span>
           </NuxtLink>
           <NuxtLink
             v-else
             to="/signin"
-            class="transition-colors ease-in-out duration-300 inline-flex items-center justify-center gap-2 border border-black/20 dark:border-white/30 hover:bg-black/10 dark:hover:bg-white/20 hover:border-black/40 dark:hover:border-white/50 px-4 h-9 rounded-md text-sm"
+            class="transition-[background-color,border-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 px-4 h-9 rounded-md text-sm"
+            :class="isNavActive('/signin') ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
             v-wave
           >
             <Icon name="lucide:log-in" size="18" />
             <span class="hidden sm:inline">Sign In</span>
           </NuxtLink>
 
-          <div class="size-[56px] lg:hidden" />
+          <div class="size-9 lg:hidden" />
 
           </div>
 

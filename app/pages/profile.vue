@@ -29,15 +29,15 @@ async function signOut() {
     <div class="container max-w-5xl mx-auto">
       <h1 class="text-2xl font-['Julius_Sans_One'] tracking-wide text-center mb-8">Profile</h1>
 
-      <div class="max-w-sm mx-auto bg-white/5 backdrop-blur-sm border border-white/20 rounded-lg p-6 flex flex-col gap-4 mb-12">
+      <div class="max-w-sm mx-auto bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/20 dark:border-white/20 rounded-lg p-6 flex flex-col gap-4 mb-12">
         <div class="flex flex-col gap-1">
-          <span class="text-xs text-white/50 tracking-widest uppercase">Email</span>
-          <span class="text-white/80">{{ user?.email }}</span>
+          <span class="text-xs text-foreground/50 tracking-widest uppercase">Email</span>
+          <span class="text-foreground/80">{{ user?.email }}</span>
         </div>
 
         <button
           @click="signOut"
-          class="transition-colors duration-300 border border-white/30 rounded px-4 py-2 hover:bg-white/20 text-sm mt-2 flex items-center justify-center gap-2"
+          class="transition-colors duration-300 border border-black/30 dark:border-white/30 rounded px-4 py-2 hover:bg-white/20 text-sm mt-2 flex items-center justify-center gap-2"
         >
           <Icon name="lucide:log-out" size="18" />
           Sign Out
@@ -53,7 +53,7 @@ async function signOut() {
           v-if="releases.hasMore.value"
           :disabled="releases.loading.value"
           @click="releases.loadMore()"
-          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
         >
           {{ releases.loading.value ? 'Loading...' : `Show more 5 (${releases.total.value - releases.items.value.length} left)` }}
         </button>
@@ -66,7 +66,7 @@ async function signOut() {
             v-for="t in tracks.items.value"
             :key="t.slug"
             :to="`/release/${t.release_slug}`"
-            class="flex items-center gap-3 py-1 hover:text-white/70 transition-colors"
+            class="flex items-center gap-3 py-1 hover:text-foreground/70 transition-colors"
           >
             <span><b>{{ t.artist_name }}</b> - {{ t.title }} <small v-if="t.bpm">({{ t.bpm }}bpm)</small></span>
           </NuxtLink>
@@ -75,7 +75,7 @@ async function signOut() {
           v-if="tracks.hasMore.value"
           :disabled="tracks.loading.value"
           @click="tracks.loadMore()"
-          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
         >
           {{ tracks.loading.value ? 'Loading...' : `Show more 20 (${tracks.total.value - tracks.items.value.length} left)` }}
         </button>
@@ -90,7 +90,7 @@ async function signOut() {
           v-if="artists.hasMore.value"
           :disabled="artists.loading.value"
           @click="artists.loadMore()"
-          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
         >
           {{ artists.loading.value ? 'Loading...' : `Show more 5 (${artists.total.value - artists.items.value.length} left)` }}
         </button>
@@ -105,7 +105,7 @@ async function signOut() {
           v-if="playlists.hasMore.value"
           :disabled="playlists.loading.value"
           @click="playlists.loadMore()"
-          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
         >
           {{ playlists.loading.value ? 'Loading...' : `Show more (${playlists.total.value - playlists.items.value.length} left)` }}
         </button>
@@ -120,7 +120,7 @@ async function signOut() {
           v-if="events.hasMore.value"
           :disabled="events.loading.value"
           @click="events.loadMore()"
-          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
         >
           {{ events.loading.value ? 'Loading...' : `Show more (${events.total.value - events.items.value.length} left)` }}
         </button>
@@ -135,7 +135,7 @@ async function signOut() {
           v-if="videos.hasMore.value"
           :disabled="videos.loading.value"
           @click="videos.loadMore()"
-          class="mt-4 text-sm text-white/50 hover:text-white/80 transition-colors disabled:opacity-40"
+          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
         >
           {{ videos.loading.value ? 'Loading...' : `Show more (${videos.total.value - videos.items.value.length} left)` }}
         </button>
