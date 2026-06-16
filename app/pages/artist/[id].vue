@@ -116,8 +116,8 @@ useSeoMeta({
               iconify="simple-icons:spotify"
             />
             <BtnPrimary
-              v-if="item.applemusic_url"
-              :to="item.applemusic_url"
+              v-if="item.apple_music"
+              :to="item.apple_music"
               title="Apple Music"
               iconify="simple-icons:applemusic"
             />

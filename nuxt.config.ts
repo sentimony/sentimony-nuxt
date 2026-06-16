@@ -118,6 +118,9 @@ export default defineNuxtConfig({
       'Julius Sans One': {
         wght: [400],
       },
+      'Azeret Mono': {
+        wght: [400],
+      },
     },
     display: 'swap',
     subsets: 'latin',

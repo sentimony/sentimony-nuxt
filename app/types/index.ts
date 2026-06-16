@@ -72,7 +72,7 @@ export interface Artist extends BaseEntity {
   bandcamp_url?: string
   soundcloud_url?: string
   spotify?: string
-  applemusic_url?: string
+  apple_music?: string
   youtubemusic_url?: string
   youtube_url?: string
   facebook?: string

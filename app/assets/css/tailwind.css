@@ -5,6 +5,7 @@
 @theme {
   --font-montserrat: "Montserrat", sans-serif;
   --font-julius: "Julius Sans One", sans-serif;
+  --font-mono: "Azeret Mono", monospace;
 }
 
 :root {

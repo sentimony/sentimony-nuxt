@@ -18,6 +18,33 @@ const videos = usePaginatedLikes<LikedVideo>('/api/video-likes/videos', 5)
 const playlists = usePaginatedLikes<LikedPlaylist>('/api/playlist-likes/playlists', 5)
 const events = usePaginatedLikes<LikedEvent>('/api/event-likes/events', 5)
 
+const allTabs = [
+  { key: 'releases', label: 'Releases', data: releases },
+  { key: 'tracks', label: 'Tracks', data: tracks },
+  { key: 'artists', label: 'Artists', data: artists },
+  { key: 'videos', label: 'Videos', data: videos },
+  { key: 'playlists', label: 'Playlists', data: playlists },
+  { key: 'events', label: 'Events', data: events },
+]
+
+const visibleTabs = computed(() =>
+  allTabs.filter(t => t.data.loading.value || t.data.items.value.length > 0)
+)
+
+const activeTab = ref('releases')
+
+watch(visibleTabs, (tabs) => {
+  if (tabs.length && !tabs.find(t => t.key === activeTab.value)) {
+    activeTab.value = tabs[0]!.key
+  }
+}, { immediate: true })
+
+const mounted = ref(false)
+onMounted(() => { mounted.value = true })
+
+const allLoaded = computed(() => mounted.value && allTabs.every(t => !t.data.loading.value))
+const hasAnyLikes = computed(() => allTabs.some(t => t.data.items.value.length > 0))
+
 async function signOut() {
   await supabase.auth.signOut()
   navigateTo('/signin')
@@ -25,122 +52,165 @@ async function signOut() {
 </script>
 
 <template>
-  <div class="px-4 py-16">
+  <div class="px-4 py-12">
     <div class="container max-w-5xl mx-auto">
-      <h1 class="text-2xl font-['Julius_Sans_One'] tracking-wide text-center mb-8">Profile</h1>
 
-      <div class="max-w-sm mx-auto bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/20 dark:border-white/20 rounded-lg p-6 flex flex-col gap-4 mb-12">
-        <div class="flex flex-col gap-1">
-          <span class="text-xs text-foreground/50 tracking-widest uppercase">Email</span>
-          <span class="text-foreground/80">{{ user?.email }}</span>
-        </div>
-
+      <div class="flex items-center justify-between py-3 mb-10 border-b border-black/10 dark:border-white/10">
+        <span class="text-foreground/40 text-[10px] tracking-widest uppercase">{{ user?.email }}</span>
         <button
           @click="signOut"
-          class="transition-colors duration-300 border border-black/30 dark:border-white/30 rounded px-4 py-2 hover:bg-white/20 text-sm mt-2 flex items-center justify-center gap-2"
+          class="flex items-center gap-1.5 text-[10px] text-foreground/40 hover:text-foreground/70 tracking-wider uppercase transition-colors duration-200"
         >
-          <Icon name="lucide:log-out" size="18" />
-          Sign Out
+          <Icon name="lucide:log-out" size="13" />
+          Sign out
         </button>
       </div>
 
-      <div v-if="releases.items.value.length || releases.loading.value" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Releases</h2>
-        <div class="flex flex-wrap">
-          <Item v-for="r in releases.items.value" :key="r.slug" :i="r" category="release" />
-        </div>
+      <h1 class="font-julius text-[clamp(28px,5vw,56px)] tracking-[0.14em] uppercase text-center mb-10">
+        Altar
+      </h1>
+
+      <div v-if="visibleTabs.length" class="flex flex-wrap gap-2 justify-center mb-10">
         <button
-          v-if="releases.hasMore.value"
-          :disabled="releases.loading.value"
-          @click="releases.loadMore()"
-          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
+          v-for="tab in visibleTabs"
+          :key="tab.key"
+          @click="activeTab = tab.key"
+          :class="[
+            'px-4 py-1.5 text-[10px] tracking-widest uppercase rounded transition-colors duration-200',
+            activeTab === tab.key
+              ? 'bg-black/15 dark:bg-white/15 text-foreground'
+              : 'bg-black/5 dark:bg-white/5 text-foreground/40 hover:bg-black/10 dark:hover:bg-white/10 hover:text-foreground/70'
+          ]"
         >
-          {{ releases.loading.value ? 'Loading...' : `Show more 5 (${releases.total.value - releases.items.value.length} left)` }}
+          {{ tab.label }}
+          <span
+            v-if="!tab.data.loading.value && tab.data.total.value > 0"
+            class="ml-1 opacity-40"
+          >{{ tab.data.total.value }}</span>
         </button>
       </div>
 
-      <div v-if="tracks.items.value.length || tracks.loading.value" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Tracks</h2>
-        <div class="max-w-xl">
-          <NuxtLink
-            v-for="t in tracks.items.value"
-            :key="t.slug"
-            :to="`/release/${t.release_slug}`"
-            class="flex items-center gap-3 py-1 hover:text-foreground/70 transition-colors"
-          >
-            <span><b>{{ t.artist_name }}</b> - {{ t.title }} <small v-if="t.bpm">({{ t.bpm }}bpm)</small></span>
-          </NuxtLink>
-        </div>
-        <button
-          v-if="tracks.hasMore.value"
-          :disabled="tracks.loading.value"
-          @click="tracks.loadMore()"
-          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
-        >
-          {{ tracks.loading.value ? 'Loading...' : `Show more 20 (${tracks.total.value - tracks.items.value.length} left)` }}
-        </button>
+      <div v-else-if="allLoaded && !hasAnyLikes" class="text-center py-24">
+        <p class="text-foreground/30 text-[10px] tracking-[0.2em] uppercase mb-2">Nothing here yet</p>
+        <p class="text-foreground/20 text-xs">Explore releases, artists and events to build your collection</p>
       </div>
 
-      <div v-if="artists.items.value.length || artists.loading.value" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Artists</h2>
-        <div class="flex flex-wrap">
-          <Item v-for="a in artists.items.value" :key="a.slug" :i="a" category="artist" />
-        </div>
-        <button
-          v-if="artists.hasMore.value"
-          :disabled="artists.loading.value"
-          @click="artists.loadMore()"
-          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
-        >
-          {{ artists.loading.value ? 'Loading...' : `Show more 5 (${artists.total.value - artists.items.value.length} left)` }}
-        </button>
-      </div>
+      <Transition name="tab-fade" mode="out-in">
+        <div :key="activeTab" class="min-h-48">
 
-      <div v-if="playlists.items.value.length || playlists.loading.value" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Playlists</h2>
-        <div class="flex flex-wrap">
-          <Item v-for="p in playlists.items.value" :key="p.slug" :i="p" category="playlist" />
-        </div>
-        <button
-          v-if="playlists.hasMore.value"
-          :disabled="playlists.loading.value"
-          @click="playlists.loadMore()"
-          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
-        >
-          {{ playlists.loading.value ? 'Loading...' : `Show more (${playlists.total.value - playlists.items.value.length} left)` }}
-        </button>
-      </div>
+          <template v-if="activeTab === 'releases'">
+            <div class="flex flex-wrap">
+              <Item v-for="r in releases.items.value" :key="r.slug" :i="r" category="release" />
+            </div>
+            <div v-if="releases.loading.value" class="flex justify-center py-10">
+              <span class="text-foreground/30 text-[10px] tracking-widest uppercase animate-pulse">Loading</span>
+            </div>
+            <button v-if="releases.hasMore.value" :disabled="releases.loading.value" class="block mx-auto mt-6 text-[10px] tracking-widest uppercase text-foreground/35 hover:text-foreground/65 transition-colors duration-200 disabled:opacity-25" @click="releases.loadMore()">
+              {{ releases.loading.value ? 'Loading…' : `Show more · ${releases.total.value - releases.items.value.length} left` }}
+            </button>
+          </template>
 
-      <div v-if="events.items.value.length || events.loading.value" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Events</h2>
-        <div class="flex flex-wrap">
-          <Item v-for="e in events.items.value" :key="e.slug" :i="e" category="event" />
-        </div>
-        <button
-          v-if="events.hasMore.value"
-          :disabled="events.loading.value"
-          @click="events.loadMore()"
-          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
-        >
-          {{ events.loading.value ? 'Loading...' : `Show more (${events.total.value - events.items.value.length} left)` }}
-        </button>
-      </div>
+          <template v-else-if="activeTab === 'tracks'">
+            <div class="max-w-2xl mx-auto text-left">
+              <NuxtLink
+                v-for="(t, i) in tracks.items.value"
+                :key="t.slug"
+                :to="`/release/${t.release_slug}`"
+                class="group flex items-baseline gap-4 py-2.5 px-2 border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-150 rounded"
+              >
+                <span class="font-mono text-foreground/25 text-[10px] w-5 text-right shrink-0">{{ i + 1 }}</span>
+                <span class="text-foreground/50 text-xs shrink-0">{{ t.artist_name }}</span>
+                <span class="text-foreground/85 text-xs flex-1">{{ t.title }}</span>
+                <span v-if="t.bpm" class="font-mono text-foreground/25 text-[10px] shrink-0">{{ t.bpm }}bpm</span>
+              </NuxtLink>
+            </div>
+            <div v-if="tracks.loading.value" class="flex justify-center py-10">
+              <span class="text-foreground/30 text-[10px] tracking-widest uppercase animate-pulse">Loading</span>
+            </div>
+            <button v-if="tracks.hasMore.value" :disabled="tracks.loading.value" class="block mx-auto mt-4 text-[10px] tracking-widest uppercase text-foreground/35 hover:text-foreground/65 transition-colors duration-200 disabled:opacity-25" @click="tracks.loadMore()">
+              {{ tracks.loading.value ? 'Loading…' : `Show more · ${tracks.total.value - tracks.items.value.length} left` }}
+            </button>
+          </template>
 
-      <div v-if="videos.items.value.length || videos.loading.value" class="mb-10">
-        <h2 class="font-['Julius_Sans_One'] tracking-wide text-lg mb-5">Liked Videos</h2>
-        <div class="flex flex-wrap">
-          <Item v-for="v in videos.items.value" :key="v.slug" :i="v" category="video" />
+          <template v-else-if="activeTab === 'artists'">
+            <div class="flex flex-wrap">
+              <Item v-for="a in artists.items.value" :key="a.slug" :i="a" category="artist" />
+            </div>
+            <div v-if="artists.loading.value" class="flex justify-center py-10">
+              <span class="text-foreground/30 text-[10px] tracking-widest uppercase animate-pulse">Loading</span>
+            </div>
+            <button v-if="artists.hasMore.value" :disabled="artists.loading.value" class="block mx-auto mt-6 text-[10px] tracking-widest uppercase text-foreground/35 hover:text-foreground/65 transition-colors duration-200 disabled:opacity-25" @click="artists.loadMore()">
+              {{ artists.loading.value ? 'Loading…' : `Show more · ${artists.total.value - artists.items.value.length} left` }}
+            </button>
+          </template>
+
+          <template v-else-if="activeTab === 'videos'">
+            <div class="flex flex-wrap">
+              <Item v-for="v in videos.items.value" :key="v.slug" :i="v" category="video" />
+            </div>
+            <div v-if="videos.loading.value" class="flex justify-center py-10">
+              <span class="text-foreground/30 text-[10px] tracking-widest uppercase animate-pulse">Loading</span>
+            </div>
+            <button v-if="videos.hasMore.value" :disabled="videos.loading.value" class="block mx-auto mt-6 text-[10px] tracking-widest uppercase text-foreground/35 hover:text-foreground/65 transition-colors duration-200 disabled:opacity-25" @click="videos.loadMore()">
+              {{ videos.loading.value ? 'Loading…' : `Show more · ${videos.total.value - videos.items.value.length} left` }}
+            </button>
+          </template>
+
+          <template v-else-if="activeTab === 'playlists'">
+            <div class="flex flex-wrap">
+              <Item v-for="p in playlists.items.value" :key="p.slug" :i="p" category="playlist" />
+            </div>
+            <div v-if="playlists.loading.value" class="flex justify-center py-10">
+              <span class="text-foreground/30 text-[10px] tracking-widest uppercase animate-pulse">Loading</span>
+            </div>
+            <button v-if="playlists.hasMore.value" :disabled="playlists.loading.value" class="block mx-auto mt-6 text-[10px] tracking-widest uppercase text-foreground/35 hover:text-foreground/65 transition-colors duration-200 disabled:opacity-25" @click="playlists.loadMore()">
+              {{ playlists.loading.value ? 'Loading…' : `Show more · ${playlists.total.value - playlists.items.value.length} left` }}
+            </button>
+          </template>
+
+          <template v-else-if="activeTab === 'events'">
+            <div class="flex flex-wrap">
+              <Item v-for="e in events.items.value" :key="e.slug" :i="e" category="event" />
+            </div>
+            <div v-if="events.loading.value" class="flex justify-center py-10">
+              <span class="text-foreground/30 text-[10px] tracking-widest uppercase animate-pulse">Loading</span>
+            </div>
+            <button v-if="events.hasMore.value" :disabled="events.loading.value" class="block mx-auto mt-6 text-[10px] tracking-widest uppercase text-foreground/35 hover:text-foreground/65 transition-colors duration-200 disabled:opacity-25" @click="events.loadMore()">
+              {{ events.loading.value ? 'Loading…' : `Show more · ${events.total.value - events.items.value.length} left` }}
+            </button>
+          </template>
+
         </div>
-        <button
-          v-if="videos.hasMore.value"
-          :disabled="videos.loading.value"
-          @click="videos.loadMore()"
-          class="mt-4 text-sm text-foreground/50 hover:text-foreground/80 transition-colors disabled:opacity-40"
-        >
-          {{ videos.loading.value ? 'Loading...' : `Show more (${videos.total.value - videos.items.value.length} left)` }}
-        </button>
-      </div>
+      </Transition>
 
     </div>
   </div>
 </template>
+
+<style scoped>
+.tab-fade-enter-active {
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+.tab-fade-leave-active {
+  transition: opacity 100ms ease-in, transform 100ms ease-in;
+}
+.tab-fade-enter-from {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.tab-fade-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-fade-enter-active,
+  .tab-fade-leave-active {
+    transition: opacity 100ms ease;
+  }
+  .tab-fade-enter-from,
+  .tab-fade-leave-to {
+    transform: none;
+  }
+}
+</style>

@@ -61,7 +61,7 @@ watch(() => route.path, () => {
         }"
       >
         <div
-          class="fractal-petal absolute w-32 h-64 rounded-full transition-all duration-[1.2s] ease-in-out"
+          class="fractal-petal absolute w-32 h-64 rounded-full transition-[width,height] duration-[1.2s] ease-in-out"
           :class="{ '!w-64 !h-32 !duration-[4.0s] !delay-[0.0s] animate-[spin2rev_6.0s_ease-in-out]': isAnimating }"
           :style="{ background: petalGradient }"
         />

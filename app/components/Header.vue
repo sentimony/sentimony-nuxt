@@ -68,7 +68,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
                 <Icon v-if="i.icon.kind === 'iconify'" class="" :name="i.icon.name" size="18" />
                 <img v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="18" height="18">
               </a>
-              <div class="absolute  tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:tracking-normal group-hover:opacity-100  group-hover:-translate-y-full transition-all ease-in-out duration-300 z-10">{{ i.title }}</div>
+              <div class="absolute tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:opacity-100 group-hover:-translate-y-full transition-[opacity,transform] ease-in-out duration-300 z-10">{{ i.title }}</div>
             </div>
           </div>
 
