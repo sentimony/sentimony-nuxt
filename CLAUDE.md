@@ -13,10 +13,12 @@ Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.
 ```bash
 npm run dev -- --host   # dev (requires .env/.env)
 npm run build
-npm run deploy:stage
-npm run deploy:prod
+npm run sync            # sync:firebase + sync:supabase
 npm run sync:firebase   # export Firebase DB → public/data/sentimony-db-export.json
 npm run sync:supabase   # sync data to Supabase
+npm run deploy          # sync → stage → prod
+npm run deploy:stage    # sync → Netlify stage
+npm run deploy:prod     # sync → Netlify prod
 npm run verify:pwa      # validate manifest + custom service worker
 npx nuxi typecheck      # vue-tsc type check
 ```

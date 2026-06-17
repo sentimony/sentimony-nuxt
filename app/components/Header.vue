@@ -22,8 +22,8 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
 
           <NuxtLink
             to="/"
-            class="w-[230px] transition-[background-color,border-color] ease-in-out duration-300 border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 h-[56px] flex items-center justify-center rounded-md"
-            :class="route.path === '/' ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
+            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-white/30 h-[56px] flex items-center justify-center rounded-md"
+            :class="route.path === '/' ? 'bg-white/20' : ''"
             v-wave
           >
             <img
@@ -43,8 +43,8 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color,border-color] ease-in-out duration-300 text-sm border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
-              :class="isNavActive(i.route) ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
+              class="transition-[background-color] ease-in-out duration-300 text-sm hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
+              :class="isNavActive(i.route) ? 'bg-white/20' : ''"
               v-wave
             >
               <Icon :name="i.icon" size="18" />
@@ -55,21 +55,25 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           <div class="flex items-center gap-2">
 
           <div class="hidden xl:flex gap-2">
-            <div
-              v-for="i in soc"
-              class="relative z-30 group"
-            >
-              <a
-                :href="i.url"
-                class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-white/30 size-9 rounded-md relative z-30"
-                target="_blank" rel="noopener"
-                v-wave
-              >
-                <Icon v-if="i.icon.kind === 'iconify'" class="" :name="i.icon.name" size="18" />
-                <img v-else :src="i.icon.url" class="" :alt="i.title + ' Icon'" width="18" height="18">
-              </a>
-              <div class="absolute tracking-[0.5em] left-1/2 top-full -translate-x-1/2 -translate-y-3/4 opacity-0 text-[8px]/[2em] group-hover:opacity-100 group-hover:-translate-y-full transition-[opacity,transform] ease-in-out duration-300 z-10">{{ i.title }}</div>
-            </div>
+            <TooltipProvider v-for="i in soc" :key="i.id" :delay-duration="0">
+              <Tooltip>
+                <TooltipTrigger as-child>
+                  <a
+                    :href="i.url"
+                    class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-white/30 size-9 rounded-md"
+                    target="_blank" rel="noopener"
+                    v-wave
+                  >
+                    <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="18" />
+                    <img v-else :src="i.icon.url" :alt="i.title + ' Icon'" width="18" height="18">
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent class="flex items-center gap-1.5">
+                  {{ i.title }}
+                  <Icon name="lucide:arrow-up-right" size="11" class="opacity-60" />
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
 
           <ThemeToggle />
@@ -77,8 +81,8 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           <NuxtLink
             v-if="user"
             to="/profile"
-            class="transition-[background-color,border-color] ease-in-out duration-300 flex items-center justify-center border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 size-9 rounded-md"
-            :class="isNavActive('/profile') ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
+            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 size-9 rounded-md"
+            :class="isNavActive('/profile') ? 'bg-white/20' : ''"
             v-wave
           >
             <span
@@ -88,8 +92,8 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
           <NuxtLink
             v-else
             to="/signin"
-            class="transition-[background-color,border-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 px-4 h-9 rounded-md text-sm"
-            :class="isNavActive('/signin') ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
+            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-white/30 px-4 h-9 rounded-md text-sm"
+            :class="isNavActive('/signin') ? 'bg-white/20' : ''"
             v-wave
           >
             <Icon name="lucide:log-in" size="18" />

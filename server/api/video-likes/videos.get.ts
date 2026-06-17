@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
 
   const [{ count }, { data: likes }] = await Promise.all([
     admin.from('video_likes').select('*', { count: 'exact', head: true }).eq('user_id', userId),
-    admin.from('video_likes').select('video_slug').eq('user_id', userId).range(from, to),
+    admin.from('video_likes').select('video_slug').eq('user_id', userId).order('created_at', { ascending: false }).range(from, to),
   ])
 
   if (!likes?.length) return { data: [], total: count ?? 0 }
@@ -25,7 +25,8 @@ export default defineEventHandler(async (event) => {
     .from('videos')
     .select('slug, title, cover_th')
     .in('slug', slugs)
-    .order('title')
 
-  return { data: data ?? [], total: count ?? 0 }
+  const sorted = slugs.map(slug => data?.find(v => v.slug === slug)).filter(Boolean)
+
+  return { data: sorted, total: count ?? 0 }
 })

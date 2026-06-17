@@ -11,12 +11,12 @@ type LikedVideo = { slug: string, title: string, cover_th: string }
 type LikedPlaylist = { slug: string, title: string, cover_th: string }
 type LikedEvent = { slug: string, title: string, flyer_a_xl: string }
 
-const artists = usePaginatedLikes<LikedArtist>('/api/artist-likes/artists', 5)
-const releases = usePaginatedLikes<LikedRelease>('/api/likes/releases', 5)
-const tracks = usePaginatedLikes<LikedTrack>('/api/track-likes/tracks', 20)
-const videos = usePaginatedLikes<LikedVideo>('/api/video-likes/videos', 5)
-const playlists = usePaginatedLikes<LikedPlaylist>('/api/playlist-likes/playlists', 5)
-const events = usePaginatedLikes<LikedEvent>('/api/event-likes/events', 5)
+const artists = usePaginatedLikes<LikedArtist>('/api/artist-likes/artists', 25)
+const releases = usePaginatedLikes<LikedRelease>('/api/likes/releases', 25)
+const tracks = usePaginatedLikes<LikedTrack>('/api/track-likes/tracks', 25)
+const videos = usePaginatedLikes<LikedVideo>('/api/video-likes/videos', 25)
+const playlists = usePaginatedLikes<LikedPlaylist>('/api/playlist-likes/playlists', 25)
+const events = usePaginatedLikes<LikedEvent>('/api/event-likes/events', 25)
 
 const allTabs = [
   { key: 'releases', label: 'Releases', data: releases },
@@ -53,17 +53,19 @@ async function signOut() {
 
 <template>
   <div class="px-4 py-12">
-    <div class="container max-w-5xl mx-auto">
+    <div class="container max-w-[112rem] mx-auto">
 
-      <div class="flex items-center justify-between py-3 mb-10 border-b border-black/10 dark:border-white/10">
-        <span class="text-foreground/40 text-[10px] tracking-widest uppercase">{{ user?.email }}</span>
-        <button
-          @click="signOut"
-          class="flex items-center gap-1.5 text-[10px] text-foreground/40 hover:text-foreground/70 tracking-wider uppercase transition-colors duration-200"
-        >
-          <Icon name="lucide:log-out" size="13" />
-          Sign out
-        </button>
+      <div class="max-w-5xl mx-auto">
+        <div class="flex items-center justify-between py-3 mb-10 border-b border-black/10 dark:border-white/10">
+          <span class="text-foreground/40 text-[10px] tracking-widest uppercase">{{ user?.email }}</span>
+          <button
+            @click="signOut"
+            class="flex items-center gap-1.5 text-[10px] text-foreground/40 hover:text-foreground/70 tracking-wider uppercase transition-colors duration-200"
+          >
+            <Icon name="lucide:log-out" size="13" />
+            Sign out
+          </button>
+        </div>
       </div>
 
       <h1 class="font-julius text-[clamp(28px,5vw,56px)] tracking-[0.14em] uppercase text-center mb-10">
@@ -99,7 +101,7 @@ async function signOut() {
         <div :key="activeTab" class="min-h-48">
 
           <template v-if="activeTab === 'releases'">
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap justify-center">
               <Item v-for="r in releases.items.value" :key="r.slug" :i="r" category="release" />
             </div>
             <div v-if="releases.loading.value" class="flex justify-center py-10">
@@ -133,7 +135,7 @@ async function signOut() {
           </template>
 
           <template v-else-if="activeTab === 'artists'">
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap justify-center">
               <Item v-for="a in artists.items.value" :key="a.slug" :i="a" category="artist" />
             </div>
             <div v-if="artists.loading.value" class="flex justify-center py-10">
@@ -145,7 +147,7 @@ async function signOut() {
           </template>
 
           <template v-else-if="activeTab === 'videos'">
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap justify-center">
               <Item v-for="v in videos.items.value" :key="v.slug" :i="v" category="video" />
             </div>
             <div v-if="videos.loading.value" class="flex justify-center py-10">
@@ -157,7 +159,7 @@ async function signOut() {
           </template>
 
           <template v-else-if="activeTab === 'playlists'">
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap justify-center">
               <Item v-for="p in playlists.items.value" :key="p.slug" :i="p" category="playlist" />
             </div>
             <div v-if="playlists.loading.value" class="flex justify-center py-10">
@@ -169,7 +171,7 @@ async function signOut() {
           </template>
 
           <template v-else-if="activeTab === 'events'">
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap justify-center">
               <Item v-for="e in events.items.value" :key="e.slug" :i="e" category="event" />
             </div>
             <div v-if="events.loading.value" class="flex justify-center py-10">

@@ -323,9 +323,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
       </div>
     </div>
 
-    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]" v-if="item">
-      <SvgTriangle />
-      <div class="max-w-[640px] mx-auto">
+    <ItemContent v-if="item">
 
         <div v-if="item.information" v-html="item.information" />
 
@@ -401,7 +399,6 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <RelativeItem
               :i="iiii"
               category="artist"
-              class=""
             />
           </p>
         </div>
@@ -414,8 +411,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
         </div>
 
-      </div>
-    </div>
+    </ItemContent>
 
   </div>
 </template>

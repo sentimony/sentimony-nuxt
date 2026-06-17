@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
 
   const [{ count }, { data: likes }] = await Promise.all([
     admin.from('release_likes').select('*', { count: 'exact', head: true }).eq('user_id', userId),
-    admin.from('release_likes').select('release_slug').eq('user_id', userId).range(from, to),
+    admin.from('release_likes').select('release_slug').eq('user_id', userId).order('created_at', { ascending: false }).range(from, to),
   ])
 
   if (!likes?.length) return { data: [], total: count ?? 0 }
@@ -26,7 +26,8 @@ export default defineEventHandler(async (event) => {
     .select('slug, title, cover_th, date')
     .in('slug', slugs)
     .eq('visible', true)
-    .order('date', { ascending: false })
 
-  return { data: data ?? [], total: count ?? 0 }
+  const sorted = slugs.map(slug => data?.find(r => r.slug === slug)).filter(Boolean)
+
+  return { data: sorted, total: count ?? 0 }
 })

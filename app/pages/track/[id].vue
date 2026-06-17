@@ -295,50 +295,27 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
       </div>
     </div>
 
-    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]">
-      <SvgTriangle />
-      <div class="max-w-[640px] mx-auto">
+    <ItemContent>
 
         <div v-if="artists.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Artists:</b></small></p>
-
-          <div
-            v-for="artist in artists"
-            :key="artist.slug"
-            class="flex items-start gap-3 mb-3"
-          >
-            <NuxtLink
-              :to="`/artist/${artist.slug}`"
-              class="shrink-0 block w-[64px] h-[64px] rounded-full overflow-hidden ring-1 ring-black/20 bg-black/10"
-              v-wave
-            >
-              <img
-                v-if="artist.photo_th"
-                :src="artist.photo_th"
-                :alt="(artist.title || 'Artist') + ' photo'"
-                class="w-full h-full object-cover"
-                loading="lazy"
-              >
-            </NuxtLink>
-            <div class="min-w-0">
-              <p class="m-0">
-                <NuxtLink :to="`/artist/${artist.slug}`" class="font-bold hover:underline">
-                  {{ artist.title }}
-                </NuxtLink>
-                <small v-if="artist.location" class="text-black/60"> - {{ artist.location }}</small>
-              </p>
-              <p v-if="artist.style" class="m-0 text-[12px] text-black/60">{{ artist.style }}</p>
-            </div>
+          <div class="flex flex-wrap justify-center w-full">
+            <Item
+              v-for="artist in artists"
+              :key="artist.slug"
+              :i="artist"
+              category="artist"
+            />
           </div>
         </div>
 
         <div v-if="release">
           <hr class="my-4 border-black/30">
           <p><small><b>From release:</b></small></p>
-          <p>
-            <RelativeItem :i="release" category="release" />
-          </p>
+          <div class="flex flex-wrap justify-center w-full">
+            <Item :i="release" category="release" />
+          </div>
         </div>
 
         <div v-if="releaseTracks.length > 1">
@@ -394,8 +371,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
           </p>
         </div>
 
-      </div>
-    </div>
+    </ItemContent>
 
   </div>
 </template>

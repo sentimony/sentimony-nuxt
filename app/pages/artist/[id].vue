@@ -22,7 +22,7 @@ const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 
 const releasesSortedByDate = computed(() =>
   [...releases.value]
-    // .filter(r => Boolean(r.visible))
+    .filter(r => Boolean(r.visible))
     .sort((a, b) =>
       new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
     )
@@ -161,7 +161,7 @@ useSeoMeta({
 
 
           </div>
-          <div class="relative max-w-[540px] mx-auto w-full mb-4">
+          <div class="relative max-w-135 mx-auto w-full mb-4">
 
             <Tabs>
 
@@ -172,7 +172,7 @@ useSeoMeta({
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
                   <iframe
-                    class="border-[0px] aspect-video w-full"
+                    class="border-0 aspect-video w-full"
                     :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
                     :title="item.title + 'YouTube video player'"
                     frameborder="0"
@@ -207,36 +207,32 @@ useSeoMeta({
       </div>
     </div>
 
-    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]" v-if="item">
-      <SvgTriangle />
-      <div class="max-w-[640px] mx-auto">
+    <ItemContent v-if="item">
 
-        <div v-if="item.information" v-html="item.information" />
+        <div v-if="item.information">
+          <p><span class="text-[10px] md:text-[12px] text-white/50">Information</span></p>
+          <div v-html="item.information" />
+        </div>
+        <div v-if="item.info_sc">
+          <p><span class="text-[10px] md:text-[12px] text-white/50">Info SC</span></p>
+          <div v-html="item.info_sc" />
+        </div>
 
         <div>
           <hr class="my-4 border-black/30">
           <p><small><b>Releases with {{ item.title }}:</b></small></p>
-          <p
-            v-for="(i, index) in releasesSortedByDate"
-            :key="index"
-          >
-            <RelativeItem
-              v-if="i.artists?.includes(item.slug)"
-              :i="i"
-              category="release"
-            />
-          </p>
+          <div class="flex flex-wrap justify-center w-full">
+            <template v-for="(i, index) in releasesSortedByDate" :key="index">
+              <Item
+                v-if="i.artists?.includes(item.slug)"
+                :i="i"
+                category="release"
+              />
+            </template>
+          </div>
         </div>
 
-        <!-- <div v-if="item.wikipedia_url || item.discogs">
-          <hr class="my-4 border-black/30">
-          <p><small><b>Links:</b></small></p>
-          <p v-if="item.wikipedia_url"><a :href="item.wikipedia_url" target="_blank" rel="noopener">Wikipedia</a></p>
-          <p v-if="item.discogs"><a :href="item.discogs" target="_blank" rel="noopener">Discogs</a></p>
-        </div> -->
-
-      </div>
-    </div>
+    </ItemContent>
 
   </div>
 </template>

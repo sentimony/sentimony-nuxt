@@ -192,45 +192,42 @@ useSeoMeta({
       </div>
     </div>
 
-    <div class="Content px-2 pt-2 pb-[30px] md:pb-[60px]" v-if="item">
-      <SvgTriangle />
-      <div class="max-w-[640px] mx-auto">
+    <ItemContent v-if="item">
 
         <div v-if="item.info" v-html="item.info" />
 
         <div>
           <hr class="my-4 border-black/30">
-          <p><small><b>Releases / Tracks:</b></small></p>
-          <ol class="list-decimal ps-9">
-            <div
-              v-for="(i, index) in releasesSortedByDate"
-              :key="index"
-              class="mb-4"
-            >
-              <RelativeItem
+          <p><small><b>Releases:</b></small></p>
+          <div class="flex flex-wrap justify-center w-full">
+            <template v-for="(i, index) in releasesSortedByDate" :key="index">
+              <Item
                 v-if="i.at_playlists?.includes(item.slug)"
                 :i="i"
                 category="release"
-                class="mb-2"
               />
-
-              <div
-                v-if="i.at_playlists?.includes(item.slug)"
-                class="Tracklist"
-              >
-                <li
-                  v-for="(iii, index) in i.tracklistCompact"
-                  :key="'b' + index"
-                  v-if="i.tracklistCompact"
-                  v-html="iii.p"
-                />
-              </div>
-            </div>
-          </ol>
+            </template>
+          </div>
         </div>
 
-      </div>
-    </div>
+        <div
+          v-for="(i, index) in releasesSortedByDate"
+          :key="'tracks-' + index"
+        >
+          <template v-if="i.at_playlists?.includes(item.slug) && i.tracklistCompact">
+            <hr class="my-4 border-black/30">
+            <p><small><b>{{ i.title }}:</b></small></p>
+            <div class="Tracklist">
+              <p
+                v-for="(iii, tIndex) in i.tracklistCompact"
+                :key="tIndex"
+                v-html="iii.p"
+              />
+            </div>
+          </template>
+        </div>
+
+    </ItemContent>
 
   </div>
 </template>

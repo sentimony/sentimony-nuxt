@@ -75,9 +75,7 @@ useSeoMeta({
       </div>
     </div>
 
-    <div class="Content text-left px-2 pt-2 pb-[30px] md:pb-[60px]">
-      <SvgTriangle />
-      <div class="max-w-[640px] mx-auto">
+    <ItemContent>
 
         <p v-if="item?.info"><small><b>Info:</b></small></p>
         <div v-if="item?.info" v-html="item?.info" />
@@ -110,8 +108,7 @@ useSeoMeta({
           <span v-else>{{ ii.id }}</span>
         </p>
 
-      </div>
-    </div>
+    </ItemContent>
 
   </div>
 </template>

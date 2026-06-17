@@ -56,14 +56,11 @@ useSeoMeta({
       </div>
     </div>
 
-    <div class="Content text-left px-2 pt-2 pb-[30px] md:pb-[60px]">
-      <SvgTriangle />
-      <div class="max-w-[640px] mx-auto">
+    <ItemContent>
 
         <p>{{ item.title }}</p>
 
-      </div>
-    </div>
+    </ItemContent>
 
   </div>
 </template>

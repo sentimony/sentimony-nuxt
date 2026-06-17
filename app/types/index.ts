@@ -67,6 +67,7 @@ export interface Artist extends BaseEntity {
   location?: string
   style?: string
   information?: string
+  info_sc?: string
   category?: ArtistCategory
   category_id?: number
   bandcamp_url?: string

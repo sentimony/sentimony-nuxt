@@ -7,8 +7,8 @@ const linkClass = "inline-flex items-center gap-1 align-middle rounded-md border
 </script>
 
 <template>
-  <div class="px-4 py-8 md:py-16 box-border bg-gradient-to-t from-transparent via-transparent to-white/50 dark:to-black/50">
-    <div class="text-left mx-auto max-w-lg p-4 rounded-lg backdrop-blur-sm bg-[#b5ccb5] border border-black/20 text-black dark:bg-[#2a4030] dark:border-white/20 dark:text-white">
+  <div class="px-4 py-8 md:py-16 box-border bg-linear-to-t from-transparent via-transparent to-white/50 dark:to-black/50">
+    <div class="text-left mx-auto max-w-lg p-4 rounded-lg bg-[#b5ccb5]/85 border border-black/20 text-black dark:bg-[#2a4030]/85 dark:border-white/20 dark:text-white">
       <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1">
         <img
           src="https://content.sentimony.com/assets/img/artists/irukanji-01_xl.jpg"
