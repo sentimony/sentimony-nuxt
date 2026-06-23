@@ -96,6 +96,9 @@
 /sencd096 /release/vorg-cyber-soul-day
 /sencd097 /release/syned-brain-dementor-mysterium-tremendum
 /sencd098 /release/gaz-mask-12-years
+/sencd099 /release/alien-immigrant-plant-medicine
+/sencd100 /release/frog-prog-songs-of-buffo
+/sencd101 /release/vorg-cyber-soul-chill
 
 /MirrorMe           /artist/mirror-me 301
 /Dimitro            /artist/dimitro 301
@@ -112,6 +115,8 @@
 /Dementor           /artist/dementor 301
 /Jakanatura         /artist/jakanatura 301
 /GazMask            /artist/gaz-mask 301
+/AlienImmigrant     /artist/alien-immigrant 301
+/FrogProg           /artist/frog-prog 301
 
 # /index.htm                      / 301
 # /index.html                     / 301

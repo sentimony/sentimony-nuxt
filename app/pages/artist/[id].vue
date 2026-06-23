@@ -213,10 +213,10 @@ useSeoMeta({
           <p><span class="text-[10px] md:text-[12px] text-white/50">Information</span></p>
           <div v-html="item.information" />
         </div>
-        <div v-if="item.info_sc">
+        <!-- <div v-if="item.info_sc">
           <p><span class="text-[10px] md:text-[12px] text-white/50">Info SC</span></p>
           <div v-html="item.info_sc" />
-        </div>
+        </div> -->
 
         <div>
           <hr class="my-4 border-black/30">
