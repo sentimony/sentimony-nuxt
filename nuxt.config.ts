@@ -124,10 +124,8 @@ export default defineNuxtConfig({
     },
     display: 'swap',
     subsets: 'latin',
-    prefetch: true,
-    preconnect: true,
+    download: true,
     preload: true,
-    useStylesheet: true,
   },
   vWave: {
     easing: 'cubic-bezier(0,.57,.89,0)'

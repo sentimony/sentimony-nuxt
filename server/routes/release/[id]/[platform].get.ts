@@ -1,0 +1,16 @@
+export default platformRedirectHandler('release', {
+  amazonmusic: 'amazon_music',
+  applemusic: 'applemusic_url',
+  deezer: 'deezer',
+  itunes: 'applemusic_url',
+  junodownload: 'junodownload',
+  napster: 'napster',
+  qobuz: 'qobuz',
+  soundcloud: 'soundcloud_url',
+  spotify: 'spotify',
+  tidal: 'tidal',
+  youtube: 'youtube',
+  youtubemusic: 'youtube_music',
+  beatport: { key: 'beatport', status: 302 },
+  diggersfactory: { key: 'diggersfactory_url', status: 302 },
+})

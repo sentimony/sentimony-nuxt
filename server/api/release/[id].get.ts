@@ -5,6 +5,8 @@ export default defineCachedEventHandler(
     const id = event.context.params?.id as string | undefined
     if (!id) throw createError({ statusCode: 400, statusMessage: 'Missing release id' })
 
+    let release: Record<string, unknown>
+
     if (useRuntimeConfig().releasesSource === 'supabase') {
       const { data, error } = await useSupabase()
         .from('releases')
@@ -13,15 +15,23 @@ export default defineCachedEventHandler(
         .single()
 
       if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Release not found' })
-      return mapReleaseFromSupabase(data)
+      release = mapReleaseFromSupabase(data)
+    }
+    else {
+      const { public: { firebaseBase } } = useRuntimeConfig()
+      const url = `${firebaseBase}/releases/${id}.json`
+      const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+
+      if (!data) throw createError({ statusCode: 404, statusMessage: 'Release not found' })
+      release = data as Record<string, unknown>
     }
 
-    const { public: { firebaseBase } } = useRuntimeConfig()
-    const url = `${firebaseBase}/releases/${id}.json`
-    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    const { count } = await supabaseAdmin()
+      .from('release_likes')
+      .select('*', { count: 'exact', head: true })
+      .eq('release_slug', id)
 
-    if (!data) throw createError({ statusCode: 404, statusMessage: 'Release not found' })
-    return data
+    return { ...release, like_count: count ?? 0 }
   },
   {
     maxAge: isDev ? 0 : 60 * 60,

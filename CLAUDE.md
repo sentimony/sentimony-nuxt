@@ -11,7 +11,7 @@ Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.
 ## Commands
 
 ```bash
-npm run dev -- --host   # dev (requires .env/.env)
+npm run dev   # dev (requires .env/.env)
 npm run build
 npm run sync            # sync:firebase + sync:supabase
 npm run sync:firebase   # export Firebase DB → public/data/sentimony-db-export.json

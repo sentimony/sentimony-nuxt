@@ -15,7 +15,8 @@ export default defineCachedEventHandler(
 
     const { public: { firebaseBase } } = useRuntimeConfig()
     const url = `${firebaseBase}/releases.json`
-    return isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    return pickListFields(data, ['slug', 'title', 'cover_th', 'date', 'visible', 'coming_soon', 'new', 'artists', 'at_playlists'])
   },
   {
     maxAge: isDev ? 0 : 60 * 60,

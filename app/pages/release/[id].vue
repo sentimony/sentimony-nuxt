@@ -3,14 +3,14 @@ import { createError } from '#app'
 import type { Release, Artist } from '~/types'
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, fetchCount } = useLikes()
+const { isLiked, toggleLike, likeCount, setCount } = useLikes()
 const { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount } = useTrackLikes()
 
 type Track = { slug: string, title: string, artist_name: string, track_number: number, bpm: number | null, like_count: number }
 const { data: tracks } = await useFetch<Track[]>(`/api/tracks/${id}`)
 
 onMounted(() => {
-  fetchCount(item.value!.slug)
+  if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
   tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
 })
 

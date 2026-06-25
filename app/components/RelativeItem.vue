@@ -26,6 +26,7 @@ const year = computed(() => formatYear(i.value?.date))
         class="rounded-md ring-1 ring-black/20 dark:ring-white/50 w-[24px] mr-2"
         :alt="i.title + ' thumbnail'"
         width="24"
+        format="webp"
         loading="lazy"
       />
       <NuxtImg
@@ -34,6 +35,7 @@ const year = computed(() => formatYear(i.value?.date))
         class="rounded-full ring-1 ring-black/20 dark:ring-white/50 w-[24px] mr-2"
         :alt="i.title + ' thumbnail'"
         width="24"
+        format="webp"
         loading="lazy"
       />
 

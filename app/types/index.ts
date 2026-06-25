@@ -50,6 +50,7 @@ export interface Release extends BaseEntity {
   at_playlists?: string[]
   coming_soon?: boolean
   new?: boolean
+  like_count?: number
   links?: ReleaseLinks
 }
 

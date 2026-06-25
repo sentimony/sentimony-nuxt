@@ -14,7 +14,8 @@ export default defineCachedEventHandler(
 
     const { public: { firebaseBase } } = useRuntimeConfig()
     const url = `${firebaseBase}/friends.json`
-    return isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    return pickListFields(data, ['slug', 'title', 'visible'])
   },
   {
     maxAge: isDev ? 0 : 60 * 60,

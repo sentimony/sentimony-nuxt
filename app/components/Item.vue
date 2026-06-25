@@ -44,6 +44,7 @@ const imgHeight = computed(() =>
           :width="imgWidth"
           :height="imgHeight"
           fit="cover"
+          format="webp"
           loading="lazy"
         />
         <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingCover"/> -->
@@ -55,6 +56,7 @@ const imgHeight = computed(() =>
           :width="imgWidth"
           :height="imgHeight"
           fit="cover"
+          format="webp"
           loading="lazy"
         />
         <!-- <img
@@ -71,6 +73,7 @@ const imgHeight = computed(() =>
           :width="imgWidth"
           :height="imgHeight"
           fit="cover"
+          format="webp"
           loading="lazy"
         />
         <!-- <div class="swiper-lazy-preloader"></div> -->

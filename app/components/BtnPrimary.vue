@@ -15,7 +15,6 @@ const img = computed(() => props.img ?? false)
 const svg = computed(() => props.svg ?? false)
 const title = computed(() => props.title ?? '')
 
-// Визначаємо зовнішні посилання: http/https, mailto, tel тощо
 const isExternal = computed(() => /^(https?:|mailto:|tel:)/i.test(to.value))
 </script>
 

@@ -35,7 +35,7 @@ JAMstack development of Sentimony Records portfolio website
 ```bash
 npm i
 
-npm run dev -- --host
+npm run dev
 ```
 
 ### Deploy

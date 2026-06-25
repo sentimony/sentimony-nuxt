@@ -1,12 +1,1 @@
-export default defineEventHandler(async (event) => {
-  const slug = getRouterParam(event, 'slug')
-  if (!slug) throw createError({ statusCode: 400, statusMessage: 'Missing slug' })
-
-  const { count, error } = await supabaseAdmin()
-    .from('playlist_likes')
-    .select('*', { count: 'exact', head: true })
-    .eq('playlist_slug', slug)
-
-  if (error) throw createError({ statusCode: 500, statusMessage: error.message })
-  return { count: count ?? 0 }
-})
+export default likesCountHandler('playlist_likes', 'playlist_slug')
