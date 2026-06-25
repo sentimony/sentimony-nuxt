@@ -78,7 +78,7 @@ useSeoMeta({
     <ItemContent>
 
         <p v-if="item?.info"><small><b>Info:</b></small></p>
-        <div v-if="item?.info" v-html="item?.info" />
+        <div v-if="item?.info" v-html="sanitizeHtml(item.info)" />
 
         <hr class="my-4 border-black/30">
 

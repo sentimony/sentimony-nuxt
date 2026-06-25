@@ -17,20 +17,22 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
   <DialogRoot v-model:open="isOpen">
 
     <div
-      class="cursor-pointer size-[100px] sm:size-[190px] mr-4 mb-2 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30"
+      class="cursor-pointer w-fit mr-4 mb-2 p-[5px] md:p-[10px] rounded-sm transition-[background-color] duration-200 ease-in-out hover:bg-white/30"
       v-wave
       @click="open"
     >
-      <img
-        v-if="image_th"
-        :src="image_th"
-        :alt="alt"
-        class=" size-[100px] sm:size-[190px] object-cover"
-      />
-      <div
-        v-else
-        v-html="comingImage"
-      />
+      <div class="size-[100px] sm:size-[190px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30">
+        <img
+          v-if="image_th"
+          :src="image_th"
+          :alt="alt"
+          class="size-[100px] sm:size-[190px] object-cover"
+        />
+        <div
+          v-else
+          v-html="comingImage"
+        />
+      </div>
     </div>
 
     <DialogPortal>
@@ -54,7 +56,7 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
           class="flex items-center justify-center absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 z-50 cursor-pointer transition ease-in-out duration-300 rounded-[2px] bg-black/40 backdrop-blur-sm hover:bg-white/30 size-[56px] hover:rotate-[360deg]"
           v-wave
         >
-          <Icon name="i-fa7-solid:close" size="22" />
+          <Icon name="lucide:x" size="22" />
         </DialogClose>
 
         <img

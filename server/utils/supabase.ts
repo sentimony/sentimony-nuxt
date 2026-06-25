@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
+import type { Database } from '~/types/database.types'
 
 function createAnonClient() {
   const { public: { supabaseUrl, supabaseKey } } = useRuntimeConfig()
-  return createClient(supabaseUrl, supabaseKey)
+  return createClient<Database>(supabaseUrl, supabaseKey)
 }
 
 let client: ReturnType<typeof createAnonClient> | null = null

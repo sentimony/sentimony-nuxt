@@ -16,7 +16,7 @@ export default defineCachedEventHandler(
     const { public: { firebaseBase } } = useRuntimeConfig()
     const url = `${firebaseBase}/events.json`
     const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
-    return pickListFields(data, ['slug', 'title', 'flyer_a_xl', 'date', 'visible'])
+    return pickListFields(data, ['slug', 'title', 'flyer_a_xl', 'date', 'visible'], { visibleOnly: true })
   },
   {
     maxAge: isDev ? 0 : 60 * 60,

@@ -101,7 +101,7 @@ useSeoMeta({
             </div>
           </div>
           <span class="ml-4 text-foreground/40 group-hover:text-foreground/70 transition-colors">
-            <Icon name="ic:baseline-arrow-forward-ios" size="18" />
+            <Icon name="lucide:chevron-right" size="18" />
           </span>
         </NuxtLink>
       </div>

@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
+import type { Database } from '~/types/database.types'
 
 function createAdminClient() {
   const config = useRuntimeConfig()
-  return createClient(
+  return createClient<Database>(
     config.supabaseUrl,
     config.supabaseSecretKey,
     { auth: { autoRefreshToken: false, persistSession: false } }

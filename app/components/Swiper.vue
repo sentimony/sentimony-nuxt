@@ -129,24 +129,12 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
         <button
           class="swiper-button-next"
           v-wave
-        >
-          <!-- <Icon
-            name="fa7-solid:chevron-circle-left"
-            size="44"
-            class="block"
-          /> -->
-        </button>
+        />
 
         <button
           class="swiper-button-prev"
           v-wave
-        >
-          <!-- <Icon
-            name="fa7-solid:chevron-circle-right"
-            size="44"
-            class="block"
-          /> -->
-        </button>
+        />
       </Swiper>
 
     </ClientOnly>

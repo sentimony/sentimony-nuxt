@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const baseURL = 'http://127.0.0.1:3000'
+const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3100'
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -44,7 +44,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev -- --port=3000',
+    command: 'NUXT_HOST=localhost NUXT_PORT=3100 npm run dev',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

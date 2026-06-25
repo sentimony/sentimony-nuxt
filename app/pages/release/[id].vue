@@ -325,7 +325,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
     <ItemContent v-if="item">
 
-        <div v-if="item.information" v-html="item.information" />
+        <div v-if="item.information" v-html="sanitizeHtml(item.information)" />
 
         <div v-if="tracks?.length || item.tracklistCompact" class="Tracklist">
           <hr class="my-4 border-black/30">
@@ -358,7 +358,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <p
               v-for="(i, index) in item.tracklistCompact"
               :key="index"
-              v-html="i.p"
+              v-html="sanitizeHtml(i.p)"
             />
           </template>
         </div>
@@ -369,7 +369,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           <p
             v-for="(ii, index) in item.creditsCompact"
             :key="index"
-            v-html="ii.p"
+            v-html="sanitizeHtml(ii.p)"
           />
         </div>
 

@@ -194,7 +194,7 @@ useSeoMeta({
 
     <ItemContent v-if="item">
 
-        <div v-if="item.info" v-html="item.info" />
+        <div v-if="item.info" v-html="sanitizeHtml(item.info)" />
 
         <div>
           <hr class="my-4 border-black/30">
@@ -221,7 +221,7 @@ useSeoMeta({
               <p
                 v-for="(iii, tIndex) in i.tracklistCompact"
                 :key="tIndex"
-                v-html="iii.p"
+                v-html="sanitizeHtml(iii.p)"
               />
             </div>
           </template>

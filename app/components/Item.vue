@@ -83,7 +83,7 @@ const imgHeight = computed(() =>
       <div v-if="i.new" class="text-white text-[8px] md:text-[10px] leading-none absolute top-[-3px] md:top-[0] right-[-3px] md:right-[0] bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Out Now</div>
     </div>
 
-    <div class="line-clamp-2 tracking-tight">{{ i.title }}</div>
+    <div class="line-clamp-2 tracking-tight text-center">{{ i.title }}</div>
 
   </NuxtLink>
 

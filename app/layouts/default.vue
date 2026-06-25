@@ -108,10 +108,10 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
 
         <Hero class="order-[0]" v-if="isIndex" />
 
-        <Swiper
+        <LazySwiper
+          v-if="showReleases"
           :activeSlug="activeReleaseSlug"
           class="order-1"
-          :class="[showReleases ? '' : 'hidden']"
           title="Releases"
           :list="releasesSortedByDate"
           category="release"
@@ -120,10 +120,10 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :pagination="true"
         />
 
-        <Swiper
+        <LazySwiper
+          v-if="showArtists"
           :activeSlug="activeArtistSlug"
-          class=""
-          :class="[showArtists ? '' : 'hidden', isIndex ? 'order-3' : 'order-1']"
+          :class="isIndex ? 'order-3' : 'order-1'"
           title="Artists"
           :list="artistsSortedByCategoryId"
           category="artist"
@@ -132,10 +132,10 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :pagination="false"
         />
 
-        <Swiper
+        <LazySwiper
+          v-if="showVideos"
           :activeSlug="activeVideoSlug"
           class="order-[1]"
-          :class="showVideos ? '' : 'hidden'"
           title="Videos"
           :list="videosSortedByDate"
           category="video"
@@ -144,10 +144,10 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :pagination="false"
         />
 
-        <Swiper
+        <LazySwiper
+          v-if="showPlaylists"
           :activeSlug="activePlaylistSlug"
           class="order-[1]"
-          :class="showPlaylists ? '' : 'hidden'"
           title="Playlists"
           :list="playlistsSortedByDate"
           category="playlist"
@@ -156,10 +156,10 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :pagination="false"
         />
 
-        <Swiper
+        <LazySwiper
+          v-if="showEvents"
           :activeSlug="activeEventSlug"
           class="order-[1]"
-          :class="showEvents ? '' : 'hidden'"
           title="Events"
           :list="eventsSortedByDate"
           category="event"

@@ -89,8 +89,8 @@ test('uses theme-specific forest sources only on the homepage', async ({ page })
   await page.goto('/contacts')
   await expect(atmosphere).toHaveCount(0)
   await expect(body).not.toHaveClass(/homepage-route/)
-  const nonHomeBackground = await body.evaluate((element) => {
-    return getComputedStyle(element).backgroundImage
+  const nonHomeBackground = await page.locator('html').evaluate((element) => {
+    return getComputedStyle(element, '::before').backgroundImage
   })
   expect(nonHomeBackground).toContain('trees-dark_v1')
 })

@@ -11,12 +11,23 @@ type LikedVideo = { slug: string, title: string, cover_th: string }
 type LikedPlaylist = { slug: string, title: string, cover_th: string }
 type LikedEvent = { slug: string, title: string, flyer_a_xl: string }
 
-const artists = usePaginatedLikes<LikedArtist>('/api/artist-likes/artists', 25)
-const releases = usePaginatedLikes<LikedRelease>('/api/likes/releases', 25)
-const tracks = usePaginatedLikes<LikedTrack>('/api/track-likes/tracks', 25)
-const videos = usePaginatedLikes<LikedVideo>('/api/video-likes/videos', 25)
-const playlists = usePaginatedLikes<LikedPlaylist>('/api/playlist-likes/playlists', 25)
-const events = usePaginatedLikes<LikedEvent>('/api/event-likes/events', 25)
+type ProfileLikesResponse = {
+  artists: PaginatedLikesResponse<LikedArtist>
+  releases: PaginatedLikesResponse<LikedRelease>
+  tracks: PaginatedLikesResponse<LikedTrack>
+  videos: PaginatedLikesResponse<LikedVideo>
+  playlists: PaginatedLikesResponse<LikedPlaylist>
+  events: PaginatedLikesResponse<LikedEvent>
+}
+
+const { data: initialLikes } = await useFetch<ProfileLikesResponse>('/api/profile-likes')
+
+const artists = usePaginatedLikes('/api/artist-likes/artists', 25, initialLikes.value?.artists)
+const releases = usePaginatedLikes('/api/likes/releases', 25, initialLikes.value?.releases)
+const tracks = usePaginatedLikes('/api/track-likes/tracks', 25, initialLikes.value?.tracks)
+const videos = usePaginatedLikes('/api/video-likes/videos', 25, initialLikes.value?.videos)
+const playlists = usePaginatedLikes('/api/playlist-likes/playlists', 25, initialLikes.value?.playlists)
+const events = usePaginatedLikes('/api/event-likes/events', 25, initialLikes.value?.events)
 
 const allTabs = [
   { key: 'releases', label: 'Releases', data: releases },
@@ -67,10 +78,6 @@ async function signOut() {
           </button>
         </div>
       </div>
-
-      <h1 class="font-julius text-[clamp(28px,5vw,56px)] tracking-[0.14em] uppercase text-center mb-10">
-        Altar
-      </h1>
 
       <div v-if="visibleTabs.length" class="flex flex-wrap gap-2 justify-center mb-10">
         <button

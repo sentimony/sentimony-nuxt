@@ -1,19 +1,24 @@
-export function usePaginatedLikes<T extends object>(url: string, limit: number) {
-  const items: Ref<T[]> = ref([])
-  const total = ref(0)
-  const page = ref(0)
+export type PaginatedLikesResponse<T> = { data: T[], total: number }
+
+export function usePaginatedLikes<T extends object>(
+  url: string,
+  limit: number,
+  initial?: PaginatedLikesResponse<T>,
+) {
+  const items = ref<T[]>(initial?.data ? [...initial.data] : []) as Ref<T[]>
+  const total = ref(initial?.total ?? 0)
+  const page = ref(initial ? 1 : 0)
   const loading = ref(false)
   const hasMore = computed(() => items.value.length < total.value)
 
   async function load() {
     if (loading.value) return
     loading.value = true
-    type Response = { data: T[], total: number }
-    const res = await $fetch<Response>(url, {
+    const res = await $fetch<PaginatedLikesResponse<T>>(url, {
       query: { page: page.value, limit }
     }).catch((err) => {
       console.error(`[usePaginatedLikes] ${url}:`, err)
-      return { data: [], total: 0 } as Response
+      return { data: [], total: 0 } as PaginatedLikesResponse<T>
     })
     items.value = items.value.concat(res.data)
     total.value = res.total
@@ -21,7 +26,9 @@ export function usePaginatedLikes<T extends object>(url: string, limit: number) 
     loading.value = false
   }
 
-  onMounted(() => load())
+  onMounted(() => {
+    if (!initial) load()
+  })
 
   return { items, total, loading, hasMore, loadMore: load }
 }

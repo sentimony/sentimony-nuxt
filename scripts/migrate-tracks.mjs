@@ -5,7 +5,7 @@ const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE
 const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY
 
 const supabase = createClient(supabaseUrl, supabaseSecretKey)
-const data = JSON.parse(readFileSync('public/data/sentimony-db-export.json', 'utf-8'))
+const data = JSON.parse(readFileSync('data/sentimony-db-export.json', 'utf-8'))
 
 const artistByTitle = new Map()
 for (const artist of Object.values(data.artists)) {

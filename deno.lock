@@ -13,8 +13,6 @@
       "dependencies": [
         "npm:@iconify-json/lucide@^1.2.114",
         "npm:@iconify-json/simple-icons@^1.2.87",
-        "npm:@iconify-json/tabler@^1.2.35",
-        "npm:@lucide/vue@^1.21.0",
         "npm:@nuxt/icon@^2.2.3",
         "npm:@nuxt/image@2",
         "npm:@nuxtjs/google-fonts@^3.2.0",
@@ -28,6 +26,7 @@
         "npm:@vueuse/core@^14.3.0",
         "npm:class-variance-authority@~0.7.1",
         "npm:clsx@^2.1.1",
+        "npm:isomorphic-dompurify@^3.18.0",
         "npm:nuxt@^4.4.8",
         "npm:playwright@^1.61.0",
         "npm:reka-ui@^2.10.0",
@@ -39,7 +38,8 @@
         "npm:v-wave@^3.1.1",
         "npm:vee-validate@^4.15.1",
         "npm:vue-sonner@^2.0.9",
-        "npm:vue-tsc@^3.3.5"
+        "npm:vue-tsc@^3.3.5",
+        "npm:vitest@^4.1.9"
       ]
     }
   }

@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import { buildApiRouteRules } from './server/utils/cachePolicy'
 
 const isDev = process.env.NODE_ENV === 'development'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
@@ -67,11 +68,7 @@ export default defineNuxtConfig({
   },
   ssr: true,
   routeRules: {
-    '/api/**': {
-      headers: {
-        'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
-      }
-    },
+    ...buildApiRouteRules(),
     ...(!isDev && {
       '/': { isr: 86400 },
       '/news': { isr: 86400 },
@@ -110,6 +107,44 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
   ],
+  icon: {
+    provider: 'none',
+    serverBundle: false,
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256,
+      icons: [
+        'lucide:house',
+        'lucide:newspaper',
+        'lucide:disc-3',
+        'lucide:keyboard-music',
+        'lucide:monitor-play',
+        'lucide:list-music',
+        'lucide:tent-tree',
+        'lucide:mail',
+        'simple-icons:applemusic',
+        'simple-icons:bandcamp',
+        'simple-icons:beatport',
+        'simple-icons:deezer',
+        'simple-icons:discogs',
+        'simple-icons:facebook',
+        'simple-icons:giphy',
+        'simple-icons:instagram',
+        'simple-icons:linkedin',
+        'simple-icons:mixcloud',
+        'simple-icons:patreon',
+        'simple-icons:soundcloud',
+        'simple-icons:spotify',
+        'simple-icons:tiktok',
+        'simple-icons:tumblr',
+        'simple-icons:twitter',
+        'simple-icons:vk',
+        'simple-icons:x',
+        'simple-icons:youtube',
+        'simple-icons:youtubemusic',
+      ],
+    },
+  },
   googleFonts: {
     families: {
       'Montserrat': {

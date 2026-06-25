@@ -99,7 +99,7 @@ const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.vi
                 v-for="(iii, index) in i.tracklistCompact"
                 :key="'b' + index"
                 v-if="i.tracklistCompact"
-                v-html="iii.p"
+                v-html="sanitizeHtml(iii.p)"
               />
             </div>
           </div>

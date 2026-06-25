@@ -27,9 +27,9 @@ const isExternal = computed(() => /^(https?:|mailto:|tel:)/i.test(to.value))
   >
     <Icon class="mr-2" v-if="iconify" :name="iconify" size="19" />
     <img class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
-    <span class="mr-2" v-if="svg" v-html="svg" />
+    <span class="mr-2" v-if="svg" v-html="sanitizeHtml(svg)" />
 
-    <span class="mr-0" v-if="title" v-html="title" />
+    <span class="mr-0" v-if="title" v-html="sanitizeHtml(title)" />
   </NuxtLink>
   <a
     v-else-if="to"
@@ -41,8 +41,8 @@ const isExternal = computed(() => /^(https?:|mailto:|tel:)/i.test(to.value))
   >
     <Icon class="mr-2" v-if="iconify" :name="iconify" size="19" />
     <img class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
-    <span class="mr-2" v-if="svg" v-html="svg" />
+    <span class="mr-2" v-if="svg" v-html="sanitizeHtml(svg)" />
 
-    <span class="mr-0" v-if="title" v-html="title" />
+    <span class="mr-0" v-if="title" v-html="sanitizeHtml(title)" />
   </a>
 </template>

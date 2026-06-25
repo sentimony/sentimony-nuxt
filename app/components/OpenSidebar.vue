@@ -37,8 +37,8 @@ watch(() => route.path, () => { isOpen.value = false })
         :class="isOpen ? 'bg-white/20 border-black/30 dark:border-white/20 rotate-[360deg]' : 'border-transparent'"
         v-wave
       >
-        <Icon v-if="isOpen" name="fa7-solid:close" size="18" />
-        <Icon v-else name="fa7-solid:navicon" size="18" />
+        <Icon v-if="isOpen" name="lucide:x" size="18" />
+        <Icon v-else name="lucide:menu" size="18" />
       </button>
     </DialogTrigger>
 

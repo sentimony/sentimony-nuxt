@@ -10,6 +10,7 @@ export default defineCachedEventHandler(
         .from('friends')
         .select('*')
         .eq('slug', id)
+        .eq('visible', true)
         .single()
 
       if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Friend not found' })
@@ -20,7 +21,7 @@ export default defineCachedEventHandler(
     const url = `${firebaseBase}/friends/${id}.json`
     const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
 
-    if (!data) throw createError({ statusCode: 404, statusMessage: 'Friend not found' })
+    if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Friend not found' })
     return data
   },
   {

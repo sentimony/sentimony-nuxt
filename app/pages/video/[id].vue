@@ -115,7 +115,7 @@ useSeoMeta({
 
     <ItemContent v-if="item">
 
-        <div v-if="item.information" v-html="item.information" />
+        <div v-if="item.information" v-html="sanitizeHtml(item.information)" />
 
         <div v-if="item.credits">
           <hr class="my-4 border-black/30">
@@ -123,9 +123,9 @@ useSeoMeta({
           <!-- <p
             v-for="(i, index) in item.credits"
             :key="index"
-            v-html="i.p"
+            v-html="sanitizeHtml(i.p)"
           /> -->
-          <div v-html="item.credits" />
+          <div v-html="sanitizeHtml(item.credits)" />
         </div>
 
     </ItemContent>

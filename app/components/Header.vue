@@ -15,7 +15,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
 </script>
 
 <template>
-  <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
+  <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
         <div class="relative flex justify-between items-center h-[75px] px-2">

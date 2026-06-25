@@ -10,6 +10,7 @@ export default defineCachedEventHandler(
         .from('events')
         .select('*')
         .eq('slug', id)
+        .eq('visible', true)
         .single()
 
       if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
@@ -20,7 +21,7 @@ export default defineCachedEventHandler(
     const url = `${firebaseBase}/events/${id}.json`
     const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
 
-    if (!data) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
+    if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
     return data
   },
   {
