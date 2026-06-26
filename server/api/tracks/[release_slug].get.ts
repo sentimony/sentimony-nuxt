@@ -1,4 +1,6 @@
-export default defineEventHandler(async (event) => {
+const isDev = process.env.NODE_ENV === 'development'
+
+export default defineCachedEventHandler(async (event) => {
   const releaseSlug = getRouterParam(event, 'release_slug')
   if (!releaseSlug) throw createError({ statusCode: 400, statusMessage: 'Missing release_slug' })
 
@@ -43,4 +45,7 @@ export default defineEventHandler(async (event) => {
   })
 
   return tracks.map(t => ({ ...t, like_count: countMap[t.slug] ?? 0 }))
+}, {
+  maxAge: isDev ? 0 : 60 * 5,
+  swr: !isDev,
 })

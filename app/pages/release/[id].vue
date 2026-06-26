@@ -1,54 +1,34 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import type { Release, Artist } from '~/types'
 
 const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount, setCount } = useLikes()
 const { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount } = useTrackLikes()
 
 type Track = { slug: string, title: string, artist_name: string, track_number: number, bpm: number | null, like_count: number }
-const { data: tracks } = await useFetch<Track[]>(`/api/tracks/${id}`)
+type RelatedRelease = { slug: string, title?: string, cover_xl?: string, date?: string }
+type RelatedArtist = { slug: string, title?: string, photo_xl?: string }
+type RelatedResponse = { releases: RelatedRelease[], artists: RelatedArtist[] }
 
-onMounted(() => {
-  if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
-  tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
-})
+const [releaseAsync, tracksAsync, relatedAsync] = await Promise.all([
+  useRelease(id as string, { server: true }),
+  useFetch<Track[]>(`/api/tracks/${id}`),
+  useFetch<RelatedResponse>(`/api/release/${id}/related`),
+])
 
-const releaseAsync = await useRelease(id as string, { server: true })
 const item = releaseAsync.data
 const releaseError = releaseAsync.error
+const tracks = tracksAsync.data
+const relatedReleases = computed(() => relatedAsync.data.value?.releases ?? [])
+const relatedArtists = computed(() => relatedAsync.data.value?.artists ?? [])
 
 if (releaseError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Release not found' })
 }
 
-const { data: releasesRaw } = await useReleases()
-const { data: artistsRaw } = await useArtists()
-const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
-const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
-
-const releasesSortedByDate = computed(() =>
-  [...releases.value]
-    .filter(r => Boolean(r.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-)
-
-const artistsSortedByReleaseOrder = computed(() => {
-  if (!item.value?.artists) return []
-
-  const artistsOrder = typeof item.value.artists === 'string'
-    ? item.value.artists.split(',').map(s => s.trim())
-    : (Array.isArray(item.value.artists) ? item.value.artists : [])
-
-  return [...artists.value]
-    .filter(artist => artistsOrder.includes(artist.slug))
-    .sort((a, b) => {
-      const indexA = artistsOrder.indexOf(a.slug)
-      const indexB = artistsOrder.indexOf(b.slug)
-      return indexA - indexB
-    })
+onMounted(() => {
+  if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
+  tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
 })
 
 const { formatDate, formatYear } = useDate()
@@ -116,7 +96,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
                 v-wave
               >
-                <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+                <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -348,7 +328,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-black/10 shrink-0"
                 :class="isTrackLiked(track.slug) ? 'border-red-400/30 text-red-400' : 'border-black/30 text-black/60 hover:text-black/80'"
               >
-                <Icon name="lucide:heart" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="12" />
+                <Icon name="lucide:thumbs-up" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="12" />
                 <span v-if="trackLikeCount(track.slug) > 0">{{ trackLikeCount(track.slug) }}</span>
               </button>
             </p>
@@ -373,26 +353,25 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           />
         </div>
 
-        <div v-if="item.relative_releases">
+        <div v-if="relatedReleases.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Relative Releases:</b></small></p>
           <p
-            v-for="(iii, index) in releasesSortedByDate"
+            v-for="(iii, index) in relatedReleases"
             :key="index"
           >
             <RelativeItem
-              v-if="item.relative_releases.includes(iii.slug)"
               :i="iii"
               category="release"
             />
           </p>
         </div>
 
-        <div v-if="item.artists">
+        <div v-if="relatedArtists.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Relative Artists:</b></small></p>
           <p
-            v-for="(iiii, index) in artistsSortedByReleaseOrder"
+            v-for="(iiii, index) in relatedArtists"
             :key="index"
             class="mb-2 mr-4 last:mr-0"
           >

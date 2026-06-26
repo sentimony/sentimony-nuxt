@@ -34,7 +34,7 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.114",
     "@iconify-json/simple-icons": "^1.2.87",
-    "@nuxt/icon": "^2.2.3",
+    "@nuxt/icon": "^2.2.4",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^6.1.1",

@@ -10,19 +10,36 @@ const soc = computed(() =>
   getSocials({ inHeader: true }).map(l => ({ ...l, icon: getIcon(l.id) }))
 )
 
+const supabase = useSupabaseClient()
 const user = useSupabaseUser()
-const userInitial = computed(() => user.value?.email?.[0] ?? '')
+const username = computed(() => user.value?.user_metadata?.full_name || '')
+const userInitials = computed(() => {
+  const name = user.value?.user_metadata?.full_name || ''
+  if (!name) return (user.value?.email?.[0] || '?').toUpperCase()
+  return name.split(' ').slice(0, 2).map((w: string) => w[0]).join('').toUpperCase()
+})
+const avatarUrl = computed(() => {
+  const meta = user.value?.user_metadata as Record<string, unknown> | undefined
+  return (meta?.avatar_url as string) || ''
+})
+const avatarFailed = ref(false)
+watch(avatarUrl, () => { avatarFailed.value = false })
+
+async function signOut() {
+  await supabase.auth.signOut()
+  await navigateTo('/signin')
+}
 </script>
 
 <template>
   <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
-        <div class="relative flex justify-between items-center h-[75px] px-2">
+        <div class="relative flex justify-between items-center h-18.75 px-2">
 
           <NuxtLink
             to="/"
-            class="w-[230px] transition-[background-color] ease-in-out duration-300 hover:bg-white/30 h-[56px] flex items-center justify-center rounded-md"
+            class="w-57.5 transition-[background-color] ease-in-out duration-300 hover:bg-white/30 h-14 flex items-center justify-center rounded-md"
             :class="route.path === '/' ? 'bg-white/20' : ''"
             v-wave
           >
@@ -32,7 +49,7 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
               class="mr-3 invert dark:invert-0"
               width="40" height="40"
             />
-            <div class="text-left leading-[1.5] pr-1">
+            <div class="text-left leading-normal pr-1">
               <div class="text-[16px]">Sentimony Records</div>
               <div class="opacity-[0.4] text-[12px] tracking-[0.4px]">Psychedelic Music Label</div>
             </div>
@@ -43,11 +60,11 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-sm hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
+              class="transition-[background-color] ease-in-out duration-300 text-sm uppercase tracking-wider hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
               :class="isNavActive(i.route) ? 'bg-white/20' : ''"
               v-wave
             >
-              <Icon :name="i.icon" size="18" />
+              <Icon :name="i.icon" size="16" />
               <span>{{ i.title }}</span>
             </NuxtLink>
           </div>
@@ -78,17 +95,56 @@ const userInitial = computed(() => user.value?.email?.[0] ?? '')
 
           <ThemeToggle />
 
-          <NuxtLink
-            v-if="user"
-            to="/profile"
-            class="transition-[background-color] ease-in-out duration-300 flex items-center justify-center hover:bg-white/30 size-9 rounded-md"
-            :class="isNavActive('/profile') ? 'bg-white/20' : ''"
-            v-wave
-          >
-            <span
-              class="flex items-center justify-center size-7 rounded-full bg-white/20 text-sm uppercase leading-none"
-            >{{ userInitial }}</span>
-          </NuxtLink>
+          <DropdownMenuRoot v-if="user">
+            <DropdownMenuTrigger as-child>
+              <button
+                type="button"
+                :aria-label="`User menu: ${username || user.email || 'account'}`"
+                class="transition-[background-color] ease-in-out duration-300 flex items-center gap-1 hover:bg-white/30 px-1.5 h-9 rounded-md cursor-pointer"
+                :class="isNavActive('/profile') ? 'bg-white/20' : ''"
+                v-wave
+              >
+                <span class="flex items-center justify-center size-7 rounded-full bg-white/20 text-xs uppercase leading-none overflow-hidden">
+                  <img v-if="avatarUrl && !avatarFailed" :src="avatarUrl" alt="Avatar" class="size-full object-cover" referrerpolicy="no-referrer" @error="avatarFailed = true" />
+                  <span v-else>{{ userInitials }}</span>
+                </span>
+                <Icon name="lucide:chevron-down" size="13" class="opacity-50" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuContent
+                side="bottom"
+                align="end"
+                :side-offset="8"
+                class="z-50 min-w-52 rounded-lg shadow-xl overflow-hidden border border-black/20 dark:border-white/20 bg-white/80 dark:bg-black/80 backdrop-blur-sm"
+              >
+                <div class="px-3 py-2.5 border-b border-black/10 dark:border-white/10">
+                  <div v-if="username" class="text-sm font-medium truncate">{{ username }}</div>
+                  <div class="text-xs truncate opacity-50">{{ user.email }}</div>
+                </div>
+                <DropdownMenuItem as-child>
+                  <NuxtLink
+                    to="/profile"
+                    class="flex items-center gap-3 px-3 py-2 text-sm transition-colors hover:bg-black/10 dark:hover:bg-white/10 outline-none data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10"
+                  >
+                    <Icon name="lucide:circle-user-round" size="18" class="opacity-50" />
+                    <span>Profile</span>
+                  </NuxtLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem as-child>
+                  <button
+                    type="button"
+                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 outline-none data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10 cursor-pointer"
+                    @click="signOut"
+                  >
+                    <Icon name="lucide:log-out" size="18" class="opacity-50" />
+                    <span>Sign Out</span>
+                  </button>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenuPortal>
+          </DropdownMenuRoot>
+
           <NuxtLink
             v-else
             to="/signin"

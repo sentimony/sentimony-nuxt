@@ -5,6 +5,8 @@ export default defineCachedEventHandler(
     const id = event.context.params?.id as string | undefined
     if (!id) throw createError({ statusCode: 400, statusMessage: 'Missing event id' })
 
+    let eventEntity: Record<string, unknown>
+
     if (useRuntimeConfig().releasesSource === 'supabase') {
       const { data, error } = await useSupabase()
         .from('events')
@@ -14,15 +16,23 @@ export default defineCachedEventHandler(
         .single()
 
       if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
-      return data
+      eventEntity = data as Record<string, unknown>
+    }
+    else {
+      const { public: { firebaseBase } } = useRuntimeConfig()
+      const url = `${firebaseBase}/events/${id}.json`
+      const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+
+      if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
+      eventEntity = data as Record<string, unknown>
     }
 
-    const { public: { firebaseBase } } = useRuntimeConfig()
-    const url = `${firebaseBase}/events/${id}.json`
-    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    const { count } = await supabaseAdmin()
+      .from('event_likes')
+      .select('*', { count: 'exact', head: true })
+      .eq('event_slug', id)
 
-    if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Event not found' })
-    return data
+    return { ...eventEntity, like_count: count ?? 0 }
   },
   {
     maxAge: isDev ? 0 : 60 * 60,

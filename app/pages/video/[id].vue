@@ -2,7 +2,7 @@
 import { createError } from '#app'
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, fetchCount } = useVideoLikes()
+const { isLiked, toggleLike, likeCount, setCount } = useVideoLikes()
 
 const videoAsync = await useVideo(id as string, { server: true })
 const item = videoAsync.data
@@ -12,9 +12,7 @@ if (videoError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Video not found' })
 }
 
-onMounted(() => {
-  fetchCount(item.value!.slug)
-})
+setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const { embed } = useYouTube(computed(() => item.value?.links?.youtube))
 const { formatDate, formatYear } = useDate()
@@ -68,7 +66,7 @@ useSeoMeta({
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:border-foreground/40'"
                 v-wave
               >
-                <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+                <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>

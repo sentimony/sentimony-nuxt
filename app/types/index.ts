@@ -83,6 +83,7 @@ export interface Artist extends BaseEntity {
   wikipedia_url?: string
   youtube_playlist_id?: string
   soundcloud_track_id?: string
+  like_count?: number
 }
 
 export interface ArtistsResponse {
@@ -119,6 +120,7 @@ export interface Video extends BaseEntity {
   cover_xl?: string
   information?: string
   credits?: string
+  like_count?: number
   links?: VideoLinks
 }
 
@@ -144,6 +146,7 @@ export interface Event extends BaseEntity {
   location?: string
   info?: string
   lineup?: EventLineup[]
+  like_count?: number
   links?: EventLink[]
 }
 
@@ -167,6 +170,7 @@ export interface Playlist extends BaseEntity {
   cover_xl?: string
   style?: string
   info?: string
+  like_count?: number
   links?: PlaylistLinks
 }
 
@@ -191,10 +195,9 @@ export type ItemCategory = 'release' | 'artist' | 'video' | 'event' | 'playlist'
 export interface ItemEntity {
   slug: string
   title?: string
-  cover_th?: string
-  photo_th?: string
+  cover_xl?: string
+  photo_xl?: string
   flyer_a_xl?: string
-  artwork_th?: string
   coming_soon?: boolean
   new?: boolean
 }

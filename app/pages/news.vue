@@ -21,7 +21,7 @@ const newsItems = computed<NewsItem[]>(() => {
       title: i.title,
       href: `/release/${i.slug}`,
       category: 'release' as const,
-      image: i.cover_th,
+      image: i.cover_xl,
     }))
 
   const e = events.value
@@ -43,12 +43,10 @@ const newsItems = computed<NewsItem[]>(() => {
       title: i.title,
       href: `/video/${i.slug}`,
       category: 'video' as const,
-      image: i.cover_th,
+      image: i.cover_xl,
     }))
 
-  return [...r, ...e, ...v].sort(
-    (a, b) => new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-  )
+  return sortByDate([...r, ...e, ...v])
 })
 
 const { formatDate } = useDate()

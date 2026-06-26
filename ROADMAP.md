@@ -268,3 +268,142 @@ BY CLAUDE-CODE
   Реалізувати котрусь?
 
 ====================================================================================================
+
+2026-06-25
+BY CODEX
+
+• ## Висновок
+
+Найбільший потенціал зараз не в дрібному рефакторингу, а в завершенні hardening, виправленні data
+contracts, SEO та скороченні runtime-навантаження.
+
+1. P0 — завершити hardening і зробити CI обов’язковим
+
+    Unit suite зараз падає: відсутній server/utils/profileLikes.ts і не реалізований public count route,
+    який уже очікують тести: tests/unit/profileLikes.test.ts:2, tests/unit/cachePolicy.test.ts:31.
+
+    Додати CI: npm ci → test:unit → typecheck → build → критичні E2E. Деплой не повинен бути можливим із
+    червоними тестами.
+
+    Impact: критичний. Effort: малий–середній.
+
+2. P0 — переробити /tracks: зараз API і сторінка несумісні
+
+    Сторінка очікує tracklistCompact і tracks_number: app/pages/tracks.vue:26, але /api/releases їх не
+    повертає: server/api/releases.get.ts:8. Для Supabase це дає порожній список треків і 0 у статистиці.
+
+    Краще створити окремий /api/catalog/summary і пагінований /api/tracks, замість завантаження 7 колекцій
+    для однієї сторінки.
+
+    Impact: критичний, одночасно bugfix і оптимізація. Effort: середній.
+
+3. P0 — виправити sitemap та індексацію
+
+    Наявний sitemap містить лише 13 статичних URL, включаючи /profile і /confirm, але не містить жодної
+    release/artist/track detail page. Dynamic sources відсутні: nuxt.config.ts:172.
+
+    Потрібно:
+    - генерувати sitemap із каталогу;
+    - виключити auth/profile routes;
+    - додати canonical;
+    - додати noindex для signin/signup/profile/confirm/reset;
+    - за можливості ввімкнути sitemap zeroRuntime.
+
+    Impact: критичний для органічного трафіку. Effort: середній.
+
+4. P1 — відокремити контент від like counters
+
+    Detail API виконує select('*'), окремий count(*), а потім кешує результат на годину: server/api/release/
+    [id].get.ts:10. Через це:
+    - counts застарівають;
+    - кожен cold request навантажує likes-таблиці;
+    - важкий content payload перевидається через зміну одного числа.
+
+    Зробити компактні DTO і окремі /likes/count/:slug, кешовані на 30–120 секунд, або підтримувати
+    агреговані counters у БД.
+
+    Impact: високий. Effort: середній.
+
+5. P1 — не завантажувати всі сторонні плеєри одночасно
+
+    TabsRoot має unmount-on-hide="false", тому приховані Bandcamp, YouTube і SoundCloud iframe залишаються
+    змонтованими. На detail page може стартувати до 4 сторонніх iframe одночасно.
+
+    Використати unmount-on-hide, lazy iframe після відкриття вкладки або lightweight facade “Click to load
+    player”.
+
+    Impact: високий для LCP, трафіку та мобільних пристроїв. Effort: малий.
+
+6. P1 — зменшити головний client bundle
+
+    Production build показав:
+    - головний chunk: 560.49 KB minified / 181.21 KB gzip;
+    - Rollup видає warning про chunk понад 500 KB.
+
+    Головна причина — повний Supabase client із Realtime, що потрапляє в глобальний bundle через
+    useSupabaseUser() у header: app/components/Header.vue:13. Також глобально монтується toaster: app/
+    app.vue:1.
+
+    Напрямок: легкий server-derived session state у layout, lazy Supabase client лише для auth/profile/like
+    interaction, route-level split для UI бібліотек.
+
+    Impact: високий. Effort: високий.
+
+7. P1 — прибрати jsdom із Netlify function
+
+    Server bundle: 18.5 MB / 3.69 MB gzip. Із нього 9.3 MB займає jsdom, підтягнутий через isomorphic-
+    dompurify: app/utils/sanitizeHtml.ts:1.
+
+    Варіанти:
+    - санітизувати HTML під час sync/import;
+    - перейти на легший SSR-safe sanitizer;
+    - зберігати вже нормалізовану структуровану розмітку.
+
+    Це зменшить cold start і deployment artifact приблизно вдвічі.
+
+    Impact: високий. Effort: середній.
+
+8. P1 — нормалізувати track ↔ artist зв’язки та Firebase-запити
+
+    Firebase endpoint для треків одного релізу завантажує всю колекцію: server/api/tracks/
+    [release_slug].get.ts:7.
+
+    У Supabase artist_slug зберігається CSV-рядком, а similar tracks шукаються через ILIKE '%slug%': server/
+    api/track/[id].get.ts:33. Це неіндексовано і може давати false matches.
+
+    Створити track_artists(track_slug, artist_slug, position) та індекси. Для Firebase — індексований шлях
+    tracksByRelease/{releaseSlug} або повний перехід читання треків на Supabase.
+
+    Impact: високий при зростанні каталогу. Effort: високий.
+
+9. P2 — завершити агреговане завантаження profile
+
+    Зараз summary виконує 6 count-запитів: server/api/profile/summary.get.ts:7, після чого активна вкладка
+    робить ще 2 запити: app/pages/profile.vue:23.
+
+    Повернути summary та першу сторінку кожної категорії одним endpoint/RPC. Саме ця задумана реалізація
+    наразі залишилась незавершеною.
+
+    Impact: середній. Effort: середній.
+
+10. P2 — обмежити production logging і захистити mutations
+
+Кожен запит логуються разом з IP, URL query і referrer: server/utils/logger.ts:23. Це зайві function logs,
+витрати й потенційні персональні дані.
+
+Likes API також перевіряє лише наявність slug: server/utils/likes.ts:36. Додати schema validation,
+максимальну довжину, перевірку існування сутності та rate limiting.
+
+Impact: середній. Effort: малий–середній.
+
+## Поточна перевірка
+
+- Typecheck: проходить.
+- Production build: проходить із warning про 560 KB chunk.
+- Unit tests: 2 failures.
+- PWA verification: проходить.
+- E2E carousel smoke test: проходить.
+- npm audit --omit=dev: одна low-вразливість у transitive esbuild.
+- Файли проєкту не змінював; наявні локальні UI-зміни збережені.
+
+====================================================================================================

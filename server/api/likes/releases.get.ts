@@ -1,1 +1,1 @@
-export default likedItemsHandler({ table: 'release_likes', slugCol: 'release_slug', entityTable: 'releases', entitySelect: 'slug, title, cover_th, date', visibleOnly: true })
+export default likedItemsHandler({ table: 'release_likes', slugCol: 'release_slug', entityTable: 'releases', entitySelect: 'slug, title, cover_xl, date', visibleOnly: true })

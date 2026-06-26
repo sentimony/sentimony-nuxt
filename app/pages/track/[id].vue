@@ -7,7 +7,6 @@ const {
   toggleTrackLike,
   trackLikeCount,
   setTrackCount,
-  fetchTrackCount,
 } = useTrackLikes()
 
 const trackAsync = await useTrack(id as string, { server: true })
@@ -25,10 +24,6 @@ const releaseTracks = computed(() => data.value!.releaseTracks ?? [])
 const similarTracks = computed(() => data.value!.similarTracks ?? [])
 
 setTrackCount(track.value.slug, data.value!.likeCount ?? 0)
-
-onMounted(() => {
-  fetchTrackCount(track.value.slug)
-})
 
 const { formatDate, formatYear } = useDate()
 const releaseDate = computed(() => formatDate(release.value?.date))
@@ -112,7 +107,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             :class="isTrackLiked(track.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
             v-wave
           >
-            <Icon name="lucide:heart" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="18" />
+            <Icon name="lucide:thumbs-up" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="18" />
             {{ isTrackLiked(track.slug) ? 'Liked' : 'Like' }}
             <span v-if="trackLikeCount(track.slug) > 0" class="opacity-50">{{ trackLikeCount(track.slug) }}</span>
           </button>

@@ -25,7 +25,7 @@ const petalRotations = computed(() => {
 const petalGradient = computed(() => {
   const dark = props.scheme !== undefined ? props.scheme === 'dark' : (props.inverted ? !isDark.value : isDark.value)
   return dark
-    ? 'radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.33) 100%)'
+    ? 'radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.4) 100%)'
     : 'radial-gradient(ellipse at 50% 0, rgba(0,0,0,0.05) 0%, rgba(138,2,2,0) 50%, rgba(255,255,255,0.33) 100%)'
 })
 
@@ -47,35 +47,43 @@ watch(() => route.path, () => {
 </script>
 
 <template>
-  <div :class="contained ? 'absolute inset-0' : 'fixed inset-0'">
+  <div
+    aria-hidden="true"
+    :class="contained ? 'absolute inset-0' : 'fixed inset-0'"
+  >
     <div
-      class="fractal-orbit absolute inset-0"
+      data-fractal-orbit
+      class="absolute inset-0 motion-reduce:animate-none!"
       :class="{ 'animate-[spin2_6.0s_ease-in-out]': isAnimating }"
     >
       <div
         v-for="petal in petalRotations"
         :key="petal.id"
-        class="absolute top-1/2 left-1/2 origin-[0] -translate-x-1/2 -translate-y-1/2"
+        class="absolute top-1/2 left-1/2 origin-[0] -translate-x-1/2 -translate-y-1/2 rotate-(--petal-rotation)"
         :style="{
-          transform: `rotate(${petal.rotation}deg)`,
+          '--petal-rotation': `${petal.rotation}deg`,
         }"
       >
         <div
-          class="fractal-petal absolute w-32 h-64 rounded-full transition-[width,height] duration-[1.2s] ease-in-out"
-          :class="{ '!w-64 !h-32 !duration-[4.0s] !delay-[0.0s] animate-[spin2rev_6.0s_ease-in-out]': isAnimating }"
-          :style="{ background: petalGradient }"
-        />
+          class="absolute transform-[translate3d(4rem,8rem,0)] transition-transform duration-[1.2s] ease-in-out motion-reduce:transition-none!"
+          :class="{ 'transform-[translate3d(8rem,4rem,0)]! duration-[4s]! will-change-transform': isAnimating }"
+        >
+          <div
+            class="absolute motion-reduce:animate-none!"
+            :class="{ 'animate-[spin2rev_6.0s_ease-in-out] will-change-transform': isAnimating }"
+          >
+            <div
+              class="absolute transform-[scale3d(0.666666667,1.333333333,1)] transition-transform duration-[1.2s] ease-in-out motion-reduce:transition-none!"
+              :class="{ 'transform-[scale3d(1.333333333,0.666666667,1)]! duration-[4s]! will-change-transform': isAnimating }"
+            >
+              <div
+                class="absolute -top-24 -left-24 size-48 rounded-full [background:var(--petal-gradient)]"
+                :style="{ '--petal-gradient': petalGradient }"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
-<style>
-@media (prefers-reduced-motion: reduce) {
-  .fractal-orbit,
-  .fractal-petal {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-</style>

@@ -13,6 +13,7 @@ watchEffect(() => {
 const loading = ref(false)
 const message = ref('')
 const error = ref('')
+const signupExistsMessage = 'Something went wrong. Please try again.'
 
 const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
@@ -42,6 +43,10 @@ const title = computed(() => ({
   forgot: 'Reset Password',
 }[props.mode]))
 
+useSeoMeta({
+  title,
+})
+
 const submitLabel = computed(() => ({
   signin: 'Sign In',
   signup: 'Sign Up',
@@ -53,26 +58,38 @@ const submit = handleSubmit(async () => {
   error.value = ''
   message.value = ''
 
-  const emailValue = String(email.value ?? '')
-  const passwordValue = String(password.value ?? '')
+  try {
+    const emailValue = String(email.value ?? '')
+    const passwordValue = String(password.value ?? '')
 
-  if (props.mode === 'signin') {
-    const { error: err } = await supabase.auth.signInWithPassword({ email: emailValue, password: passwordValue })
-    if (err) error.value = err.message
-    else navigateTo('/profile')
-  } else if (props.mode === 'signup') {
-    const { error: err } = await supabase.auth.signUp({ email: emailValue, password: passwordValue })
-    if (err) error.value = err.message
-    else message.value = 'Check your email to confirm your account.'
-  } else {
-    const { error: err } = await supabase.auth.resetPasswordForEmail(emailValue, {
-      redirectTo: `${window.location.origin}/reset-password`,
-    })
-    if (err) error.value = err.message
-    else message.value = 'Check your email for the password reset link.'
+    if (props.mode === 'signin') {
+      const { error: err } = await supabase.auth.signInWithPassword({ email: emailValue, password: passwordValue })
+      if (err) error.value = err.message
+      else navigateTo('/profile')
+    } else if (props.mode === 'signup') {
+      const { exists } = await $fetch<{ exists: boolean }>('/api/auth/email-exists', {
+        method: 'POST',
+        body: { email: emailValue },
+      })
+
+      if (exists) {
+        error.value = signupExistsMessage
+        return
+      }
+
+      const { error: err } = await supabase.auth.signUp({ email: emailValue, password: passwordValue })
+      if (err) error.value = err.message
+      else message.value = 'Check your email to confirm your account.'
+    } else {
+      const { error: err } = await supabase.auth.resetPasswordForEmail(emailValue, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      })
+      if (err) error.value = err.message
+      else message.value = 'Check your email for the password reset link.'
+    }
+  } finally {
+    loading.value = false
   }
-
-  loading.value = false
 })
 </script>
 

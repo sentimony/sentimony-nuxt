@@ -15,7 +15,13 @@ const soc = computed(() =>
 
 const { isDark, toggle } = useTheme()
 const user = useSupabaseUser()
-const userInitial = computed(() => user.value?.email?.[0] ?? '')
+const userInitial = computed(() => user.value?.email?.[0]?.toUpperCase() ?? '')
+const avatarUrl = computed(() => {
+  const meta = user.value?.user_metadata as Record<string, unknown> | undefined
+  return (meta?.avatar_url as string) || ''
+})
+const avatarFailed = ref(false)
+watch(avatarUrl, () => { avatarFailed.value = false })
 
 const onInteractOutside = (e: CustomEvent) => {
   const target = (e.detail.originalEvent as Event).target as Node | null
@@ -90,18 +96,21 @@ watch(() => route.path, () => { isOpen.value = false })
           <NuxtLink
             v-if="user"
             to="/profile"
-            class="flex items-center justify-center gap-2 h-9 rounded-md border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 text-sm transition-[background-color,border-color] duration-300 ease-in-out"
+            class="flex items-center justify-center gap-2 h-9 px-4 rounded-md border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 text-sm transition-[background-color,border-color] duration-300 ease-in-out cursor-pointer"
             :class="isNavActive('/profile') ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
             @click="isOpen = false"
             v-wave
           >
-            <span class="flex items-center justify-center size-6 rounded-full bg-black/20 dark:bg-white/20 text-xs uppercase leading-none">{{ userInitial }}</span>
+            <span class="flex items-center justify-center size-6 rounded-full bg-black/20 dark:bg-white/20 text-xs uppercase leading-none overflow-hidden">
+                <img v-if="avatarUrl && !avatarFailed" :src="avatarUrl" alt="Avatar" class="size-full object-cover" referrerpolicy="no-referrer" @error="avatarFailed = true" />
+                <span v-else>{{ userInitial }}</span>
+              </span>
             <span>Profile</span>
           </NuxtLink>
           <NuxtLink
             v-else
             to="/signin"
-            class="flex items-center justify-center gap-2 h-9 rounded-md border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 text-sm transition-[background-color,border-color] duration-300 ease-in-out"
+            class="flex items-center justify-center gap-2 h-9 px-4 rounded-md border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 text-sm transition-[background-color,border-color] duration-300 ease-in-out cursor-pointer"
             :class="isNavActive('/signin') ? 'bg-white/20 border-black/30 dark:border-white/20' : 'border-transparent'"
             @click="isOpen = false"
             v-wave

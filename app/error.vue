@@ -3,17 +3,12 @@ import { computed } from 'vue'
 import type { NuxtError } from '#app'
 
 const props = defineProps<{ error: NuxtError }>()
-const isError = props.error?.error
-
 const handleError = () => clearError({ redirect: '/' })
 
 const pageTitle = computed(() => String(props.error?.statusCode ?? 'Error'))
 useHead({
   title: pageTitle,
   titleTemplate: (title?: string) => title ? `${title} · Sentimony Records` : 'Sentimony Records',
-  bodyAttrs: {
-    class: isError ? 'isError' : ''
-  }
 })
 </script>
 
@@ -34,12 +29,3 @@ useHead({
   </div>
 </template>
 
-<style>
-@reference "./assets/css/tailwind.css";
-
-body.isError {
-  @apply
-  font-montserrat
-  bg-[url('https://content.sentimony.com/assets/img/backgrounds/trees-green_v5.jpg?01')]
-}
-</style>

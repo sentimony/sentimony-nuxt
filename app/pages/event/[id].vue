@@ -3,7 +3,7 @@ import { createError } from '#app'
 
 const route = useRoute()
 const id = computed(() => String(route.params.id))
-const { isLiked, toggleLike, likeCount, fetchCount } = useEventLikes()
+const { isLiked, toggleLike, likeCount, setCount } = useEventLikes()
 
 const eventAsync = await useEvent(id.value, { server: true })
 const item = eventAsync.data
@@ -13,9 +13,8 @@ if (eventError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Event not found' })
 }
 
-onMounted(() => {
-  fetchCount(item.value!.slug)
-})
+setCount(item.value!.slug, item.value!.like_count ?? 0)
+
 const { formatDate, formatYear } = useDate()
 
 const appConfig = useAppConfig()
@@ -64,7 +63,7 @@ useSeoMeta({
             :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
             v-wave
           >
-            <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+            <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
             {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
             <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
           </button>

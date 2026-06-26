@@ -22,11 +22,18 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
       @click="open"
     >
       <div class="size-[100px] sm:size-[190px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30">
-        <img
+        <NuxtImg
           v-if="image_th"
           :src="image_th"
           :alt="alt"
           class="size-[100px] sm:size-[190px] object-cover"
+          width="190"
+          height="190"
+          sizes="100px sm:190px"
+          densities="1x 2x"
+          fit="cover"
+          format="webp"
+          loading="lazy"
         />
         <div
           v-else

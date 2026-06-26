@@ -5,7 +5,7 @@ export default defineCachedEventHandler(
     if (useRuntimeConfig().releasesSource === 'supabase') {
       const { data, error } = await useSupabase()
         .from('releases')
-        .select('slug, title, cover_th, date, visible, coming_soon, is_new, artists, at_playlists')
+        .select('slug, title, cover_xl, date, visible, coming_soon, is_new, artists, at_playlists')
         .eq('visible', true)
         .order('date', { ascending: false })
 
@@ -16,7 +16,7 @@ export default defineCachedEventHandler(
     const { public: { firebaseBase } } = useRuntimeConfig()
     const url = `${firebaseBase}/releases.json`
     const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
-    return pickListFields(data, ['slug', 'title', 'cover_th', 'date', 'visible', 'coming_soon', 'new', 'artists', 'at_playlists'], { visibleOnly: true })
+    return pickListFields(data, ['slug', 'title', 'cover_xl', 'date', 'visible', 'coming_soon', 'new', 'artists', 'at_playlists'], { visibleOnly: true })
   },
   {
     maxAge: isDev ? 0 : 60 * 60,

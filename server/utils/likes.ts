@@ -11,6 +11,14 @@ export async function getUserId(event: H3Event) {
   return user?.sub ?? user?.id
 }
 
+export async function countUserLikes(table: string, userId: string) {
+  const { count } = await dynamicAdminClient()
+    .from(table)
+    .select('*', { count: 'exact', head: true })
+    .eq('user_id', userId)
+  return count ?? 0
+}
+
 export function likesListHandler(table: string, slugCol: string) {
   return defineEventHandler(async (event) => {
     const userId = await getUserId(event)
@@ -58,21 +66,6 @@ export function likesDeleteHandler(table: string, slugCol: string) {
 
     if (error) throw createError({ statusCode: 500, statusMessage: error.message })
     return { ok: true }
-  })
-}
-
-export function likesCountHandler(table: string, slugCol: string) {
-  return defineEventHandler(async (event) => {
-    const slug = getRouterParam(event, 'slug')
-    if (!slug) throw createError({ statusCode: 400, statusMessage: 'Missing slug' })
-
-    const { count, error } = await dynamicAdminClient()
-      .from(table)
-      .select('*', { count: 'exact', head: true })
-      .eq(slugCol, slug)
-
-    if (error) throw createError({ statusCode: 500, statusMessage: error.message })
-    return { count: count ?? 0 }
   })
 }
 

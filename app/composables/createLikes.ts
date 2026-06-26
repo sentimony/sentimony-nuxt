@@ -4,7 +4,6 @@ export interface LikesApi {
   isLiked: (slug: string) => boolean
   likeCount: (slug: string) => number
   toggleLike: (slug: string) => Promise<void>
-  fetchCount: (slug: string) => Promise<void>
   setCount: (slug: string, count: number) => void
 }
 
@@ -25,11 +24,6 @@ export function createLikes(key: string, apiBase: string): LikesApi {
     const data = await $fetch<string[]>(apiBase).catch(() => [])
     likedSlugs.value = data
     loaded.value = true
-  }
-
-  async function fetchCount(slug: string) {
-    const { count } = await $fetch<{ count: number }>(`${apiBase}/count/${slug}`).catch(() => ({ count: 0 }))
-    likeCounts.value[slug] = count
   }
 
   onMounted(() => {
@@ -68,5 +62,5 @@ export function createLikes(key: string, apiBase: string): LikesApi {
     }
   }
 
-  return { isLiked, likeCount, toggleLike, fetchCount, setCount }
+  return { isLiked, likeCount, toggleLike, setCount }
 }

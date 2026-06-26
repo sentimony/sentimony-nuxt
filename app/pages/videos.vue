@@ -3,13 +3,7 @@ import type { Video } from '~/types'
 
 const { data: videosRaw } = await useVideos()
 const videos = computed(() => toArray<Video>(videosRaw.value, 'videos'))
-const videosSortedByDate = computed(() =>
-  [...videos.value]
-    .filter(v => Boolean(v.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-)
+const videosSortedByDate = computed(() => visibleByDate(videos.value))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageTitle = 'Videos'

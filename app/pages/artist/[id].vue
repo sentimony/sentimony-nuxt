@@ -3,30 +3,26 @@ import { createError } from '#app'
 import type { Release } from '~/types'
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, fetchCount } = useArtistLikes()
+const { isLiked, toggleLike, likeCount, setCount } = useArtistLikes()
 
-const artistAsync = await useArtist(id as string, { server: true })
+const [artistAsync, releasesAsync] = await Promise.all([
+  useArtist(id as string, { server: true }),
+  useReleases(),
+])
+
 const item = artistAsync.data
 const artistError = artistAsync.error
+const releasesRaw = releasesAsync.data
 
 if (artistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
 }
 
-onMounted(() => {
-  fetchCount(item.value!.slug)
-})
+setCount(item.value!.slug, item.value!.like_count ?? 0)
 
-const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 
-const releasesSortedByDate = computed(() =>
-  [...releases.value]
-    .filter(r => Boolean(r.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-)
+const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
@@ -81,7 +77,7 @@ useSeoMeta({
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
                 v-wave
               >
-                <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+                <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -209,28 +205,29 @@ useSeoMeta({
 
     <ItemContent v-if="item">
 
-        <div v-if="item.information">
-          <p><span class="text-[10px] md:text-[12px] text-white/50">Information</span></p>
-          <div v-html="sanitizeHtml(item.information)" />
-        </div>
-        <div v-if="item.info_sc">
-          <p><span class="text-[10px] md:text-[12px] text-white/50">Info SC</span></p>
-          <div v-html="sanitizeHtml(item.info_sc)" />
-        </div>
+      <div v-if="item.information">
+        <!-- <p><span class="text-[10px] md:text-[12px] text-white/50">Information</span></p> -->
+        <div v-html="sanitizeHtml(item.information)" />
+      </div>
 
-        <div>
-          <hr class="my-4 border-black/30">
-          <p><small><b>Releases with {{ item.title }}:</b></small></p>
-          <div class="flex flex-wrap justify-center w-full">
-            <template v-for="(i, index) in releasesSortedByDate" :key="index">
-              <Item
-                v-if="i.artists?.includes(item.slug)"
-                :i="i"
-                category="release"
-              />
-            </template>
-          </div>
+      <!-- <div v-if="item.info_sc">
+        <p><span class="text-[10px] md:text-[12px] text-white/50">Info SC</span></p>
+        <div v-html="sanitizeHtml(item.info_sc)" />
+      </div> -->
+
+      <div>
+        <hr class="my-4 border-black/30">
+        <p><small><b>Releases with {{ item.title }}:</b></small></p>
+        <div class="flex flex-wrap justify-center w-full">
+          <template v-for="(i, index) in releasesSortedByDate" :key="index">
+            <Item
+              v-if="i.artists?.includes(item.slug)"
+              :i="i"
+              category="release"
+            />
+          </template>
         </div>
+      </div>
 
     </ItemContent>
 

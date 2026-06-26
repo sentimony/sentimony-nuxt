@@ -203,7 +203,7 @@ test('switches instantly with reduced motion', async ({ page }) => {
     return (window as Window & { __viewTransitionCalls: number }).__viewTransitionCalls
   })
   expect(calls).toBe(0)
-  await expect(page.locator('.fractal-orbit')).toHaveCSS('animation-name', 'none')
+  await expect(page.locator('[data-fractal-orbit]')).toHaveCSS('animation-name', 'none')
 })
 
 test('switches themes when View Transitions are unavailable', async ({ page }) => {

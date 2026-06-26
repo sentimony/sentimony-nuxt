@@ -5,6 +5,8 @@ export default defineCachedEventHandler(
     const id = event.context.params?.id as string | undefined
     if (!id) throw createError({ statusCode: 400, statusMessage: 'Missing artist id' })
 
+    let artist: Record<string, unknown>
+
     if (useRuntimeConfig().releasesSource === 'supabase') {
       const { data, error } = await useSupabase()
         .from('artists')
@@ -14,15 +16,23 @@ export default defineCachedEventHandler(
         .single()
 
       if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
-      return data
+      artist = data as Record<string, unknown>
+    }
+    else {
+      const { public: { firebaseBase } } = useRuntimeConfig()
+      const url = `${firebaseBase}/artists/${id}.json`
+      const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+
+      if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
+      artist = data as Record<string, unknown>
     }
 
-    const { public: { firebaseBase } } = useRuntimeConfig()
-    const url = `${firebaseBase}/artists/${id}.json`
-    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    const { count } = await supabaseAdmin()
+      .from('artist_likes')
+      .select('*', { count: 'exact', head: true })
+      .eq('artist_slug', id)
 
-    if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
-    return data
+    return { ...artist, like_count: count ?? 0 }
   },
   {
     maxAge: isDev ? 0 : 60 * 60,

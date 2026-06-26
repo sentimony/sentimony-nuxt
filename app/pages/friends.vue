@@ -3,13 +3,7 @@ import type { Friend } from '~/types'
 
 const { data: friendsRaw } = await useFriends()
 const friends = computed(() => toArray<Friend>(friendsRaw.value, 'friends'))
-const friendsSortedByDate = computed(() =>
-  [...friends.value]
-    .filter(f => Boolean(f.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-)
+const friendsSortedByDate = computed(() => visibleByDate(friends.value))
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()

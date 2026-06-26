@@ -3,35 +3,31 @@ import { createError } from '#app'
 import type { Release } from '~/types'
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, fetchCount } = usePlaylistLikes()
+const { isLiked, toggleLike, likeCount, setCount } = usePlaylistLikes()
 
-const playlistAsync = await usePlaylist(id as string, { server: true })
+const [playlistAsync, releasesAsync] = await Promise.all([
+  usePlaylist(id as string, { server: true }),
+  useReleases(),
+])
+
 const item = playlistAsync.data
 const playlistError = playlistAsync.error
+const releasesRaw = releasesAsync.data
 
 if (playlistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Playlist not found' })
 }
 
-onMounted(() => {
-  fetchCount(item.value!.slug)
-})
+setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
 const comingMusic = '<div class="p-4 text-[12px] text-white/50">Music is<br>coming ⛄</div>'
 
-const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 
-const releasesSortedByDate = computed(() =>
-  [...releases.value]
-    .filter(r => Boolean(r.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-)
+const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
@@ -80,7 +76,7 @@ useSeoMeta({
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:border-foreground/40'"
                 v-wave
               >
-                <Icon name="lucide:heart" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+                <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>

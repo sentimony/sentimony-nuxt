@@ -3,13 +3,7 @@ import type { Event } from '~/types'
 
 const { data: eventsRaw } = await useEvents()
 const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
-const eventsSortedByDate = computed(() =>
-  [...events.value]
-    .filter(e => Boolean(e.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-)
+const eventsSortedByDate = computed(() => visibleByDate(events.value))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageTitle = 'Events'

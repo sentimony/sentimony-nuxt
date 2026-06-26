@@ -19,12 +19,11 @@
 .homepage-atmosphere::before {
   position: absolute;
   content: "";
-  inset: -2vmax;
+  inset: 0;
   background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-light_v1.jpg");
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: center;
   background-size: cover;
-  transform: scale(1.02);
 }
 
 .dark .homepage-atmosphere {
@@ -33,7 +32,6 @@
 
 .dark .homepage-atmosphere::before {
   background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-dark_v1.jpg");
-  background-position: 50% 50%;
 }
 
 .dark body.homepage-route {
@@ -43,8 +41,7 @@
 
 @media (max-width: 640px) {
   .homepage-atmosphere::before {
-    background-position: 50% 50%;
-    transform: scale(1.04);
+    background-position: center;
   }
 }
 </style>

@@ -21,6 +21,18 @@ npm run deploy:stage    # sync → Netlify stage
 npm run deploy:prod     # sync → Netlify prod
 npm run verify:pwa      # validate manifest + custom service worker
 npx nuxi typecheck      # vue-tsc type check
+npx supabase db push    # apply migrations to remote (needs SUPABASE_ACCESS_TOKEN in .env/.env.local)
+npx supabase link --project-ref dugbgewuzowoogglccue --yes   # link project before first push
+```
+
+Supabase CLI: використовувати через `npx supabase` (не глобальний). `SUPABASE_ACCESS_TOKEN` (формат `sbp_...`) — Personal Access Token з [Supabase Dashboard → Account → Access Tokens](https://supabase.com/dashboard/account/tokens), зберігати в `.env/.env.local`.
+
+**Supabase CLI + `.env`-директорія:** `npx supabase db push` падає з `read .env: is a directory` бо `.env` — директорія, не файл. Workaround — `db query --linked --file`:
+```bash
+# замість db push — запускати SQL напряму з tmp-директорії де є порожній .env файл
+TOKEN=$(grep SUPABASE_ACCESS_TOKEN .env/.env.local | cut -d= -f2)
+mkdir -p /tmp/sb && cp supabase/config.toml /tmp/sb/ && cp -r supabase/.temp /tmp/sb/ && touch /tmp/sb/.env
+cd /tmp/sb && SUPABASE_ACCESS_TOKEN="$TOKEN" npx supabase db query --linked --file /path/to/migration.sql
 ```
 
 Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). Optional `RELEASES_SOURCE=supabase` switches a data source from Firebase to Supabase - **baked at build time** into `runtimeConfig.releasesSource` (Netlify UI env vars never reach function runtime on CLI deploys); runtime override via `NUXT_RELEASES_SOURCE` still works where env injection exists. `NETLIFY_AUTH_TOKEN` in `.env/.env.local` (personal access token of the site-owning Netlify account) makes `deploy:stage`/`deploy:prod` independent of the active `netlify switch` account.
@@ -34,6 +46,10 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 **Server utils.** `server/utils/supabase.ts` - anon client + snake_case→camelCase mappers. `server/utils/supabaseAdmin.ts` - service-role client for privileged writes.
 
 **Composables.** Each entity has `useXxx()` (wraps `useAsyncData` + `$fetch('/api/xxx')`) and `useXxxLikes()` (optimistic like/unlike with Supabase auth guard; unauth → `/signin`). `useLikes()` (`app/composables/useLikes.ts`) is the release reference; artist/video/track/event/playlist variants follow it. A failed like reverts the optimistic update and fires `toast.error` (vue-sonner); `<Toaster>` is mounted once in `app/app.vue`. `toArray()` (`app/composables/toArray.ts`) normalises Firebase object-keyed and Supabase array responses into one array.
+
+**Profile.** `app/pages/profile.vue` — layout з навігацією по підсторінках (`/profile`, `/profile/releases`, `/profile/tracks`, `/profile/artists`, `/profile/videos`, `/profile/playlists`, `/profile/events`). `app/pages/profile/index.vue` — картки Name/Email/Avatar/Account + колекція. Аватар зберігається в Supabase Storage bucket `avatars` (публічний, RLS: читає всі, пише тільки власник за шляхом `{uid}/avatar.*`); міграція: `supabase/migrations/20260626_storage_avatars.sql`. `useProfileSummary()` — підрахунок лайків по всіх секціях.
+
+**User ID у `@nuxtjs/supabase`:** `useSupabaseUser()` повертає JWT-об'єкт де ID знаходиться в `user?.sub`, а не `user?.id` (як у стандартному Supabase JS SDK). Завжди використовуй `user?.sub ?? user?.id` — див. `server/utils/likes.ts`.
 
 **Auth.** Pages `signin`, `signup`, `forgot-password`, `reset-password`, `confirm` (routing via `@nuxtjs/supabase` `redirectOptions` in `nuxt.config.ts`). `signin`/`signup`/`forgot` share `app/components/AuthForm.vue` - validated by `vee-validate` with a function-based per-mode schema (`forgot` omits password, `signin` requires it, `signup` `min(6)`), **not** zod (`@vee-validate/zod` needs zod 3 but the project has zod 4 via nuxtseo - they conflict). `PasswordInput.vue` is the shared password field with show/hide toggle; server errors show in an inline `Alert`.
 

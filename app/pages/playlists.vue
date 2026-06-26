@@ -3,14 +3,7 @@ import type { Playlist } from '~/types'
 
 const { data: playlistsRaw } = await usePlaylists()
 const playlists = computed(() => toArray<Playlist>(playlistsRaw.value, 'playlists'))
-const playlistsSortedByDate = computed(() =>
-  [...playlists.value]
-    .filter(p => Boolean(p.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-    .reverse()
-)
+const playlistsSortedByDate = computed(() => visibleByDate(playlists.value, 'asc'))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageTitle = 'Playlists'

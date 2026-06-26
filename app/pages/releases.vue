@@ -3,13 +3,7 @@ import type { Release } from '~/types'
 
 const { data: releasesRaw } = await useReleases()
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
-const releasesSortedByDate = computed(() =>
-  [...releases.value]
-    .filter(r => Boolean(r.visible))
-    .sort((a, b) =>
-      new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
-    )
-)
+const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageTitle = 'Releases'

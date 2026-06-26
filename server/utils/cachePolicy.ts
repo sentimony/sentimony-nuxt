@@ -60,14 +60,13 @@ export function buildApiRouteRules(): Record<string, RouteRule> {
   for (const base of likesBases) {
     rules[base] = privateCacheRule
     rules[`${base}/**`] = privateCacheRule
-    rules[`${base}/count/**`] = publicCacheRule
   }
 
   for (const route of likedItemsRoutes) {
     rules[route] = privateCacheRule
   }
 
-  rules['/api/profile-likes'] = privateCacheRule
+  rules['/api/profile/summary'] = privateCacheRule
 
   return rules
 }
