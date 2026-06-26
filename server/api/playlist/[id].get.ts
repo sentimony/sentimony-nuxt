@@ -7,7 +7,7 @@ export default defineCachedEventHandler(
 
     let playlist: Record<string, unknown>
 
-    if (useRuntimeConfig().releasesSource === 'supabase') {
+    if (isSupabaseCatalogSource()) {
       const { data, error } = await useSupabase()
         .from('playlists')
         .select('*')
@@ -19,23 +19,14 @@ export default defineCachedEventHandler(
       playlist = data as Record<string, unknown>
     }
     else {
-      const { public: { firebaseBase } } = useRuntimeConfig()
-      const url = `${firebaseBase}/playlists/${id}.json`
-      const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
-
+      const data = await fetchFirebaseEntity('playlists', id)
       if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Playlist not found' })
       playlist = data as Record<string, unknown>
     }
 
-    const { count } = await supabaseAdmin()
-      .from('playlist_likes')
-      .select('*', { count: 'exact', head: true })
-      .eq('playlist_slug', id)
+    const count = await fetchLikeCount('playlist_likes', 'playlist_slug', id)
 
-    return { ...playlist, like_count: count ?? 0 }
+    return { ...playlist, like_count: count }
   },
-  {
-    maxAge: isDev ? 0 : 60 * 60,
-    swr: !isDev,
-  }
+  catalogCacheOptions()
 )

@@ -8,6 +8,8 @@
 
 JAMstack development of Sentimony Records portfolio website
 
+Catalog content can be served from Firebase Realtime Database or Supabase. Supabase is also used for auth, profile storage, and favourites.
+
 ### Used:
 * [Nuxt](https://nuxt.com)
 * [Firebase](https://firebase.google.com)
@@ -38,6 +40,14 @@ npm i
 npm run dev
 ```
 
+Switch catalog source:
+
+```bash
+CATALOG_SOURCE=firebase npm run dev
+CATALOG_SOURCE=supabase npm run dev
+NUXT_CATALOG_SOURCE=supabase npm run build
+```
+
 ### Deploy
 
 ```bash
@@ -45,9 +55,9 @@ npm run sync:firebase
 
 npm run sync:supabase
 
-npm run netlify:deploy:stage
+npm run deploy:stage
 
-npm run netlify:deploy:prod
+npm run deploy:prod
 ```
 
 ### Have fun! ;)

@@ -7,7 +7,7 @@ export default defineCachedEventHandler(
 
     let video: Record<string, unknown>
 
-    if (useRuntimeConfig().releasesSource === 'supabase') {
+    if (isSupabaseCatalogSource()) {
       const { data, error } = await useSupabase()
         .from('videos')
         .select('*')
@@ -19,23 +19,14 @@ export default defineCachedEventHandler(
       video = data as Record<string, unknown>
     }
     else {
-      const { public: { firebaseBase } } = useRuntimeConfig()
-      const url = `${firebaseBase}/videos/${id}.json`
-      const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
-
+      const data = await fetchFirebaseEntity('videos', id)
       if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Video not found' })
       video = data as Record<string, unknown>
     }
 
-    const { count } = await supabaseAdmin()
-      .from('video_likes')
-      .select('*', { count: 'exact', head: true })
-      .eq('video_slug', id)
+    const count = await fetchLikeCount('video_likes', 'video_slug', id)
 
-    return { ...video, like_count: count ?? 0 }
+    return { ...video, like_count: count }
   },
-  {
-    maxAge: isDev ? 0 : 60 * 60,
-    swr: !isDev,
-  }
+  catalogCacheOptions()
 )

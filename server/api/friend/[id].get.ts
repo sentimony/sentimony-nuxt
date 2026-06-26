@@ -5,7 +5,7 @@ export default defineCachedEventHandler(
     const id = event.context.params?.id as string | undefined
     if (!id) throw createError({ statusCode: 400, statusMessage: 'Missing friend id' })
 
-    if (useRuntimeConfig().releasesSource === 'supabase') {
+    if (isSupabaseCatalogSource()) {
       const { data, error } = await useSupabase()
         .from('friends')
         .select('*')
@@ -17,15 +17,9 @@ export default defineCachedEventHandler(
       return data
     }
 
-    const { public: { firebaseBase } } = useRuntimeConfig()
-    const url = `${firebaseBase}/friends/${id}.json`
-    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
-
+    const data = await fetchFirebaseEntity('friends', id)
     if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Friend not found' })
     return data
   },
-  {
-    maxAge: isDev ? 0 : 60 * 60,
-    swr: !isDev,
-  }
+  catalogCacheOptions()
 )
