@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Release, Artist, Video, Playlist, Event } from '~/types'
+import { sortArtistsForCatalog } from '~/utils/artists'
 
 const host = useRequestURL().hostname
 
@@ -56,11 +57,7 @@ const releasesSortedByDate = computed(() =>
     )
 )
 const artistsSortedByCategoryId = computed(() =>
-  [...artists.value]
-    .filter(a => Boolean(a.visible))
-    .sort((a, b) =>
-      (a.category_id ?? 0) - (b.category_id ?? 0)
-    )
+  sortArtistsForCatalog(artists.value)
 )
 const videosSortedByDate = computed(() =>
   [...videos.value]

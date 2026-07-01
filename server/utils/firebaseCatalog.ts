@@ -35,7 +35,11 @@ export async function fetchFirebaseCollection(path: string): Promise<FirebaseCol
 
 export async function fetchFirebaseEntity(collection: string, slug: string): Promise<(FirebaseNode & { slug: string }) | null> {
   const data = await fetchFirebaseNode<FirebaseNode>(`${collection}/${slug}`)
-  return data ? { ...data, slug } : null
+  if (data) return { ...data, slug }
+
+  const collectionData = await fetchFirebaseCollection(collection)
+  const entity = Object.values(collectionData).find(item => item?.slug === slug)
+  return entity ? { ...entity, slug } : null
 }
 
 export async function fetchFirebaseEntitiesBySlugs(collection: string, slugs: string[]) {

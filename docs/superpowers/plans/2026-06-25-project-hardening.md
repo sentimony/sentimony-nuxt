@@ -37,7 +37,7 @@
 ### Task 3: Private database export
 
 **Files:**
-- Move: `public/data/sentimony-db-export.json` → `data/sentimony-db-export.json`
+- Move: `public/data/sentimony-db-export.json` → `server/data/server/sentimony-db-export.json`
 - Modify: `package.json`
 - Modify: `scripts/sync-supabase.mjs`
 - Modify: `scripts/migrate-tracks.mjs`

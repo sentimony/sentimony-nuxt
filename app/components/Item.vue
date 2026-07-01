@@ -87,7 +87,7 @@ const imgHeight = computed(() =>
       </div>
       <div v-if="i.coming_soon" class="text-white text-[8px] md:text-[10px] leading-none absolute -top-0.75 md:top-0 -right-0.75 md:right-0 bg-green-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Coming Soon</div>
       <div v-if="i.new" class="text-white text-[8px] md:text-[10px] leading-none absolute -top-0.75 md:top-0 -right-0.75 md:right-0 bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">Out Now</div>
-      <div v-if="i.category_id" class="text-white text-[8px] md:text-[10px] leading-none absolute -top-0.75 md:top-0 -right-0.75 md:right-0 bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">{{ i.category_id }}</div>
+      <!-- <div v-if="i.category_id" class="text-white text-[8px] md:text-[10px] leading-none absolute -top-0.75 md:top-0 -right-0.75 md:right-0 bg-red-600 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] p-1 rounded-tr-sm rounded-bl-sm">{{ i.category_id }}</div> -->
     </div>
 
     <div class="line-clamp-2 tracking-tight text-center">{{ i.title }}</div>

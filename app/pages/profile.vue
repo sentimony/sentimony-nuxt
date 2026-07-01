@@ -23,7 +23,7 @@ const profileNavItems = computed(() => [
   {
     key: 'profile',
     label: 'Profile',
-    icon: 'lucide:circle-user-round',
+    icon: 'lucide:square-user-round',
     count: totalSaved.value,
   },
   ...visibleSections.value.map(section => ({

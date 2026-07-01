@@ -1,6 +1,6 @@
 {
-  "artists": [
-    {
+  "artists": {
+    "irukanji": {
       "title": "Irukanji",
       "slug": "irukanji",
       "visible": true,
@@ -33,7 +33,7 @@
       "website": "https://irukanji.sentimony.com",
       "wikipedia_url": ""
     },
-    {
+    "harax": {
       "title": "Harax",
       "slug": "harax",
       "visible": false,
@@ -66,7 +66,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sphingida": {
       "title": "Sphingida",
       "slug": "sphingida",
       "visible": false,
@@ -99,7 +99,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "solcast": {
       "title": "Solcast",
       "slug": "solcast",
       "visible": false,
@@ -132,7 +132,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "zymosis": {
       "title": "Zymosis",
       "slug": "zymosis",
       "visible": true,
@@ -165,7 +165,7 @@
       "website": "",
       "wikipedia_url": "https://uk.wikipedia.org/wiki/Zymosis"
     },
-    {
+    "heinali": {
       "title": "Heinali",
       "slug": "heinali",
       "visible": false,
@@ -198,7 +198,7 @@
       "website": "https://www.heinali.info",
       "wikipedia_url": ""
     },
-    {
+    "frans-gosu": {
       "title": "Frans Gosu",
       "slug": "frans-gosu",
       "visible": false,
@@ -231,7 +231,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "ader-project": {
       "title": "Ader Project",
       "slug": "ader-project",
       "visible": false,
@@ -264,7 +264,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "synchronick": {
       "title": "Synchronick",
       "slug": "synchronick",
       "visible": false,
@@ -297,7 +297,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "unstable-elements": {
       "title": "Unstable Elements",
       "slug": "unstable-elements",
       "visible": false,
@@ -330,7 +330,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "roof-raiser": {
       "title": "Roof Raiser",
       "slug": "roof-raiser",
       "visible": false,
@@ -363,7 +363,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "aisaid": {
       "title": "aisaid",
       "slug": "aisaid",
       "visible": false,
@@ -396,7 +396,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "alexander-daf": {
       "title": "Alexander Daf",
       "slug": "alexander-daf",
       "visible": false,
@@ -429,7 +429,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "atmik": {
       "title": "atmik",
       "slug": "atmik",
       "visible": false,
@@ -462,7 +462,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "apivniuk": {
       "title": "Anton Pivniuk",
       "slug": "apivniuk",
       "visible": false,
@@ -495,7 +495,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "prok": {
       "title": "Prok",
       "slug": "prok",
       "visible": false,
@@ -528,7 +528,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "spectrum-vision": {
       "title": "Spectrum Vision",
       "slug": "spectrum-vision",
       "visible": false,
@@ -561,7 +561,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "chronos": {
       "title": "Chronos",
       "slug": "chronos",
       "visible": false,
@@ -594,7 +594,7 @@
       "website": "https://chronos-music.ru",
       "wikipedia_url": ""
     },
-    {
+    "dagas": {
       "title": "Dagas",
       "slug": "dagas",
       "visible": false,
@@ -627,7 +627,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "astropilot": {
       "title": "AstroPilot",
       "slug": "astropilot",
       "visible": false,
@@ -660,7 +660,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hvoya": {
       "title": "Hvoya",
       "slug": "hvoya",
       "visible": false,
@@ -693,7 +693,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "liquid-mind": {
       "title": "Liquid Mind",
       "slug": "liquid-mind",
       "visible": false,
@@ -726,7 +726,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "unusual-cosmic-process": {
       "title": "Unusual Cosmic Process",
       "slug": "unusual-cosmic-process",
       "visible": true,
@@ -759,7 +759,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "madgentel": {
       "title": "Madgentel",
       "slug": "madgentel",
       "visible": false,
@@ -792,7 +792,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "taff": {
       "title": "Taff",
       "slug": "taff",
       "visible": false,
@@ -825,7 +825,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sol": {
       "title": "Sol",
       "slug": "sol",
       "visible": false,
@@ -858,7 +858,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "iorlovskyi": {
       "title": "Ihor Orlovskyi",
       "slug": "iorlovskyi",
       "visible": false,
@@ -891,7 +891,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "zea": {
       "title": "Zea",
       "slug": "zea",
       "visible": false,
@@ -924,17 +924,38 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
-      "slug": "hagen",
+    "hagen": {
       "title": "Hagen",
+      "slug": "hagen",
       "visible": true,
       "category": "dj",
       "category_id": "029",
+      "name": "",
       "location": "Kyiv, Ukraine",
       "style": "Psychill, Psybient",
-      "photo_xl": "https://content.sentimony.com/assets/img/artists/hagen-01_xl.jpg"
+      "photo_xl": "https://content.sentimony.com/assets/img/artists/hagen-01_xl.jpg",
+      "information": "",
+      "info_sc": "",
+      "soundcloud_url": "",
+      "soundcloud_label_playlist_id": "",
+      "soundcloud_artist_playlist_id": "",
+      "mixcloud": "",
+      "youtube_artist_playlist_id": "",
+      "youtube_playlist_id": "",
+      "spotify": "",
+      "apple_music": "",
+      "discogs": "",
+      "facebook": "",
+      "facebook_personal": "",
+      "instagram": "",
+      "instagram_personal": "",
+      "bandcamp_url": "",
+      "youtube_url": "",
+      "youtubemusic_url": "",
+      "website": "",
+      "wikipedia_url": ""
     },
-    {
+    "neirula": {
       "title": "NeiRula",
       "slug": "neirula",
       "visible": false,
@@ -967,7 +988,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "cifroteca": {
       "title": "Cifroteca",
       "slug": "cifroteca",
       "visible": false,
@@ -1000,7 +1021,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "overdream": {
       "title": "Overdream",
       "slug": "overdream",
       "visible": true,
@@ -1033,7 +1054,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "already-maged": {
       "title": "Already Maged",
       "slug": "already-maged",
       "visible": false,
@@ -1066,7 +1087,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "saikozaurus": {
       "title": "Saikozaurus",
       "slug": "saikozaurus",
       "visible": false,
@@ -1099,7 +1120,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "magmadivers": {
       "title": "Magmadivers",
       "slug": "magmadivers",
       "visible": false,
@@ -1132,7 +1153,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "shivattva": {
       "title": "Shivattva",
       "slug": "shivattva",
       "visible": false,
@@ -1165,7 +1186,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "tookytooky": {
       "title": "Tookytooky",
       "slug": "tookytooky",
       "visible": false,
@@ -1198,7 +1219,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "calamus": {
       "title": "Calamus",
       "slug": "calamus",
       "visible": false,
@@ -1231,7 +1252,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "shiva3": {
       "title": "Shiva3",
       "slug": "shiva3",
       "visible": false,
@@ -1264,7 +1285,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "juju": {
       "title": "Ju Ju",
       "slug": "juju",
       "visible": false,
@@ -1297,7 +1318,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "makus": {
       "title": "Makus (Overdream Studio)",
       "slug": "makus",
       "visible": true,
@@ -1330,7 +1351,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "jet": {
       "title": "Jet",
       "slug": "jet",
       "visible": false,
@@ -1363,7 +1384,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "flooting-grooves": {
       "title": "Flooting Grooves",
       "slug": "flooting-grooves",
       "visible": false,
@@ -1396,7 +1417,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "encapsulate": {
       "title": "Encapsulate",
       "slug": "encapsulate",
       "visible": false,
@@ -1429,7 +1450,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "senzar": {
       "title": "Senzar",
       "slug": "senzar",
       "visible": false,
@@ -1462,7 +1483,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "ariel-electron": {
       "title": "ariel-electron",
       "slug": "ariel-electron",
       "visible": false,
@@ -1495,7 +1516,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "erot": {
       "title": "Erot",
       "slug": "erot",
       "visible": false,
@@ -1528,7 +1549,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "nasa": {
       "title": "nasa",
       "slug": "nasa",
       "visible": false,
@@ -1561,7 +1582,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "atati": {
       "title": "atati",
       "slug": "atati",
       "visible": false,
@@ -1594,7 +1615,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "mahaon": {
       "title": "mahaon",
       "slug": "mahaon",
       "visible": false,
@@ -1627,7 +1648,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "locus": {
       "title": "locus",
       "slug": "locus",
       "visible": false,
@@ -1660,7 +1681,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "vonoom": {
       "title": "Vonoom",
       "slug": "vonoom",
       "visible": false,
@@ -1693,7 +1714,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "e-r-s": {
       "title": "e-r-s",
       "slug": "e-r-s",
       "visible": false,
@@ -1726,7 +1747,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "shizolizer-gin": {
       "title": "ShizoLizer Gin",
       "slug": "shizolizer-gin",
       "visible": false,
@@ -1759,7 +1780,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "xylonite": {
       "title": "xylonite",
       "slug": "xylonite",
       "visible": false,
@@ -1792,7 +1813,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "liquid-crystal": {
       "title": "liquid-crystal",
       "slug": "liquid-crystal",
       "visible": false,
@@ -1825,7 +1846,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "kalpataru-tree": {
       "title": "kalpataru-tree",
       "slug": "kalpataru-tree",
       "visible": false,
@@ -1858,7 +1879,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "tentura": {
       "title": "Tentura",
       "slug": "tentura",
       "visible": false,
@@ -1891,7 +1912,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hypnotriod": {
       "title": "Hypnotriod",
       "slug": "hypnotriod",
       "visible": false,
@@ -1924,7 +1945,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "psypheric": {
       "title": "Psypheric",
       "slug": "psypheric",
       "visible": false,
@@ -1957,7 +1978,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "iooi": {
       "title": "iooi",
       "slug": "iooi",
       "visible": false,
@@ -1990,7 +2011,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "cavedave": {
       "title": "cavedave",
       "slug": "cavedave",
       "visible": false,
@@ -2023,7 +2044,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "mindex": {
       "title": "Mindex",
       "slug": "mindex",
       "visible": true,
@@ -2056,7 +2077,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "back-to-the-roots": {
       "title": "back-to-the-roots",
       "slug": "back-to-the-roots",
       "visible": false,
@@ -2089,7 +2110,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "khooman": {
       "title": "khooman",
       "slug": "khooman",
       "visible": false,
@@ -2122,7 +2143,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "lemonchill": {
       "title": "lemonchill",
       "slug": "lemonchill",
       "visible": false,
@@ -2155,7 +2176,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "shunya": {
       "title": "shunya",
       "slug": "shunya",
       "visible": false,
@@ -2188,7 +2209,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "flange": {
       "title": "Flange",
       "slug": "flange",
       "visible": false,
@@ -2221,7 +2242,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "monno": {
       "title": "Monno",
       "slug": "monno",
       "visible": false,
@@ -2254,7 +2275,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "psyfactor": {
       "title": "Psyfactor",
       "slug": "psyfactor",
       "visible": false,
@@ -2287,7 +2308,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "boggy-elf": {
       "title": "boggy-elf",
       "slug": "boggy-elf",
       "visible": false,
@@ -2320,7 +2341,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sygnals": {
       "title": "Sygnals",
       "slug": "sygnals",
       "visible": false,
@@ -2353,7 +2374,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "daoine-sidhe": {
       "title": "Daoine Sidhe",
       "slug": "daoine-sidhe",
       "visible": false,
@@ -2386,7 +2407,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "wizack-twizack": {
       "title": "wizack-twizack",
       "slug": "wizack-twizack",
       "visible": false,
@@ -2419,7 +2440,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "primordial-ooze": {
       "title": "primordial-ooze",
       "slug": "primordial-ooze",
       "visible": false,
@@ -2452,7 +2473,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "pandemicus": {
       "title": "pandemicus",
       "slug": "pandemicus",
       "visible": false,
@@ -2485,7 +2506,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "jyotish": {
       "title": "jyotish",
       "slug": "jyotish",
       "visible": false,
@@ -2518,7 +2539,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "celestial-consciousness": {
       "title": "celestial-consciousness",
       "slug": "celestial-consciousness",
       "visible": false,
@@ -2551,7 +2572,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "ufomatka": {
       "title": "Ufomatka",
       "slug": "ufomatka",
       "visible": false,
@@ -2584,7 +2605,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "spirit-medicine": {
       "title": "spirit-medicine",
       "slug": "spirit-medicine",
       "visible": false,
@@ -2617,7 +2638,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sky-technology": {
       "title": "Sky Technology",
       "slug": "sky-technology",
       "visible": false,
@@ -2650,7 +2671,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "zelur-project": {
       "title": "zelur-project",
       "slug": "zelur-project",
       "visible": false,
@@ -2683,7 +2704,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "space-vibes-system": {
       "title": "space-vibes-system",
       "slug": "space-vibes-system",
       "visible": false,
@@ -2716,7 +2737,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "reactive": {
       "title": "reactive",
       "slug": "reactive",
       "visible": false,
@@ -2749,7 +2770,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "mary-bruk": {
       "title": "mary-bruk",
       "slug": "mary-bruk",
       "visible": false,
@@ -2782,7 +2803,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "cj-catalizer": {
       "title": "cj-catalizer",
       "slug": "cj-catalizer",
       "visible": false,
@@ -2815,7 +2836,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "zen-altar": {
       "title": "Zen",
       "slug": "zen-altar",
       "visible": false,
@@ -2848,7 +2869,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "1n0x": {
       "title": "1n0x",
       "slug": "1n0x",
       "visible": false,
@@ -2881,7 +2902,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "k-d-expression": {
       "title": "k-d-expression",
       "slug": "k-d-expression",
       "visible": false,
@@ -2914,7 +2935,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "cygna": {
       "title": "Cygna",
       "slug": "cygna",
       "visible": false,
@@ -2947,7 +2968,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "ambient-intelligent-application": {
       "title": "ambient-intelligent-application",
       "slug": "ambient-intelligent-application",
       "visible": false,
@@ -2980,7 +3001,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "rabitza": {
       "title": "rabitza",
       "slug": "rabitza",
       "visible": false,
@@ -3013,7 +3034,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "access-to-arasaka": {
       "title": "access-to-arasaka",
       "slug": "access-to-arasaka",
       "visible": false,
@@ -3046,7 +3067,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "field-rotation": {
       "title": "field-rotation",
       "slug": "field-rotation",
       "visible": false,
@@ -3079,7 +3100,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "nexar": {
       "title": "nexar",
       "slug": "nexar",
       "visible": false,
@@ -3112,7 +3133,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "thirty-sixth": {
       "title": "36",
       "slug": "thirty-sixth",
       "visible": false,
@@ -3145,7 +3166,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "eguana": {
       "title": "Eguana",
       "slug": "eguana",
       "visible": false,
@@ -3178,7 +3199,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "specialmind": {
       "title": "Specialmind",
       "slug": "specialmind",
       "visible": false,
@@ -3211,7 +3232,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "ader": {
       "title": "Ader",
       "slug": "ader",
       "visible": false,
@@ -3244,7 +3265,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "swaroop-guhathakurta": {
       "title": "Swaroop Guhathakurta",
       "slug": "swaroop-guhathakurta",
       "visible": false,
@@ -3277,7 +3298,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "magic-science": {
       "title": "magic-science",
       "slug": "magic-science",
       "visible": false,
@@ -3310,7 +3331,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "pharaom": {
       "title": "pharaom",
       "slug": "pharaom",
       "visible": false,
@@ -3343,7 +3364,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "nova-fractal": {
       "title": "nova-fractal",
       "slug": "nova-fractal",
       "visible": false,
@@ -3376,7 +3397,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "wanderlust": {
       "title": "wanderlust",
       "slug": "wanderlust",
       "visible": false,
@@ -3409,7 +3430,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "rexuss": {
       "title": "rexuss",
       "slug": "rexuss",
       "visible": false,
@@ -3442,7 +3463,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "katya-chilly": {
       "title": "Katya Chilly",
       "slug": "katya-chilly",
       "visible": false,
@@ -3475,7 +3496,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "crystal-vibe": {
       "title": "Crystal Vibe",
       "slug": "crystal-vibe",
       "visible": false,
@@ -3508,7 +3529,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hair": {
       "title": "hair",
       "slug": "hair",
       "visible": false,
@@ -3541,7 +3562,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "trootootoo": {
       "title": "Trootootoo",
       "slug": "trootootoo",
       "visible": true,
@@ -3574,7 +3595,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "artrama": {
       "title": "Artrama",
       "slug": "artrama",
       "visible": true,
@@ -3607,7 +3628,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "dimitro": {
       "title": "Dimitro (Zymosis Studio)",
       "slug": "dimitro",
       "visible": true,
@@ -3640,7 +3661,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "omnisound": {
       "title": "Omnisound",
       "slug": "omnisound",
       "visible": false,
@@ -3673,7 +3694,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "masha-lichee": {
       "title": "masha-lichee",
       "slug": "masha-lichee",
       "visible": false,
@@ -3706,7 +3727,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "dyurchenko": {
       "title": "Dmitry Yurchenko",
       "slug": "dyurchenko",
       "visible": false,
@@ -3739,7 +3760,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "juelz": {
       "title": "Juelz",
       "slug": "juelz",
       "visible": true,
@@ -3772,7 +3793,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "psydewise": {
       "title": "Psydewise",
       "slug": "psydewise",
       "visible": true,
@@ -3805,7 +3826,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "eleexr": {
       "title": "EleexR",
       "slug": "eleexr",
       "visible": true,
@@ -3838,7 +3859,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "exolt": {
       "title": "eXoLT",
       "slug": "exolt",
       "visible": true,
@@ -3871,7 +3892,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "matik": {
       "title": "Matik",
       "slug": "matik",
       "visible": true,
@@ -3904,7 +3925,7 @@
       "website": "https://www.matikdesign.com",
       "wikipedia_url": ""
     },
-    {
+    "nifex": {
       "title": "nifex",
       "slug": "nifex",
       "visible": false,
@@ -3937,7 +3958,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "u-wave": {
       "title": "U-Wave",
       "slug": "u-wave",
       "visible": false,
@@ -3970,7 +3991,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "space-organ": {
       "title": "Space Organ",
       "slug": "space-organ",
       "visible": true,
@@ -4003,7 +4024,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "kabi": {
       "title": "KAbi",
       "slug": "kabi",
       "visible": true,
@@ -4036,7 +4057,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "declaration-of-unity": {
       "title": "Declaration of Unity",
       "slug": "declaration-of-unity",
       "visible": true,
@@ -4069,7 +4090,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "dreamstalker": {
       "title": "dreamstalker",
       "slug": "dreamstalker",
       "visible": false,
@@ -4102,7 +4123,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "aesthesia": {
       "title": "Aesthesia",
       "slug": "aesthesia",
       "visible": false,
@@ -4135,7 +4156,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "professor-m": {
       "title": "Professor M",
       "slug": "professor-m",
       "visible": false,
@@ -4168,7 +4189,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hellquist": {
       "title": "hellquist",
       "slug": "hellquist",
       "visible": false,
@@ -4201,7 +4222,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "denni-mareta": {
       "title": "Denni Mareta",
       "slug": "denni-mareta",
       "visible": false,
@@ -4234,7 +4255,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "alchemy-circle": {
       "title": "alchemy-circle",
       "slug": "alchemy-circle",
       "visible": false,
@@ -4267,7 +4288,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hypogeo": {
       "title": "hypogeo",
       "slug": "hypogeo",
       "visible": false,
@@ -4300,7 +4321,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sam-wise": {
       "title": "Sam Wise",
       "slug": "sam-wise",
       "visible": false,
@@ -4333,7 +4354,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "artech": {
       "title": "Artech",
       "slug": "artech",
       "visible": false,
@@ -4366,7 +4387,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "3pointz": {
       "title": "3pointz",
       "slug": "3pointz",
       "visible": false,
@@ -4399,7 +4420,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "vorg": {
       "title": "VORG",
       "slug": "vorg",
       "visible": true,
@@ -4432,7 +4453,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "gojja": {
       "title": "Gojja",
       "slug": "gojja",
       "visible": true,
@@ -4465,7 +4486,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "kauyumari": {
       "title": "Kauyumari",
       "slug": "kauyumari",
       "visible": true,
@@ -4498,7 +4519,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "omega-sound": {
       "title": "omega-sound",
       "slug": "omega-sound",
       "visible": false,
@@ -4531,7 +4552,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "altius": {
       "title": "Altius",
       "slug": "altius",
       "visible": false,
@@ -4564,7 +4585,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "kromagon": {
       "title": "kromagon",
       "slug": "kromagon",
       "visible": false,
@@ -4597,7 +4618,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sumiruna": {
       "title": "sumiruna",
       "slug": "sumiruna",
       "visible": false,
@@ -4630,7 +4651,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "diffus": {
       "title": "Diffus",
       "slug": "diffus",
       "visible": true,
@@ -4663,7 +4684,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "no-c": {
       "title": "no-c",
       "slug": "no-c",
       "visible": false,
@@ -4696,7 +4717,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "psychoz": {
       "title": "psychoz",
       "slug": "psychoz",
       "visible": false,
@@ -4729,7 +4750,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hybrid-reality": {
       "title": "hybrid-reality",
       "slug": "hybrid-reality",
       "visible": false,
@@ -4762,7 +4783,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "gaz-mask": {
       "title": "Gaz Mask",
       "slug": "gaz-mask",
       "visible": true,
@@ -4795,7 +4816,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "injir": {
       "title": "Injir",
       "slug": "injir",
       "visible": true,
@@ -4829,7 +4850,7 @@
       "wikipedia_url": "",
       "soundcloud_track_id": "1119462982"
     },
-    {
+    "ra-djan": {
       "title": "ra-djan",
       "slug": "ra-djan",
       "visible": false,
@@ -4862,7 +4883,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "proff": {
       "title": "proff",
       "slug": "proff",
       "visible": false,
@@ -4895,7 +4916,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sky-mavka": {
       "title": "sky-mavka",
       "slug": "sky-mavka",
       "visible": false,
@@ -4928,7 +4949,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hardcore-buddhist": {
       "title": "Hardcore Buddhist",
       "slug": "hardcore-buddhist",
       "visible": false,
@@ -4961,7 +4982,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "art-imagination": {
       "title": "art-imagination",
       "slug": "art-imagination",
       "visible": false,
@@ -4994,7 +5015,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "e-mantra": {
       "title": "E-Mantra",
       "slug": "e-mantra",
       "visible": false,
@@ -5027,7 +5048,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "ahanjack": {
       "title": "ahanjack",
       "slug": "ahanjack",
       "visible": false,
@@ -5060,7 +5081,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "yoi": {
       "title": "yoi",
       "slug": "yoi",
       "visible": false,
@@ -5093,7 +5114,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "madeinrealtime": {
       "title": "MadeInRealtime",
       "slug": "madeinrealtime",
       "visible": false,
@@ -5126,7 +5147,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "mojos-ears": {
       "title": "Mojo's Ears",
       "slug": "mojos-ears",
       "visible": false,
@@ -5159,7 +5180,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "deuteroz": {
       "title": "Deuteroz",
       "slug": "deuteroz",
       "visible": true,
@@ -5192,7 +5213,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "paracozm": {
       "title": "Paracozm",
       "slug": "paracozm",
       "visible": true,
@@ -5225,7 +5246,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "jungle-symbol": {
       "title": "Jungle Symbol",
       "slug": "jungle-symbol",
       "visible": false,
@@ -5258,7 +5279,7 @@
       "website": "https://www.junglesymbol.com",
       "wikipedia_url": ""
     },
-    {
+    "boketto": {
       "title": "Boketto",
       "slug": "boketto",
       "visible": true,
@@ -5291,7 +5312,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "tystix": {
       "title": "TyStix",
       "slug": "tystix",
       "visible": true,
@@ -5324,7 +5345,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "the-doox": {
       "title": "the-doox",
       "slug": "the-doox",
       "visible": false,
@@ -5357,7 +5378,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "apex": {
       "title": "apex",
       "slug": "apex",
       "visible": false,
@@ -5390,7 +5411,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "scionaugh": {
       "title": "scionaugh",
       "slug": "scionaugh",
       "visible": false,
@@ -5423,7 +5444,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "doonz": {
       "title": "doonz",
       "slug": "doonz",
       "visible": false,
@@ -5456,7 +5477,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "darkol-trinity": {
       "title": "Darkol Trinity",
       "slug": "darkol-trinity",
       "visible": false,
@@ -5489,7 +5510,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "jai": {
       "title": "Jai",
       "slug": "jai",
       "visible": true,
@@ -5522,7 +5543,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sourone": {
       "title": "Sourone",
       "slug": "sourone",
       "visible": true,
@@ -5555,7 +5576,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "tee-moe": {
       "title": "tee-moe",
       "slug": "tee-moe",
       "visible": false,
@@ -5588,7 +5609,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "frog-prog": {
       "title": "Frog Prog",
       "slug": "frog-prog",
       "visible": true,
@@ -5621,7 +5642,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "neurolabz": {
       "title": "neurolabz",
       "slug": "neurolabz",
       "visible": false,
@@ -5654,7 +5675,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "egomorph": {
       "title": "Egomorph",
       "slug": "egomorph",
       "visible": true,
@@ -5687,7 +5708,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "scarlet-crow": {
       "title": "scarlet-crow",
       "slug": "scarlet-crow",
       "visible": false,
@@ -5720,7 +5741,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "seamoon": {
       "title": "seamoon",
       "slug": "seamoon",
       "visible": false,
@@ -5753,7 +5774,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "delphic": {
       "title": "delphic",
       "slug": "delphic",
       "visible": false,
@@ -5786,7 +5807,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "aukaro": {
       "title": "aukaro",
       "slug": "aukaro",
       "visible": false,
@@ -5819,7 +5840,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "liquid-soma": {
       "title": "liquid-soma",
       "slug": "liquid-soma",
       "visible": false,
@@ -5852,7 +5873,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "braindrop-in-dub": {
       "title": "braindrop-in-dub",
       "slug": "braindrop-in-dub",
       "visible": false,
@@ -5885,7 +5906,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "derotonin": {
       "title": "derotonin",
       "slug": "derotonin",
       "visible": true,
@@ -5918,7 +5939,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "scarlet-crown": {
       "title": "Scarlet Crown",
       "slug": "scarlet-crown",
       "visible": false,
@@ -5951,7 +5972,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "simon-neumann": {
       "title": "Simon Neumann",
       "slug": "simon-neumann",
       "visible": false,
@@ -5984,7 +6005,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "fivetimesno": {
       "title": "Fivetimesno",
       "slug": "fivetimesno",
       "visible": false,
@@ -6017,7 +6038,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "nuada": {
       "title": "Nuada",
       "slug": "nuada",
       "visible": true,
@@ -6051,7 +6072,7 @@
       "wikipedia_url": "",
       "photo": false
     },
-    {
+    "paul-pazdan": {
       "title": "Paul Pazdan",
       "slug": "paul-pazdan",
       "visible": false,
@@ -6084,7 +6105,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "noob-psybot": {
       "title": "Noob Psybot",
       "slug": "noob-psybot",
       "visible": true,
@@ -6117,7 +6138,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "geozen": {
       "title": "geozen",
       "slug": "geozen",
       "visible": false,
@@ -6150,7 +6171,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "anomalie-in": {
       "title": "anomalie-in",
       "slug": "anomalie-in",
       "visible": false,
@@ -6183,7 +6204,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "alien-time": {
       "title": "alien-time",
       "slug": "alien-time",
       "visible": false,
@@ -6216,7 +6237,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "stripes": {
       "title": "Stripes",
       "slug": "stripes",
       "visible": false,
@@ -6249,7 +6270,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "halform": {
       "title": "halform",
       "slug": "halform",
       "visible": false,
@@ -6282,7 +6303,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "beartone": {
       "title": "beartone",
       "slug": "beartone",
       "visible": false,
@@ -6315,7 +6336,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "dmnt": {
       "title": "DMnT",
       "slug": "dmnt",
       "visible": true,
@@ -6348,7 +6369,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "noid": {
       "title": "noid",
       "slug": "noid",
       "visible": false,
@@ -6381,7 +6402,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "irrbloss": {
       "title": "irrbloss",
       "slug": "irrbloss",
       "visible": false,
@@ -6414,7 +6435,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "hedonythm": {
       "title": "hedonythm",
       "slug": "hedonythm",
       "visible": false,
@@ -6447,7 +6468,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "urjasa": {
       "title": "urjasa",
       "slug": "urjasa",
       "visible": false,
@@ -6480,7 +6501,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "pxeyes": {
       "title": "Pxeyes",
       "slug": "pxeyes",
       "visible": false,
@@ -6513,7 +6534,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "ka-art": {
       "title": "KA",
       "slug": "ka-art",
       "visible": true,
@@ -6546,7 +6567,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "from-vacuum": {
       "title": "From Vacuum",
       "slug": "from-vacuum",
       "visible": true,
@@ -6579,7 +6600,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "elisa-vargas-fernandez": {
       "title": "elisa-vargas-fernandez",
       "slug": "elisa-vargas-fernandez",
       "visible": false,
@@ -6612,7 +6633,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "torus-knot": {
       "title": "torus-knot",
       "slug": "torus-knot",
       "visible": false,
@@ -6645,7 +6666,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "zhapa": {
       "title": "Zhapa Rodríguez",
       "slug": "zhapa",
       "visible": true,
@@ -6678,7 +6699,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "akhos": {
       "title": "Akhos",
       "slug": "akhos",
       "visible": true,
@@ -6711,7 +6732,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "bensaid": {
       "title": "Bensaid",
       "slug": "bensaid",
       "visible": true,
@@ -6744,7 +6765,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "syned-brain": {
       "title": "Syned Brain",
       "slug": "syned-brain",
       "visible": true,
@@ -6777,7 +6798,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "chaos-achemist": {
       "title": "chaos-achemist",
       "slug": "chaos-achemist",
       "visible": false,
@@ -6810,7 +6831,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "balcosmos": {
       "title": "balcosmos",
       "slug": "balcosmos",
       "visible": false,
@@ -6843,7 +6864,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "spacecraft": {
       "title": "SpaceCraft",
       "slug": "spacecraft",
       "visible": true,
@@ -6876,7 +6897,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "djeriko": {
       "title": "Djeriko",
       "slug": "djeriko",
       "visible": true,
@@ -6909,7 +6930,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "sinister-sequence": {
       "title": "sinister-sequence",
       "slug": "sinister-sequence",
       "visible": false,
@@ -6942,7 +6963,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "urklang": {
       "title": "Urklang",
       "slug": "urklang",
       "visible": true,
@@ -6975,7 +6996,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "stereodots": {
       "title": "Stereodots",
       "slug": "stereodots",
       "visible": false,
@@ -7008,7 +7029,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "symetric": {
       "title": "Symetric",
       "slug": "symetric",
       "visible": false,
@@ -7041,7 +7062,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "mushroomslice": {
       "title": "Mushroomslice",
       "slug": "mushroomslice",
       "visible": true,
@@ -7074,7 +7095,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "tharok": {
       "title": "tharok",
       "slug": "tharok",
       "visible": false,
@@ -7107,7 +7128,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "fracktom": {
       "title": "Fracktom",
       "slug": "fracktom",
       "visible": true,
@@ -7140,7 +7161,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "drevnii": {
       "title": "drevnii",
       "slug": "drevnii",
       "visible": false,
@@ -7173,7 +7194,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "slamthings": {
       "title": "Slamthings",
       "slug": "slamthings",
       "visible": false,
@@ -7206,7 +7227,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "mirror-me": {
       "title": "Mirror Me",
       "slug": "mirror-me",
       "visible": true,
@@ -7239,7 +7260,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "salamandra": {
       "title": "Salamandra",
       "slug": "salamandra",
       "visible": true,
@@ -7272,7 +7293,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "tonal-sense": {
       "title": "Tonal Sense",
       "slug": "tonal-sense",
       "visible": true,
@@ -7305,7 +7326,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "aleckat": {
       "title": "aleckat",
       "slug": "aleckat",
       "visible": false,
@@ -7338,7 +7359,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "soulid": {
       "title": "soulid",
       "slug": "soulid",
       "visible": false,
@@ -7371,7 +7392,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "jakanatura": {
       "title": "Jakanatura",
       "slug": "jakanatura",
       "visible": true,
@@ -7404,7 +7425,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "shmewl": {
       "title": "shmewl",
       "slug": "shmewl",
       "visible": false,
@@ -7437,7 +7458,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "flexxodus": {
       "title": "flexxodus",
       "slug": "flexxodus",
       "visible": false,
@@ -7470,7 +7491,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "omsense": {
       "title": "omsense",
       "slug": "omsense",
       "visible": false,
@@ -7503,7 +7524,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "beka": {
       "title": "beka",
       "slug": "beka",
       "visible": false,
@@ -7536,7 +7557,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "qube": {
       "title": "qube",
       "slug": "qube",
       "visible": false,
@@ -7569,7 +7590,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "alternative-roots": {
       "title": "alternative-roots",
       "slug": "alternative-roots",
       "visible": false,
@@ -7602,7 +7623,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "dementor": {
       "title": "Dementor",
       "slug": "dementor",
       "visible": true,
@@ -7635,7 +7656,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "spirit-architect": {
       "title": "Spirit Architect",
       "slug": "spirit-architect",
       "visible": true,
@@ -7668,7 +7689,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "yngvarr": {
       "title": "Yngvarr",
       "slug": "yngvarr",
       "visible": false,
@@ -7701,7 +7722,7 @@
       "website": "",
       "wikipedia_url": ""
     },
-    {
+    "astrocat": {
       "title": "AstroCat",
       "slug": "astrocat",
       "visible": true,
@@ -7737,7 +7758,7 @@
       "photo_02_th": "https://content.sentimony.com/assets/img/releases/astrocat-01_th.jpg",
       "photo_02_xl": "https://content.sentimony.com/assets/img/releases/astrocat-01_xl.jpg"
     },
-    {
+    "gribessa": {
       "title": "Gribessa (aka Irina Iris)",
       "slug": "gribessa",
       "visible": true,
@@ -7771,7 +7792,7 @@
       "wikipedia_url": "",
       "soundcloud_track_id": "1716644829"
     },
-    {
+    "tairam": {
       "title": "Tairam",
       "slug": "tairam",
       "visible": true,
@@ -7805,7 +7826,7 @@
       "wikipedia_url": "",
       "soundcloud_track_id": "1564772224"
     },
-    {
+    "alien-immigrant": {
       "title": "Alien Immigrant",
       "slug": "alien-immigrant",
       "visible": true,
@@ -7838,7 +7859,7 @@
       "website": "",
       "wikipedia_url": ""
     }
-  ],
+  },
   "events": {
     "shift-space": {
       "date": "2008-11-01T12:00:00.000Z",

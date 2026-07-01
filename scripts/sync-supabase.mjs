@@ -8,7 +8,7 @@ const supabase = createClient(supabaseUrl, supabaseSecretKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 })
 
-const data = JSON.parse(readFileSync('data/sentimony-db-export.json', 'utf-8'))
+const data = JSON.parse(readFileSync('server/data/server/sentimony-db-export.json', 'utf-8'))
 
 async function sync(table, rows) {
   const { error } = await supabase.from(table).upsert(rows, { onConflict: 'slug' })

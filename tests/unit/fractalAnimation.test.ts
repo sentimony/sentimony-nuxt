@@ -5,10 +5,13 @@ import { describe, expect, it } from 'vitest'
 const componentPath = fileURLToPath(
   new URL('../../app/components/Fractal.vue', import.meta.url),
 )
+const cssPath = fileURLToPath(
+  new URL('../../app/assets/css/tailwind.css', import.meta.url),
+)
 
 describe('Fractal animation', () => {
   it('uses a stronger black edge in the dark gradient', () => {
-    const source = readFileSync(componentPath, 'utf8')
+    const source = readFileSync(cssPath, 'utf8')
 
     expect(source).toContain('rgba(0,0,0,0.5) 100%')
   })

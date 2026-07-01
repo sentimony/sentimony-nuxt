@@ -8,7 +8,7 @@ if (!secret) {
   process.exit(1)
 }
 
-const data = JSON.parse(readFileSync('data/sentimony-db-export.json', 'utf-8'))
+const data = JSON.parse(readFileSync('server/data/server/sentimony-db-export.json', 'utf-8'))
 
 async function sync(collection, rows) {
   const res = await fetch(`${dbUrl}/${collection}.json?auth=${secret}`, {

@@ -13,17 +13,21 @@ Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.
 ```bash
 npm run dev   # dev (requires .env/.env)
 npm run build
-npm run sync:firebase   # sync data/sentimony-db-export.json → Firebase DB
-npm run sync:supabase   # sync data/sentimony-db-export.json → Supabase content tables
+npm run test:unit       # Vitest unit tests
+npm run test:e2e        # Playwright e2e tests
+npm run sync:firebase   # sync server/data/server/sentimony-db-export.json → Firebase DB
+npm run sync:supabase   # sync server/data/server/sentimony-db-export.json → Supabase content tables
 npm run deploy:stage    # Netlify stage
 npm run deploy:prod     # Netlify prod
 CATALOG_SOURCE=firebase npm run dev
 CATALOG_SOURCE=supabase npm run dev
 npm run verify:pwa      # validate manifest + custom service worker
-npx nuxi typecheck      # vue-tsc type check
+npx vue-tsc --noEmit --project tsconfig.json  # type check
 npx supabase db push    # apply migrations to remote (needs SUPABASE_ACCESS_TOKEN in .env/.env.local)
 npx supabase link --project-ref dugbgewuzowoogglccue --yes   # link project before first push
 ```
+
+Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores.
 
 Supabase CLI: використовувати через `npx supabase` (не глобальний). `SUPABASE_ACCESS_TOKEN` (формат `sbp_...`) — Personal Access Token з [Supabase Dashboard → Account → Access Tokens](https://supabase.com/dashboard/account/tokens), зберігати в `.env/.env.local`.
 
@@ -37,11 +41,13 @@ cd /tmp/sb && SUPABASE_ACCESS_TOKEN="$TOKEN" npx supabase db query --linked --fi
 
 Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. Define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work). `CATALOG_SOURCE=firebase|supabase` chooses the content source at process start; `NUXT_CATALOG_SOURCE` can override it in deployed Nuxt/Nitro runtime. `NETLIFY_AUTH_TOKEN` in `.env/.env.local` (personal access token of the site-owning Netlify account) makes `deploy:stage`/`deploy:prod` independent of the active `netlify switch` account.
 
-The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed `TMPDIR=/tmp` - don't remove it. Nuxt 4.4.7's vite-node IPC uses a Unix socket under `os.tmpdir()`; on macOS the default `$TMPDIR` (`/var/folders/…/T/`) pushes the socket path past the 104-char `sun_path` limit → `connect EINVAL …sock` on the first request. `/tmp` keeps it short. Harmless on Linux/Netlify (already short) and Windows (named pipes, not affected).
+The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed `TMPDIR=/tmp` - don't remove it. Nuxt 4.x's vite-node IPC uses a Unix socket under `os.tmpdir()`; on macOS the default `$TMPDIR` (`/var/folders/…/T/`) pushes the socket path past the 104-char `sun_path` limit → `connect EINVAL …sock` on the first request. `/tmp` keeps it short. Harmless on Linux/Netlify (already short) and Windows (named pipes, not affected).
 
 ## Architecture
 
 **Data sources.** Server catalog handlers (`server/api/`) use `defineCachedEventHandler` and read public content from the active `catalogSource`: Firebase Realtime DB or Supabase content tables (`releases`, `artists`, `videos`, `events`, `playlists`, `friends`, `tracks`). In Firebase mode, track API responses are derived from each release's `tracklistCompact` via `server/utils/firebaseCatalog.ts`. Supabase is always used for auth, profile/avatar storage, and likes/favourites.
+
+**Catalog export.** The canonical local export is `server/data/server/sentimony-db-export.json`. `artists` is an object keyed by slug (`artists.irukanji`, not a numeric array). `scripts/sync-firebase.mjs` writes that shape to Firebase; `fetchFirebaseEntity()` still falls back to scanning numeric-key collections so older remote Firebase data does not 404 before sync.
 
 **Server utils.** `server/utils/catalogSource.ts` - normalized catalog source switch. `server/utils/firebaseCatalog.ts` - Firebase fetch helpers + track parsing. `server/utils/supabase.ts` - anon client + Supabase row mappers. `server/utils/likeCounts.ts` - non-blocking like counters for catalog responses. `server/utils/supabaseAdmin.ts` - service-role client for privileged auth/likes/profile writes.
 
@@ -55,11 +61,13 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 **Pages.** All in `app/pages/`; list page (`releases.vue`) + detail (`release/[id].vue`). `Item` is the universal card across list pages.
 
-**Rendering & caching.** No page-level ISR (removed from `routeRules` during the cache hot-fix). `routeRules` (`nuxt.config.ts`) only sets `server/api/**` headers via `buildApiRouteRules()` (`server/utils/cachePolicy.ts`): catalog routes (`/api/releases`, `/api/release/**`, etc.) currently get `Cache-Control: no-cache, no-store` (CDN caching off), likes/profile routes get `private, no-store`. Catalog handlers still use Nitro's `defineCachedEventHandler` with `catalogCacheOptions()` (`server/utils/catalogCache.ts`) for a separate server-side cache - 1h `maxAge` + `swr` in production, `maxAge: 0` in dev - keyed by `${catalogSource}:${event.path}`.
+**Rendering & caching.** No page-level ISR (removed from `routeRules` during the cache hot-fix). `routeRules` (`nuxt.config.ts`) only sets `server/api/**` headers via `buildApiRouteRules()` (`server/utils/cachePolicy.ts`): catalog routes (`/api/releases`, `/api/release/**`, etc.) get `Netlify-CDN-Cache-Control: public, max-age=3600, stale-while-revalidate=86400`; likes/profile routes get `private, no-store`; `*/count/**` like-count routes are public-cacheable. Catalog handlers still use Nitro's `defineCachedEventHandler` with `catalogCacheOptions()` (`server/utils/catalogCache.ts`) for a separate server-side cache - 1h `maxAge` + `swr` in production, `maxAge: 0` in dev - keyed by `${catalogSource}:${event.path}`.
 
 **Styling (Tailwind v4).** Via the `@tailwindcss/vite` plugin - **no** `tailwind.config`/`postcss.config`. Theme tokens (light in `:root`, dark in `.dark` - source order matters since both are specificity-equal), the `dark` variant, and a global `input:-webkit-autofill` override (tied to `var(--foreground)`) live in `app/assets/css/tailwind.css` (`@theme` / `@theme inline`). A global forest-background overlay (`html::before`/`html::after` in `tailwind.css`, fixed/negative `z-index`) applies the same `trees-origin_v1.jpg` on every route at low opacity (0.33 light / 0.17 dark) under a green/white tint gradient - `body` no longer carries its own background-image. The homepage mounts `HomepageAtmosphere.vue` only on `/`, repeating the identical image+gradient treatment as a foreground layer (`z-index: 0`) behind the existing fractal/content layers. Default is dark (set pre-paint by an inline script in `app.head`, persisted in `localStorage['theme']`); `useTheme()` + `<ThemeToggle>` switch with a View Transitions circular reveal. Many components still hardcode `text-white/X` etc. (baked in for dark) - light theme is token-level only, not yet polished per-component.
 
 **PWA.** Manual SW (no module): `public/custom-sw.js` (precache + offline fallback), registered by `app/plugins/pwa.client.ts` **in production only** (`import.meta.dev` guard) to avoid stale `localhost:3000` caches. Assets: `public/site.webmanifest`, `public/offline.html`. Run `npm run verify:pwa` after touching these.
+
+**Images.** Prefer canonical `*_xl` fields with `<NuxtImg>` for rendered media. `OpenImage` accepts legacy `image_th`, but previews fall back to `image_xl` when no thumbnail exists, so records like `hagen` with only `photo_xl` still render.
 
 **UI (shadcn-vue).** `components.json` (new-york). Primitives in `app/components/ui/*`, auto-imported via `~/components/ui` with `pathPrefix: false` + `extensions: ['vue']`; `cn()` in `app/lib/utils.ts`; built on reka-ui. Gotchas:
 - Auto-import keys off the `.vue` **filename**, not the `index.ts` barrel - `Sonner.vue` → `<Sonner>`, not `Toaster`. Import explicitly when export name ≠ filename (`<Toaster>` in `app/app.vue`).
@@ -77,11 +85,13 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 **SEO.** Every page calls `useSeoMeta()` (full OG + Twitter tags); brand defaults in `app/app.config.ts`; sitemap suppressed on `stage--` deploys.
 
-**Artist `category_id` numbering.** `category_id` — унікальний тризначний рядок (`"001"`–`"238"` наразі), який задає порядок артистів і відображається як бейдж на картці. Для перших 226 артистів канонічні номери та порядок беруться з inline-коментарів `// NNN slug` у `/Users/ihororlovskyi/work/github/ihororlovskyi/sentimony-images/src/data/artist-images.ts`; порядок `data/sentimony-db-export.json` має повторювати цей список, пропускаючи дублікати фото.
+**Artist `category_id` numbering.** `category_id` — унікальний тризначний рядок (`"001"`–`"238"` наразі), який задає порядок артистів і відображається як бейдж на картці. Для перших 226 артистів канонічні номери та порядок беруться з inline-коментарів `// NNN slug` у `/Users/ihororlovskyi/work/github/ihororlovskyi/sentimony-images/src/data/artist-images.ts`; порядок `server/data/server/sentimony-db-export.json` має повторювати цей список, пропускаючи дублікати фото.
+
+Artist list page ordering: use `sortArtistsForCatalog()` (`app/utils/artists.ts`) everywhere, including the artists page and artist Swiper. Categories render as `musician → dj → mastering → designer`; within each category sort by ascending numeric `category_id`.
 
 Правило обчислення, якщо нумерацію треба відновити:
 1. `irukanji` завжди `001` і стоїть першим як founder, незалежно від хронології релізів.
-2. Далі йти за першою появою в `sentimony-nuxt/data/sentimony-db-export.json`: релізи за `releases[].date` від старих до нових, артисти всередині релізу за порядком у `releases[].artists`.
+2. Далі йти за першою появою в `sentimony-nuxt/server/data/server/sentimony-db-export.json`: релізи за `releases[].date` від старих до нових, артисти всередині релізу за порядком у `releases[].artists`.
 3. Події (`events`) інтерлівити за датою з релізами; нові учасники події отримують номер у момент першої появи.
 4. Артисти без появи в релізах/подіях йдуть у хвіст, алфавітно за slug.
 
@@ -93,11 +103,11 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 - Хвіст без release connection: `astrocat` (`222`), `elisa-vargas-fernandez` (`223`), `gribessa` (`224`), `proff` (`225`), `tairam` (`226`).
 - Додані в DB артисти, яких немає в `artist-images.ts`, мають номери `227`–`238` і стоять у DB за відомою першою появою: `flange`, `monno`, `1n0x`, `thirty-sixth`, `scarlet-crown`, `fivetimesno`, `paul-pazdan`, `stripes`, `pxeyes`, `stereodots`, `symetric`, `slamthings`.
 
-Якщо додається новий артист: додати запис у `data/sentimony-db-export.json`, призначити наступний вільний тризначний `category_id`, поставити запис у порядок за правилами вище, а коли з'явиться фото — додати відповідний рядок у `sentimony-images/src/data/artist-images.ts`.
+Якщо додається новий артист: додати запис у `server/data/server/sentimony-db-export.json`, призначити наступний вільний тризначний `category_id`, поставити запис у порядок за правилами вище, а коли з'явиться фото — додати відповідний рядок у `sentimony-images/src/data/artist-images.ts`.
 
 ## Code style
 
-Коментарі в коді не використовуємо. Код має бути самодокументованим через назви змінних і функцій.
+Коментарів у коді уникаємо; код має бути самодокументованим через назви змінних і функцій. Якщо коментар справді потрібен, писати його англійською.
 
 ## graphify
 

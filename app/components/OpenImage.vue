@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
   image_th?: string
@@ -9,6 +9,7 @@ const props = defineProps<{
 
 const isOpen = ref(false)
 const open = () => { if (props.image_xl) isOpen.value = true }
+const previewImage = computed(() => props.image_th || props.image_xl)
 
 const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>coming ⛄</div>'
 </script>
@@ -23,8 +24,8 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
     >
       <div class="size-[100px] sm:size-[190px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30">
         <NuxtImg
-          v-if="image_th"
-          :src="image_th"
+          v-if="previewImage"
+          :src="previewImage"
           :alt="alt"
           class="size-[100px] sm:size-[190px] object-cover"
           width="190"

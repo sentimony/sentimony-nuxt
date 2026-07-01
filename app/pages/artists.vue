@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import type { Artist, ArtistCategory } from '~/types'
+import { sortArtistsForCatalog } from '~/utils/artists'
 
 const { data: artistsRaw } = await useArtists()
 const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
+const artistsSortedForCatalog = computed(() => sortArtistsForCatalog(artists.value))
 
 const filterByCategory = (category: ArtistCategory) =>
   computed(() =>
-    [...artists.value]
-      .filter(a => Boolean(a.visible) && a.category === category)
-      .sort((a, b) => (a.category_id ?? 0) - (b.category_id ?? 0))
+    artistsSortedForCatalog.value.filter(a => a.category === category)
   )
 
 const artistsSortedByCategoryIdMusician = filterByCategory('musician')
 const artistsSortedByCategoryIdDj = filterByCategory('dj')
-const artistsSortedByCategoryIdMastering = filterByCategory('mastering')
 const artistsSortedByCategoryIdDesigner = filterByCategory('designer')
+const artistsSortedByCategoryIdMastering = filterByCategory('mastering')
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 const PageTitle = 'Artists'
@@ -39,7 +39,7 @@ useSeoMeta({
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
     <!-- <h2 class="">Producers & Musicians</h2> -->
-    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMusician"
         :key="i.slug"
@@ -49,7 +49,7 @@ useSeoMeta({
     </div>
 
     <h2 class="">Djs</h2>
-    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDj"
         :key="i.slug"
@@ -59,7 +59,7 @@ useSeoMeta({
     </div>
 
     <h2 class="">Sound Engineers & Mastering Services</h2>
-    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMastering"
         :key="i.slug"
@@ -69,7 +69,7 @@ useSeoMeta({
     </div>
 
     <h2 class="">Visual Artists & Designers</h2>
-    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDesigner"
         :key="i.slug"

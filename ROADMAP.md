@@ -1,409 +1,139 @@
+# Sentimony Nuxt Roadmap
 
-====================================================================================================
-
-2026-06-24
-BY CLAUDE-CODE
-
-Аналіз проєкту: пріоритезовані оптимізації
-
-🔴 P0 — найбільший вплив
-
-1. Список-ендпоінти на Firebase віддають повні об'єкти (over-fetch ~330 КБ)
-server/api/releases.get.ts (і так само artists/videos/events/playlists/friends) у режимі Firebase (а це дефолт)
-робить $fetch('…/releases.json') і повертає весь масив із важкими полями (tracklist, credits, усі
-platform-links) — 102 релізи × ~3.6 КБ = ~330 КБ. А сторінці releases.vue через Item.vue потрібно лише 7 полів:
-slug, title, cover_th, date, visible, coming_soon, new.
-
-Supabase-гілка вже звужує колонки через .select(...), Firebase-гілка — ні. Firebase RTDB не вміє проєкцію
-полів, тож рішення — зрізати важкі поля на сервері перед поверненням (payload потрапляє і в ISR-HTML, і в
-клієнтський useAsyncData):
-return Object.fromEntries(
-  Object.entries(data).map(([k, r]) => [k, pick(r,
-['slug','title','cover_th','date','visible','coming_soon','is_new','artists','at_playlists'])])
-)
-Це найдешевший спосіб скоротити вагу сторінок-списків у ~20 разів. Ефект множиться, бо release/[id].vue
-додатково тягне повний useReleases() + useArtists() лише заради related-каруселі й чипів артистів.
-
----
-🟠 P1 — суттєвий вплив на підтримуваність/продуктивність
-
-2. Велике дублювання: 6 майже ідентичних useXxxLikes + ~18 like-ендпоінтів + 25 platform-redirect маршрутів
-- 6 composables (useLikes, useArtistLikes, …) відрізняються лише назвами useState-ключів і шляхів API —
-побайтово однакова логіка. → фабрика createLikes(entity).
-- server/api/*-likes/count/[slug].get.ts, [slug].delete.ts, *.get.ts — по 6 копій кожного. → один
-параметризований хендлер за таблицею.
-- 25 файлів server/routes/release/[id]/<platform>.get.ts — однакові, відрізняються лише ключем у release.links.
-→ один server/routes/release/[id]/[platform].get.ts із мапою дозволених платформ.
-
-Скорочує ~50 файлів до ~5; зменшує ризик розсинхрону при правках.
-
-3. fetchCount — зайвий клієнтський round-trip на кожній detail-сторінці
-onMounted(() => fetchCount(slug)) робить окремий запит до /api/likes/count/[slug] після рендеру. Краще вкласти
-like_count у відповідь /api/release/[id] (як уже зроблено для треків через setTrackCount) — мінус один запит на
-кожен перегляд деталки, лічильник доступний одразу при SSR.
-
-4. Самохостинг шрифтів (@nuxtjs/google-fonts)
-Зараз useStylesheet: true тягне CSS зі стороннього fonts.googleapis.com у рантаймі (рендер-блокуючий зовнішній
-запит + зайвий preconnect). Додати download: true → шрифти self-hosted з вашого домену: краще LCP, менше
-залежності від Google, працює офлайн із PWA.
-
----
-🟡 P2 — швидкі дешеві перемоги
-
-5. useSupabase() створює новий createClient на кожен виклик
-server/utils/supabase.ts інстанціює anon-клієнт щоразу. Винести в module-level singleton (lazy) — менше
-алокацій на запит.
-
-6. Мертва залежність @lucide/vue
-Підтверджено: ніде не імпортується (іконки йдуть через @nuxt/icon + iconify, що зафіксовано і в CLAUDE.md).
-Прибрати з package.json — менший граф залежностей/інсталяція.
-
-7. Індекс на release_likes(release_slug) (і аналоги)
-count('exact', { head: true }).eq('release_slug', slug) для кожного лічильника — без індексу це seq-scan.
-Переконатися, що в Supabase є індекс на *_slug та user_id у таблицях лайків.
-
-8. NuxtImg без format/sizes
-В Item.vue фіксовані width/height, але без format="webp"/sizes — netlify-провайдер міг би віддавати AVIF/WebP і
-responsive srcset. Додати format="webp" (або avif,webp) для менших thumbnail-ів.
-
----
-Підсумок пріоритетів
-
-┌─────┬───────────────────────────────────────────────┬─────────────┬───────────────────────────────┐
-│  #  │                  Оптимізація                  │   Зусилля   │             Вплив             │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 1   │ Зрізати важкі поля у Firebase list-ендпоінтах │ низьке      │ 🔴 дуже високий (payload ÷20) │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 2   │ Фабрики для likes/маршрутів (−~50 файлів)     │ середнє     │ 🟠 високий (підтримка)        │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 3   │ Вкласти like_count у відповідь деталки        │ низьке      │ 🟠 −1 запит/перегляд          │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 4   │ download: true для шрифтів                    │ дуже низьке │ 🟠 LCP/незалежність           │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 5   │ Singleton Supabase-клієнт                     │ дуже низьке │ 🟡 дрібний perf               │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 6   │ Прибрати @lucide/vue                          │ дуже низьке │ 🟡 гігієна                    │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 7   │ Індекси на таблицях лайків                    │ низьке      │ 🟡 latency лічильників        │
-├─────┼───────────────────────────────────────────────┼─────────────┼───────────────────────────────┤
-│ 8   │ format="webp" для NuxtImg                     │ дуже низьке │ 🟡 вага зображень             │
-└─────┴───────────────────────────────────────────────┴─────────────┴───────────────────────────────┘
-
-Рекомендую почати з #1, #4, #6 (швидкі й безпечні), далі #2, #3 як рефакторинг окремою гілкою.
-
-Хочеш, щоб я реалізував котрусь із них (наприклад, #1 + #4 + #6 одним заходом)?
-
-====================================================================================================
-
-2026-06-24
-BY CODEX
-
-• Проєкт загалом збирається та проходить TypeScript-перевірку, але має кілька критичних проблем із безпекою,
-розміром bundle та архітектурою даних.
-
-## Пріоритетні оптимізації
-
-  #      Пріоритет    Оптимізація                                   Причина
-━━━━━  ━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  1      P0           Прибрати DB export із public/                 public/data/sentimony-db-export.json
-                                                                    доступний публічно. Він містить 683 KB
-                                                                    даних, включно зі 170 прихованими артистами
-                                                                    та іншими visible: false записами.
-                                                                    Перемістити у приватну директорію для sync-
-                                                                    скриптів.
-─────  ───────────  ────────────────────────────────────────────  ─────────────────────────────────────────────
-  2      P0           Заборонити CDN-кеш для авторизованих API      nuxt.config.ts:69 оголошує всі /api/**
-                                                                    публічно кешованими. Це охоплює /api/
-                                                                    likes, /api/*-likes/* із користувацькими
-                                                                    даними — потенційно CDN може повернути
-                                                                    відповідь іншого користувача. Для auth API
-                                                                    потрібен private, no-store; кешувати лише
-                                                                    конкретні публічні маршрути.
-─────  ───────────  ────────────────────────────────────────────  ─────────────────────────────────────────────
-  3      P0           Фільтрувати visible у detail API та           Detail endpoints
-                      санітизувати HTML                             роблять .select('*').eq('slug', id)
-                                                                    без .eq('visible', true), тому приховані
-                                                                    записи доступні напряму. Одночасно є 28
-                                                                    використань v-html, зокрема app/pages/
-                                                                    release/[id].vue:328, що створює ризик
-                                                                    stored XSS.
-─────  ───────────  ────────────────────────────────────────────  ─────────────────────────────────────────────
-  4      P1           Радикально зменшити icon/server bundle        Production server bundle — 15.2 MB; чотири
-                                                                    icon chunks займають приблизно 8.5 MB.
-                                                                    Налаштувати icon.serverBundle.collections
-                                                                    лише для реально потрібних колекцій,
-                                                                    замінити fa7-solid/ic на Lucide, видалити
-                                                                    невикористані @iconify-json/tabler та
-                                                                    @lucide/vue.
-─────  ───────────  ────────────────────────────────────────────  ─────────────────────────────────────────────
-  5      P1           Розділити глобальний клієнтський bundle       Build створює chunks 531 KB (170 KB gzip) і
-                                                                    182 KB (55 KB gzip). app/layouts/
-                                                                    default.vue:111 монтує п’ять Swiper-
-                                                                    компонентів на кожній сторінці та лише
-                                                                    приховує їх CSS-класом. Використати v-if,
-                                                                    lazy component і dynamic import для Swiper
-                                                                    та auth-залежностей.
-─────  ───────────  ────────────────────────────────────────────  ─────────────────────────────────────────────
-  6      P1           Ввести компактні DTO для list endpoints       Firebase-гілка server/api/
-                                                                    releases.get.ts:16 повертає повні записи,
-                                                                    тоді як Supabase — лише потрібні поля.
-                                                                    Результат: releases 332 KB, artists 197 KB.
-                                                                    Обидва джерела мають повертати однакові
-                                                                    компактні структури; детальні HTML і
-                                                                    metadata — лише detail endpoint.
-─────  ───────────  ────────────────────────────────────────────  ─────────────────────────────────────────────
-  7      P1           Узагальнити likes-систему та скоротити DB-    Шість майже ідентичних composables та
-                      запити                                        приблизно 30 API-файлів. app/pages/
-                                                                    profile.vue:14 одразу запускає шість
-                                                                    запитів, які породжують до 18 Supabase-
-                                                                    запитів. Потрібен generic useEntityLikes,
-                                                                    спільний server helper і один profile
-                                                                    endpoint/RPC.
-─────  ───────────  ────────────────────────────────────────────  ─────────────────────────────────────────────
-  8      P1           Виправити тестову та типову інфраструктуру    Playwright очікує 127.0.0.1, але Nuxt
-                                                                    слухає localhost/IPv6 —
-                                                                    playwright.config.ts:3. Крім того, тести
-                                                                    покривають практично лише тему homepage,
-                                                                    немає lint/unit/API/security тестів, а app/
-                                                                    types/database.types.ts:1 містить Database
-                                                                    = unknown.
-
-## Рекомендований порядок
-
-1. Закрити витік public/data і кешування auth API.
-2. Додати visible-фільтри та HTML sanitization.
-3. Оптимізувати icon bundle і умовне завантаження Swiper.
-4. Уніфікувати DTO та likes-архітектуру.
-5. Зафіксувати все API/unit/E2E тестами та згенерованими Supabase types.
-
-Перевірки: build, nuxt typecheck і PWA verification проходять. npm audit знайшов одну low-severity проблему.
-E2E заблокований описаною конфігурацією host.
-
-Також є український коментар у app/components/BtnPrimary.vue:18. Варіанти: «перекласти англійською зараз» або
-«не виправляти в цій сесії». Файли я не змінював.
-
-====================================================================================================
-
-2026-06-25
-BY CLAUDE-CODE
-
-
-⏺ Аналіз завершено. Ось новий пріоритезований список (не повторює вже зроблені #1–8), згрупований за впливом.
-
-  🔴 P0 — найбільший вплив на SSR-латентність
-
-  1. Водоспад послідовних await на detail-сторінках
-  release/[id].vue має 4 послідовні await (tracks → release → releases → artists), хоча вони незалежні. Під час SSR це
-  4 послідовні round-trip'и до власних API → TTFB = сума всіх. artist/[id].vue і playlist/[id].vue — по 2.
-  // зараз: waterfall
-  const { data: tracks } = await useFetch(`/api/tracks/${id}`)
-  const releaseAsync = await useRelease(id)
-  const { data: releasesRaw } = await useReleases()
-  const { data: artistsRaw } = await useArtists()
-  Виправлення — паралелізувати (Promise.all) або не блокувати некритичні (related-карусель/чипи можна lazy).
-  Найбільший SSR-виграш серед усього, що лишилось.
-
-  2. /api/tracks/[release_slug] не кешується + (firebase) over-fetch
-  Це єдиний data-ендпоінт на defineEventHandler (решта — defineCachedEventHandler). На кожен перегляд релізу — 2-3
-  живі Supabase-запити; у firebase-гілці тягне весь tracks.json і фільтрує в пам'яті. Додати defineCachedEventHandler
-  з коротким maxAge + SWR (лічильники треків і так оновлюються оптимістично на клієнті).
-
-  🟠 P1 — суттєвий, послідовне завершення розпочатого
-
-  3. Поширити #3 на решту detail-сторінок
-  artist/video/event/playlist/track досі роблять клієнтський fetchCount у onMounted (окремий round-trip на кожен
-  перегляд). Вкласти like_count у їхні detail-ендпоінти (як уже для release) — мінус 5 запитів, лічильник доступний
-  при SSR. Патерн і setCount уже готові з #2/#3.
-
-  4. Detail-сторінки тягнуть увесь список заради «related»
-  release/[id].vue вантажить повний useReleases() + useArtists() (навіть після trim #1 — це ~40 КБ + артисти) лише для
-  каруселі схожих і чипів артистів. Краще — ендпоінт /api/release/[id]/related, що повертає лише потрібні N записів
-  за relative_releases/artists. Прибирає десятки КБ із кожної detail-сторінки.
-
-  5. Адаптивний sizes для thumbnail'ів
-  Картки рендеряться 70-140px (mobile/desktop), але NuxtImg без sizes генерує фіксований розмір. Додати sizes="70px
-  md:140px" (+ опц. densities="1x 2x") → мобільні отримають менші зображення. Доповнює webp із #8.
-
-  🟡 P2 — точкові
-
-  6. profile.vue робить ~15 Supabase-запитів при відкритті
-  6 usePaginatedLikes стартують одночасно (кожен 2-3 запити), бо треба знати, які таби непорожні. Краще — один
-  агрегований ендпоінт /api/profile/summary (counts усіх категорій одним запитом), а items активного табу
-  довантажувати ліниво.
-
-  7. Списки сортуються/фільтруються в computed на кожен рендер
-  releases.vue та detail-сторінки роблять [...releases].filter().sort() у computed. Дешево кешувати порядок один раз
-  або сортувати на сервері (Supabase вже .order(), але Firebase-гілка — ні). Дрібниця, але повторюється.
-
-  8. Fractal.vue перезапускає анімацію на кожну зміну route.path
-  watch(() => route.path, startAnimation) ганяє CSS-spin на кожній навігації по всьому сайту (компонент fixed
-  inset-0). Якщо це фон лише для частини маршрутів — обмежити; інакше дрібний постійний reflow при переходах.
-
-  ---
-  Зведення пріоритетів
-
-  ┌─────┬─────────────────────────────────────────────────┬─────────────┬─────────────────────────┐
-  │  #  │                   Оптимізація                   │   Зусилля   │          Вплив          │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 1   │ Паралелізувати await на detail-сторінках        │ низьке      │ 🔴 високий (SSR TTFB)   │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 2   │ Кешувати /api/tracks/[slug]                     │ низьке      │ 🔴 високий              │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 3   │ Вкласти like_count у решту detail-ендпоінтів    │ середнє     │ 🟠 −5 round-trip        │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 4   │ Окремий related-ендпоінт замість повних списків │ середнє     │ 🟠 −десятки КБ/сторінку │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 5   │ sizes для адаптивних thumbnail'ів               │ низьке      │ 🟠 вага на mobile       │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 6   │ Агрегований /api/profile/summary                │ середнє     │ 🟡 −~14 запитів         │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 7   │ Кеш сортування списків                          │ низьке      │ 🟡 дрібний CPU          │
-  ├─────┼─────────────────────────────────────────────────┼─────────────┼─────────────────────────┤
-  │ 8   │ Обмежити reanimation Fractal                    │ дуже низьке │ 🟡 плавність навігації  │
-  └─────┴─────────────────────────────────────────────────┴─────────────┴─────────────────────────┘
-
-  Рекомендую почати з #1 + #2 (швидкі, найбільший вплив на latency), далі #3 (логічне завершення #3 з минулого
-  раунду).
-
-  Реалізувати котрусь?
-
-====================================================================================================
-
-2026-06-25
-BY CODEX
-
-• ## Висновок
-
-Найбільший потенціал зараз не в дрібному рефакторингу, а в завершенні hardening, виправленні data
-contracts, SEO та скороченні runtime-навантаження.
-
-1. P0 — завершити hardening і зробити CI обов’язковим
-
-    Unit suite зараз падає: відсутній server/utils/profileLikes.ts і не реалізований public count route,
-    який уже очікують тести: tests/unit/profileLikes.test.ts:2, tests/unit/cachePolicy.test.ts:31.
-
-    Додати CI: npm ci → test:unit → typecheck → build → критичні E2E. Деплой не повинен бути можливим із
-    червоними тестами.
-
-    Impact: критичний. Effort: малий–середній.
-
-2. P0 — переробити /tracks: зараз API і сторінка несумісні
-
-    Сторінка очікує tracklistCompact і tracks_number: app/pages/tracks.vue:26, але /api/releases їх не
-    повертає: server/api/releases.get.ts:8. Для Supabase це дає порожній список треків і 0 у статистиці.
-
-    Краще створити окремий /api/catalog/summary і пагінований /api/tracks, замість завантаження 7 колекцій
-    для однієї сторінки.
-
-    Impact: критичний, одночасно bugfix і оптимізація. Effort: середній.
-
-3. P0 — виправити sitemap та індексацію
-
-    Наявний sitemap містить лише 13 статичних URL, включаючи /profile і /confirm, але не містить жодної
-    release/artist/track detail page. Dynamic sources відсутні: nuxt.config.ts:172.
-
-    Потрібно:
-    - генерувати sitemap із каталогу;
-    - виключити auth/profile routes;
-    - додати canonical;
-    - додати noindex для signin/signup/profile/confirm/reset;
-    - за можливості ввімкнути sitemap zeroRuntime.
-
-    Impact: критичний для органічного трафіку. Effort: середній.
-
-4. P1 — відокремити контент від like counters
-
-    Detail API виконує select('*'), окремий count(*), а потім кешує результат на годину: server/api/release/
-    [id].get.ts:10. Через це:
-    - counts застарівають;
-    - кожен cold request навантажує likes-таблиці;
-    - важкий content payload перевидається через зміну одного числа.
-
-    Зробити компактні DTO і окремі /likes/count/:slug, кешовані на 30–120 секунд, або підтримувати
-    агреговані counters у БД.
-
-    Impact: високий. Effort: середній.
-
-5. P1 — не завантажувати всі сторонні плеєри одночасно
-
-    TabsRoot має unmount-on-hide="false", тому приховані Bandcamp, YouTube і SoundCloud iframe залишаються
-    змонтованими. На detail page може стартувати до 4 сторонніх iframe одночасно.
-
-    Використати unmount-on-hide, lazy iframe після відкриття вкладки або lightweight facade “Click to load
-    player”.
-
-    Impact: високий для LCP, трафіку та мобільних пристроїв. Effort: малий.
-
-6. P1 — зменшити головний client bundle
-
-    Production build показав:
-    - головний chunk: 560.49 KB minified / 181.21 KB gzip;
-    - Rollup видає warning про chunk понад 500 KB.
-
-    Головна причина — повний Supabase client із Realtime, що потрапляє в глобальний bundle через
-    useSupabaseUser() у header: app/components/Header.vue:13. Також глобально монтується toaster: app/
-    app.vue:1.
-
-    Напрямок: легкий server-derived session state у layout, lazy Supabase client лише для auth/profile/like
-    interaction, route-level split для UI бібліотек.
-
-    Impact: високий. Effort: високий.
-
-7. P1 — прибрати jsdom із Netlify function
-
-    Server bundle: 18.5 MB / 3.69 MB gzip. Із нього 9.3 MB займає jsdom, підтягнутий через isomorphic-
-    dompurify: app/utils/sanitizeHtml.ts:1.
-
-    Варіанти:
-    - санітизувати HTML під час sync/import;
-    - перейти на легший SSR-safe sanitizer;
-    - зберігати вже нормалізовану структуровану розмітку.
-
-    Це зменшить cold start і deployment artifact приблизно вдвічі.
-
-    Impact: високий. Effort: середній.
-
-8. P1 — нормалізувати track ↔ artist зв’язки та Firebase-запити
-
-    Firebase endpoint для треків одного релізу завантажує всю колекцію: server/api/tracks/
-    [release_slug].get.ts:7.
-
-    У Supabase artist_slug зберігається CSV-рядком, а similar tracks шукаються через ILIKE '%slug%': server/
-    api/track/[id].get.ts:33. Це неіндексовано і може давати false matches.
-
-    Створити track_artists(track_slug, artist_slug, position) та індекси. Для Firebase — індексований шлях
-    tracksByRelease/{releaseSlug} або повний перехід читання треків на Supabase.
-
-    Impact: високий при зростанні каталогу. Effort: високий.
-
-9. P2 — завершити агреговане завантаження profile
-
-    Зараз summary виконує 6 count-запитів: server/api/profile/summary.get.ts:7, після чого активна вкладка
-    робить ще 2 запити: app/pages/profile.vue:23.
-
-    Повернути summary та першу сторінку кожної категорії одним endpoint/RPC. Саме ця задумана реалізація
-    наразі залишилась незавершеною.
-
-    Impact: середній. Effort: середній.
-
-10. P2 — обмежити production logging і захистити mutations
-
-Кожен запит логуються разом з IP, URL query і referrer: server/utils/logger.ts:23. Це зайві function logs,
-витрати й потенційні персональні дані.
-
-Likes API також перевіряє лише наявність slug: server/utils/likes.ts:36. Додати schema validation,
-максимальну довжину, перевірку існування сутності та rate limiting.
-
-Impact: середній. Effort: малий–середній.
-
-## Поточна перевірка
-
-- Typecheck: проходить.
-- Production build: проходить із warning про 560 KB chunk.
-- Unit tests: 2 failures.
-- PWA verification: проходить.
-- E2E carousel smoke test: проходить.
-- npm audit --omit=dev: одна low-вразливість у transitive esbuild.
-- Файли проєкту не змінював; наявні локальні UI-зміни збережені.
-
-====================================================================================================
+Оновлено: 2026-07-01.
+
+Це робочий roadmap для поточного стану репозиторію. Історичні аудити з 2026-06-24 та 2026-06-25 зведено до виконаного/актуального, щоб файл не дублював уже закриті задачі.
+
+## Поточний стан
+
+- Unit tests проходять: `npm run test:unit` -> 15 files, 43 tests.
+- Канонічний catalog export лежить у `server/data/server/sentimony-db-export.json`.
+- List API вже повертають компактні DTO і фільтрують `visible`.
+- Auth/likes/profile API мають private/no-store route rules; public catalog API кешуються окремо.
+- Detail API фільтрують приховані записи, `v-html` проходить через `sanitizeHtml`.
+- Google Fonts self-hosted (`download: true`), `@lucide/vue` прибрано, `@nuxt/icon` працює без server bundle.
+- Release detail уже паралелізує основні запити і використовує `/api/release/[id]/related`.
+
+## P0
+
+### 1. Виправити `/tracks` data contract
+
+`app/pages/tracks.vue` очікує `tracklistCompact` і `tracks_number` з `useReleases()`, але `server/api/releases.get.ts` повертає компактний list DTO без цих полів. Наслідок: сторінка треків може показувати порожній список/некоректну статистику, особливо після уніфікації Firebase/Supabase DTO.
+
+Рішення:
+
+- або додати окремий `/api/tracks`/`/api/catalog/summary` для сторінки треків;
+- або явно повернути мінімальні track summary поля тільки для цього сценарію;
+- покрити `tracks.vue` unit/API тестом на непорожній список і коректний count.
+
+### 2. Зробити sitemap та індексацію повними
+
+`nuxt.config.ts` підключає sitemap, але немає явних dynamic sources для release/artist/track/video/playlist/event detail pages. Auth/profile routes також не мають явного noindex/canonical policy.
+
+Рішення:
+
+- генерувати sitemap із catalog source для всіх public detail pages;
+- виключити `/signin`, `/signup`, `/profile/**`, `/confirm`, `/reset-password`, `/forgot-password`;
+- додати canonical URL для public сторінок;
+- додати noindex для auth/profile utility pages;
+- додати тест або verification script для sitemap output.
+
+### 3. Додати обов'язковий CI quality gate
+
+Unit suite зараз зелений, але в `package.json` немає окремого `typecheck` script, і немає зафіксованого CI workflow, який блокує deploy.
+
+Рішення:
+
+- додати `typecheck` script (`nuxt typecheck` або `vue-tsc` у проєктному форматі);
+- додати CI: `npm ci`, `npm run test:unit`, `npm run typecheck`, `npm run build`, критичні E2E/API security smoke tests;
+- задокументувати, що `sync:*` скрипти не запускаються в CI без явного ручного тригера.
+
+## P1
+
+### 4. Відокремити content DTO від like counters
+
+Detail endpoints додають `like_count` у кешовану catalog відповідь (`catalogCacheOptions()` за замовчуванням на 1 годину). Це робить counts застарілими і зв'язує важкий content payload із динамічною метрикою.
+
+Рішення:
+
+- залишити detail content стабільно кешованим;
+- винести counts у коротко кешовані public count endpoints або агреговані counters у БД;
+- на клієнті ініціалізувати optimistic state окремо від content response.
+
+### 5. Lazy-load сторонні плеєри
+
+`TabsRoot` має `:unmount-on-hide="false"`, а release/track/playlist/artist pages можуть одночасно монтувати Bandcamp, YouTube/YT Music і SoundCloud iframe. Це шкодить LCP, трафіку й мобільним пристроям.
+
+Рішення:
+
+- змінити tabs behavior на unmount/lazy mount для неактивних вкладок;
+- додати lightweight facade "load player" для важких iframe;
+- перевірити, що активна вкладка не ламає deep SSR/hydration.
+
+### 6. Зменшити client bundle навколо auth/Supabase/UI
+
+`Header.vue`, `OpenSidebar.vue`, `AuthForm.vue`, `profile/*` та likes composables використовують Supabase client/user. Частина auth state потрапляє в глобальний layout/header, а `Toaster` монтується глобально в `app/app.vue`.
+
+Рішення:
+
+- винести легкий server-derived session state для header/navigation;
+- lazy-load Supabase client тільки для auth/profile/like interaction;
+- перевірити production build chunks після змін;
+- за потреби lazy-load `vue-sonner` і важкі UI залежності.
+
+### 7. Нормалізувати track-artist модель
+
+`artist_slug` у tracks досі CSV-рядок, а `server/api/track/[id].get.ts` для similar tracks читає всі треки й фільтрує в пам'яті. Це працює для малого каталогу, але погано масштабується і ускладнює точні зв'язки.
+
+Рішення:
+
+- створити `track_artists(track_slug, artist_slug, position)`;
+- додати індекси для `track_slug`, `artist_slug`, `release_slug`;
+- переписати similar tracks/release tracks на індексовані запити;
+- для Firebase fallback тримати індексований read path або обмежити fallback migration-only сценарієм.
+
+## P2
+
+### 8. Завершити profile aggregation
+
+`/api/profile/summary` уже зводить counts, але активна collection page окремо довантажує items. Це прийнятно, проте профіль все ще можна здешевити.
+
+Рішення:
+
+- повернути summary + першу сторінку активної/кожної категорії одним endpoint або RPC;
+- залишити пагінацію для наступних сторінок;
+- зберегти private/no-store cache policy.
+
+### 9. Обмежити production request logging
+
+`server/middleware/request-logger.ts` логить кожен запит із IP, URL query і referrer. Для production це зайві function logs і потенційні персональні дані.
+
+Рішення:
+
+- вимикати verbose logs у production або семплувати;
+- редагувати query/referrer перед логуванням;
+- залишити повний режим тільки для локального debug.
+
+### 10. Посилити mutations validation/rate limiting
+
+Likes mutations зараз перевіряють переважно наявність `slug`. Немає schema validation, max length, перевірки існування сутності та rate limiting.
+
+Рішення:
+
+- ввести shared slug validator;
+- перевіряти існування public entity перед insert;
+- додати rate limiting для likes/auth mutation endpoints;
+- покрити API security tests.
+
+## Закрито з попередніх аудитів
+
+- DB export прибрано з public path.
+- Public/private API cache rules розділено.
+- Hidden entities закрито через `visible` фільтри та `isPublicEntity`.
+- `v-html` проходить через локальний sanitizer; `isomorphic-dompurify/jsdom` не використовується.
+- Firebase/Supabase list endpoints уніфіковано через компактні DTO.
+- `/api/tracks/[release_slug]` кешується і не читає весь Firebase tracks collection напряму.
+- Release related дані винесено в `/api/release/[id]/related`.
+- Like composables/API значною мірою узагальнено через `createLikes` і `server/utils/likes.ts`.
+- Profile summary endpoint додано.
+- Artist sorting винесено в `app/utils/artists.ts` і покрито тестами.

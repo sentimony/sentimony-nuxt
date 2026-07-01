@@ -34,7 +34,7 @@ Catalog content can be served from Firebase Realtime Database or Supabase. Supab
 
 ### Run
 
-```bash
+```zsh
 npm i
 
 npm run dev
@@ -42,7 +42,7 @@ npm run dev
 
 Switch catalog source:
 
-```bash
+```zsh
 CATALOG_SOURCE=firebase npm run dev
 CATALOG_SOURCE=supabase npm run dev
 NUXT_CATALOG_SOURCE=supabase npm run build
@@ -50,7 +50,7 @@ NUXT_CATALOG_SOURCE=supabase npm run build
 
 ### Deploy
 
-```bash
+```zsh
 npm run sync:firebase
 
 npm run sync:supabase
@@ -65,7 +65,7 @@ npm run deploy:prod
 ```zsh
 
 # META
-npx skills add anthropics/claude-plugins-official -s claude-md-improver -a claude-code -y
+npx skills add anthropics/claude-plugins-official -s claude-md-improver -a codex claude-code -y
 
 # FRONTEND
 npx skills add anthropics/skills -s frontend-design -a codex claude-code -y

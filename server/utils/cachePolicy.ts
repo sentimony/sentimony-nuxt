@@ -4,8 +4,7 @@ type RouteRule = {
 
 const publicCacheRule: RouteRule = {
   headers: {
-    'Cache-Control': 'no-cache, no-store',
-    'Netlify-CDN-Cache-Control': 'no-cache, no-store',
+    'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
   },
 }
 
@@ -61,6 +60,7 @@ export function buildApiRouteRules(): Record<string, RouteRule> {
   for (const base of likesBases) {
     rules[base] = privateCacheRule
     rules[`${base}/**`] = privateCacheRule
+    rules[`${base}/count/**`] = publicCacheRule
   }
 
   for (const route of likedItemsRoutes) {
