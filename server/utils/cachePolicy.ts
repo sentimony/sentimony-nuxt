@@ -4,7 +4,8 @@ type RouteRule = {
 
 const publicCacheRule: RouteRule = {
   headers: {
-    'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+    'Cache-Control': 'no-cache, no-store',
+    'Netlify-CDN-Cache-Control': 'no-cache, no-store',
   },
 }
 

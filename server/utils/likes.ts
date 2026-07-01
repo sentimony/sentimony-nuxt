@@ -109,15 +109,26 @@ export async function fetchLikedItems(
   if (likesError) throw createError({ statusCode: 500, statusMessage: likesError.message })
   if (!likes?.length) return { data: [], total: count ?? 0 }
 
-  const slugs = (likes as unknown as Record<string, string>[]).map(l => l[slugCol])
+  const slugs = (likes as unknown as Record<string, string>[]).map(l => l[slugCol]).filter((s): s is string => !!s)
 
-  const base = admin.from(entityTable).select(entitySelect).in('slug', slugs)
-  const { data, error } = await (visibleOnly ? base.eq('visible', true) : base)
+  if (isSupabaseCatalogSource()) {
+    const base = admin.from(entityTable).select(entitySelect).in('slug', slugs)
+    const { data, error } = await (visibleOnly ? base.eq('visible', true) : base)
 
-  if (error) throw createError({ statusCode: 500, statusMessage: error.message })
+    if (error) throw createError({ statusCode: 500, statusMessage: error.message })
 
-  const rows = (data as unknown as { slug: string }[] | null) ?? []
-  const sorted = slugs.map(slug => rows.find(r => r.slug === slug)).filter(Boolean)
+    const rows = ((data as unknown as { slug: string }[] | null) ?? [])
+      .map(row => entityTable === 'releases' ? mapReleaseFromSupabase(row as Record<string, unknown>) as { slug: string } : row)
+    const sorted = slugs.map(slug => rows.find(row => row.slug === slug)).filter(Boolean)
+
+    return { data: sorted, total: count ?? 0 }
+  }
+
+  const rows = entityTable === 'tracks'
+    ? (await fetchAllFirebaseTracks()).filter(track => slugs.includes(track.slug))
+    : await fetchFirebaseEntitiesBySlugs(entityTable, slugs)
+  const publicRows = visibleOnly ? rows.filter(row => isPublicEntity(row)) : rows
+  const sorted = slugs.map(slug => publicRows.find(row => row.slug === slug)).filter(Boolean)
 
   return { data: sorted, total: count ?? 0 }
 }

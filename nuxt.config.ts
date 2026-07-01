@@ -5,7 +5,8 @@ const isDev = process.env.NODE_ENV === 'development'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
 const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY || ''
-const releasesSource = process.env.NUXT_RELEASES_SOURCE || process.env.RELEASES_SOURCE || 'firebase'
+const CATALOG_SOURCE: 'firebase' | 'supabase' = 'firebase'
+const catalogSource = process.env.NUXT_CATALOG_SOURCE || process.env.CATALOG_SOURCE || CATALOG_SOURCE
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -25,10 +26,21 @@ export default defineNuxtConfig({
           innerHTML: `(()=>{try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t!=='light')}catch(e){document.documentElement.classList.add('dark')}})()`,
           tagPosition: 'head',
         },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Sentimony Records',
+            description: 'Psychedelic music label',
+            url: 'https://sentimony.com',
+          }),
+        },
       ],
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'author', content: 'Sentimony Records · Psychedelic music label' },
         { name: 'theme-color', content: '#111111' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
@@ -51,9 +63,9 @@ export default defineNuxtConfig({
     '~/components',
   ],
   runtimeConfig: {
+    catalogSource,
     supabaseSecretKey,
     supabaseUrl,
-    releasesSource,
     public: {
       firebaseBase: 'https://sentimony-db.firebaseio.com',
       supabaseUrl,
@@ -69,24 +81,6 @@ export default defineNuxtConfig({
   ssr: true,
   routeRules: {
     ...buildApiRouteRules(),
-    ...(!isDev && {
-      '/': { isr: 86400 },
-      '/news': { isr: 86400 },
-      '/releases': { isr: 86400 },
-      '/release/**': { isr: 86400 },
-      '/artists': { isr: 86400 },
-      '/artist/**': { isr: 86400 },
-      '/videos': { isr: 86400 },
-      '/video/**': { isr: 86400 },
-      '/playlists': { isr: 86400 },
-      '/playlist/**': { isr: 86400 },
-      '/events': { isr: 86400 },
-      '/event/**': { isr: 86400 },
-      '/friends': { isr: 86400 },
-      '/friend/**': { isr: 86400 },
-      '/tracks': { isr: 86400 },
-      '/contacts': { isr: 86400 },
-    }),
   },
   supabase: {
     url: supabaseUrl,

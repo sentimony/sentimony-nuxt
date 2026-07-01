@@ -2,13 +2,10 @@
 import { ref, computed, watch, onMounted } from 'vue'
 
 const props = withDefaults(defineProps<{
-  inverted?: boolean
   contained?: boolean
-  scheme?: 'dark' | 'light'
-}>(), { inverted: false, contained: false })
+}>(), { contained: false })
 
 const route = useRoute()
-const { isDark } = useTheme()
 const isAnimating = ref(false)
 
 const PETAL_COUNT = 24
@@ -20,13 +17,6 @@ const petalRotations = computed(() => {
     id: i,
     rotation: (i + 1) * ROTATION_ANGLE
   }))
-})
-
-const petalGradient = computed(() => {
-  const dark = props.scheme !== undefined ? props.scheme === 'dark' : (props.inverted ? !isDark.value : isDark.value)
-  return dark
-    ? 'radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.4) 100%)'
-    : 'radial-gradient(ellipse at 50% 0, rgba(0,0,0,0.05) 0%, rgba(138,2,2,0) 50%, rgba(255,255,255,0.33) 100%)'
 })
 
 const startAnimation = () => {
@@ -78,7 +68,6 @@ watch(() => route.path, () => {
             >
               <div
                 class="absolute -top-24 -left-24 size-48 rounded-full [background:var(--petal-gradient)]"
-                :style="{ '--petal-gradient': petalGradient }"
               />
             </div>
           </div>

@@ -2,7 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 export default defineCachedEventHandler(
   async () => {
-    if (useRuntimeConfig().releasesSource === 'supabase') {
+    if (isSupabaseCatalogSource()) {
       const { data, error } = await useSupabase()
         .from('videos')
         .select('slug, title, cover_xl, date, visible')
@@ -13,13 +13,8 @@ export default defineCachedEventHandler(
       return data ?? []
     }
 
-    const { public: { firebaseBase } } = useRuntimeConfig()
-    const url = `${firebaseBase}/videos.json`
-    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
+    const data = await fetchFirebaseCollection('videos')
     return pickListFields(data, ['slug', 'title', 'cover_xl', 'date', 'visible'], { visibleOnly: true })
   },
-  {
-    maxAge: isDev ? 0 : 60 * 60,
-    swr: !isDev,
-  }
+  catalogCacheOptions()
 )
