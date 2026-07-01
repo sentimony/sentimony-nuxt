@@ -102,25 +102,40 @@
 }
 
 html {
-  @apply bg-background;
+  background-color: #ffffff;
   scrollbar-gutter: stable;
 }
 
 html.dark {
-  @apply bg-green-950;
+  background-color: #000000;
 }
 
 html::before {
   content: '';
-  @apply fixed inset-0 -z-10;
-  background-image: url('https://content.sentimony.com/assets/img/backgrounds/trees-light_v1.jpg');
+  @apply fixed inset-0;
+  z-index: -11;
+  background-image: url('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0.33;
 }
 
 html.dark::before {
-  background-image: url('https://content.sentimony.com/assets/img/backgrounds/trees-dark_v1.jpg');
+  opacity: 0.17;
+}
+
+html::after {
+  content: '';
+  @apply fixed inset-0;
+  z-index: -10;
+  background:
+    linear-gradient(rgba(23, 102, 28, 0.33), rgba(23, 102, 28, 0.33)),
+    linear-gradient(rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.44));
+}
+
+html.dark::after {
+  background: linear-gradient(rgba(23, 102, 28, 0.44), rgba(23, 102, 28, 0.44));
 }
 
 @keyframes spin2 {

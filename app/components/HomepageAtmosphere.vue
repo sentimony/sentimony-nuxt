@@ -13,29 +13,45 @@
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  background: oklch(0.91 0.025 155);
+  background-color: #ffffff;
 }
 
 .homepage-atmosphere::before {
   position: absolute;
   content: "";
   inset: 0;
-  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-light_v1.jpg");
+  z-index: 1;
+  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  opacity: 0.33;
+}
+
+.homepage-atmosphere::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(rgba(23, 102, 28, 0.33), rgba(23, 102, 28, 0.33)),
+    linear-gradient(rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.44));
 }
 
 .dark .homepage-atmosphere {
-  background: oklch(0.12 0.025 155);
+  background-color: #000000;
 }
 
 .dark .homepage-atmosphere::before {
-  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-dark_v1.jpg");
+  opacity: 0.17;
+}
+
+.dark .homepage-atmosphere::after {
+  background: linear-gradient(rgba(23, 102, 28, 0.44), rgba(23, 102, 28, 0.44));
 }
 
 .dark body.homepage-route {
-  background-color: oklch(0.12 0.025 155);
+  background-color: #000000;
   background-image: none;
 }
 

@@ -200,6 +200,7 @@ export interface ItemEntity {
   flyer_a_xl?: string
   coming_soon?: boolean
   new?: boolean
+  category_id?: number
 }
 
 export interface NewsItem {

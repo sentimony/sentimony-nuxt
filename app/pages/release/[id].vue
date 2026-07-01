@@ -96,7 +96,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
                 v-wave
               >
-                <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+                <Icon name="lucide:thumbs-up" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -125,7 +125,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               img="https://content.sentimony.com/assets/img/svg-icons/diggers-factory.svg?01"
             />
 
-            <p><span class="text-[10px] md:text-[12px] text-foreground/50">Download</span></p>
+            <p v-if="item.links?.bandcamp_url || item.links?.bandcamp24_url || item.links?.beatport || item.links?.junodownload"><span class="text-[10px] md:text-[12px] text-foreground/50">Download</span></p>
             <BtnPrimary
               v-if="item.links?.bandcamp_url"
               :to="item.links?.bandcamp_url"
@@ -152,7 +152,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             />
 
             <!-- <br> -->
-            <p><span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span></p>
+            <p v-if="item.links?.spotify || item.links?.applemusic_url || item.links?.youtube_music || item.links?.deezer || item.links?.amazon_music || item.links?.tidal || item.links?.qobuz || item.links?.youtube || item.links?.soundcloud_url"><span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span></p>
             <BtnPrimary
               v-if="item.links?.spotify"
               :to="item.links?.spotify"
@@ -317,18 +317,15 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               :key="track.slug"
               class="flex items-center justify-between gap-2"
             >
-              <NuxtLink
-                :to="`/track/${track.slug}`"
-                class="hover:underline"
-              >
+              <span>
                 <small>{{ track.track_number < 10 ? ' ' + track.track_number : track.track_number }}.</small> <b>{{ track.artist_name }}</b> - {{ track.title }} <small v-if="track.bpm">({{ track.bpm }}bpm)</small>
-              </NuxtLink>
+              </span>
               <button
                 @click="toggleTrackLike(track.slug)"
-                class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-black/10 shrink-0"
-                :class="isTrackLiked(track.slug) ? 'border-red-400/30 text-red-400' : 'border-black/30 text-black/60 hover:text-black/80'"
+                class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 shrink-0"
+                :class="isTrackLiked(track.slug) ? 'border-red-400/30 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
               >
-                <Icon name="lucide:thumbs-up" mode="svg" :class="isTrackLiked(track.slug) && '[&_path]:fill-current'" size="12" />
+                <Icon name="lucide:thumbs-up" size="12" />
                 <span v-if="trackLikeCount(track.slug) > 0">{{ trackLikeCount(track.slug) }}</span>
               </button>
             </p>

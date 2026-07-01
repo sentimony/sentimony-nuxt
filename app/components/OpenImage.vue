@@ -17,7 +17,7 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
   <DialogRoot v-model:open="isOpen">
 
     <div
-      class="cursor-pointer w-fit mr-4 mb-2 p-[5px] md:p-[10px] rounded-sm transition-[background-color] duration-200 ease-in-out hover:bg-white/30"
+      class="cursor-pointer w-fit mr-4 mb-2 p-[5px] md:p-[10px] rounded-sm transition-[background-color] duration-200 ease-in-out hover:bg-black/10 dark:hover:bg-white/30"
       v-wave
       @click="open"
     >

@@ -9,7 +9,7 @@ const linkClass = "inline-flex items-center gap-1 align-middle rounded-md border
 <template>
   <div class="px-4 py-8 md:py-16 box-border bg-linear-to-t from-transparent via-transparent to-white/50 dark:to-black/50">
     <div class="text-left mx-auto max-w-lg p-4 rounded-lg bg-[#b5ccb5]/85 border border-black/20 text-black dark:bg-[#2a4030]/85 dark:border-white/20 dark:text-white">
-      <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1">
+      <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1 rounded-full overflow-hidden block" v-wave>
         <img
           src="https://content.sentimony.com/assets/img/artists/irukanji-01_xl.jpg"
           alt="Irukanji avatar"
@@ -20,10 +20,10 @@ const linkClass = "inline-flex items-center gap-1 align-middle rounded-md border
       <p>My fellow artists and I always love reading your feedback.</p>
       <p>
         Find your favorite track and share your thoughts in the comments on our
-        <a :href="youtube_url" target="_blank" rel="noopener" :class="linkClass"><Icon name="simple-icons:youtube" />YouTube<Icon name="lucide:arrow-up-right" size="12" /></a>,
-        <a :href="soundcloud_url" target="_blank" rel="noopener" :class="linkClass"><Icon name="simple-icons:soundcloud" />SoundCloud<Icon name="lucide:arrow-up-right" size="12" /></a>
+        <a :href="youtube_url" target="_blank" rel="noopener" :class="linkClass" v-wave><Icon name="simple-icons:youtube" />YouTube<Icon name="lucide:arrow-up-right" size="12" /></a>,
+        <a :href="soundcloud_url" target="_blank" rel="noopener" :class="linkClass" v-wave><Icon name="simple-icons:soundcloud" />SoundCloud<Icon name="lucide:arrow-up-right" size="12" /></a>
         or
-        <a :href="bandcamp_url" target="_blank" rel="noopener" :class="linkClass"><Icon name="simple-icons:bandcamp" />Bandcamp<Icon name="lucide:arrow-up-right" size="12" /></a>
+        <a :href="bandcamp_url" target="_blank" rel="noopener" :class="linkClass" v-wave><Icon name="simple-icons:bandcamp" />Bandcamp<Icon name="lucide:arrow-up-right" size="12" /></a>
         pages.
       </p>
       <p>Thank you - I truly appreciate it <Icon name="lucide:heart" mode="svg" class="inline-block align-middle [&_path]:fill-current text-red-400 dark:text-red-500" /></p>

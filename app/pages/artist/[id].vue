@@ -46,7 +46,7 @@ useSeoMeta({
 
 <template>
   <div class="text-left border-t border-black/20 dark:border-white/20">
-    <div class="relative z-[2] px-2 pb-[30px] md:pb-[60px]">
+    <div class="relative z-2 px-2 pb-7.5 md:pb-15">
         <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
@@ -77,7 +77,7 @@ useSeoMeta({
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
                 v-wave
               >
-                <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+                <Icon name="lucide:thumbs-up" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -151,7 +151,7 @@ useSeoMeta({
               v-if="item.wikipedia_url"
               :to="item.wikipedia_url"
               title="Wikipedia"
-              iconify="fa6-brands:wikipedia-w"
+              iconify="simple-icons:wikipedia"
             />
 
 
