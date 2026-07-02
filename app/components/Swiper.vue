@@ -4,7 +4,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/keyboard'
 import 'swiper/css/mousewheel'
-import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
+import { ref, watch, nextTick, computed } from 'vue'
 import {
   FreeMode,
   Navigation,
@@ -13,20 +13,20 @@ import {
   Mousewheel
 } from 'swiper/modules'
 
-const modules = [
-  FreeMode,
-  Keyboard,
-  Navigation,
-  Pagination,
-  Mousewheel,
-]
+const modules = [FreeMode, Keyboard, Navigation, Pagination, Mousewheel]
 
 import type { ItemCategory, ItemEntity } from '~/types'
+
+interface ArtistSection {
+  label: string
+  list: ItemEntity[]
+}
 
 const props = defineProps<{
   title?: string
   category?: ItemCategory
   list?: ItemEntity[]
+  sections?: ArtistSection[]
   centeredSlidesBounds?: boolean
   centerInsufficientSlides?: boolean
   activeSlug?: string | null
@@ -43,14 +43,32 @@ function slideToActiveSlug() {
   if (!swiperRef.value) return
   const slug = props.activeSlug || ''
   if (!slug) return
-  const list = props.list || []
-  const idx = list.findIndex((it: any) => it?.slug === slug)
-  if (idx >= 0) {
-    swiperRef.value.slideTo(idx, 0)
+
+  if (props.sections) {
+    let idx = 0
+    for (const [si, section] of props.sections.entries()) {
+      if (si > 0) idx++
+      const found = section.list.findIndex((it: any) => it?.slug === slug)
+      if (found >= 0) {
+        swiperRef.value.slideTo(idx + found, 0)
+        return
+      }
+      idx += section.list.length
+    }
+  } else {
+    const list = props.list || []
+    const idx = list.findIndex((it: any) => it?.slug === slug)
+    if (idx >= 0) swiperRef.value.slideTo(idx, 0)
   }
 }
 
-watch(() => [props.activeSlug, (props.list || []).length], () => {
+const totalLength = computed(() =>
+  props.sections
+    ? props.sections.reduce((acc, s) => acc + s.list.length, 0)
+    : (props.list || []).length
+)
+
+watch(() => [props.activeSlug, totalLength.value], () => {
   slideToActiveSlug()
 })
 </script>
@@ -115,16 +133,38 @@ watch(() => [props.activeSlug, (props.list || []).length], () => {
         }"
       >
 
-        <SwiperSlide
-          v-for="i in list"
-          :key="i.slug"
-        >
-          <!-- <div>{{ i.slug }}</div> -->
-          <Item
-            :category="category"
-            :i="i"
-          />
-        </SwiperSlide>
+        <template v-if="sections">
+          <template v-for="(section, si) in sections" :key="section.label">
+            <SwiperSlide
+              v-if="si > 0"
+              class="!pointer-events-none select-none"
+              style="width: 2.5rem"
+            >
+              <div class="h-full flex flex-col items-center justify-center px-1 text-foreground/25">
+                <div class="w-px flex-1 bg-current" />
+                <span
+                  class="text-[8px] tracking-widest uppercase py-2"
+                  style="writing-mode: vertical-rl; transform: rotate(180deg)"
+                >{{ section.label }}</span>
+                <div class="w-px flex-1 bg-current" />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide
+              v-for="i in section.list"
+              :key="i.slug"
+            >
+              <Item :category="category" :i="i" />
+            </SwiperSlide>
+          </template>
+        </template>
+        <template v-else>
+          <SwiperSlide
+            v-for="i in list"
+            :key="i.slug"
+          >
+            <Item :category="category" :i="i" />
+          </SwiperSlide>
+        </template>
 
         <button
           class="swiper-button-next"

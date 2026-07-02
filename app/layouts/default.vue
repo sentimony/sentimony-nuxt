@@ -59,6 +59,20 @@ const releasesSortedByDate = computed(() =>
 const artistsSortedByCategoryId = computed(() =>
   sortArtistsForCatalog(artists.value)
 )
+const artistSections = computed(() => {
+  const order = [
+    { label: 'Producers', category: 'musician' as const },
+    { label: 'DJs',       category: 'dj' as const },
+    { label: 'Mastering', category: 'mastering' as const },
+    { label: 'Designers', category: 'designer' as const },
+  ]
+  return order
+    .map(({ label, category }) => ({
+      label,
+      list: artistsSortedByCategoryId.value.filter(a => a.category === category),
+    }))
+    .filter(s => s.list.length > 0)
+})
 const videosSortedByDate = computed(() =>
   [...videos.value]
     .filter(v => Boolean(v.visible))
@@ -122,7 +136,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :activeSlug="activeArtistSlug"
           :class="isIndex ? 'order-3' : 'order-1'"
           title="Artists"
-          :list="artistsSortedByCategoryId"
+          :sections="artistSections"
           category="artist"
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"

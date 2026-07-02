@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 describe('artists page', () => {
-  const source = readFileSync(resolve(process.cwd(), 'app/pages/artists.vue'), 'utf8')
+  const source = readFileSync(resolve(process.cwd(), 'app/pages/artists/index.vue'), 'utf8')
 
   it('renders artist categories in the configured order', () => {
     const musicianIndex = source.indexOf('v-for="i in artistsSortedByCategoryIdMusician"')
