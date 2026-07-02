@@ -19,29 +19,7 @@ const filtered = computed(() =>
   <div class="container max-w-[112rem]">
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ title }}</h1>
 
-    <div class="flex gap-2 mb-6">
-      <NuxtLink
-        to="/releases"
-        class="px-3 py-1 rounded-full text-sm border border-white/20 hover:border-white/50 transition-colors"
-        exact-active-class="border-white/60 text-white"
-      >
-        All
-      </NuxtLink>
-      <NuxtLink
-        to="/releases/psytrance"
-        class="px-3 py-1 rounded-full text-sm border border-white/20 hover:border-white/50 transition-colors"
-        exact-active-class="border-white/60 text-white"
-      >
-        Psytrance
-      </NuxtLink>
-      <NuxtLink
-        to="/releases/psychill"
-        class="px-3 py-1 rounded-full text-sm border border-white/20 hover:border-white/50 transition-colors"
-        exact-active-class="border-white/60 text-white"
-      >
-        Psychill
-      </NuxtLink>
-    </div>
+    <GenreTabs />
 
     <p class="text-white/40 text-sm mb-4">{{ filtered.length }} releases</p>
 
