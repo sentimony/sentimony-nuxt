@@ -22,6 +22,5 @@ useSeoMeta({
   <ReleasesFiltered
     keyword="psychill"
     title="Psychill"
-    description="Psychill, psybient and ambient releases from Sentimony Records."
   />
 </template>

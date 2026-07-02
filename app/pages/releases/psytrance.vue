@@ -22,6 +22,5 @@ useSeoMeta({
   <ReleasesFiltered
     keyword="psytrance"
     title="Psytrance"
-    description="Dark progressive psytrance, forest psy and zenonesque releases from Sentimony Records."
   />
 </template>

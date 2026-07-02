@@ -4,7 +4,6 @@ import type { Release } from '~/types'
 const props = defineProps<{
   keyword: string
   title: string
-  description: string
 }>()
 
 const { data: releasesRaw } = await useReleases()
