@@ -28,11 +28,9 @@ const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 const portfolioReleases = computed(() => {
   if (item.value?.category !== 'designer') return []
   const slug = item.value.slug
-  return releasesSortedByDate.value.filter(r => {
-    if (!r.artists) return false
-    if (Array.isArray(r.artists)) return r.artists.includes(slug)
-    return r.artists === slug
-  }).filter(r => !!(r.cover_xl || r.cover_og))
+  return releasesSortedByDate.value.filter(r =>
+    r.artists?.includes(slug) && !!(r.cover_xl || r.cover_og)
+  )
 })
 
 const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
