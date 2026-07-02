@@ -32,4 +32,19 @@ describe('sanitizeHtml', () => {
     expect(sanitizeHtml(undefined)).toBe('')
     expect(sanitizeHtml(null)).toBe('')
   })
+
+  it('strips the inner content of disallowed tags', () => {
+    const result = sanitizeHtml('<p>Safe</p><script>document.cookie</script>')
+
+    expect(result).toContain('Safe')
+    expect(result).not.toContain('document.cookie')
+  })
+
+  it('handles a literal > inside a quoted attribute value', () => {
+    const result = sanitizeHtml('<a title="Price > 0" href="/releases">link</a>')
+
+    expect(result).toContain('href="/releases"')
+    expect(result).toContain('link')
+    expect(result).not.toContain('0"&gt;')
+  })
 })
