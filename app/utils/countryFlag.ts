@@ -1,7 +1,6 @@
 const countryMap: Record<string, string> = {
   'ukraine': 'ua',
   'russian federation': 'ru',
-  'russian': 'ru',
   'usa': 'us',
   'united states': 'us',
   'germany': 'de',
@@ -32,7 +31,7 @@ const countryMap: Record<string, string> = {
 
 export function locationToIso2(location: string): string | null {
   if (!location?.trim()) return null
-  const lastSegment = location.split('->').pop()?.trim() ?? location
-  const country = lastSegment.split(',').pop()?.trim().toLowerCase() ?? ''
+  const lastSegment = location.split('->').pop()!.trim()
+  const country = lastSegment.split(',').pop()!.trim().toLowerCase()
   return countryMap[country] ?? null
 }
