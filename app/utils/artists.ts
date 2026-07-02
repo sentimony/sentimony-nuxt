@@ -18,3 +18,9 @@ export function sortArtistsForCatalog(artists: Artist[]) {
       return Number(a.category_id ?? 0) - Number(b.category_id ?? 0)
     })
 }
+
+export function groupArtistsByCategory(artists: Artist[]): { category: ArtistCategory; list: Artist[] }[] {
+  return artistCategoryOrder
+    .map(category => ({ category, list: artists.filter(a => a.category === category) }))
+    .filter(group => group.list.length > 0)
+}

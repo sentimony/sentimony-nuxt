@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Release, Artist, Video, Playlist, Event } from '~/types'
-import { sortArtistsForCatalog } from '~/utils/artists'
+import type { Release, Artist, ArtistCategory, Video, Playlist, Event } from '~/types'
+import { groupArtistsByCategory, sortArtistsForCatalog } from '~/utils/artists'
 
 const host = useRequestURL().hostname
 
@@ -59,20 +59,18 @@ const releasesSortedByDate = computed(() =>
 const artistsSortedByCategoryId = computed(() =>
   sortArtistsForCatalog(artists.value)
 )
-const artistSections = computed(() => {
-  const order = [
-    { label: 'Producers', category: 'musician' as const },
-    { label: 'DJs',       category: 'dj' as const },
-    { label: 'Mastering', category: 'mastering' as const },
-    { label: 'Designers', category: 'designer' as const },
-  ]
-  return order
-    .map(({ label, category }) => ({
-      label,
-      list: artistsSortedByCategoryId.value.filter(a => a.category === category),
-    }))
-    .filter(s => s.list.length > 0)
-})
+const artistSectionLabels: Record<ArtistCategory, string> = {
+  musician: 'Producers',
+  dj: 'DJs',
+  mastering: 'Mastering',
+  designer: 'Designers',
+}
+const artistSections = computed(() =>
+  groupArtistsByCategory(artistsSortedByCategoryId.value).map(group => ({
+    label: artistSectionLabels[group.category],
+    list: group.list,
+  }))
+)
 const videosSortedByDate = computed(() =>
   [...videos.value]
     .filter(v => Boolean(v.visible))

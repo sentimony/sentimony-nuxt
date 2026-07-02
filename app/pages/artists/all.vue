@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import type { Artist, ArtistCategory } from '~/types'
-import { sortArtistsForCatalog } from '~/utils/artists'
+import { groupArtistsByCategory, sortArtistsForCatalog } from '~/utils/artists'
 import { locationToIso2 } from '~/utils/countryFlag'
 
 const { data: artistsRaw } = await useArtists()
 const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
 const sorted = computed(() => sortArtistsForCatalog(artists.value))
 
-const sections: Array<{ label: string; category: ArtistCategory }> = [
-  { label: 'Producers & Musicians', category: 'musician' },
-  { label: 'DJs', category: 'dj' },
-  { label: 'Sound Engineers & Mastering', category: 'mastering' },
-  { label: 'Visual Artists & Designers', category: 'designer' },
-]
+const sectionLabels: Record<ArtistCategory, string> = {
+  musician: 'Producers & Musicians',
+  dj: 'DJs',
+  mastering: 'Sound Engineers & Mastering',
+  designer: 'Visual Artists & Designers',
+}
 
 const flagCodes = computed(() =>
   sorted.value.reduce<Record<string, string | null>>((acc, a) => {
@@ -22,9 +22,9 @@ const flagCodes = computed(() =>
 )
 
 const sectionedArtists = computed(() =>
-  sections.map(s => ({
-    ...s,
-    artists: sorted.value.filter(a => a.category === s.category),
+  groupArtistsByCategory(sorted.value).map(group => ({
+    ...group,
+    label: sectionLabels[group.category],
   }))
 )
 
@@ -60,35 +60,33 @@ useSeoMeta({
     </div>
 
     <template v-for="section in sectionedArtists" :key="section.category">
-      <template v-if="section.artists.length > 0">
-        <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">{{ section.label }}</h2>
-        <ul class="space-y-1">
-          <li
-            v-for="artist in section.artists"
-            :key="artist.slug"
-            class="flex items-center gap-3"
+      <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">{{ section.label }}</h2>
+      <ul class="space-y-1">
+        <li
+          v-for="artist in section.list"
+          :key="artist.slug"
+          class="flex items-center gap-3"
+        >
+          <span
+            v-if="flagCodes[artist.slug]"
+            :class="`fi fi-${flagCodes[artist.slug]} rounded-sm shrink-0`"
+            :title="artist.location || ''"
+          />
+          <span v-else class="w-[1.33em] shrink-0" />
+          <NuxtLink
+            :to="'/artist/' + artist.slug"
+            class="hover:text-white/80 transition-colors"
           >
-            <span
-              v-if="flagCodes[artist.slug]"
-              :class="`fi fi-${flagCodes[artist.slug]} rounded-sm shrink-0`"
-              :title="artist.location || ''"
-            />
-            <span v-else class="w-[1.33em] shrink-0" />
-            <NuxtLink
-              :to="'/artist/' + artist.slug"
-              class="hover:text-white/80 transition-colors"
-            >
-              {{ artist.title }}
-            </NuxtLink>
-            <span
-              v-if="artist.location"
-              class="text-white/30 text-sm truncate hidden sm:block"
-            >
-              {{ artist.location }}
-            </span>
-          </li>
-        </ul>
-      </template>
+            {{ artist.title }}
+          </NuxtLink>
+          <span
+            v-if="artist.location"
+            class="text-white/30 text-sm truncate hidden sm:block"
+          >
+            {{ artist.location }}
+          </span>
+        </li>
+      </ul>
     </template>
   </div>
 </template>
