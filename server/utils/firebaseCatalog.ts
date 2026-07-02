@@ -72,10 +72,10 @@ export function parseTrackParagraph(
 
   const withoutBpm = paragraph.replace(/\s*<small>\([^)]*bpm\)<\/small>.*$/i, '')
   const titleRaw = withoutBpm.replace(/^<small>\d+\.<\/small>\s*<b>.*?<\/b>\s*-\s*/, '')
-  const title = titleRaw.replace(/<\/?b>/g, '').trim()
+  const title = titleRaw.replace(/<\/?b>/g, '').replace(/\s*\(\d+(?:-\d+)?bpm\)\s*$/i, '').trim()
 
   const bpmMatch = paragraph.match(/\((\d+)(?:-(\d+))?bpm\)/i)
-  const parsedBpm = bpmMatch ? Number.parseInt(bpmMatch[2] ?? bpmMatch[1]!, 10) : null
+  const parsedBpm = bpmMatch ? Number.parseInt(bpmMatch[1]!, 10) : null
   const bpm = parsedBpm === 0 ? null : parsedBpm
 
   return {

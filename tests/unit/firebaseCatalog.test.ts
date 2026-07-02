@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { fetchFirebaseEntity } from '../../server/utils/firebaseCatalog'
+import { fetchFirebaseEntity, parseTrackParagraph } from '../../server/utils/firebaseCatalog'
 
 describe('fetchFirebaseEntity', () => {
   afterEach(() => {
@@ -29,5 +29,30 @@ describe('fetchFirebaseEntity', () => {
       title: 'Irukanji',
       visible: true,
     })
+  })
+})
+
+describe('parseTrackParagraph', () => {
+  it('uses the lower bound of a bpm range', () => {
+    const track = parseTrackParagraph(
+      '<small>1.</small> <b>Artist</b> - Ranged Track <small>(130-160bpm)</small>',
+      'test-release',
+      0,
+      new Map(),
+    )
+
+    expect(track.bpm).toBe(130)
+  })
+
+  it('strips a bpm marker not wrapped in small from the title', () => {
+    const track = parseTrackParagraph(
+      '<small>2.</small> <b>Artist</b> - Bare Track (140bpm)',
+      'test-release',
+      1,
+      new Map(),
+    )
+
+    expect(track.title).toBe('Bare Track')
+    expect(track.bpm).toBe(140)
   })
 })
