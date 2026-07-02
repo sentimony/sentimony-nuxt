@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import type { Release } from '~/types'
+import type { Release, Event } from '~/types'
 
 const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount, setCount } = useArtistLikes()
 
-const [artistAsync, releasesAsync] = await Promise.all([
+const [artistAsync, releasesAsync, eventsAsync] = await Promise.all([
   useArtist(id as string, { server: true }),
   useReleases(),
+  useEvents(),
 ])
 
 const item = artistAsync.data
 const artistError = artistAsync.error
 const releasesRaw = releasesAsync.data
+const eventsRaw = eventsAsync.data
 
 if (artistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
@@ -21,11 +23,28 @@ if (artistError.value || !item.value) {
 setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
-
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
+
+const portfolioReleases = computed(() => {
+  if (item.value?.category !== 'designer') return []
+  const slug = item.value.slug
+  return releasesSortedByDate.value.filter(r => {
+    if (!r.artists) return false
+    if (Array.isArray(r.artists)) return r.artists.includes(slug)
+    return r.artists === slug
+  }).filter(r => !!(r.cover_xl || r.cover_og))
+})
+
+const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
+const organizedEvents = computed(() => {
+  const slug = item.value?.slug
+  if (!slug) return []
+  return events.value.filter(e => e.visible && e.organizer?.includes(slug))
+})
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageDescription = computed(() => [
   item.value?.title,
   item.value?.style,
@@ -206,14 +225,21 @@ useSeoMeta({
     <ItemContent v-if="item">
 
       <div v-if="item.information">
-        <!-- <p><span class="text-[10px] md:text-[12px] text-white/50">Information</span></p> -->
         <div v-html="sanitizeHtml(item.information)" />
       </div>
 
-      <!-- <div v-if="item.info_sc">
-        <p><span class="text-[10px] md:text-[12px] text-white/50">Info SC</span></p>
-        <div v-html="sanitizeHtml(item.info_sc)" />
-      </div> -->
+      <div v-if="organizedEvents.length > 0">
+        <hr class="my-4 border-black/30">
+        <p><small><b>Organized Events:</b></small></p>
+        <div class="flex flex-wrap justify-center w-full">
+          <Item
+            v-for="e in organizedEvents"
+            :key="e.slug"
+            :i="e"
+            category="event"
+          />
+        </div>
+      </div>
 
       <div>
         <hr class="my-4 border-black/30">
@@ -226,6 +252,26 @@ useSeoMeta({
               category="release"
             />
           </template>
+        </div>
+      </div>
+
+      <div v-if="portfolioReleases.length > 0">
+        <hr class="my-4 border-black/30">
+        <p><small><b>Portfolio:</b></small></p>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+          <NuxtLink
+            v-for="r in portfolioReleases"
+            :key="r.slug"
+            :to="'/release/' + r.slug"
+            class="block aspect-square overflow-hidden rounded"
+          >
+            <NuxtImg
+              :src="(r.cover_xl || r.cover_og)!"
+              :alt="r.title || ''"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </NuxtLink>
         </div>
       </div>
 
