@@ -318,9 +318,12 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               :key="track.slug"
               class="flex items-center justify-between gap-2"
             >
-              <span>
+              <NuxtLink
+                :to="`/track/${track.slug}`"
+                class="hover:underline"
+              >
                 <small>{{ track.track_number < 10 ? ' ' + track.track_number : track.track_number }}.</small> <b>{{ track.artist_name }}</b> - {{ track.title }} <small v-if="track.bpm">({{ track.bpm }}bpm)</small>
-              </span>
+              </NuxtLink>
               <button
                 @click="toggleTrackLike(track.slug)"
                 class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 shrink-0"
