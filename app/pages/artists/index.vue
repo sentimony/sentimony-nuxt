@@ -56,7 +56,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="">Djs</h2>
+    <h2 class="">DJs</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDj"

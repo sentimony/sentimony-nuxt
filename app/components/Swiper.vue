@@ -89,9 +89,6 @@ watch(() => [props.activeSlug, totalLength.value], () => {
           'swiper-pagination mb-3 md:mb-5',
           'swiper-pagination-' + category
         ]" />
-      <!-- </div> -->
-
-      <!-- <div class="text-[18px] md:text-[32px] my-[.5em] mb-4">{{ title }}</div> -->
 
       <Swiper
         :enabled="true"
