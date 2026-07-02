@@ -7,6 +7,7 @@ export default defineCachedEventHandler(
         .from('artists')
         .select('slug, title, photo_xl, visible, category, category_id')
         .eq('visible', true)
+        .order('category_id', { ascending: true })
 
       if (error) throw createError({ statusCode: 500, statusMessage: error.message })
       return data ?? []
