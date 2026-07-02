@@ -1,5 +1,6 @@
 import tailwindcss from '@tailwindcss/vite'
 import { buildApiRouteRules } from './server/utils/cachePolicy'
+import { buildNoindexRouteRules } from './server/utils/robotsPolicy'
 
 const isDev = process.env.NODE_ENV === 'development'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
@@ -57,6 +58,7 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/tailwind.css',
+    'flag-icons/css/flag-icons.min.css',
   ],
   components: [
     { path: '~/components/ui', pathPrefix: false, extensions: ['vue'] },
@@ -81,6 +83,7 @@ export default defineNuxtConfig({
   ssr: true,
   routeRules: {
     ...buildApiRouteRules(),
+    ...buildNoindexRouteRules(),
   },
   supabase: {
     url: supabaseUrl,
@@ -168,6 +171,7 @@ export default defineNuxtConfig({
     autoLastmod: true,
     discoverImages: false,
     discoverVideos: false,
+    sources: ['/api/__sitemap__/urls'],
   },
   vite: {
     plugins: [

@@ -146,6 +146,7 @@ export interface Event extends BaseEntity {
   location?: string
   info?: string
   lineup?: EventLineup[]
+  organizer?: string[]
   like_count?: number
   links?: EventLink[]
 }
