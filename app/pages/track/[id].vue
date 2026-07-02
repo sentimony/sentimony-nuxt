@@ -40,6 +40,7 @@ const { embed: embedYTMusic } = useYouTubeMusicPlaylist(
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageDescription = computed(() => [
   track.value.title,
   artistsTitleLine.value,

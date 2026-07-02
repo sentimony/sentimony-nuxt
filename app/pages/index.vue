@@ -11,6 +11,7 @@ const aboutDescription = "<p>Sentimony Records is an independent psychedelic mus
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Home'
 const PageDescription = 'Sentimony Records - an independent psychedelic music label from Kyiv since 2006. DarkProg psytrance and psychill releases, artists, videos and events.'
 useSeoMeta({

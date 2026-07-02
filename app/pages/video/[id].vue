@@ -20,6 +20,7 @@ const formattedDate = computed(() => formatDate(item.value?.date))
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const year = computed(() => formatYear(item.value?.date))
 const PageDescription = computed(() => [
   item.value?.title,

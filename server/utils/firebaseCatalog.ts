@@ -57,7 +57,7 @@ function buildArtistTitleMap(artists: FirebaseCollection) {
   return map
 }
 
-function parseTrackParagraph(
+export function parseTrackParagraph(
   paragraph: string,
   releaseSlug: string,
   index: number,

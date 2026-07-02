@@ -6,6 +6,7 @@ const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Releases'
 const PageDescription = 'Sentimony Records releases: latest dark progressive psytrance and psychill albums, EPs and compilations with streaming and download links.'
 useSeoMeta({

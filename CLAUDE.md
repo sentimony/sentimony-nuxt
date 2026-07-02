@@ -22,12 +22,13 @@ npm run deploy:prod     # Netlify prod
 CATALOG_SOURCE=firebase npm run dev
 CATALOG_SOURCE=supabase npm run dev
 npm run verify:pwa      # validate manifest + custom service worker
-npx vue-tsc --noEmit --project tsconfig.json  # type check
-npx supabase db push    # apply migrations to remote (needs SUPABASE_ACCESS_TOKEN in .env/.env.local)
+npx nuxi typecheck      # Nuxt/Nitro type check; warns if Supabase env vars are absent locally
 npx supabase link --project-ref dugbgewuzowoogglccue --yes   # link project before first push
 ```
 
 Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores.
+No `npm run typecheck` script exists yet; use `npx nuxi typecheck`.
+Current focused verification baseline: `npm run test:unit` -> 19 files / 54 tests; `npx nuxi typecheck` passes with local Supabase env warnings.
 
 Supabase CLI: використовувати через `npx supabase` (не глобальний). `SUPABASE_ACCESS_TOKEN` (формат `sbp_...`) — Personal Access Token з [Supabase Dashboard → Account → Access Tokens](https://supabase.com/dashboard/account/tokens), зберігати в `.env/.env.local`.
 
@@ -61,7 +62,7 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 **Pages.** All in `app/pages/`; list page (`releases.vue`) + detail (`release/[id].vue`). `Item` is the universal card across list pages.
 
-**Rendering & caching.** No page-level ISR (removed from `routeRules` during the cache hot-fix). `routeRules` (`nuxt.config.ts`) only sets `server/api/**` headers via `buildApiRouteRules()` (`server/utils/cachePolicy.ts`): catalog routes (`/api/releases`, `/api/release/**`, etc.) get `Netlify-CDN-Cache-Control: public, max-age=3600, stale-while-revalidate=86400`; likes/profile routes get `private, no-store`; `*/count/**` like-count routes are public-cacheable. Catalog handlers still use Nitro's `defineCachedEventHandler` with `catalogCacheOptions()` (`server/utils/catalogCache.ts`) for a separate server-side cache - 1h `maxAge` + `swr` in production, `maxAge: 0` in dev - keyed by `${catalogSource}:${event.path}`.
+**Rendering & caching.** No page-level ISR (removed from `routeRules` during the cache hot-fix). `routeRules` (`nuxt.config.ts`) sets `server/api/**` cache headers via `buildApiRouteRules()` (`server/utils/cachePolicy.ts`) and `robots: false` on auth/profile routes via `buildNoindexRouteRules()` (`server/utils/robotsPolicy.ts`, see SEO/Sitemap below): catalog routes (`/api/releases`, `/api/release/**`, etc.) get `Netlify-CDN-Cache-Control: public, max-age=3600, stale-while-revalidate=86400`; likes/profile routes get `private, no-store`; `*/count/**` like-count routes are public-cacheable. Catalog handlers still use Nitro's `defineCachedEventHandler` with `catalogCacheOptions()` (`server/utils/catalogCache.ts`) for a separate server-side cache - 1h `maxAge` + `swr` in production, `maxAge: 0` in dev - keyed by `${catalogSource}:${event.path}`.
 
 **Styling (Tailwind v4).** Via the `@tailwindcss/vite` plugin - **no** `tailwind.config`/`postcss.config`. Theme tokens (light in `:root`, dark in `.dark` - source order matters since both are specificity-equal), the `dark` variant, and a global `input:-webkit-autofill` override (tied to `var(--foreground)`) live in `app/assets/css/tailwind.css` (`@theme` / `@theme inline`). A global forest-background overlay (`html::before`/`html::after` in `tailwind.css`, fixed/negative `z-index`) applies the same `trees-origin_v1.jpg` on every route at low opacity (0.33 light / 0.17 dark) under a green/white tint gradient - `body` no longer carries its own background-image. The homepage mounts `HomepageAtmosphere.vue` only on `/`, repeating the identical image+gradient treatment as a foreground layer (`z-index: 0`) behind the existing fractal/content layers. Default is dark (set pre-paint by an inline script in `app.head`, persisted in `localStorage['theme']`); `useTheme()` + `<ThemeToggle>` switch with a View Transitions circular reveal. Many components still hardcode `text-white/X` etc. (baked in for dark) - light theme is token-level only, not yet polished per-component.
 
@@ -83,7 +84,11 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 **Types.** Shared types in `app/types/index.ts`. Entities extend `BaseEntity` (`slug`, `title`, `visible`, `date`); API responses typed `XxxResponse` as `Record<string, Xxx> | Xxx[]` for both backends.
 
-**SEO.** Every page calls `useSeoMeta()` (full OG + Twitter tags); brand defaults in `app/app.config.ts`; sitemap suppressed on `stage--` deploys.
+**SEO.** Every public page calls `useSeoMeta()` (full OG + Twitter tags) plus `useCanonical()` (`app/composables/useCanonical.ts` - thin wrapper over `useAbsoluteUrl()` rendering `<link rel="canonical">`); brand defaults in `app/app.config.ts`; sitemap suppressed on `stage--` deploys.
+
+**Sitemap.** `@nuxtjs/sitemap` sources URLs from `/api/__sitemap__/urls` (`server/api/__sitemap__/urls.get.ts`), backed by the pure, unit-testable `buildSitemapUrls()` (`server/utils/sitemapUrls.ts`) which reads the local `sentimony-db-export.json` export directly - **no** live Firebase/Supabase fetch. Track URLs reuse `parseTrackParagraph()` from `firebaseCatalog.ts` so slugs stay in sync with `/api/track/[id]`.
+
+**Robots/noindex.** Auth pages (`/signin`, `/signup`, `/forgot-password`, `/reset-password`, `/confirm`) and `/profile/**` are noindexed via `routeRules` + `buildNoindexRouteRules()` (`server/utils/robotsPolicy.ts`, same pattern as `buildApiRouteRules()`) - **not** `definePageMeta({ robots: false })`, which silently no-ops in this project's Nuxt 4 + `@nuxtjs/robots` setup (`pageMetaRobots` stays `{}` in the compiled bundle; verified via `.nuxt/dev/index.mjs`). `routeRules` with `robots: false` also auto-excludes those paths from the sitemap, so no separate `sitemap.exclude` is needed.
 
 **Artist `category_id` numbering.** `category_id` — унікальний тризначний рядок (`"001"`–`"238"` наразі), який задає порядок артистів і відображається як бейдж на картці. Для перших 226 артистів канонічні номери та порядок беруться з inline-коментарів `// NNN slug` у `/Users/ihororlovskyi/work/github/ihororlovskyi/sentimony-images/src/data/artist-images.ts`; порядок `server/data/server/sentimony-db-export.json` має повторювати цей список, пропускаючи дублікати фото.
 

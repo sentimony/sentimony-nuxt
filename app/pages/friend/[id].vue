@@ -13,6 +13,7 @@ if (friendError.value || !item.value) {
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageDescription = computed(() => [item.value?.title].filter(Boolean).join(' - '))
 useSeoMeta({
   title: () => item.value?.title,

@@ -104,6 +104,9 @@ npx skills add obra/superpowers -s test-driven-development -a codex claude-code 
 
 # GRAPH
 # uv tool install graphifyy
+# than in project folder
+# graphify install --project
+# uninstall
 # uv tool uninstall graphifyy
 
 # TOKENOMICS

@@ -5,6 +5,7 @@ const email = 'sentimony@gmail.com'
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Contacts'
 const PageDescription = 'Contact Sentimony Records for demos, bookings, licensing and partnerships. Reach our team via email - we reply to relevant inquiries.'
 useSeoMeta({

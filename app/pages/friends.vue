@@ -7,6 +7,7 @@ const friendsSortedByDate = computed(() => visibleByDate(friends.value))
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Friends'
 const PageDescription = 'Friends and partners of Sentimony Records: labels, promoters, media and allies supporting psytrance darkprog and psychill culture.'
 useSeoMeta({

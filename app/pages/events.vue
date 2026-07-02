@@ -6,6 +6,7 @@ const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
 const eventsSortedByDate = computed(() => visibleByDate(events.value))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Events'
 const PageDescription = 'Sentimony Records events and gigs: label nights, festival shows and live performances across psytrance darkprog and psychill. Dates, venues, lineups.'
 useSeoMeta({

@@ -1,6 +1,7 @@
 import { serverSupabaseUser } from '#supabase/server'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { H3Event } from 'h3'
+import type { SupabaseReleaseRow } from './supabase'
 
 function dynamicAdminClient(): SupabaseClient {
   return supabaseAdmin() as unknown as SupabaseClient
@@ -118,7 +119,7 @@ export async function fetchLikedItems(
     if (error) throw createError({ statusCode: 500, statusMessage: error.message })
 
     const rows = ((data as unknown as { slug: string }[] | null) ?? [])
-      .map(row => entityTable === 'releases' ? mapReleaseFromSupabase(row as Record<string, unknown>) as { slug: string } : row)
+      .map(row => entityTable === 'releases' ? mapReleaseFromSupabase(row as SupabaseReleaseRow) as { slug: string } : row)
     const sorted = slugs.map(slug => rows.find(row => row.slug === slug)).filter(Boolean)
 
     return { data: sorted, total: count ?? 0 }

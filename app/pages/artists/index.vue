@@ -47,7 +47,6 @@ useSeoMeta({
       </NuxtLink>
     </div>
 
-    <!-- <h2 class="">Producers & Musicians</h2> -->
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMusician"

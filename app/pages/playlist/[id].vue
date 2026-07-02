@@ -31,6 +31,7 @@ const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageDescription = computed(() => [
   item.value?.title,
   item.value?.style,

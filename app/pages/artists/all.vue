@@ -14,9 +14,19 @@ const sections: Array<{ label: string; category: ArtistCategory }> = [
   { label: 'Visual Artists & Designers', category: 'designer' },
 ]
 
-function sectionArtists(category: ArtistCategory) {
-  return sorted.value.filter(a => a.category === category)
-}
+const flagCodes = computed(() =>
+  sorted.value.reduce<Record<string, string | null>>((acc, a) => {
+    acc[a.slug] = locationToIso2(a.location || '')
+    return acc
+  }, {})
+)
+
+const sectionedArtists = computed(() =>
+  sections.map(s => ({
+    ...s,
+    artists: sorted.value.filter(a => a.category === s.category),
+  }))
+)
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
@@ -49,18 +59,18 @@ useSeoMeta({
       </NuxtLink>
     </div>
 
-    <template v-for="section in sections" :key="section.category">
-      <template v-if="sectionArtists(section.category).length > 0">
+    <template v-for="section in sectionedArtists" :key="section.category">
+      <template v-if="section.artists.length > 0">
         <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">{{ section.label }}</h2>
         <ul class="space-y-1">
           <li
-            v-for="artist in sectionArtists(section.category)"
+            v-for="artist in section.artists"
             :key="artist.slug"
             class="flex items-center gap-3"
           >
             <span
-              v-if="locationToIso2(artist.location || '')"
-              :class="`fi fi-${locationToIso2(artist.location || '')} rounded-sm shrink-0`"
+              v-if="flagCodes[artist.slug]"
+              :class="`fi fi-${flagCodes[artist.slug]} rounded-sm shrink-0`"
               :title="artist.location || ''"
             />
             <span v-else class="w-[1.33em] shrink-0" />
