@@ -33,3 +33,24 @@ describe('AudioMixPlayer.vue', () => {
     expect(component).toContain('font-mono')
   })
 })
+
+describe('artist page mix tab', () => {
+  const page = readProjectFile('app/pages/artist/[id].vue')
+
+  it('gates the Mix tab on mix_audio_url', () => {
+    expect(page).toContain('v-if="item.mix_audio_url"')
+  })
+
+  it('renders AudioMixPlayer with the mix title and release tracklist', () => {
+    expect(page).toContain('<AudioMixPlayer')
+    expect(page).toContain("item.mix_audio_url || ''")
+    expect(page).toContain(':title="item.mix_title"')
+    expect(page).toContain('mixRelease?.tracklistCompact')
+  })
+
+  it('looks up mixRelease by mix_release_slug without touching the iframe tabs', () => {
+    expect(page).toContain('mix_release_slug')
+    expect(page).toContain('v-if="item.youtube_playlist_id"')
+    expect(page).toContain('v-if="item.soundcloud_track_id"')
+  })
+})

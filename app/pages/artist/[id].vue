@@ -25,6 +25,10 @@ setCount(item.value!.slug, item.value!.like_count ?? 0)
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 
+const mixRelease = computed(() =>
+  releasesSortedByDate.value.find(r => r.slug === item.value?.mix_release_slug)
+)
+
 const portfolioReleases = computed(() => {
   if (item.value?.category !== 'designer') return []
   const slug = item.value.slug
@@ -177,6 +181,18 @@ useSeoMeta({
           <div class="relative max-w-135 mx-auto w-full mb-4">
 
             <Tabs>
+
+              <Tab
+                v-if="item.mix_audio_url"
+                icon="lucide:music"
+                title="Mix"
+              >
+                <AudioMixPlayer
+                  :src="item.mix_audio_url || ''"
+                  :title="item.mix_title"
+                  :tracklist="mixRelease?.tracklistCompact"
+                />
+              </Tab>
 
               <Tab
                 v-if="item.youtube_playlist_id"

@@ -83,6 +83,9 @@ export interface Artist extends BaseEntity {
   wikipedia_url?: string
   youtube_playlist_id?: string
   soundcloud_track_id?: string
+  mix_audio_url?: string
+  mix_title?: string
+  mix_release_slug?: string
   like_count?: number
 }
 
