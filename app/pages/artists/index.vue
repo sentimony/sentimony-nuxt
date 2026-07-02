@@ -17,6 +17,7 @@ const artistsSortedByCategoryIdDesigner = filterByCategory('designer')
 const artistsSortedByCategoryIdMastering = filterByCategory('mastering')
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Artists'
 const PageDescription = 'Discover Sentimony Records artists: psytrance darkprog and psychill producers, DJs, sound engineers and visual designers. Profiles, releases, links.'
 useSeoMeta({
@@ -36,7 +37,15 @@ useSeoMeta({
 <template>
   <div class="container max-w-[112rem]">
 
-    <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
+    <div class="flex items-baseline justify-between my-4 md:my-6">
+      <h1 class="text-2xl md:text-4xl">{{ PageTitle }}</h1>
+      <NuxtLink
+        to="/artists/all"
+        class="text-sm text-white/50 hover:text-white/80 underline underline-offset-2"
+      >
+        View all (text list)
+      </NuxtLink>
+    </div>
 
     <!-- <h2 class="">Producers & Musicians</h2> -->
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
