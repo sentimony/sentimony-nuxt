@@ -55,4 +55,33 @@ describe('parseTrackParagraph', () => {
     expect(track.title).toBe('Bare Track')
     expect(track.bpm).toBe(140)
   })
+
+  it('parses multiple bold artists joined by &', () => {
+    const track = parseTrackParagraph(
+      '<small>5.</small> <b>ExoFlux</b> & <b>Frog Prog</b> - VIsions <small>(132bpm)</small>',
+      'test-release',
+      4,
+      new Map([['exoflux', 'exoflux'], ['frog prog', 'frog-prog']]),
+    )
+
+    expect(track.slug).toBe('exoflux-frog-prog-visions')
+    expect(track.artist_name).toBe('ExoFlux & Frog Prog')
+    expect(track.artist_slug).toBe('exoflux,frog-prog')
+    expect(track.title).toBe('VIsions')
+    expect(track.bpm).toBe(132)
+  })
+
+  it('keeps a bold remix artist inside the title out of the artist list', () => {
+    const track = parseTrackParagraph(
+      '<small>7.</small> <b>EleexR</b> - Zemnosis (<b>Frog Prog</b> Rmx) <small>(138bpm)</small>',
+      'test-release',
+      6,
+      new Map([['eleexr', 'eleexr'], ['frog prog', 'frog-prog']]),
+    )
+
+    expect(track.slug).toBe('eleexr-zemnosis-frog-prog-rmx')
+    expect(track.artist_name).toBe('EleexR')
+    expect(track.artist_slug).toBe('eleexr')
+    expect(track.title).toBe('Zemnosis (Frog Prog Rmx)')
+  })
 })

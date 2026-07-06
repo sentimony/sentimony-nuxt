@@ -98,7 +98,6 @@ async function fetchArtists(artistSlugs: string[]) {
       .from('artists')
       .select('*')
       .in('slug', artistSlugs)
-      .eq('visible', true)
 
     return (data ?? []) as Artist[]
   }

@@ -28,7 +28,7 @@ npx supabase link --project-ref dugbgewuzowoogglccue --yes   # link project befo
 
 Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores.
 No `npm run typecheck` script exists yet; use `npx nuxi typecheck`.
-Current focused verification baseline: `npm run test:unit` -> 26 files / 99 tests; `npx nuxi typecheck` passes with local Supabase env warnings.
+Current focused verification baseline: `npm run test:unit` -> 27 files / 107 tests; `npx nuxi typecheck` passes with local Supabase env warnings.
 
 Supabase CLI: використовувати через `npx supabase` (не глобальний). `SUPABASE_ACCESS_TOKEN` (формат `sbp_...`) — Personal Access Token з [Supabase Dashboard → Account → Access Tokens](https://supabase.com/dashboard/account/tokens), зберігати в `.env/.env.local`.
 

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed, toRef } from 'vue'
+import type { ItemEntity } from '~/types'
 
 const props = defineProps<{
-  i?: any
+  i: ItemEntity & { date?: string }
   category?: string
 }>()
 

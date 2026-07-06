@@ -60,12 +60,18 @@ export function parseTrackParagraph(
   const numMatch = paragraph.match(/<small>(\d+)\.<\/small>/)
   const trackNumber = numMatch ? Number.parseInt(numMatch[1]!, 10) : index + 1
 
-  const artistMatch = paragraph.match(/<b>(.*?)<\/b>/)
-  const artistName = artistMatch ? artistMatch[1]!.trim() : ''
-  const artistSlug = artistByTitle.get(artistName.toLowerCase()) || slugifyFirebaseTrackPart(artistName)
-
   const withoutBpm = paragraph.replace(/\s*<small>\([^)]*bpm\)<\/small>.*$/i, '')
-  const titleRaw = withoutBpm.replace(/^<small>\d+\.<\/small>[^<]*<b>.*?<\/b>\s*-\s*/, '')
+  const prefixMatch = withoutBpm.match(/^<small>\d+\.<\/small>[^<]*((?:<b>.*?<\/b>(?:\s*&(?:amp;)?\s*)?)+)\s*-\s*/)
+  const artistHtml = prefixMatch ? prefixMatch[1]! : (withoutBpm.match(/<b>.*?<\/b>/)?.[0] ?? '')
+  const artistNames = [...artistHtml.matchAll(/<b>(.*?)<\/b>/g)].map(m => m[1]!.trim()).filter(Boolean)
+  const artistName = artistNames.join(' & ')
+  const artistSlug = artistNames
+    .map(name => artistByTitle.get(name.toLowerCase()) || slugifyFirebaseTrackPart(name))
+    .join(',')
+
+  const titleRaw = prefixMatch
+    ? withoutBpm.slice(prefixMatch[0].length)
+    : withoutBpm.replace(/^<small>\d+\.<\/small>[^<]*<b>.*?<\/b>\s*-\s*/, '')
   const title = titleRaw.replace(/<[^>]+>/g, '').replace(/\s*\(\d+(?:-\d+)?bpm\)\s*$/i, '').trim()
 
   const bpmMatch = paragraph.match(/\((\d+)(?:-(\d+))?bpm\)/i)

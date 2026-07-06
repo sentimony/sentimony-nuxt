@@ -4,12 +4,12 @@ export interface FormatDateOptions extends Intl.DateTimeFormatOptions {
 }
 
 export function useDate() {
-  const runtime = useRuntimeConfig?.() as any
+  const runtime = useRuntimeConfig?.() as { public?: { dateLocale?: string } } | undefined
   const defaultLocale = runtime?.public?.dateLocale || 'en-GB'
 
   const toDate = (value?: string | number | Date | null) => {
     if (value == null || value === '') return null
-    const d = new Date(value as any)
+    const d = new Date(value)
     return isNaN(d.getTime()) ? null : d
   }
 

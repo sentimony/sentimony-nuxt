@@ -80,9 +80,9 @@
     "semantic_hash": "af9035fb8e457f7392da0680c3b65d05"
   },
   "app/components/RelativeItem.vue": {
-    "mtime": 1782491668.8170462,
-    "ast_hash": "ce13179fe0b490c4fd75115f6cae7694",
-    "semantic_hash": "ce13179fe0b490c4fd75115f6cae7694"
+    "mtime": 1783372845.9741957,
+    "ast_hash": "f7d5d9f19553c32aa859dae75f1119b1",
+    "semantic_hash": ""
   },
   "app/components/SvgTriangle.vue": {
     "mtime": 1781665873.5237668,
@@ -90,9 +90,9 @@
     "semantic_hash": "25398505e7a883b4db089eea3f82cec8"
   },
   "app/components/Swiper.vue": {
-    "mtime": 1782977857.6893313,
-    "ast_hash": "01a4ee46d12d22357b9b74554fc90f3e",
-    "semantic_hash": "01a4ee46d12d22357b9b74554fc90f3e"
+    "mtime": 1783372787.4130723,
+    "ast_hash": "b6e8af37ccde04f062b6ec37a196af17",
+    "semantic_hash": ""
   },
   "app/components/Tab.vue": {
     "mtime": 1783304788.029681,
@@ -240,9 +240,9 @@
     "semantic_hash": "72bdb8cd5c6542d5013f020e3bf9ab78"
   },
   "app/composables/useDate.ts": {
-    "mtime": 1777943857.9934404,
-    "ast_hash": "ea3bb6c87c07fde45b0529a8e533737f",
-    "semantic_hash": "ea3bb6c87c07fde45b0529a8e533737f"
+    "mtime": 1783372793.0043669,
+    "ast_hash": "a6b5930f72497924da862085871cc3b5",
+    "semantic_hash": ""
   },
   "app/composables/useEvent.ts": {
     "mtime": 1782432229.1932688,
@@ -440,8 +440,8 @@
     "semantic_hash": "e9ca2cb8ff7e7e99cffcc2120fe5b5b5"
   },
   "app/pages/release/[id].vue": {
-    "mtime": 1783312124.283815,
-    "ast_hash": "6029ca0e68398e595ba8e3afab3d8b74",
+    "mtime": 1783372750.2180471,
+    "ast_hash": "840774b3237185cf9d2fc35742d6644f",
     "semantic_hash": ""
   },
   "app/pages/signin.vue": {
@@ -455,13 +455,13 @@
     "semantic_hash": "25118ca7bed4ec850c6e1da77f68fb45"
   },
   "app/pages/track/[id].vue": {
-    "mtime": 1783312263.7713842,
-    "ast_hash": "94a1673625c596884afaee1843036a3e",
+    "mtime": 1783323902.5267446,
+    "ast_hash": "9ba9975f7bb836927f1703efba127d23",
     "semantic_hash": ""
   },
   "app/pages/tracks.vue": {
-    "mtime": 1783312149.753232,
-    "ast_hash": "0ab8eb261ff77615335c924d387c87ee",
+    "mtime": 1783372773.344958,
+    "ast_hash": "b57a5f7f6d75b4ca12cc6ccfed9b7aad",
     "semantic_hash": ""
   },
   "app/pages/video/[id].vue": {
@@ -700,8 +700,8 @@
     "semantic_hash": "c62ca98d40d08aadb503a2f2f3e40653"
   },
   "server/api/track/[id].get.ts": {
-    "mtime": 1783312088.0841746,
-    "ast_hash": "b725930ab6ddce6829db8b7c119351e7",
+    "mtime": 1783347738.6747684,
+    "ast_hash": "3166baeea6815612c5bd5edcdfa9aca7",
     "semantic_hash": ""
   },
   "server/api/tracks/[release_slug].get.ts": {
@@ -770,9 +770,9 @@
     "semantic_hash": "4f5c65449178e47a111adc6611e0f8c3"
   },
   "server/utils/logger.ts": {
-    "mtime": 1777943858.020695,
-    "ast_hash": "de9c1581ddc65aa2b0c68154607c530a",
-    "semantic_hash": "de9c1581ddc65aa2b0c68154607c530a"
+    "mtime": 1783372798.2256079,
+    "ast_hash": "4d9b7352e3215f450a1624d25de58759",
+    "semantic_hash": ""
   },
   "server/utils/supabase.ts": {
     "mtime": 1782879383.7590613,
@@ -1170,8 +1170,8 @@
     "semantic_hash": "657e05d3a3dc9f4d2e854ee9b77f3971"
   },
   "server/utils/firebaseCatalog.ts": {
-    "mtime": 1783311860.6360612,
-    "ast_hash": "607eb0b45ea6d72a13ebdd1b739ae4b1",
+    "mtime": 1783323952.4014437,
+    "ast_hash": "4f1baaf6ce8e5061c1c25fb07f8fb492",
     "semantic_hash": ""
   },
   "server/utils/likeCounts.ts": {
@@ -1355,8 +1355,8 @@
     "semantic_hash": ""
   },
   "app/components/AudioTrackPlaylist.vue": {
-    "mtime": 1783307000.6852252,
-    "ast_hash": "a3dcd4b82158409d260d454d80fc09b3",
+    "mtime": 1783350296.6144183,
+    "ast_hash": "005c19a41e7a55a279a70262d8cadb73",
     "semantic_hash": ""
   },
   "server/api/artists-all.get.ts": {
@@ -1385,13 +1385,8 @@
     "semantic_hash": ""
   },
   "server/data/sentimony-db-export.json": {
-    "mtime": 1783311605.8091044,
-    "ast_hash": "c6827c7f43e15e5c657f31658861b215",
-    "semantic_hash": ""
-  },
-  "server/data/tracks.json": {
-    "mtime": 1783308903.7100651,
-    "ast_hash": "a45db11ad9ab3ea9039291a58f8bb215",
+    "mtime": 1783352837.3803573,
+    "ast_hash": "5ddc201f217dbd468456c566aa4b1f83",
     "semantic_hash": ""
   },
   "server/api/tracks/index.get.ts": {
@@ -1407,6 +1402,21 @@
   "docs/superpowers/plans/2026-07-06-tracks-first-class-migration.md": {
     "mtime": 1783311493.034492,
     "ast_hash": "b425a0d9eb72e90dc82ded3c284e22c8",
+    "semantic_hash": ""
+  },
+  "app/components/TrackArtists.vue": {
+    "mtime": 1783323860.6496363,
+    "ast_hash": "846c12db28d289421141836753251140",
+    "semantic_hash": ""
+  },
+  "app/utils/tracks.ts": {
+    "mtime": 1783351532.6963644,
+    "ast_hash": "b71412a74dc4c6a4f1a7aed3cbd5e196",
+    "semantic_hash": ""
+  },
+  "app/components/TrackTitle.vue": {
+    "mtime": 1783351533.7690015,
+    "ast_hash": "a22617cbc352ec44284f8042c71a1c1d",
     "semantic_hash": ""
   }
 }

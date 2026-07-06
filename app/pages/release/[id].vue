@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { createError } from '#app'
+import AudioTrackPlaylist from '~/components/AudioTrackPlaylist.vue'
+import { toArray } from '~/composables/toArray'
+import type { Artist } from '~/types'
 
 const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount, setCount } = useLikes()
@@ -26,10 +29,26 @@ if (releaseError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Release not found' })
 }
 
-onMounted(() => {
+const playCounts = ref<Record<string, number>>({})
+const tracklistSlugs = computed(() => (item.value?.tracklist ?? []).map(t => t.slug).filter(Boolean))
+
+onMounted(async () => {
   if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
   tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
+
+  if (tracklistSlugs.value.length) {
+    playCounts.value = await $fetch<Record<string, number>>('/api/track-plays', {
+      query: { slugs: tracklistSlugs.value.join(',') },
+    }).catch(() => ({}))
+  }
 })
+
+const player = ref<InstanceType<typeof AudioTrackPlaylist> | null>(null)
+
+function playFromTracklist(slug: string) {
+  const index = playerTracks.value.findIndex(t => t.slug === slug)
+  if (index >= 0) player.value?.playTrack(index)
+}
 
 const playerTracks = computed(() =>
   (item.value?.tracklist ?? []).filter(t => t.url).map(t => ({
@@ -37,6 +56,12 @@ const playerTracks = computed(() =>
     url: t.url,
     slug: t.slug,
   }))
+)
+
+const allArtistsAsync = useFetch<Record<string, Artist> | Artist[]>('/api/artists-all', { server: false })
+const allArtists = computed(() => toArray<Artist>(allArtistsAsync.data.value))
+const titleArtists = computed(() =>
+  (allArtists.value.length ? allArtists.value : relatedArtists.value),
 )
 
 const artistSlugByTrackNumber = computed(() =>
@@ -239,7 +264,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 icon="sentimony:logo"
                 title="Sentimony"
               >
-                <AudioTrackPlaylist :tracks="playerTracks" />
+                <AudioTrackPlaylist ref="player" :tracks="playerTracks" />
               </Tab>
 
               <Tab
@@ -371,22 +396,54 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             >
               <span class="min-w-0">
                 <small class="font-mono">{{ String(t.track_number).padStart(2, '0') }}.</small>
-                <template v-if="artistSlugByTrackNumber.get(t.track_number)">
-                  <NuxtLink :to="`/artist/${artistSlugByTrackNumber.get(t.track_number)}`" class="hover:underline"><b>{{ t.artist }}</b></NuxtLink>
-                </template>
-                <b v-else>{{ t.artist }}</b>
+                <TrackArtists :name="t.artist" :slug="artistSlugByTrackNumber.get(t.track_number)" />
                 -
-                <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+                <TrackTitle :title="t.title" :artists="titleArtists" />
                 <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
               </span>
-              <button
-                @click="toggleTrackLike(t.slug)"
-                class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 shrink-0"
-                :class="isTrackLiked(t.slug) ? 'border-red-400/30 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
-              >
-                <Icon name="lucide:thumbs-up" size="12" />
-                <span v-if="trackLikeCount(t.slug) > 0">{{ trackLikeCount(t.slug) }}</span>
-              </button>
+              <span class="flex items-center gap-1 shrink-0">
+                <TooltipProvider :delay-duration="0">
+                  <Tooltip>
+                    <TooltipTrigger as-child>
+                      <button
+                        :disabled="!t.url"
+                        @click="playFromTracklist(t.slug)"
+                        class="flex items-center text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 border-foreground/20 text-foreground/40 hover:text-foreground/70 disabled:opacity-30 disabled:pointer-events-none"
+                        aria-label="Play"
+                      >
+                        <Icon name="lucide:play" size="12" />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent>Play</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                <NuxtLink
+                  :to="`/track/${t.slug}`"
+                  class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 border-foreground/20 text-foreground/40 hover:text-foreground/70"
+                >
+                  <Icon name="lucide:audio-lines" size="12" />
+                  View Track
+                </NuxtLink>
+                <TooltipProvider v-if="playCounts[t.slug]" :delay-duration="0">
+                  <Tooltip>
+                    <TooltipTrigger as-child>
+                      <span class="flex items-center gap-1 text-xs font-mono px-2 py-1 text-foreground/40">
+                        <Icon name="lucide:headphones" size="12" />
+                        {{ playCounts[t.slug] }}
+                      </span>
+                    </TooltipTrigger>
+                    <TooltipContent>Plays</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                <button
+                  @click="toggleTrackLike(t.slug)"
+                  class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10"
+                  :class="isTrackLiked(t.slug) ? 'border-red-400/30 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
+                >
+                  <Icon name="lucide:thumbs-up" size="12" />
+                  <span v-if="trackLikeCount(t.slug) > 0">{{ trackLikeCount(t.slug) }}</span>
+                </button>
+              </span>
             </p>
           </template>
         </div>

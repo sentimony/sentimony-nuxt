@@ -4520,7 +4520,7 @@
       "wikipedia_url": ""
     },
     "omega-sound": {
-      "title": "omega-sound",
+      "title": "Omega Sound",
       "slug": "omega-sound",
       "visible": false,
       "category": "musician",
@@ -7858,6 +7858,17 @@
       "youtubemusic_url": "",
       "website": "",
       "wikipedia_url": ""
+    },
+    "exoflux": {
+      "title": "ExoFlux",
+      "slug": "exoflux",
+      "visible": false,
+      "category": "musician",
+      "category_id": "239",
+      "name": "",
+      "location": "",
+      "style": "",
+      "information": ""
     }
   },
   "events": {
@@ -10108,12 +10119,12 @@
       "tracklist": [
         "cifroteca-unknown-signals",
         "roof-raiser-parallel-reality",
-        "cifroteca-wild-storm",
+        "cifroteca-roof-raiser-wild-storm",
         "cifroteca-coocoo-2019",
         "roof-raiser-warning-signal",
         "cifroteca-star-bolide",
         "roof-raiser-object-m82",
-        "roof-raiser-bukanna",
+        "roof-raiser-cifroteca-bukanna",
         "cifroteca-burning-syncho",
         "roof-raiser-abnormal-plants"
       ]
@@ -10684,7 +10695,7 @@
         "zymosis-where-can-i-find-you",
         "zymosis-sansara-rework",
         "zymosis-omgty",
-        "zymosis-u-zemli"
+        "zymosis-katya-chilly-u-zemli"
       ]
     },
     "overdream-beautiful-thinking": {
@@ -11724,7 +11735,7 @@
         "artech-stringer-mode",
         "artech-high-lander",
         "artech-the-mission",
-        "artech-possible-chemistry"
+        "artech-3pointz-possible-chemistry"
       ]
     },
     "va-futured-vol-3": {
@@ -11981,9 +11992,9 @@
         "irukanji-here-and-now",
         "tookytooky-nature-of-uncertainty",
         "sky-mavka-glass-cave",
-        "hardcore-buddhist-sea-dream-live-version",
+        "hardcore-buddhist-art-imagination-sea-dream-live-version",
         "e-mantra-approaching-nibiru-sky-technology-rmx",
-        "ahanjack-onaion"
+        "ahanjack-yoi-onaion"
       ]
     },
     "gojja-amber-current": {
@@ -12124,9 +12135,9 @@
         "youtube_playlist_id": "PLp2GaPnw5O3OZLFzu7ceNE1iQDnwc974j"
       },
       "tracklist": [
-        "gaz-mask-zeta-reticuli",
+        "gaz-mask-mojo-s-ears-zeta-reticuli",
         "gaz-mask-trick-or-treat",
-        "gaz-mask-quetzalcoatl",
+        "gaz-mask-deuteroz-quetzalcoatl",
         "paracozm-multiverse-gaz-mask-rmx-ii"
       ]
     },
@@ -12272,9 +12283,9 @@
         "youtube_playlist_id": "PLp2GaPnw5O3OTJi9c128zE9F9Hgrg6X-m"
       },
       "tracklist": [
-        "kabi-dark-horse",
+        "kabi-tystix-dark-horse",
         "kabi-confrogulated",
-        "kabi-sceletium-gut",
+        "kabi-psydewise-sceletium-gut",
         "kabi-ingibiginging"
       ]
     },
@@ -12566,7 +12577,7 @@
         "youtube_playlist_id": "PLp2GaPnw5O3MY1darWbU4NtkRyRCgiaLT"
       },
       "tracklist": [
-        "apex-half-light-lexicon",
+        "apex-scionaugh-half-light-lexicon",
         "doonz-wonder-wander",
         "psydewise-parabuthus",
         "irukanji-auto-approve",
@@ -12797,9 +12808,9 @@
         "youtube_playlist_id": "PLp2GaPnw5O3Nza47N2nVqQe0z-sNH8HuM"
       },
       "tracklist": [
-        "paracozm-too-weird-to-live-too-rare-to-die",
-        "paracozm-mind-awake",
-        "paracozm-the-code"
+        "paracozm-vorg-too-weird-to-live-too-rare-to-die",
+        "paracozm-vorg-mind-awake",
+        "paracozm-vorg-the-code"
       ]
     },
     "psypheric-pa-leting-etter": {
@@ -13079,7 +13090,7 @@
         "juelz-floortalk",
         "psydewise-microscope",
         "irukanji-from-my-nerves",
-        "delphic-mycelia-1-8",
+        "delphic-aukaro-mycelia-1-8",
         "specialmind-usual-magic",
         "vorg-human-interaction",
         "exolt-mind-manfest",
@@ -13397,7 +13408,7 @@
         "youtube_playlist_id": "PLp2GaPnw5O3PWub0fMWIo3jV7-bBuvvVm"
       },
       "tracklist": [
-        "gaz-mask-dizzy-transistors",
+        "gaz-mask-mojo-s-ears-dizzy-transistors",
         "gaz-mask-valle-sagrado",
         "gaz-mask-uroboros-4-life",
         "gaz-mask-zigurate"
@@ -13468,8 +13479,8 @@
       },
       "tracklist": [
         "irukanji-deep-deep-deep",
-        "irukanji-it-will-grow",
-        "irukanji-hey-mondegreen",
+        "irukanji-eleexr-it-will-grow",
+        "irukanji-eleexr-hey-mondegreen",
         "irukanji-natiform"
       ]
     },
@@ -13745,8 +13756,8 @@
         "youtube_playlist_id": "PLp2GaPnw5O3P-IksgETSuNBuBCHvpBGPl"
       },
       "tracklist": [
-        "unusual-cosmic-process-sunrise-over-black-sea",
-        "e-mantra-shore-of-light"
+        "unusual-cosmic-process-e-mantra-sunrise-over-black-sea",
+        "e-mantra-unusual-cosmic-process-shore-of-light"
       ]
     },
     "noob-psybot-fiends-obscure-litany": {
@@ -13813,10 +13824,10 @@
         "youtube_playlist_id": "PLp2GaPnw5O3OC_3XdIBPycuLNvBK8pbl-"
       },
       "tracklist": [
-        "noob-psybot-obscure-litany",
+        "noob-psybot-geozen-obscure-litany",
         "noob-psybot-stoned-lizards",
-        "noob-psybot-portal-kombat",
-        "noob-psybot-run-dmt"
+        "noob-psybot-anomalie-in-portal-kombat",
+        "noob-psybot-alien-time-run-dmt"
       ]
     },
     "va-futured-vol-5": {
@@ -13947,17 +13958,17 @@
       },
       "tracklist": [
         "psydewise-zontar",
-        "noob-psybot-dogon",
+        "noob-psybot-halform-dogon",
         "kabi-pomp-dit",
         "vorg-digital-choice",
         "beartone-flexible-voices",
-        "irukanji-roadrunner",
+        "irukanji-eleexr-roadrunner",
         "dmnt-flor-de-loto",
         "darkol-trinity-samuro",
         "declaration-of-unity-melting-point",
         "derotonin-discombob-s-your-uncle",
-        "sumiruna-antithesis-sourone-mix",
-        "noid-1-simple-thing",
+        "sumiruna-sourone-antithesis-sourone-mix",
+        "noid-jai-1-simple-thing",
         "juelz-folie-a-deux",
         "kauyumari-sonic-alchemy",
         "gaz-mask-time-is-a-flat-circle",
@@ -13965,7 +13976,7 @@
         "space-organ-hide-on-bush",
         "deuteroz-stop-witchcraft",
         "exolt-star-children",
-        "diffus-repetition-compulsion-142pbm",
+        "diffus-irrbloss-repetition-compulsion-142pbm",
         "tystix-cellular-witness",
         "juelz-future-facing-hedonythm-rmx",
         "urjasa-reeferman",
@@ -14106,10 +14117,10 @@
         "youtube_playlist_id": "PLp2GaPnw5O3Nx-Uf5RrbL1jCv23W8HlmS"
       },
       "tracklist": [
-        "irukanji-i-have-something",
-        "irukanji-inside-your-head",
-        "irukanji-so-open-minded",
-        "irukanji-the-key"
+        "irukanji-eleexr-i-have-something",
+        "irukanji-eleexr-inside-your-head",
+        "irukanji-eleexr-so-open-minded",
+        "irukanji-eleexr-the-key"
       ]
     },
     "from-vacuum-banglich": {
@@ -14473,7 +14484,7 @@
       "tracklist": [
         "eleexr-everybody-lies",
         "eleexr-behind-dark-mirrors",
-        "eleexr-another-mirror",
+        "eleexr-irukanji-another-mirror",
         "eleexr-thousand-mirrors-vorg-rmx",
         "eleexr-everybody-lies-torus-knot-believes-in-humanity-rmx"
       ]
@@ -14615,11 +14626,11 @@
         "youtube_playlist_id": "PLp2GaPnw5O3MKsmXHlcCbNuSmzFBxO2wZ"
       },
       "tracklist": [
-        "paracozm-as-above-so-below",
-        "paracozm-the-swarm",
-        "paracozm-visions",
-        "paracozm-hyperqube",
-        "paracozm-the-dream"
+        "paracozm-vorg-as-above-so-below",
+        "paracozm-vorg-the-swarm",
+        "paracozm-vorg-visions",
+        "paracozm-vorg-hyperqube",
+        "paracozm-vorg-the-dream"
       ]
     },
     "va-futured-vol-6": {
@@ -14763,14 +14774,14 @@
         "sourone-the-alpha",
         "psydewise-mars-needs-women",
         "syned-brain-inception",
-        "eleexr-infiltrato-modula",
+        "eleexr-torus-knot-infiltrato-modula",
         "irukanji-sunday-morning",
         "space-organ-forest-call",
         "declaration-of-unity-great-job",
         "urklang-alience-dance",
         "gaz-mask-dizzy-tales",
         "frog-prog-mystic-signs",
-        "deuteroz-aldebaran-requiem",
+        "deuteroz-chaos-achemist-aldebaran-requiem",
         "balcosmos-feed-your-wolf",
         "derotonin-buoyant",
         "kabi-dirty-something",
@@ -15020,7 +15031,7 @@
         "spacecraft-metamorphosis",
         "spacecraft-uncover",
         "spacecraft-boogyman",
-        "irukanji-i-have-something-spacecraft-rmx"
+        "irukanji-eleexr-i-have-something-spacecraft-rmx"
       ]
     },
     "mushroomslice-astro-review": {
@@ -15385,7 +15396,7 @@
         "djeriko-submarino",
         "djeriko-ciclo-de-viento-y-miradas",
         "djeriko-fractal-legions",
-        "tharok-out-of-orbit"
+        "tharok-djeriko-out-of-orbit"
       ]
     },
     "fracktom-chronicles-of-chaos": {
@@ -16321,10 +16332,10 @@
       },
       "tracklist": [
         "akhos-deep-down",
-        "derotonin-the-first-pancake",
+        "derotonin-aleckat-the-first-pancake",
         "sourone-ghostwire",
         "eleexr-unexpected-shift",
-        "vorg-medicated",
+        "vorg-soulid-medicated",
         "jakanatura-upsetting",
         "irukanji-tamed-siren",
         "declaration-of-unity-ytinav",
@@ -16336,15 +16347,15 @@
         "tonal-sense-runs-through-my-veins",
         "urklang-dark-stepper",
         "nuada-the-sonny-side",
-        "shmewl-fusion-contrast",
-        "exolt-flexoltus",
+        "shmewl-deuteroz-fusion-contrast",
+        "exolt-flexxodus-flexoltus",
         "bensaid-new-chapter",
         "psydewise-pulsars",
         "frog-prog-andromeda",
-        "djeriko-axis-mundi",
+        "djeriko-omsense-beka-axis-mundi",
         "mushroomslice-impromptu-shadows",
         "qube-the-monster",
-        "spacecraft-space-roots",
+        "spacecraft-alternative-roots-space-roots",
         "kauyumari-subterrenean-pulse",
         "noob-psybot-jakub-s-ladder"
       ]
@@ -16516,13 +16527,13 @@
         "youtube_playlist_id": ""
       },
       "tracklist": [
-        "syned-brain-mysterium-tremendum",
+        "syned-brain-dementor-mysterium-tremendum",
         "dementor-echoes-of-the-abyss",
         "syned-brain-phantom-veil",
-        "dementor-obsidian-rift",
+        "dementor-syned-brain-obsidian-rift",
         "syned-brain-inception-dementor-remix",
         "dementor-enjoy-your-last-happiness-syned-brain-remix",
-        "syned-brain-origin-of-valak",
+        "syned-brain-dementor-origin-of-valak",
         "dementor-labyrinth-of-shadows",
         "syned-brain-veil-of-eternity"
       ]
@@ -16750,8 +16761,8 @@
         "frog-prog-neurofracture",
         "frog-prog-black-sun-algorithm",
         "frog-prog-aqua-portal",
-        "exoflux-visions",
-        "exoflux-from-my-mind",
+        "exoflux-frog-prog-visions",
+        "exoflux-frog-prog-from-my-mind",
         "eleexr-zemnosis-frog-prog-rmx",
         "frog-prog-synaptic-drift",
         "frog-prog-bush"
@@ -17555,11 +17566,11 @@
       "bpm": 65,
       "audio_url": null
     },
-    "ahanjack-onaion": {
-      "slug": "ahanjack-onaion",
+    "ahanjack-yoi-onaion": {
+      "slug": "ahanjack-yoi-onaion",
       "title": "Onaion",
-      "artist_name": "Ahanjack",
-      "artist_slug": "ahanjack",
+      "artist_name": "Ahanjack & Yoi",
+      "artist_slug": "ahanjack,yoi",
       "bpm": 85,
       "audio_url": null
     },
@@ -17667,11 +17678,11 @@
       "bpm": 113,
       "audio_url": null
     },
-    "apex-half-light-lexicon": {
-      "slug": "apex-half-light-lexicon",
+    "apex-scionaugh-half-light-lexicon": {
+      "slug": "apex-scionaugh-half-light-lexicon",
       "title": "Half-light Lexicon",
-      "artist_name": "🇦🇺 Apex",
-      "artist_slug": "apex",
+      "artist_name": "Apex & Scionaugh",
+      "artist_slug": "apex,scionaugh",
       "bpm": 137,
       "audio_url": null
     },
@@ -17691,11 +17702,11 @@
       "bpm": 125,
       "audio_url": null
     },
-    "artech-possible-chemistry": {
-      "slug": "artech-possible-chemistry",
+    "artech-3pointz-possible-chemistry": {
+      "slug": "artech-3pointz-possible-chemistry",
       "title": "Possible Chemistry",
-      "artist_name": "Artech",
-      "artist_slug": "artech",
+      "artist_name": "Artech & 3Pointz",
+      "artist_slug": "artech,3pointz",
       "bpm": 118,
       "audio_url": null
     },
@@ -18091,11 +18102,11 @@
       "bpm": 148,
       "audio_url": null
     },
-    "cifroteca-wild-storm": {
-      "slug": "cifroteca-wild-storm",
+    "cifroteca-roof-raiser-wild-storm": {
+      "slug": "cifroteca-roof-raiser-wild-storm",
       "title": "Wild Storm",
-      "artist_name": "Cifroteca",
-      "artist_slug": "cifroteca",
+      "artist_name": "Cifroteca & Roof Raiser",
+      "artist_slug": "cifroteca,roof-raiser",
       "bpm": 147,
       "audio_url": null
     },
@@ -18275,11 +18286,11 @@
       "bpm": 139,
       "audio_url": null
     },
-    "delphic-mycelia-1-8": {
-      "slug": "delphic-mycelia-1-8",
+    "delphic-aukaro-mycelia-1-8": {
+      "slug": "delphic-aukaro-mycelia-1-8",
       "title": "Mycelia 1.8",
-      "artist_name": "🇦🇺 Delphic",
-      "artist_slug": "delphic",
+      "artist_name": "Delphic & Aukaro",
+      "artist_slug": "delphic,aukaro",
       "bpm": 90,
       "audio_url": null
     },
@@ -18307,11 +18318,11 @@
       "bpm": 142,
       "audio_url": null
     },
-    "dementor-obsidian-rift": {
-      "slug": "dementor-obsidian-rift",
+    "dementor-syned-brain-obsidian-rift": {
+      "slug": "dementor-syned-brain-obsidian-rift",
       "title": "Obsidian Rift",
-      "artist_name": "Dementor",
-      "artist_slug": "dementor",
+      "artist_name": "Dementor & Syned Brain",
+      "artist_slug": "dementor,syned-brain",
       "bpm": 142,
       "audio_url": null
     },
@@ -18395,11 +18406,11 @@
       "bpm": 132,
       "audio_url": null
     },
-    "derotonin-the-first-pancake": {
-      "slug": "derotonin-the-first-pancake",
+    "derotonin-aleckat-the-first-pancake": {
+      "slug": "derotonin-aleckat-the-first-pancake",
       "title": "The First Pancake",
-      "artist_name": "derotonin",
-      "artist_slug": "derotonin",
+      "artist_name": "derotonin & Aleckat",
+      "artist_slug": "derotonin,aleckat",
       "bpm": 125,
       "audio_url": null
     },
@@ -18411,11 +18422,11 @@
       "bpm": 130,
       "audio_url": null
     },
-    "deuteroz-aldebaran-requiem": {
-      "slug": "deuteroz-aldebaran-requiem",
+    "deuteroz-chaos-achemist-aldebaran-requiem": {
+      "slug": "deuteroz-chaos-achemist-aldebaran-requiem",
       "title": "Aldebaran Requiem",
-      "artist_name": "Deuteroz",
-      "artist_slug": "deuteroz",
+      "artist_name": "Deuteroz & Chaos Achemist",
+      "artist_slug": "deuteroz,chaos-achemist",
       "bpm": 138,
       "audio_url": null
     },
@@ -18427,11 +18438,11 @@
       "bpm": 140,
       "audio_url": null
     },
-    "diffus-repetition-compulsion-142pbm": {
-      "slug": "diffus-repetition-compulsion-142pbm",
+    "diffus-irrbloss-repetition-compulsion-142pbm": {
+      "slug": "diffus-irrbloss-repetition-compulsion-142pbm",
       "title": "Repetition Compulsion (142pbm)",
-      "artist_name": "Diffus",
-      "artist_slug": "diffus",
+      "artist_name": "Diffus & Irrbloss",
+      "artist_slug": "diffus,irrbloss",
       "bpm": null,
       "audio_url": null
     },
@@ -18443,11 +18454,11 @@
       "bpm": 140,
       "audio_url": null
     },
-    "djeriko-axis-mundi": {
-      "slug": "djeriko-axis-mundi",
+    "djeriko-omsense-beka-axis-mundi": {
+      "slug": "djeriko-omsense-beka-axis-mundi",
       "title": "Axis Mundi",
-      "artist_name": "Djeriko",
-      "artist_slug": "djeriko",
+      "artist_name": "Djeriko & OmSense & Beka",
+      "artist_slug": "djeriko,omsense,beka",
       "bpm": 138,
       "audio_url": null
     },
@@ -18539,11 +18550,11 @@
       "bpm": 110,
       "audio_url": null
     },
-    "e-mantra-shore-of-light": {
-      "slug": "e-mantra-shore-of-light",
+    "e-mantra-unusual-cosmic-process-shore-of-light": {
+      "slug": "e-mantra-unusual-cosmic-process-shore-of-light",
       "title": "Shore Of Light",
-      "artist_name": "🇷🇴 E-Mantra",
-      "artist_slug": "e-mantra",
+      "artist_name": "E-Mantra & Unusual Cosmic Process",
+      "artist_slug": "e-mantra,unusual-cosmic-process",
       "bpm": 87,
       "audio_url": null
     },
@@ -18587,11 +18598,11 @@
       "bpm": 80,
       "audio_url": null
     },
-    "eleexr-another-mirror": {
-      "slug": "eleexr-another-mirror",
+    "eleexr-irukanji-another-mirror": {
+      "slug": "eleexr-irukanji-another-mirror",
       "title": "Another Mirror",
-      "artist_name": "EleexR",
-      "artist_slug": "eleexr",
+      "artist_name": "EleexR & Irukanji",
+      "artist_slug": "eleexr,irukanji",
       "bpm": 136,
       "audio_url": null
     },
@@ -18627,11 +18638,11 @@
       "bpm": 138,
       "audio_url": null
     },
-    "eleexr-infiltrato-modula": {
-      "slug": "eleexr-infiltrato-modula",
+    "eleexr-torus-knot-infiltrato-modula": {
+      "slug": "eleexr-torus-knot-infiltrato-modula",
       "title": "Infiltrato Modula",
-      "artist_name": "EleexR",
-      "artist_slug": "eleexr",
+      "artist_name": "EleexR & Torus Knot",
+      "artist_slug": "eleexr,torus-knot",
       "bpm": 136,
       "audio_url": null
     },
@@ -18683,19 +18694,19 @@
       "bpm": 95,
       "audio_url": null
     },
-    "exoflux-from-my-mind": {
-      "slug": "exoflux-from-my-mind",
+    "exoflux-frog-prog-from-my-mind": {
+      "slug": "exoflux-frog-prog-from-my-mind",
       "title": "From My Mind",
-      "artist_name": "ExoFlux",
-      "artist_slug": "exoflux",
+      "artist_name": "ExoFlux & Frog Prog",
+      "artist_slug": "exoflux,frog-prog",
       "bpm": 138,
       "audio_url": null
     },
-    "exoflux-visions": {
-      "slug": "exoflux-visions",
+    "exoflux-frog-prog-visions": {
+      "slug": "exoflux-frog-prog-visions",
       "title": "VIsions",
-      "artist_name": "ExoFlux",
-      "artist_slug": "exoflux",
+      "artist_name": "ExoFlux & Frog Prog",
+      "artist_slug": "exoflux,frog-prog",
       "bpm": 132,
       "audio_url": null
     },
@@ -18731,11 +18742,11 @@
       "bpm": 138,
       "audio_url": null
     },
-    "exolt-flexoltus": {
-      "slug": "exolt-flexoltus",
+    "exolt-flexxodus-flexoltus": {
+      "slug": "exolt-flexxodus-flexoltus",
       "title": "FleXoLTus",
-      "artist_name": "eXoLT",
-      "artist_slug": "exolt",
+      "artist_name": "eXoLT & Flexxodus",
+      "artist_slug": "exolt,flexxodus",
       "bpm": 138,
       "audio_url": null
     },
@@ -19155,11 +19166,11 @@
       "bpm": 140,
       "audio_url": null
     },
-    "gaz-mask-dizzy-transistors": {
-      "slug": "gaz-mask-dizzy-transistors",
+    "gaz-mask-mojo-s-ears-dizzy-transistors": {
+      "slug": "gaz-mask-mojo-s-ears-dizzy-transistors",
       "title": "Dizzy Transistors",
-      "artist_name": "Gaz Mask",
-      "artist_slug": "gaz-mask",
+      "artist_name": "Gaz Mask & Mojo's Ears",
+      "artist_slug": "gaz-mask,mojos-ears",
       "bpm": 138,
       "audio_url": null
     },
@@ -19171,11 +19182,11 @@
       "bpm": 133,
       "audio_url": null
     },
-    "gaz-mask-quetzalcoatl": {
-      "slug": "gaz-mask-quetzalcoatl",
+    "gaz-mask-deuteroz-quetzalcoatl": {
+      "slug": "gaz-mask-deuteroz-quetzalcoatl",
       "title": "Quetzalcoatl",
-      "artist_name": "Gaz Mask",
-      "artist_slug": "gaz-mask",
+      "artist_name": "Gaz Mask & Deuteroz",
+      "artist_slug": "gaz-mask,deuteroz",
       "bpm": 140,
       "audio_url": null
     },
@@ -19267,11 +19278,11 @@
       "bpm": 140,
       "audio_url": null
     },
-    "gaz-mask-zeta-reticuli": {
-      "slug": "gaz-mask-zeta-reticuli",
+    "gaz-mask-mojo-s-ears-zeta-reticuli": {
+      "slug": "gaz-mask-mojo-s-ears-zeta-reticuli",
       "title": "Zeta Reticuli",
-      "artist_name": "Gaz Mask",
-      "artist_slug": "gaz-mask",
+      "artist_name": "Gaz Mask & Mojo's Ears",
+      "artist_slug": "gaz-mask,mojos-ears",
       "bpm": 140,
       "audio_url": null
     },
@@ -19387,11 +19398,11 @@
       "bpm": 120,
       "audio_url": null
     },
-    "hardcore-buddhist-sea-dream-live-version": {
-      "slug": "hardcore-buddhist-sea-dream-live-version",
+    "hardcore-buddhist-art-imagination-sea-dream-live-version": {
+      "slug": "hardcore-buddhist-art-imagination-sea-dream-live-version",
       "title": "Sea Dream (Live Version)",
-      "artist_name": "Hardcore Buddhist",
-      "artist_slug": "hardcore-buddhist",
+      "artist_name": "Hardcore Buddhist & Art Imagination",
+      "artist_slug": "hardcore-buddhist,art-imagination",
       "bpm": 115,
       "audio_url": null
     },
@@ -19563,11 +19574,11 @@
       "bpm": 120,
       "audio_url": null
     },
-    "irukanji-hey-mondegreen": {
-      "slug": "irukanji-hey-mondegreen",
+    "irukanji-eleexr-hey-mondegreen": {
+      "slug": "irukanji-eleexr-hey-mondegreen",
       "title": "Hey Mondegreen",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 138,
       "audio_url": null
     },
@@ -19579,35 +19590,35 @@
       "bpm": 100,
       "audio_url": null
     },
-    "irukanji-i-have-something": {
-      "slug": "irukanji-i-have-something",
+    "irukanji-eleexr-i-have-something": {
+      "slug": "irukanji-eleexr-i-have-something",
       "title": "I Have Something",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 138,
       "audio_url": null
     },
-    "irukanji-i-have-something-spacecraft-rmx": {
-      "slug": "irukanji-i-have-something-spacecraft-rmx",
+    "irukanji-eleexr-i-have-something-spacecraft-rmx": {
+      "slug": "irukanji-eleexr-i-have-something-spacecraft-rmx",
       "title": "I Have Something (SpaceCraft Rmx)",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 138,
       "audio_url": null
     },
-    "irukanji-inside-your-head": {
-      "slug": "irukanji-inside-your-head",
+    "irukanji-eleexr-inside-your-head": {
+      "slug": "irukanji-eleexr-inside-your-head",
       "title": "Inside Your Head",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 140,
       "audio_url": null
     },
-    "irukanji-it-will-grow": {
-      "slug": "irukanji-it-will-grow",
+    "irukanji-eleexr-it-will-grow": {
+      "slug": "irukanji-eleexr-it-will-grow",
       "title": "It Will Grow",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 139,
       "audio_url": null
     },
@@ -19699,19 +19710,19 @@
       "bpm": 90,
       "audio_url": null
     },
-    "irukanji-roadrunner": {
-      "slug": "irukanji-roadrunner",
+    "irukanji-eleexr-roadrunner": {
+      "slug": "irukanji-eleexr-roadrunner",
       "title": "Roadrunner",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 138,
       "audio_url": null
     },
-    "irukanji-so-open-minded": {
-      "slug": "irukanji-so-open-minded",
+    "irukanji-eleexr-so-open-minded": {
+      "slug": "irukanji-eleexr-so-open-minded",
       "title": "So Open-minded",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 139,
       "audio_url": null
     },
@@ -19739,11 +19750,11 @@
       "bpm": 138,
       "audio_url": null
     },
-    "irukanji-the-key": {
-      "slug": "irukanji-the-key",
+    "irukanji-eleexr-the-key": {
+      "slug": "irukanji-eleexr-the-key",
       "title": "The Key",
-      "artist_name": "Irukanji",
-      "artist_slug": "irukanji",
+      "artist_name": "Irukanji & EleexR",
+      "artist_slug": "irukanji,eleexr",
       "bpm": 137,
       "audio_url": null
     },
@@ -19947,11 +19958,11 @@
       "bpm": 136,
       "audio_url": null
     },
-    "kabi-dark-horse": {
-      "slug": "kabi-dark-horse",
+    "kabi-tystix-dark-horse": {
+      "slug": "kabi-tystix-dark-horse",
       "title": "Dark Horse",
-      "artist_name": "KAbi",
-      "artist_slug": "kabi",
+      "artist_name": "KAbi & TyStix",
+      "artist_slug": "kabi,tystix",
       "bpm": 135,
       "audio_url": null
     },
@@ -19995,11 +20006,11 @@
       "bpm": 138,
       "audio_url": null
     },
-    "kabi-sceletium-gut": {
-      "slug": "kabi-sceletium-gut",
+    "kabi-psydewise-sceletium-gut": {
+      "slug": "kabi-psydewise-sceletium-gut",
       "title": "Sceletium Gut",
-      "artist_name": "KAbi",
-      "artist_slug": "kabi",
+      "artist_name": "KAbi & Psydewise",
+      "artist_slug": "kabi,psydewise",
       "bpm": 140,
       "audio_url": null
     },
@@ -20347,19 +20358,19 @@
       "bpm": 139,
       "audio_url": null
     },
-    "noid-1-simple-thing": {
-      "slug": "noid-1-simple-thing",
+    "noid-jai-1-simple-thing": {
+      "slug": "noid-jai-1-simple-thing",
       "title": "1 Simple Thing",
-      "artist_name": "Noid",
-      "artist_slug": "noid",
+      "artist_name": "Noid & Jai",
+      "artist_slug": "noid,jai",
       "bpm": 134,
       "audio_url": null
     },
-    "noob-psybot-dogon": {
-      "slug": "noob-psybot-dogon",
+    "noob-psybot-halform-dogon": {
+      "slug": "noob-psybot-halform-dogon",
       "title": "Dogon",
-      "artist_name": "Noob Psybot",
-      "artist_slug": "noob-psybot",
+      "artist_name": "Noob Psybot & Halform",
+      "artist_slug": "noob-psybot,halform",
       "bpm": 132,
       "audio_url": null
     },
@@ -20379,27 +20390,27 @@
       "bpm": 130,
       "audio_url": null
     },
-    "noob-psybot-obscure-litany": {
-      "slug": "noob-psybot-obscure-litany",
+    "noob-psybot-geozen-obscure-litany": {
+      "slug": "noob-psybot-geozen-obscure-litany",
       "title": "Obscure Litany",
-      "artist_name": "🇮🇳 Noob Psybot",
-      "artist_slug": "noob-psybot",
+      "artist_name": "Noob Psybot & Geozen",
+      "artist_slug": "noob-psybot,geozen",
       "bpm": 136,
       "audio_url": null
     },
-    "noob-psybot-portal-kombat": {
-      "slug": "noob-psybot-portal-kombat",
+    "noob-psybot-anomalie-in-portal-kombat": {
+      "slug": "noob-psybot-anomalie-in-portal-kombat",
       "title": "Portal Kombat",
-      "artist_name": "🇮🇳 Noob Psybot",
-      "artist_slug": "noob-psybot",
+      "artist_name": "Noob Psybot & Anomalie (IN)",
+      "artist_slug": "noob-psybot,anomalie-in",
       "bpm": 136,
       "audio_url": null
     },
-    "noob-psybot-run-dmt": {
-      "slug": "noob-psybot-run-dmt",
+    "noob-psybot-alien-time-run-dmt": {
+      "slug": "noob-psybot-alien-time-run-dmt",
       "title": "Run DMT",
-      "artist_name": "🇮🇳 Noob Psybot",
-      "artist_slug": "noob-psybot",
+      "artist_name": "Noob Psybot & Alien Time",
+      "artist_slug": "noob-psybot,alien-time",
       "bpm": 138,
       "audio_url": null
     },
@@ -20635,11 +20646,11 @@
       "bpm": 142,
       "audio_url": null
     },
-    "paracozm-as-above-so-below": {
-      "slug": "paracozm-as-above-so-below",
+    "paracozm-vorg-as-above-so-below": {
+      "slug": "paracozm-vorg-as-above-so-below",
       "title": "As Above So Below",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 134,
       "audio_url": null
     },
@@ -20651,19 +20662,19 @@
       "bpm": 138,
       "audio_url": null
     },
-    "paracozm-hyperqube": {
-      "slug": "paracozm-hyperqube",
+    "paracozm-vorg-hyperqube": {
+      "slug": "paracozm-vorg-hyperqube",
       "title": "HyperQube",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 134,
       "audio_url": null
     },
-    "paracozm-mind-awake": {
-      "slug": "paracozm-mind-awake",
+    "paracozm-vorg-mind-awake": {
+      "slug": "paracozm-vorg-mind-awake",
       "title": "Mind Awake",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 136,
       "audio_url": null
     },
@@ -20675,43 +20686,43 @@
       "bpm": 139,
       "audio_url": null
     },
-    "paracozm-the-code": {
-      "slug": "paracozm-the-code",
+    "paracozm-vorg-the-code": {
+      "slug": "paracozm-vorg-the-code",
       "title": "The Code",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 135,
       "audio_url": null
     },
-    "paracozm-the-dream": {
-      "slug": "paracozm-the-dream",
+    "paracozm-vorg-the-dream": {
+      "slug": "paracozm-vorg-the-dream",
       "title": "The Dream",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 135,
       "audio_url": null
     },
-    "paracozm-the-swarm": {
-      "slug": "paracozm-the-swarm",
+    "paracozm-vorg-the-swarm": {
+      "slug": "paracozm-vorg-the-swarm",
       "title": "The Swarm",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 137,
       "audio_url": null
     },
-    "paracozm-too-weird-to-live-too-rare-to-die": {
-      "slug": "paracozm-too-weird-to-live-too-rare-to-die",
+    "paracozm-vorg-too-weird-to-live-too-rare-to-die": {
+      "slug": "paracozm-vorg-too-weird-to-live-too-rare-to-die",
       "title": "Too Weird To Live, Too Rare To Die",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 133,
       "audio_url": null
     },
-    "paracozm-visions": {
-      "slug": "paracozm-visions",
+    "paracozm-vorg-visions": {
+      "slug": "paracozm-vorg-visions",
       "title": "Visions",
-      "artist_name": "Paracozm",
-      "artist_slug": "paracozm",
+      "artist_name": "Paracozm & VORG",
+      "artist_slug": "paracozm,vorg",
       "bpm": 135,
       "audio_url": null
     },
@@ -21099,11 +21110,11 @@
       "bpm": 170,
       "audio_url": null
     },
-    "roof-raiser-bukanna": {
-      "slug": "roof-raiser-bukanna",
+    "roof-raiser-cifroteca-bukanna": {
+      "slug": "roof-raiser-cifroteca-bukanna",
       "title": "Bukanna",
-      "artist_name": "Roof Raiser",
-      "artist_slug": "roof-raiser",
+      "artist_name": "Roof Raiser & Cifroteca",
+      "artist_slug": "roof-raiser,cifroteca",
       "bpm": 150,
       "audio_url": null
     },
@@ -21331,11 +21342,11 @@
       "bpm": 100,
       "audio_url": null
     },
-    "shmewl-fusion-contrast": {
-      "slug": "shmewl-fusion-contrast",
+    "shmewl-deuteroz-fusion-contrast": {
+      "slug": "shmewl-deuteroz-fusion-contrast",
       "title": "Fusion Contrast",
-      "artist_name": "sHmewl",
-      "artist_slug": "shmewl",
+      "artist_name": "sHmewl & Deuteroz",
+      "artist_slug": "shmewl,deuteroz",
       "bpm": 140,
       "audio_url": null
     },
@@ -21563,11 +21574,11 @@
       "bpm": 136,
       "audio_url": null
     },
-    "spacecraft-space-roots": {
-      "slug": "spacecraft-space-roots",
+    "spacecraft-alternative-roots-space-roots": {
+      "slug": "spacecraft-alternative-roots-space-roots",
       "title": "Space Roots",
-      "artist_name": "SpaceCraft",
-      "artist_slug": "spacecraft",
+      "artist_name": "SpaceCraft & Alternative Roots",
+      "artist_slug": "spacecraft,alternative-roots",
       "bpm": 135,
       "audio_url": null
     },
@@ -21891,11 +21902,11 @@
       "bpm": 150,
       "audio_url": null
     },
-    "sumiruna-antithesis-sourone-mix": {
-      "slug": "sumiruna-antithesis-sourone-mix",
+    "sumiruna-sourone-antithesis-sourone-mix": {
+      "slug": "sumiruna-sourone-antithesis-sourone-mix",
       "title": "Antithesis (🇵🇱 Sourone Mix)",
-      "artist_name": "Sumiruna",
-      "artist_slug": "sumiruna",
+      "artist_name": "Sumiruna & Sourone",
+      "artist_slug": "sumiruna,sourone",
       "bpm": 140,
       "audio_url": null
     },
@@ -21931,19 +21942,19 @@
       "bpm": 142,
       "audio_url": null
     },
-    "syned-brain-mysterium-tremendum": {
-      "slug": "syned-brain-mysterium-tremendum",
+    "syned-brain-dementor-mysterium-tremendum": {
+      "slug": "syned-brain-dementor-mysterium-tremendum",
       "title": "MysteriUM TremendUM",
-      "artist_name": "Syned Brain",
-      "artist_slug": "syned-brain",
+      "artist_name": "Syned Brain & Dementor",
+      "artist_slug": "syned-brain,dementor",
       "bpm": 140,
       "audio_url": null
     },
-    "syned-brain-origin-of-valak": {
-      "slug": "syned-brain-origin-of-valak",
+    "syned-brain-dementor-origin-of-valak": {
+      "slug": "syned-brain-dementor-origin-of-valak",
       "title": "Origin Of Valak",
-      "artist_name": "Syned Brain",
-      "artist_slug": "syned-brain",
+      "artist_name": "Syned Brain & Dementor",
+      "artist_slug": "syned-brain,dementor",
       "bpm": 142,
       "audio_url": null
     },
@@ -22107,11 +22118,11 @@
       "bpm": 120,
       "audio_url": null
     },
-    "tharok-out-of-orbit": {
-      "slug": "tharok-out-of-orbit",
+    "tharok-djeriko-out-of-orbit": {
+      "slug": "tharok-djeriko-out-of-orbit",
       "title": "Out Of Orbit",
-      "artist_name": "Tharok",
-      "artist_slug": "tharok",
+      "artist_name": "Tharok & Djeriko",
+      "artist_slug": "tharok,djeriko",
       "bpm": 135,
       "audio_url": null
     },
@@ -22635,11 +22646,11 @@
       "bpm": 133,
       "audio_url": null
     },
-    "unusual-cosmic-process-sunrise-over-black-sea": {
-      "slug": "unusual-cosmic-process-sunrise-over-black-sea",
+    "unusual-cosmic-process-e-mantra-sunrise-over-black-sea": {
+      "slug": "unusual-cosmic-process-e-mantra-sunrise-over-black-sea",
       "title": "Sunrise Over Black Sea",
-      "artist_name": "🇺🇦 Unusual Cosmic Process",
-      "artist_slug": "unusual-cosmic-process",
+      "artist_name": "Unusual Cosmic Process & E-Mantra",
+      "artist_slug": "unusual-cosmic-process,e-mantra",
       "bpm": 105,
       "audio_url": null
     },
@@ -22899,11 +22910,11 @@
       "bpm": 132,
       "audio_url": null
     },
-    "vorg-medicated": {
-      "slug": "vorg-medicated",
+    "vorg-soulid-medicated": {
+      "slug": "vorg-soulid-medicated",
       "title": "Medicated",
-      "artist_name": "VORG",
-      "artist_slug": "vorg",
+      "artist_name": "VORG & Soulid",
+      "artist_slug": "vorg,soulid",
       "bpm": 137,
       "audio_url": null
     },
@@ -23379,11 +23390,11 @@
       "bpm": 144,
       "audio_url": null
     },
-    "zymosis-u-zemli": {
-      "slug": "zymosis-u-zemli",
+    "zymosis-katya-chilly-u-zemli": {
+      "slug": "zymosis-katya-chilly-u-zemli",
       "title": "U Zemli",
-      "artist_name": "Zymosis",
-      "artist_slug": "zymosis",
+      "artist_name": "Zymosis & Katya Chilly",
+      "artist_slug": "zymosis,katya-chilly",
       "bpm": 140,
       "audio_url": null
     },

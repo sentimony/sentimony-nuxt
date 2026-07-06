@@ -83,6 +83,8 @@ function onVolumeChange(event: Event) {
   volume.value = Number(target.value)
   if (audioEl.value) audioEl.value.volume = volume.value
 }
+
+defineExpose({ playTrack })
 </script>
 
 <template>

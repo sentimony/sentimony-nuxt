@@ -15,6 +15,7 @@ import {
 
 const modules = [FreeMode, Keyboard, Navigation, Pagination, Mousewheel]
 
+import type { Swiper as SwiperType } from 'swiper'
 import type { ItemCategory, ItemEntity } from '~/types'
 
 interface ArtistSection {
@@ -33,8 +34,8 @@ const props = defineProps<{
   pagination?: boolean
 }>()
 
-const swiperRef = ref<any | null>(null)
-function onSwiper(sw: any) {
+const swiperRef = ref<SwiperType | null>(null)
+function onSwiper(sw: SwiperType) {
   swiperRef.value = sw
   nextTick(() => slideToActiveSlug())
 }
@@ -48,7 +49,7 @@ function slideToActiveSlug() {
     let idx = 0
     for (const [si, section] of props.sections.entries()) {
       if (si > 0) idx++
-      const found = section.list.findIndex((it: any) => it?.slug === slug)
+      const found = section.list.findIndex(it => it?.slug === slug)
       if (found >= 0) {
         swiperRef.value.slideTo(idx + found, 0)
         return
@@ -57,7 +58,7 @@ function slideToActiveSlug() {
     }
   } else {
     const list = props.list || []
-    const idx = list.findIndex((it: any) => it?.slug === slug)
+    const idx = list.findIndex(it => it?.slug === slug)
     if (idx >= 0) swiperRef.value.slideTo(idx, 0)
   }
 }

@@ -1,26 +1,28 @@
 import { getRequestHeader } from 'h3'
+import type { H3Event } from 'h3'
 import { RESET, CYAN, DIM, YELLOW, RED, colorsForStatus, paint } from './log-colors'
 import { detectUserAgent } from './user-agent-detector'
 
 const PATCH_MARK = Symbol.for('sentimony.colorLogsPatched')
 
 export function setupColoredConsole() {
-  if ((globalThis as any)[PATCH_MARK]) return
-  ;(globalThis as any)[PATCH_MARK] = true
+  const globals = globalThis as Record<symbol, unknown>
+  if (globals[PATCH_MARK]) return
+  globals[PATCH_MARK] = true
 
   const origWarn = console.warn.bind(console)
   const origErr = console.error.bind(console)
 
-  console.warn = (...args: any[]) => {
+  console.warn = (...args: unknown[]) => {
     origWarn(`${YELLOW}${args.join(' ')}${RESET}`)
   }
 
-  console.error = (...args: any[]) => {
+  console.error = (...args: unknown[]) => {
     origErr(`${RED}${args.join(' ')}${RESET}`)
   }
 }
 
-export function logRequest(event: any) {
+export function logRequest(event: H3Event) {
   const ua = getRequestHeader(event, 'user-agent') || ''
   const agentInfo = detectUserAgent(ua)
 

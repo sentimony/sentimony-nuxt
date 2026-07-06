@@ -1,16 +1,16 @@
-# Graph Report - sentimony-nuxt  (2026-07-06)
+# Graph Report - sentimony-nuxt  (2026-07-07)
 
 ## Corpus Check
-- 218 files · ~124,575 words
+- 220 files · ~108,381 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 986 nodes · 906 edges · 195 communities (139 shown, 56 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.8)
+- 1005 nodes · 924 edges · 197 communities (138 shown, 59 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `aed4137f`
+- Built from commit: `b7dcb227`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -126,6 +126,8 @@
 - [[_COMMUNITY_Community 189|Community 189]]
 - [[_COMMUNITY_Community 190|Community 190]]
 - [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
+- [[_COMMUNITY_Community 196|Community 196]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Design Brief — Profile v2` - 13 edges
@@ -152,22 +154,22 @@
   app/composables/useTrackLikes.ts → app/composables/createLikes.ts
 
 ## Import Cycles
-- None detected.
+- 1-file cycle: `app/components/Swiper.vue -> app/components/Swiper.vue`
 
 ## Hyperedges (group relationships)
 - **Catalog Features Suite** — docs_superpowers_specs_2026_07_02_catalog_features_design_designer_portfolio, docs_superpowers_specs_2026_07_02_catalog_features_design_organized_events, docs_superpowers_specs_2026_07_02_catalog_features_design_artists_all_page, docs_superpowers_specs_2026_07_02_catalog_features_design_swiper_category_dividers, docs_superpowers_specs_2026_07_02_catalog_features_design_genre_filter_pages [EXTRACTED 1.00]
 - **SrComponents UI Layer** — docs_superpowers_specs_2026_06_27_sentimony_ui_refactor_design_sr_link_button, docs_superpowers_specs_2026_06_27_sentimony_ui_refactor_design_sr_media_thumb, docs_superpowers_specs_2026_06_27_sentimony_ui_refactor_design_sr_status_badge [EXTRACTED 1.00]
 - **Project Hardening Sub-Components** — docs_superpowers_specs_2026_06_25_project_hardening_design_cache_policy, docs_superpowers_specs_2026_06_25_project_hardening_design_html_sanitization, docs_superpowers_specs_2026_06_25_project_hardening_design_private_db_export, docs_superpowers_specs_2026_06_25_project_hardening_design_icon_bundle, docs_superpowers_specs_2026_06_25_project_hardening_design_conditional_swiper, docs_superpowers_specs_2026_06_25_project_hardening_design_aggregated_profile, docs_superpowers_specs_2026_06_25_project_hardening_design_firebase_visibility [EXTRACTED 1.00]
 
-## Communities (195 total, 56 thin omitted)
+## Communities (197 total, 59 thin omitted)
 
 ### Community 0 - "Database Schema & Types"
 Cohesion: 0.06
 Nodes (42): Artist, fetchArtists(), fetchReleasesBySlugs(), Release, CatalogSource, getCatalogSource(), isSupabaseCatalogSource(), fetchAllCatalogTrackRows() (+34 more)
 
 ### Community 1 - "Layout Navigation Slugs"
-Cohesion: 0.08
-Nodes (24): activeArtistSlug, activeEventSlug, activePlaylistSlug, activeReleaseSlug, activeVideoSlug, artists, artistSectionLabels, artistSections (+16 more)
+Cohesion: 0.04
+Nodes (41): activeArtistSlug, activeEventSlug, activePlaylistSlug, activeReleaseSlug, activeVideoSlug, artists, artistSectionLabels, artistSections (+33 more)
 
 ### Community 2 - "Footer & Header UI"
 Cohesion: 0.05
@@ -198,8 +200,8 @@ Cohesion: 0.10
 Nodes (19): { absoluteUrl }, appConfig, artists, artistsTitleLine, { embed: embedYTMusic }, { formatDate, formatYear }, hasBandcamp, hasSoundcloud (+11 more)
 
 ### Community 10 - "Event Detail Page"
-Cohesion: 0.11
-Nodes (17): { absoluteUrl }, appConfig, artistSlugByTrackNumber, { embed: embedYTMusic }, { formatDate, formatYear }, formattedDate, { isLiked, toggleLike, likeCount, setCount }, { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount } (+9 more)
+Cohesion: 0.08
+Nodes (23): { absoluteUrl }, allArtists, allArtistsAsync, appConfig, artistSlugByTrackNumber, { embed: embedYTMusic }, { formatDate, formatYear }, formattedDate (+15 more)
 
 ### Community 11 - "Likes System Composables"
 Cohesion: 0.13
@@ -234,7 +236,7 @@ Cohesion: 0.25
 Nodes (7): iconify, img, isExternal, props, svg, title, to
 
 ### Community 20 - "Swiper Component"
-Cohesion: 0.25
+Cohesion: 0.29
 Nodes (5): ArtistSection, modules, props, swiperRef, totalLength
 
 ### Community 21 - "News Page"
@@ -365,10 +367,6 @@ Nodes (7): Custom Audio Player Implementation Plan, Global Constraints, Prerequi
 Cohesion: 0.33
 Nodes (5): Architecture, Constraints, Goal, Project Hardening Design, Testing
 
-### Community 156 - "Community 156"
-Cohesion: 0.09
-Nodes (17): { absoluteUrl }, appConfig, artists, { data: artistsRaw }, flagCodes, sectionedArtists, sectionLabels, sorted (+9 more)
-
 ### Community 189 - "Community 189"
 Cohesion: 0.13
 Nodes (15): Database, EntityInsert, EntityRow, Json, LikeRow, Table, TrackPlayRow, TrackRow (+7 more)
@@ -382,24 +380,24 @@ Cohesion: 0.15
 Nodes (12): Global Constraints, Task 1: One-time скрипт міграції export JSON, Task 2: Supabase — схема + remap лайків/прослуховувань, Task 3: Sync-скрипти дзеркалять export (без парсингу), Task 4: Серверна гідрація tracklist (спільний util), Task 5: firebaseCatalog.ts — читання first-class tracks, Task 6: API-ендпоінти, Task 7: Фронтенд — сторінки release/tracks/track (+4 more)
 
 ## Knowledge Gaps
-- **563 isolated node(s):** `props`, `audioEl`, `isPlaying`, `currentTime`, `duration` (+558 more)
+- **575 isolated node(s):** `props`, `audioEl`, `isPlaying`, `currentTime`, `duration` (+570 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **56 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **59 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `supabaseAdmin()` connect `Community 189` to `Database Schema & Types`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `props`, `audioEl`, `isPlaying` to the rest of the system?**
-  _572 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _584 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Database Schema & Types` be split into smaller, more focused modules?**
   _Cohesion score 0.06352087114337568 - nodes in this community are weakly interconnected._
 - **Should `Layout Navigation Slugs` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `Footer & Header UI` be split into smaller, more focused modules?**
   _Cohesion score 0.053156146179401995 - nodes in this community are weakly interconnected._
 - **Should `UI Component Library` be split into smaller, more focused modules?**
   _Cohesion score 0.06827880512091039 - nodes in this community are weakly interconnected._
 - **Should `Type Definitions & Interfaces` be split into smaller, more focused modules?**
   _Cohesion score 0.06984126984126984 - nodes in this community are weakly interconnected._
+- **Should `Profile Management` be split into smaller, more focused modules?**
+  _Cohesion score 0.06439393939393939 - nodes in this community are weakly interconnected._

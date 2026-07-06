@@ -39,7 +39,7 @@ const releaseYear = computed(() => formatYear(release.value?.date))
 
 const primaryArtist = computed(() => artists.value[0])
 const artistsTitleLine = computed(() =>
-  artists.value.map(a => a.title).filter(Boolean).join(', ') || track.value.artist_name,
+  artists.value.map(a => a.title).filter(Boolean).join(' & ') || track.value.artist_name,
 )
 
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(
@@ -104,7 +104,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               :to="`/artist/${artist.slug}`"
               class="underline-offset-2 hover:underline"
             >{{ artist.title }}</NuxtLink>
-            <span v-if="index < artists.length - 1">, </span>
+            <span v-if="index < artists.length - 1"> &amp; </span>
           </template>
           <span v-if="!artists.length">{{ track.artist_name }}</span>
         </p>
@@ -330,15 +330,12 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             :key="t.slug"
             class="m-0"
           >
-            <NuxtLink
-              v-if="t.slug !== track.slug"
-              :to="`/track/${t.slug}`"
-              class="hover:underline"
-            >
+            <template v-if="t.slug !== track.slug">
               <small>{{ t.track_number < 10 ? ' ' + t.track_number : t.track_number }}.</small>
-              <b class="ml-1">{{ t.artist_name }}</b> - {{ t.title }}
+              <span class="ml-1"><TrackArtists :name="t.artist_name" :slug="t.artist_slug" /></span> -
+              <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
               <small v-if="t.bpm" class="text-black/60">({{ t.bpm }}bpm)</small>
-            </NuxtLink>
+            </template>
             <span v-else class="text-black/50">
               <small>{{ t.track_number < 10 ? ' ' + t.track_number : t.track_number }}.</small>
               <b class="ml-1">{{ t.artist_name }}</b> - {{ t.title }}
@@ -356,10 +353,9 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             :key="t.slug"
             class="m-0"
           >
-            <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">
-              <b>{{ t.artist_name }}</b> - {{ t.title }}
-              <small v-if="t.bpm" class="text-black/60">({{ t.bpm }}bpm)</small>
-            </NuxtLink>
+            <TrackArtists :name="t.artist_name" :slug="t.artist_slug" /> -
+            <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+            <small v-if="t.bpm" class="text-black/60">({{ t.bpm }}bpm)</small>
           </p>
         </div>
 

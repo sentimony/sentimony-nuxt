@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { toArray } from '~/composables/toArray'
 import { sortByDate } from '~/composables/sortByDate'
+import type { Artist, Event, Friend, Playlist, Release, Video } from '~/types'
 
 definePageMeta({
   layout: 'default',
@@ -37,9 +38,9 @@ type TrackListItem = {
 
 const { data: releasesRaw } = await useReleases({ server: true })
 const { data: allTracks } = await useFetch<TrackListItem[]>('/api/tracks')
-const releasesArr = computed(() => toArray<any>(releasesRaw.value, 'releases'))
+const releasesArr = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasedReleases = computed(() =>
-  releasesArr.value.filter((r: any) => Boolean(r?.visible) && !Boolean(r?.coming_soon))
+  releasesArr.value.filter(r => Boolean(r?.visible) && !r?.coming_soon)
 )
 const tracksByRelease = computed(() => {
   const map = new Map<string, TrackListItem[]>()
@@ -52,31 +53,31 @@ const tracksByRelease = computed(() => {
 })
 const releasesWithTracks = computed(() =>
   sortByDate(
-    releasedReleases.value.filter((release: any) => tracksByRelease.value.has(release?.slug))
+    releasedReleases.value.filter(release => tracksByRelease.value.has(release?.slug))
   )
 )
 const releases = computed(() => releasedReleases.value.length)
 const tracks = computed(() => allTracks.value?.length ?? 0)
 
 const { data: artistsRaw } = await useArtists({ server: true })
-const artistsArr = computed(() => toArray<any>(artistsRaw.value, 'artists'))
-const artists = computed(() => artistsArr.value.filter((a: any) => Boolean(a?.visible)).length)
+const artistsArr = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
+const artists = computed(() => artistsArr.value.filter(a => Boolean(a?.visible)).length)
 
 const { data: videosRaw } = await useVideos({ server: true })
-const videosArr = computed(() => toArray<any>(videosRaw.value, 'videos'))
-const videos = computed(() => videosArr.value.filter((v: any) => Boolean(v?.visible)).length)
+const videosArr = computed(() => toArray<Video>(videosRaw.value, 'videos'))
+const videos = computed(() => videosArr.value.filter(v => Boolean(v?.visible)).length)
 
 const { data: playlistsRaw } = await usePlaylists({ server: true })
-const playlistsArr = computed(() => toArray<any>(playlistsRaw.value, 'playlists'))
-const playlists = computed(() => playlistsArr.value.filter((p: any) => Boolean(p?.visible)).length)
+const playlistsArr = computed(() => toArray<Playlist>(playlistsRaw.value, 'playlists'))
+const playlists = computed(() => playlistsArr.value.filter(p => Boolean(p?.visible)).length)
 
 const { data: eventsRaw } = await useEvents({ server: true })
-const eventsArr = computed(() => toArray<any>(eventsRaw.value, 'events'))
-const events = computed(() => eventsArr.value.filter((e: any) => Boolean(e?.visible)).length)
+const eventsArr = computed(() => toArray<Event>(eventsRaw.value, 'events'))
+const events = computed(() => eventsArr.value.filter(e => Boolean(e?.visible)).length)
 
 const { data: friendsRaw } = await useFriends({ server: true })
-const friendsArr = computed(() => toArray<any>(friendsRaw.value, 'friends'))
-const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.visible)).length)
+const friendsArr = computed(() => toArray<Friend>(friendsRaw.value, 'friends'))
+const friends = computed(() => friendsArr.value.filter(f => Boolean(f?.visible)).length)
 </script>
 
 <template>
@@ -117,7 +118,7 @@ const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.vi
                 :key="t.slug"
               >
                 <small class="font-mono">{{ String(t.track_number).padStart(2, '0') }}.</small>
-                <b>{{ t.artist_name }}</b>
+                <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
                 -
                 <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
                 <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
