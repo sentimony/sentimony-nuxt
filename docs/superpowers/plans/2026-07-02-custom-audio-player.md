@@ -457,7 +457,7 @@ git commit -m "feat: wire AudioMixPlayer into artist page behind mix_audio_url"
 ### Task 4: Populate Hagen's mix data (requires the Prerequisite step to be complete)
 
 **Files:**
-- Modify: `server/data/server/sentimony-db-export.json` (the `artists.hagen` entry, currently lines 927-957)
+- Modify: `server/data/sentimony-db-export.json` (the `artists.hagen` entry, currently lines 927-957)
 
 **Interfaces:**
 - Consumes: `Artist.mix_audio_url`/`mix_title`/`mix_release_slug` from Task 3.
@@ -472,7 +472,7 @@ If this doesn't return 200/206, stop here — do not proceed to Step 2 until the
 
 - [ ] **Step 2: Edit the hagen entry**
 
-In `server/data/server/sentimony-db-export.json`, add the three fields to the `hagen` object (after `"soundcloud_track_id": ""`):
+In `server/data/sentimony-db-export.json`, add the three fields to the `hagen` object (after `"soundcloud_track_id": ""`):
 
 ```json
     "hagen": {
@@ -513,7 +513,7 @@ In `server/data/server/sentimony-db-export.json`, add the three fields to the `h
 
 - [ ] **Step 3: Validate the JSON**
 
-Run: `node -e "JSON.parse(require('fs').readFileSync('server/data/server/sentimony-db-export.json', 'utf8')); console.log('valid')"`
+Run: `node -e "JSON.parse(require('fs').readFileSync('server/data/sentimony-db-export.json', 'utf8')); console.log('valid')"`
 Expected: `valid`
 
 - [ ] **Step 4: Run the full verification suite**
@@ -533,12 +533,12 @@ Run: `npm run dev`, open `http://localhost:3000/artist/hagen`, confirm:
 - dragging the seek bar near the end of the ~80-minute file loads and plays without buffering the whole file first (confirms Range requests work against R2, not just the initial chunk)
 - elapsed/duration show as `mm:ss` (or `h:mm:ss`) in monospace
 - the Tempo Syndicate tracklist renders below the controls
-- open an artist with `soundcloud_track_id` populated (e.g. check `server/data/server/sentimony-db-export.json` for one of the 3 artists that still has it) and confirm the SoundCloud iframe tab still renders correctly — no regression
+- open an artist with `soundcloud_track_id` populated (e.g. check `server/data/sentimony-db-export.json` for one of the 3 artists that still has it) and confirm the SoundCloud iframe tab still renders correctly — no regression
 
 - [ ] **Step 6: Commit**
 
 ```bash
-git add server/data/server/sentimony-db-export.json
+git add server/data/sentimony-db-export.json
 git commit -m "feat: point hagen's artist page at the Tempo Syndicate mix on R2"
 ```
 

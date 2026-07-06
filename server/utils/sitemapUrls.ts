@@ -1,5 +1,3 @@
-import { parseTrackParagraph } from './firebaseCatalog'
-
 export interface SitemapUrlEntry {
   loc: string
   lastmod?: string
@@ -14,12 +12,13 @@ interface CatalogEntity {
 }
 
 interface CatalogRelease extends CatalogEntity {
-  tracklistCompact?: { p: string }[]
+  tracklist?: string[]
 }
 
 export interface SitemapCatalogExport {
   releases: Record<string, CatalogRelease>
   artists: Record<string, CatalogEntity>
+  tracks: Record<string, { slug: string }>
   videos: Record<string, CatalogEntity>
   playlists: Record<string, CatalogEntity>
   events: Record<string, CatalogEntity>
@@ -59,30 +58,27 @@ function buildDetailUrls(collection: Record<string, CatalogEntity>, pathPrefix: 
   }))
 }
 
-function buildTrackUrls(releases: Record<string, CatalogRelease>): SitemapUrlEntry[] {
-  const urls: SitemapUrlEntry[] = []
+function buildTrackUrls(
+  tracks: Record<string, { slug: string }>,
+  releases: Record<string, CatalogRelease>,
+): SitemapUrlEntry[] {
+  const lastmodByTrack = new Map<string, string | undefined>()
 
-  for (const [key, release] of visibleEntries(releases)) {
-    const releaseSlug = release.slug ?? key
-    const tracklist = Array.isArray(release.tracklistCompact) ? release.tracklistCompact : []
-
-    tracklist.forEach((item, index) => {
-      const paragraph = typeof item?.p === 'string' ? item.p : ''
-      if (!paragraph) return
-
-      const track = parseTrackParagraph(paragraph, releaseSlug, index, new Map())
-      if (!track.title) return
-
-      urls.push({
-        loc: `/track/${track.slug}`,
-        lastmod: lastmodOf(release),
-        changefreq: 'monthly',
-        priority: 0.5,
-      })
-    })
+  for (const [, release] of visibleEntries(releases)) {
+    for (const slug of Array.isArray(release.tracklist) ? release.tracklist : []) {
+      if (typeof slug !== 'string') continue
+      if (!lastmodByTrack.has(slug)) lastmodByTrack.set(slug, lastmodOf(release))
+    }
   }
 
-  return urls
+  return Object.entries(tracks ?? {})
+    .filter(([key, track]) => lastmodByTrack.has(track.slug ?? key))
+    .map(([key, track]) => ({
+      loc: `/track/${track.slug ?? key}`,
+      lastmod: lastmodByTrack.get(track.slug ?? key),
+      changefreq: 'monthly' as const,
+      priority: 0.5 as const,
+    }))
 }
 
 export function buildSitemapUrls(catalog: SitemapCatalogExport): SitemapUrlEntry[] {
@@ -90,7 +86,7 @@ export function buildSitemapUrls(catalog: SitemapCatalogExport): SitemapUrlEntry
     ...STATIC_PAGE_URLS,
     ...buildDetailUrls(catalog.releases, '/release'),
     ...buildDetailUrls(catalog.artists, '/artist'),
-    ...buildTrackUrls(catalog.releases),
+    ...buildTrackUrls(catalog.tracks, catalog.releases),
     ...buildDetailUrls(catalog.videos, '/video'),
     ...buildDetailUrls(catalog.playlists, '/playlist'),
     ...buildDetailUrls(catalog.events, '/event'),

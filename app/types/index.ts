@@ -52,6 +52,16 @@ export interface Release extends BaseEntity {
   new?: boolean
   like_count?: number
   links?: ReleaseLinks
+  tracklist?: ReleaseTrack[]
+}
+
+export interface ReleaseTrack {
+  track_number: number
+  slug: string
+  artist: string
+  title: string
+  bpm: number | null
+  url: string
 }
 
 export interface ReleasesResponse {
@@ -101,16 +111,19 @@ export interface Track {
   artist_name: string
   track_number: number
   bpm: number | null
+  audio_url?: string | null
   like_count?: number
 }
 
 export interface TrackResponse {
-  track: Track
-  release: Release | null
-  artists: Artist[]
-  releaseTracks: Track[]
-  similarTracks: Track[]
-  likeCount: number
+  track?: Track
+  release?: Release | null
+  releases?: Release[]
+  artists?: Artist[]
+  releaseTracks?: Track[]
+  similarTracks?: Track[]
+  likeCount?: number
+  redirect?: string
 }
 
 export interface VideoLinks {

@@ -5,7 +5,7 @@ const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount, setCount } = useLikes()
 const { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount } = useTrackLikes()
 
-type Track = { slug: string, title: string, artist_name: string, track_number: number, bpm: number | null, like_count: number }
+type Track = { slug: string, title: string, artist_name: string, artist_slug?: string, track_number: number, bpm: number | null, like_count: number }
 type RelatedRelease = { slug: string, title?: string, cover_xl?: string, date?: string }
 type RelatedArtist = { slug: string, title?: string, photo_xl?: string }
 type RelatedResponse = { releases: RelatedRelease[], artists: RelatedArtist[] }
@@ -30,6 +30,18 @@ onMounted(() => {
   if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
   tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
 })
+
+const playerTracks = computed(() =>
+  (item.value?.tracklist ?? []).filter(t => t.url).map(t => ({
+    title: `${t.artist} - ${t.title}`,
+    url: t.url,
+    slug: t.slug,
+  }))
+)
+
+const artistSlugByTrackNumber = computed(() =>
+  new Map((tracks.value ?? []).map(t => [t.track_number, t.artist_slug]))
+)
 
 const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
@@ -93,11 +105,11 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <div class="flex justify-start mb-4">
               <button
                 @click="toggleLike(item.slug)"
-                class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
+                class="transition-background ease-in-out duration-300 inline-flex items-center gap-2 h-[36px] md:h-[42px] text-[12px] md:text-[15px] tracking-tighter rounded-md border hover:bg-white/30 px-3 md:px-4 backdrop-blur-sm"
+                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : ''"
                 v-wave
               >
-                <Icon name="lucide:thumbs-up" size="18" />
+                <Icon name="lucide:thumbs-up" size="19" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -223,6 +235,14 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <Tabs>
 
               <Tab
+                v-if="item.tracklist?.length"
+                icon="sentimony:logo"
+                title="Sentimony"
+              >
+                <AudioTrackPlaylist :tracks="playerTracks" />
+              </Tab>
+
+              <Tab
                 icon="simple-icons:bandcamp"
                 title="Bandcamp"
               >
@@ -308,7 +328,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
         <div v-if="item.information" v-html="sanitizeHtml(item.information)" />
 
-        <div v-if="tracks?.length || item.tracklistCompact" class="Tracklist">
+        <div v-if="tracks?.length || item.tracklistCompact || item.tracklist?.length" class="Tracklist">
           <hr class="my-4 border-black/30">
           <p><small><b>Tracklist:</b></small></p>
 
@@ -341,6 +361,33 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               :key="index"
               v-html="sanitizeHtml(i.p)"
             />
+          </template>
+
+          <template v-if="item.tracklist?.length">
+            <p
+              v-for="t in item.tracklist"
+              :key="t.slug"
+              class="flex items-center justify-between gap-2"
+            >
+              <span class="min-w-0">
+                <small class="font-mono">{{ String(t.track_number).padStart(2, '0') }}.</small>
+                <template v-if="artistSlugByTrackNumber.get(t.track_number)">
+                  <NuxtLink :to="`/artist/${artistSlugByTrackNumber.get(t.track_number)}`" class="hover:underline"><b>{{ t.artist }}</b></NuxtLink>
+                </template>
+                <b v-else>{{ t.artist }}</b>
+                -
+                <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+                <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
+              </span>
+              <button
+                @click="toggleTrackLike(t.slug)"
+                class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 shrink-0"
+                :class="isTrackLiked(t.slug) ? 'border-red-400/30 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
+              >
+                <Icon name="lucide:thumbs-up" size="12" />
+                <span v-if="trackLikeCount(t.slug) > 0">{{ trackLikeCount(t.slug) }}</span>
+              </button>
+            </p>
           </template>
         </div>
 

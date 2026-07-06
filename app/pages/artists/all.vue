@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import type { Artist, ArtistCategory } from '~/types'
-import { groupArtistsByCategory, sortArtistsForCatalog } from '~/utils/artists'
+import type { Artist, ArtistCategory, ArtistsResponse } from '~/types'
+import { groupArtistsByCategory, sortArtistsByCategory } from '~/utils/artists'
 import { locationToIso2 } from '~/utils/countryFlag'
 
-const { data: artistsRaw } = await useArtists()
+const { data: artistsRaw } = await useAsyncData<ArtistsResponse>('artists-all', () =>
+  $fetch<ArtistsResponse>('/api/artists-all')
+)
 const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
-const sorted = computed(() => sortArtistsForCatalog(artists.value))
+const sorted = computed(() => sortArtistsByCategory(artists.value))
 
 const sectionLabels: Record<ArtistCategory, string> = {
   musician: 'Producers & Musicians',

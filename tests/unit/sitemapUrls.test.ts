@@ -7,19 +7,19 @@ const catalog: SitemapCatalogExport = {
       slug: 'visible-release',
       visible: true,
       date: '2020-01-01T00:00:00.000Z',
-      tracklistCompact: [
-        { p: '<small>01.</small> <b>Test Artist</b> - Opening Track <small>(120bpm)</small>' },
-        { p: '<small>02.</small> <b>Test Artist</b> - Second Track <small>(128bpm)</small>' },
-      ],
+      tracklist: ['test-artist-opening-track', 'test-artist-second-track'],
     },
     'hidden-release': {
       slug: 'hidden-release',
       visible: false,
       date: '2019-01-01T00:00:00.000Z',
-      tracklistCompact: [
-        { p: '<small>01.</small> <b>Hidden Artist</b> - Should Not Appear' },
-      ],
+      tracklist: ['hidden-artist-should-not-appear'],
     },
+  },
+  tracks: {
+    'test-artist-opening-track': { slug: 'test-artist-opening-track' },
+    'test-artist-second-track': { slug: 'test-artist-second-track' },
+    'hidden-artist-should-not-appear': { slug: 'hidden-artist-should-not-appear' },
   },
   artists: {
     irukanji: { slug: 'irukanji', visible: true },
@@ -73,12 +73,12 @@ describe('buildSitemapUrls', () => {
     }
   })
 
-  it('derives track URLs from visible releases using the tracklistCompact slug logic', () => {
+  it('derives track URLs from the tracks section, limited to visible releases', () => {
     const locs = buildSitemapUrls(catalog).map(entry => entry.loc)
 
-    expect(locs).toContain('/track/visible-release-1')
-    expect(locs).toContain('/track/visible-release-2')
-    expect(locs).not.toContain('/track/hidden-release-1')
+    expect(locs).toContain('/track/test-artist-opening-track')
+    expect(locs).toContain('/track/test-artist-second-track')
+    expect(locs).not.toContain('/track/hidden-artist-should-not-appear')
   })
 
   it('includes public static/list pages', () => {

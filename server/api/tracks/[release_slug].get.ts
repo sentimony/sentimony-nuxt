@@ -1,37 +1,33 @@
-const isDev = process.env.NODE_ENV === 'development'
-
 export default defineCachedEventHandler(async (event) => {
   const releaseSlug = getRouterParam(event, 'release_slug')
   if (!releaseSlug) throw createError({ statusCode: 400, statusMessage: 'Missing release_slug' })
 
+  let releaseTracks
+
   if (isSupabaseCatalogSource()) {
-    const { data: tracks, error } = await supabaseAdmin()
-      .from('tracks')
-      .select('slug, title, release_slug, artist_slug, artist_name, track_number, bpm')
-      .eq('release_slug', releaseSlug)
-      .order('track_number')
+    const { data: release, error } = await useSupabase()
+      .from('releases')
+      .select('slug, tracklist')
+      .eq('slug', releaseSlug)
+      .eq('visible', true)
+      .maybeSingle()
 
     if (error) throw createError({ statusCode: 500, statusMessage: error.message })
-    if (!tracks?.length) return []
+    if (!release) return []
 
-    const countMap = await fetchLikeCounts('track_likes', 'track_slug', tracks.map(t => t.slug))
-    return tracks.map(t => ({ ...t, like_count: countMap[t.slug] ?? 0 }))
+    const slugs = releaseTracklistSlugs(release as Record<string, unknown>)
+    if (!slugs.length) return []
+
+    const tracksBySlug = await fetchSupabaseCatalogTracks(slugs)
+    releaseTracks = expandReleaseTracks(release as Record<string, unknown>, tracksBySlug)
   }
-
-  const releaseTracks = await fetchFirebaseTracksForRelease(releaseSlug)
+  else {
+    releaseTracks = await fetchFirebaseTracksForRelease(releaseSlug)
+  }
 
   if (!releaseTracks.length) return []
 
   const countMap = await fetchLikeCounts('track_likes', 'track_slug', releaseTracks.map(t => t.slug))
 
-  return releaseTracks.map(t => ({
-    slug: t.slug,
-    title: t.title,
-    artist_name: t.artist_name,
-    artist_slug: t.artist_slug,
-    release_slug: t.release_slug,
-    track_number: t.track_number,
-    bpm: t.bpm,
-    like_count: countMap[t.slug] ?? 0,
-  }))
+  return releaseTracks.map(t => ({ ...t, like_count: countMap[t.slug] ?? 0 }))
 }, catalogCacheOptions(60 * 5))

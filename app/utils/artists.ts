@@ -7,9 +7,8 @@ function artistCategoryRank(category: Artist['category']) {
   return rank === -1 ? artistCategoryOrder.length : rank
 }
 
-export function sortArtistsForCatalog(artists: Artist[]) {
+export function sortArtistsByCategory(artists: Artist[]) {
   return [...artists]
-    .filter(artist => Boolean(artist.visible))
     .sort((a, b) => {
       const categoryDiff = artistCategoryRank(a.category) - artistCategoryRank(b.category)
 
@@ -17,6 +16,10 @@ export function sortArtistsForCatalog(artists: Artist[]) {
 
       return Number(a.category_id ?? 0) - Number(b.category_id ?? 0)
     })
+}
+
+export function sortArtistsForCatalog(artists: Artist[]) {
+  return sortArtistsByCategory(artists.filter(artist => Boolean(artist.visible)))
 }
 
 export function groupArtistsByCategory(artists: Artist[]): { category: ArtistCategory; list: Artist[] }[] {

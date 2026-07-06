@@ -38,7 +38,7 @@ mix_title?: string
 mix_release_slug?: string
 ```
 
-Populate only the `hagen` entry in `server/data/server/sentimony-db-export.json`:
+Populate only the `hagen` entry in `server/data/sentimony-db-export.json`:
 
 ```json
 "mix_audio_url": "https://audio.sentimony.com/mixes/hagen-tempo-syndicate.mp3",

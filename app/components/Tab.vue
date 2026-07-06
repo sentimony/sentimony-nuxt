@@ -4,18 +4,20 @@ import { inject, onBeforeUnmount, reactive, watch } from 'vue'
 const props = defineProps<{
   title?: string
   icon?: string
+  img?: string
 }>()
 
 const tabs = inject<{
-  registerTab: (info: { title?: string; icon?: string }) => number
+  registerTab: (info: { title?: string; icon?: string; img?: string }) => number
   unregisterTab: (id: number) => void
 }>('tabs')
 
-const info = reactive({ title: props.title, icon: props.icon })
+const info = reactive({ title: props.title, icon: props.icon, img: props.img })
 const id = tabs?.registerTab(info)
 
 watch(() => props.title, (v) => { info.title = v })
 watch(() => props.icon, (v) => { info.icon = v })
+watch(() => props.img, (v) => { info.img = v })
 
 onBeforeUnmount(() => {
   if (id != null) tabs?.unregisterTab(id)

@@ -18,11 +18,10 @@ type EntityInsert = Partial<EntityRow> & Pick<EntityRow, 'slug'>
 type TrackRow = {
   slug: string
   title: string
-  release_slug: string
   artist_slug: string
   artist_name: string
-  track_number: number
   bpm: number | null
+  audio_url: string | null
 }
 
 type LikeRow<Column extends string> = {
@@ -30,6 +29,12 @@ type LikeRow<Column extends string> = {
   user_id: string
   created_at?: string
 } & Record<Column, string>
+
+type TrackPlayRow = {
+  track_slug: string
+  play_count: number
+  updated_at?: string
+}
 
 type Table<Row, Insert = Partial<Row>, Update = Partial<Insert>> = {
   Row: Row
@@ -54,9 +59,15 @@ export interface Database {
       playlist_likes: Table<LikeRow<'playlist_slug'>>
       track_likes: Table<LikeRow<'track_slug'>>
       video_likes: Table<LikeRow<'video_slug'>>
+      track_plays: Table<TrackPlayRow, Partial<TrackPlayRow> & Pick<TrackPlayRow, 'track_slug'>>
     }
     Views: Record<string, never>
-    Functions: Record<string, never>
+    Functions: {
+      increment_track_play: {
+        Args: { p_slug: string }
+        Returns: undefined
+      }
+    }
     Enums: Record<string, never>
     CompositeTypes: Record<string, never>
   }

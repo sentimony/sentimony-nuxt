@@ -15,7 +15,7 @@
 - No inline code comments unless the WHY is non-obvious.
 - `$fetch` with a dynamic/variable URL must carry an explicit generic: `$fetch<T>(url)`.
 - Use `<NuxtImg>` not `<img>` for content images.
-- `organizer` has already been written to all 5 events in `server/data/server/sentimony-db-export.json` — do not touch that file.
+- `organizer` has already been written to all 5 events in `server/data/sentimony-db-export.json` — do not touch that file.
 - Run `npx nuxi typecheck` after each task; Supabase env-var warnings are expected and not failures.
 
 ---

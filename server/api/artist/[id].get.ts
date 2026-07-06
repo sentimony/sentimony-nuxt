@@ -12,7 +12,6 @@ export default defineCachedEventHandler(
         .from('artists')
         .select('*')
         .eq('slug', id)
-        .eq('visible', true)
         .single()
 
       if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
@@ -20,7 +19,7 @@ export default defineCachedEventHandler(
     }
     else {
       const data = await fetchFirebaseEntity('artists', id)
-      if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
+      if (!data) throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
       artist = data as Record<string, unknown>
     }
 

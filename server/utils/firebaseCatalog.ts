@@ -1,15 +1,9 @@
+import { expandReleaseTracks, type CatalogTrack, type ReleaseTrackRow } from './releaseTracklist'
+
 type FirebaseNode = Record<string, unknown>
 type FirebaseCollection = Record<string, FirebaseNode>
 
-export type FirebaseTrack = {
-  slug: string
-  title: string
-  release_slug: string
-  artist_slug: string
-  artist_name: string
-  track_number: number
-  bpm: number | null
-}
+export type FirebaseTrack = ReleaseTrackRow
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -71,32 +65,49 @@ export function parseTrackParagraph(
   const artistSlug = artistByTitle.get(artistName.toLowerCase()) || slugifyFirebaseTrackPart(artistName)
 
   const withoutBpm = paragraph.replace(/\s*<small>\([^)]*bpm\)<\/small>.*$/i, '')
-  const titleRaw = withoutBpm.replace(/^<small>\d+\.<\/small>\s*<b>.*?<\/b>\s*-\s*/, '')
-  const title = titleRaw.replace(/<\/?b>/g, '').replace(/\s*\(\d+(?:-\d+)?bpm\)\s*$/i, '').trim()
+  const titleRaw = withoutBpm.replace(/^<small>\d+\.<\/small>[^<]*<b>.*?<\/b>\s*-\s*/, '')
+  const title = titleRaw.replace(/<[^>]+>/g, '').replace(/\s*\(\d+(?:-\d+)?bpm\)\s*$/i, '').trim()
 
   const bpmMatch = paragraph.match(/\((\d+)(?:-(\d+))?bpm\)/i)
   const parsedBpm = bpmMatch ? Number.parseInt(bpmMatch[1]!, 10) : null
   const bpm = parsedBpm === 0 ? null : parsedBpm
 
   return {
-    slug: `${releaseSlug}-${trackNumber}`,
+    slug: slugifyFirebaseTrackPart(`${artistName} ${title}`),
     release_slug: releaseSlug,
     track_number: trackNumber,
     title,
     artist_name: artistName,
     artist_slug: artistSlug,
     bpm,
+    audio_url: null,
   }
 }
 
-export async function fetchFirebaseTracksForRelease(releaseSlug: string) {
-  const [release, artists] = await Promise.all([
-    fetchFirebaseEntity('releases', releaseSlug),
-    fetchFirebaseCollection('artists'),
-  ])
+function toCatalogTrack(node: FirebaseNode): CatalogTrack | null {
+  if (typeof node.slug !== 'string' || typeof node.title !== 'string') return null
+  return {
+    slug: node.slug,
+    title: node.title,
+    artist_slug: typeof node.artist_slug === 'string' ? node.artist_slug : '',
+    artist_name: typeof node.artist_name === 'string' ? node.artist_name : '',
+    bpm: typeof node.bpm === 'number' ? node.bpm : null,
+    audio_url: typeof node.audio_url === 'string' ? node.audio_url : null,
+  }
+}
 
-  if (!isPublicEntity(release)) return []
+export async function fetchFirebaseCatalogTracks(): Promise<Map<string, CatalogTrack>> {
+  const stored = await fetchFirebaseCollection('tracks')
+  const map = new Map<string, CatalogTrack>()
+  for (const node of Object.values(stored)) {
+    const track = toCatalogTrack(node)
+    if (track) map.set(track.slug, track)
+  }
+  return map
+}
 
+async function parseCompactTracks(release: FirebaseNode, releaseSlug: string): Promise<FirebaseTrack[]> {
+  const artists = await fetchFirebaseCollection('artists')
   const artistByTitle = buildArtistTitleMap(artists)
   const tracklist = Array.isArray(release.tracklistCompact) ? release.tracklistCompact : []
 
@@ -108,23 +119,34 @@ export async function fetchFirebaseTracksForRelease(releaseSlug: string) {
     .filter(track => track.title)
 }
 
-export async function fetchAllFirebaseTracks() {
-  const [releases, artists] = await Promise.all([
-    fetchFirebaseCollection('releases'),
-    fetchFirebaseCollection('artists'),
-  ])
-  const artistByTitle = buildArtistTitleMap(artists)
-  const tracks: FirebaseTrack[] = []
+export async function fetchFirebaseTracksForRelease(releaseSlug: string): Promise<FirebaseTrack[]> {
+  const release = await fetchFirebaseEntity('releases', releaseSlug)
+  if (!isPublicEntity(release)) return []
 
+  if (Array.isArray(release.tracklist)) {
+    const tracksBySlug = await fetchFirebaseCatalogTracks()
+    return expandReleaseTracks(release, tracksBySlug)
+  }
+
+  return await parseCompactTracks(release, releaseSlug)
+}
+
+export async function fetchAllFirebaseTracks(): Promise<FirebaseTrack[]> {
+  const [releases, tracksBySlug] = await Promise.all([
+    fetchFirebaseCollection('releases'),
+    fetchFirebaseCatalogTracks(),
+  ])
+
+  const tracks: FirebaseTrack[] = []
   for (const [releaseSlug, release] of Object.entries(releases)) {
     if (!isPublicEntity(release)) continue
 
-    const tracklist = Array.isArray(release.tracklistCompact) ? release.tracklistCompact : []
-    for (const [index, item] of tracklist.entries()) {
-      const paragraph = typeof item === 'object' && item && 'p' in item ? String(item.p ?? '') : ''
-      const track = parseTrackParagraph(paragraph, releaseSlug, index, artistByTitle)
-      if (track.title) tracks.push(track)
+    if (Array.isArray(release.tracklist)) {
+      tracks.push(...expandReleaseTracks({ ...release, slug: releaseSlug }, tracksBySlug))
+      continue
     }
+
+    tracks.push(...await parseCompactTracks(release, releaseSlug))
   }
 
   return tracks

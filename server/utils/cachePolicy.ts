@@ -28,6 +28,7 @@ const catalogRoutes = [
   '/api/playlist/**',
   '/api/videos',
   '/api/video/**',
+  '/api/tracks',
   '/api/tracks/**',
   '/api/track/**',
 ] as const
@@ -68,6 +69,7 @@ export function buildApiRouteRules(): Record<string, RouteRule> {
   }
 
   rules['/api/profile/summary'] = privateCacheRule
+  rules['/api/track-plays'] = privateCacheRule
 
   return rules
 }

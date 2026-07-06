@@ -6,7 +6,7 @@ Make public Sentimony catalog pages discoverable through a complete sitemap gene
 
 ## Decisions
 
-- Source of truth: `server/data/server/sentimony-db-export.json`.
+- Source of truth: `server/data/sentimony-db-export.json`.
 - Sitemap integration: use `@nuxtjs/sitemap` user source endpoint, not live Firebase/Supabase.
 - Runtime endpoint: `/api/__sitemap__/urls` returns sitemap URL objects for the module.
 - No remote sync scripts are involved.

@@ -17,7 +17,15 @@ if (trackError.value || !data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Track not found' })
 }
 
-const track = computed(() => data.value!.track)
+if (!data.value.track && !data.value.redirect) {
+  throw createError({ statusCode: 404, statusMessage: 'Track not found' })
+}
+
+if (data.value.redirect) {
+  await navigateTo(`/track/${data.value.redirect}`, { redirectCode: 301, replace: true })
+}
+
+const track = computed(() => data.value!.track ?? ({} as NonNullable<typeof data.value.track>))
 const release = computed(() => data.value!.release)
 const artists = computed(() => data.value!.artists ?? [])
 const releaseTracks = computed(() => data.value!.releaseTracks ?? [])

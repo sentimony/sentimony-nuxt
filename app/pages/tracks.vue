@@ -24,22 +24,39 @@ useSeoMeta({
   twitterCard: 'summary'
 })
 
+type TrackListItem = {
+  slug: string
+  title: string
+  release_slug: string
+  artist_slug: string
+  artist_name: string
+  track_number: number
+  bpm: number | null
+  audio_url: string | null
+}
+
 const { data: releasesRaw } = await useReleases({ server: true })
+const { data: allTracks } = await useFetch<TrackListItem[]>('/api/tracks')
 const releasesArr = computed(() => toArray<any>(releasesRaw.value, 'releases'))
 const releasedReleases = computed(() =>
   releasesArr.value.filter((r: any) => Boolean(r?.visible) && !Boolean(r?.coming_soon))
 )
+const tracksByRelease = computed(() => {
+  const map = new Map<string, TrackListItem[]>()
+  for (const track of allTracks.value ?? []) {
+    const list = map.get(track.release_slug)
+    if (list) list.push(track)
+    else map.set(track.release_slug, [track])
+  }
+  return map
+})
 const releasesWithTracks = computed(() =>
   sortByDate(
-    releasedReleases.value.filter(
-      (release: any) => Array.isArray(release?.tracklistCompact) && release.tracklistCompact.length > 0
-    )
+    releasedReleases.value.filter((release: any) => tracksByRelease.value.has(release?.slug))
   )
 )
 const releases = computed(() => releasedReleases.value.length)
-const tracks = computed(() =>
-  releasedReleases.value.reduce((sum: number, r: any) => sum + (Number(r?.tracks_number) || 0), 0)
-)
+const tracks = computed(() => allTracks.value?.length ?? 0)
 
 const { data: artistsRaw } = await useArtists({ server: true })
 const artistsArr = computed(() => toArray<any>(artistsRaw.value, 'artists'))
@@ -94,15 +111,26 @@ const friends = computed(() => friendsArr.value.filter((f: any) => Boolean(f?.vi
               class="mb-2"
             />
 
-            <div v-if="i.tracklistCompact"
-              class="Tracklist"
-            >
+            <div class="Tracklist">
               <li
-                v-for="(iii, index) in i.tracklistCompact"
-                :key="'b' + index"
-                v-if="i.tracklistCompact"
-                v-html="sanitizeHtml(iii.p)"
-              />
+                v-for="t in tracksByRelease.get(i.slug)"
+                :key="t.slug"
+              >
+                <small class="font-mono">{{ String(t.track_number).padStart(2, '0') }}.</small>
+                <b>{{ t.artist_name }}</b>
+                -
+                <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+                <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
+                <a
+                  v-if="t.audio_url"
+                  :href="t.audio_url"
+                  target="_blank"
+                  rel="noopener"
+                  class="ms-1 text-foreground/40 hover:text-foreground/70"
+                >
+                  <Icon name="lucide:play" mode="svg" class="inline size-3.5 align-middle" />
+                </a>
+              </li>
             </div>
           </div>
         </ol>

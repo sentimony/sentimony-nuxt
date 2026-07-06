@@ -1,4 +1,4 @@
-import catalogExport from '../../data/server/sentimony-db-export.json'
+import catalogExport from '../../data/sentimony-db-export.json'
 import { buildSitemapUrls, type SitemapCatalogExport } from '../../utils/sitemapUrls'
 
 export default defineSitemapEventHandler(() => {

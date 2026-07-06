@@ -20,8 +20,8 @@
     "netlify:prod": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.115",
-    "@iconify-json/simple-icons": "^1.2.88",
+    "@iconify-json/lucide": "^1.2.116",
+    "@iconify-json/simple-icons": "^1.2.89",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^26.1.0",

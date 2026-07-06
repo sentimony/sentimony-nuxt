@@ -41,7 +41,7 @@ Every designer is already credited in `releases[].artists` (string or string[]).
 Allow marking which artist(s) organized a given event, and surface "Organized Events" on the artist detail page.
 
 ### DB Change
-Add optional `organizer?: string[]` field to event records in `server/data/server/sentimony-db-export.json`. Already populated for all 5 current events:
+Add optional `organizer?: string[]` field to event records in `server/data/sentimony-db-export.json`. Already populated for all 5 current events:
 
 | Event slug | organizer |
 |------------|-----------|
@@ -198,7 +198,7 @@ Each page has its own `useSeoMeta()` + `useCanonical()`. Canonical points to the
 | Modify | `app/pages/artists.vue` — add link to /artists/all |
 | Modify | `app/pages/releases.vue` — add genre filter tabs |
 | Modify | `app/types/index.ts` — Event.organizer field |
-| Done ✓ | `server/data/server/sentimony-db-export.json` — `organizer` added to all 5 events |
+| Done ✓ | `server/data/sentimony-db-export.json` — `organizer` added to all 5 events |
 
 ## Out of Scope
 - Supabase migration for `organizer` column (deferred until Supabase becomes the events source)

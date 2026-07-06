@@ -148,8 +148,8 @@ async function signOut() {
           <NuxtLink
             v-else
             to="/signin"
-            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-white/30 px-4 h-9 rounded-md text-sm border border-white/20"
-            :class="isNavActive('/signin') ? 'bg-white/20' : ''"
+            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-4 h-9 rounded-md text-sm border border-black/20 dark:border-white/20"
+            :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20' : ''"
             v-wave
           >
             <Icon name="lucide:log-in" size="18" />
