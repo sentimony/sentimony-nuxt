@@ -12,9 +12,22 @@ describe('AudioTrackPlaylist.vue', () => {
     expect(component).toContain('tracks: { title: string; url: string; slug?: string }[]')
   })
 
-  it('renders a native audio element bound to the current track', () => {
-    expect(component).toContain('<audio')
-    expect(component).toContain(':src="currentTrack?.url"')
+  it('has no local audio element anymore', () => {
+    expect(component).not.toContain('<audio')
+  })
+
+  it('drives the global player with a track queue', () => {
+    expect(component).toContain('useAudioPlayer()')
+    expect(component).toContain("kind: 'track'")
+    expect(component).toContain('queue')
+  })
+
+  it('still exposes playTrack for the release page', () => {
+    expect(component).toContain('defineExpose({ playTrack })')
+  })
+
+  it('keeps registering play counts', () => {
+    expect(component).toContain("$fetch('/api/track-plays', { method: 'POST'")
   })
 
   it('toggles lucide play/pause icons off playing state', () => {
@@ -22,15 +35,10 @@ describe('AudioTrackPlaylist.vue', () => {
     expect(component).toContain('lucide:pause')
   })
 
-  it('auto-advances to the next track when the current one ends', () => {
-    expect(component).toContain('@ended="onEnded"')
-    expect(component).toContain('function onEnded')
-  })
-
   it('provides prev/next controls gated on playlist boundaries', () => {
     expect(component).toContain('lucide:skip-back')
     expect(component).toContain('lucide:skip-forward')
-    expect(component).toContain(':disabled="currentIndex === 0"')
+    expect(component).toContain(':disabled="!isActive || activeIndex === 0"')
   })
 
   it('renders a clickable track list highlighting the current track', () => {
@@ -39,8 +47,8 @@ describe('AudioTrackPlaylist.vue', () => {
   })
 
   it('formats elapsed and total time with formatDuration', () => {
-    expect(component).toContain('formatDuration(currentTime)')
-    expect(component).toContain('formatDuration(duration)')
+    expect(component).toContain('formatDuration(isActive ? currentTime : 0)')
+    expect(component).toContain('formatDuration(isActive ? duration : 0)')
   })
 
   it('applies font-mono to the time display', () => {

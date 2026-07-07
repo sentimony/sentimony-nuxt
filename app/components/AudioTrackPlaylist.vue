@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { ref, computed, nextTick, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
+import type { QueueItem } from '~/utils/audioQueue'
 
 const props = defineProps<{
   tracks: { title: string; url: string; slug?: string }[]
 }>()
+
+const route = useRoute()
+const { current, isPlaying, currentTime, duration, volume, play, toggle, seek, setVolume, next, prev } = useAudioPlayer()
 
 const playCounts = ref<Record<string, number>>({})
 const countedThisSession = new Set<string>()
@@ -21,67 +25,50 @@ onMounted(async () => {
   } catch { /* counts stay empty */ }
 })
 
-function registerPlay() {
-  const slug = props.tracks[currentIndex.value]?.slug
+const playable = computed(() => props.tracks.filter(t => t.url))
+const queue = computed<QueueItem[]>(() =>
+  playable.value.map(t => ({ src: t.url, title: t.title, link: route.path }))
+)
+
+const activeIndex = computed(() =>
+  playable.value.findIndex(t => t.url === current.value?.src)
+)
+const isActive = computed(() => activeIndex.value !== -1)
+const playingThis = computed(() => isActive.value && isPlaying.value)
+const currentTrack = computed(() => playable.value[activeIndex.value] ?? playable.value[0])
+
+function registerPlay(slug?: string) {
   if (!slug || countedThisSession.has(slug)) return
   countedThisSession.add(slug)
   playCounts.value = { ...playCounts.value, [slug]: (playCounts.value[slug] ?? 0) + 1 }
   $fetch('/api/track-plays', { method: 'POST', body: { slug } }).catch(() => {})
 }
 
-const audioEl = ref<HTMLAudioElement | null>(null)
-const currentIndex = ref(0)
-const isPlaying = ref(false)
-const currentTime = ref(0)
-const duration = ref(0)
-const volume = ref(1)
-
-const currentTrack = computed(() => props.tracks[currentIndex.value])
-
 function playTrack(index: number) {
-  currentIndex.value = index
-  currentTime.value = 0
-  nextTick(() => audioEl.value?.play())
+  const track = props.tracks[index]
+  if (!track?.url) return
+  const queueIndex = playable.value.findIndex(t => t.url === track.url)
+  play({ kind: 'track', src: track.url, title: track.title, link: route.path, queue: queue.value, queueIndex })
+  registerPlay(track.slug)
 }
+
+watch(activeIndex, (index) => {
+  if (index === -1) return
+  registerPlay(playable.value[index]?.slug)
+})
 
 function togglePlay() {
-  if (!audioEl.value) return
-  if (audioEl.value.paused) audioEl.value.play()
-  else audioEl.value.pause()
-}
-
-function playPrev() {
-  if (currentIndex.value > 0) playTrack(currentIndex.value - 1)
-}
-
-function playNext() {
-  if (currentIndex.value < props.tracks.length - 1) playTrack(currentIndex.value + 1)
-}
-
-function onEnded() {
-  if (currentIndex.value < props.tracks.length - 1) playTrack(currentIndex.value + 1)
-  else isPlaying.value = false
-}
-
-function onTimeUpdate() {
-  if (audioEl.value) currentTime.value = audioEl.value.currentTime
-}
-
-function onLoadedMetadata() {
-  if (audioEl.value) duration.value = audioEl.value.duration
+  if (isActive.value) toggle()
+  else playTrack(props.tracks.findIndex(t => t.url))
 }
 
 function onSeek(event: Event) {
-  const target = event.target as HTMLInputElement
-  const seconds = Number(target.value)
-  if (audioEl.value) audioEl.value.currentTime = seconds
-  currentTime.value = seconds
+  if (!isActive.value) return
+  seek(Number((event.target as HTMLInputElement).value))
 }
 
 function onVolumeChange(event: Event) {
-  const target = event.target as HTMLInputElement
-  volume.value = Number(target.value)
-  if (audioEl.value) audioEl.value.volume = volume.value
+  setVolume(Number((event.target as HTMLInputElement).value))
 }
 
 defineExpose({ playTrack })
@@ -89,25 +76,13 @@ defineExpose({ playTrack })
 
 <template>
   <div class="flex flex-col gap-3">
-    <audio
-      ref="audioEl"
-      :src="currentTrack?.url"
-      class="hidden"
-      preload="metadata"
-      @play="isPlaying = true; registerPlay()"
-      @pause="isPlaying = false"
-      @timeupdate="onTimeUpdate"
-      @loadedmetadata="onLoadedMetadata"
-      @ended="onEnded"
-    />
-
     <div class="flex items-center gap-2">
       <button
         type="button"
         class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
         aria-label="Previous track"
-        :disabled="currentIndex === 0"
-        @click="playPrev"
+        :disabled="!isActive || activeIndex === 0"
+        @click="prev"
         v-wave
       >
         <Icon name="lucide:skip-back" size="14" />
@@ -116,19 +91,19 @@ defineExpose({ playTrack })
       <button
         type="button"
         class="flex items-center justify-center w-10 h-10 shrink-0 rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-200"
-        :aria-label="isPlaying ? 'Pause' : 'Play'"
+        :aria-label="playingThis ? 'Pause' : 'Play'"
         @click="togglePlay"
         v-wave
       >
-        <Icon :name="isPlaying ? 'lucide:pause' : 'lucide:play'" size="18" />
+        <Icon :name="playingThis ? 'lucide:pause' : 'lucide:play'" size="18" />
       </button>
 
       <button
         type="button"
         class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
         aria-label="Next track"
-        :disabled="currentIndex === tracks.length - 1"
-        @click="playNext"
+        :disabled="!isActive || activeIndex === playable.length - 1"
+        @click="next"
         v-wave
       >
         <Icon name="lucide:skip-forward" size="14" />
@@ -138,17 +113,18 @@ defineExpose({ playTrack })
     </div>
 
     <div class="flex items-center gap-2">
-      <span class="font-mono text-xs w-10 text-right">{{ formatDuration(currentTime) }}</span>
+      <span class="font-mono text-xs w-10 text-right">{{ formatDuration(isActive ? currentTime : 0) }}</span>
       <input
         type="range"
         class="flex-1 accent-[#144B15] dark:accent-[#4e8b52]"
         min="0"
-        :max="duration || 0"
+        :max="isActive ? (duration || 0) : 0"
         step="1"
-        :value="currentTime"
+        :value="isActive ? currentTime : 0"
+        :disabled="!isActive"
         @input="onSeek"
       >
-      <span class="font-mono text-xs w-10">{{ formatDuration(duration) }}</span>
+      <span class="font-mono text-xs w-10">{{ formatDuration(isActive ? duration : 0) }}</span>
     </div>
 
     <div class="flex items-center gap-2">
@@ -170,7 +146,7 @@ defineExpose({ playTrack })
         :key="index"
         type="button"
         class="flex items-center gap-2 text-xs text-left px-2 py-1 rounded transition-colors duration-200 hover:bg-white/10"
-        :class="index === currentIndex ? 'text-white font-bold' : 'text-white/60'"
+        :class="track.url && track.url === current?.src ? 'text-white font-bold' : 'text-white/60'"
         @click="playTrack(index)"
       >
         <span class="font-mono w-6 shrink-0">{{ String(index + 1).padStart(2, '0') }}</span>
