@@ -14,9 +14,18 @@ describe('AudioMixPlayer.vue', () => {
     expect(component).toContain('tracklist?: CompactParagraph[]')
   })
 
-  it('renders a native audio element bound to src', () => {
-    expect(component).toContain('<audio')
-    expect(component).toContain(':src="src"')
+  it('has no local audio element anymore', () => {
+    expect(component).not.toContain('<audio')
+  })
+
+  it('drives the global player instead', () => {
+    expect(component).toContain('useAudioPlayer()')
+    expect(component).toContain("kind: 'mix'")
+    expect(component).toContain('isCurrent(')
+  })
+
+  it('links playback back to the current page', () => {
+    expect(component).toContain('route.path')
   })
 
   it('toggles lucide play/pause icons off playing state', () => {
@@ -25,8 +34,8 @@ describe('AudioMixPlayer.vue', () => {
   })
 
   it('formats elapsed and total time with formatDuration', () => {
-    expect(component).toContain('formatDuration(currentTime)')
-    expect(component).toContain('formatDuration(duration)')
+    expect(component).toContain('formatDuration(active ? currentTime : 0)')
+    expect(component).toContain('formatDuration(active ? duration : 0)')
   })
 
   it('applies font-mono to the time display', () => {

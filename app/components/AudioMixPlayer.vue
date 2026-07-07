@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 import type { CompactParagraph } from '~/types'
 
 const props = defineProps<{
@@ -8,86 +8,63 @@ const props = defineProps<{
   tracklist?: CompactParagraph[]
 }>()
 
-const audioEl = ref<HTMLAudioElement | null>(null)
-const isPlaying = ref(false)
-const currentTime = ref(0)
-const duration = ref(0)
-const volume = ref(1)
+const route = useRoute()
+const { isPlaying, currentTime, duration, volume, play, toggle, seek, setVolume, isCurrent } = useAudioPlayer()
+
+const active = computed(() => isCurrent(props.src))
+const playingThis = computed(() => active.value && isPlaying.value)
 
 function togglePlay() {
-  if (!audioEl.value) return
-  if (audioEl.value.paused) audioEl.value.play()
-  else audioEl.value.pause()
-}
-
-function onTimeUpdate() {
-  if (audioEl.value) currentTime.value = audioEl.value.currentTime
-}
-
-function onLoadedMetadata() {
-  if (audioEl.value) duration.value = audioEl.value.duration
+  if (active.value) toggle()
+  else play({ kind: 'mix', src: props.src, title: props.title || 'Mix', link: route.path })
 }
 
 function onSeek(event: Event) {
-  const target = event.target as HTMLInputElement
-  const seconds = Number(target.value)
-  if (audioEl.value) audioEl.value.currentTime = seconds
-  currentTime.value = seconds
+  if (!active.value) return
+  seek(Number((event.target as HTMLInputElement).value))
 }
 
 function onVolumeChange(event: Event) {
-  const target = event.target as HTMLInputElement
-  volume.value = Number(target.value)
-  if (audioEl.value) audioEl.value.volume = volume.value
+  setVolume(Number((event.target as HTMLInputElement).value))
 }
 </script>
 
 <template>
   <div class="flex flex-col gap-3">
-    <audio
-      ref="audioEl"
-      :src="src"
-      class="hidden"
-      preload="metadata"
-      @play="isPlaying = true"
-      @pause="isPlaying = false"
-      @timeupdate="onTimeUpdate"
-      @loadedmetadata="onLoadedMetadata"
-    />
-
     <div class="flex items-center gap-3">
       <button
         type="button"
         class="flex items-center justify-center w-10 h-10 shrink-0 rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-200"
-        :aria-label="isPlaying ? 'Pause' : 'Play'"
+        :aria-label="playingThis ? 'Pause' : 'Play'"
         @click="togglePlay"
         v-wave
       >
-        <Icon :name="isPlaying ? 'lucide:pause' : 'lucide:play'" size="18" />
+        <Icon :name="playingThis ? 'lucide:pause' : 'lucide:play'" size="18" />
       </button>
 
       <span v-if="title" class="text-sm">{{ title }}</span>
     </div>
 
     <div class="flex items-center gap-2">
-      <span class="font-mono text-xs w-10 text-right">{{ formatDuration(currentTime) }}</span>
+      <span class="font-mono text-xs w-10 text-right">{{ formatDuration(active ? currentTime : 0) }}</span>
       <input
         type="range"
-        class="flex-1"
+        class="flex-1 accent-[#144B15] dark:accent-[#4e8b52]"
         min="0"
-        :max="duration || 0"
+        :max="active ? (duration || 0) : 0"
         step="1"
-        :value="currentTime"
+        :value="active ? currentTime : 0"
+        :disabled="!active"
         @input="onSeek"
       >
-      <span class="font-mono text-xs w-10">{{ formatDuration(duration) }}</span>
+      <span class="font-mono text-xs w-10">{{ formatDuration(active ? duration : 0) }}</span>
     </div>
 
     <div class="flex items-center gap-2">
       <Icon name="lucide:volume-2" size="16" />
       <input
         type="range"
-        class="w-24"
+        class="w-24 accent-[#144B15] dark:accent-[#4e8b52]"
         min="0"
         max="1"
         step="0.05"
