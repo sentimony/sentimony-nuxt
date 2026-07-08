@@ -1,3 +1,9 @@
+# Smoke-check that every page kind renders (HTTP 2xx/3xx) after a build.
+# NOTE: this runs the `node-server` Nitro preset on Node 24, which tolerates
+# require(ESM). Production runs the `netlify` preset in a CJS lambda that does
+# NOT — so an ESM/CJS module-system mismatch (the class of bug that first
+# shipped the 500 regression) will pass here. This job guards SSR *render*
+# regressions generally; it does not model the lambda's module resolution.
 name: web-debug
 
 on:
