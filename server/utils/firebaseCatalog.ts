@@ -8,10 +8,15 @@ export type FirebaseTrack = ReleaseTrackRow
 const isDev = process.env.NODE_ENV === 'development'
 
 function firebaseUrl(path: string) {
-  const { public: { firebaseBase } } = useRuntimeConfig()
+  const { firebaseDbSecret, public: { firebaseBase } } = useRuntimeConfig()
   const normalizedPath = path.replace(/^\/+|\/+$/g, '')
-  const url = `${firebaseBase}/${normalizedPath}.json`
-  return isDev ? `${url}?_t=${Date.now()}` : url
+  const query = new URLSearchParams()
+  // Server-side reads authenticate with the DB secret so the database rules can
+  // stay `.read: false` (no public read access, no external scraping).
+  if (firebaseDbSecret) query.set('auth', firebaseDbSecret as string)
+  if (isDev) query.set('_t', String(Date.now()))
+  const suffix = query.toString()
+  return `${firebaseBase}/${normalizedPath}.json${suffix ? `?${suffix}` : ''}`
 }
 
 export function slugifyFirebaseTrackPart(value: string) {

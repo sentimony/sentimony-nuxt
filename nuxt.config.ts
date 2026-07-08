@@ -68,6 +68,7 @@ export default defineNuxtConfig({
     catalogSource,
     supabaseSecretKey,
     supabaseUrl,
+    firebaseDbSecret: process.env.NUXT_FIREBASE_DB_SECRET || process.env.FIREBASE_DB_SECRET || '',
     public: {
       firebaseBase: 'https://sentimony-db.firebaseio.com',
       supabaseUrl,
