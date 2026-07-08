@@ -1,0 +1,59 @@
+name: web-debug
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NUXT_CATALOG_SOURCE: firebase
+      NUXT_FIREBASE_DB_SECRET: ${{ secrets.FIREBASE_DB_SECRET }}
+      NUXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      NUXT_PUBLIC_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: Build (node-server preset)
+        env:
+          NITRO_PRESET: node-server
+        run: npm run build
+
+      - name: Start server
+        run: |
+          node .output/server/index.mjs &
+          echo "SERVER_PID=$!" >> "$GITHUB_ENV"
+
+      - name: Wait for server
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null http://localhost:3000/; then
+              echo "server up after ${i}s"; exit 0
+            fi
+            sleep 1
+          done
+          echo "server did not start in time"; exit 1
+
+      - name: Smoke-check pages
+        env:
+          BASE_URL: http://localhost:3000
+        run: npm run web-debug
+
+      - name: Stop server
+        if: always()
+        run: kill "$SERVER_PID" 2>/dev/null || true
