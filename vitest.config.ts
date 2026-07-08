@@ -4,5 +4,6 @@ export default defineConfig({
   test: {
     environment: 'node',
     include: ['tests/unit/**/*.test.ts'],
+    setupFiles: ['tests/setup/nitro-globals.ts'],
   },
 })

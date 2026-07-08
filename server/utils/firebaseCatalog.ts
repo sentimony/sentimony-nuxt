@@ -102,19 +102,38 @@ function toCatalogTrack(node: FirebaseNode): CatalogTrack | null {
   }
 }
 
-export async function fetchFirebaseCatalogTracks(): Promise<Map<string, CatalogTrack>> {
-  const stored = await fetchFirebaseCollection('tracks')
-  const map = new Map<string, CatalogTrack>()
-  for (const node of Object.values(stored)) {
-    const track = toCatalogTrack(node)
-    if (track) map.set(track.slug, track)
-  }
-  return map
+const firebaseCatalogCache = { maxAge: isDev ? 0 : 60 * 60, swr: !isDev }
+
+// Wrap heavy whole-collection reads in Nitro's cached-function layer so repeated
+// requests on a warm serverless instance reuse one Firebase download instead of
+// re-fetching the full `tracks`/`artists` node per request. `defineCachedFunction`
+// is a Nitro auto-import; the vitest unit env shims it via globalThis (see
+// tests/setup/nitro-globals.ts).
+function cacheFirebaseLoader<T>(loader: () => Promise<T>, name: string): () => Promise<T> {
+  return defineCachedFunction(loader, { ...firebaseCatalogCache, name, getKey: () => 'all' })
 }
 
-async function parseCompactTracks(release: FirebaseNode, releaseSlug: string): Promise<FirebaseTrack[]> {
+const cachedFirebaseCatalogTracks = cacheFirebaseLoader(async (): Promise<Array<[string, CatalogTrack]>> => {
+  const stored = await fetchFirebaseCollection('tracks')
+  const entries: Array<[string, CatalogTrack]> = []
+  for (const node of Object.values(stored)) {
+    const track = toCatalogTrack(node)
+    if (track) entries.push([track.slug, track])
+  }
+  return entries
+}, 'firebase-catalog-tracks')
+
+export async function fetchFirebaseCatalogTracks(): Promise<Map<string, CatalogTrack>> {
+  return new Map(await cachedFirebaseCatalogTracks())
+}
+
+const cachedFirebaseArtistTitleMap = cacheFirebaseLoader(async (): Promise<Array<[string, string]>> => {
   const artists = await fetchFirebaseCollection('artists')
-  const artistByTitle = buildArtistTitleMap(artists)
+  return [...buildArtistTitleMap(artists).entries()]
+}, 'firebase-artist-title-map')
+
+async function parseCompactTracks(release: FirebaseNode, releaseSlug: string): Promise<FirebaseTrack[]> {
+  const artistByTitle = new Map(await cachedFirebaseArtistTitleMap())
   const tracklist = Array.isArray(release.tracklistCompact) ? release.tracklistCompact : []
 
   return tracklist
