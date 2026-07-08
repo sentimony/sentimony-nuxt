@@ -17628,7 +17628,7 @@
       "artist_name": "Alien Immigrant",
       "artist_slug": "alien-immigrant",
       "bpm": 68,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/alien-immigrant-dub-train.mp3"
     },
     "alien-immigrant-lucid-dreaming": {
       "slug": "alien-immigrant-lucid-dreaming",
@@ -17636,7 +17636,7 @@
       "artist_name": "Alien Immigrant",
       "artist_slug": "alien-immigrant",
       "bpm": 81,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/alien-immigrant-lucid-dreaming.mp3"
     },
     "alien-immigrant-plant-medicine": {
       "slug": "alien-immigrant-plant-medicine",
@@ -17644,7 +17644,7 @@
       "artist_name": "Alien Immigrant",
       "artist_slug": "alien-immigrant",
       "bpm": 87,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/alien-immigrant-plant-medicine.mp3"
     },
     "already-maged-necromantica": {
       "slug": "already-maged-necromantica",
@@ -17844,7 +17844,7 @@
       "artist_name": "Boggy Elf",
       "artist_slug": "boggy-elf",
       "bpm": 80,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.01.%20Boggy%20Elf%20-%20Dream%20Of%20Ashvattha%20(In).mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boggy-elf-dream-of-ashvattha-in.mp3"
     },
     "boketto-absolute": {
       "slug": "boketto-absolute",
@@ -18188,7 +18188,7 @@
       "artist_name": "Daoine Sidhe",
       "artist_slug": "daoine-sidhe",
       "bpm": 127,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.09.%20Daoine%20Sidhe%20-%20Mindslipses.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/daoine-sidhe-mindslipses.mp3"
     },
     "darkol-trinity-parallel-indication": {
       "slug": "darkol-trinity-parallel-indication",
@@ -18812,7 +18812,7 @@
       "artist_name": "Flooting Grooves",
       "artist_slug": "flooting-grooves",
       "bpm": 124,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.05.%20Flooting%20Grooves%20-%20Psydeburn.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/flooting-grooves-psydeburn.mp3"
     },
     "fracktom-apocalypsynth": {
       "slug": "fracktom-apocalypsynth",
@@ -19468,7 +19468,7 @@
       "artist_name": "Hypnotriod",
       "artist_slug": "hypnotriod",
       "bpm": 125,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.03.%20Hypnotriod%20-%20The%20Sleep%20Detector.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hypnotriod-the-sleep-detector.mp3"
     },
     "hypnotriod-the-sleep-detector-unusual-cosmic-process-rmx": {
       "slug": "hypnotriod-the-sleep-detector-unusual-cosmic-process-rmx",
@@ -19524,7 +19524,7 @@
       "artist_name": "Irukanji",
       "artist_slug": "irukanji",
       "bpm": 125,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.06.%20Irukanji%20-%20Ayalla.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-ayalla.mp3"
     },
     "irukanji-clooney": {
       "slug": "irukanji-clooney",
@@ -20740,7 +20740,7 @@
       "artist_name": "Primordial Ooze",
       "artist_slug": "primordial-ooze",
       "bpm": 120,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.11.%20Primordial%20Ooze%20-%20Trial.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/primordial-ooze-trial.mp3"
     },
     "prok-gliese": {
       "slug": "prok-gliese",
@@ -21260,7 +21260,7 @@
       "artist_name": "Senzar",
       "artist_slug": "senzar",
       "bpm": 121,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.08.%20Senzar%20-%20Nature%20Moves.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-nature-moves.mp3"
     },
     "senzar-path-of-dhyana": {
       "slug": "senzar-path-of-dhyana",
@@ -21316,7 +21316,7 @@
       "artist_name": "ShizoLizer Gin",
       "artist_slug": "shizolizer-gin",
       "bpm": 115,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.02.%20ShizoLizer%20Gin%20-%20Kinder%20Pingui.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shizolizer-gin-kinder-pingui.mp3"
     },
     "shizolizer-gin-pony-ponyslas": {
       "slug": "shizolizer-gin-pony-ponyslas",
@@ -21764,7 +21764,7 @@
       "artist_name": "Spectrum Vision",
       "artist_slug": "spectrum-vision",
       "bpm": 120,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.12.%20Spectrum%20Vision%20-%20Time%20Out%20Man%20(Out).mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-time-out-man-out.mp3"
     },
     "spectrum-vision-tunguska": {
       "slug": "spectrum-vision-tunguska",
@@ -21924,7 +21924,7 @@
       "artist_name": "Sygnals",
       "artist_slug": "sygnals",
       "bpm": 110,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.07.%20Sygnals%20-%20Among%20Others.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sygnals-among-others.mp3"
     },
     "syned-brain-inception": {
       "slug": "syned-brain-inception",
@@ -22588,7 +22588,7 @@
       "artist_name": "Unusual Cosmic Process",
       "artist_slug": "unusual-cosmic-process",
       "bpm": 104,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.04.%20Unusual%20Cosmic%20Process%20-%20Insignificant%20Information.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-insignificant-information.mp3"
     },
     "unusual-cosmic-process-lighted-up": {
       "slug": "unusual-cosmic-process-lighted-up",
@@ -23092,7 +23092,7 @@
       "artist_name": "Wizack Twizack",
       "artist_slug": "wizack-twizack",
       "bpm": 130,
-      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/releases/va-tempo-syndicate/009.10.%20Wizack%20Twizack%20-%20Lejon.mp3"
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/wizack-twizack-lejon.mp3"
     },
     "xylonite-thermal-expansion": {
       "slug": "xylonite-thermal-expansion",

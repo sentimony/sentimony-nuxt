@@ -1,11 +1,14 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
-const read = (p: string) => readFileSync(fileURLToPath(new URL(`../../${p}`, import.meta.url)), 'utf8')
+const read = (p: string) => {
+  const path = fileURLToPath(new URL(`../../${p}`, import.meta.url))
+  return existsSync(path) ? readFileSync(path, 'utf8') : ''
+}
 
-describe('HeaderMiniPlayer.vue', () => {
-  const component = read('app/components/HeaderMiniPlayer.vue')
+describe('AudioBottomPlayer.vue', () => {
+  const component = read('app/components/AudioBottomPlayer.vue')
 
   it('renders only while something is loaded', () => {
     expect(component).toContain('v-if="current"')
@@ -25,7 +28,9 @@ describe('HeaderMiniPlayer.vue', () => {
     expect(component).toContain('current.link')
   })
 
-  it('is mounted inside the header', () => {
-    expect(read('app/components/Header.vue')).toContain('<HeaderMiniPlayer />')
+  it('is mounted outside the header as a bottom player', () => {
+    expect(component).toContain('data-testid="audio-bottom-player"')
+    expect(read('app/components/Header.vue')).not.toContain('<HeaderMiniPlayer />')
+    expect(read('app/layouts/default.vue')).toContain('<AudioBottomPlayer />')
   })
 })

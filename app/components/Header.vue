@@ -163,6 +163,5 @@ async function signOut() {
         </div>
       </div>
     </div>
-    <HeaderMiniPlayer />
   </div>
 </template>

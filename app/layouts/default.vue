@@ -187,6 +187,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
     <div class="">
       <Testimonials />
       <Footer />
+      <AudioBottomPlayer />
     </div>
     
   </div>
