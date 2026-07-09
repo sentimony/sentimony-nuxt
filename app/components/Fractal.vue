@@ -39,7 +39,7 @@ watch(() => route.path, () => {
 <template>
   <div
     aria-hidden="true"
-    :class="contained ? 'absolute inset-0' : 'fixed inset-0'"
+    :class="contained ? 'absolute inset-0 overflow-hidden' : 'fixed inset-0 overflow-hidden'"
   >
     <div
       data-fractal-orbit

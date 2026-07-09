@@ -104,6 +104,7 @@
 html {
   background-color: #ffffff;
   scrollbar-gutter: stable;
+  overflow-x: hidden;
 }
 
 html.dark {
