@@ -46,7 +46,7 @@ async function signOut() {
             <img
               src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
               alt="Sentimony Records Logo SVG"
-              class="mr-3 invert dark:invert-0"
+              class="mr-3 dark:invert"
               width="40" height="40"
             />
             <div class="text-left leading-normal pr-1">
@@ -82,7 +82,7 @@ async function signOut() {
                     v-wave
                   >
                     <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="18" />
-                    <img v-else :src="i.icon.url" :alt="i.title + ' Icon'" width="18" height="18">
+                    <img v-else class="dark:invert" :src="i.icon.url" :alt="i.title + ' Icon'" width="18" height="18">
                   </a>
                 </TooltipTrigger>
                 <TooltipContent class="flex items-center gap-1.5">

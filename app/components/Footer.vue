@@ -41,7 +41,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
                   v-wave
                 >
                   <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
-                  <img v-else :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
+                  <img v-else class="invert" :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
                 </a>
               </TooltipTrigger>
               <TooltipContent class="flex items-center gap-1.5 bg-emerald-900 text-white" arrow-class="bg-emerald-900 fill-emerald-900">
@@ -58,7 +58,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
         <p>All Rights Reserved</p>
         <p>
           <img
-            class="mx-auto"
+            class="mx-auto invert"
             src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
             alt="Sentimony Records Logo SVG"
             width="32" height="32"

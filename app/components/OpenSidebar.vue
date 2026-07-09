@@ -131,7 +131,7 @@ watch(() => route.path, () => { isOpen.value = false })
             v-wave
           >
             <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="18" />
-            <img v-else :src="i.icon.url" class="icon w-[18px]" :alt="i.title + ' Icon'" />
+            <img v-else :src="i.icon.url" class="icon w-[18px] dark:invert" :alt="i.title + ' Icon'" />
             <div class="ml-3">{{ i.title }}</div>
             <Icon name="lucide:arrow-up-right" size="12" class="ml-1 opacity-50" />
           </a>

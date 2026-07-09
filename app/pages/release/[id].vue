@@ -231,7 +231,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               v-if="item.links?.qobuz"
               :to="item.links?.qobuz"
               title="Qobuz"
-              img="https://content.sentimony.com/assets/img/svg-icons/qobuz.svg?01"
+              img="https://content.sentimony.com/assets/img/svg-icons/qobuz-2.svg?01"
             />
             <BtnPrimary
               v-if="item.links?.youtube"
@@ -244,6 +244,12 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               :to="item.links?.soundcloud_url"
               title="SoundCloud"
               iconify="simple-icons:soundcloud"
+            />
+            <BtnPrimary
+              v-if="item.links?.ektoplazm"
+              :to="item.links?.ektoplazm"
+              title="Ektoplazm"
+              img="https://content.sentimony.com/assets/img/svg-icons/ektoplazm.svg?01"
             />
 
             <p v-if="item.links?.discogs"><span class="text-[10px] md:text-[12px] text-foreground/50">Add to your collection</span></p>
@@ -487,12 +493,11 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
           </p>
         </div>
 
-        <div v-if="item.links?.beatspace || item.links?.psyshop || item.links?.ektoplazm">
+        <div v-if="item.links?.beatspace || item.links?.psyshop">
           <hr class="my-4 border-black/30">
           <p><small><b>Links:</b></small></p>
           <p v-if="item.links?.beatspace"><a :href="item.links?.beatspace" target="_blank" rel="noopener">Beatspace</a></p>
           <p v-if="item.links?.psyshop"><a :href="item.links?.psyshop" target="_blank" rel="noopener">Psyshop</a></p>
-          <p v-if="item.links?.ektoplazm"><a :href="item.links?.ektoplazm" target="_blank" rel="noopener">Ektoplazm</a></p>
         </div>
 
     </ItemContent>
