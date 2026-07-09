@@ -1,16 +1,16 @@
-# Graph Report - sentimony-nuxt  (2026-07-08)
+# Graph Report - sentimony-nuxt  (2026-07-09)
 
 ## Corpus Check
-- 296 files · ~212,428 words
+- 297 files · ~213,563 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1292 nodes · 1202 edges · 238 communities (166 shown, 72 thin omitted)
+- 1316 nodes · 1232 edges · 245 communities (172 shown, 73 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `62d68501`
+- Built from commit: `3e5028c0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -156,9 +156,16 @@
 - [[_COMMUNITY_Community 222|Community 222]]
 - [[_COMMUNITY_Community 225|Community 225]]
 - [[_COMMUNITY_Community 226|Community 226]]
+- [[_COMMUNITY_Community 238|Community 238]]
+- [[_COMMUNITY_Community 239|Community 239]]
+- [[_COMMUNITY_Community 240|Community 240]]
+- [[_COMMUNITY_Community 241|Community 241]]
+- [[_COMMUNITY_Community 242|Community 242]]
+- [[_COMMUNITY_Community 243|Community 243]]
+- [[_COMMUNITY_Community 244|Community 244]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `scripts` - 16 edges
+1. `scripts` - 17 edges
 2. `Design Brief — Profile v2` - 13 edges
 3. `Homepage Light Theme Design` - 13 edges
 4. `Custom Audio Player Design` - 11 edges
@@ -189,11 +196,11 @@
 - **SrComponents UI Layer** — docs_superpowers_specs_2026_06_27_sentimony_ui_refactor_design_sr_link_button, docs_superpowers_specs_2026_06_27_sentimony_ui_refactor_design_sr_media_thumb, docs_superpowers_specs_2026_06_27_sentimony_ui_refactor_design_sr_status_badge [EXTRACTED 1.00]
 - **Project Hardening Sub-Components** — docs_superpowers_specs_2026_06_25_project_hardening_design_cache_policy, docs_superpowers_specs_2026_06_25_project_hardening_design_html_sanitization, docs_superpowers_specs_2026_06_25_project_hardening_design_private_db_export, docs_superpowers_specs_2026_06_25_project_hardening_design_icon_bundle, docs_superpowers_specs_2026_06_25_project_hardening_design_conditional_swiper, docs_superpowers_specs_2026_06_25_project_hardening_design_aggregated_profile, docs_superpowers_specs_2026_06_25_project_hardening_design_firebase_visibility [EXTRACTED 1.00]
 
-## Communities (238 total, 72 thin omitted)
+## Communities (245 total, 73 thin omitted)
 
 ### Community 0 - "Database Schema & Types"
-Cohesion: 0.05
-Nodes (45): Artist, fetchArtists(), fetchReleasesBySlugs(), Release, CatalogSource, getCatalogSource(), isSupabaseCatalogSource(), fetchAllCatalogTrackRows() (+37 more)
+Cohesion: 0.15
+Nodes (14): cachedFirebaseArtistTitleMap, cachedFirebaseCatalogTracks, fetchFirebaseCollection(), fetchFirebaseEntity(), fetchFirebaseNode(), fetchFirebaseTracksForRelease(), firebaseCatalogCache, FirebaseCollection (+6 more)
 
 ### Community 1 - "Layout Navigation Slugs"
 Cohesion: 0.04
@@ -204,8 +211,8 @@ Cohesion: 0.05
 Nodes (27): route, soc, avatarFailed, avatarUrl, route, soc, supabase, user (+19 more)
 
 ### Community 3 - "App Shell & Error Handling"
-Cohesion: 0.18
-Nodes (10): { absoluteUrl }, appConfig, events, { isLiked, toggleLike, likeCount, setCount }, mixRelease, organizedEvents, PageDescription, portfolioReleases (+2 more)
+Cohesion: 0.17
+Nodes (11): { absoluteUrl }, appConfig, events, hasLinks, { isLiked, toggleLike, likeCount, setCount }, mixRelease, organizedEvents, PageDescription (+3 more)
 
 ### Community 4 - "UI Component Library"
 Cohesion: 0.07
@@ -229,7 +236,7 @@ Nodes (19): { absoluteUrl }, appConfig, artists, artistsTitleLine, { embed: embe
 
 ### Community 10 - "Event Detail Page"
 Cohesion: 0.07
-Nodes (23): { absoluteUrl }, allArtists, allArtistsAsync, appConfig, artistSlugByTrackNumber, { embed: embedYTMusic }, { formatDate, formatYear }, formattedDate (+15 more)
+Nodes (24): { absoluteUrl }, allArtists, allArtistsAsync, appConfig, artistSlugByTrackNumber, { embed: embedYTMusic }, { formatDate, formatYear }, formattedDate (+16 more)
 
 ### Community 11 - "Likes System Composables"
 Cohesion: 0.13
@@ -324,8 +331,8 @@ Cohesion: 0.50
 Nodes (3): filtered, props, releases
 
 ### Community 37 - "HTML Sanitizer"
-Cohesion: 0.50
-Nodes (3): allowedAttributes, allowedTags, sanitizeHtml()
+Cohesion: 0.17
+Nodes (13): allowedAttributes, allowedAttrSet, allowedTags, allowedTagSet, decodeEntities(), hasSafeUrlScheme(), namedEntities, sanitizeAttributes() (+5 more)
 
 ### Community 38 - "Profile Likes"
 Cohesion: 0.50
@@ -333,7 +340,7 @@ Nodes (3): aggregateProfileLikes(), ProfileLikeLoaders, ProfileLikeResult
 
 ### Community 39 - "Robots Policy"
 Cohesion: 0.06
-Nodes (32): devDependencies, @iconify-json/lucide, @iconify-json/simple-icons, @playwright/test, tailwindcss, @tailwindcss/vite, @types/node, typescript (+24 more)
+Nodes (33): devDependencies, @iconify-json/lucide, @iconify-json/simple-icons, @playwright/test, tailwindcss, @tailwindcss/vite, @types/node, typescript (+25 more)
 
 ### Community 138 - "Community 138"
 Cohesion: 0.06
@@ -408,8 +415,8 @@ Cohesion: 0.33
 Nodes (5): Architecture, Constraints, Goal, Project Hardening Design, Testing
 
 ### Community 189 - "Community 189"
-Cohesion: 0.12
-Nodes (16): Database, EntityInsert, EntityRow, Json, LikeRow, Table, TrackPlayRow, TrackRow (+8 more)
+Cohesion: 0.24
+Nodes (8): emailExists(), normalizeEmail(), fetchLikeCount(), fetchLikeCounts(), fetchPagedRows(), createAdminClient(), supabaseAdmin(), listUsers
 
 ### Community 190 - "Community 190"
 Cohesion: 0.08
@@ -467,25 +474,49 @@ Nodes (3): likePages, projectFile(), readProjectFile()
 Cohesion: 0.67
 Nodes (3): projectFile(), readProjectFile(), sections
 
+### Community 238 - "Community 238"
+Cohesion: 0.19
+Nodes (11): fetchArtists(), fetchReleasesBySlugs(), CatalogSource, getCatalogSource(), isSupabaseCatalogSource(), fetchFirebaseEntitiesBySlugs(), createAnonClient(), MappedReleaseRow (+3 more)
+
+### Community 239 - "Community 239"
+Cohesion: 0.27
+Nodes (6): Artist, Release, CatalogTrack, hydrateReleaseTracklist(), ReleaseTracklistEntry, ReleaseTrackRow
+
+### Community 240 - "Community 240"
+Cohesion: 0.29
+Nodes (9): BASE_URL, dynamicRoutes, fetchWithTimeout(), firstSlug(), isHealthy(), main(), resolveDynamicRoutes(), staticRoutes (+1 more)
+
+### Community 241 - "Community 241"
+Cohesion: 0.38
+Nodes (8): fetchAllCatalogTrackRows(), fetchCatalogTracksBySlug(), fetchSupabaseCatalogTracks(), trackSlugsOf(), fetchAllFirebaseTracks(), fetchFirebaseCatalogTracks(), expandReleaseTracks(), releaseTracklistSlugs()
+
+### Community 242 - "Community 242"
+Cohesion: 0.27
+Nodes (5): countUserLikes(), dynamicAdminClient(), fetchLikedItems(), getUserId(), LikedItemsOptions
+
+### Community 243 - "Community 243"
+Cohesion: 0.22
+Nodes (8): Database, EntityInsert, EntityRow, Json, LikeRow, Table, TrackPlayRow, TrackRow
+
 ## Knowledge Gaps
-- **743 isolated node(s):** `{ current, isPlaying, currentTime, duration, volume, toggle, seek, setVolume, close, next, prev }`, `audioEl`, `{ current, isPlaying, currentTime, duration, volume, seekTo, toggle, seek, next, prev, close }`, `props`, `route` (+738 more)
+- **757 isolated node(s):** `{ current, isPlaying, currentTime, duration, volume, toggle, seek, setVolume, close, next, prev }`, `trackParts`, `audioEl`, `{ current, isPlaying, currentTime, duration, volume, seekTo, toggle, seek, next, prev, close }`, `props` (+752 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **72 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **73 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `supabaseAdmin()` connect `Community 189` to `Database Schema & Types`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Swiper Component` to `Robots Policy`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `supabaseAdmin()` connect `Community 189` to `Community 241`, `Community 242`, `Community 238`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **What connects `{ current, isPlaying, currentTime, duration, volume, toggle, seek, setVolume, close, next, prev }`, `audioEl`, `{ current, isPlaying, currentTime, duration, volume, seekTo, toggle, seek, next, prev, close }` to the rest of the system?**
-  _752 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Database Schema & Types` be split into smaller, more focused modules?**
-  _Cohesion score 0.05454545454545454 - nodes in this community are weakly interconnected._
+- **What connects `{ current, isPlaying, currentTime, duration, volume, toggle, seek, setVolume, close, next, prev }`, `trackParts`, `audioEl` to the rest of the system?**
+  _766 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Layout Navigation Slugs` be split into smaller, more focused modules?**
   _Cohesion score 0.041666666666666664 - nodes in this community are weakly interconnected._
 - **Should `Footer & Header UI` be split into smaller, more focused modules?**
   _Cohesion score 0.053156146179401995 - nodes in this community are weakly interconnected._
 - **Should `UI Component Library` be split into smaller, more focused modules?**
   _Cohesion score 0.06827880512091039 - nodes in this community are weakly interconnected._
+- **Should `Type Definitions & Interfaces` be split into smaller, more focused modules?**
+  _Cohesion score 0.07057057057057058 - nodes in this community are weakly interconnected._

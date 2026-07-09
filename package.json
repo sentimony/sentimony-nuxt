@@ -38,7 +38,7 @@
     "@nuxtjs/robots": "^6.1.2",
     "@nuxtjs/sitemap": "^8.2.2",
     "@nuxtjs/supabase": "^2.0.9",
-    "@supabase/supabase-js": "^2.110.1",
+    "@supabase/supabase-js": "^2.110.2",
     "@vueuse/core": "^14.3.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

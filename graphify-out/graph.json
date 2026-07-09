@@ -92,10 +92,20 @@
       "norm_label": "{ current, isplaying, currenttime, duration, volume, toggle, seek, setvolume, close, next, prev }"
     },
     {
-      "label": "onSeek()",
+      "label": "trackParts",
       "file_type": "code",
       "source_file": "app/components/AudioBottomPlayer.vue",
       "source_location": "L4",
+      "_origin": "ast",
+      "id": "app_components_audiobottomplayer_trackparts",
+      "community": 209,
+      "norm_label": "trackparts"
+    },
+    {
+      "label": "onSeek()",
+      "file_type": "code",
+      "source_file": "app/components/AudioBottomPlayer.vue",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "app_components_audiobottomplayer_onseek",
       "community": 209,
@@ -105,7 +115,7 @@
       "label": "onVolumeChange()",
       "file_type": "code",
       "source_file": "app/components/AudioBottomPlayer.vue",
-      "source_location": "L8",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "app_components_audiobottomplayer_onvolumechange",
       "community": 209,
@@ -3442,10 +3452,20 @@
       "norm_label": "releasessortedbydate"
     },
     {
-      "label": "mixRelease",
+      "label": "hasLinks",
       "file_type": "code",
       "source_file": "app/pages/artist/[id].vue",
       "source_location": "L28",
+      "_origin": "ast",
+      "id": "app_pages_artist_id_haslinks",
+      "community": 3,
+      "norm_label": "haslinks"
+    },
+    {
+      "label": "mixRelease",
+      "file_type": "code",
+      "source_file": "app/pages/artist/[id].vue",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "app_pages_artist_id_mixrelease",
       "community": 3,
@@ -3455,7 +3475,7 @@
       "label": "portfolioReleases",
       "file_type": "code",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L32",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "app_pages_artist_id_portfolioreleases",
       "community": 3,
@@ -3465,7 +3485,7 @@
       "label": "events",
       "file_type": "code",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L40",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "app_pages_artist_id_events",
       "community": 3,
@@ -3475,7 +3495,7 @@
       "label": "organizedEvents",
       "file_type": "code",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L41",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "app_pages_artist_id_organizedevents",
       "community": 3,
@@ -3485,7 +3505,7 @@
       "label": "appConfig",
       "file_type": "code",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L47",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "app_pages_artist_id_appconfig",
       "community": 3,
@@ -3495,7 +3515,7 @@
       "label": "{ absoluteUrl }",
       "file_type": "code",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L48",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "app_pages_artist_id_absoluteurl",
       "community": 3,
@@ -3505,7 +3525,7 @@
       "label": "PageDescription",
       "file_type": "code",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L50",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "app_pages_artist_id_pagedescription",
       "community": 3,
@@ -4682,10 +4702,20 @@
       "norm_label": "tracklistslugs"
     },
     {
+      "label": "hasReleaseLinks",
+      "file_type": "code",
+      "source_file": "app/pages/release/[id].vue",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "app_pages_release_id_hasreleaselinks",
+      "community": 10,
+      "norm_label": "hasreleaselinks"
+    },
+    {
       "label": "player",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L46",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "app_pages_release_id_player",
       "community": 10,
@@ -4695,7 +4725,7 @@
       "label": "playFromTracklist()",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L48",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "app_pages_release_id_playfromtracklist",
       "community": 10,
@@ -4705,7 +4735,7 @@
       "label": "playerTracks",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L53",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "app_pages_release_id_playertracks",
       "community": 10,
@@ -4715,7 +4745,7 @@
       "label": "allArtistsAsync",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L61",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "app_pages_release_id_allartistsasync",
       "community": 10,
@@ -4725,7 +4755,7 @@
       "label": "allArtists",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L62",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "app_pages_release_id_allartists",
       "community": 10,
@@ -4735,7 +4765,7 @@
       "label": "titleArtists",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L63",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "app_pages_release_id_titleartists",
       "community": 10,
@@ -4745,7 +4775,7 @@
       "label": "artistSlugByTrackNumber",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L67",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "app_pages_release_id_artistslugbytracknumber",
       "community": 10,
@@ -4755,7 +4785,7 @@
       "label": "{ formatDate, formatYear }",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L71",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "app_pages_release_id_formatdate_formatyear",
       "community": 10,
@@ -4765,7 +4795,7 @@
       "label": "formattedDate",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L72",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "app_pages_release_id_formatteddate",
       "community": 10,
@@ -4775,7 +4805,7 @@
       "label": "{ embed: embedYTMusic }",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L73",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "app_pages_release_id_embed_embedytmusic",
       "community": 10,
@@ -4785,7 +4815,7 @@
       "label": "appConfig",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L75",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "app_pages_release_id_appconfig",
       "community": 10,
@@ -4795,7 +4825,7 @@
       "label": "{ absoluteUrl }",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L76",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "app_pages_release_id_absoluteurl",
       "community": 10,
@@ -4805,7 +4835,7 @@
       "label": "year",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L78",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "app_pages_release_id_year",
       "community": 10,
@@ -4815,7 +4845,7 @@
       "label": "PageDescription",
       "file_type": "code",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L79",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "app_pages_release_id_pagedescription",
       "community": 10,
@@ -5518,7 +5548,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_types_database_types",
-      "community": 189,
+      "community": 243,
       "norm_label": "database.types.ts"
     },
     {
@@ -5528,7 +5558,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_types_database_types_json",
-      "community": 189,
+      "community": 243,
       "norm_label": "json"
     },
     {
@@ -5538,7 +5568,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_types_database_types_entityrow",
-      "community": 189,
+      "community": 243,
       "norm_label": "entityrow"
     },
     {
@@ -5548,7 +5578,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "app_types_database_types_entityinsert",
-      "community": 189,
+      "community": 243,
       "norm_label": "entityinsert"
     },
     {
@@ -5558,7 +5588,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_types_database_types_trackrow",
-      "community": 189,
+      "community": 243,
       "norm_label": "trackrow"
     },
     {
@@ -5568,7 +5598,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "app_types_database_types_likerow",
-      "community": 189,
+      "community": 243,
       "norm_label": "likerow"
     },
     {
@@ -5578,7 +5608,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "app_types_database_types_trackplayrow",
-      "community": 189,
+      "community": 243,
       "norm_label": "trackplayrow"
     },
     {
@@ -5588,7 +5618,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "app_types_database_types_table",
-      "community": 189,
+      "community": 243,
       "norm_label": "table"
     },
     {
@@ -5598,7 +5628,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "app_types_database_types_database",
-      "community": 189,
+      "community": 243,
       "norm_label": "database"
     },
     {
@@ -6122,10 +6152,110 @@
       "norm_label": "allowedattributes"
     },
     {
-      "label": "sanitizeHtml()",
+      "label": "allowedTagSet",
       "file_type": "code",
       "source_file": "app/utils/sanitizeHtml.ts",
       "source_location": "L26",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_allowedtagset",
+      "community": 37,
+      "norm_label": "allowedtagset"
+    },
+    {
+      "label": "allowedAttrSet",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_allowedattrset",
+      "community": 37,
+      "norm_label": "allowedattrset"
+    },
+    {
+      "label": "strippedContentTags",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_strippedcontenttags",
+      "community": 37,
+      "norm_label": "strippedcontenttags"
+    },
+    {
+      "label": "strippedContentPattern",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_strippedcontentpattern",
+      "community": 37,
+      "norm_label": "strippedcontentpattern"
+    },
+    {
+      "label": "namedEntities",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_namedentities",
+      "community": 37,
+      "norm_label": "namedentities"
+    },
+    {
+      "label": "decodeEntities()",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_decodeentities",
+      "community": 37,
+      "norm_label": "decodeentities()"
+    },
+    {
+      "label": "hasSafeUrlScheme()",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_hassafeurlscheme",
+      "community": 37,
+      "norm_label": "hassafeurlscheme()"
+    },
+    {
+      "label": "urlAttributes",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_urlattributes",
+      "community": 37,
+      "norm_label": "urlattributes"
+    },
+    {
+      "label": "sanitizeAttributes()",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_sanitizeattributes",
+      "community": 37,
+      "norm_label": "sanitizeattributes()"
+    },
+    {
+      "label": "sanitizeOnServer()",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "app_utils_sanitizehtml_sanitizeonserver",
+      "community": 37,
+      "norm_label": "sanitizeonserver()"
+    },
+    {
+      "label": "sanitizeHtml()",
+      "file_type": "code",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "app_utils_sanitizehtml_sanitizehtml",
       "community": 37,
@@ -6592,10 +6722,20 @@
       "norm_label": "verify:pwa"
     },
     {
-      "label": "deploy:stage",
+      "label": "web-debug",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L17",
+      "_origin": "ast",
+      "id": "package_scripts_web_debug",
+      "community": 39,
+      "norm_label": "web-debug"
+    },
+    {
+      "label": "deploy:stage",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "package_scripts_deploy_stage",
       "community": 39,
@@ -6605,7 +6745,7 @@
       "label": "deploy:prod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "package_scripts_deploy_prod",
       "community": 39,
@@ -6615,7 +6755,7 @@
       "label": "netlify:stage",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "package_scripts_netlify_stage",
       "community": 39,
@@ -6625,7 +6765,7 @@
       "label": "netlify:prod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_scripts_netlify_prod",
       "community": 39,
@@ -6635,7 +6775,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 39,
@@ -6645,7 +6785,7 @@
       "label": "@iconify-json/lucide",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_devdependencies_iconify_json_lucide",
       "community": 39,
@@ -6655,7 +6795,7 @@
       "label": "@iconify-json/simple-icons",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_devdependencies_iconify_json_simple_icons",
       "community": 39,
@@ -6665,7 +6805,7 @@
       "label": "@playwright/test",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_devdependencies_playwright_test",
       "community": 39,
@@ -6675,7 +6815,7 @@
       "label": "@tailwindcss/vite",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss_vite",
       "community": 39,
@@ -6685,7 +6825,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
       "community": 39,
@@ -6695,7 +6835,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss",
       "community": 39,
@@ -6705,7 +6845,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 39,
@@ -6715,7 +6855,7 @@
       "label": "vitest",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "package_devdependencies_vitest",
       "community": 39,
@@ -6725,7 +6865,7 @@
       "label": "vue-tsc",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "package_devdependencies_vue_tsc",
       "community": 39,
@@ -6735,7 +6875,7 @@
       "label": "dependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "package_dependencies",
       "community": 20,
@@ -6745,7 +6885,7 @@
       "label": "@nuxt/icon",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "package_dependencies_nuxt_icon",
       "community": 20,
@@ -6755,7 +6895,7 @@
       "label": "@nuxt/image",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "package_dependencies_nuxt_image",
       "community": 20,
@@ -6765,7 +6905,7 @@
       "label": "@nuxtjs/google-fonts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "package_dependencies_nuxtjs_google_fonts",
       "community": 20,
@@ -6775,7 +6915,7 @@
       "label": "@nuxtjs/robots",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "package_dependencies_nuxtjs_robots",
       "community": 20,
@@ -6785,7 +6925,7 @@
       "label": "@nuxtjs/sitemap",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "package_dependencies_nuxtjs_sitemap",
       "community": 20,
@@ -6795,7 +6935,7 @@
       "label": "@nuxtjs/supabase",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "package_dependencies_nuxtjs_supabase",
       "community": 20,
@@ -6805,7 +6945,7 @@
       "label": "@supabase/supabase-js",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "package_dependencies_supabase_supabase_js",
       "community": 20,
@@ -6815,7 +6955,7 @@
       "label": "@vueuse/core",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "package_dependencies_vueuse_core",
       "community": 20,
@@ -6825,7 +6965,7 @@
       "label": "class-variance-authority",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "package_dependencies_class_variance_authority",
       "community": 20,
@@ -6835,37 +6975,37 @@
       "label": "clsx",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "package_dependencies_clsx",
       "community": 20,
       "norm_label": "clsx"
     },
     {
+      "label": "dompurify",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "package_dependencies_dompurify",
+      "community": 20,
+      "norm_label": "dompurify"
+    },
+    {
       "label": "flag-icons",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "package_dependencies_flag_icons",
       "community": 20,
       "norm_label": "flag-icons"
     },
     {
-      "label": "isomorphic-dompurify",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "package_dependencies_isomorphic_dompurify",
-      "community": 20,
-      "norm_label": "isomorphic-dompurify"
-    },
-    {
       "label": "nuxt",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "package_dependencies_nuxt",
       "community": 20,
@@ -6875,7 +7015,7 @@
       "label": "reka-ui",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "package_dependencies_reka_ui",
       "community": 20,
@@ -6885,7 +7025,7 @@
       "label": "swiper",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "package_dependencies_swiper",
       "community": 20,
@@ -6895,7 +7035,7 @@
       "label": "tailwind-merge",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "package_dependencies_tailwind_merge",
       "community": 20,
@@ -6905,7 +7045,7 @@
       "label": "tailwindcss-animate",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L50",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "package_dependencies_tailwindcss_animate",
       "community": 20,
@@ -6915,7 +7055,7 @@
       "label": "v-wave",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "package_dependencies_v_wave",
       "community": 20,
@@ -6925,7 +7065,7 @@
       "label": "vee-validate",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L52",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "package_dependencies_vee_validate",
       "community": 20,
@@ -6935,7 +7075,7 @@
       "label": "vue-sonner",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "package_dependencies_vue_sonner",
       "community": 20,
@@ -6945,7 +7085,7 @@
       "label": "engines",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "package_engines",
       "community": 39,
@@ -6955,7 +7095,7 @@
       "label": "node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "package_engines_node",
       "community": 39,
@@ -6965,7 +7105,7 @@
       "label": "npm",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "package_engines_npm",
       "community": 39,
@@ -7360,6 +7500,106 @@
       "id": "scripts_verify_pwa_manifest",
       "community": 208,
       "norm_label": "manifest"
+    },
+    {
+      "label": "web-debug.mjs",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_web_debug",
+      "community": 240,
+      "norm_label": "web-debug.mjs"
+    },
+    {
+      "label": "BASE_URL",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "scripts_web_debug_base_url",
+      "community": 240,
+      "norm_label": "base_url"
+    },
+    {
+      "label": "TIMEOUT_MS",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "scripts_web_debug_timeout_ms",
+      "community": 240,
+      "norm_label": "timeout_ms"
+    },
+    {
+      "label": "staticRoutes",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "scripts_web_debug_staticroutes",
+      "community": 240,
+      "norm_label": "staticroutes"
+    },
+    {
+      "label": "dynamicRoutes",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "scripts_web_debug_dynamicroutes",
+      "community": 240,
+      "norm_label": "dynamicroutes"
+    },
+    {
+      "label": "firstSlug()",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "scripts_web_debug_firstslug",
+      "community": 240,
+      "norm_label": "firstslug()"
+    },
+    {
+      "label": "fetchWithTimeout()",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "scripts_web_debug_fetchwithtimeout",
+      "community": 240,
+      "norm_label": "fetchwithtimeout()"
+    },
+    {
+      "label": "resolveDynamicRoutes()",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "scripts_web_debug_resolvedynamicroutes",
+      "community": 240,
+      "norm_label": "resolvedynamicroutes()"
+    },
+    {
+      "label": "isHealthy()",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "scripts_web_debug_ishealthy",
+      "community": 240,
+      "norm_label": "ishealthy()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "scripts_web_debug_main",
+      "community": 240,
+      "norm_label": "main()"
     },
     {
       "label": "urls.get.ts",
@@ -7758,7 +7998,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_track_id_get",
-      "community": 0,
+      "community": 239,
       "norm_label": "[id].get.ts"
     },
     {
@@ -7768,7 +8008,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "server_api_track_id_get_artist",
-      "community": 0,
+      "community": 239,
       "norm_label": "artist"
     },
     {
@@ -7778,7 +8018,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "server_api_track_id_get_release",
-      "community": 0,
+      "community": 239,
       "norm_label": "release"
     },
     {
@@ -7788,7 +8028,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "server_api_track_id_get_fetchreleasesbyslugs",
-      "community": 0,
+      "community": 238,
       "norm_label": "fetchreleasesbyslugs()"
     },
     {
@@ -7798,7 +8038,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "server_api_track_id_get_fetchartists",
-      "community": 0,
+      "community": 238,
       "norm_label": "fetchartists()"
     },
     {
@@ -8088,7 +8328,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_catalogsource",
-      "community": 0,
+      "community": 238,
       "norm_label": "catalogsource.ts"
     },
     {
@@ -8098,7 +8338,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_catalogsource_catalogsource",
-      "community": 0,
+      "community": 238,
       "norm_label": "catalogsource"
     },
     {
@@ -8108,7 +8348,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "server_utils_catalogsource_getcatalogsource",
-      "community": 0,
+      "community": 238,
       "norm_label": "getcatalogsource()"
     },
     {
@@ -8118,7 +8358,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "server_utils_catalogsource_issupabasecatalogsource",
-      "community": 0,
+      "community": 238,
       "norm_label": "issupabasecatalogsource()"
     },
     {
@@ -8128,7 +8368,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_catalogtracks",
-      "community": 0,
+      "community": 241,
       "norm_label": "catalogtracks.ts"
     },
     {
@@ -8138,7 +8378,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "server_utils_catalogtracks_tocatalogtrack",
-      "community": 0,
+      "community": 241,
       "norm_label": "tocatalogtrack()"
     },
     {
@@ -8148,7 +8388,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "server_utils_catalogtracks_fetchsupabasecatalogtracks",
-      "community": 0,
+      "community": 241,
       "norm_label": "fetchsupabasecatalogtracks()"
     },
     {
@@ -8158,7 +8398,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "server_utils_catalogtracks_fetchcatalogtracksbyslug",
-      "community": 0,
+      "community": 241,
       "norm_label": "fetchcatalogtracksbyslug()"
     },
     {
@@ -8168,7 +8408,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "server_utils_catalogtracks_fetchallcatalogtrackrows",
-      "community": 0,
+      "community": 241,
       "norm_label": "fetchallcatalogtrackrows()"
     },
     {
@@ -8178,7 +8418,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "server_utils_catalogtracks_trackslugsof",
-      "community": 0,
+      "community": 241,
       "norm_label": "trackslugsof()"
     },
     {
@@ -8278,7 +8518,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "server_utils_firebasecatalog_fetchfirebaseentitiesbyslugs",
-      "community": 0,
+      "community": 238,
       "norm_label": "fetchfirebaseentitiesbyslugs()"
     },
     {
@@ -8348,7 +8588,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "server_utils_firebasecatalog_fetchfirebasecatalogtracks",
-      "community": 0,
+      "community": 241,
       "norm_label": "fetchfirebasecatalogtracks()"
     },
     {
@@ -8388,7 +8628,7 @@
       "source_location": "L164",
       "_origin": "ast",
       "id": "server_utils_firebasecatalog_fetchallfirebasetracks",
-      "community": 0,
+      "community": 241,
       "norm_label": "fetchallfirebasetracks()"
     },
     {
@@ -8438,7 +8678,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_likes",
-      "community": 0,
+      "community": 242,
       "norm_label": "likes.ts"
     },
     {
@@ -8448,7 +8688,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "server_utils_likes_dynamicadminclient",
-      "community": 0,
+      "community": 242,
       "norm_label": "dynamicadminclient()"
     },
     {
@@ -8458,7 +8698,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "server_utils_likes_getuserid",
-      "community": 0,
+      "community": 242,
       "norm_label": "getuserid()"
     },
     {
@@ -8468,7 +8708,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "server_utils_likes_countuserlikes",
-      "community": 0,
+      "community": 242,
       "norm_label": "countuserlikes()"
     },
     {
@@ -8478,7 +8718,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "server_utils_likes_likeslisthandler",
-      "community": 0,
+      "community": 242,
       "norm_label": "likeslisthandler()"
     },
     {
@@ -8488,7 +8728,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "server_utils_likes_likesaddhandler",
-      "community": 0,
+      "community": 242,
       "norm_label": "likesaddhandler()"
     },
     {
@@ -8498,7 +8738,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "server_utils_likes_likesdeletehandler",
-      "community": 0,
+      "community": 242,
       "norm_label": "likesdeletehandler()"
     },
     {
@@ -8508,7 +8748,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "server_utils_likes_likeditemsoptions",
-      "community": 0,
+      "community": 242,
       "norm_label": "likeditemsoptions"
     },
     {
@@ -8518,7 +8758,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "server_utils_likes_fetchlikeditems",
-      "community": 0,
+      "community": 242,
       "norm_label": "fetchlikeditems()"
     },
     {
@@ -8528,7 +8768,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "server_utils_likes_likeditemshandler",
-      "community": 0,
+      "community": 242,
       "norm_label": "likeditemshandler()"
     },
     {
@@ -8708,7 +8948,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_publicentity",
-      "community": 0,
+      "community": 244,
       "norm_label": "publicentity.ts"
     },
     {
@@ -8718,7 +8958,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_publicentity_ispublicentity",
-      "community": 0,
+      "community": 244,
       "norm_label": "ispublicentity()"
     },
     {
@@ -8728,7 +8968,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_releasetracklist",
-      "community": 0,
+      "community": 239,
       "norm_label": "releasetracklist.ts"
     },
     {
@@ -8738,7 +8978,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_releasetracklist_releasetracklistentry",
-      "community": 0,
+      "community": 239,
       "norm_label": "releasetracklistentry"
     },
     {
@@ -8748,7 +8988,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "server_utils_releasetracklist_catalogtrack",
-      "community": 0,
+      "community": 239,
       "norm_label": "catalogtrack"
     },
     {
@@ -8758,7 +8998,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "server_utils_releasetracklist_slugifytrack",
-      "community": 0,
+      "community": 239,
       "norm_label": "slugifytrack()"
     },
     {
@@ -8768,7 +9008,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "server_utils_releasetracklist_releasetracklistslugs",
-      "community": 0,
+      "community": 241,
       "norm_label": "releasetracklistslugs()"
     },
     {
@@ -8778,7 +9018,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "server_utils_releasetracklist_releasetrackrow",
-      "community": 0,
+      "community": 239,
       "norm_label": "releasetrackrow"
     },
     {
@@ -8788,7 +9028,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "server_utils_releasetracklist_expandreleasetracks",
-      "community": 0,
+      "community": 241,
       "norm_label": "expandreleasetracks()"
     },
     {
@@ -8798,7 +9038,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "server_utils_releasetracklist_hydratereleasetracklist",
-      "community": 0,
+      "community": 239,
       "norm_label": "hydratereleasetracklist()"
     },
     {
@@ -8958,7 +9198,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_utils_supabase",
-      "community": 0,
+      "community": 238,
       "norm_label": "supabase.ts"
     },
     {
@@ -8968,7 +9208,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "server_utils_supabase_createanonclient",
-      "community": 0,
+      "community": 238,
       "norm_label": "createanonclient()"
     },
     {
@@ -8978,7 +9218,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "server_utils_supabase_supabasereleaserow",
-      "community": 0,
+      "community": 238,
       "norm_label": "supabasereleaserow"
     },
     {
@@ -8988,7 +9228,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "server_utils_supabase_mappedreleaserow",
-      "community": 0,
+      "community": 238,
       "norm_label": "mappedreleaserow"
     },
     {
@@ -8998,7 +9238,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "server_utils_supabase_usesupabase",
-      "community": 0,
+      "community": 238,
       "norm_label": "usesupabase()"
     },
     {
@@ -9008,7 +9248,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "server_utils_supabase_mapreleasefromsupabase",
-      "community": 0,
+      "community": 238,
       "norm_label": "mapreleasefromsupabase()"
     },
     {
@@ -9588,7 +9828,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_unit_publicentity_test",
-      "community": 0,
+      "community": 244,
       "norm_label": "publicentity.test.ts"
     },
     {
@@ -9598,7 +9838,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_unit_releasetracklist_test",
-      "community": 0,
+      "community": 239,
       "norm_label": "releasetracklist.test.ts"
     },
     {
@@ -9668,7 +9908,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_unit_supabase_test",
-      "community": 0,
+      "community": 238,
       "norm_label": "supabase.test.ts"
     },
     {
@@ -13203,7 +13443,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/components/AudioBottomPlayer.vue",
-      "source_location": "L4",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "app_components_audiobottomplayer",
       "target": "app_components_audiobottomplayer_onseek",
@@ -13213,10 +13453,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/components/AudioBottomPlayer.vue",
-      "source_location": "L8",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "app_components_audiobottomplayer",
       "target": "app_components_audiobottomplayer_onvolumechange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/AudioBottomPlayer.vue",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_components_audiobottomplayer",
+      "target": "app_components_audiobottomplayer_trackparts",
       "confidence_score": 1.0
     },
     {
@@ -14446,7 +14696,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0,
       "context": "import",
       "source": "package_dependencies_swiper",
@@ -16362,7 +16612,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L48",
+      "source_location": "L63",
       "weight": 1.0,
       "source": "app_pages_artist_id",
       "target": "app_pages_artist_id_absoluteurl",
@@ -16372,7 +16622,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L47",
+      "source_location": "L62",
       "weight": 1.0,
       "source": "app_pages_artist_id",
       "target": "app_pages_artist_id_appconfig",
@@ -16382,10 +16632,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L40",
+      "source_location": "L55",
       "weight": 1.0,
       "source": "app_pages_artist_id",
       "target": "app_pages_artist_id_events",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/pages/artist/[id].vue",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "app_pages_artist_id",
+      "target": "app_pages_artist_id_haslinks",
       "confidence_score": 1.0
     },
     {
@@ -16402,7 +16662,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L28",
+      "source_location": "L43",
       "weight": 1.0,
       "source": "app_pages_artist_id",
       "target": "app_pages_artist_id_mixrelease",
@@ -16412,7 +16672,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L41",
+      "source_location": "L56",
       "weight": 1.0,
       "source": "app_pages_artist_id",
       "target": "app_pages_artist_id_organizedevents",
@@ -16422,7 +16682,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L50",
+      "source_location": "L65",
       "weight": 1.0,
       "source": "app_pages_artist_id",
       "target": "app_pages_artist_id_pagedescription",
@@ -16432,7 +16692,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/artist/[id].vue",
-      "source_location": "L32",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "app_pages_artist_id",
       "target": "app_pages_artist_id_portfolioreleases",
@@ -17399,7 +17659,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L76",
+      "source_location": "L98",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_absoluteurl",
@@ -17409,7 +17669,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L62",
+      "source_location": "L84",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_allartists",
@@ -17419,7 +17679,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L61",
+      "source_location": "L83",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_allartistsasync",
@@ -17429,7 +17689,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L75",
+      "source_location": "L97",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_appconfig",
@@ -17439,7 +17699,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L67",
+      "source_location": "L89",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_artistslugbytracknumber",
@@ -17449,7 +17709,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L73",
+      "source_location": "L95",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_embed_embedytmusic",
@@ -17459,7 +17719,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L71",
+      "source_location": "L93",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_formatdate_formatyear",
@@ -17469,10 +17729,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L72",
+      "source_location": "L94",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_formatteddate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/pages/release/[id].vue",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "app_pages_release_id",
+      "target": "app_pages_release_id_hasreleaselinks",
       "confidence_score": 1.0
     },
     {
@@ -17499,7 +17769,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L79",
+      "source_location": "L101",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_pagedescription",
@@ -17519,7 +17789,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L46",
+      "source_location": "L68",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_player",
@@ -17529,7 +17799,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L53",
+      "source_location": "L75",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_playertracks",
@@ -17539,7 +17809,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L48",
+      "source_location": "L70",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_playfromtracklist",
@@ -17599,7 +17869,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L63",
+      "source_location": "L85",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_titleartists",
@@ -17629,7 +17899,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/release/[id].vue",
-      "source_location": "L78",
+      "source_location": "L100",
       "weight": 1.0,
       "source": "app_pages_release_id",
       "target": "app_pages_release_id_year",
@@ -18991,6 +19261,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_allowedattrset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
       "source_location": "L3",
       "weight": 1.0,
       "source": "app_utils_sanitizehtml",
@@ -19004,7 +19284,97 @@
       "source_location": "L26",
       "weight": 1.0,
       "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_allowedtagset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_decodeentities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_hassafeurlscheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_namedentities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_sanitizeattributes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
       "target": "app_utils_sanitizehtml_sanitizehtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_sanitizeonserver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_strippedcontentpattern",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_strippedcontenttags",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml",
+      "target": "app_utils_sanitizehtml_urlattributes",
       "confidence_score": 1.0
     },
     {
@@ -19016,6 +19386,39 @@
       "weight": 1.0,
       "source": "tests_unit_sanitizehtml_test",
       "target": "app_utils_sanitizehtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml_hassafeurlscheme",
+      "target": "app_utils_sanitizehtml_decodeentities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml_sanitizeattributes",
+      "target": "app_utils_sanitizehtml_hassafeurlscheme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/utils/sanitizeHtml.ts",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "app_utils_sanitizehtml_sanitizehtml",
+      "target": "app_utils_sanitizehtml_sanitizeonserver",
       "confidence_score": 1.0
     },
     {
@@ -19340,7 +19743,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "package",
       "target": "package_dependencies",
@@ -19350,7 +19753,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "package",
       "target": "package_devdependencies",
@@ -19360,7 +19763,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0,
       "source": "package",
       "target": "package_engines",
@@ -19420,7 +19823,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "package_scripts",
       "target": "package_scripts_deploy_prod",
@@ -19430,7 +19833,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "source": "package_scripts",
       "target": "package_scripts_deploy_stage",
@@ -19460,7 +19863,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "package_scripts",
       "target": "package_scripts_netlify_prod",
@@ -19470,7 +19873,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "package_scripts",
       "target": "package_scripts_netlify_stage",
@@ -19560,10 +19963,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L17",
       "weight": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_iconify_json_lucide",
+      "source": "package_scripts",
+      "target": "package_scripts_web_debug",
       "confidence_score": 1.0
     },
     {
@@ -19573,7 +19976,7 @@
       "source_location": "L24",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_iconify_json_simple_icons",
+      "target": "package_devdependencies_iconify_json_lucide",
       "confidence_score": 1.0
     },
     {
@@ -19583,17 +19986,7 @@
       "source_location": "L25",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_playwright_test",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L28",
-      "weight": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_tailwindcss",
+      "target": "package_devdependencies_iconify_json_simple_icons",
       "confidence_score": 1.0
     },
     {
@@ -19603,17 +19996,7 @@
       "source_location": "L26",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_tailwindcss_vite",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_types_node",
+      "target": "package_devdependencies_playwright_test",
       "confidence_score": 1.0
     },
     {
@@ -19623,7 +20006,27 @@
       "source_location": "L29",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_typescript",
+      "target": "package_devdependencies_tailwindcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_node",
       "confidence_score": 1.0
     },
     {
@@ -19633,7 +20036,7 @@
       "source_location": "L30",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vitest",
+      "target": "package_devdependencies_typescript",
       "confidence_score": 1.0
     },
     {
@@ -19643,17 +20046,17 @@
       "source_location": "L31",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vue_tsc",
+      "target": "package_devdependencies_vitest",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L32",
       "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_class_variance_authority",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vue_tsc",
       "confidence_score": 1.0
     },
     {
@@ -19663,7 +20066,7 @@
       "source_location": "L43",
       "weight": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_clsx",
+      "target": "package_dependencies_class_variance_authority",
       "confidence_score": 1.0
     },
     {
@@ -19673,7 +20076,7 @@
       "source_location": "L44",
       "weight": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_flag_icons",
+      "target": "package_dependencies_clsx",
       "confidence_score": 1.0
     },
     {
@@ -19683,7 +20086,7 @@
       "source_location": "L45",
       "weight": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_isomorphic_dompurify",
+      "target": "package_dependencies_dompurify",
       "confidence_score": 1.0
     },
     {
@@ -19693,67 +20096,7 @@
       "source_location": "L46",
       "weight": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_nuxt",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_nuxt_icon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L35",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_nuxt_image",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_nuxtjs_google_fonts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L37",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_nuxtjs_robots",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_nuxtjs_sitemap",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_nuxtjs_supabase",
+      "target": "package_dependencies_flag_icons",
       "confidence_score": 1.0
     },
     {
@@ -19763,7 +20106,57 @@
       "source_location": "L47",
       "weight": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_reka_ui",
+      "target": "package_dependencies_nuxt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_nuxt_icon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_nuxt_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_nuxtjs_google_fonts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_nuxtjs_robots",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_nuxtjs_sitemap",
       "confidence_score": 1.0
     },
     {
@@ -19773,7 +20166,7 @@
       "source_location": "L40",
       "weight": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_supabase_supabase_js",
+      "target": "package_dependencies_nuxtjs_supabase",
       "confidence_score": 1.0
     },
     {
@@ -19783,57 +20176,7 @@
       "source_location": "L48",
       "weight": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_swiper",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_tailwind_merge",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_tailwindcss_animate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_v_wave",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L52",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_vee_validate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_vue_sonner",
+      "target": "package_dependencies_reka_ui",
       "confidence_score": 1.0
     },
     {
@@ -19843,6 +20186,76 @@
       "source_location": "L41",
       "weight": 1.0,
       "source": "package_dependencies",
+      "target": "package_dependencies_supabase_supabase_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_swiper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_tailwind_merge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_tailwindcss_animate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_v_wave",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_vee_validate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_vue_sonner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "package_dependencies",
       "target": "package_dependencies_vueuse_core",
       "confidence_score": 1.0
     },
@@ -19850,7 +20263,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0,
       "source": "package_engines",
       "target": "package_engines_node",
@@ -19860,7 +20273,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "source": "package_engines",
       "target": "package_engines_npm",
@@ -20185,6 +20598,140 @@
       "weight": 1.0,
       "source": "scripts_verify_pwa",
       "target": "scripts_verify_pwa_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_base_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_dynamicroutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_fetchwithtimeout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_firstslug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_ishealthy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_resolvedynamicroutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_staticroutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "scripts_web_debug",
+      "target": "scripts_web_debug_timeout_ms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "scripts_web_debug_resolvedynamicroutes",
+      "target": "scripts_web_debug_firstslug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "scripts_web_debug_main",
+      "target": "scripts_web_debug_fetchwithtimeout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "scripts_web_debug_main",
+      "target": "scripts_web_debug_resolvedynamicroutes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/web-debug.mjs",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "scripts_web_debug_main",
+      "target": "scripts_web_debug_ishealthy",
       "confidence_score": 1.0
     },
     {
@@ -25390,5 +25937,5 @@
       "source_file": "docs/superpowers/specs/2026-06-25-project-hardening-design.md"
     }
   ],
-  "built_at_commit": "62d68501c17a66f34f498aad21296b8531e07e1f"
+  "built_at_commit": "3e5028c04d5e528512967b32e5c27ade763535cb"
 }
