@@ -32,6 +32,28 @@ if (releaseError.value || !item.value) {
 const playCounts = ref<Record<string, number>>({})
 const tracklistSlugs = computed(() => (item.value?.tracklist ?? []).map(t => t.slug).filter(Boolean))
 
+const hasReleaseLinks = computed(() => {
+  const l = item.value?.links
+  return !!(
+    l?.diggersfactory_url ||
+    l?.bandcamp_url ||
+    l?.bandcamp24_url ||
+    l?.beatport ||
+    l?.junodownload ||
+    l?.spotify ||
+    l?.applemusic_url ||
+    l?.youtube_music ||
+    l?.deezer ||
+    l?.amazon_music ||
+    l?.tidal ||
+    l?.qobuz ||
+    l?.youtube ||
+    l?.soundcloud_url ||
+    l?.ektoplazm ||
+    l?.discogs
+  )
+})
+
 onMounted(async () => {
   if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
   tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
@@ -155,15 +177,14 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             </p> -->
             <!-- <br> -->
 
-            <p v-if="item.links?.diggersfactory_url"><span class="text-[10px] md:text-[12px] text-foreground/50">Purchase VINYL</span></p>
+            <p v-if="hasReleaseLinks"><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
+
             <BtnPrimary
               v-if="item.links?.diggersfactory_url"
               :to="item.links?.diggersfactory_url"
               title="Diggers Factory"
               img="https://content.sentimony.com/assets/img/svg-icons/diggers-factory.svg?01"
             />
-
-            <p v-if="item.links?.bandcamp_url || item.links?.bandcamp24_url || item.links?.beatport || item.links?.junodownload"><span class="text-[10px] md:text-[12px] text-foreground/50">Download</span></p>
             <BtnPrimary
               v-if="item.links?.bandcamp_url"
               :to="item.links?.bandcamp_url"
@@ -189,8 +210,6 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               img="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
             />
 
-            <!-- <br> -->
-            <p v-if="item.links?.spotify || item.links?.applemusic_url || item.links?.youtube_music || item.links?.deezer || item.links?.amazon_music || item.links?.tidal || item.links?.qobuz || item.links?.youtube || item.links?.soundcloud_url"><span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span></p>
             <BtnPrimary
               v-if="item.links?.spotify"
               :to="item.links?.spotify"
@@ -252,7 +271,6 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               img="https://content.sentimony.com/assets/img/svg-icons/ektoplazm.svg?01"
             />
 
-            <p v-if="item.links?.discogs"><span class="text-[10px] md:text-[12px] text-foreground/50">Add to your collection</span></p>
             <BtnPrimary
               v-if="item.links?.discogs"
               :to="item.links?.discogs"

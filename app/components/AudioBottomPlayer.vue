@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const { current, isPlaying, currentTime, duration, volume, toggle, seek, setVolume, close, next, prev } = useAudioPlayer()
 
+const trackParts = computed(() => {
+  const raw = current.value?.title ?? ''
+  const idx = raw.indexOf(' - ')
+  if (idx === -1) return { artist: raw, name: '' }
+  return { artist: raw.slice(0, idx), name: raw.slice(idx + 3) }
+})
+
 function onSeek(event: Event) {
   seek(Number((event.target as HTMLInputElement).value))
 }
@@ -15,7 +22,7 @@ function onVolumeChange(event: Event) {
     <div class="h-24 sm:h-18" aria-hidden="true" />
     <div
       data-testid="audio-bottom-player"
-      class="fixed inset-x-0 bottom-0 z-50 border-t border-black/15 dark:border-white/15 bg-white/90 text-black shadow-[0_-8px_32px_rgba(0,0,0,0.16)] backdrop-blur-md dark:bg-black/85 dark:text-white"
+      class="fixed inset-x-0 bottom-0 z-50 border-t border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm"
     >
       <div class="container max-w-7xl">
         <div class="grid min-h-18 grid-cols-[auto_1fr] items-center gap-x-3 gap-y-2 px-2 py-2 sm:grid-cols-[auto_minmax(12rem,1fr)_minmax(12rem,auto)] sm:py-0">
@@ -74,12 +81,12 @@ function onVolumeChange(event: Event) {
               :to="current.link"
               class="min-w-0 text-sm font-medium leading-tight hover:underline"
             >
-              <span class="block truncate">{{ current.title }}</span>
-              <span class="block text-xs uppercase tracking-wide opacity-50">{{ current.kind }}</span>
+              <span class="block truncate">{{ trackParts.artist }}</span>
+              <span class="block truncate opacity-60">{{ trackParts.name }}</span>
             </NuxtLink>
             <div v-else class="min-w-0 text-sm font-medium leading-tight">
-              <span class="block truncate">{{ current.title }}</span>
-              <span class="block text-xs uppercase tracking-wide opacity-50">{{ current.kind }}</span>
+              <span class="block truncate">{{ trackParts.artist }}</span>
+              <span class="block truncate opacity-60">{{ trackParts.name }}</span>
             </div>
 
             <div class="flex shrink-0 items-center gap-1.5">

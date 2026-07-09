@@ -55,17 +55,18 @@ async function signOut() {
             </div>
           </NuxtLink>
 
-          <div class="hidden lg:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div class="hidden md:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-sm uppercase tracking-wider hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
+              class="transition-[background-color] ease-in-out duration-300 text-sm uppercase tracking-wider hover:bg-white/30 px-3 lg:px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
               :class="isNavActive(i.route) ? 'bg-white/20' : ''"
+              :aria-label="i.title"
               v-wave
             >
               <Icon :name="i.icon" size="16" />
-              <span>{{ i.title }}</span>
+              <span class="hidden lg:inline">{{ i.title }}</span>
             </NuxtLink>
           </div>
 
@@ -153,7 +154,7 @@ async function signOut() {
             v-wave
           >
             <Icon name="lucide:log-in" size="18" />
-            <span class="hidden sm:inline">Sign In</span>
+            <span class="hidden lg:inline">Sign In</span>
           </NuxtLink>
 
           <div class="size-9 lg:hidden" />

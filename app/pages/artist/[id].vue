@@ -25,6 +25,21 @@ setCount(item.value!.slug, item.value!.like_count ?? 0)
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 
+const hasLinks = computed(() => {
+  const a = item.value
+  return !!(
+    a?.soundcloud_url ||
+    a?.spotify ||
+    a?.apple_music ||
+    a?.youtubemusic_url ||
+    a?.youtube_url ||
+    a?.facebook ||
+    a?.instagram ||
+    a?.discogs ||
+    a?.wikipedia_url
+  )
+})
+
 const mixRelease = computed(() =>
   releasesSortedByDate.value.find(r => r.slug === item.value?.mix_release_slug)
 )
@@ -117,7 +132,7 @@ useSeoMeta({
               />
             </div>
 
-            <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+            <p v-if="hasLinks"><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
 
             <BtnPrimary
               v-if="item.soundcloud_url"

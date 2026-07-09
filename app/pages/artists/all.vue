@@ -63,32 +63,19 @@ useSeoMeta({
 
     <template v-for="section in sectionedArtists" :key="section.category">
       <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">{{ section.label }}</h2>
-      <ul class="space-y-1">
-        <li
-          v-for="artist in section.list"
+      <p class="leading-relaxed">
+        <template
+          v-for="(artist, index) in section.list"
           :key="artist.slug"
-          class="flex items-center gap-3"
-        >
-          <span
+        ><span
             v-if="flagCodes[artist.slug]"
-            :class="`fi fi-${flagCodes[artist.slug]} rounded-sm shrink-0`"
+            :class="`fi fi-${flagCodes[artist.slug]} rounded-sm mr-1 align-baseline`"
             :title="artist.location || ''"
-          />
-          <span v-else class="w-[1.33em] shrink-0" />
-          <NuxtLink
+          /><NuxtLink
             :to="'/artist/' + artist.slug"
             class="hover:text-white/80 transition-colors"
-          >
-            {{ artist.title }}
-          </NuxtLink>
-          <span
-            v-if="artist.location"
-            class="text-white/30 text-sm truncate hidden sm:block"
-          >
-            {{ artist.location }}
-          </span>
-        </li>
-      </ul>
+          >{{ artist.title }}</NuxtLink><span v-if="index < section.list.length - 1">, </span></template>
+      </p>
     </template>
   </div>
 </template>
