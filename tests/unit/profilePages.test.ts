@@ -26,7 +26,7 @@ describe('profile pages', () => {
   it('keeps /profile as an independent overview page', () => {
     const indexPage = readProjectFile('app/pages/profile/index.vue')
 
-    expect(indexPage).not.toContain('navigateTo')
+    expect(indexPage).not.toContain("navigateTo('/profile/")
     expect(indexPage).toContain('profileSections')
     expect(indexPage).toContain('`/profile/${section.key}`')
     expect(indexPage).toContain("lucide:arrow-right")

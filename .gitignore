@@ -1,31 +1,39 @@
 Thumbs.db
 .DS_Store
+.idea/
+__pycache__/
 
-/node_modules/
+node_modules/
 *.log
-/.nuxt/
-/.output/
-/dist/
+.nuxt/
+.output/
+dist/
 
 # .env
 .env.local
-/.env/*
-!/.env/.env.example
-!/.env/.env.test.example
+.env/*
+!.env/.env.example
+!.env/.env.test.example
 
-/supabase/*
-!/supabase/migrations
+supabase/*
+!supabase/migrations
 
-/.netlify/*
-!/.netlify/state.json
+.netlify/*
+!.netlify/state.json
 
-/.agents/
-/.claude/
-/.superpowers/
-# /memory/
+.agents/
+.claude/
+.opencode/
 skills-lock.json
-/.superpowers/
-/graphify-out/
+.superpowers/
 
-/playwright-report/
-/test-results/
+playwright-report/
+test-results/
+
+graphify-out/
+# graphify-out/*
+# !graphify-out/GRAPH_REPORT.md
+# !graphify-out/graph.html
+# !graphify-out/graph.json
+# !graphify-out/manifest.json
+scripts/out/

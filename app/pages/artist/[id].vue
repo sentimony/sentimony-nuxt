@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import type { Release } from '~/types'
+import type { Release, Event } from '~/types'
 
 const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount, setCount } = useArtistLikes()
 
-const [artistAsync, releasesAsync] = await Promise.all([
+const [artistAsync, releasesAsync, eventsAsync] = await Promise.all([
   useArtist(id as string, { server: true }),
   useReleases(),
+  useEvents(),
 ])
 
 const item = artistAsync.data
 const artistError = artistAsync.error
 const releasesRaw = releasesAsync.data
+const eventsRaw = eventsAsync.data
 
 if (artistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
@@ -21,11 +23,30 @@ if (artistError.value || !item.value) {
 setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
-
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
+
+const mixRelease = computed(() =>
+  releasesSortedByDate.value.find(r => r.slug === item.value?.mix_release_slug)
+)
+
+const portfolioReleases = computed(() => {
+  if (item.value?.category !== 'designer') return []
+  const slug = item.value.slug
+  return releasesSortedByDate.value.filter(r =>
+    r.artists?.includes(slug) && !!(r.cover_xl || r.cover_og)
+  )
+})
+
+const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
+const organizedEvents = computed(() => {
+  const slug = item.value?.slug
+  if (!slug) return []
+  return events.value.filter(e => e.visible && e.organizer?.includes(slug))
+})
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageDescription = computed(() => [
   item.value?.title,
   item.value?.style,
@@ -46,7 +67,7 @@ useSeoMeta({
 
 <template>
   <div class="text-left border-t border-black/20 dark:border-white/20">
-    <div class="relative z-[2] px-2 pb-[30px] md:pb-[60px]">
+    <div class="relative z-2 px-2 pb-7.5 md:pb-15">
         <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
@@ -77,7 +98,7 @@ useSeoMeta({
                 :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
                 v-wave
               >
-                <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+                <Icon name="lucide:thumbs-up" size="18" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -151,7 +172,7 @@ useSeoMeta({
               v-if="item.wikipedia_url"
               :to="item.wikipedia_url"
               title="Wikipedia"
-              iconify="fa6-brands:wikipedia-w"
+              iconify="simple-icons:wikipedia"
             />
 
 
@@ -160,6 +181,18 @@ useSeoMeta({
           <div class="relative max-w-135 mx-auto w-full mb-4">
 
             <Tabs>
+
+              <Tab
+                v-if="item.mix_audio_url"
+                icon="lucide:music"
+                title="Mix"
+              >
+                <AudioMixPlayer
+                  :src="item.mix_audio_url || ''"
+                  :title="item.mix_title"
+                  :tracklist="mixRelease?.tracklistCompact"
+                />
+              </Tab>
 
               <Tab
                 v-if="item.youtube_playlist_id"
@@ -206,14 +239,21 @@ useSeoMeta({
     <ItemContent v-if="item">
 
       <div v-if="item.information">
-        <!-- <p><span class="text-[10px] md:text-[12px] text-white/50">Information</span></p> -->
         <div v-html="sanitizeHtml(item.information)" />
       </div>
 
-      <!-- <div v-if="item.info_sc">
-        <p><span class="text-[10px] md:text-[12px] text-white/50">Info SC</span></p>
-        <div v-html="sanitizeHtml(item.info_sc)" />
-      </div> -->
+      <div v-if="organizedEvents.length > 0">
+        <hr class="my-4 border-black/30">
+        <p><small><b>Organized Events:</b></small></p>
+        <div class="flex flex-wrap justify-center w-full">
+          <Item
+            v-for="e in organizedEvents"
+            :key="e.slug"
+            :i="e"
+            category="event"
+          />
+        </div>
+      </div>
 
       <div>
         <hr class="my-4 border-black/30">
@@ -226,6 +266,26 @@ useSeoMeta({
               category="release"
             />
           </template>
+        </div>
+      </div>
+
+      <div v-if="portfolioReleases.length > 0">
+        <hr class="my-4 border-black/30">
+        <p><small><b>Portfolio:</b></small></p>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+          <NuxtLink
+            v-for="r in portfolioReleases"
+            :key="r.slug"
+            :to="'/release/' + r.slug"
+            class="block aspect-square overflow-hidden rounded"
+          >
+            <NuxtImg
+              :src="(r.cover_xl || r.cover_og)!"
+              :alt="r.title || ''"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </NuxtLink>
         </div>
       </div>
 

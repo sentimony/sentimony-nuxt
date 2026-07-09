@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { Release, Artist, Video, Playlist, Event } from '~/types'
+import type { Release, Artist, ArtistCategory, Video, Playlist, Event } from '~/types'
+import { groupArtistsByCategory, sortArtistsForCatalog } from '~/utils/artists'
 
 const host = useRequestURL().hostname
 
@@ -56,11 +57,19 @@ const releasesSortedByDate = computed(() =>
     )
 )
 const artistsSortedByCategoryId = computed(() =>
-  [...artists.value]
-    .filter(a => Boolean(a.visible))
-    .sort((a, b) =>
-      (a.category_id ?? 0) - (b.category_id ?? 0)
-    )
+  sortArtistsForCatalog(artists.value)
+)
+const artistSectionLabels: Record<ArtistCategory, string> = {
+  musician: 'Producers',
+  dj: 'DJs',
+  mastering: 'Mastering',
+  designer: 'Designers',
+}
+const artistSections = computed(() =>
+  groupArtistsByCategory(artistsSortedByCategoryId.value).map(group => ({
+    label: artistSectionLabels[group.category],
+    list: group.list,
+  }))
 )
 const videosSortedByDate = computed(() =>
   [...videos.value]
@@ -125,7 +134,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :activeSlug="activeArtistSlug"
           :class="isIndex ? 'order-3' : 'order-1'"
           title="Artists"
-          :list="artistsSortedByCategoryId"
+          :sections="artistSections"
           category="artist"
           :centeredSlidesBounds="false"
           :centerInsufficientSlides="false"
@@ -178,6 +187,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
     <div class="">
       <Testimonials />
       <Footer />
+      <AudioBottomPlayer />
     </div>
     
   </div>

@@ -3,6 +3,7 @@ import type { Release, Event, Video, NewsItem } from '~/types'
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 
 const { data: releasesRaw } = await useReleases()
 const { data: eventsRaw } = await useEvents()

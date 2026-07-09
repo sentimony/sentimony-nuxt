@@ -28,6 +28,7 @@ const catalogRoutes = [
   '/api/playlist/**',
   '/api/videos',
   '/api/video/**',
+  '/api/tracks',
   '/api/tracks/**',
   '/api/track/**',
 ] as const
@@ -60,6 +61,7 @@ export function buildApiRouteRules(): Record<string, RouteRule> {
   for (const base of likesBases) {
     rules[base] = privateCacheRule
     rules[`${base}/**`] = privateCacheRule
+    rules[`${base}/count/**`] = publicCacheRule
   }
 
   for (const route of likedItemsRoutes) {
@@ -67,6 +69,7 @@ export function buildApiRouteRules(): Record<string, RouteRule> {
   }
 
   rules['/api/profile/summary'] = privateCacheRule
+  rules['/api/track-plays'] = privateCacheRule
 
   return rules
 }

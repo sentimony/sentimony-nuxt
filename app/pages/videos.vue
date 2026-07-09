@@ -6,6 +6,7 @@ const videos = computed(() => toArray<Video>(videosRaw.value, 'videos'))
 const videosSortedByDate = computed(() => visibleByDate(videos.value))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Videos'
 const PageDescription = 'Music videos and live performances from Sentimony Records artists: official clips, visualizers and show recordings in psytrance darkprog and psychill.'
 useSeoMeta({

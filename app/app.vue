@@ -15,4 +15,5 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
   <Toaster position="top-center" />
+  <AudioBridge />
 </template>

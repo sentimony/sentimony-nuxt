@@ -6,6 +6,7 @@ const playlists = computed(() => toArray<Playlist>(playlistsRaw.value, 'playlist
 const playlistsSortedByDate = computed(() => visibleByDate(playlists.value, 'asc'))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const PageTitle = 'Playlists'
 const PageDescription = 'Curated playlists by Sentimony Records: dark progressive psytrance and trippy psychill selections for deep listening and dancefloors.'
 useSeoMeta({

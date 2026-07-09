@@ -52,6 +52,16 @@ export interface Release extends BaseEntity {
   new?: boolean
   like_count?: number
   links?: ReleaseLinks
+  tracklist?: ReleaseTrack[]
+}
+
+export interface ReleaseTrack {
+  track_number: number
+  slug: string
+  artist: string
+  title: string
+  bpm: number | null
+  url: string
 }
 
 export interface ReleasesResponse {
@@ -83,6 +93,9 @@ export interface Artist extends BaseEntity {
   wikipedia_url?: string
   youtube_playlist_id?: string
   soundcloud_track_id?: string
+  mix_audio_url?: string
+  mix_title?: string
+  mix_release_slug?: string
   like_count?: number
 }
 
@@ -98,16 +111,19 @@ export interface Track {
   artist_name: string
   track_number: number
   bpm: number | null
+  audio_url?: string | null
   like_count?: number
 }
 
 export interface TrackResponse {
-  track: Track
-  release: Release | null
-  artists: Artist[]
-  releaseTracks: Track[]
-  similarTracks: Track[]
-  likeCount: number
+  track?: Track
+  release?: Release | null
+  releases?: Release[]
+  artists?: Artist[]
+  releaseTracks?: Track[]
+  similarTracks?: Track[]
+  likeCount?: number
+  redirect?: string
 }
 
 export interface VideoLinks {
@@ -146,6 +162,7 @@ export interface Event extends BaseEntity {
   location?: string
   info?: string
   lineup?: EventLineup[]
+  organizer?: string[]
   like_count?: number
   links?: EventLink[]
 }
@@ -200,6 +217,7 @@ export interface ItemEntity {
   flyer_a_xl?: string
   coming_soon?: boolean
   new?: boolean
+  category_id?: number
 }
 
 export interface NewsItem {

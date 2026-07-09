@@ -32,4 +32,44 @@ describe('sanitizeHtml', () => {
     expect(sanitizeHtml(undefined)).toBe('')
     expect(sanitizeHtml(null)).toBe('')
   })
+
+  it('strips the inner content of disallowed tags', () => {
+    const result = sanitizeHtml('<p>Safe</p><script>document.cookie</script>')
+
+    expect(result).toContain('Safe')
+    expect(result).not.toContain('document.cookie')
+  })
+
+  it('handles a literal > inside a quoted attribute value', () => {
+    const result = sanitizeHtml('<a title="Price > 0" href="/releases">link</a>')
+
+    expect(result).toContain('href="/releases"')
+    expect(result).toContain('link')
+    expect(result).not.toContain('0"&gt;')
+  })
+
+  it('drops javascript URLs hidden behind embedded control characters', () => {
+    expect(sanitizeHtml('<a href="java\tscript:alert(1)">x</a>')).not.toContain('script:')
+    expect(sanitizeHtml('<a href="jav\nascript:alert(1)">x</a>')).not.toContain('script:')
+  })
+
+  it('drops javascript URLs hidden behind HTML entities', () => {
+    expect(sanitizeHtml('<a href="&#106;avascript:alert(1)">x</a>')).not.toContain('avascript:')
+    expect(sanitizeHtml('<a href="&#x6a;avascript:alert(1)">x</a>')).not.toContain('avascript:')
+    expect(sanitizeHtml('<a href="jav&#x09;ascript:alert(1)">x</a>')).not.toContain('script:')
+  })
+
+  it('keeps only safe URL schemes on links', () => {
+    expect(sanitizeHtml('<a href="https://sentimony.com">x</a>')).toContain('href="https://sentimony.com"')
+    expect(sanitizeHtml('<a href="/releases">x</a>')).toContain('href="/releases"')
+    expect(sanitizeHtml('<a href="mailto:hi@sentimony.com">x</a>')).toContain('href="mailto:hi@sentimony.com"')
+    expect(sanitizeHtml('<a href="#anchor">x</a>')).toContain('href="#anchor"')
+    expect(sanitizeHtml('<a href="data:text/html,<b>x</b>">x</a>')).not.toContain('data:')
+    expect(sanitizeHtml('<a href="vbscript:msgbox(1)">x</a>')).not.toContain('vbscript:')
+  })
+
+  it('strips the body of an unclosed executable tag', () => {
+    expect(sanitizeHtml('<p>ok</p><script>document.cookie')).not.toContain('document.cookie')
+    expect(sanitizeHtml('<p>ok <script>evil</p>')).not.toContain('evil')
+  })
 })

@@ -19,6 +19,7 @@ const { formatDate, formatYear } = useDate()
 
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
+useCanonical(() => absoluteUrl.value)
 const year = computed(() => formatYear(item.value?.date))
 const PageDescription = computed(() => [
   item.value?.title,
@@ -63,7 +64,7 @@ useSeoMeta({
             :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
             v-wave
           >
-            <Icon name="lucide:thumbs-up" mode="svg" :class="isLiked(item.slug) && '[&_path]:fill-current'" size="18" />
+            <Icon name="lucide:thumbs-up" size="18" />
             {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
             <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
           </button>

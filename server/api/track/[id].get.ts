@@ -1,59 +1,43 @@
-const isDev = process.env.NODE_ENV === 'development'
+import type { ReleaseTrackRow } from '../../utils/releaseTracklist'
 
 type Artist = Record<string, unknown> & { slug: string }
 type Release = Record<string, unknown> & { slug: string }
-
-type TrackRow = {
-  slug: string
-  title: string
-  release_slug: string
-  artist_slug: string
-  artist_name: string
-  track_number: number
-  bpm: number | null
-}
 
 export default defineCachedEventHandler(
   async (event) => {
     const id = event.context.params?.id as string | undefined
     if (!id) throw createError({ statusCode: 400, statusMessage: 'Missing track slug' })
 
-    const admin = supabaseAdmin()
+    const rows = await fetchAllCatalogTrackRows()
+    const occurrences = rows.filter(row => row.slug === id)
 
-    const { data: track, error: trackError } = await admin
-      .from('tracks')
-      .select('slug, title, release_slug, artist_slug, artist_name, track_number, bpm')
-      .eq('slug', id)
-      .single<TrackRow>()
-
-    if (trackError || !track) {
+    if (!occurrences.length) {
+      const legacy = id.match(/^(.+)-(\d+)$/)
+      if (legacy) {
+        const canonical = rows.find(
+          row => row.release_slug === legacy[1] && row.track_number === Number(legacy[2]),
+        )
+        if (canonical) return { redirect: canonical.slug }
+      }
       throw createError({ statusCode: 404, statusMessage: 'Track not found' })
     }
+
+    const releases = await fetchReleasesBySlugs(occurrences.map(o => o.release_slug))
+    if (!releases.length) throw createError({ statusCode: 404, statusMessage: 'Track not found' })
+
+    releases.sort((a, b) => String(a.date ?? '').localeCompare(String(b.date ?? '')))
+    const release = releases[0]!
+    const track = occurrences.find(o => o.release_slug === release.slug) ?? occurrences[0]!
 
     const artistSlugs = (track.artist_slug || '')
       .split(',')
       .map(s => s.trim())
       .filter(Boolean)
 
-    const [releaseResult, artistsResult, siblingResult, likeCountResult] = await Promise.all([
-      fetchRelease(track.release_slug),
-      artistSlugs.length
-        ? admin.from('artists').select('*').in('slug', artistSlugs)
-        : Promise.resolve({ data: [] as Artist[], error: null }),
-      admin
-        .from('tracks')
-        .select('slug, title, release_slug, artist_slug, artist_name, track_number, bpm')
-        .eq('release_slug', track.release_slug)
-        .order('track_number'),
-      admin
-        .from('track_likes')
-        .select('*', { count: 'exact', head: true })
-        .eq('track_slug', track.slug),
+    const [artists, likeCount] = await Promise.all([
+      fetchArtists(artistSlugs),
+      fetchLikeCount('track_likes', 'track_slug', track.slug),
     ])
-
-    const release = releaseResult
-    const artists = (artistsResult.data ?? []) as Artist[]
-    const releaseTracks = ((siblingResult.data ?? []) as TrackRow[])
 
     const artistsSorted = [...artists].sort((a, b) => {
       const ai = artistSlugs.indexOf(a.slug)
@@ -61,48 +45,62 @@ export default defineCachedEventHandler(
       return (ai === -1 ? Number.MAX_SAFE_INTEGER : ai) - (bi === -1 ? Number.MAX_SAFE_INTEGER : bi)
     })
 
-    let similarTracks: TrackRow[] = []
-    if (artistSlugs.length) {
-      const { data } = await admin
-        .from('tracks')
-        .select('slug, title, release_slug, artist_slug, artist_name, track_number, bpm')
-        .neq('slug', track.slug)
-        .or(artistSlugs.map(s => `artist_slug.ilike.%${s}%`).join(','))
-        .limit(8)
-      similarTracks = (data ?? []) as TrackRow[]
+    const releaseTracks = rows.filter(row => row.release_slug === release.slug)
+
+    const seenSimilar = new Set<string>([track.slug])
+    const similarTracks: ReleaseTrackRow[] = []
+    for (const row of rows) {
+      if (seenSimilar.has(row.slug)) continue
+      const rowArtists = row.artist_slug.split(',').map(s => s.trim())
+      if (!artistSlugs.some(slug => rowArtists.includes(slug))) continue
+      seenSimilar.add(row.slug)
+      similarTracks.push(row)
+      if (similarTracks.length >= 8) break
     }
 
     return {
       track,
       release,
+      releases,
       artists: artistsSorted,
       releaseTracks,
       similarTracks,
-      likeCount: likeCountResult.count ?? 0,
+      likeCount,
     }
   },
-  {
-    maxAge: isDev ? 0 : 60 * 60,
-    swr: !isDev,
-  },
+  catalogCacheOptions(),
 )
 
-async function fetchRelease(releaseSlug: string): Promise<Release | null> {
-  if (useRuntimeConfig().releasesSource === 'supabase') {
-    const { data } = await useSupabase()
+async function fetchReleasesBySlugs(slugs: string[]): Promise<Release[]> {
+  const uniqueSlugs = [...new Set(slugs.filter(Boolean))]
+  if (!uniqueSlugs.length) return []
+
+  if (isSupabaseCatalogSource()) {
+    const { data, error } = await useSupabase()
       .from('releases')
       .select('*')
-      .eq('slug', releaseSlug)
-      .single()
-    return data ? (mapReleaseFromSupabase(data) as unknown as Release) : null
+      .in('slug', uniqueSlugs)
+      .eq('visible', true)
+
+    if (error) throw createError({ statusCode: 500, statusMessage: error.message })
+    return (data ?? []).map(row => mapReleaseFromSupabase(row)) as Release[]
   }
 
-  try {
-    const { public: { firebaseBase } } = useRuntimeConfig()
-    const url = `${firebaseBase}/releases/${releaseSlug}.json`
-    const data = isDev ? await $fetch(`${url}?_t=${Date.now()}`) : await $fetch(url)
-    return (data as Release) || null
-  } catch {
-    return null
+  const nodes = await fetchFirebaseEntitiesBySlugs('releases', uniqueSlugs)
+  return nodes.filter(node => isPublicEntity(node)) as Release[]
+}
+
+async function fetchArtists(artistSlugs: string[]) {
+  if (!artistSlugs.length) return []
+
+  if (isSupabaseCatalogSource()) {
+    const { data } = await supabaseAdmin()
+      .from('artists')
+      .select('*')
+      .in('slug', artistSlugs)
+
+    return (data ?? []) as Artist[]
   }
+
+  return await fetchFirebaseEntitiesBySlugs('artists', artistSlugs) as Artist[]
 }

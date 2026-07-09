@@ -1,11 +1,13 @@
 import tailwindcss from '@tailwindcss/vite'
 import { buildApiRouteRules } from './server/utils/cachePolicy'
+import { buildNoindexRouteRules } from './server/utils/robotsPolicy'
 
 const isDev = process.env.NODE_ENV === 'development'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
 const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY || ''
-const releasesSource = process.env.NUXT_RELEASES_SOURCE || process.env.RELEASES_SOURCE || 'firebase'
+const CATALOG_SOURCE: 'firebase' | 'supabase' = 'supabase'
+const catalogSource = process.env.NUXT_CATALOG_SOURCE || process.env.CATALOG_SOURCE || CATALOG_SOURCE
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -25,10 +27,21 @@ export default defineNuxtConfig({
           innerHTML: `(()=>{try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t!=='light')}catch(e){document.documentElement.classList.add('dark')}})()`,
           tagPosition: 'head',
         },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Sentimony Records',
+            description: 'Psychedelic music label',
+            url: 'https://sentimony.com',
+          }),
+        },
       ],
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'author', content: 'Sentimony Records · Psychedelic music label' },
         { name: 'theme-color', content: '#111111' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
@@ -45,15 +58,17 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/tailwind.css',
+    'flag-icons/css/flag-icons.min.css',
   ],
   components: [
     { path: '~/components/ui', pathPrefix: false, extensions: ['vue'] },
     '~/components',
   ],
   runtimeConfig: {
+    catalogSource,
     supabaseSecretKey,
     supabaseUrl,
-    releasesSource,
+    firebaseDbSecret: process.env.NUXT_FIREBASE_DB_SECRET || process.env.FIREBASE_DB_SECRET || '',
     public: {
       firebaseBase: 'https://sentimony-db.firebaseio.com',
       supabaseUrl,
@@ -69,24 +84,7 @@ export default defineNuxtConfig({
   ssr: true,
   routeRules: {
     ...buildApiRouteRules(),
-    ...(!isDev && {
-      '/': { isr: 86400 },
-      '/news': { isr: 86400 },
-      '/releases': { isr: 86400 },
-      '/release/**': { isr: 86400 },
-      '/artists': { isr: 86400 },
-      '/artist/**': { isr: 86400 },
-      '/videos': { isr: 86400 },
-      '/video/**': { isr: 86400 },
-      '/playlists': { isr: 86400 },
-      '/playlist/**': { isr: 86400 },
-      '/events': { isr: 86400 },
-      '/event/**': { isr: 86400 },
-      '/friends': { isr: 86400 },
-      '/friend/**': { isr: 86400 },
-      '/tracks': { isr: 86400 },
-      '/contacts': { isr: 86400 },
-    }),
+    ...buildNoindexRouteRules(),
   },
   supabase: {
     url: supabaseUrl,
@@ -110,6 +108,9 @@ export default defineNuxtConfig({
   icon: {
     provider: 'none',
     serverBundle: false,
+    customCollections: [
+      { prefix: 'sentimony', dir: './app/assets/icons' },
+    ],
     clientBundle: {
       scan: true,
       sizeLimitKb: 256,
@@ -174,6 +175,7 @@ export default defineNuxtConfig({
     autoLastmod: true,
     discoverImages: false,
     discoverVideos: false,
+    sources: ['/api/__sitemap__/urls'],
   },
   vite: {
     plugins: [
@@ -194,6 +196,10 @@ export default defineNuxtConfig({
         'swiper/vue',
         'swiper/modules',
         '@supabase/ssr',
+        '@vueuse/core',
+        'clsx',
+        'tailwind-merge',
+        'vue-sonner',
       ]
     }
   },

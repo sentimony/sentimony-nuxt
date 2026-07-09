@@ -1,39 +1,12 @@
-Thumbs.db
-.DS_Store
+# *
+# !app/
+# !app/**
+# !docs/
+# !docs/**
+# !server/
+# !server/**
 
-/node_modules/
-*.log
-/.nuxt/
-/.output/
-/dist/
-
-.env.local
-/.env/*
-
-/supabase/*
-
-/.netlify/*
-
-/.agents/
-/.claude/
-/.superpowers/
-skills-lock.json
-
-/playwright-report/
-/test-results/
-
-/graphify-out/
-
-public/data/sentimony-db-export.json
-
-# zero-knowledge stubs
-public/ads.txt
-public/google*.html
-
-# brand/icon binaries: one vision agent each, near-zero graph value
-# (favicon.svg kept - carries the prefers-color-scheme rule;
-#  e2e snapshots kept - they link visual tests to components)
-public/apple-touch-icon.png
-public/favicon-96x96.png
-public/web-app-manifest-*.png
-public/images/sentimony-records-logo-*.svg
+node_modules/
+package-lock.json
+dist/
+.nuxt/
