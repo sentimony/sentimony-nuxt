@@ -3,7 +3,16 @@ import { ref, computed, onMounted, watch } from 'vue'
 import type { QueueItem } from '~/utils/audioQueue'
 
 const props = defineProps<{
-  tracks: { title: string; url: string; slug?: string }[]
+  tracks: {
+    title: string
+    url: string
+    slug?: string
+    artist?: string
+    name?: string
+    cover?: string
+    releaseLink?: string
+    artistLink?: string
+  }[]
 }>()
 
 const route = useRoute()
@@ -26,9 +35,20 @@ onMounted(async () => {
 })
 
 const playable = computed(() => props.tracks.filter(t => t.url))
-const queue = computed<QueueItem[]>(() =>
-  playable.value.map(t => ({ src: t.url, title: t.title, link: route.path }))
-)
+function toQueueItem(t: typeof props.tracks[number]): QueueItem {
+  return {
+    src: t.url,
+    title: t.title,
+    link: t.slug ? `/track/${t.slug}` : route.path,
+    artist: t.artist,
+    name: t.name,
+    cover: t.cover,
+    releaseLink: t.releaseLink ?? route.path,
+    artistLink: t.artistLink,
+  }
+}
+
+const queue = computed<QueueItem[]>(() => playable.value.map(toQueueItem))
 
 const activeIndex = computed(() =>
   playable.value.findIndex(t => t.url === current.value?.src)
@@ -48,7 +68,7 @@ function playTrack(index: number) {
   const track = props.tracks[index]
   if (!track?.url) return
   const queueIndex = playable.value.findIndex(t => t.url === track.url)
-  play({ kind: 'track', src: track.url, title: track.title, link: route.path, queue: queue.value, queueIndex })
+  play({ kind: 'track', ...toQueueItem(track), queue: queue.value, queueIndex })
   registerPlay(track.slug)
 }
 

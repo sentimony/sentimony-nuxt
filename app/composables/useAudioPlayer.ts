@@ -5,6 +5,11 @@ export interface PlayerItem {
   src: string
   title: string
   link?: string
+  artist?: string
+  name?: string
+  cover?: string
+  releaseLink?: string
+  artistLink?: string
   kind: 'mix' | 'track'
   queue?: QueueItem[]
   queueIndex?: number
@@ -51,7 +56,18 @@ export function useAudioPlayer() {
     if (index === null || !item?.queue) return
     const entry = item.queue[index]
     if (!entry) return
-    play({ ...item, src: entry.src, title: entry.title, link: entry.link, queueIndex: index })
+    play({
+      ...item,
+      src: entry.src,
+      title: entry.title,
+      link: entry.link,
+      artist: entry.artist,
+      name: entry.name,
+      cover: entry.cover,
+      releaseLink: entry.releaseLink,
+      artistLink: entry.artistLink,
+      queueIndex: index,
+    })
   }
 
   function next() {

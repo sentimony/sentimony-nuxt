@@ -509,7 +509,7 @@ return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), 
 - [ ] **Step 2:** `rm -rf .nuxt/cache/nitro/handlers` (стале кеш-пастка з минулого разу).
 - [ ] **Step 3:** Supabase-режим: `curl localhost:3001/api/tracks | head` → рядки з канонічними slug + `audio_url` для va-tempo-syndicate; сторінки `/tracks`, `/release/va-tempo-syndicate`, `/track/boggy-elf-dream-of-ashvattha-in` рендеряться; `/track/va-tempo-syndicate-1` → 301 на канонічний.
 - [ ] **Step 4:** Firebase-режим: `CATALOG_SOURCE=firebase NUXT_IGNORE_LOCK=1 npm run dev -- --port 3002` → ті самі перевірки; лайки/plays працюють (вони Supabase-only).
-- [ ] **Step 5:** Повний прогін: `npm run test:unit`, `npx nuxi typecheck`, `graphify update .`.
+- [ ] **Step 5:** Повний прогін: `npm run test:unit`, `npx nuxi typecheck`.
 - [ ] **Step 6:** Оновити AGENTS.md (розділ Catalog export: описати `tracks` секцію + `release.tracklist`; оновити baseline тестів) і закомітити.
 
 ## Відкриті рішення (зафіксовані в цьому плані)

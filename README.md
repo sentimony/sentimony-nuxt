@@ -66,6 +66,8 @@ npm run deploy:prod
 ```bash
 # META
 npx skills add anthropics/claude-plugins-official -s claude-md-improver -a codex claude-code -y
+npx skills add anthropics/skills -s skill-creator -a codex claude-code -y
+npx skills add obra/superpowers -s writing-skills -a codex claude-code -y
 
 # FRONTEND
 npx skills add anthropics/skills -s frontend-design -a codex claude-code -y
@@ -77,8 +79,8 @@ npx skills add anthropics/skills -s frontend-design -a codex claude-code -y
 # npx skills add anthropics/skills -s webapp-testing -a codex claude-code -y
 npx skills add sentimony/skills -s web-debug -a codex claude-code -y
 # npx skills add antfu/skills -s vitest -a codex claude-code -y
-npx skills add sentimony/skills -s vitest -a codex claude-code -y
 # npx skills add currents-dev/playwright-best-practices-skill -a codex claude-code -y
+npx skills add sentimony/skills -s vitest -a codex claude-code -y
 
 # SUPABASE
 # npx skills add supabase/agent-skills -s supabase -a codex claude-code -y
@@ -108,13 +110,6 @@ npx skills add sentimony/skills -s typescript -a codex claude-code -y
 # npx impeccable skills install
 # uninstall
 # npx impeccable skills uninstall
-
-# GRAPH
-# uv tool install graphifyy
-# than in project folder
-# graphify install --project
-# uninstall
-# uv tool uninstall graphifyy
 
 # TOKENOMICS
 # npx skills add forrestchang/andrej-karpathy-skills -s karpathy-guidelines -a codex claude-code -y

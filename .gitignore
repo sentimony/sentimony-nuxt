@@ -30,5 +30,7 @@ skills-lock.json
 playwright-report/
 test-results/
 
-graphify-out/
 scripts/out/
+
+# symlink to local audio master library (sentimony-audio-manager)
+upstream

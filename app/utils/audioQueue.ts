@@ -2,6 +2,11 @@ export interface QueueItem {
   src: string
   title: string
   link?: string
+  artist?: string
+  name?: string
+  cover?: string
+  releaseLink?: string
+  artistLink?: string
 }
 
 export function nextQueueIndex(length: number, index: number): number | null {

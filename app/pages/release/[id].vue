@@ -72,12 +72,23 @@ function playFromTracklist(slug: string) {
   if (index >= 0) player.value?.playTrack(index)
 }
 
+const route = useRoute()
+const releaseCover = computed(() => item.value?.cover_th || item.value?.cover_xl)
+
 const playerTracks = computed(() =>
-  (item.value?.tracklist ?? []).filter(t => t.url).map(t => ({
-    title: `${t.artist} - ${t.title}`,
-    url: t.url,
-    slug: t.slug,
-  }))
+  (item.value?.tracklist ?? []).filter(t => t.url).map((t) => {
+    const artistSlug = artistSlugByTrackNumber.value.get(t.track_number)
+    return {
+      title: `${t.artist} - ${t.title}`,
+      url: t.url,
+      slug: t.slug,
+      artist: t.artist,
+      name: t.title,
+      cover: releaseCover.value,
+      releaseLink: route.path,
+      artistLink: artistSlug ? `/artist/${artistSlug}` : undefined,
+    }
+  })
 )
 
 const allArtistsAsync = useFetch<Record<string, Artist> | Artist[]>('/api/artists-all', { server: false })

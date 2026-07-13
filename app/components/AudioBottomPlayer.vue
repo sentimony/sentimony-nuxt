@@ -2,7 +2,9 @@
 const { current, isPlaying, currentTime, duration, volume, toggle, seek, setVolume, close, next, prev } = useAudioPlayer()
 
 const trackParts = computed(() => {
-  const raw = current.value?.title ?? ''
+  const c = current.value
+  if (c?.artist || c?.name) return { artist: c.artist ?? '', name: c.name ?? '' }
+  const raw = c?.title ?? ''
   const idx = raw.indexOf(' - ')
   if (idx === -1) return { artist: raw, name: '' }
   return { artist: raw.slice(0, idx), name: raw.slice(idx + 3) }
@@ -22,7 +24,7 @@ function onVolumeChange(event: Event) {
     <div class="h-24 sm:h-18" aria-hidden="true" />
     <div
       data-testid="audio-bottom-player"
-      class="fixed inset-x-0 bottom-0 z-50 border-t border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm"
+      class="fixed inset-x-0 bottom-0 z-[110] border-t border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm"
     >
       <div class="container max-w-7xl">
         <div class="grid min-h-18 grid-cols-[auto_1fr] items-center gap-x-3 gap-y-2 px-2 py-2 sm:grid-cols-[auto_minmax(12rem,1fr)_minmax(12rem,auto)] sm:py-0">
@@ -76,17 +78,37 @@ function onVolumeChange(event: Event) {
           </div>
 
           <div class="order-1 col-span-2 flex min-w-0 items-center justify-between gap-3 sm:order-3 sm:col-span-1">
-            <NuxtLink
-              v-if="current.link"
-              :to="current.link"
-              class="min-w-0 text-sm font-medium leading-tight hover:underline"
-            >
-              <span class="block truncate">{{ trackParts.artist }}</span>
-              <span class="block truncate opacity-60">{{ trackParts.name }}</span>
-            </NuxtLink>
-            <div v-else class="min-w-0 text-sm font-medium leading-tight">
-              <span class="block truncate">{{ trackParts.artist }}</span>
-              <span class="block truncate opacity-60">{{ trackParts.name }}</span>
+            <div class="flex min-w-0 items-center gap-3">
+              <component
+                :is="current.releaseLink ? 'NuxtLink' : 'div'"
+                v-if="current.cover"
+                :to="current.releaseLink"
+                class="shrink-0"
+                :aria-label="current.releaseLink ? 'Open release' : undefined"
+              >
+                <NuxtImg
+                  :src="current.cover"
+                  :alt="trackParts.name || 'Release cover'"
+                  width="44"
+                  height="44"
+                  class="size-11 rounded object-cover"
+                />
+              </component>
+
+              <div class="min-w-0 text-left text-sm font-medium leading-tight">
+                <component
+                  :is="current.artistLink ? 'NuxtLink' : 'span'"
+                  :to="current.artistLink"
+                  class="block truncate"
+                  :class="current.artistLink && 'hover:underline'"
+                >{{ trackParts.artist }}</component>
+                <component
+                  :is="current.link ? 'NuxtLink' : 'span'"
+                  :to="current.link"
+                  class="block truncate opacity-60"
+                  :class="current.link && 'hover:underline'"
+                >{{ trackParts.name }}</component>
+              </div>
             </div>
 
             <div class="flex shrink-0 items-center gap-1.5">
