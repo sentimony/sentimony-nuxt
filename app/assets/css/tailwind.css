@@ -115,7 +115,7 @@ html::before {
   content: '';
   @apply fixed inset-0;
   z-index: -11;
-  background-image: url('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg');
+  background-image: var(--forest-bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
