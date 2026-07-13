@@ -58,7 +58,6 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/tailwind.css',
-    'flag-icons/css/flag-icons.min.css',
   ],
   components: [
     { path: '~/components/ui', pathPrefix: false, extensions: ['vue'] },

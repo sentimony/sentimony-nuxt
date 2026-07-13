@@ -79,3 +79,7 @@ useSeoMeta({
     </template>
   </div>
 </template>
+
+<style>
+@import 'flag-icons/css/flag-icons.min.css';
+</style>
