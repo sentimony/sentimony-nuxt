@@ -84,7 +84,7 @@ describe('buildSitemapUrls', () => {
   it('includes public static/list pages', () => {
     const locs = buildSitemapUrls(catalog).map(entry => entry.loc)
 
-    for (const staticLoc of ['/', '/news', '/releases', '/releases/psytrance', '/releases/psychill', '/artists', '/artists/all', '/tracks', '/videos', '/playlists', '/events', '/friends', '/contacts']) {
+    for (const staticLoc of ['/', '/news', '/releases', '/releases/all', '/releases/psytrance', '/releases/psychill', '/artists', '/artists/all', '/tracks', '/videos', '/playlists', '/events', '/friends', '/contacts']) {
       expect(locs).toContain(staticLoc)
     }
   })

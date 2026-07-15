@@ -9,7 +9,7 @@ describe('AudioTrackPlaylist.vue', () => {
   const component = readProjectFile('app/components/AudioTrackPlaylist.vue')
 
   it('defines a tracks prop of title/url/slug entries', () => {
-    expect(component).toContain('tracks: { title: string; url: string; slug?: string }[]')
+    expect(component).toMatch(/tracks:\s*{\s*title:\s*string\s*url:\s*string\s*slug\?:\s*string/)
   })
 
   it('has no local audio element anymore', () => {
