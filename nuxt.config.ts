@@ -3,6 +3,7 @@ import { buildApiRouteRules } from './server/utils/cachePolicy'
 import { buildNoindexRouteRules } from './server/utils/robotsPolicy'
 
 const isDev = process.env.NODE_ENV === 'development'
+const isNodeServer = process.env.NITRO_PRESET === 'node-server'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
 const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY || ''
@@ -58,7 +59,6 @@ export default defineNuxtConfig({
   },
   css: [
     '~/assets/css/tailwind.css',
-    'flag-icons/css/flag-icons.min.css',
   ],
   components: [
     { path: '~/components/ui', pathPrefix: false, extensions: ['vue'] },
@@ -167,7 +167,7 @@ export default defineNuxtConfig({
     easing: 'cubic-bezier(0,.57,.89,0)'
   },
   image: {
-    provider: isDev ? 'ipx' : 'netlify',
+    provider: isDev || isNodeServer ? 'ipx' : 'netlify',
     domains: ['content.sentimony.com'],
   },
   sitemap: {

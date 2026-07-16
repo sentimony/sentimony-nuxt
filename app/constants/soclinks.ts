@@ -6,9 +6,9 @@ export const DEEZER_URL        = 'https://www.deezer.com/us/playlist/5701954482'
 export const DISCOGS_URL       = 'https://www.discogs.com/label/82598-Sentimony-Records?sort=year&sort_order=desc&layout=big&&limit=100'
 export const FACEBOOK_URL      = 'https://www.facebook.com/sentimony.records'
 export const INSTAGRAM_URL     = 'https://www.instagram.com/sentimony.records'
-export const JUNODOWNLOAD_URL  = 'https://www.junodownload.com/labels/Sentimony/'
 export const MIXCLOUD_URL      = 'https://www.mixcloud.com/sentimony'
 export const PATREON_URL       = 'https://www.patreon.com/sentimony'
+export const QOBUZ_URL         = 'https://play.qobuz.com/label/183589'
 export const SOUNDCLOUD_URL    = 'https://soundcloud.com/sentimony'
 export const SPOTIFY_URL       = 'https://open.spotify.com/playlist/2vL0QCDgj57noKq6bfniA0'
 export const TIKTOK_URL        = 'https://www.tiktok.com/@sentimony'
@@ -35,9 +35,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { id: 'discogs',      title: 'Discogs',       url: DISCOGS_URL },
   { id: 'facebook',     title: 'Facebook',      url: FACEBOOK_URL },
   { id: 'instagram',    title: 'Instagram',     url: INSTAGRAM_URL, inHeader: true },
-  { id: 'junoDownload', title: 'JunoDownload',  url: JUNODOWNLOAD_URL },
   { id: 'mixcloud',     title: 'Mixcloud',      url: MIXCLOUD_URL },
   { id: 'patreon',      title: 'Patreon',       url: PATREON_URL },
+  { id: 'qobuz',        title: 'Qobuz',         url: QOBUZ_URL },
   { id: 'soundcloud',   title: 'SoundCloud',    url: SOUNDCLOUD_URL, inHeader: true },
   { id: 'spotify',      title: 'Spotify',       url: SPOTIFY_URL },
   // { id: 'tumblr',       title: 'Tumblr',        url: TUMBLR_URL },

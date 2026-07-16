@@ -26,7 +26,7 @@ const isExternal = computed(() => /^(https?:|mailto:|tel:)/i.test(to.value))
     v-wave
   >
     <Icon class="mr-2" v-if="iconify" :name="iconify" size="19" />
-    <img class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
+    <img class="mr-2 dark:invert" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
     <span class="mr-2" v-if="svg" v-html="sanitizeHtml(svg)" />
 
     <span class="mr-0" v-if="title" v-html="sanitizeHtml(title)" />
@@ -40,7 +40,7 @@ const isExternal = computed(() => /^(https?:|mailto:|tel:)/i.test(to.value))
     v-wave
   >
     <Icon class="mr-2" v-if="iconify" :name="iconify" size="19" />
-    <img class="mr-2" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
+    <img class="mr-2 dark:invert" v-if="img" :src="img" :alt="img + ' icon'" width="19" height="19">
     <span class="mr-2" v-if="svg" v-html="sanitizeHtml(svg)" />
 
     <span class="mr-0" v-if="title" v-html="sanitizeHtml(title)" />

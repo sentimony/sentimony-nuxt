@@ -37,16 +37,9 @@ useSeoMeta({
 <template>
   <div class="container max-w-[112rem]">
 
-    <div class="flex items-baseline justify-between my-4 md:my-6">
-      <h1 class="text-2xl md:text-4xl">{{ PageTitle }}</h1>
-      <NuxtLink
-        to="/artists/all"
-        class="text-sm text-white/50 hover:text-white/80 underline underline-offset-2"
-      >
-        View all (text list)
-      </NuxtLink>
-    </div>
+    <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
+    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">Producers & Musicians</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMusician"
@@ -56,7 +49,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="">DJs</h2>
+    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">DJs</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDj"
@@ -66,7 +59,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="">Sound Engineers & Mastering Services</h2>
+    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">Sound Engineers & Mastering Services</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMastering"
@@ -76,7 +69,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="">Visual Artists & Designers</h2>
+    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">Visual Artists & Designers</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDesigner"
@@ -84,6 +77,14 @@ useSeoMeta({
         category="artist"
         :i="i"
       />
+    </div>
+
+    <div class="flex justify-center pb-7.5 md:pb-15">
+      <Button as-child variant="link" class="text-white/50 hover:text-white/80">
+        <NuxtLink to="/artists/all">
+          All Artists
+        </NuxtLink>
+      </Button>
     </div>
 
   </div>

@@ -10,7 +10,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
 </script>
 
 <template>
-  <div class="relative z-100 bg-black/90 dark:bg-black/75 text-white/50 leading-[1.4] md:leading-[1.5] px-1 py-24">
+  <div data-testid="site-footer" class="relative z-100 bg-black/90 dark:bg-black/75 text-white/50 leading-[1.4] md:leading-[1.5] px-1 py-24">
     <div class="container flex flex-col items-center">
 
       <div class="mb-10 text-sm">
@@ -36,12 +36,13 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
               <TooltipTrigger as-child>
                 <a
                   :href="i.url"
+                  :aria-label="i.title"
                   class="transition-[opacity,background-color] ease-in-out duration-300 p-2 size-[40px] flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/10 rounded-md"
                   target="_blank" rel="noopener"
                   v-wave
                 >
                   <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
-                  <img v-else :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
+                  <img v-else class="invert" :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
                 </a>
               </TooltipTrigger>
               <TooltipContent class="flex items-center gap-1.5 bg-emerald-900 text-white" arrow-class="bg-emerald-900 fill-emerald-900">
@@ -58,7 +59,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
         <p>All Rights Reserved</p>
         <p>
           <img
-            class="mx-auto"
+            class="mx-auto invert"
             src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
             alt="Sentimony Records Logo SVG"
             width="32" height="32"

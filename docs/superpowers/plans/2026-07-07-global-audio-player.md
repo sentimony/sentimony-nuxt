@@ -743,7 +743,7 @@ function onVolumeChange(event: Event) {
       >
     </div>
 
-    <div v-if="tracklist?.length" class="flex flex-col gap-1 mt-2">
+    <div v-if="tracklist?.length" class="flex flex-col gap-1">
       <p
         v-for="(track, index) in tracklist"
         :key="index"

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { groupArtistsByCategory, sortArtistsForCatalog } from '../../app/utils/artists'
+import { groupArtistsByCategory, sortArtistsById, sortArtistsForCatalog } from '../../app/utils/artists'
 
 describe('artist sorting', () => {
   it('orders artists by page category sequence, then ascending category_id', () => {
@@ -18,6 +18,18 @@ describe('artist sorting', () => {
       'mastering',
       'designer-early',
     ])
+  })
+})
+
+describe('sortArtistsById', () => {
+  it('orders by ascending category_id regardless of category', () => {
+    const sorted = sortArtistsById([
+      { slug: 'c', title: 'C', visible: true, category: 'designer', category_id: 3 },
+      { slug: 'a', title: 'A', visible: true, category: 'dj', category_id: 1 },
+      { slug: 'b', title: 'B', visible: true, category: 'musician', category_id: 2 },
+    ])
+
+    expect(sorted.map(a => a.slug)).toEqual(['a', 'b', 'c'])
   })
 })
 

@@ -94,7 +94,7 @@ const friends = computed(() => friendsArr.value.filter(f => Boolean(f?.visible))
       <!-- <div class="">Friends<br>{{ friends }}</div> -->
     </div>
 
-    <div class=" text-left pb-[30px] md:pb-[60px]">
+    <div class=" text-left pb-7.5 md:pb-15">
       <div class="max-w-[640px] mx-auto">
 
         <hr class="my-4 border-white/30">

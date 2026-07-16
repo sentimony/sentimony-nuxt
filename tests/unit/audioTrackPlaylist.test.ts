@@ -9,7 +9,7 @@ describe('AudioTrackPlaylist.vue', () => {
   const component = readProjectFile('app/components/AudioTrackPlaylist.vue')
 
   it('defines a tracks prop of title/url/slug entries', () => {
-    expect(component).toContain('tracks: { title: string; url: string; slug?: string }[]')
+    expect(component).toMatch(/tracks:\s*{\s*title:\s*string\s*(?:titleSegments\?:[^\n]*\s*)?url:\s*string\s*slug\?:\s*string/)
   })
 
   it('has no local audio element anymore', () => {
@@ -46,13 +46,14 @@ describe('AudioTrackPlaylist.vue', () => {
     expect(component).toContain('@click="playTrack(index)"')
   })
 
-  it('formats elapsed and total time with formatDuration', () => {
-    expect(component).toContain('formatDuration(isActive ? currentTime : 0)')
-    expect(component).toContain('formatDuration(isActive ? duration : 0)')
+  it('delegates seek/time/volume to the global bottom player', () => {
+    expect(component).not.toContain('@input="onSeek"')
+    expect(component).not.toContain('lucide:volume-2')
+    expect(component).not.toContain('setVolume')
   })
 
-  it('applies font-mono to the time display', () => {
-    expect(component).toContain('font-mono')
+  it('forwards per-artist title segments to the queue', () => {
+    expect(component).toContain('artistSegments: t.artistSegments')
   })
 })
 

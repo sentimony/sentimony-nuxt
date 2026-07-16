@@ -8,7 +8,7 @@ export default async (request: Request) => {
 
     const ip =
       request.headers.get("x-nf-client-connection-ip") ||
-      (request.headers.get("x-forwarded-for") || "").split(",")[0].trim() ||
+      (request.headers.get("x-forwarded-for") || "").split(",")[0]?.trim() ||
       "unknown";
 
     const gray = "\x1b[90m", magenta = "\x1b[35m", green = "\x1b[32m", reset = "\x1b[0m";

@@ -205,7 +205,7 @@
       "category": "musician",
       "category_id": "007",
       "name": "",
-      "location": "",
+      "location": "Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -238,7 +238,7 @@
       "category": "musician",
       "category_id": "008",
       "name": "",
-      "location": "",
+      "location": "Kyiv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -271,7 +271,7 @@
       "category": "musician",
       "category_id": "009",
       "name": "",
-      "location": "",
+      "location": "Kyiv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -370,7 +370,7 @@
       "category": "musician",
       "category_id": "012",
       "name": "",
-      "location": "",
+      "location": "Kharkov, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -436,7 +436,7 @@
       "category": "musician",
       "category_id": "014",
       "name": "",
-      "location": "",
+      "location": "Moscow, Russian Federation",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -502,7 +502,7 @@
       "category": "mastering",
       "category_id": "015",
       "name": "",
-      "location": "",
+      "location": "Crimea, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -667,7 +667,7 @@
       "category": "musician",
       "category_id": "021",
       "name": "",
-      "location": "",
+      "location": "Kyiv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -700,7 +700,7 @@
       "category": "musician",
       "category_id": "022",
       "name": "",
-      "location": "",
+      "location": "Lviv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -832,7 +832,7 @@
       "category": "musician",
       "category_id": "026",
       "name": "",
-      "location": "",
+      "location": "Kharkov, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -865,7 +865,7 @@
       "category": "dj",
       "category_id": "027",
       "name": "",
-      "location": "",
+      "location": "Kyiv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -898,7 +898,7 @@
       "category": "dj",
       "category_id": "028",
       "name": "",
-      "location": "",
+      "location": "Kyiv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -930,7 +930,7 @@
       "visible": true,
       "category": "dj",
       "category_id": "029",
-      "name": "",
+      "name": "Yuriy",
       "location": "Kyiv, Ukraine",
       "style": "Psychill, Psybient",
       "photo_xl": "https://content.sentimony.com/assets/img/artists/hagen-01_xl.jpg",
@@ -1589,7 +1589,7 @@
       "category": "musician",
       "category_id": "049",
       "name": "",
-      "location": "",
+      "location": "Carpathian, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -1985,7 +1985,7 @@
       "category": "musician",
       "category_id": "061",
       "name": "",
-      "location": "",
+      "location": "Crimea, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2084,7 +2084,7 @@
       "category": "musician",
       "category_id": "064",
       "name": "",
-      "location": "",
+      "location": "USA",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2309,13 +2309,13 @@
       "wikipedia_url": ""
     },
     "boggy-elf": {
-      "title": "boggy-elf",
+      "title": "Boggy Elf",
       "slug": "boggy-elf",
       "visible": false,
       "category": "musician",
       "category_id": "069",
       "name": "",
-      "location": "",
+      "location": "Vyshhorod, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2408,7 +2408,7 @@
       "wikipedia_url": ""
     },
     "wizack-twizack": {
-      "title": "wizack-twizack",
+      "title": "Wizack Twizack",
       "slug": "wizack-twizack",
       "visible": false,
       "category": "musician",
@@ -2441,13 +2441,13 @@
       "wikipedia_url": ""
     },
     "primordial-ooze": {
-      "title": "primordial-ooze",
+      "title": "Primordial Ooze",
       "slug": "primordial-ooze",
       "visible": false,
       "category": "musician",
       "category_id": "073",
       "name": "",
-      "location": "",
+      "location": "USA",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2480,7 +2480,7 @@
       "category": "musician",
       "category_id": "074",
       "name": "",
-      "location": "",
+      "location": "Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2513,7 +2513,7 @@
       "category": "musician",
       "category_id": "075",
       "name": "",
-      "location": "",
+      "location": "Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2546,7 +2546,7 @@
       "category": "musician",
       "category_id": "076",
       "name": "",
-      "location": "",
+      "location": "Lviv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2612,7 +2612,7 @@
       "category": "musician",
       "category_id": "078",
       "name": "",
-      "location": "",
+      "location": "Lviv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2678,7 +2678,7 @@
       "category": "musician",
       "category_id": "080",
       "name": "",
-      "location": "",
+      "location": "Kyiv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2711,7 +2711,7 @@
       "category": "musician",
       "category_id": "081",
       "name": "",
-      "location": "",
+      "location": "Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -2777,7 +2777,7 @@
       "category": "musician",
       "category_id": "083",
       "name": "",
-      "location": "",
+      "location": "Russia",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -3239,7 +3239,7 @@
       "category": "designer",
       "category_id": "095",
       "name": "",
-      "location": "",
+      "location": "Kyiv, Ukraine",
       "style": "",
       "photo_og": "",
       "photo_th": "",
@@ -7790,7 +7790,7 @@
       "youtubemusic_url": "",
       "website": "",
       "wikipedia_url": "",
-      "soundcloud_track_id": "1716644829"
+      "soundcloud_track_id": "2198715547"
     },
     "tairam": {
       "title": "Tairam",
@@ -16684,7 +16684,7 @@
       "title": "Frog Prog «Songs Of Buffo»",
       "cat_no": "SENCD100",
       "visible": true,
-      "date": "2026-07-03T12:00:00.000Z",
+      "date": "2026-07-17T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "https://content.sentimony.com/assets/img/releases/frog-prog-songs-of-buffo_og.jpg",
@@ -16773,7 +16773,7 @@
       "title": "VORG «Cyber Soul: Chill»",
       "cat_no": "SENCD0101",
       "visible": true,
-      "date": "2026-07-17T12:00:00.000Z",
+      "date": "2026-07-31T12:00:00.000Z",
       "coming_soon": true,
       "new": false,
       "cover_og": "https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_og.jpg",
@@ -17732,7 +17732,7 @@
       "artist_name": "AstroPilot",
       "artist_slug": "astropilot",
       "bpm": 102,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/astropilot-breath-of-fate.mp3"
     },
     "astropilot-enlightenment": {
       "slug": "astropilot-enlightenment",
@@ -18036,7 +18036,7 @@
       "artist_name": "Chronos",
       "artist_slug": "chronos",
       "bpm": 110,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/chronos-cultural-legacy-live-version.mp3"
     },
     "chronos-dandelions-as-memory": {
       "slug": "chronos-dandelions-as-memory",
@@ -18132,7 +18132,7 @@
       "artist_name": "Crystal Vibe",
       "artist_slug": "crystal-vibe",
       "bpm": 111,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/crystal-vibe-neuron.mp3"
     },
     "crystal-vibe-we-re-going-away": {
       "slug": "crystal-vibe-we-re-going-away",
@@ -18156,7 +18156,7 @@
       "artist_name": "Dagas",
       "artist_slug": "dagas",
       "bpm": 60,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dagas-age-of-aquarius.mp3"
     },
     "dagas-caverna-magica": {
       "slug": "dagas-caverna-magica",
@@ -18180,7 +18180,7 @@
       "artist_name": "Daoine Sidhe",
       "artist_slug": "daoine-sidhe",
       "bpm": 115,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/daoine-sidhe-horizon-shifter.mp3"
     },
     "daoine-sidhe-mindslipses": {
       "slug": "daoine-sidhe-mindslipses",
@@ -18684,7 +18684,7 @@
       "artist_name": "EleexR",
       "artist_slug": "eleexr",
       "bpm": 138,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-zemnosis-frog-prog-rmx.mp3"
     },
     "erot-into-the-deep-consciousness": {
       "slug": "erot-into-the-deep-consciousness",
@@ -18700,7 +18700,7 @@
       "artist_name": "ExoFlux & Frog Prog",
       "artist_slug": "exoflux,frog-prog",
       "bpm": 138,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exoflux-frog-prog-from-my-mind.mp3"
     },
     "exoflux-frog-prog-visions": {
       "slug": "exoflux-frog-prog-visions",
@@ -18708,7 +18708,7 @@
       "artist_name": "ExoFlux & Frog Prog",
       "artist_slug": "exoflux,frog-prog",
       "bpm": 132,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exoflux-frog-prog-visions.mp3"
     },
     "exolt-buzzooka": {
       "slug": "exolt-buzzooka",
@@ -18884,7 +18884,7 @@
       "artist_name": "Frog Prog",
       "artist_slug": "frog-prog",
       "bpm": 145,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-aqua-portal.mp3"
     },
     "frog-prog-black-sun-algorithm": {
       "slug": "frog-prog-black-sun-algorithm",
@@ -18892,7 +18892,7 @@
       "artist_name": "Frog Prog",
       "artist_slug": "frog-prog",
       "bpm": 138,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-black-sun-algorithm.mp3"
     },
     "frog-prog-bush": {
       "slug": "frog-prog-bush",
@@ -18900,7 +18900,7 @@
       "artist_name": "Frog Prog",
       "artist_slug": "frog-prog",
       "bpm": 134,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-bush.mp3"
     },
     "frog-prog-darknes-light": {
       "slug": "frog-prog-darknes-light",
@@ -18940,7 +18940,7 @@
       "artist_name": "Frog Prog",
       "artist_slug": "frog-prog",
       "bpm": 135,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-mind-tonal.mp3"
     },
     "frog-prog-mystic-signs": {
       "slug": "frog-prog-mystic-signs",
@@ -18964,7 +18964,7 @@
       "artist_name": "Frog Prog",
       "artist_slug": "frog-prog",
       "bpm": 139,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-neurofracture.mp3"
     },
     "frog-prog-synaptic-drift": {
       "slug": "frog-prog-synaptic-drift",
@@ -18972,7 +18972,7 @@
       "artist_name": "Frog Prog",
       "artist_slug": "frog-prog",
       "bpm": 140,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-synaptic-drift.mp3"
     },
     "frog-prog-the-one": {
       "slug": "frog-prog-the-one",
@@ -19156,7 +19156,7 @@
       "artist_name": "Gaz Mask",
       "artist_slug": "gaz-mask",
       "bpm": 140,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-ancestral-echoes.mp3"
     },
     "gaz-mask-dizzy-tales": {
       "slug": "gaz-mask-dizzy-tales",
@@ -19180,7 +19180,7 @@
       "artist_name": "Gaz Mask",
       "artist_slug": "gaz-mask",
       "bpm": 133,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-no-name-freestyle.mp3"
     },
     "gaz-mask-deuteroz-quetzalcoatl": {
       "slug": "gaz-mask-deuteroz-quetzalcoatl",
@@ -19212,7 +19212,7 @@
       "artist_name": "Gaz Mask",
       "artist_slug": "gaz-mask",
       "bpm": 133,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-sic-mundus-creatus-est.mp3"
     },
     "gaz-mask-snug-as-a-bug-in-a-rug": {
       "slug": "gaz-mask-snug-as-a-bug-in-a-rug",
@@ -19220,7 +19220,7 @@
       "artist_name": "Gaz Mask",
       "artist_slug": "gaz-mask",
       "bpm": 140,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-snug-as-a-bug-in-a-rug.mp3"
     },
     "gaz-mask-the-breath-of-the-elder": {
       "slug": "gaz-mask-the-breath-of-the-elder",
@@ -19228,7 +19228,7 @@
       "artist_name": "Gaz Mask",
       "artist_slug": "gaz-mask",
       "bpm": 138,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-the-breath-of-the-elder.mp3"
     },
     "gaz-mask-the-farmer": {
       "slug": "gaz-mask-the-farmer",
@@ -19236,7 +19236,7 @@
       "artist_name": "Gaz Mask",
       "artist_slug": "gaz-mask",
       "bpm": 138,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-the-farmer.mp3"
     },
     "gaz-mask-the-long-bright-dark": {
       "slug": "gaz-mask-the-long-bright-dark",
@@ -19356,7 +19356,7 @@
       "artist_name": "Hair!",
       "artist_slug": "hair",
       "bpm": null,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hair-hashish-encapsulate-rmx.mp3"
     },
     "harax-aessone": {
       "slug": "harax-aessone",
@@ -19532,7 +19532,7 @@
       "artist_name": "Irukanji",
       "artist_slug": "irukanji",
       "bpm": 125,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-clooney.mp3"
     },
     "irukanji-deep-deep-deep": {
       "slug": "irukanji-deep-deep-deep",
@@ -20588,7 +20588,7 @@
       "artist_name": "Overdream",
       "artist_slug": "overdream",
       "bpm": 113,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-flat-earthers.mp3"
     },
     "overdream-kopimist": {
       "slug": "overdream-kopimist",
@@ -21692,7 +21692,7 @@
       "artist_name": "Spectrum Vision",
       "artist_slug": "spectrum-vision",
       "bpm": 90,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-mono-town.mp3"
     },
     "spectrum-vision-mystical-bruhoo": {
       "slug": "spectrum-vision-mystical-bruhoo",
@@ -23172,7 +23172,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 96,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-beautiful-thing.mp3"
     },
     "zymosis-because-i-still-love-you": {
       "slug": "zymosis-because-i-still-love-you",
@@ -23188,7 +23188,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 90,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-but-i-will-not-know.mp3"
     },
     "zymosis-deeper-than-truth": {
       "slug": "zymosis-deeper-than-truth",
@@ -23220,7 +23220,7 @@
       "artist_name": "Zymosis feat. Katya Chilly",
       "artist_slug": "zymosis-feat-katya-chilly",
       "bpm": 140,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-feat-katya-chilly-u-zemli.mp3"
     },
     "zymosis-kiss-me-goodbye": {
       "slug": "zymosis-kiss-me-goodbye",
@@ -23268,7 +23268,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 140,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-let-it-all-out.mp3"
     },
     "zymosis-loneliness": {
       "slug": "zymosis-loneliness",
@@ -23276,7 +23276,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 110,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-loneliness.mp3"
     },
     "zymosis-lystochok": {
       "slug": "zymosis-lystochok",
@@ -23292,7 +23292,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 90,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-make-a-wish.mp3"
     },
     "zymosis-needle-feat-hvoya": {
       "slug": "zymosis-needle-feat-hvoya",
@@ -23316,7 +23316,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 90,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-omgty.mp3"
     },
     "zymosis-perception-limit": {
       "slug": "zymosis-perception-limit",
@@ -23340,7 +23340,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 97,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-sansara-rework.mp3"
     },
     "zymosis-serdenko": {
       "slug": "zymosis-serdenko",
@@ -23396,7 +23396,7 @@
       "artist_name": "Zymosis & Katya Chilly",
       "artist_slug": "zymosis,katya-chilly",
       "bpm": 140,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-katya-chilly-u-zemli.mp3"
     },
     "zymosis-where-can-i-find-you": {
       "slug": "zymosis-where-can-i-find-you",
@@ -23404,7 +23404,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 114,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-where-can-i-find-you.mp3"
     },
     "zymosis-you-don-t-have-time": {
       "slug": "zymosis-you-don-t-have-time",

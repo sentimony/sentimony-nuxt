@@ -32,6 +32,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Typecheck (TypeScript 6 / nuxi)
+        run: npm run typecheck
+
+      - name: Typecheck edge functions (TypeScript 7 native)
+        run: npm run typecheck:ts7
+
       - name: Unit tests
         run: npm run test:unit
 

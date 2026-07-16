@@ -21,10 +21,15 @@
   content: "";
   inset: 0;
   z-index: 1;
-  background-image: url("https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg");
+  background-image: var(--forest-bg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in;
+}
+
+.forest-ready .homepage-atmosphere::before {
   opacity: 0.33;
 }
 
@@ -42,7 +47,7 @@
   background-color: #000000;
 }
 
-.dark .homepage-atmosphere::before {
+.dark.forest-ready .homepage-atmosphere::before {
   opacity: 0.17;
 }
 

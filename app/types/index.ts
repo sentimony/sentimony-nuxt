@@ -13,6 +13,7 @@ export interface ReleaseLinks {
   bandcamp_url?: string
   bandcamp24_url?: string
   beatport?: string
+  // JunoDownload shut down; field kept for legacy export data but no longer surfaced in the UI.
   junodownload?: string
   diggersfactory_url?: string
   spotify?: string

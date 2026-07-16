@@ -29,6 +29,7 @@ const STATIC_PAGE_URLS: SitemapUrlEntry[] = [
   { loc: '/', changefreq: 'daily', priority: 1 },
   { loc: '/news', changefreq: 'daily', priority: 0.8 },
   { loc: '/releases', changefreq: 'daily', priority: 0.8 },
+  { loc: '/releases/all', changefreq: 'weekly', priority: 0.7 },
   { loc: '/releases/psytrance', changefreq: 'weekly', priority: 0.7 },
   { loc: '/releases/psychill', changefreq: 'weekly', priority: 0.7 },
   { loc: '/artists', changefreq: 'daily', priority: 0.8 },

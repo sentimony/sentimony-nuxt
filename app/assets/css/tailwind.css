@@ -104,6 +104,7 @@
 html {
   background-color: #ffffff;
   scrollbar-gutter: stable;
+  overflow-x: hidden;
 }
 
 html.dark {
@@ -114,14 +115,19 @@ html::before {
   content: '';
   @apply fixed inset-0;
   z-index: -11;
-  background-image: url('https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg');
+  background-image: var(--forest-bg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease-in;
+}
+
+html.forest-ready::before {
   opacity: 0.33;
 }
 
-html.dark::before {
+html.dark.forest-ready::before {
   opacity: 0.17;
 }
 

@@ -165,13 +165,6 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
               title="Beatport"
               iconify="simple-icons:beatport"
             />
-            <BtnPrimary
-              v-if="release?.links?.junodownload"
-              :to="release.links.junodownload"
-              title="JunoDownload"
-              img="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
-            />
-
             <p v-if="release?.links?.spotify || release?.links?.applemusic_url || release?.links?.youtube_music || release?.links?.soundcloud_url">
               <span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span>
             </p>

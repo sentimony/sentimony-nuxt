@@ -7,6 +7,7 @@ const readProjectFile = (path: string) => readFileSync(projectFile(path), 'utf8'
 
 describe('AudioMixPlayer.vue', () => {
   const component = readProjectFile('app/components/AudioMixPlayer.vue')
+  const bottomPlayer = readProjectFile('app/components/AudioBottomPlayer.vue')
 
   it('defines src, title, and tracklist props', () => {
     expect(component).toContain('src: string')
@@ -33,9 +34,18 @@ describe('AudioMixPlayer.vue', () => {
     expect(component).toContain('lucide:pause')
   })
 
-  it('formats elapsed and total time with formatDuration', () => {
+  it('shows elapsed time and seek without inline volume or total duration', () => {
     expect(component).toContain('formatDuration(active ? currentTime : 0)')
-    expect(component).toContain('formatDuration(active ? duration : 0)')
+    expect(component).toContain('@input="onSeek"')
+    expect(component).not.toContain('formatDuration(active ? duration : 0)')
+    expect(component).not.toContain('lucide:volume-2')
+    expect(component).not.toContain('setVolume')
+  })
+
+  it('leaves volume and total duration in the global bottom player', () => {
+    expect(bottomPlayer).toContain('lucide:volume-2')
+    expect(bottomPlayer).toContain('formatDuration(duration)')
+    expect(bottomPlayer).toContain('setVolume')
   })
 
   it('applies font-mono to the time display', () => {

@@ -4,18 +4,28 @@ const soundcloud_url = 'https://soundcloud.com/sentimony'
 const bandcamp_url = 'https://sentimony.bandcamp.com/follow_me'
 
 const linkClass = "inline-flex items-center gap-1 align-middle rounded-md border border-emerald-700/30 bg-emerald-700/10 px-2 py-0.5 text-[13px] font-medium text-emerald-700 transition-colors hover:bg-emerald-700/20 hover:text-emerald-900 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-300 dark:hover:bg-emerald-300/20 dark:hover:text-emerald-100"
+
+const { current } = useAudioPlayer()
 </script>
 
 <template>
-  <div class="px-4 py-8 md:py-16 box-border bg-linear-to-t from-transparent via-transparent to-white/50 dark:to-black/50">
+  <div
+    class="px-4 pt-8 md:pt-16 box-border bg-linear-to-t from-transparent via-transparent to-white/50 dark:to-black/50"
+    :class="current ? 'pb-[calc(2rem+6rem)] md:pb-[calc(4rem+4.5rem)]' : 'pb-8 md:pb-16'"
+  >
     <div class="text-left mx-auto max-w-lg p-4 rounded-lg bg-[#b5ccb5]/85 border border-black/20 text-black dark:bg-[#2a4030]/85 dark:border-white/20 dark:text-white">
       <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1 rounded-full overflow-hidden block" v-wave>
-        <img
+        <NuxtImg
           src="https://content.sentimony.com/assets/img/artists/irukanji-01_xl.jpg"
           alt="Irukanji avatar"
           width="72" height="72"
+          sizes="72px"
+          densities="1x 2x"
+          fit="cover"
+          format="webp"
+          loading="lazy"
           class="size-18 rounded-full object-cover ring-1 ring-black/20 dark:ring-white/20"
-        >
+        />
       </NuxtLink>
       <p>My fellow artists and I always love reading your feedback.</p>
       <p>

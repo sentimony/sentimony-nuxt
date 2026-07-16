@@ -1,27 +1,11 @@
 <script setup lang="ts">
-import { computed, provide, reactive, ref } from 'vue'
+import { computed, provide } from 'vue'
+import { createTabsContext, tabsKey } from '~/utils/tabs'
 
-type TabInfo = { title?: string; icon?: string; img?: string }
-type TabRecord = { id: number; info: TabInfo }
+const tabsContext = createTabsContext()
+const { tabs, selected } = tabsContext
 
-const tabs = reactive<TabRecord[]>([])
-const selected = ref<number | undefined>(undefined)
-let idCounter = 0
-
-function registerTab(info: TabInfo): number {
-  const id = idCounter++
-  tabs.push({ id, info })
-  if (selected.value == null) selected.value = id
-  return id
-}
-
-function unregisterTab(id: number) {
-  const idx = tabs.findIndex(t => t.id === id)
-  if (idx !== -1) tabs.splice(idx, 1)
-  if (selected.value === id) selected.value = tabs[0]?.id
-}
-
-provide('tabs', { registerTab, unregisterTab })
+provide(tabsKey, tabsContext)
 
 const hideTitles = computed(() => tabs.length >= 5)
 

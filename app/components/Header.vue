@@ -46,7 +46,7 @@ async function signOut() {
             <img
               src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
               alt="Sentimony Records Logo SVG"
-              class="mr-3 invert dark:invert-0"
+              class="mr-3 dark:invert"
               width="40" height="40"
             />
             <div class="text-left leading-normal pr-1">
@@ -55,17 +55,18 @@ async function signOut() {
             </div>
           </NuxtLink>
 
-          <div class="hidden lg:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div class="hidden md:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-sm uppercase tracking-wider hover:bg-white/30 px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
+              class="transition-[background-color] ease-in-out duration-300 text-sm uppercase tracking-wider hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 inline-flex items-center justify-center gap-2 rounded-md"
               :class="isNavActive(i.route) ? 'bg-white/20' : ''"
+              :aria-label="i.title"
               v-wave
             >
-              <Icon :name="i.icon" size="16" />
-              <span>{{ i.title }}</span>
+              <Icon :name="i.icon" size="18" />
+              <span class="hidden lg:inline">{{ i.title }}</span>
             </NuxtLink>
           </div>
 
@@ -77,12 +78,13 @@ async function signOut() {
                 <TooltipTrigger as-child>
                   <a
                     :href="i.url"
+                    :aria-label="i.title"
                     class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-white/30 size-9 rounded-md"
                     target="_blank" rel="noopener"
                     v-wave
                   >
                     <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="18" />
-                    <img v-else :src="i.icon.url" :alt="i.title + ' Icon'" width="18" height="18">
+                    <img v-else class="dark:invert" :src="i.icon.url" :alt="i.title + ' Icon'" width="18" height="18">
                   </a>
                 </TooltipTrigger>
                 <TooltipContent class="flex items-center gap-1.5">
@@ -134,7 +136,7 @@ async function signOut() {
                 <DropdownMenuItem as-child>
                   <button
                     type="button"
-                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 outline-none data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10 cursor-pointer"
+                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 outline-none data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 cursor-pointer"
                     @click="signOut"
                   >
                     <Icon name="lucide:log-out" size="18" class="opacity-50" />
@@ -148,12 +150,13 @@ async function signOut() {
           <NuxtLink
             v-else
             to="/signin"
-            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-4 h-9 rounded-md text-sm border border-black/20 dark:border-white/20"
+            aria-label="Sign In"
+            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 rounded-md text-sm border border-black/20 dark:border-white/20"
             :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20' : ''"
             v-wave
           >
-            <Icon name="lucide:log-in" size="18" />
-            <span class="hidden sm:inline">Sign In</span>
+            <Icon name="lucide:circle-user-round" size="18" />
+            <span class="hidden lg:inline">Sign In</span>
           </NuxtLink>
 
           <div class="size-9 lg:hidden" />

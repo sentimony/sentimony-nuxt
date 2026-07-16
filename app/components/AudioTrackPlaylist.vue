@@ -2,12 +2,26 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import type { QueueItem } from '~/utils/audioQueue'
 
+import type { TitleSegment } from '~/utils/tracks'
+
 const props = defineProps<{
-  tracks: { title: string; url: string; slug?: string }[]
+  tracks: {
+    title: string
+    titleSegments?: TitleSegment[]
+    url: string
+    slug?: string
+    artist?: string
+    artistSegments?: TitleSegment[]
+    name?: string
+    nameSegments?: TitleSegment[]
+    cover?: string
+    releaseLink?: string
+    artistLink?: string
+  }[]
 }>()
 
 const route = useRoute()
-const { current, isPlaying, currentTime, duration, volume, play, toggle, seek, setVolume, next, prev } = useAudioPlayer()
+const { current, isPlaying, play, toggle, next, prev } = useAudioPlayer()
 
 const playCounts = ref<Record<string, number>>({})
 const countedThisSession = new Set<string>()
@@ -26,9 +40,22 @@ onMounted(async () => {
 })
 
 const playable = computed(() => props.tracks.filter(t => t.url))
-const queue = computed<QueueItem[]>(() =>
-  playable.value.map(t => ({ src: t.url, title: t.title, link: route.path }))
-)
+function toQueueItem(t: typeof props.tracks[number]): QueueItem {
+  return {
+    src: t.url,
+    title: t.title,
+    link: t.slug ? `/track/${t.slug}` : route.path,
+    artist: t.artist,
+    artistSegments: t.artistSegments,
+    name: t.name,
+    nameSegments: t.nameSegments,
+    cover: t.cover,
+    releaseLink: t.releaseLink ?? route.path,
+    artistLink: t.artistLink,
+  }
+}
+
+const queue = computed<QueueItem[]>(() => playable.value.map(toQueueItem))
 
 const activeIndex = computed(() =>
   playable.value.findIndex(t => t.url === current.value?.src)
@@ -48,7 +75,7 @@ function playTrack(index: number) {
   const track = props.tracks[index]
   if (!track?.url) return
   const queueIndex = playable.value.findIndex(t => t.url === track.url)
-  play({ kind: 'track', src: track.url, title: track.title, link: route.path, queue: queue.value, queueIndex })
+  play({ kind: 'track', ...toQueueItem(track), queue: queue.value, queueIndex })
   registerPlay(track.slug)
 }
 
@@ -57,18 +84,11 @@ watch(activeIndex, (index) => {
   registerPlay(playable.value[index]?.slug)
 })
 
+const hasAudio = computed(() => playable.value.length > 0)
+
 function togglePlay() {
   if (isActive.value) toggle()
   else playTrack(props.tracks.findIndex(t => t.url))
-}
-
-function onSeek(event: Event) {
-  if (!isActive.value) return
-  seek(Number((event.target as HTMLInputElement).value))
-}
-
-function onVolumeChange(event: Event) {
-  setVolume(Number((event.target as HTMLInputElement).value))
 }
 
 defineExpose({ playTrack })
@@ -79,7 +99,7 @@ defineExpose({ playTrack })
     <div class="flex items-center gap-2">
       <button
         type="button"
-        class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
+        class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-black/15 hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
         aria-label="Previous track"
         :disabled="!isActive || activeIndex === 0"
         @click="prev"
@@ -90,8 +110,9 @@ defineExpose({ playTrack })
 
       <button
         type="button"
-        class="flex items-center justify-center w-10 h-10 shrink-0 rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-200"
+        class="flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-black text-white transition-[background-color] duration-300 ease-in-out hover:bg-black/80 disabled:opacity-30 dark:bg-white dark:text-black dark:hover:bg-white/80"
         :aria-label="playingThis ? 'Pause' : 'Play'"
+        :disabled="!hasAudio"
         @click="togglePlay"
         v-wave
       >
@@ -100,7 +121,7 @@ defineExpose({ playTrack })
 
       <button
         type="button"
-        class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-white/20 hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
+        class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-black/15 hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
         aria-label="Next track"
         :disabled="!isActive || activeIndex === playable.length - 1"
         @click="next"
@@ -109,48 +130,47 @@ defineExpose({ playTrack })
         <Icon name="lucide:skip-forward" size="14" />
       </button>
 
-      <span class="text-sm truncate">{{ currentTrack?.title }}</span>
+      <span class="text-sm truncate">
+        <template v-if="currentTrack?.titleSegments?.length">
+          <template v-for="(seg, si) in currentTrack.titleSegments" :key="si">
+            <NuxtLink
+              v-if="seg.slug"
+              :to="`/artist/${seg.slug}`"
+              class="hover:underline"
+            >{{ seg.text }}</NuxtLink>
+            <template v-else>{{ seg.text }}</template>
+          </template>
+        </template>
+        <template v-else>{{ currentTrack?.title }}</template>
+      </span>
     </div>
 
-    <div class="flex items-center gap-2">
-      <span class="font-mono text-xs w-10 text-right">{{ formatDuration(isActive ? currentTime : 0) }}</span>
-      <input
-        type="range"
-        class="flex-1 accent-[#144B15] dark:accent-[#4e8b52]"
-        min="0"
-        :max="isActive ? (duration || 0) : 0"
-        step="1"
-        :value="isActive ? currentTime : 0"
-        :disabled="!isActive"
-        @input="onSeek"
-      >
-      <span class="font-mono text-xs w-10">{{ formatDuration(isActive ? duration : 0) }}</span>
-    </div>
+    <div v-if="!hasAudio" class="py-4 text-center text-black/60 dark:text-white/70">Music is coming</div>
 
-    <div class="flex items-center gap-2">
-      <Icon name="lucide:volume-2" size="16" />
-      <input
-        type="range"
-        class="w-24 accent-[#144B15] dark:accent-[#4e8b52]"
-        min="0"
-        max="1"
-        step="0.05"
-        :value="volume"
-        @input="onVolumeChange"
-      >
-    </div>
-
-    <div class="flex flex-col gap-1 mt-2">
+    <div v-else class="flex flex-col gap-1">
       <button
         v-for="(track, index) in tracks"
         :key="index"
         type="button"
-        class="flex items-center gap-2 text-xs text-left px-2 py-1 rounded transition-colors duration-200 hover:bg-white/10"
-        :class="track.url && track.url === current?.src ? 'text-white font-bold' : 'text-white/60'"
+        class="flex items-center gap-2 text-xs text-left px-2 py-1 rounded transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/10"
+        :class="track.url && track.url === current?.src ? 'text-black font-bold dark:text-white' : 'text-black/60 dark:text-white/60'"
         @click="playTrack(index)"
       >
         <span class="font-mono w-6 shrink-0">{{ String(index + 1).padStart(2, '0') }}</span>
-        <span class="truncate">{{ track.title }}</span>
+        <span class="truncate">
+          <template v-if="track.titleSegments?.length">
+            <template v-for="(seg, si) in track.titleSegments" :key="si">
+              <NuxtLink
+                v-if="seg.slug"
+                :to="`/artist/${seg.slug}`"
+                class="hover:underline"
+                @click.stop
+              >{{ seg.text }}</NuxtLink>
+              <template v-else>{{ seg.text }}</template>
+            </template>
+          </template>
+          <template v-else>{{ track.title }}</template>
+        </span>
         <span
           v-if="track.slug && playCounts[track.slug]"
           class="ml-auto flex items-center gap-1 font-mono shrink-0 opacity-60"

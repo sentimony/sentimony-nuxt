@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import { createError } from '#app'
+import AudioTrackPlaylist from '~/components/AudioTrackPlaylist.vue'
+import type { TitleSegment } from '~/utils/tracks'
 import type { Release, Event } from '~/types'
+
+type ArtistTrack = {
+  slug: string
+  title: string
+  artist_name: string
+  displaySegments: TitleSegment[]
+  artistSegments: TitleSegment[]
+  nameSegments: TitleSegment[]
+  url: string
+  release_slug: string
+  cover: string | null
+}
 
 const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount, setCount } = useArtistLikes()
@@ -25,9 +39,42 @@ setCount(item.value!.slug, item.value!.like_count ?? 0)
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 
+const hasLinks = computed(() => {
+  const a = item.value
+  return !!(
+    a?.soundcloud_url ||
+    a?.spotify ||
+    a?.apple_music ||
+    a?.youtubemusic_url ||
+    a?.youtube_url ||
+    a?.facebook ||
+    a?.instagram ||
+    a?.discogs ||
+    a?.wikipedia_url
+  )
+})
+
 const mixRelease = computed(() =>
   releasesSortedByDate.value.find(r => r.slug === item.value?.mix_release_slug)
 )
+
+const artistTracksAsync = useFetch<ArtistTrack[]>(`/api/artist/${id}/tracks`)
+const sentimonyTracks = computed(() =>
+  (artistTracksAsync.data.value ?? []).map(t => ({
+    title: `${t.artist_name} - ${t.title}`,
+    titleSegments: t.displaySegments,
+    url: t.url,
+    slug: t.slug,
+    artist: t.artist_name,
+    artistSegments: t.artistSegments,
+    name: t.title,
+    nameSegments: t.nameSegments,
+    cover: t.cover ?? undefined,
+    releaseLink: `/release/${t.release_slug}`,
+    artistLink: item.value ? `/artist/${item.value.slug}` : undefined,
+  }))
+)
+const hasSentimonyTracks = computed(() => sentimonyTracks.value.length > 0)
 
 const portfolioReleases = computed(() => {
   if (item.value?.category !== 'designer') return []
@@ -94,11 +141,11 @@ useSeoMeta({
             <div class="flex justify-start mb-4">
               <button
                 @click="toggleLike(item.slug)"
-                class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
+                class="transition-background ease-in-out duration-300 inline-flex items-center gap-2 h-[36px] md:h-[42px] text-[12px] md:text-[15px] tracking-tighter rounded-md border hover:bg-white/30 px-3 md:px-4 backdrop-blur-sm"
+                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : ''"
                 v-wave
               >
-                <Icon name="lucide:thumbs-up" size="18" />
+                <Icon name="lucide:thumbs-up" size="19" />
                 {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
                 <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
               </button>
@@ -117,7 +164,7 @@ useSeoMeta({
               />
             </div>
 
-            <p><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+            <p v-if="hasLinks"><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
 
             <BtnPrimary
               v-if="item.soundcloud_url"
@@ -183,6 +230,14 @@ useSeoMeta({
             <Tabs>
 
               <Tab
+                v-if="hasSentimonyTracks"
+                icon="sentimony:logo"
+                title="Sentimony"
+              >
+                <AudioTrackPlaylist :tracks="sentimonyTracks" />
+              </Tab>
+
+              <Tab
                 v-if="item.mix_audio_url"
                 icon="lucide:music"
                 title="Mix"
@@ -245,7 +300,7 @@ useSeoMeta({
       <div v-if="organizedEvents.length > 0">
         <hr class="my-4 border-black/30">
         <p><small><b>Organized Events:</b></small></p>
-        <div class="flex flex-wrap justify-center w-full">
+        <div class="flex flex-wrap justify-start w-full">
           <Item
             v-for="e in organizedEvents"
             :key="e.slug"
@@ -258,7 +313,7 @@ useSeoMeta({
       <div>
         <hr class="my-4 border-black/30">
         <p><small><b>Releases with {{ item.title }}:</b></small></p>
-        <div class="flex flex-wrap justify-center w-full">
+        <div class="flex flex-wrap justify-start w-full">
           <template v-for="(i, index) in releasesSortedByDate" :key="index">
             <Item
               v-if="i.artists?.includes(item.slug)"

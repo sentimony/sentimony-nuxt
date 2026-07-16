@@ -9,7 +9,7 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
-const { isPlaying, currentTime, duration, volume, play, toggle, seek, setVolume, isCurrent } = useAudioPlayer()
+const { isPlaying, currentTime, duration, play, toggle, seek, isCurrent } = useAudioPlayer()
 
 const active = computed(() => isCurrent(props.src))
 const playingThis = computed(() => active.value && isPlaying.value)
@@ -22,10 +22,6 @@ function togglePlay() {
 function onSeek(event: Event) {
   if (!active.value) return
   seek(Number((event.target as HTMLInputElement).value))
-}
-
-function onVolumeChange(event: Event) {
-  setVolume(Number((event.target as HTMLInputElement).value))
 }
 </script>
 
@@ -57,23 +53,9 @@ function onVolumeChange(event: Event) {
         :disabled="!active"
         @input="onSeek"
       >
-      <span class="font-mono text-xs w-10">{{ formatDuration(active ? duration : 0) }}</span>
     </div>
 
-    <div class="flex items-center gap-2">
-      <Icon name="lucide:volume-2" size="16" />
-      <input
-        type="range"
-        class="w-24 accent-[#144B15] dark:accent-[#4e8b52]"
-        min="0"
-        max="1"
-        step="0.05"
-        :value="volume"
-        @input="onVolumeChange"
-      >
-    </div>
-
-    <div v-if="tracklist?.length" class="flex flex-col gap-1 mt-2">
+    <div v-if="tracklist?.length" class="flex flex-col gap-1">
       <p
         v-for="(track, index) in tracklist"
         :key="index"
