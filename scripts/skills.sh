@@ -46,4 +46,4 @@ npx skills add https://github.com/obra/superpowers -s \
   # subagent-driven-development \
   # writing-skills
 
-echo "npx skl ls" && npx skl ls
+echo "npx skillio ls" && npx skillio ls
