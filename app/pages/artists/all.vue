@@ -1,33 +1,19 @@
 <script setup lang="ts">
-import type { Artist, ArtistCategory, ArtistsResponse } from '~/types'
-import { groupArtistsByCategory, sortArtistsByCategory } from '~/utils/artists'
+import type { Artist, ArtistsResponse } from '~/types'
+import { sortArtistsById } from '~/utils/artists'
 import { locationToIso2 } from '~/utils/countryFlag'
 
 const { data: artistsRaw } = await useAsyncData<ArtistsResponse>('artists-all', () =>
   $fetch<ArtistsResponse>('/api/artists-all')
 )
 const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
-const sorted = computed(() => sortArtistsByCategory(artists.value))
-
-const sectionLabels: Record<ArtistCategory, string> = {
-  musician: 'Producers & Musicians',
-  dj: 'DJs',
-  mastering: 'Sound Engineers & Mastering',
-  designer: 'Visual Artists & Designers',
-}
+const sorted = computed(() => sortArtistsById(artists.value))
 
 const flagCodes = computed(() =>
   sorted.value.reduce<Record<string, string | null>>((acc, a) => {
     acc[a.slug] = locationToIso2(a.location || '')
     return acc
   }, {})
-)
-
-const sectionedArtists = computed(() =>
-  groupArtistsByCategory(sorted.value).map(group => ({
-    ...group,
-    label: sectionLabels[group.category],
-  }))
 )
 
 const appConfig = useAppConfig()
@@ -51,32 +37,29 @@ useSeoMeta({
 
 <template>
   <div class="container max-w-4xl">
-    <div class="flex items-baseline gap-4 my-4 md:my-6">
-      <h1 class="text-2xl md:text-4xl">{{ PageTitle }}</h1>
-      <NuxtLink
-        to="/artists"
-        class="text-sm text-white/50 hover:text-white/80 underline underline-offset-2"
-      >
-        ← Card view
-      </NuxtLink>
+    <div class="my-4 md:my-6">
+      <h1 class="text-2xl md:text-4xl text-center">{{ PageTitle }}</h1>
     </div>
 
-    <template v-for="section in sectionedArtists" :key="section.category">
-      <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60">{{ section.label }}</h2>
-      <p class="leading-relaxed">
-        <template
-          v-for="(artist, index) in section.list"
-          :key="artist.slug"
-        ><span
-            v-if="flagCodes[artist.slug]"
-            :class="`fi fi-${flagCodes[artist.slug]} rounded-sm mr-1 align-baseline`"
+    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
+      <template
+        v-for="(artist, index) in sorted"
+        :key="artist.slug"
+      ><NuxtLink
+          :to="'/artist/' + artist.slug"
+          class="inline-flex items-center gap-1 align-middle hover:text-white/80 transition-colors"
+        ><Icon
+            v-if="flagCodes[artist.slug] === 'ru'"
+            name="lucide:flag-off"
+            class="shrink-0 w-4 h-4"
             :title="artist.location || ''"
-          /><NuxtLink
-            :to="'/artist/' + artist.slug"
-            class="hover:text-white/80 transition-colors"
-          >{{ artist.title }}</NuxtLink><span v-if="index < section.list.length - 1">, </span></template>
-      </p>
-    </template>
+          /><span
+            v-else-if="flagCodes[artist.slug]"
+            :class="`fi fi-${flagCodes[artist.slug]} rounded-sm shrink-0`"
+            style="height:16px;line-height:16px;width:21.33px"
+            :title="artist.location || ''"
+          /><span>{{ artist.title }}</span></NuxtLink><template v-if="index < sorted.length - 1">,&nbsp;</template></template>
+    </div>
   </div>
 </template>
 

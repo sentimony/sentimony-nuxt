@@ -10,9 +10,9 @@ export type IconKey =
   | 'giphy'
   | 'linkedin'
   | 'vk'
-  | 'junoDownload'
   | 'mixcloud'
   | 'patreon'
+  | 'qobuz'
   | 'soundcloud'
   | 'spotify'
   | 'tiktok'
@@ -37,9 +37,9 @@ export const ICONS: Record<IconKey, IconDef> = {
   giphy:        { kind: 'iconify', name: 'simple-icons:giphy' },
   linkedin:     { kind: 'iconify', name: 'simple-icons:linkedin' },
   vk:           { kind: 'iconify', name: 'simple-icons:vk' },
-  junoDownload: { kind: 'svg', url: 'https://content.sentimony.com/assets/img/svg-icons/junodownload.svg' },
   mixcloud:     { kind: 'iconify', name: 'simple-icons:mixcloud' },
   patreon:      { kind: 'iconify', name: 'simple-icons:patreon' },
+  qobuz:        { kind: 'svg', url: 'https://content.sentimony.com/assets/img/svg-icons/qobuz-2.svg' },
   soundcloud:   { kind: 'iconify', name: 'simple-icons:soundcloud' },
   spotify:      { kind: 'iconify', name: 'simple-icons:spotify' },
   tiktok:       { kind: 'iconify', name: 'simple-icons:tiktok' },

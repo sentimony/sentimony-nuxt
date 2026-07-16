@@ -1,12 +1,15 @@
 import type { QueueItem } from '~/utils/audioQueue'
 import { nextQueueIndex, prevQueueIndex } from '~/utils/audioQueue'
+import type { TitleSegment } from '~/utils/tracks'
 
 export interface PlayerItem {
   src: string
   title: string
   link?: string
   artist?: string
+  artistSegments?: TitleSegment[]
   name?: string
+  nameSegments?: TitleSegment[]
   cover?: string
   releaseLink?: string
   artistLink?: string
@@ -62,7 +65,9 @@ export function useAudioPlayer() {
       title: entry.title,
       link: entry.link,
       artist: entry.artist,
+      artistSegments: entry.artistSegments,
       name: entry.name,
+      nameSegments: entry.nameSegments,
       cover: entry.cover,
       releaseLink: entry.releaseLink,
       artistLink: entry.artistLink,

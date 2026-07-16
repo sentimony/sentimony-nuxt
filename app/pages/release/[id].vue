@@ -39,7 +39,6 @@ const hasReleaseLinks = computed(() => {
     l?.bandcamp_url ||
     l?.bandcamp24_url ||
     l?.beatport ||
-    l?.junodownload ||
     l?.spotify ||
     l?.applemusic_url ||
     l?.youtube_music ||
@@ -80,10 +79,13 @@ const playerTracks = computed(() =>
     const artistSlug = artistSlugByTrackNumber.value.get(t.track_number)
     return {
       title: `${t.artist} - ${t.title}`,
+      titleSegments: splitTitleByArtists(`${t.artist} - ${t.title}`, titleArtists.value),
       url: t.url,
       slug: t.slug,
       artist: t.artist,
+      artistSegments: splitTitleByArtists(t.artist, titleArtists.value),
       name: t.title,
+      nameSegments: splitTitleByArtists(t.title, titleArtists.value),
       cover: releaseCover.value,
       releaseLink: route.path,
       artistLink: artistSlug ? `/artist/${artistSlug}` : undefined,
@@ -128,8 +130,6 @@ useSeoMeta({
   twitterImage: () => item.value?.cover_og || item.value?.cover_xl || appConfig.brand.defaultOgImage,
   twitterCard: 'summary'
 });
-
-const comingMusic = '<div class="p-4 text-center text-white/70">Player coming soon</div>'
 </script>
 
 <template>
@@ -215,13 +215,6 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               iconify="simple-icons:beatport"
             />
             <BtnPrimary
-              v-if="item.links?.junodownload"
-              :to="item.links?.junodownload"
-              title="JunoDownload"
-              img="https://content.sentimony.com/assets/img/svg-icons/junodownload.svg?01"
-            />
-
-            <BtnPrimary
               v-if="item.links?.spotify"
               :to="item.links?.spotify"
               title="Spotify"
@@ -295,7 +288,6 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
             <Tabs>
 
               <Tab
-                v-if="item.tracklist?.length"
                 icon="sentimony:logo"
                 title="Sentimony"
               >
@@ -303,22 +295,17 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
               </Tab>
 
               <Tab
+                v-if="item.links?.bandcamp_id"
                 icon="simple-icons:bandcamp"
                 title="Bandcamp"
               >
                 <div class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]">
                   <iframe
-                    v-if="item.links?.bandcamp_id"
                     class="border-[0px] w-[100%]"
                     :class="'BandcampIframe tracks-' + item.tracks_number"
                     :src="'https://bandcamp.com/EmbeddedPlayer/album=' + (item.links?.bandcamp_id || '') + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                     seamless
                     :title="item.title + ' Bandcamp Iframe'"
-                  />
-                  <div
-                    v-if="!item.links?.bandcamp_id"
-                    class="player-coming"
-                    v-html="comingMusic"
                   />
                 </div>
               </Tab>
@@ -388,34 +375,11 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
 
         <div v-if="item.information" v-html="sanitizeHtml(item.information)" />
 
-        <div v-if="tracks?.length || item.tracklistCompact || item.tracklist?.length" class="Tracklist">
+        <div v-if="item.tracklist?.length || item.tracklistCompact" class="Tracklist">
           <hr class="my-4 border-black/30">
           <p><small><b>Tracklist:</b></small></p>
 
-          <template v-if="tracks?.length">
-            <p
-              v-for="track in tracks"
-              :key="track.slug"
-              class="flex items-center justify-between gap-2"
-            >
-              <NuxtLink
-                :to="`/track/${track.slug}`"
-                class="hover:underline"
-              >
-                <small>{{ track.track_number < 10 ? ' ' + track.track_number : track.track_number }}.</small> <b>{{ track.artist_name }}</b> - {{ track.title }} <small v-if="track.bpm">({{ track.bpm }}bpm)</small>
-              </NuxtLink>
-              <button
-                @click="toggleTrackLike(track.slug)"
-                class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 shrink-0"
-                :class="isTrackLiked(track.slug) ? 'border-red-400/30 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
-              >
-                <Icon name="lucide:thumbs-up" size="12" />
-                <span v-if="trackLikeCount(track.slug) > 0">{{ trackLikeCount(track.slug) }}</span>
-              </button>
-            </p>
-          </template>
-
-          <template v-else>
+          <template v-if="item.tracklistCompact && !item.tracklist?.length">
             <p
               v-for="(i, index) in item.tracklistCompact"
               :key="index"
@@ -443,10 +407,10 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                       <button
                         :disabled="!t.url"
                         @click="playFromTracklist(t.slug)"
-                        class="flex items-center text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 border-foreground/20 text-foreground/40 hover:text-foreground/70 disabled:opacity-30 disabled:pointer-events-none"
+                        class="flex items-center text-xs rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 text-foreground/40 hover:text-foreground/70 disabled:opacity-30 disabled:pointer-events-none"
                         aria-label="Play"
                       >
-                        <Icon name="lucide:play" size="12" />
+                        <Icon name="lucide:circle-play" size="16" />
                       </button>
                     </TooltipTrigger>
                     <TooltipContent>Play</TooltipContent>
@@ -454,7 +418,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 </TooltipProvider>
                 <NuxtLink
                   :to="`/track/${t.slug}`"
-                  class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 border-foreground/20 text-foreground/40 hover:text-foreground/70"
+                  class="flex items-center gap-1 text-xs border border-transparent rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 hover:border-foreground/20 text-foreground/40 hover:text-foreground/70"
                 >
                   <Icon name="lucide:audio-lines" size="12" />
                   View Track
@@ -473,7 +437,7 @@ const comingMusic = '<div class="p-4 text-center text-white/70">Player coming so
                 <button
                   @click="toggleTrackLike(t.slug)"
                   class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10"
-                  :class="isTrackLiked(t.slug) ? 'border-red-400/30 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
+                  :class="isTrackLiked(t.slug) ? 'border-red-400/30 text-red-400' : 'border-transparent hover:border-foreground/20 text-foreground/40 hover:text-foreground/70'"
                 >
                   <Icon name="lucide:thumbs-up" size="12" />
                   <span v-if="trackLikeCount(t.slug) > 0">{{ trackLikeCount(t.slug) }}</span>

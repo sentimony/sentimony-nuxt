@@ -29,7 +29,7 @@ useSeoMeta({
 
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
-    <div class=" pb-[30px] md:pb-[60px]">
+    <div class=" pb-7.5 md:pb-15">
       <p
         v-for="i in friendsSortedByDate"
         :key="i.slug"

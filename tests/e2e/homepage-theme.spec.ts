@@ -1,9 +1,6 @@
 import { expect, test, type Page } from '@playwright/test'
 
-const forestUrls = {
-  light: 'https://content.sentimony.com/assets/img/backgrounds/trees-light_v1.jpg',
-  dark: 'https://content.sentimony.com/assets/img/backgrounds/trees-dark_v1.jpg',
-} as const
+const FOREST_MARKER = 'trees-origin'
 
 async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
   await page.addInitScript((initialTheme) => {
@@ -14,18 +11,16 @@ async function openWithTheme(page: Page, theme: 'light' | 'dark', path = '/') {
   await page.goto(path)
 }
 
-async function waitForHomepageAssets(page: Page, theme: 'light' | 'dark') {
+async function waitForForestReveal(page: Page) {
   await page.getByTestId('homepage-atmosphere').waitFor()
-  await page.evaluate(async (urls) => {
-    await Promise.all([
-      ...urls.map((url) => {
-        const image = new Image()
-        image.src = url
-        return image.decode()
-      }),
-      document.fonts.ready,
-    ])
-  }, [forestUrls[theme], forestUrls.dark])
+  await page.waitForFunction(
+    () => document.documentElement.classList.contains('forest-ready'),
+  )
+}
+
+async function waitForHomepageAssets(page: Page, _theme: 'light' | 'dark') {
+  await waitForForestReveal(page)
+  await page.evaluate(() => document.fonts.ready)
 }
 
 async function waitForHomepageHydration(page: Page) {
@@ -46,20 +41,38 @@ async function readAtmosphereStyles(page: Page) {
     const imageLayer = getComputedStyle(element, '::before')
     return {
       backgroundImage: imageLayer.backgroundImage,
+      opacity: imageLayer.opacity,
       filter: imageLayer.filter,
     }
   })
 }
 
-test('uses theme-specific forest sources only on the homepage', async ({ page }) => {
+test('does not fetch the forest asset during first paint', async ({ page }) => {
   const forestRequests: string[] = []
   page.on('request', (request) => {
-    const url = request.url()
-    if (url.includes('/backgrounds/trees-')) {
-      forestRequests.push(url)
+    if (request.url().includes(FOREST_MARKER)) {
+      forestRequests.push(request.url())
     }
   })
 
+  await openWithTheme(page, 'dark')
+
+  // The background is inert until the deferred reveal fires: no request, no var.
+  const initialVar = await page.locator('html').evaluate((element) => {
+    return getComputedStyle(element).getPropertyValue('--forest-bg')
+  })
+  expect(initialVar.trim()).toBe('')
+  expect(forestRequests).toHaveLength(0)
+
+  await waitForForestReveal(page)
+
+  // After the reveal exactly one asset is fetched, and it is the WebP variant.
+  await expect.poll(() => forestRequests.length).toBe(1)
+  expect(forestRequests[0]).toContain(FOREST_MARKER)
+  expect(forestRequests[0]).toContain('webp')
+})
+
+test('reveals a single forest source that dims by theme on the homepage', async ({ page }) => {
   await openWithTheme(page, 'light')
 
   const atmosphere = page.getByTestId('homepage-atmosphere')
@@ -72,27 +85,23 @@ test('uses theme-specific forest sources only on the homepage', async ({ page })
   })
   expect(homeBackground).toBe('none')
 
+  await waitForForestReveal(page)
+
   const lightStyles = await readAtmosphereStyles(page)
-  expect(lightStyles.backgroundImage).toContain(forestUrls.light)
-  expect(forestRequests).not.toContain(forestUrls.dark)
+  expect(lightStyles.backgroundImage).toContain(FOREST_MARKER)
+  // The fade-in transition settles at the theme's target opacity.
+  await expect.poll(async () => (await readAtmosphereStyles(page)).opacity).toBe('0.33')
 
   await page.getByRole('button', { name: 'Switch to dark theme' }).click()
   await expect(page.locator('html')).toHaveClass(/dark/)
 
   const darkStyles = await readAtmosphereStyles(page)
-  expect(darkStyles.backgroundImage).toContain(forestUrls.dark)
-  expect(darkStyles.backgroundImage).not.toContain(forestUrls.light)
-  await expect.poll(() => [...forestRequests].sort()).toEqual(
-    [forestUrls.light, forestUrls.dark].sort(),
-  )
+  expect(darkStyles.backgroundImage).toContain(FOREST_MARKER)
+  await expect.poll(async () => (await readAtmosphereStyles(page)).opacity).toBe('0.17')
 
   await page.goto('/contacts')
   await expect(atmosphere).toHaveCount(0)
   await expect(body).not.toHaveClass(/homepage-route/)
-  const nonHomeBackground = await page.locator('html').evaluate((element) => {
-    return getComputedStyle(element, '::before').backgroundImage
-  })
-  expect(nonHomeBackground).toContain('trees-dark_v1')
 })
 
 test('persists selected theme across reload', async ({ page }) => {
@@ -114,24 +123,21 @@ test('loads only the approved forest asset on the homepage', async ({ page }) =>
   await page.addInitScript(() => performance.setResourceTimingBufferSize(2_000))
 
   await openWithTheme(page, 'dark')
-  await waitForHomepageAssets(page, 'dark')
-  await page.waitForFunction((urls) => {
-    const names = performance.getEntriesByType('resource').map(entry => entry.name)
-    return urls.every(url => names.includes(url))
-  }, [forestUrls.dark])
+  await waitForForestReveal(page)
 
-  const forestRequests = await page.evaluate(() => {
+  const forestRequests = await page.evaluate((marker) => {
     return performance
       .getEntriesByType('resource')
       .map(entry => entry.name)
-      .filter(name => name.includes('/backgrounds/trees-'))
-  })
+      .filter(name => name.includes(marker))
+  }, FOREST_MARKER)
 
-  expect([...forestRequests].sort()).toEqual([forestUrls.dark].sort())
+  expect(forestRequests).toHaveLength(1)
+  expect(forestRequests[0]).toContain('webp')
 })
 
 test('keeps the homepage legible when the forest image is unavailable', async ({ page }) => {
-  await page.route(forestUrls.light, route => route.abort())
+  await page.route(url => url.href.includes(FOREST_MARKER), route => route.abort())
   await openWithTheme(page, 'light')
 
   await expect(page.getByTestId('homepage-hero')).toBeVisible()

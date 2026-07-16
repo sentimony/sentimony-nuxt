@@ -3,7 +3,6 @@ export default platformRedirectHandler('release', {
   applemusic: 'applemusic_url',
   deezer: 'deezer',
   itunes: 'applemusic_url',
-  junodownload: 'junodownload',
   napster: 'napster',
   qobuz: 'qobuz',
   soundcloud: 'soundcloud_url',

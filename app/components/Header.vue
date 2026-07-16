@@ -60,12 +60,12 @@ async function signOut() {
               v-for="i in getHeaderNav()"
               :key="i.route"
               :to="i.route"
-              class="transition-[background-color] ease-in-out duration-300 text-sm uppercase tracking-wider hover:bg-white/30 px-3 lg:px-4 h-9 inline-flex items-center justify-center gap-2 rounded-md"
+              class="transition-[background-color] ease-in-out duration-300 text-sm uppercase tracking-wider hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 inline-flex items-center justify-center gap-2 rounded-md"
               :class="isNavActive(i.route) ? 'bg-white/20' : ''"
               :aria-label="i.title"
               v-wave
             >
-              <Icon :name="i.icon" size="16" />
+              <Icon :name="i.icon" size="18" />
               <span class="hidden lg:inline">{{ i.title }}</span>
             </NuxtLink>
           </div>
@@ -135,7 +135,7 @@ async function signOut() {
                 <DropdownMenuItem as-child>
                   <button
                     type="button"
-                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 outline-none data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10 cursor-pointer"
+                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 outline-none data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 cursor-pointer"
                     @click="signOut"
                   >
                     <Icon name="lucide:log-out" size="18" class="opacity-50" />
@@ -149,11 +149,11 @@ async function signOut() {
           <NuxtLink
             v-else
             to="/signin"
-            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-4 h-9 rounded-md text-sm border border-black/20 dark:border-white/20"
+            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 rounded-md text-sm border border-black/20 dark:border-white/20"
             :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20' : ''"
             v-wave
           >
-            <Icon name="lucide:log-in" size="18" />
+            <Icon name="lucide:circle-user-round" size="18" />
             <span class="hidden lg:inline">Sign In</span>
           </NuxtLink>
 

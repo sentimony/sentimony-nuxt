@@ -29,4 +29,8 @@ describe('locationToIso2', () => {
   it('handles DB typo "Panam"', () => {
     expect(locationToIso2('Panama City, Panam')).toBe('pa')
   })
+  it('handles "Russian Federation" and the "Russian" variant', () => {
+    expect(locationToIso2('Moscow, Russian Federation')).toBe('ru')
+    expect(locationToIso2('Moscow, Russian')).toBe('ru')
+  })
 })

@@ -28,7 +28,7 @@ useSeoMeta({
 
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
-    <div class="flex flex-wrap justify-center w-full pb-[30px] md:pb-[60px]">
+    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in videosSortedByDate"
         :key="i.slug"

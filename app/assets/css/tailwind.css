@@ -119,10 +119,15 @@ html::before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease-in;
+}
+
+html.forest-ready::before {
   opacity: 0.33;
 }
 
-html.dark::before {
+html.dark.forest-ready::before {
   opacity: 0.17;
 }
 

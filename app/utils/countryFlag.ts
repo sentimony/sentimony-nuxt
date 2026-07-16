@@ -1,6 +1,8 @@
 const countryMap: Record<string, string> = {
   'ukraine': 'ua',
   'russian federation': 'ru',
+  'russian': 'ru',
+  'russia': 'ru',
   'usa': 'us',
   'united states': 'us',
   'germany': 'de',

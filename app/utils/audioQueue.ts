@@ -1,9 +1,13 @@
+import type { TitleSegment } from '~/utils/tracks'
+
 export interface QueueItem {
   src: string
   title: string
   link?: string
   artist?: string
+  artistSegments?: TitleSegment[]
   name?: string
+  nameSegments?: TitleSegment[]
   cover?: string
   releaseLink?: string
   artistLink?: string
