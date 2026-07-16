@@ -36,6 +36,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
               <TooltipTrigger as-child>
                 <a
                   :href="i.url"
+                  :aria-label="i.title"
                   class="transition-[opacity,background-color] ease-in-out duration-300 p-2 size-[40px] flex items-center justify-center text-white opacity-70 hover:opacity-100 hover:bg-white/10 rounded-md"
                   target="_blank" rel="noopener"
                   v-wave

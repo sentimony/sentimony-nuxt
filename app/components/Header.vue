@@ -78,6 +78,7 @@ async function signOut() {
                 <TooltipTrigger as-child>
                   <a
                     :href="i.url"
+                    :aria-label="i.title"
                     class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-white/30 size-9 rounded-md"
                     target="_blank" rel="noopener"
                     v-wave
@@ -149,6 +150,7 @@ async function signOut() {
           <NuxtLink
             v-else
             to="/signin"
+            aria-label="Sign In"
             class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 rounded-md text-sm border border-black/20 dark:border-white/20"
             :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20' : ''"
             v-wave
