@@ -3,11 +3,8 @@
 </p>
 
 # sentimony-nuxt
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/77f60e5a-3062-4880-9ee0-b8407611c9c1/deploy-status)](https://app.netlify.com/projects/sentimony-nuxt/deploys)
-
 JAMstack development of Sentimony Records portfolio website
-
 Catalog content can be served from Firebase Realtime Database or Supabase. Supabase is also used for auth, profile storage, and favourites.
 
 ### Used:
@@ -29,15 +26,11 @@ Catalog content can be served from Firebase Realtime Database or Supabase. Supab
 * <img src="https://api.iconify.design/logos/playwright.svg" width="16" height="16"> [Playwright](https://playwright.dev)
 
 ### Run
-
 ```bash
 npm i
-
 npm run dev
 ```
-
 Switch catalog source:
-
 ```bash
 CATALOG_SOURCE=firebase npm run dev
 CATALOG_SOURCE=supabase npm run dev
@@ -45,9 +38,7 @@ NUXT_CATALOG_SOURCE=supabase npm run build
 ```
 
 ### Deploy
-
 `sync:firebase` requires `FIREBASE_DB_SECRET` in `.env/.env.local` (see `.env/.env.example`).
-
 ```bash
 npm run sync:firebase
 npm run sync:supabase
@@ -56,17 +47,13 @@ npm run deploy:prod
 ```
 
 ### Skills
-```bash
-[@scripts/skills.sh](scripts/skills.sh)
-```
+* [scripts/skills.sh](scripts/skills.sh)
 
 ### Links:
-
 * [sentimony.com](https://sentimony.com)
 * [sentimony-nuxt.netlify.app](https://sentimony-nuxt.netlify.app)
 
 ### Monitoring
-
 * [Functions Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/functions/server)
 * [Edge Functions Logs](https://app.netlify.com/projects/sentimony-nuxt/logs/edge-functions)
 * [Requests Left](https://app.netlify.com/projects/sentimony-nuxt/configuration/functions#overview)

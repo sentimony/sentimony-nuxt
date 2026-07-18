@@ -77,7 +77,11 @@ const submit = handleSubmit(async () => {
         return
       }
 
-      const { error: err } = await supabase.auth.signUp({ email: emailValue, password: passwordValue })
+      const { error: err } = await supabase.auth.signUp({
+        email: emailValue,
+        password: passwordValue,
+        options: { emailRedirectTo: `${window.location.origin}/confirm` },
+      })
       if (err) error.value = err.message
       else message.value = 'Check your email to confirm your account.'
     } else {

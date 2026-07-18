@@ -105,7 +105,7 @@ watch(current, (val) => {
           <div class="order-2 flex items-center gap-1 sm:order-1">
             <button
               type="button"
-              class="flex size-9 shrink-0 items-center justify-center rounded-md transition-[background-color] duration-300 ease-in-out hover:bg-black/10 disabled:cursor-not-allowed disabled:opacity-35 dark:hover:bg-white/20"
+              class="flex size-9 shrink-0 items-center justify-center rounded-full border border-black/15 transition-colors duration-200 hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-35 dark:border-white/20 dark:hover:bg-white/10"
               aria-label="Previous track"
               :disabled="!current.queue || (current.queueIndex ?? 0) <= 0"
               @click="prev"
@@ -116,17 +116,17 @@ watch(current, (val) => {
 
             <button
               type="button"
-              class="flex size-10 shrink-0 items-center justify-center rounded-full bg-black text-white transition-[background-color] duration-300 ease-in-out hover:bg-black/80 dark:bg-white dark:text-black dark:hover:bg-white/80"
+              class="flex size-11 shrink-0 items-center justify-center rounded-full border border-black/25 transition-colors duration-200 hover:bg-black/5 dark:border-white/40 dark:hover:bg-white/10"
               :aria-label="isPlaying ? 'Pause' : 'Play'"
               @click="toggle"
               v-wave
             >
-              <Icon :name="isPlaying ? 'lucide:pause' : 'lucide:play'" size="18" />
+              <Icon :name="isPlaying ? 'lucide:pause' : 'lucide:play'" size="20" />
             </button>
 
             <button
               type="button"
-              class="flex size-9 shrink-0 items-center justify-center rounded-md transition-[background-color] duration-300 ease-in-out hover:bg-black/10 disabled:cursor-not-allowed disabled:opacity-35 dark:hover:bg-white/20"
+              class="flex size-9 shrink-0 items-center justify-center rounded-full border border-black/15 transition-colors duration-200 hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-35 dark:border-white/20 dark:hover:bg-white/10"
               aria-label="Next track"
               :disabled="!current.queue || (current.queueIndex ?? 0) >= current.queue.length - 1"
               @click="next"

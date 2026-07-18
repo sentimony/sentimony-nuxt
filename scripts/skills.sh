@@ -5,21 +5,21 @@ set -e
 npx skills add https://github.com/anthropics/skills -s \
   frontend-design \
   -a codex claude-code -y
-  # algorithmic-art
-  # brand-guidelines
-  # canvas-design
-  # doc-coauthoring
-  # skill-creator
-  # webapp-testing
+  # algorithmic-art \
+  # brand-guidelines \
+  # canvas-design \
+  # doc-coauthoring \
+  # skill-creator \
+  # webapp-testing \
 npx skills add https://github.com/anthropics/claude-plugins-official -s \
   claude-md-improver \
   -a codex claude-code -y
-  # agent-development
-  # claude-automation-recommender
-  # command-development
-  # hook-development
-  # session-report
-  # skill-development
+  # agent-development \
+  # claude-automation-recommender \
+  # command-development \
+  # hook-development \
+  # session-report \
+  # skill-development \
 
 # SENTIMONY
 npx skills add https://github.com/sentimony/skills -s \
@@ -44,6 +44,6 @@ npx skills add https://github.com/obra/superpowers -s \
   # requesting-code-review \
   # dispatching-parallel-agents \
   # subagent-driven-development \
-  # writing-skills
+  # writing-skills \
 
 echo "npx skillio ls" && npx skillio ls

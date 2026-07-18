@@ -110,13 +110,13 @@ defineExpose({ playTrack })
 
       <button
         type="button"
-        class="flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-black text-white transition-[background-color] duration-300 ease-in-out hover:bg-black/80 disabled:opacity-30 dark:bg-white dark:text-black dark:hover:bg-white/80"
+        class="flex items-center justify-center w-11 h-11 shrink-0 rounded-full border border-black/25 hover:bg-black/5 transition-colors duration-200 disabled:opacity-30 dark:border-white/40 dark:hover:bg-white/10"
         :aria-label="playingThis ? 'Pause' : 'Play'"
         :disabled="!hasAudio"
         @click="togglePlay"
         v-wave
       >
-        <Icon :name="playingThis ? 'lucide:pause' : 'lucide:play'" size="18" />
+        <Icon :name="playingThis ? 'lucide:pause' : 'lucide:play'" size="20" />
       </button>
 
       <button

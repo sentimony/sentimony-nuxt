@@ -7,9 +7,16 @@ function dynamicAdminClient(): SupabaseClient {
   return supabaseAdmin() as unknown as SupabaseClient
 }
 
+export const ANON_LIKE_COOKIE = 'sentimony_anon_id'
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 export async function getUserId(event: H3Event) {
-  const user = await serverSupabaseUser(event)
-  return user?.sub ?? user?.id
+  const user = await serverSupabaseUser(event).catch(() => null)
+  if (user?.sub ?? user?.id) return user?.sub ?? user?.id
+
+  const anonId = getCookie(event, ANON_LIKE_COOKIE)
+  return anonId && UUID_RE.test(anonId) ? anonId : undefined
 }
 
 export async function countUserLikes(table: string, userId: string) {
@@ -27,34 +34,40 @@ export function likesListHandler(table: string, slugCol: string) {
 
     const { data } = await dynamicAdminClient()
       .from(table)
-      .select(slugCol)
+      .select(`${slugCol}, count`)
       .eq('user_id', userId)
 
-    return (data as Record<string, string>[] | null)?.map(l => l[slugCol]) ?? []
+    return (data as Record<string, string | number>[] | null)?.map(l => ({
+      slug: l[slugCol] as string,
+      count: Number(l.count) || 1,
+    })) ?? []
   })
 }
 
 export function likesAddHandler(table: string, slugCol: string) {
   return defineEventHandler(async (event) => {
     const userId = await getUserId(event)
-    if (!userId) throw createError({ statusCode: 401, statusMessage: 'Unauthorized' })
+    if (!userId) throw createError({ statusCode: 400, statusMessage: 'Missing like identity' })
 
     const { slug } = await readBody<{ slug: string }>(event)
     if (!slug) throw createError({ statusCode: 400, statusMessage: 'Missing slug' })
 
-    const { error } = await dynamicAdminClient()
-      .from(table)
-      .upsert({ user_id: userId, [slugCol]: slug }, { onConflict: `user_id,${slugCol}`, ignoreDuplicates: true })
+    const { data, error } = await dynamicAdminClient().rpc('increment_like', {
+      p_table: table,
+      p_slug_col: slugCol,
+      p_slug: slug,
+      p_user_id: userId,
+    })
 
     if (error) throw createError({ statusCode: 500, statusMessage: error.message })
-    return { ok: true }
+    return { ok: true, count: (data as number) ?? 1 }
   })
 }
 
 export function likesDeleteHandler(table: string, slugCol: string) {
   return defineEventHandler(async (event) => {
     const userId = await getUserId(event)
-    if (!userId) throw createError({ statusCode: 401, statusMessage: 'Unauthorized' })
+    if (!userId) throw createError({ statusCode: 400, statusMessage: 'Missing like identity' })
 
     const slug = getRouterParam(event, 'slug')
     if (!slug) throw createError({ statusCode: 400, statusMessage: 'Missing slug' })

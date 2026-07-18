@@ -1,14 +1,18 @@
 export async function fetchLikeCount(table: string, slugCol: string, slug: string) {
   try {
-    const { count } = await supabaseAdmin()
+    const { data } = await supabaseAdmin()
       .from(table)
-      .select('*', { count: 'exact', head: true })
+      .select('count')
       .eq(slugCol, slug)
 
-    return count ?? 0
+    return sumCounts(data as { count?: number }[] | null)
   } catch {
     return 0
   }
+}
+
+function sumCounts(rows: { count?: number }[] | null): number {
+  return (rows ?? []).reduce((total, row) => total + (row.count ?? 1), 0)
 }
 
 export async function fetchPagedRows<T>(
@@ -37,17 +41,17 @@ export async function fetchLikeCounts(table: string, slugCol: string, slugs: str
     const data = await fetchPagedRows(1000, async (from, to) => {
       const { data: page } = await supabaseAdmin()
         .from(table)
-        .select(slugCol)
+        .select(`${slugCol}, count`)
         .in(slugCol, uniqueSlugs)
         .order(slugCol, { ascending: true })
         .range(from, to)
 
-      return (page ?? []) as Record<string, string>[]
+      return (page ?? []) as Record<string, string | number>[]
     })
 
     for (const like of data) {
-      const slug = like[slugCol]
-      if (slug) countMap[slug] = (countMap[slug] ?? 0) + 1
+      const slug = like[slugCol] as string
+      if (slug) countMap[slug] = (countMap[slug] ?? 0) + (Number(like.count) || 1)
     }
   } catch {
     return countMap
