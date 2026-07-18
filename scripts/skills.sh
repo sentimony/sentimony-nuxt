@@ -24,24 +24,24 @@ npx skills add https://github.com/anthropics/claude-plugins-official -s \
 # SENTIMONY
 npx skills add https://github.com/sentimony/skills -s \
   web-debug \
-  vitest \
   typescript \
-  echarts \
   -a codex claude-code -y
+  # vitest \
+  # echarts \
 
 # SUPERPOWERS
 npx skills add https://github.com/obra/superpowers -s \
   brainstorming \
   writing-plans \
   executing-plans \
-  test-driven-development \
-  systematic-debugging \
-  verification-before-completion \
-  finishing-a-development-branch \
+  receiving-code-review \
+  requesting-code-review \
   -a codex claude-code -y
+  # test-driven-development \
+  # systematic-debugging \
+  # verification-before-completion \
+  # finishing-a-development-branch \
   # using-git-worktrees \
-  # receiving-code-review \
-  # requesting-code-review \
   # dispatching-parallel-agents \
   # subagent-driven-development \
   # writing-skills \

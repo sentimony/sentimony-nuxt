@@ -24,9 +24,7 @@ export default defineCachedEventHandler(
       eventEntity = data as Record<string, unknown>
     }
 
-    const count = await fetchLikeCount('event_likes', 'event_slug', id)
-
-    return { ...eventEntity, like_count: count }
+    return eventEntity
   },
   catalogCacheOptions()
 )

@@ -3,7 +3,7 @@ import { createError } from '#app'
 import type { Release } from '~/types'
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, setCount } = usePlaylistLikes()
+const { isLiked, toggleLike, likeCount } = usePlaylistLikes()
 
 const [playlistAsync, releasesAsync] = await Promise.all([
   usePlaylist(id as string, { server: true }),
@@ -17,8 +17,6 @@ const releasesRaw = releasesAsync.data
 if (playlistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Playlist not found' })
 }
-
-setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))

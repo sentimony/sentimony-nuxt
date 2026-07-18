@@ -17,7 +17,7 @@ type ArtistTrack = {
 }
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, setCount } = useArtistLikes()
+const { isLiked, toggleLike, likeCount } = useArtistLikes()
 
 const [artistAsync, releasesAsync, eventsAsync] = await Promise.all([
   useArtist(id as string, { server: true }),
@@ -33,8 +33,6 @@ const eventsRaw = eventsAsync.data
 if (artistError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Artist not found' })
 }
-
-setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))

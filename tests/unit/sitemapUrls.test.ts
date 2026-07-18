@@ -16,30 +16,30 @@ const catalog: SitemapCatalogExport = {
       tracklist: ['hidden-artist-should-not-appear'],
     },
   },
-  tracks: {
-    'test-artist-opening-track': { slug: 'test-artist-opening-track' },
-    'test-artist-second-track': { slug: 'test-artist-second-track' },
-    'hidden-artist-should-not-appear': { slug: 'hidden-artist-should-not-appear' },
-  },
-  artists: {
-    irukanji: { slug: 'irukanji', visible: true },
-    hidden: { slug: 'hidden', visible: false },
-  },
-  videos: {
-    'visible-video': { slug: 'visible-video', visible: true, date: '2021-05-01T00:00:00.000Z' },
-    'hidden-video': { slug: 'hidden-video', visible: false },
-  },
+  tracks: [
+    { slug: 'test-artist-opening-track' },
+    { slug: 'test-artist-second-track' },
+    { slug: 'hidden-artist-should-not-appear' },
+  ],
+  artists: [
+    { slug: 'irukanji', visible: true },
+    { slug: 'hidden', visible: false },
+  ],
+  videos: [
+    { slug: 'visible-video', visible: true, date: '2021-05-01T00:00:00.000Z' },
+    { slug: 'hidden-video', visible: false },
+  ],
   playlists: {
     'visible-playlist': { slug: 'visible-playlist', visible: true },
     'hidden-playlist': { slug: 'hidden-playlist', visible: false },
   },
-  events: {
-    'visible-event': { slug: 'visible-event', visible: true, date: '2022-03-01T00:00:00.000Z' },
-  },
-  friends: {
-    'visible-friend': { slug: 'visible-friend', visible: true },
-    'hidden-friend': { slug: 'hidden-friend', visible: false },
-  },
+  events: [
+    { slug: 'visible-event', visible: true, date: '2022-03-01T00:00:00.000Z' },
+  ],
+  friends: [
+    { slug: 'visible-friend', visible: true },
+    { slug: 'hidden-friend', visible: false },
+  ],
 }
 
 describe('buildSitemapUrls', () => {

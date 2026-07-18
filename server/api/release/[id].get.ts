@@ -25,12 +25,9 @@ export default defineCachedEventHandler(
     }
 
     const slugs = releaseTracklistSlugs(release)
-    const [count, tracksBySlug] = await Promise.all([
-      fetchLikeCount('release_likes', 'release_slug', id),
-      slugs.length ? fetchCatalogTracksBySlug(slugs) : Promise.resolve(new Map()),
-    ])
+    const tracksBySlug = slugs.length ? await fetchCatalogTracksBySlug(slugs) : new Map()
 
-    return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), like_count: count }
+    return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug) }
   },
   catalogCacheOptions()
 )

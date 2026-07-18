@@ -2,7 +2,7 @@
 import { createError } from '#app'
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, setCount } = useVideoLikes()
+const { isLiked, toggleLike, likeCount } = useVideoLikes()
 
 const videoAsync = await useVideo(id as string, { server: true })
 const item = videoAsync.data
@@ -11,8 +11,6 @@ const videoError = videoAsync.error
 if (videoError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Video not found' })
 }
-
-setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const { embed } = useYouTube(computed(() => item.value?.links?.youtube))
 const { formatDate, formatYear } = useDate()

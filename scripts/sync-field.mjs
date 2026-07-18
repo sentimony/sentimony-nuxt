@@ -115,7 +115,10 @@ if (!skipLocal) {
   const missingLocal = []
   for (const [table, rows] of Object.entries(edits)) {
     for (const [slug, fields] of Object.entries(rows)) {
-      const record = db[table]?.[slug]
+      const collection = db[table]
+      const record = Array.isArray(collection)
+        ? collection.find(row => row?.slug === slug)
+        : collection?.[slug]
       if (!record) { missingLocal.push(`${table}/${slug}`); continue }
       for (const [field, value] of Object.entries(fields)) {
         record[COLUMN_TO_JSON_KEY[field] ?? field] = value

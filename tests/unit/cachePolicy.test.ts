@@ -32,7 +32,7 @@ describe('buildApiRouteRules', () => {
     const rules = buildApiRouteRules()
 
     expect(rules['/api/track-likes/count/**']?.headers?.['Netlify-CDN-Cache-Control'])
-      .toContain('public')
+      .toBe('public, max-age=60, stale-while-revalidate=300')
     expect(rules['/api/track-likes/**']?.headers?.['Netlify-CDN-Cache-Control'])
       .toBe('private, no-store')
   })

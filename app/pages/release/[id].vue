@@ -5,10 +5,10 @@ import { toArray } from '~/composables/toArray'
 import type { Artist } from '~/types'
 
 const { id } = useRoute().params
-const { isLiked, toggleLike, likeCount, setCount } = useLikes()
-const { isTrackLiked, toggleTrackLike, trackLikeCount, setTrackCount } = useTrackLikes()
+const { isLiked, toggleLike, likeCount } = useLikes()
+const { isTrackLiked, toggleTrackLike, trackLikeCount } = useTrackLikes()
 
-type Track = { slug: string, title: string, artist_name: string, artist_slug?: string, track_number: number, bpm: number | null, like_count: number }
+type Track = { slug: string, title: string, artist_name: string, artist_slug?: string, track_number: number, bpm: number | null }
 type RelatedRelease = { slug: string, title?: string, cover_xl?: string, date?: string }
 type RelatedArtist = { slug: string, title?: string, photo_xl?: string }
 type RelatedResponse = { releases: RelatedRelease[], artists: RelatedArtist[] }
@@ -54,9 +54,6 @@ const hasReleaseLinks = computed(() => {
 })
 
 onMounted(async () => {
-  if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
-  tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
-
   if (tracklistSlugs.value.length) {
     playCounts.value = await $fetch<Record<string, number>>('/api/track-plays', {
       query: { slugs: tracklistSlugs.value.join(',') },

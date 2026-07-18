@@ -6,7 +6,6 @@ const {
   isTrackLiked,
   toggleTrackLike,
   trackLikeCount,
-  setTrackCount,
 } = useTrackLikes()
 
 const trackAsync = await useTrack(id as string, { server: true })
@@ -30,8 +29,6 @@ const release = computed(() => data.value!.release)
 const artists = computed(() => data.value!.artists ?? [])
 const releaseTracks = computed(() => data.value!.releaseTracks ?? [])
 const similarTracks = computed(() => data.value!.similarTracks ?? [])
-
-setTrackCount(track.value.slug, data.value!.likeCount ?? 0)
 
 const { formatDate, formatYear } = useDate()
 const releaseDate = computed(() => formatDate(release.value?.date))

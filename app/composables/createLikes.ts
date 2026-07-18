@@ -9,7 +9,7 @@ export interface LikesApi {
 
 const ANON_LIKE_COOKIE = 'sentimony_anon_id'
 
-export function createLikes(key: string, apiBase: string): LikesApi {
+export function createLikes(key: string, apiBase: string, countsUrl?: string): LikesApi {
   const user = useSupabaseUser()
   const anonId = useCookie<string | null>(ANON_LIKE_COOKIE, {
     maxAge: 60 * 60 * 24 * 365,
@@ -19,6 +19,7 @@ export function createLikes(key: string, apiBase: string): LikesApi {
   const likedSlugs = useState<string[]>(`${key}-likes`, () => [])
   const loaded = useState<boolean>(`${key}-likes-loaded`, () => false)
   const likeCounts = useState<Record<string, number>>(`${key}-like-counts`, () => ({}))
+  const countsLoaded = useState<boolean>(`${key}-like-counts-loaded`, () => false)
 
   const hasIdentity = () => Boolean(user.value || anonId.value)
 
@@ -45,14 +46,26 @@ export function createLikes(key: string, apiBase: string): LikesApi {
     likedSlugs.value = data.map(entry => entry.slug)
     // Keep whichever is larger: the public total from SSR or this client's own
     // accumulated clicks — so a reload never drops the user's contribution even
-    // while the cached catalog like_count is still catching up.
+    // while the cached public total is still catching up.
     for (const { slug, count } of data) {
       likeCounts.value[slug] = Math.max(likeCounts.value[slug] ?? 0, count)
     }
     loaded.value = true
   }
 
+  async function loadCounts() {
+    if (!countsUrl || countsLoaded.value) return
+    countsLoaded.value = true
+    const rows = await $fetch<{ slug: string, total: number }[]>(countsUrl).catch(() => {
+      // Allow a retry on the next mount instead of a session-long zero state.
+      countsLoaded.value = false
+      return []
+    })
+    for (const { slug, total } of rows) setCount(slug, total)
+  }
+
   onMounted(() => {
+    loadCounts()
     if (hasIdentity() && !loaded.value) load()
   })
 

@@ -15,6 +15,7 @@
     "sync:firebase": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-firebase.mjs",
     "sync:supabase": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
     "sync:field": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-field.mjs",
+    "convert:yml": "node scripts/convert-yml-json.mjs",
     "sync:track-audio": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-track-audio.mjs",
     "typecheck": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt typecheck",
     "typecheck:ts7": "node node_modules/@typescript/native/bin/tsc -p netlify/tsconfig.json",
@@ -29,7 +30,7 @@
     "netlify:prod": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.117",
+    "@iconify-json/lucide": "^1.2.118",
     "@iconify-json/simple-icons": "^1.2.90",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/vite": "^4.3.3",
@@ -38,7 +39,8 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10",
-    "vue-tsc": "^3.3.7"
+    "vue-tsc": "^3.3.7",
+    "yaml": "^2.9.0"
   },
   "dependencies": {
     "@nuxt/icon": "^2.3.1",

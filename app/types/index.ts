@@ -51,7 +51,6 @@ export interface Release extends BaseEntity {
   at_playlists?: string[]
   coming_soon?: boolean
   new?: boolean
-  like_count?: number
   links?: ReleaseLinks
   tracklist?: ReleaseTrack[]
 }
@@ -97,7 +96,6 @@ export interface Artist extends BaseEntity {
   mix_audio_url?: string
   mix_title?: string
   mix_release_slug?: string
-  like_count?: number
 }
 
 export interface ArtistsResponse {
@@ -113,7 +111,6 @@ export interface Track {
   track_number: number
   bpm: number | null
   audio_url?: string | null
-  like_count?: number
 }
 
 export interface TrackResponse {
@@ -123,7 +120,6 @@ export interface TrackResponse {
   artists?: Artist[]
   releaseTracks?: Track[]
   similarTracks?: Track[]
-  likeCount?: number
   redirect?: string
 }
 
@@ -137,7 +133,6 @@ export interface Video extends BaseEntity {
   cover_xl?: string
   information?: string
   credits?: string
-  like_count?: number
   links?: VideoLinks
 }
 
@@ -164,7 +159,6 @@ export interface Event extends BaseEntity {
   info?: string
   lineup?: EventLineup[]
   organizer?: string[]
-  like_count?: number
   links?: EventLink[]
 }
 
@@ -188,7 +182,6 @@ export interface Playlist extends BaseEntity {
   cover_xl?: string
   style?: string
   info?: string
-  like_count?: number
   links?: PlaylistLinks
 }
 

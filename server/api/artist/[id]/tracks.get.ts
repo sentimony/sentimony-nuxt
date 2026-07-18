@@ -15,10 +15,16 @@ export default defineCachedEventHandler(async (event) => {
   ])
 
   const self = artists.find(a => a.slug === artistSlug)
+  const indexedTrackSlugs = isSupabaseCatalogSource()
+    ? await fetchArtistTrackSlugs(artistSlug)
+    : null
 
   let artistRows = allRows.filter((row) => {
     if (!row.audio_url) return false
-    if (splitArtistSlugs(row.artist_slug).includes(artistSlug)) return true
+    const linked = indexedTrackSlugs?.size
+      ? indexedTrackSlugs.has(row.slug)
+      : splitArtistSlugs(row.artist_slug).includes(artistSlug)
+    if (linked) return true
     return self ? titleMentionsArtist(row.title, self) : false
   })
 
@@ -45,9 +51,7 @@ export default defineCachedEventHandler(async (event) => {
     cover: coverBySlug.get(row.release_slug) ?? null,
   }))
 
-  const countMap = await fetchLikeCounts('track_likes', 'track_slug', tracks.map(t => t.slug))
-
-  return tracks.map(t => ({ ...t, like_count: countMap[t.slug] ?? 0 }))
+  return tracks
 }, catalogCacheOptions(60 * 5))
 
 function splitArtistSlugs(value: string): string[] {

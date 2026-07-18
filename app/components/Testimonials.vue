@@ -36,7 +36,12 @@ const { current } = useAudioPlayer()
         <a :href="bandcamp_url" target="_blank" rel="noopener" :class="linkClass" v-wave><Icon name="simple-icons:bandcamp" />Bandcamp<Icon name="lucide:arrow-up-right" size="12" /></a>
         pages.
       </p>
-      <p>Thank you - I truly appreciate it <Icon name="lucide:heart" mode="svg" class="inline-block align-middle [&_path]:fill-current text-red-400 dark:text-red-500" /></p>
+      <p>
+        Thank you
+        <Icon name="lucide:handshake" mode="svg" class="inline-block align-middle"/>
+        I really appreciate it
+        <Icon name="lucide:heart" mode="svg" class="inline-block align-middle"/>
+      </p>
       <p>- Ihor</p>
     </div>
   </div>

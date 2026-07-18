@@ -60,7 +60,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
         <p>
           <img
             class="mx-auto invert"
-            src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.2.svg?01"
+            src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
             alt="Sentimony Records Logo SVG"
             width="32" height="32"
           />

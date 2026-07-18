@@ -3,7 +3,7 @@ import { createError } from '#app'
 
 const route = useRoute()
 const id = computed(() => String(route.params.id))
-const { isLiked, toggleLike, likeCount, setCount } = useEventLikes()
+const { isLiked, toggleLike, likeCount } = useEventLikes()
 
 const eventAsync = await useEvent(id.value, { server: true })
 const item = eventAsync.data
@@ -12,8 +12,6 @@ const eventError = eventAsync.error
 if (eventError.value || !item.value) {
   throw createError({ statusCode: 404, statusMessage: 'Event not found' })
 }
-
-setCount(item.value!.slug, item.value!.like_count ?? 0)
 
 const { formatDate, formatYear } = useDate()
 

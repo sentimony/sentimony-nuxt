@@ -24,9 +24,7 @@ export default defineCachedEventHandler(
       video = data as Record<string, unknown>
     }
 
-    const count = await fetchLikeCount('video_likes', 'video_slug', id)
-
-    return { ...video, like_count: count }
+    return video
   },
   catalogCacheOptions()
 )

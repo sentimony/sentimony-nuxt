@@ -13,7 +13,6 @@ describe('artist page API', () => {
       title: 'Yngvarr',
       visible: false,
     }))
-    ;(globalThis as Record<string, unknown>).fetchLikeCount = vi.fn(async () => 0)
   })
 
   afterEach(() => {
@@ -24,7 +23,6 @@ describe('artist page API', () => {
     delete (globalThis as Record<string, unknown>).isSupabaseCatalogSource
     delete (globalThis as Record<string, unknown>).isPublicEntity
     delete (globalThis as Record<string, unknown>).fetchFirebaseEntity
-    delete (globalThis as Record<string, unknown>).fetchLikeCount
   })
 
   it('returns hidden artists by direct slug route', async () => {
@@ -38,7 +36,6 @@ describe('artist page API', () => {
       slug: 'yngvarr',
       title: 'Yngvarr',
       visible: false,
-      like_count: 0,
     })
   })
 })

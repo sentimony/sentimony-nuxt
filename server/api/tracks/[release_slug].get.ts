@@ -27,7 +27,5 @@ export default defineCachedEventHandler(async (event) => {
 
   if (!releaseTracks.length) return []
 
-  const countMap = await fetchLikeCounts('track_likes', 'track_slug', releaseTracks.map(t => t.slug))
-
-  return releaseTracks.map(t => ({ ...t, like_count: countMap[t.slug] ?? 0 }))
+  return releaseTracks
 }, catalogCacheOptions(60 * 5))

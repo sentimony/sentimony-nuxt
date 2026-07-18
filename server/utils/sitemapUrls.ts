@@ -17,12 +17,12 @@ interface CatalogRelease extends CatalogEntity {
 
 export interface SitemapCatalogExport {
   releases: Record<string, CatalogRelease>
-  artists: Record<string, CatalogEntity>
-  tracks: Record<string, { slug: string }>
-  videos: Record<string, CatalogEntity>
+  artists: CatalogEntity[]
+  tracks: { slug: string }[]
+  videos: CatalogEntity[]
   playlists: Record<string, CatalogEntity>
-  events: Record<string, CatalogEntity>
-  friends: Record<string, CatalogEntity>
+  events: CatalogEntity[]
+  friends: CatalogEntity[]
 }
 
 const STATIC_PAGE_URLS: SitemapUrlEntry[] = [
@@ -42,17 +42,22 @@ const STATIC_PAGE_URLS: SitemapUrlEntry[] = [
   { loc: '/contacts', changefreq: 'weekly', priority: 0.7 },
 ]
 
-function visibleEntries<T extends CatalogEntity>(collection: Record<string, T>): [string, T][] {
-  return Object.entries(collection ?? {}).filter(([, entity]) => entity?.visible === true)
+function entitiesOf<T extends CatalogEntity>(collection: Record<string, T> | T[] | undefined): T[] {
+  if (!collection) return []
+  return Array.isArray(collection) ? collection : Object.values(collection)
+}
+
+function visibleEntities<T extends CatalogEntity>(collection: Record<string, T> | T[] | undefined): T[] {
+  return entitiesOf(collection).filter(entity => entity?.visible === true)
 }
 
 function lastmodOf(entity: CatalogEntity): string | undefined {
   return typeof entity.date === 'string' && entity.date ? entity.date : undefined
 }
 
-function buildDetailUrls(collection: Record<string, CatalogEntity>, pathPrefix: string): SitemapUrlEntry[] {
-  return visibleEntries(collection).map(([key, entity]) => ({
-    loc: `${pathPrefix}/${entity.slug ?? key}`,
+function buildDetailUrls(collection: Record<string, CatalogEntity> | CatalogEntity[], pathPrefix: string): SitemapUrlEntry[] {
+  return visibleEntities(collection).map(entity => ({
+    loc: `${pathPrefix}/${entity.slug}`,
     lastmod: lastmodOf(entity),
     changefreq: 'monthly',
     priority: 0.6,
@@ -60,23 +65,23 @@ function buildDetailUrls(collection: Record<string, CatalogEntity>, pathPrefix: 
 }
 
 function buildTrackUrls(
-  tracks: Record<string, { slug: string }>,
+  tracks: { slug: string }[],
   releases: Record<string, CatalogRelease>,
 ): SitemapUrlEntry[] {
   const lastmodByTrack = new Map<string, string | undefined>()
 
-  for (const [, release] of visibleEntries(releases)) {
+  for (const release of visibleEntities(releases)) {
     for (const slug of Array.isArray(release.tracklist) ? release.tracklist : []) {
       if (typeof slug !== 'string') continue
       if (!lastmodByTrack.has(slug)) lastmodByTrack.set(slug, lastmodOf(release))
     }
   }
 
-  return Object.entries(tracks ?? {})
-    .filter(([key, track]) => lastmodByTrack.has(track.slug ?? key))
-    .map(([key, track]) => ({
-      loc: `/track/${track.slug ?? key}`,
-      lastmod: lastmodByTrack.get(track.slug ?? key),
+  return (tracks ?? [])
+    .filter(track => lastmodByTrack.has(track.slug))
+    .map(track => ({
+      loc: `/track/${track.slug}`,
+      lastmod: lastmodByTrack.get(track.slug),
       changefreq: 'monthly' as const,
       priority: 0.5 as const,
     }))

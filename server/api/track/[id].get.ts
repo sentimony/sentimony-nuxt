@@ -29,15 +29,17 @@ export default defineCachedEventHandler(
     const release = releases[0]!
     const track = occurrences.find(o => o.release_slug === release.slug) ?? occurrences[0]!
 
-    const artistSlugs = (track.artist_slug || '')
+    const csvArtistSlugs = (track.artist_slug || '')
       .split(',')
       .map(s => s.trim())
       .filter(Boolean)
 
-    const [artists, likeCount] = await Promise.all([
-      fetchArtists(artistSlugs),
-      fetchLikeCount('track_likes', 'track_slug', track.slug),
-    ])
+    const indexedArtistSlugs = isSupabaseCatalogSource()
+      ? await fetchTrackArtistSlugs(track.slug)
+      : []
+    const artistSlugs = indexedArtistSlugs.length ? indexedArtistSlugs : csvArtistSlugs
+
+    const artists = await fetchArtists(artistSlugs)
 
     const artistsSorted = [...artists].sort((a, b) => {
       const ai = artistSlugs.indexOf(a.slug)
@@ -47,12 +49,21 @@ export default defineCachedEventHandler(
 
     const releaseTracks = rows.filter(row => row.release_slug === release.slug)
 
+    const indexedCoArtistTrackSlugs = isSupabaseCatalogSource() && indexedArtistSlugs.length
+      ? await fetchCoArtistTrackSlugs(artistSlugs)
+      : null
+    const coArtistTrackSlugs = indexedCoArtistTrackSlugs?.size
+      ? indexedCoArtistTrackSlugs
+      : null
+
     const seenSimilar = new Set<string>([track.slug])
     const similarTracks: ReleaseTrackRow[] = []
     for (const row of rows) {
       if (seenSimilar.has(row.slug)) continue
-      const rowArtists = row.artist_slug.split(',').map(s => s.trim())
-      if (!artistSlugs.some(slug => rowArtists.includes(slug))) continue
+      const isSimilar = coArtistTrackSlugs
+        ? coArtistTrackSlugs.has(row.slug)
+        : artistSlugs.some(slug => row.artist_slug.split(',').map(s => s.trim()).includes(slug))
+      if (!isSimilar) continue
       seenSimilar.add(row.slug)
       similarTracks.push(row)
       if (similarTracks.length >= 8) break
@@ -65,7 +76,6 @@ export default defineCachedEventHandler(
       artists: artistsSorted,
       releaseTracks,
       similarTracks,
-      likeCount,
     }
   },
   catalogCacheOptions(),
