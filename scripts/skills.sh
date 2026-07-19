@@ -34,13 +34,12 @@ npx skills add https://github.com/obra/superpowers -s \
   brainstorming \
   writing-plans \
   executing-plans \
-  receiving-code-review \
-  requesting-code-review \
   -a codex claude-code -y
+  # receiving-code-review \
+  # requesting-code-review \
   # test-driven-development \
   # systematic-debugging \
   # verification-before-completion \
-  # finishing-a-development-branch \
   # using-git-worktrees \
   # dispatching-parallel-agents \
   # subagent-driven-development \

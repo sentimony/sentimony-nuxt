@@ -467,7 +467,7 @@
       "title": "Reis Mit Scheis",
       "visible": false,
       "category": "designer",
-      "category_id": "016-0",
+      "category_id": "1600",
       "name": "",
       "location": "Kyiv, Ukraine",
       "style": "",
@@ -500,7 +500,7 @@
       "title": "Anton Pivniuk",
       "visible": false,
       "category": "designer",
-      "category_id": "016-1",
+      "category_id": "1601",
       "name": "Anton Pivniuk",
       "location": "Kyiv, Ukraine",
       "style": "",
@@ -533,7 +533,7 @@
       "title": "Olya Klapak",
       "visible": false,
       "category": "designer",
-      "category_id": "016-2",
+      "category_id": "1602",
       "name": "Olya Klapak",
       "location": "Kyiv, Ukraine",
       "style": "",
@@ -17821,7 +17821,7 @@
       "artist_name": "AstroPilot",
       "artist_slug": "astropilot",
       "bpm": 80,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/astropilot-enlightenment.mp3"
     },
     {
       "slug": "astropilot-god-s-channel-original-version",
@@ -18141,7 +18141,7 @@
       "artist_name": "Chronos",
       "artist_slug": "chronos",
       "bpm": 80,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/chronos-time-keeper.mp3"
     },
     {
       "slug": "cifroteca-burning-syncho",
@@ -18253,7 +18253,7 @@
       "artist_name": "Dagas",
       "artist_slug": "dagas",
       "bpm": 70,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dagas-sombrero-galaxy.mp3"
     },
     {
       "slug": "daoine-sidhe-horizon-shifter",
@@ -18941,7 +18941,7 @@
       "artist_name": "Frans Gosu",
       "artist_slug": "frans-gosu",
       "bpm": 125,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frans-gosu-dark-water.mp3"
     },
     {
       "slug": "frans-gosu-morbit",
@@ -20253,7 +20253,7 @@
       "artist_name": "Liquid Mind",
       "artist_slug": "liquid-mind",
       "bpm": 93,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/liquid-mind-free-dance.mp3"
     },
     {
       "slug": "liquid-soma-trippy-frog",
@@ -21469,7 +21469,7 @@
       "artist_name": "Sol",
       "artist_slug": "sol",
       "bpm": 110,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sol-chudo-81-harax-version.mp3"
     },
     {
       "slug": "solcast-cheiook",
@@ -21789,7 +21789,7 @@
       "artist_name": "Spectrum Vision",
       "artist_slug": "spectrum-vision",
       "bpm": 120,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-mystical-experiences.mp3"
     },
     {
       "slug": "spectrum-vision-natural-burn",
@@ -21909,7 +21909,7 @@
       "artist_name": "Sphingida",
       "artist_slug": "sphingida",
       "bpm": 120,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-machaon.mp3"
     },
     {
       "slug": "sphingida-new-age-lullaby",
@@ -22061,7 +22061,7 @@
       "artist_name": "Taff",
       "artist_slug": "taff",
       "bpm": 110,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/taff-wind.mp3"
     },
     {
       "slug": "tee-moe-babylon-groove",
@@ -22581,7 +22581,7 @@
       "artist_name": "Unstable Elements",
       "artist_slug": "unstable-elements",
       "bpm": 130,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unstable-elements-yumy-vs-madgentel.mp3"
     },
     {
       "slug": "unusual-cosmic-process-brain-channel",
@@ -22725,7 +22725,7 @@
       "artist_name": "Unusual Cosmic Process",
       "artist_slug": "unusual-cosmic-process",
       "bpm": 133,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-smooth-turbulence.mp3"
     },
     {
       "slug": "unusual-cosmic-process-e-mantra-sunrise-over-black-sea",
@@ -23381,7 +23381,7 @@
       "artist_name": "Zymosis",
       "artist_slug": "zymosis",
       "bpm": 90,
-      "audio_url": null
+      "audio_url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-needle-feat-hvoya.mp3"
     },
     {
       "slug": "zymosis-never-last",
