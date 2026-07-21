@@ -8,20 +8,15 @@ const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount } = useLikes()
 const { isTrackLiked, toggleTrackLike, trackLikeCount } = useTrackLikes()
 
-type Track = { slug: string, title: string, artist_name: string, artist_slug?: string, track_number: number, bpm: number | null }
 type RelatedRelease = { slug: string, title?: string, cover_xl?: string, date?: string }
 type RelatedArtist = { slug: string, title?: string, photo_xl?: string }
 type RelatedResponse = { releases: RelatedRelease[], artists: RelatedArtist[] }
 
-const [releaseAsync, tracksAsync, relatedAsync] = await Promise.all([
-  useRelease(id as string, { server: true }),
-  useFetch<Track[]>(`/api/tracks/${id}`),
-  useFetch<RelatedResponse>(`/api/release/${id}/related`),
-])
+const releaseAsync = await useRelease(id as string, { server: true })
+const relatedAsync = useFetch<RelatedResponse>(`/api/release/${id}/related`, { lazy: true, server: false })
 
 const item = releaseAsync.data
 const releaseError = releaseAsync.error
-const tracks = tracksAsync.data
 const relatedReleases = computed(() => relatedAsync.data.value?.releases ?? [])
 const relatedArtists = computed(() => relatedAsync.data.value?.artists ?? [])
 
@@ -73,7 +68,6 @@ const releaseCover = computed(() => item.value?.cover_th || item.value?.cover_xl
 
 const playerTracks = computed(() =>
   (item.value?.tracklist ?? []).filter(t => t.url).map((t) => {
-    const artistSlug = artistSlugByTrackNumber.value.get(t.track_number)
     return {
       title: `${t.artist} - ${t.title}`,
       titleSegments: splitTitleByArtists(`${t.artist} - ${t.title}`, titleArtists.value),
@@ -85,7 +79,7 @@ const playerTracks = computed(() =>
       nameSegments: splitTitleByArtists(t.title, titleArtists.value),
       cover: releaseCover.value,
       releaseLink: route.path,
-      artistLink: artistSlug ? `/artist/${artistSlug}` : undefined,
+      artistLink: t.artist_slug ? `/artist/${t.artist_slug}` : undefined,
     }
   })
 )
@@ -94,10 +88,6 @@ const allArtistsAsync = useFetch<Record<string, Artist> | Artist[]>('/api/artist
 const allArtists = computed(() => toArray<Artist>(allArtistsAsync.data.value))
 const titleArtists = computed(() =>
   (allArtists.value.length ? allArtists.value : relatedArtists.value),
-)
-
-const artistSlugByTrackNumber = computed(() =>
-  new Map((tracks.value ?? []).map(t => [t.track_number, t.artist_slug]))
 )
 
 const { formatDate, formatYear } = useDate()
@@ -288,7 +278,7 @@ useSeoMeta({
                 icon="sentimony:logo"
                 title="Sentimony"
               >
-                <AudioTrackPlaylist ref="player" :tracks="playerTracks" />
+                <AudioTrackPlaylist ref="player" :tracks="playerTracks" :play-counts="playCounts" />
               </Tab>
 
               <Tab
@@ -392,7 +382,7 @@ useSeoMeta({
             >
               <span class="min-w-0">
                 <small class="font-mono">{{ String(t.track_number).padStart(2, '0') }}.</small>
-                <TrackArtists :name="t.artist" :slug="artistSlugByTrackNumber.get(t.track_number)" />
+                <TrackArtists :name="t.artist" :slug="t.artist_slug" />
                 -
                 <TrackTitle :title="t.title" :artists="titleArtists" />
                 <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>

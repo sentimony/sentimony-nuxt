@@ -30,6 +30,16 @@ describe('AudioTrackPlaylist.vue', () => {
     expect(component).toContain("$fetch('/api/track-plays', { method: 'POST'")
   })
 
+  it('skips its own play-count fetch when counts are provided by prop', () => {
+    expect(component).toContain('playCounts?: Record<string, number>')
+    expect(component).toContain('if (props.playCounts) return')
+  })
+
+  it('syncs prop counts through mergePlayCounts without dropping local increments', () => {
+    expect(component).toContain('mergePlayCounts(playCounts.value, incoming)')
+    expect(component).toContain('{ deep: true }')
+  })
+
   it('toggles lucide play/pause icons off playing state', () => {
     expect(component).toContain('lucide:play')
     expect(component).toContain('lucide:pause')

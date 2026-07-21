@@ -31,6 +31,3 @@ playwright-report/
 test-results/
 
 scripts/out/
-
-# symlink to local audio master library (sentimony-audio-manager)
-upstream

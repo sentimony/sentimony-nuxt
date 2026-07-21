@@ -1,5 +1,7 @@
 # Product
 
+Updated: 2026-07-19.
+
 ## Register
 
 brand
@@ -67,3 +69,60 @@ with visible focus states. Text and controls must maintain AA contrast in both
 light and dark themes. Motion must honor `prefers-reduced-motion`, with an
 equivalent instant or reduced-motion experience. Meaning and state must never
 depend on color alone.
+
+## Current Capabilities
+
+- **Catalog.** Releases, artists, tracks (first-class entities with their own
+  pages and audio), videos, events, playlists, and friends, served from a
+  switchable backend (Supabase in production; Firebase supported).
+- **Listening.** Per-track audio (R2-hosted) with a global player, plus embedded
+  Bandcamp / YouTube / SoundCloud players and direct purchase links.
+- **Appreciation.** Anonymous accumulate-style likes ("claps") on every entity;
+  no sign-in required, public totals hydrated from cached count endpoints.
+- **Accounts.** Optional Supabase auth with profile, avatar, and a liked-items
+  collection across all entity types.
+- **Presentation.** Dark-first theming with light mode, atmospheric global
+  background, PWA install/offline support, full SEO (canonical, OG, sitemap).
+
+## Active Initiatives
+
+Each initiative has a spec in `docs/superpowers/specs/` and an implementation
+plan in `docs/superpowers/plans/`. Numbers in parentheses reference
+`ROADMAP.md` items where applicable.
+
+1. **Release artist/title split.** Render the release artist and the release
+   name as separate lines across cards, related items, and the release page,
+   derived from the canonical `Artist «Name»` title.
+   Spec: `specs/2026-07-19-release-artist-title-split-design.md`,
+   plan: `plans/2026-07-19-release-artist-title-split.md`.
+2. **Public API list envelope.** Unify all public catalog list endpoints on a
+   `{ info: { count, pages, next, prev }, results }` envelope with optional
+   pagination, one shape for both backends.
+   Spec: `specs/2026-07-19-api-list-envelope-design.md`,
+   plan: `plans/2026-07-19-api-list-envelope.md`.
+3. **Mobile performance** (ROADMAP P0 #1). Raise Lighthouse mobile Performance
+   from 68 by cutting main-thread work, unused JS, and DOM size; passive
+   listeners; larger footer tap targets.
+4. **CI quality gate** (ROADMAP P0 #3). Close the gaps in the existing
+   `web-debug.yml` pipeline (typecheck + unit + build already run): add e2e,
+   build the production `netlify` preset, and make the checks required before
+   deploy; sync scripts stay manual-only.
+5. **Lazy third-party players** (ROADMAP P1 #5). Implemented: tabs mount
+   Bandcamp/YouTube/SoundCloud iframes only once their tab is activated
+   (`app/components/Tabs.vue` + `Tab.vue`). Remaining work is closure only:
+   tick the plan checkboxes and retire the ROADMAP item.
+   Spec: `specs/2026-07-16-lazy-media-tabs-design.md`,
+   plan: `plans/2026-07-16-lazy-media-tabs.md`.
+6. **Lighter auth/session bundle** (ROADMAP P1 #6). Keep Supabase/auth code out
+   of the global layout path; lazy-load it for auth, profile, and like
+   interactions.
+7. **Profile aggregation** (ROADMAP P2 #8). Serve profile summary plus the
+   first page of each collection in one private request.
+8. **Server hardening** (ROADMAP P2 #9, #10). Slug validation, entity existence
+   checks, and rate limiting for like mutations; redacted, sampled production
+   request logging.
+9. **Brand assets refresh** (ROADMAP P3 #11, #13). PWA icon set with the logo
+   breaking out of the safe area; README with AgileCharts-style badges.
+10. **Design system validity** (ROADMAP P3 #12). Audit theme tokens versus
+    per-component hardcoded colors so the light theme is component-polished,
+    not token-only.

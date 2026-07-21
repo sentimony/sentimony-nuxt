@@ -12,17 +12,37 @@ function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
 
-export function splitTitleByArtists(title: string, artists: { slug: string, title?: string }[]): TitleSegment[] {
+type CompiledArtists = {
+  known: { slug: string, title: string }[]
+  pattern: RegExp | null
+}
+
+const compiledCache = new WeakMap<object, CompiledArtists>()
+
+function compileArtists(artists: { slug: string, title?: string }[]): CompiledArtists {
+  const cached = compiledCache.get(artists)
+  if (cached) return cached
+
   const known = artists
     .filter((artist): artist is { slug: string, title: string } => Boolean(artist.title && artist.slug))
     .sort((a, b) => b.title.length - a.title.length)
 
-  if (!title || !known.length) return [{ text: title, slug: null }]
+  const pattern = known.length
+    ? new RegExp(
+        `(?<![A-Za-z0-9])(?:${known.map(artist => escapeRegExp(artist.title)).join('|')})(?![A-Za-z0-9])`,
+        'gi',
+      )
+    : null
 
-  const pattern = new RegExp(
-    `(?<![A-Za-z0-9])(?:${known.map(artist => escapeRegExp(artist.title)).join('|')})(?![A-Za-z0-9])`,
-    'gi',
-  )
+  const compiled = { known, pattern }
+  compiledCache.set(artists, compiled)
+  return compiled
+}
+
+export function splitTitleByArtists(title: string, artists: { slug: string, title?: string }[]): TitleSegment[] {
+  const { known, pattern } = compileArtists(artists)
+
+  if (!title || !pattern) return [{ text: title, slug: null }]
 
   const segments: TitleSegment[] = []
   let cursor = 0

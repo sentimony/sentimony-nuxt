@@ -2,6 +2,7 @@ export type ReleaseTracklistEntry = {
   track_number: number
   slug: string
   artist: string
+  artist_slug: string
   title: string
   bpm: number | null
   url: string
@@ -62,6 +63,7 @@ export function hydrateReleaseTracklist(
         track_number: index + 1,
         slug: track.slug,
         artist: track.artist_name,
+        artist_slug: track.artist_slug,
         title: track.title,
         bpm: track.bpm,
         url: track.audio_url ?? '',

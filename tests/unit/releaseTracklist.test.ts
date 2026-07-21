@@ -20,6 +20,7 @@ describe('hydrateReleaseTracklist', () => {
       track_number: 1,
       slug: 'boggy-elf-dream-of-ashvattha-in',
       artist: 'Boggy Elf',
+      artist_slug: 'boggy-elf',
       title: 'Dream Of Ashvattha (In)',
       bpm: 80,
       url: 'https://r2.example/01.mp3',

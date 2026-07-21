@@ -18,19 +18,25 @@ const props = defineProps<{
     releaseLink?: string
     artistLink?: string
   }[]
+  playCounts?: Record<string, number>
 }>()
 
 const route = useRoute()
 const { current, isPlaying, play, toggle, next, prev } = useAudioPlayer()
 
-const playCounts = ref<Record<string, number>>({})
+const playCounts = ref<Record<string, number>>({ ...(props.playCounts ?? {}) })
 const countedThisSession = new Set<string>()
 
 const trackSlugs = computed(() =>
   props.tracks.map(t => t.slug).filter((s): s is string => Boolean(s))
 )
 
+watch(() => props.playCounts, (incoming) => {
+  mergePlayCounts(playCounts.value, incoming)
+}, { deep: true })
+
 onMounted(async () => {
+  if (props.playCounts) return
   if (!trackSlugs.value.length) return
   try {
     playCounts.value = await $fetch<Record<string, number>>('/api/track-plays', {

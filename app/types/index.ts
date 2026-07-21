@@ -59,6 +59,7 @@ export interface ReleaseTrack {
   track_number: number
   slug: string
   artist: string
+  artist_slug: string
   title: string
   bpm: number | null
   url: string

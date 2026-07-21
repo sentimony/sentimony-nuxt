@@ -9,9 +9,11 @@
  * `npm run sync:supabase` (it upserts every row by slug).
  *
  * It updates the named column(s) of the given slug in the given table, and
- * mirrors the same value into server/data/sentimony-db-export.json (unless
- * --no-local). Column names are Supabase columns; the local mirror maps a few
- * renamed release columns back to their JSON keys (see COLUMN_TO_JSON_KEY).
+ * mirrors the same value into server/data/sentimony-db.yml (unless
+ * --no-local). server/data/sentimony-db-export.json is a generated conversion
+ * of the yml (see scripts/convert-yml-json.mjs) and is not written here.
+ * Column names are Supabase columns; the local mirror maps a few renamed
+ * release columns back to their JSON keys (see COLUMN_TO_JSON_KEY).
  *
  * Usage:
  *   node scripts/sync-field.mjs <table> <slug> <field>=<value> [<field>=<value> …]
@@ -32,8 +34,9 @@
 import { createClient } from '@supabase/supabase-js'
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
+import { parse, stringify } from 'yaml'
 
-const LOCAL_DB = 'server/data/sentimony-db-export.json'
+const LOCAL_DB = 'server/data/sentimony-db.yml'
 
 const TABLES = ['releases', 'artists', 'tracks', 'videos', 'playlists', 'events', 'friends']
 
@@ -111,7 +114,7 @@ for (const [table, rows] of Object.entries(edits)) {
 
 if (!skipLocal) {
   const dbPath = resolve(LOCAL_DB)
-  const db = JSON.parse(readFileSync(dbPath, 'utf-8'))
+  const db = parse(readFileSync(dbPath, 'utf-8'))
   const missingLocal = []
   for (const [table, rows] of Object.entries(edits)) {
     for (const [slug, fields] of Object.entries(rows)) {
@@ -127,7 +130,7 @@ if (!skipLocal) {
   }
   if (missingLocal.length) console.warn(`  ! not in local export: ${missingLocal.join(', ')}`)
   if (!isDryRun) {
-    writeFileSync(dbPath, JSON.stringify(db, null, 2) + '\n', 'utf-8')
+    writeFileSync(dbPath, stringify(db, { lineWidth: 0 }), 'utf-8')
     console.log(`Local export updated: ${LOCAL_DB}`)
   }
 }

@@ -6,16 +6,18 @@ const props = defineProps<{
   title?: string
   icon?: string
   img?: string
+  order?: number
 }>()
 
 const tabs = inject(tabsKey)
-const info = reactive({ title: props.title, icon: props.icon, img: props.img })
+const info = reactive({ title: props.title, icon: props.icon, img: props.img, order: props.order })
 const id = tabs?.registerTab(info)
 const isActivated = computed(() => id != null && Boolean(tabs?.isActivated(id)))
 
 watch(() => props.title, (value) => { info.title = value })
 watch(() => props.icon, (value) => { info.icon = value })
 watch(() => props.img, (value) => { info.img = value })
+watch(() => props.order, (value) => { info.order = value })
 
 onBeforeUnmount(() => {
   if (id != null) tabs?.unregisterTab(id)

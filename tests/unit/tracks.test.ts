@@ -56,4 +56,18 @@ describe('splitTitleByArtists', () => {
       { text: 'Zealous', slug: null },
     ])
   })
+
+  it('returns identical segments across repeated calls with the same artists list', () => {
+    const artists = [
+      { slug: 'boggy-elf', title: 'Boggy Elf' },
+      { slug: 'irukanji', title: 'Irukanji' },
+    ]
+    const first = splitTitleByArtists('Boggy Elf - Dream', artists)
+    const second = splitTitleByArtists('Boggy Elf - Dream', artists)
+    expect(second).toEqual(first)
+    expect(splitTitleByArtists('Irukanji - Tamed Siren', artists)).toEqual([
+      { text: 'Irukanji', slug: 'irukanji' },
+      { text: ' - Tamed Siren', slug: null },
+    ])
+  })
 })

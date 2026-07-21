@@ -2266,14 +2266,14 @@ artists:
     category: musician
     category_id: "070"
     name: Phoebus Noussis & Aristides Katsinopoulos
-    location: Athens, Greece
+    location: Αθήνα, Greece
     style: Psychill, Chillgressive
     photo_og: https://content.sentimony.com/assets/img/artists/sygnals-01_og.jpg
     photo_th: https://content.sentimony.com/assets/img/artists/sygnals-01_th.jpg
     photo_xl: https://content.sentimony.com/assets/img/artists/sygnals-01_xl.jpg
     information: ""
-    info_sc: ""
-    soundcloud_url: ""
+    info_sc: <p>Two friends from Athens, tuned to the same signal since 2007 — Sygnals fuse chill-out, downbeat and atmospheric psychedelic textures into music built for both inner and outer travel. Alexandros A. and Phoebus N. lean on years of shared production instinct rather than a fixed formula, letting each track drift between meditation and pulse.</p>
+    soundcloud_url: https://soundcloud.com/sygnals
     soundcloud_label_playlist_id: ""
     soundcloud_artist_playlist_id: "5606377"
     mixcloud: ""
@@ -2912,19 +2912,19 @@ artists:
     website: ""
     wikipedia_url: ""
   - slug: access-to-arasaka
-    title: access-to-arasaka
+    title: Access to Arasaka
     visible: false
     category: musician
     category_id: "090"
     name: ""
-    location: ""
+    location: Rochester, United States
     style: ""
     photo_og: ""
     photo_th: ""
     photo_xl: ""
     information: ""
     info_sc: ""
-    soundcloud_url: ""
+    soundcloud_url: https://soundcloud.com/accesstoarasaka
     soundcloud_label_playlist_id: ""
     soundcloud_artist_playlist_id: ""
     mixcloud: ""
@@ -2937,7 +2937,7 @@ artists:
     facebook_personal: ""
     instagram: ""
     instagram_personal: ""
-    bandcamp_url: ""
+    bandcamp_url: https://accesstoarasaka.bandcamp.com/
     youtube_url: ""
     youtubemusic_url: ""
     website: ""
@@ -12294,16 +12294,16 @@ releases:
       youtube: https://youtu.be/1Xi5sQy3IdE
       youtube_playlist_id: PLp2GaPnw5O3NaLfBzlUNWxXjy6c67gM5W
     tracklist:
-      - 01-space-organ-occult-melodies
-      - 02-space-organ-symetric-vexclaw
-      - 03-space-organ-vanyla
-      - 04-space-organ-ghost-spectre
-      - 05-space-organ-stereodots-stereorgan
-      - 06-space-organ-lost-souls
-      - space-organ-07-irukanji-auto-approve-space-organ-rmx
-      - 08-space-organ-spektron-sylvantron
-      - 09-space-organ-different-aproach
-      - 10-space-organ-alchemy-circle-alchemy-space
+      - space-organ-occult-melodies
+      - space-organ-symetric-vexclaw
+      - space-organ-vanyla
+      - space-organ-ghost-spectre
+      - space-organ-stereodots-stereorgan
+      - space-organ-lost-souls
+      - irukanji-auto-approve-space-organ-rmx
+      - space-organ-spektron-sylvantron
+      - space-organ-different-aproach
+      - space-organ-alchemy-circle-alchemy-space
   urklang-psyral-lifeforms:
     slug: urklang-psyral-lifeforms
     title: Urklang «Psyral Lifeforms»
@@ -13271,7 +13271,7 @@ releases:
       - p: <small>10.</small> 🇧🇷 <b>Gaz Mask</b> - Radioactive Alert <small>(142bpm)</small>
       - p: <small>11.</small> 🇲🇽 <b>DMnT</b> - Abyss <small>(142bpm)</small>
       - p: <small>12.</small> 🇲🇽 <b>Fracktom</b> - Console Debug <small>(142bpm)</small>
-      - p: <small>13.</small> 🇧🇷 <b>Paracozm</b> - Framed (<b>🇿🇦🇧🇪 <b>TyStix</b></b> Rmx) <small>(138bpm)</small>
+      - p: <small>13.</small> 🇧🇷 <b>Paracozm</b> - Framed (<b>TyStix</b> Rmx) <small>(138bpm)</small>
       - p: <small>14.</small> 🇬🇹 <b>Tonal Sense</b> - Runs Through My Veins <small>(140bpm)</small>
       - p: <small>15.</small> 🇦🇹 <b>Urklang</b> - Dark Stepper <small>(142bpm)</small>
       - p: <small>16.</small> 🇦🇺 <b>Nuada</b> - The Sonny Side <small>(144bpm)</small>
@@ -13696,33 +13696,30 @@ releases:
     at_playlists: sentimony-official psychill-psybient
     information: <p>Sentimony Records proud to present a 3nd episode from «Gatekey» - freestyle psychill series.</p><p>This time you will find XX varied gatekeys carefully selected by 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>.</p><p>Enjoy!</p>
     tracklistCompact:
-      - p: "<br><span class='sen-fs11 sen-ml18 sen-db'>Approved tracks: *</span>"
       - p: <small>01.</small> <b>🇩🇪 Juelz</b> - Glitch Kidd <small>(93bpm)</small>
       - p: <small>02.</small> <b>🇺🇦 Psypheric</b> - Asteroid Belt <small>(118bpm)</small>
       - p: <small>03.</small> <b>🇩🇪 Seamoon</b> - The Coolness Of Love <small>(80bpm)</small>
       - p: <small>04.</small> <b>🇧🇷 VORG</b> - Cardio Drums <small>(125bpm)</small>
-      - p: <br><span class='sen-fs11 sen-ml18 sen-db'>Tracks in progress:</span>
-      - p: 05 🇬🇧 Boketto
-      - p: 06 🇮🇳 Braindrop in Dub
-      - p: 07 🇬🇷 Declaration of Unity
-      - p: 08 🇦🇺 derotonin
-      - p: 09 🇷🇴 E-Mantra
-      - p: 10 🇧🇷 Gaz Mask
-      - p: 11 🇲🇽 Jai
-      - p: 12 🇺🇦 Irukanji
-      - p: 13 🇿🇦 KAbi
-      - p: "14 🇲🇽 Kauyumari "
-      - p: 15 🇺🇦 Liquid Soma
-      - p: 16 🇺🇸 Mindex
-      - p: 17 🇺🇦 Overdream
-      - p: 18 🇿🇦 Psydewise
-      - p: 19 🇮🇱 Ra Djan
-      - p: 20 🇺🇦 Roof Raiser
-      - p: 21 🇵🇱 Sourone
-      - p: 22 🇿🇦 TyStix
-      - p: 23 🇺🇦 Unusual Cosmic Process
-      - p: 24 🇺🇦 Zymosis
-      - p: <br><span class='sen-fs11 sen-ml18 sen-db'>* - tracklist in alphabetical order</span>
+      - p: <small>05</small> <b>🇬🇧 Boketto</b>
+      - p: <small>06</small> <b>🇮🇳 Braindrop in Dub</b>
+      - p: <small>07</small> <b>🇬🇷 Declaration of Unity</b>
+      - p: <small>08</small> <b>🇦🇺 derotonin</b>
+      - p: <small>09</small> <b>🇷🇴 E-Mantra</b>
+      - p: <small>10</small> <b>🇧🇷 Gaz Mask</b>
+      - p: <small>11</small> <b>🇲🇽 Jai</b>
+      - p: <small>12</small> <b>🇺🇦 Irukanji</b>
+      - p: <small>13</small> <b>🇿🇦 KAbi</b>
+      - p: <small>14</small> <b>🇲🇽 Kauyumari</b>
+      - p: <small>15</small> <b>🇺🇦 Liquid Soma</b>
+      - p: <small>16</small> <b>🇺🇸 Mindex</b>
+      - p: <small>17</small> <b>🇺🇦 Overdream</b>
+      - p: <small>18</small> <b>🇿🇦 Psydewise</b>
+      - p: <small>19</small> <b>🇮🇱 Ra Djan</b>
+      - p: <small>20</small> <b>🇺🇦 Roof Raiser</b>
+      - p: <small>21</small> <b>🇵🇱 Sourone</b>
+      - p: <small>22</small> <b>🇿🇦 TyStix</b>
+      - p: <small>23</small> <b>🇺🇦 Unusual Cosmic Process</b>
+      - p: <small>24</small> <b>🇺🇦 Zymosis</b>
     creditsCompact:
       - p: Сompiled By 🇺🇦 <a href='/artist/irukanji'>Irukanji</a>
       - p: "Artwork By "
@@ -13974,54 +13971,54 @@ videos:
     links:
       youtube: ""
 tracks:
-  - slug: 01-space-organ-occult-melodies
-    title: 01 Space Organ - Occult Melodies
-    artist_name: ""
-    artist_slug: ""
+  - slug: space-organ-occult-melodies
+    title: Occult Melodies
+    artist_name: Space Organ
+    artist_slug: space-organ
     bpm: 138
-    audio_url: null
-  - slug: 02-space-organ-symetric-vexclaw
-    title: 02 Space Organ & Symetric - Vexclaw
-    artist_name: ""
-    artist_slug: ""
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-occult-melodies.mp3
+  - slug: space-organ-symetric-vexclaw
+    title: Vexclaw
+    artist_name: Space Organ & Symetric
+    artist_slug: space-organ,symetric
     bpm: 142
-    audio_url: null
-  - slug: 03-space-organ-vanyla
-    title: 03 Space Organ - Vanyla
-    artist_name: ""
-    artist_slug: ""
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-symetric-vexclaw.mp3
+  - slug: space-organ-vanyla
+    title: Vanyla
+    artist_name: Space Organ
+    artist_slug: space-organ
     bpm: 140
-    audio_url: null
-  - slug: 04-space-organ-ghost-spectre
-    title: 04 Space Organ - Ghost Spectre
-    artist_name: ""
-    artist_slug: ""
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-vanyla.mp3
+  - slug: space-organ-ghost-spectre
+    title: Ghost Spectre
+    artist_name: Space Organ
+    artist_slug: space-organ
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-ghost-spectre.mp3
   - slug: 05-boketto
     title: 05 🇬🇧 Boketto
     artist_name: ""
     artist_slug: ""
     bpm: null
     audio_url: null
-  - slug: 05-space-organ-stereodots-stereorgan
-    title: 05 Space Organ & Stereodots - StereOrgan
-    artist_name: ""
-    artist_slug: ""
+  - slug: space-organ-stereodots-stereorgan
+    title: StereOrgan
+    artist_name: Space Organ & Stereodots
+    artist_slug: space-organ,stereodots
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-stereodots-stereorgan.mp3
   - slug: 06-braindrop-in-dub
     title: 06 🇮🇳 Braindrop in Dub
     artist_name: ""
     artist_slug: ""
     bpm: null
     audio_url: null
-  - slug: 06-space-organ-lost-souls
-    title: 06 Space Organ - Lost Souls
-    artist_name: ""
-    artist_slug: ""
+  - slug: space-organ-lost-souls
+    title: Lost Souls
+    artist_name: Space Organ
+    artist_slug: space-organ
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-lost-souls.mp3
   - slug: 07-declaration-of-unity
     title: 07 🇬🇷 Declaration of Unity
     artist_name: ""
@@ -14034,36 +14031,36 @@ tracks:
     artist_slug: ""
     bpm: null
     audio_url: null
-  - slug: 08-space-organ-spektron-sylvantron
-    title: 08 Space Organ & Spektron - Sylvantron
-    artist_name: ""
-    artist_slug: ""
+  - slug: space-organ-spektron-sylvantron
+    title: Sylvantron
+    artist_name: Space Organ & Spektron
+    artist_slug: space-organ,spektron
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-spektron-sylvantron.mp3
   - slug: 09-e-mantra
     title: 09 🇷🇴 E-Mantra
     artist_name: ""
     artist_slug: ""
     bpm: null
     audio_url: null
-  - slug: 09-space-organ-different-aproach
-    title: 09 Space Organ - Different Aproach
-    artist_name: ""
-    artist_slug: ""
+  - slug: space-organ-different-aproach
+    title: Different Aproach
+    artist_name: Space Organ
+    artist_slug: space-organ
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-different-aproach.mp3
   - slug: 10-gaz-mask
     title: 10 🇧🇷 Gaz Mask
     artist_name: ""
     artist_slug: ""
     bpm: null
     audio_url: null
-  - slug: 10-space-organ-alchemy-circle-alchemy-space
-    title: 10 Space Organ & Alchemy Circle - Alchemy Space
-    artist_name: ""
-    artist_slug: ""
+  - slug: space-organ-alchemy-circle-alchemy-space
+    title: Alchemy Space
+    artist_name: Space Organ & Alchemy Circle
+    artist_slug: space-organ,alchemy-circle
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-alchemy-circle-alchemy-space.mp3
   - slug: 11-jai
     title: 11 🇲🇽 Jai
     artist_name: ""
@@ -14153,103 +14150,103 @@ tracks:
     artist_name: "36"
     artist_slug: thirty-sixth
     bpm: 119
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/36-a-final-thought.mp3
   - slug: access-to-arasaka-aug
     title: AUG
     artist_name: Access To Arasaka
     artist_slug: access-to-arasaka
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/access-to-arasaka-aug.mp3
   - slug: ader-project-serotonin
     title: Serotonin
     artist_name: Ader Project
     artist_slug: ader-project
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ader-project-serotonin.mp3
   - slug: aesthesia-cowboydub
     title: CowBoyDub
     artist_name: 🇸🇪 Aesthesia
     artist_slug: aesthesia
     bpm: 83
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aesthesia-cowboydub.mp3
   - slug: aesthesia-flow
     title: Flow
     artist_name: Aesthesia
     artist_slug: aesthesia
     bpm: 84
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aesthesia-flow.mp3
   - slug: aesthesia-flow-boketto-rmx
     title: Flow (Boketto Rmx)
     artist_name: Aesthesia
     artist_slug: aesthesia
     bpm: 170
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aesthesia-flow-boketto-rmx.mp3
   - slug: aesthesia-les-paul-down-the-rabbit-hole
     title: Les Paul Down The Rabbit Hole
     artist_name: Aesthesia
     artist_slug: aesthesia
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aesthesia-les-paul-down-the-rabbit-hole.mp3
   - slug: aesthesia-moment-of-silence
     title: Moment Of Silence
     artist_name: Aesthesia
     artist_slug: aesthesia
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aesthesia-moment-of-silence.mp3
   - slug: aesthesia-roots
     title: Roots
     artist_name: Aesthesia
     artist_slug: aesthesia
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aesthesia-roots.mp3
   - slug: aesthesia-tellus-mater
     title: Tellus Mater
     artist_name: Aesthesia
     artist_slug: aesthesia
     bpm: 65
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aesthesia-tellus-mater.mp3
   - slug: ahanjack-yoi-onaion
     title: Onaion
     artist_name: Ahanjack & Yoi
     artist_slug: ahanjack,yoi
     bpm: 85
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ahanjack-yoi-onaion.mp3
   - slug: aisaid-protos
     title: Protos
     artist_name: Aisaid
     artist_slug: aisaid
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/aisaid-protos.mp3
   - slug: akhos-deep-down
     title: Deep Down
     artist_name: Akhos
     artist_slug: akhos
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/akhos-deep-down.mp3
   - slug: akhos-dreams
     title: Dreams
     artist_name: Akhos
     artist_slug: akhos
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/akhos-dreams.mp3
   - slug: alchemy-circle-imperial-catharsis-space-organ-rmx
     title: Imperial Catharsis (Space Organ Rmx)
     artist_name: Alchemy Circle
     artist_slug: alchemy-circle
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/alchemy-circle-imperial-catharsis-space-organ-rmx.mp3
   - slug: alexander-daf-road-to-the-east
     title: Road To The East
     artist_name: Alexander Daf
     artist_slug: alexander-daf
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/alexander-daf-road-to-the-east.mp3
   - slug: alexander-daf-we-bring-the-light
     title: We Bring The Light
     artist_name: Alexander Daf
     artist_slug: alexander-daf
     bpm: 122
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/alexander-daf-we-bring-the-light.mp3
   - slug: alien-immigrant-dub-train
     title: Dub Train
     artist_name: Alien Immigrant
@@ -14273,31 +14270,31 @@ tracks:
     artist_name: Already Maged
     artist_slug: already-maged
     bpm: 154
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/already-maged-necromantica.mp3
   - slug: altius-gland-of-light
     title: Gland Of Light
     artist_name: 🇸🇪 Altius
     artist_slug: altius
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/altius-gland-of-light.mp3
   - slug: altius-hawaiian-cube
     title: Hawaiian Cube
     artist_name: Altius
     artist_slug: altius
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/altius-hawaiian-cube.mp3
   - slug: ambient-intelligent-application-via-lactea-astropilot-edit
     title: Via Lactea (AstroPilot Edit)
     artist_name: Ambient Intelligent Application
     artist_slug: ambient-intelligent-application
     bpm: 113
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ambient-intelligent-application-via-lactea-astropilot-edit.mp3
   - slug: apex-scionaugh-half-light-lexicon
     title: Half-light Lexicon
     artist_name: Apex & Scionaugh
     artist_slug: apex,scionaugh
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/apex-scionaugh-half-light-lexicon.mp3
   - slug: approved-tracks
     title: "Approved tracks: *"
     artist_name: ""
@@ -14309,25 +14306,25 @@ tracks:
     artist_name: Artech
     artist_slug: artech
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/artech-high-lander.mp3
   - slug: artech-3pointz-possible-chemistry
     title: Possible Chemistry
     artist_name: Artech & 3Pointz
     artist_slug: artech,3pointz
     bpm: 118
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/artech-3pointz-possible-chemistry.mp3
   - slug: artech-stringer-mode
     title: Stringer Mode
     artist_name: Artech
     artist_slug: artech
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/artech-stringer-mode.mp3
   - slug: artech-the-mission
     title: The Mission
     artist_name: Artech
     artist_slug: artech
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/artech-the-mission.mp3
   - slug: astropilot-breath-of-fate
     title: Breath Of Fate
     artist_name: AstroPilot
@@ -14345,73 +14342,73 @@ tracks:
     artist_name: AstroPilot
     artist_slug: astropilot
     bpm: 119
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/astropilot-god-s-channel-original-version.mp3
   - slug: astropilot-svoboda
     title: Svoboda
     artist_name: AstroPilot
     artist_slug: astropilot
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/astropilot-svoboda.mp3
   - slug: atati-versions
     title: Versions
     artist_name: Atati
     artist_slug: atati
     bpm: 60
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/atati-versions.mp3
   - slug: atmik-the-day-after-tomorrow-outro
     title: The Day After Tomorrow (Outro)
     artist_name: Atmik
     artist_slug: atmik
     bpm: 105
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/atmik-the-day-after-tomorrow-outro.mp3
   - slug: balcosmos-feed-your-wolf
     title: Feed Your Wolf
     artist_name: Balcosmos
     artist_slug: balcosmos
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/balcosmos-feed-your-wolf.mp3
   - slug: beartone-flexible-voices
     title: Flexible Voices
     artist_name: BearTone
     artist_slug: beartone
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/beartone-flexible-voices.mp3
   - slug: bensaid-esfera
     title: Esfera
     artist_name: Bensaid
     artist_slug: bensaid
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/bensaid-esfera.mp3
   - slug: bensaid-fractal-move
     title: Fractal Move
     artist_name: Bensaid
     artist_slug: bensaid
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/bensaid-fractal-move.mp3
   - slug: bensaid-looping-cycle
     title: Looping Cycle
     artist_name: Bensaid
     artist_slug: bensaid
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/bensaid-looping-cycle.mp3
   - slug: bensaid-lucid-vision
     title: Lucid Vision
     artist_name: Bensaid
     artist_slug: bensaid
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/bensaid-lucid-vision.mp3
   - slug: bensaid-mint-rain
     title: Mint Rain
     artist_name: Bensaid
     artist_slug: bensaid
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/bensaid-mint-rain.mp3
   - slug: bensaid-new-chapter
     title: New Chapter
     artist_name: Bensaid
     artist_slug: bensaid
     bpm: 141
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/bensaid-new-chapter.mp3
   - slug: boggy-elf-dream-of-ashvattha-in
     title: Dream Of Ashvattha (In)
     artist_name: Boggy Elf
@@ -14423,139 +14420,139 @@ tracks:
     artist_name: Boketto
     artist_slug: boketto
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-absolute.mp3
   - slug: boketto-alew
     title: Alew
     artist_name: Boketto
     artist_slug: boketto
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-alew.mp3
   - slug: boketto-divide
     title: Divide
     artist_name: Boketto
     artist_slug: boketto
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-divide.mp3
   - slug: boketto-fight
     title: Fight
     artist_name: Boketto
     artist_slug: boketto
     bpm: 70
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-fight.mp3
   - slug: boketto-infected
     title: Infected
     artist_name: Boketto
     artist_slug: boketto
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-infected.mp3
   - slug: boketto-innate
     title: Innate
     artist_name: Boketto
     artist_slug: boketto
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-innate.mp3
   - slug: boketto-love
     title: Love
     artist_name: Boketto
     artist_slug: boketto
     bpm: 124
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-love.mp3
   - slug: boketto-magoa
     title: Magoa
     artist_name: 🇬🇧 Boketto
     artist_slug: boketto
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-magoa.mp3
   - slug: boketto-masonry
     title: Masonry
     artist_name: Boketto
     artist_slug: boketto
     bpm: 113
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-masonry.mp3
   - slug: boketto-meraki
     title: Meraki
     artist_name: Boketto
     artist_slug: boketto
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-meraki.mp3
   - slug: boketto-motion
     title: Motion
     artist_name: Boketto
     artist_slug: boketto
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-motion.mp3
   - slug: boketto-nest
     title: Nest
     artist_name: Boketto
     artist_slug: boketto
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-nest.mp3
   - slug: boketto-opia
     title: Opia
     artist_name: Boketto
     artist_slug: boketto
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-opia.mp3
   - slug: boketto-pendle
     title: Pendle
     artist_name: Boketto
     artist_slug: boketto
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-pendle.mp3
   - slug: boketto-pushback
     title: Pushback
     artist_name: Boketto
     artist_slug: boketto
     bpm: 174
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-pushback.mp3
   - slug: boketto-reverie
     title: Reverie
     artist_name: Boketto
     artist_slug: boketto
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-reverie.mp3
   - slug: boketto-scitalis
     title: Scitalis
     artist_name: Boketto
     artist_slug: boketto
     bpm: 160
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-scitalis.mp3
   - slug: boketto-ukiyo
     title: Ukiyo
     artist_name: Boketto
     artist_slug: boketto
     bpm: 95
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/boketto-ukiyo.mp3
   - slug: braindrop-in-dub-creepy-brains
     title: Creepy Brains
     artist_name: 🇮🇳 Braindrop in Dub
     artist_slug: braindrop-in-dub
     bpm: 95
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/braindrop-in-dub-creepy-brains.mp3
   - slug: calamus-the-mighty-glow
     title: The Mighty Glow
     artist_name: Calamus
     artist_slug: calamus
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/calamus-the-mighty-glow.mp3
   - slug: cavedave-the-sun-in-here
     title: The Sun In Here
     artist_name: CaveDave
     artist_slug: cavedave
     bpm: 92
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cavedave-the-sun-in-here.mp3
   - slug: celestial-consciousness-astral-dance
     title: Astral Dance
     artist_name: Celestial Consciousness
     artist_slug: celestial-consciousness
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/celestial-consciousness-astral-dance.mp3
   - slug: celestial-consciousness-rise
     title: Rise
     artist_name: Celestial Consciousness
     artist_slug: celestial-consciousness
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/celestial-consciousness-rise.mp3
   - slug: chronos-cultural-legacy-live-version
     title: Cultural Legacy (Live Version)
     artist_name: Chronos
@@ -14567,13 +14564,13 @@ tracks:
     artist_name: Chronos
     artist_slug: chronos
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/chronos-dandelions-as-memory.mp3
   - slug: chronos-endless-rotation
     title: Endless Rotation
     artist_name: Chronos
     artist_slug: chronos
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/chronos-endless-rotation.mp3
   - slug: chronos-time-keeper
     title: Time Keeper
     artist_name: Chronos
@@ -14585,49 +14582,49 @@ tracks:
     artist_name: Cifroteca
     artist_slug: cifroteca
     bpm: 153
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cifroteca-burning-syncho.mp3
   - slug: cifroteca-coocoo-2019
     title: CooCoo 2019
     artist_name: Cifroteca
     artist_slug: cifroteca
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cifroteca-coocoo-2019.mp3
   - slug: cifroteca-nero-squarka
     title: Nero Squarka
     artist_name: Cifroteca
     artist_slug: cifroteca
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cifroteca-nero-squarka.mp3
   - slug: cifroteca-star-bolide
     title: Star Bolide
     artist_name: Cifroteca
     artist_slug: cifroteca
     bpm: 151
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cifroteca-star-bolide.mp3
   - slug: cifroteca-unknown-signals
     title: Unknown Signals
     artist_name: Cifroteca
     artist_slug: cifroteca
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cifroteca-unknown-signals.mp3
   - slug: cifroteca-roof-raiser-wild-storm
     title: Wild Storm
     artist_name: Cifroteca & Roof Raiser
     artist_slug: cifroteca,roof-raiser
     bpm: 147
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cifroteca-roof-raiser-wild-storm.mp3
   - slug: cj-catalizer-the-third-orbit
     title: The Third Orbit
     artist_name: CJ Catalizer
     artist_slug: cj-catalizer
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cj-catalizer-the-third-orbit.mp3
   - slug: crystal-vibe-ambassador
     title: Ambassador
     artist_name: Crystal Vibe
     artist_slug: crystal-vibe
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/crystal-vibe-ambassador.mp3
   - slug: crystal-vibe-neuron
     title: Neuron
     artist_name: Crystal Vibe
@@ -14639,13 +14636,13 @@ tracks:
     artist_name: 🇺🇦 Crystal Vibe
     artist_slug: crystal-vibe
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/crystal-vibe-we-re-going-away.mp3
   - slug: cygna-camaras-de-lamento
     title: Camaras De Lamento
     artist_name: Cygna
     artist_slug: cygna
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/cygna-camaras-de-lamento.mp3
   - slug: dagas-age-of-aquarius
     title: Age Of Aquarius
     artist_name: Dagas
@@ -14657,7 +14654,7 @@ tracks:
     artist_name: Dagas
     artist_slug: dagas
     bpm: 82
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dagas-caverna-magica.mp3
   - slug: dagas-sombrero-galaxy
     title: Sombrero Galaxy
     artist_name: Dagas
@@ -14681,367 +14678,367 @@ tracks:
     artist_name: 🌍 Darkol Trinity
     artist_slug: darkol-trinity
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/darkol-trinity-parallel-indication.mp3
   - slug: darkol-trinity-samuro
     title: Samuro
     artist_name: Darkol Trinity
     artist_slug: darkol-trinity
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/darkol-trinity-samuro.mp3
   - slug: declaration-of-unity-dotism
     title: Dotism
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-dotism.mp3
   - slug: declaration-of-unity-great-job
     title: Great Job
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-great-job.mp3
   - slug: declaration-of-unity-illusion-barrier
     title: Illusion Barrier
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-illusion-barrier.mp3
   - slug: declaration-of-unity-intergalactic-express
     title: Intergalactic Express
     artist_name: 🇬🇷 Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-intergalactic-express.mp3
   - slug: declaration-of-unity-melting-point
     title: Melting Point
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-melting-point.mp3
   - slug: declaration-of-unity-paint
     title: Paint
     artist_name: 🇬🇷 Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-paint.mp3
   - slug: declaration-of-unity-percashew
     title: Percashew
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-percashew.mp3
   - slug: declaration-of-unity-sunken
     title: Sunken
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-sunken.mp3
   - slug: declaration-of-unity-transpersonal
     title: Transpersonal
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-transpersonal.mp3
   - slug: declaration-of-unity-ytinav
     title: Ytinav
     artist_name: Declaration of Unity
     artist_slug: declaration-of-unity
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/declaration-of-unity-ytinav.mp3
   - slug: delphic-aukaro-mycelia-1-8
     title: Mycelia 1.8
     artist_name: Delphic & Aukaro
     artist_slug: delphic,aukaro
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/delphic-aukaro-mycelia-1-8.mp3
   - slug: dementor-echoes-of-the-abyss
     title: Echoes Of The Abyss
     artist_name: Dementor
     artist_slug: dementor
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dementor-echoes-of-the-abyss.mp3
   - slug: dementor-enjoy-your-last-happiness-syned-brain-remix
     title: Enjoy Your Last Happiness (Syned Brain Remix)
     artist_name: Dementor
     artist_slug: dementor
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dementor-enjoy-your-last-happiness-syned-brain-remix.mp3
   - slug: dementor-labyrinth-of-shadows
     title: Labyrinth Of Shadows
     artist_name: Dementor
     artist_slug: dementor
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dementor-labyrinth-of-shadows.mp3
   - slug: dementor-syned-brain-obsidian-rift
     title: Obsidian Rift
     artist_name: Dementor & Syned Brain
     artist_slug: dementor,syned-brain
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dementor-syned-brain-obsidian-rift.mp3
   - slug: derotonin-ample-mointya
     title: Ample Mointya
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-ample-mointya.mp3
   - slug: derotonin-blue
     title: Blue
     artist_name: 🇦🇺 derotonin
     artist_slug: derotonin
     bpm: 98
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-blue.mp3
   - slug: derotonin-buoyant
     title: Buoyant
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-buoyant.mp3
   - slug: derotonin-discombob-s-your-uncle
     title: Discombob's Your Uncle
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-discombob-s-your-uncle.mp3
   - slug: derotonin-dolphinitely
     title: Dolphinitely
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-dolphinitely.mp3
   - slug: derotonin-feeder-mcgavin
     title: Feeder Mcgavin
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-feeder-mcgavin.mp3
   - slug: derotonin-jort-circuit
     title: Jort Circuit
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 121
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-jort-circuit.mp3
   - slug: derotonin-monkeys-shoulder-parrots-perch
     title: Monkeys Shoulder, Parrots Perch
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-monkeys-shoulder-parrots-perch.mp3
   - slug: derotonin-pointy-bits
     title: Pointy Bits
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-pointy-bits.mp3
   - slug: derotonin-real-swell
     title: Real Swell
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-real-swell.mp3
   - slug: derotonin-aleckat-the-first-pancake
     title: The First Pancake
     artist_name: derotonin & Aleckat
     artist_slug: derotonin,aleckat
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-aleckat-the-first-pancake.mp3
   - slug: derotonin-thirsty-and-ignoring-it
     title: Thirsty And Ignoring It
     artist_name: derotonin
     artist_slug: derotonin
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/derotonin-thirsty-and-ignoring-it.mp3
   - slug: deuteroz-chaos-achemist-aldebaran-requiem
     title: Aldebaran Requiem
     artist_name: Deuteroz & Chaos Achemist
     artist_slug: deuteroz,chaos-achemist
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/deuteroz-chaos-achemist-aldebaran-requiem.mp3
   - slug: deuteroz-stop-witchcraft
     title: Stop Witchcraft
     artist_name: Deuteroz
     artist_slug: deuteroz
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/deuteroz-stop-witchcraft.mp3
   - slug: diffus-irrbloss-repetition-compulsion-142pbm
     title: Repetition Compulsion (142pbm)
     artist_name: Diffus & Irrbloss
     artist_slug: diffus,irrbloss
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/diffus-irrbloss-repetition-compulsion-142pbm.mp3
   - slug: diffus-twilight-progressive
     title: Twilight Progressive
     artist_name: Diffus
     artist_slug: diffus
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/diffus-twilight-progressive.mp3
   - slug: djeriko-omsense-beka-axis-mundi
     title: Axis Mundi
     artist_name: Djeriko & OmSense & Beka
     artist_slug: djeriko,omsense,beka
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/djeriko-omsense-beka-axis-mundi.mp3
   - slug: djeriko-ciclo-de-viento-y-miradas
     title: Ciclo De Viento Y Miradas
     artist_name: Djeriko
     artist_slug: djeriko
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/djeriko-ciclo-de-viento-y-miradas.mp3
   - slug: djeriko-cosmologia-fractalica
     title: Cosmología Fractalica
     artist_name: Djeriko
     artist_slug: djeriko
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/djeriko-cosmologia-fractalica.mp3
   - slug: djeriko-fractal-legions
     title: Fractal Legions
     artist_name: Djeriko
     artist_slug: djeriko
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/djeriko-fractal-legions.mp3
   - slug: djeriko-plomeria-11d
     title: Plomeria 11D
     artist_name: Djeriko
     artist_slug: djeriko
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/djeriko-plomeria-11d.mp3
   - slug: djeriko-submarino
     title: Submarino
     artist_name: Djeriko
     artist_slug: djeriko
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/djeriko-submarino.mp3
   - slug: dmnt-abyss
     title: Abyss
     artist_name: DMnT
     artist_slug: dmnt
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dmnt-abyss.mp3
   - slug: dmnt-flor-de-loto
     title: Flor De Loto
     artist_name: DMnT
     artist_slug: dmnt
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dmnt-flor-de-loto.mp3
   - slug: dmnt-imaginary
     title: Imaginary
     artist_name: DMnT
     artist_slug: dmnt
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dmnt-imaginary.mp3
   - slug: doonz-wonder-wander
     title: Wonder Wander
     artist_name: 🇦🇺 Doonz
     artist_slug: doonz
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/doonz-wonder-wander.mp3
   - slug: dreamstalker-piper-call-rework
     title: Piper Call (Rework)
     artist_name: Dreamstalker
     artist_slug: dreamstalker
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/dreamstalker-piper-call-rework.mp3
   - slug: e-mantra-approaching-nibiru-sky-technology-rmx
     title: Mantra - Approaching Nibiru (Sky Technology Rmx)
     artist_name: E
     artist_slug: e
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/e-mantra-approaching-nibiru-sky-technology-rmx.mp3
   - slug: e-mantra-unusual-cosmic-process-shore-of-light
     title: Shore Of Light
     artist_name: E-Mantra & Unusual Cosmic Process
     artist_slug: e-mantra,unusual-cosmic-process
     bpm: 87
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/e-mantra-unusual-cosmic-process-shore-of-light.mp3
   - slug: e-r-s-i-went-irie-the-orient-funk-experience
     title: I Went Irie (The Orient Funk Experience)
     artist_name: E.R.S.
     artist_slug: e-r-s
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/e-r-s-i-went-irie-the-orient-funk-experience.mp3
   - slug: egomorph-dark-shadows-juelz-rmx
     title: Dark Shadows (🇩🇪 Juelz Rmx)
     artist_name: 🇮🇹 Egomorph
     artist_slug: egomorph
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/egomorph-dark-shadows-juelz-rmx.mp3
   - slug: egomorph-something-is-wrong
     title: Something Is Wrong
     artist_name: Egomorph
     artist_slug: egomorph
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/egomorph-something-is-wrong.mp3
   - slug: egomorph-the-lost-canvas
     title: The Lost Canvas
     artist_name: Egomorph
     artist_slug: egomorph
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/egomorph-the-lost-canvas.mp3
   - slug: eguana-a-moment-of-madness
     title: A Moment Of Madness
     artist_name: Eguana
     artist_slug: eguana
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eguana-a-moment-of-madness.mp3
   - slug: eleexr-irukanji-another-mirror
     title: Another Mirror
     artist_name: EleexR & Irukanji
     artist_slug: eleexr,irukanji
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-irukanji-another-mirror.mp3
   - slug: eleexr-behind-dark-mirrors
     title: Behind Dark Mirrors
     artist_name: EleexR
     artist_slug: eleexr
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-behind-dark-mirrors.mp3
   - slug: eleexr-everybody-lies
     title: Everybody Lies
     artist_name: EleexR
     artist_slug: eleexr
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-everybody-lies.mp3
   - slug: eleexr-everybody-lies-torus-knot-believes-in-humanity-rmx
     title: Everybody Lies (Torus Knot Believes In Humanity Rmx)
     artist_name: EleexR
     artist_slug: eleexr
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-everybody-lies-torus-knot-believes-in-humanity-rmx.mp3
   - slug: eleexr-incoming-message
     title: Incoming Message
     artist_name: 🇺🇦 EleexR
     artist_slug: eleexr
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-incoming-message.mp3
   - slug: eleexr-torus-knot-infiltrato-modula
     title: Infiltrato Modula
     artist_name: EleexR & Torus Knot
     artist_slug: eleexr,torus-knot
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-torus-knot-infiltrato-modula.mp3
   - slug: eleexr-thousand-mirrors
     title: Thousand Mirrors
     artist_name: EleexR
     artist_slug: eleexr
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-thousand-mirrors.mp3
   - slug: eleexr-thousand-mirrors-vorg-rmx
     title: Thousand Mirrors (VORG Rmx)
     artist_name: EleexR
     artist_slug: eleexr
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-thousand-mirrors-vorg-rmx.mp3
   - slug: eleexr-unexpected-shift
     title: Unexpected Shift
     artist_name: EleexR
     artist_slug: eleexr
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-unexpected-shift.mp3
   - slug: eleexr-zemnosis
     title: Zemnosis
     artist_name: EleexR
     artist_slug: eleexr
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/eleexr-zemnosis.mp3
   - slug: eleexr-zemnosis-frog-prog-rmx
     title: Zemnosis (Frog Prog Rmx)
     artist_name: EleexR
@@ -15053,7 +15050,7 @@ tracks:
     artist_name: Erot
     artist_slug: erot
     bpm: 95
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/erot-into-the-deep-consciousness.mp3
   - slug: exoflux-frog-prog-from-my-mind
     title: From My Mind
     artist_name: ExoFlux & Frog Prog
@@ -15071,73 +15068,73 @@ tracks:
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-buzzooka.mp3
   - slug: exolt-cybernetic-society
     title: Cybernetic Society
     artist_name: 🇺🇦 eXoLT
     artist_slug: exolt
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-cybernetic-society.mp3
   - slug: exolt-dark-stage-magic
     title: Dark Stage Magic
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-dark-stage-magic.mp3
   - slug: exolt-drop-of-fur
     title: Drop Of Fur
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-drop-of-fur.mp3
   - slug: exolt-flexxodus-flexoltus
     title: FleXoLTus
     artist_name: eXoLT & Flexxodus
     artist_slug: exolt,flexxodus
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-flexxodus-flexoltus.mp3
   - slug: exolt-go-rounds
     title: Go Rounds
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-go-rounds.mp3
   - slug: exolt-mind-manfest
     title: Mind Manfest
     artist_name: 🇺🇦 eXoLT
     artist_slug: exolt
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-mind-manfest.mp3
   - slug: exolt-noise-no-sleep
     title: Noise No Sleep
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-noise-no-sleep.mp3
   - slug: exolt-spatial-visualization
     title: Spatial Visualization
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-spatial-visualization.mp3
   - slug: exolt-star-children
     title: Star Children
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-star-children.mp3
   - slug: exolt-you-reflection-and-the-shadow
     title: You, Reflection And The Shadow
     artist_name: eXoLT
     artist_slug: exolt
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/exolt-you-reflection-and-the-shadow.mp3
   - slug: field-rotation-disappear
     title: Disappear
     artist_name: Field Rotation
     artist_slug: field-rotation
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/field-rotation-disappear.mp3
   - slug: flooting-grooves-psydeburn
     title: Psydeburn
     artist_name: Flooting Grooves
@@ -15149,31 +15146,31 @@ tracks:
     artist_name: Fracktom
     artist_slug: fracktom
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/fracktom-apocalypsynth.mp3
   - slug: fracktom-console-debug
     title: Console Debug
     artist_name: Fracktom
     artist_slug: fracktom
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/fracktom-console-debug.mp3
   - slug: fracktom-dystophia
     title: Dystophia
     artist_name: Fracktom
     artist_slug: fracktom
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/fracktom-dystophia.mp3
   - slug: fracktom-kindom-of-false
     title: Kindom Of False
     artist_name: Fracktom
     artist_slug: fracktom
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/fracktom-kindom-of-false.mp3
   - slug: fracktom-sonic-survival
     title: Sonic Survival
     artist_name: Fracktom
     artist_slug: fracktom
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/fracktom-sonic-survival.mp3
   - slug: frans-gosu-dark-water
     title: Dark Water
     artist_name: Frans Gosu
@@ -15185,13 +15182,13 @@ tracks:
     artist_name: Frans Gosu
     artist_slug: frans-gosu
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frans-gosu-morbit.mp3
   - slug: frog-prog-andromeda
     title: Andromeda
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-andromeda.mp3
   - slug: frog-prog-aqua-portal
     title: Aqua Portal
     artist_name: Frog Prog
@@ -15215,25 +15212,25 @@ tracks:
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-darknes-light.mp3
   - slug: frog-prog-dreamer-432-khz
     title: Dreamer 432 kHz
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-dreamer-432-khz.mp3
   - slug: frog-prog-future-music
     title: Future Music
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-future-music.mp3
   - slug: frog-prog-mekbuda
     title: Mekbuda
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-mekbuda.mp3
   - slug: frog-prog-mind-tonal
     title: Mind Tonal
     artist_name: Frog Prog
@@ -15245,13 +15242,13 @@ tracks:
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-mystic-signs.mp3
   - slug: frog-prog-navajo-song
     title: Navajo Song
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-navajo-song.mp3
   - slug: frog-prog-neurofracture
     title: Neurofracture
     artist_name: Frog Prog
@@ -15269,133 +15266,133 @@ tracks:
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-the-one.mp3
   - slug: frog-prog-triangulum
     title: Triángulum
     artist_name: Frog Prog
     artist_slug: frog-prog
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-triangulum.mp3
   - slug: frog-prog-yawanawa
     title: Yawanawá
     artist_name: 🇺🇦 Frog Prog
     artist_slug: frog-prog
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/frog-prog-yawanawa.mp3
   - slug: from-vacuum-01-1-1-from-vacuum-hop
     title: 01 1.1. From Vacuum - Hop
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-01-1-1-from-vacuum-hop.mp3
   - slug: from-vacuum-02-1-2-from-vacuum-feel-it
     title: 02 1.2. From Vacuum - Feel It
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 64
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-02-1-2-from-vacuum-feel-it.mp3
   - slug: from-vacuum-03-1-3-from-vacuum-paralelna
     title: 03 1.3. From Vacuum - Paralelna
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-03-1-3-from-vacuum-paralelna.mp3
   - slug: from-vacuum-04-1-4-from-vacuum-06-08-1945
     title: 04 1.4. From Vacuum - 06.08.1945
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 72
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-04-1-4-from-vacuum-06-08-1945.mp3
   - slug: from-vacuum-05-1-5-from-vacuum-forward-stroke-feat-drevnii
     title: 05 1.5. From Vacuum - Forward Stroke (feat. Drevnii)
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 114
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-05-1-5-from-vacuum-forward-stroke-feat-drevnii.mp3
   - slug: from-vacuum-06-1-6-from-vacuum-grainy
     title: 06 1.6. From Vacuum - Grainy
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 50
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-06-1-6-from-vacuum-grainy.mp3
   - slug: from-vacuum-07-1-7-from-vacuum-good-steps
     title: 07 1.7. From Vacuum - Good Steps
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 85
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-07-1-7-from-vacuum-good-steps.mp3
   - slug: from-vacuum-08-2-1-from-vacuum-middub
     title: 08 2.1. From Vacuum - MidDub
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 60
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-08-2-1-from-vacuum-middub.mp3
   - slug: from-vacuum-09-2-2-from-vacuum-search-of
     title: 09 2.2. From Vacuum - Search Of
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 50
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-09-2-2-from-vacuum-search-of.mp3
   - slug: from-vacuum-10-2-3-from-vacuum-circle
     title: 10 2.3. From Vacuum - Circle
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 84
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-10-2-3-from-vacuum-circle.mp3
   - slug: from-vacuum-11-2-4-from-vacuum-omik
     title: 11 2.4. From Vacuum - OMik
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 65
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-11-2-4-from-vacuum-omik.mp3
   - slug: from-vacuum-12-2-5-from-vacuum-field-bass
     title: 12 2.5. From Vacuum - Field Bass
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 86
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-12-2-5-from-vacuum-field-bass.mp3
   - slug: from-vacuum-13-2-6-from-vacuum-dialogue-with-me
     title: 13 2.6. From Vacuum - Dialogue With Me
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 95
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-13-2-6-from-vacuum-dialogue-with-me.mp3
   - slug: from-vacuum-don-t-see
     title: Don't See
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-don-t-see.mp3
   - slug: from-vacuum-glootch
     title: Glootch
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 70
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-glootch.mp3
   - slug: from-vacuum-of-the
     title: Of The
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 60
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-of-the.mp3
   - slug: from-vacuum-power-full
     title: Power Full
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 154
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-power-full.mp3
   - slug: from-vacuum-raga-beat-feat-elisa-vargas-fernandez
     title: Raga Beat (feat. Elisa Vargas Fernandez)
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: 78
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-raga-beat-feat-elisa-vargas-fernandez.mp3
   - slug: from-vacuum-sip
     title: Sip
     artist_name: From Vacuum
     artist_slug: from-vacuum
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/from-vacuum-sip.mp3
   - slug: gaz-mask-ancestral-echoes
     title: Ancestral Echoes
     artist_name: Gaz Mask
@@ -15407,13 +15404,13 @@ tracks:
     artist_name: Gaz Mask
     artist_slug: gaz-mask
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-dizzy-tales.mp3
   - slug: gaz-mask-mojo-s-ears-dizzy-transistors
     title: Dizzy Transistors
     artist_name: Gaz Mask & Mojo's Ears
     artist_slug: gaz-mask,mojos-ears
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-mojo-s-ears-dizzy-transistors.mp3
   - slug: gaz-mask-no-name-freestyle
     title: No Name Freestyle
     artist_name: Gaz Mask
@@ -15425,19 +15422,19 @@ tracks:
     artist_name: Gaz Mask & Deuteroz
     artist_slug: gaz-mask,deuteroz
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-deuteroz-quetzalcoatl.mp3
   - slug: gaz-mask-radioactive-alert
     title: Radioactive Alert
     artist_name: Gaz Mask
     artist_slug: gaz-mask
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-radioactive-alert.mp3
   - slug: gaz-mask-seven-stages
     title: Seven Stages
     artist_name: 🇧🇷 Gaz Mask
     artist_slug: gaz-mask
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-seven-stages.mp3
   - slug: gaz-mask-sic-mundus-creatus-est
     title: Sic Mundus Creatus Est
     artist_name: Gaz Mask
@@ -15467,85 +15464,85 @@ tracks:
     artist_name: 🇧🇷 Gaz Mask
     artist_slug: gaz-mask
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-the-long-bright-dark.mp3
   - slug: gaz-mask-time-is-a-flat-circle
     title: Time Is A Flat Circle
     artist_name: Gaz Mask
     artist_slug: gaz-mask
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-time-is-a-flat-circle.mp3
   - slug: gaz-mask-trick-or-treat
     title: Trick Or Treat
     artist_name: Gaz Mask
     artist_slug: gaz-mask
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-trick-or-treat.mp3
   - slug: gaz-mask-uroboros-4-life
     title: Uroboros 4 Life
     artist_name: Gaz Mask
     artist_slug: gaz-mask
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-uroboros-4-life.mp3
   - slug: gaz-mask-valle-sagrado
     title: Valle Sagrado
     artist_name: Gaz Mask
     artist_slug: gaz-mask
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-valle-sagrado.mp3
   - slug: gaz-mask-mojo-s-ears-zeta-reticuli
     title: Zeta Reticuli
     artist_name: Gaz Mask & Mojo's Ears
     artist_slug: gaz-mask,mojos-ears
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-mojo-s-ears-zeta-reticuli.mp3
   - slug: gaz-mask-zigurate
     title: Zigurate
     artist_name: Gaz Mask
     artist_slug: gaz-mask
     bpm: 143
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gaz-mask-zigurate.mp3
   - slug: gojja-a-darker-shade-of-damaged-distortion
     title: A Darker Shade Of Damaged Distortion
     artist_name: Gojja
     artist_slug: gojja
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gojja-a-darker-shade-of-damaged-distortion.mp3
   - slug: gojja-amber-current
     title: Amber Current
     artist_name: Gojja
     artist_slug: gojja
     bpm: 131
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gojja-amber-current.mp3
   - slug: gojja-function-with-out-form-back-from-the-grave
     title: Function With Out Form (Back From The Grave)
     artist_name: 🇸🇪 Gojja
     artist_slug: gojja
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gojja-function-with-out-form-back-from-the-grave.mp3
   - slug: gojja-hummed-of-mystery
     title: Hummed Of Mystery
     artist_name: Gojja
     artist_slug: gojja
     bpm: 131
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gojja-hummed-of-mystery.mp3
   - slug: gojja-maps-and-mazes
     title: Maps And Mazes
     artist_name: Gojja
     artist_slug: gojja
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gojja-maps-and-mazes.mp3
   - slug: gojja-the-googly-eye-in-the-sky
     title: The Googly Eye In The Sky
     artist_name: Gojja
     artist_slug: gojja
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gojja-the-googly-eye-in-the-sky.mp3
   - slug: gojja-vermiculate-patterns
     title: Vermiculate Patterns
     artist_name: Gojja
     artist_slug: gojja
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/gojja-vermiculate-patterns.mp3
   - slug: hair-hashish-encapsulate-rmx
     title: Hashish (Encapsulate Rmx)
     artist_name: Hair!
@@ -15557,79 +15554,79 @@ tracks:
     artist_name: Harax
     artist_slug: harax
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/harax-aessone.mp3
   - slug: harax-clepsydra
     title: Clepsydra
     artist_name: Harax
     artist_slug: harax
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/harax-clepsydra.mp3
   - slug: harax-dreamy
     title: Dreamy
     artist_name: Harax
     artist_slug: harax
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/harax-dreamy.mp3
   - slug: harax-flamberg
     title: Flamberg
     artist_name: Harax
     artist_slug: harax
     bpm: 96
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/harax-flamberg.mp3
   - slug: hardcore-buddhist-electro-spring-liquid-version
     title: Electro Spring (Liquid Version)
     artist_name: 🇺🇦 Hardcore Buddhist
     artist_slug: hardcore-buddhist
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hardcore-buddhist-electro-spring-liquid-version.mp3
   - slug: hardcore-buddhist-art-imagination-sea-dream-live-version
     title: Sea Dream (Live Version)
     artist_name: Hardcore Buddhist & Art Imagination
     artist_slug: hardcore-buddhist,art-imagination
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hardcore-buddhist-art-imagination-sea-dream-live-version.mp3
   - slug: heinali-endless
     title: Endless
     artist_name: Heinali
     artist_slug: heinali
     bpm: 91
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/heinali-endless.mp3
   - slug: heinali-eye-of-the-storm
     title: Eye Of The Storm
     artist_name: Heinali
     artist_slug: heinali
     bpm: 122
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/heinali-eye-of-the-storm.mp3
   - slug: hellquist-abstraction-juelz-rmx
     title: Abstraction (Juelz Rmx)
     artist_name: Hellquist
     artist_slug: hellquist
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hellquist-abstraction-juelz-rmx.mp3
   - slug: hybrid-reality-totem-gaz-mask-rmx
     title: Totem (Gaz Mask Rmx)
     artist_name: Hybrid Reality
     artist_slug: hybrid-reality
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hybrid-reality-totem-gaz-mask-rmx.mp3
   - slug: hypnotriod-seven-heavenly-edges
     title: Seven Heavenly Edges
     artist_name: Hypnotriod
     artist_slug: hypnotriod
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hypnotriod-seven-heavenly-edges.mp3
   - slug: hypnotriod-sour-jazz
     title: Sour Jazz
     artist_name: Hypnotriod
     artist_slug: hypnotriod
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hypnotriod-sour-jazz.mp3
   - slug: hypnotriod-tale-teller-irukanji-rmx
     title: Tale-teller (Irukanji Rmx)
     artist_name: Hypnotriod
     artist_slug: hypnotriod
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hypnotriod-tale-teller-irukanji-rmx.mp3
   - slug: hypnotriod-the-sleep-detector
     title: The Sleep Detector
     artist_name: Hypnotriod
@@ -15641,37 +15638,37 @@ tracks:
     artist_name: Hypnotriod
     artist_slug: hypnotriod
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hypnotriod-the-sleep-detector-unusual-cosmic-process-rmx.mp3
   - slug: hypnotriod-vavel-ero-sea-tentura-rmx
     title: Vavel'ero Sea (Tentura Rmx)
     artist_name: Hypnotriod
     artist_slug: hypnotriod
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hypnotriod-vavel-ero-sea-tentura-rmx.mp3
   - slug: hypogeo-the-lamb-of-dog-space-organ-rmx
     title: The Lamb Of Dog (Space Organ Rmx)
     artist_name: Hypogeo
     artist_slug: hypogeo
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/hypogeo-the-lamb-of-dog-space-organ-rmx.mp3
   - slug: iooi-chromosoma
     title: Chromosoma
     artist_name: IooI
     artist_slug: iooi
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/iooi-chromosoma.mp3
   - slug: irukanji-ale-yak
     title: Ale Yak?
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-ale-yak.mp3
   - slug: irukanji-auto-approve
     title: Auto-approve
     artist_name: 🇺🇦🇱🇻 Irukanji
     artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-auto-approve.mp3
   - slug: irukanji-ayalla
     title: Ayalla
     artist_name: Irukanji
@@ -15689,271 +15686,271 @@ tracks:
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-deep-deep-deep.mp3
   - slug: irukanji-end-out-feat-neirula
     title: End (Out) (feat. NeiRula)
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 72
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-end-out-feat-neirula.mp3
   - slug: irukanji-forest-speakers
     title: Forest Speakers
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-forest-speakers.mp3
   - slug: irukanji-from-my-nerves
     title: From My Nerves
     artist_name: 🇺🇦 Irukanji
     artist_slug: irukanji
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-from-my-nerves.mp3
   - slug: irukanji-here-and-now
     title: Here And Now
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-here-and-now.mp3
   - slug: irukanji-eleexr-hey-mondegreen
     title: Hey Mondegreen
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-hey-mondegreen.mp3
   - slug: irukanji-hybrid-seven
     title: Hybrid Seven
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-hybrid-seven.mp3
   - slug: irukanji-eleexr-i-have-something
     title: I Have Something
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-i-have-something.mp3
   - slug: irukanji-eleexr-i-have-something-spacecraft-rmx
     title: I Have Something (SpaceCraft Rmx)
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-i-have-something-spacecraft-rmx.mp3
   - slug: irukanji-eleexr-inside-your-head
     title: Inside Your Head
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-inside-your-head.mp3
   - slug: irukanji-eleexr-it-will-grow
     title: It Will Grow
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-it-will-grow.mp3
   - slug: irukanji-mammoth-in
     title: Mammoth (In)
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-mammoth-in.mp3
   - slug: irukanji-missing-bot
     title: Missing Bot
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 108
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-missing-bot.mp3
   - slug: irukanji-muti-cappa
     title: Muti Cappa
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 88
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-muti-cappa.mp3
   - slug: irukanji-natiform
     title: Natiform
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-natiform.mp3
   - slug: irukanji-nymphosis
     title: Nymphosis
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-nymphosis.mp3
   - slug: irukanji-on-one-wave
     title: On One Wave
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-on-one-wave.mp3
   - slug: irukanji-onset-in
     title: Onset (In)
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 72
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-onset-in.mp3
   - slug: irukanji-organix
     title: Organix
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-organix.mp3
   - slug: irukanji-out-from-little-box-astropilot-edit
     title: Out From Little Box (AstroPilot Edit)
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-out-from-little-box-astropilot-edit.mp3
   - slug: irukanji-recapture-the-past
     title: Recapture The Past
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-recapture-the-past.mp3
   - slug: irukanji-return-home
     title: Return Home
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-return-home.mp3
   - slug: irukanji-eleexr-roadrunner
     title: Roadrunner
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-roadrunner.mp3
   - slug: irukanji-eleexr-so-open-minded
     title: So Open-minded
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-so-open-minded.mp3
   - slug: irukanji-sunday-morning
     title: Sunday Morning
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-sunday-morning.mp3
   - slug: irukanji-swamp
     title: Swamp
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-swamp.mp3
   - slug: irukanji-tamed-siren
     title: Tamed Siren
     artist_name: Irukanji
     artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-tamed-siren.mp3
   - slug: irukanji-eleexr-the-key
     title: The Key
     artist_name: Irukanji & EleexR
     artist_slug: irukanji,eleexr
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-eleexr-the-key.mp3
   - slug: jai-clear-conscience
     title: Clear Conscience
     artist_name: 🇲🇽 Jai
     artist_slug: jai
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-clear-conscience.mp3
   - slug: jai-come-from
     title: Come From
     artist_name: Jai
     artist_slug: jai
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-come-from.mp3
   - slug: jai-couple-trouble
     title: Couple Trouble
     artist_name: Jai
     artist_slug: jai
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-couple-trouble.mp3
   - slug: jai-idea-nbsp-138bpm
     title: Idea &nbsp;138bpm
     artist_name: Jai
     artist_slug: jai
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-idea-nbsp-138bpm.mp3
   - slug: jai-intrusive-thoughts
     title: Intrusive Thoughts
     artist_name: 🇲🇽 Jai
     artist_slug: jai
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-intrusive-thoughts.mp3
   - slug: jai-maladaptive-daydream-nbsp-138bpm
     title: Maladaptive Daydream &nbsp;138bpm
     artist_name: Jai
     artist_slug: jai
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-maladaptive-daydream-nbsp-138bpm.mp3
   - slug: jai-many-substances
     title: Many Substances
     artist_name: Jai
     artist_slug: jai
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-many-substances.mp3
   - slug: jai-midi-bass-nbsp-138bpm
     title: Midi Bass &nbsp;138bpm
     artist_name: Jai
     artist_slug: jai
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-midi-bass-nbsp-138bpm.mp3
   - slug: jai-panteonezque-nbsp-138bpm
     title: Panteonezque &nbsp;138bpm
     artist_name: Jai
     artist_slug: jai
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-panteonezque-nbsp-138bpm.mp3
   - slug: jai-psicodelix
     title: Psicodelix
     artist_name: Jai
     artist_slug: jai
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-psicodelix.mp3
   - slug: jai-speak-with-me
     title: Speak With Me
     artist_name: Jai
     artist_slug: jai
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jai-speak-with-me.mp3
   - slug: jakanatura-upsetting
     title: Upsetting
     artist_name: Jakanatura
     artist_slug: jakanatura
     bpm: 133
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jakanatura-upsetting.mp3
   - slug: juelz-aznaa
     title: Aznaa
     artist_name: Juelz
     artist_slug: juelz
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-aznaa.mp3
   - slug: juelz-desire
     title: Desire
     artist_name: Juelz
     artist_slug: juelz
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-desire.mp3
   - slug: juelz-floortalk
     title: Floortalk
     artist_name: 🇩🇪 Juelz
     artist_slug: juelz
     bpm: 95
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-floortalk.mp3
   - slug: juelz-folie-a-deux
     title: Folie À Deux
     artist_name: Juelz
     artist_slug: juelz
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-folie-a-deux.mp3
   - slug: juelz-future-facing-hedonythm-rmx
     title: Future Facing (🇧🇷 Hedonythm Rmx)
     artist_name: Juelz
     artist_slug: juelz
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-future-facing-hedonythm-rmx.mp3
   - slug: juelz-glitch-kidd
     title: Glitch Kidd
     artist_name: 🇩🇪 Juelz
@@ -15965,199 +15962,199 @@ tracks:
     artist_name: Juelz
     artist_slug: juelz
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-inner-borders.mp3
   - slug: juelz-repeating-yesterday
     title: Repeating Yesterday
     artist_name: Juelz
     artist_slug: juelz
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-repeating-yesterday.mp3
   - slug: juelz-trust-me
     title: Trust Me
     artist_name: Juelz
     artist_slug: juelz
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/juelz-trust-me.mp3
   - slug: jyotish-1000-little-indians
     title: 1000 Little Indians
     artist_name: Jyotish
     artist_slug: jyotish
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jyotish-1000-little-indians.mp3
   - slug: jyotish-purple-imagination
     title: Purple Imagination
     artist_name: Jyotish
     artist_slug: jyotish
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/jyotish-purple-imagination.mp3
   - slug: k-d-expression-alpae-3717
     title: Alpae-3717
     artist_name: K.D. Expression
     artist_slug: k-d-expression
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/k-d-expression-alpae-3717.mp3
   - slug: kabi-confrogulated
     title: Confrogulated
     artist_name: KAbi
     artist_slug: kabi
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-confrogulated.mp3
   - slug: kabi-tystix-dark-horse
     title: Dark Horse
     artist_name: KAbi & TyStix
     artist_slug: kabi,tystix
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-tystix-dark-horse.mp3
   - slug: kabi-dirty-something
     title: Dirty Something
     artist_name: KAbi
     artist_slug: kabi
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-dirty-something.mp3
   - slug: kabi-futured
     title: Futured
     artist_name: KAbi
     artist_slug: kabi
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-futured.mp3
   - slug: kabi-gui
     title: Gui
     artist_name: KAbi
     artist_slug: kabi
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-gui.mp3
   - slug: kabi-ingibiginging
     title: Ingibiginging
     artist_name: KAbi
     artist_slug: kabi
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-ingibiginging.mp3
   - slug: kabi-pomp-dit
     title: Pomp Dit
     artist_name: KAbi
     artist_slug: kabi
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-pomp-dit.mp3
   - slug: kabi-psydewise-sceletium-gut
     title: Sceletium Gut
     artist_name: KAbi & Psydewise
     artist_slug: kabi,psydewise
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-psydewise-sceletium-gut.mp3
   - slug: kabi-sentimental
     title: Sentimental
     artist_name: 🇿🇦 KAbi
     artist_slug: kabi
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-sentimental.mp3
   - slug: kabi-stillnothing
     title: Stillnothing
     artist_name: 🇿🇦 KAbi
     artist_slug: kabi
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-stillnothing.mp3
   - slug: kabi-terra
     title: Terra
     artist_name: KAbi
     artist_slug: kabi
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kabi-terra.mp3
   - slug: kalpataru-tree-metalullaby
     title: MetaLullaby
     artist_name: Kalpataru Tree
     artist_slug: kalpataru-tree
     bpm: 77
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kalpataru-tree-metalullaby.mp3
   - slug: kauyumari-amme
     title: Amme
     artist_name: 🇲🇽 Kauyumari
     artist_slug: kauyumari
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-amme.mp3
   - slug: kauyumari-eternal-transformation-of-a-soul
     title: Eternal Transformation Of A Soul
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-eternal-transformation-of-a-soul.mp3
   - slug: kauyumari-kaax-feat-omega-sound-kauyumari-rmx
     title: Kaax (feat. Omega Sound) (Kauyumari Rmx)
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-kaax-feat-omega-sound-kauyumari-rmx.mp3
   - slug: kauyumari-legend-of-the-cresent-moon-bear
     title: Legend Of The Cresent Moon Bear
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 92
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-legend-of-the-cresent-moon-bear.mp3
   - slug: kauyumari-lightness
     title: Lightness
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 70
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-lightness.mp3
   - slug: kauyumari-sonic-alchemy
     title: Sonic Alchemy
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-sonic-alchemy.mp3
   - slug: kauyumari-subterrenean-pulse
     title: Subterrenean Pulse
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-subterrenean-pulse.mp3
   - slug: kauyumari-tepezcohuite
     title: Tepezcohuite
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 111
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-tepezcohuite.mp3
   - slug: kauyumari-tonal
     title: Tonal
     artist_name: 🇲🇽 Kauyumari
     artist_slug: kauyumari
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-tonal.mp3
   - slug: kauyumari-transmuting
     title: Transmuting
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-transmuting.mp3
   - slug: kauyumari-unity
     title: Unity
     artist_name: Kauyumari
     artist_slug: kauyumari
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kauyumari-unity.mp3
   - slug: khooman-kadha
     title: Kadha
     artist_name: Khooman
     artist_slug: khooman
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/khooman-kadha.mp3
   - slug: kromagon-heacy-lohic-irukanji-eleexr-exolt-rmx
     title: Heacy Lohic (Irukanji, EleexR, eXoLT Rmx)
     artist_name: Kromagon
     artist_slug: kromagon
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/kromagon-heacy-lohic-irukanji-eleexr-exolt-rmx.mp3
   - slug: lemonchill-moonlight-sonata-astropilot-remix
     title: Moonlight Sonata (AstroPilot Remix)
     artist_name: Lemonchill
     artist_slug: lemonchill
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/lemonchill-moonlight-sonata-astropilot-remix.mp3
   - slug: liquid-crystal-raindrops
     title: Raindrops
     artist_name: Liquid Crystal
     artist_slug: liquid-crystal
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/liquid-crystal-raindrops.mp3
   - slug: liquid-mind-free-dance
     title: Free Dance
     artist_name: Liquid Mind
@@ -16169,307 +16166,307 @@ tracks:
     artist_name: 🇺🇦 Liquid Soma
     artist_slug: liquid-soma
     bpm: 94
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/liquid-soma-trippy-frog.mp3
   - slug: magic-science-atman
     title: Atman
     artist_name: Magic Science
     artist_slug: magic-science
     bpm: 146
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/magic-science-atman.mp3
   - slug: magmadivers-it-s-all-in-your-head
     title: It's All In Your Head
     artist_name: Magmadivers
     artist_slug: magmadivers
     bpm: 149
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/magmadivers-it-s-all-in-your-head.mp3
   - slug: mahaon-leaving-the-limit-feat-locus
     title: Leaving The Limit (feat. Locus)
     artist_name: Mahaon
     artist_slug: mahaon
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mahaon-leaving-the-limit-feat-locus.mp3
   - slug: mary-bruk-sandal
     title: Sandal
     artist_name: Mary Bruk
     artist_slug: mary-bruk
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mary-bruk-sandal.mp3
   - slug: mindex-clown-s-ghost
     title: Clown's Ghost
     artist_name: 🇺🇸 Mindex
     artist_slug: mindex
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mindex-clown-s-ghost.mp3
   - slug: mindex-the-door-feat-back-to-the-roots
     title: The Door (feat. Back To The Roots)
     artist_name: Mindex
     artist_slug: mindex
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mindex-the-door-feat-back-to-the-roots.mp3
   - slug: mindex-warrior
     title: Warrior
     artist_name: Mindex
     artist_slug: mindex
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mindex-warrior.mp3
   - slug: mirror-me-iridescent-daylight
     title: Iridescent Daylight
     artist_name: Mirror Me
     artist_slug: mirror-me
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mirror-me-iridescent-daylight.mp3
   - slug: mirror-me-sinusoidal-horizons
     title: Sinusoidal Horizons
     artist_name: Mirror Me
     artist_slug: mirror-me
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mirror-me-sinusoidal-horizons.mp3
   - slug: mirror-me-spectral-seafloor
     title: Spectral Seafloor
     artist_name: Mirror Me
     artist_slug: mirror-me
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mirror-me-spectral-seafloor.mp3
   - slug: mushroomslice-chandrayaan-3
     title: Chandrayaan 3
     artist_name: Mushroomslice
     artist_slug: mushroomslice
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mushroomslice-chandrayaan-3.mp3
   - slug: mushroomslice-cosmic-strings
     title: Cosmic Strings
     artist_name: Mushroomslice
     artist_slug: mushroomslice
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mushroomslice-cosmic-strings.mp3
   - slug: mushroomslice-gliese-581-c
     title: Gliese 581 C
     artist_name: Mushroomslice
     artist_slug: mushroomslice
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mushroomslice-gliese-581-c.mp3
   - slug: mushroomslice-ic-2177
     title: IC 2177
     artist_name: Mushroomslice
     artist_slug: mushroomslice
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mushroomslice-ic-2177.mp3
   - slug: mushroomslice-impromptu-shadows
     title: Impromptu Shadows
     artist_name: Mushroomslice
     artist_slug: mushroomslice
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mushroomslice-impromptu-shadows.mp3
   - slug: mushroomslice-interference
     title: Interference
     artist_name: Mushroomslice
     artist_slug: mushroomslice
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/mushroomslice-interference.mp3
   - slug: neirula-absolutiz-hipnotyzze-out
     title: Absolutiz Hipnotyzze (Out)
     artist_name: NeiRula
     artist_slug: neirula
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/neirula-absolutiz-hipnotyzze-out.mp3
   - slug: neirula-approaching-to-pulsar
     title: Approaching To Pulsar
     artist_name: NeiRula
     artist_slug: neirula
     bpm: 113
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/neirula-approaching-to-pulsar.mp3
   - slug: neirula-eyes-of-atlans
     title: Eyes Of Atlans
     artist_name: NeiRula
     artist_slug: neirula
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/neirula-eyes-of-atlans.mp3
   - slug: neurolabz-neohuman
     title: NeoHUman
     artist_name: 🇫🇷 Neurolabz
     artist_slug: neurolabz
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/neurolabz-neohuman.mp3
   - slug: nexar-jewel-astropilot-edit
     title: Jewel (AstroPilot Edit)
     artist_name: Nexar
     artist_slug: nexar
     bpm: 85
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nexar-jewel-astropilot-edit.mp3
   - slug: no-c-init-feat-psychoz
     title: C - Init (feat. Psychoz)
     artist_name: No
     artist_slug: no
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/no-c-init-feat-psychoz.mp3
   - slug: noid-jai-1-simple-thing
     title: 1 Simple Thing
     artist_name: Noid & Jai
     artist_slug: noid,jai
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noid-jai-1-simple-thing.mp3
   - slug: noob-psybot-halform-dogon
     title: Dogon
     artist_name: Noob Psybot & Halform
     artist_slug: noob-psybot,halform
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noob-psybot-halform-dogon.mp3
   - slug: noob-psybot-false-compass
     title: False Compass
     artist_name: Noob Psybot
     artist_slug: noob-psybot
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noob-psybot-false-compass.mp3
   - slug: noob-psybot-jakub-s-ladder
     title: Jakub's Ladder
     artist_name: Noob Psybot
     artist_slug: noob-psybot
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noob-psybot-jakub-s-ladder.mp3
   - slug: noob-psybot-geozen-obscure-litany
     title: Obscure Litany
     artist_name: Noob Psybot & Geozen
     artist_slug: noob-psybot,geozen
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noob-psybot-geozen-obscure-litany.mp3
   - slug: noob-psybot-anomalie-in-portal-kombat
     title: Portal Kombat
     artist_name: Noob Psybot & Anomalie (IN)
     artist_slug: noob-psybot,anomalie-in
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noob-psybot-anomalie-in-portal-kombat.mp3
   - slug: noob-psybot-alien-time-run-dmt
     title: Run DMT
     artist_name: Noob Psybot & Alien Time
     artist_slug: noob-psybot,alien-time
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noob-psybot-alien-time-run-dmt.mp3
   - slug: noob-psybot-stoned-lizards
     title: Stoned Lizards
     artist_name: 🇮🇳 Noob Psybot
     artist_slug: noob-psybot
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/noob-psybot-stoned-lizards.mp3
   - slug: nova-fractal-through-our-senses-sky-technology-rmx
     title: Through Our Senses (Sky Technology Rmx)
     artist_name: Nova Fractal
     artist_slug: nova-fractal
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nova-fractal-through-our-senses-sky-technology-rmx.mp3
   - slug: nuada-back-to-source
     title: Back To Source
     artist_name: Nuada
     artist_slug: nuada
     bpm: 144
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-back-to-source.mp3
   - slug: nuada-collective-endeavour
     title: Collective Endeavour
     artist_name: Nuada
     artist_slug: nuada
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-collective-endeavour.mp3
   - slug: nuada-deyja
     title: Deyja
     artist_name: Nuada
     artist_slug: nuada
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-deyja.mp3
   - slug: nuada-empty-yourself
     title: Empty Yourself
     artist_name: Nuada
     artist_slug: nuada
     bpm: 141
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-empty-yourself.mp3
   - slug: nuada-infinite-love
     title: Infinite Love
     artist_name: Nuada
     artist_slug: nuada
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-infinite-love.mp3
   - slug: nuada-mirror-to-nature
     title: Mirror To Nature
     artist_name: Nuada
     artist_slug: nuada
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-mirror-to-nature.mp3
   - slug: nuada-psychotomimetic
     title: Psychotomimetic
     artist_name: Nuada
     artist_slug: nuada
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-psychotomimetic.mp3
   - slug: nuada-the-absolute
     title: The Absolute
     artist_name: Nuada
     artist_slug: nuada
     bpm: 141
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-the-absolute.mp3
   - slug: nuada-the-present-moment
     title: The Present Moment
     artist_name: Nuada
     artist_slug: nuada
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-the-present-moment.mp3
   - slug: nuada-the-sonny-side
     title: The Sonny Side
     artist_name: Nuada
     artist_slug: nuada
     bpm: 144
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-the-sonny-side.mp3
   - slug: nuada-wakan-tanka
     title: Wakan Tanka
     artist_name: Nuada
     artist_slug: nuada
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-wakan-tanka.mp3
   - slug: nuada-wilder
     title: Wilder
     artist_name: Nuada
     artist_slug: nuada
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-wilder.mp3
   - slug: nuada-world-of-ideas
     title: World Of Ideas
     artist_name: Nuada
     artist_slug: nuada
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/nuada-world-of-ideas.mp3
   - slug: omnisound-absortium
     title: Absortium
     artist_name: 🇺🇦 Omnisound
     artist_slug: omnisound
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/omnisound-absortium.mp3
   - slug: omnisound-bridge
     title: Bridge
     artist_name: Omnisound
     artist_slug: omnisound
     bpm: 92
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/omnisound-bridge.mp3
   - slug: omnisound-destiny-feat-masha-lichee
     title: Destiny (feat. Masha Lichee)
     artist_name: Omnisound
     artist_slug: omnisound
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/omnisound-destiny-feat-masha-lichee.mp3
   - slug: omnisound-open-for-more
     title: Open For More
     artist_name: Omnisound
     artist_slug: omnisound
     bpm: 97
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/omnisound-open-for-more.mp3
   - slug: omnisound-waterfall
     title: Waterfall
     artist_name: Omnisound
     artist_slug: omnisound
     bpm: 98
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/omnisound-waterfall.mp3
   - slug: overdream-flat-earther-beautiful-edit
     title: Flat Earther (Beautiful Edit)
     artist_name: Overdream
     artist_slug: overdream
     bpm: 113
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-flat-earther-beautiful-edit.mp3
   - slug: overdream-flat-earthers
     title: Flat Earthers
     artist_name: Overdream
@@ -16481,109 +16478,109 @@ tracks:
     artist_name: Overdream
     artist_slug: overdream
     bpm: 118
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-kopimist.mp3
   - slug: overdream-mystique-cabalistique
     title: Mystique Cabalistique
     artist_name: Overdream
     artist_slug: overdream
     bpm: 92
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-mystique-cabalistique.mp3
   - slug: overdream-omnipresence
     title: Omnipresence
     artist_name: Overdream
     artist_slug: overdream
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-omnipresence.mp3
   - slug: overdream-radical-utopian
     title: Radical Utopian
     artist_name: Overdream
     artist_slug: overdream
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-radical-utopian.mp3
   - slug: overdream-rear-gear-forest-ear
     title: Rear Gear Forest Ear
     artist_name: Overdream
     artist_slug: overdream
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-rear-gear-forest-ear.mp3
   - slug: overdream-skywalker-feat-proff
     title: Skywalker (feat. Proff)
     artist_name: Overdream
     artist_slug: overdream
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/overdream-skywalker-feat-proff.mp3
   - slug: pandemicus-out-of-space
     title: Out Of Space
     artist_name: Pandemicus
     artist_slug: pandemicus
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/pandemicus-out-of-space.mp3
   - slug: paracozm-vorg-as-above-so-below
     title: As Above So Below
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-as-above-so-below.mp3
   - slug: paracozm-framed-tystix-rmx
-    title: Framed (🇿🇦🇧🇪 TyStix Rmx)
+    title: Framed (TyStix Rmx)
     artist_name: Paracozm
     artist_slug: paracozm
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-framed-tystix-rmx.mp3
   - slug: paracozm-vorg-hyperqube
     title: HyperQube
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-hyperqube.mp3
   - slug: paracozm-vorg-mind-awake
     title: Mind Awake
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-mind-awake.mp3
   - slug: paracozm-multiverse-gaz-mask-rmx-ii
     title: Multiverse (Gaz Mask Rmx II)
     artist_name: Paracozm
     artist_slug: paracozm
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-multiverse-gaz-mask-rmx-ii.mp3
   - slug: paracozm-vorg-the-code
     title: The Code
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-the-code.mp3
   - slug: paracozm-vorg-the-dream
     title: The Dream
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-the-dream.mp3
   - slug: paracozm-vorg-the-swarm
     title: The Swarm
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-the-swarm.mp3
   - slug: paracozm-vorg-too-weird-to-live-too-rare-to-die
     title: Too Weird To Live, Too Rare To Die
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 133
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-too-weird-to-live-too-rare-to-die.mp3
   - slug: paracozm-vorg-visions
     title: Visions
     artist_name: Paracozm & VORG
     artist_slug: paracozm,vorg
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/paracozm-vorg-visions.mp3
   - slug: pharaom-white-lotus-energy
     title: White Lotus Energy
     artist_name: PharaOm
     artist_slug: pharaom
     bpm: 146
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/pharaom-white-lotus-energy.mp3
   - slug: primordial-ooze-trial
     title: Trial
     artist_name: Primordial Ooze
@@ -16595,211 +16592,211 @@ tracks:
     artist_name: Prok
     artist_slug: prok
     bpm: 144
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/prok-gliese.mp3
   - slug: psydewise-blast
     title: Blast!
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-blast.mp3
   - slug: psydewise-crystalized-mind
     title: Crystalized Mind
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-crystalized-mind.mp3
   - slug: psydewise-family-business
     title: Family Business
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-family-business.mp3
   - slug: psydewise-fleeting-moments
     title: Fleeting Moments
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-fleeting-moments.mp3
   - slug: psydewise-hypnocritic
     title: Hypnocritic
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-hypnocritic.mp3
   - slug: psydewise-intruder
     title: Intruder
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-intruder.mp3
   - slug: psydewise-mars-needs-women
     title: Mars Needs Women
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-mars-needs-women.mp3
   - slug: psydewise-microscope
     title: Microscope
     artist_name: 🇿🇦 Psydewise
     artist_slug: psydewise
     bpm: 67
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-microscope.mp3
   - slug: psydewise-milkdrop
     title: Milkdrop
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-milkdrop.mp3
   - slug: psydewise-mk-ultra
     title: MK Ultra
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-mk-ultra.mp3
   - slug: psydewise-mycelium-network-feat-nifex
     title: Mycelium Network (feat. Nifex)
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-mycelium-network-feat-nifex.mp3
   - slug: psydewise-navaho-reject
     title: Navaho Reject
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-navaho-reject.mp3
   - slug: psydewise-oryx
     title: Oryx
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-oryx.mp3
   - slug: psydewise-parabuthus
     title: Parabuthus
     artist_name: 🇿🇦 Psydewise
     artist_slug: psydewise
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-parabuthus.mp3
   - slug: psydewise-pixelated-pupils
     title: Pixelated Pupils
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-pixelated-pupils.mp3
   - slug: psydewise-puddled-in-dub
     title: Puddled In Dub
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-puddled-in-dub.mp3
   - slug: psydewise-pulsars
     title: Pulsars
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-pulsars.mp3
   - slug: psydewise-southern-grunter
     title: Southern Grunter
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-southern-grunter.mp3
   - slug: psydewise-tetrafloraxapan
     title: Tetrafloraxapan
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-tetrafloraxapan.mp3
   - slug: psydewise-unknown-origin
     title: Unknown Origin
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-unknown-origin.mp3
   - slug: psydewise-visual-cortex
     title: Visual Cortex
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-visual-cortex.mp3
   - slug: psydewise-zontar
     title: Zontar
     artist_name: Psydewise
     artist_slug: psydewise
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psydewise-zontar.mp3
   - slug: psyfactor-allover
     title: Allover
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-allover.mp3
   - slug: psyfactor-earth-like
     title: Earth-Like
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-earth-like.mp3
   - slug: psyfactor-electrify-yourselves
     title: Electrify Yourselves
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-electrify-yourselves.mp3
   - slug: psyfactor-i-leave
     title: I Leave
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-i-leave.mp3
   - slug: psyfactor-last-martian
     title: Last Martian
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-last-martian.mp3
   - slug: psyfactor-lost-myself
     title: Lost Myself
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-lost-myself.mp3
   - slug: psyfactor-nine
     title: Nine
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-nine.mp3
   - slug: psyfactor-orbiter
     title: Orbiter
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-orbiter.mp3
   - slug: psyfactor-outwards
     title: Outwards
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 155
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-outwards.mp3
   - slug: psyfactor-retro-scientific
     title: Retro Scientific
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-retro-scientific.mp3
   - slug: psyfactor-skydive
     title: Skydive
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 155
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-skydive.mp3
   - slug: psyfactor-stop-going
     title: Stop Going
     artist_name: Psyfactor
     artist_slug: psyfactor
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psyfactor-stop-going.mp3
   - slug: psypheric-asteroid-belt
     title: Asteroid Belt
     artist_name: 🇺🇦 Psypheric
@@ -16811,121 +16808,121 @@ tracks:
     artist_name: Psypheric
     artist_slug: psypheric
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psypheric-d-dt-vann.mp3
   - slug: psypheric-m-rk-skog
     title: Mørk Skog
     artist_name: Psypheric
     artist_slug: psypheric
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psypheric-m-rk-skog.mp3
   - slug: psypheric-trolljegeren
     title: Trolljegeren
     artist_name: Psypheric
     artist_slug: psypheric
     bpm: 118
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/psypheric-trolljegeren.mp3
   - slug: qube-the-monster
     title: The Monster
     artist_name: QUBE
     artist_slug: qube
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/qube-the-monster.mp3
   - slug: ra-djan-space-breaks
     title: Space Breaks
     artist_name: Ra Djan
     artist_slug: ra-djan
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ra-djan-space-breaks.mp3
   - slug: rabitza-port
     title: Port
     artist_name: Rabitza
     artist_slug: rabitza
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/rabitza-port.mp3
   - slug: reactive-free-search
     title: Free Search
     artist_name: Reactive
     artist_slug: reactive
     bpm: 118
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/reactive-free-search.mp3
   - slug: rexuss-chakra
     title: Chakra
     artist_name: Rexuss
     artist_slug: rexuss
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/rexuss-chakra.mp3
   - slug: roof-raiser-abnormal-plants
     title: Abnormal Plants
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 149
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-abnormal-plants.mp3
   - slug: roof-raiser-bug-inside
     title: Bug Inside
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 170
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-bug-inside.mp3
   - slug: roof-raiser-cifroteca-bukanna
     title: Bukanna
     artist_name: Roof Raiser & Cifroteca
     artist_slug: roof-raiser,cifroteca
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-cifroteca-bukanna.mp3
   - slug: roof-raiser-drops-of-noise
     title: Drops Of Noise
     artist_name: 🇺🇦 Roof Raiser
     artist_slug: roof-raiser
     bpm: 160
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-drops-of-noise.mp3
   - slug: roof-raiser-gmo25
     title: GMO25
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-gmo25.mp3
   - slug: roof-raiser-ice-age
     title: Ice Age
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 104
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-ice-age.mp3
   - slug: roof-raiser-object-m82
     title: Object M82
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-object-m82.mp3
   - slug: roof-raiser-parallel-reality
     title: Parallel Reality
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-parallel-reality.mp3
   - slug: roof-raiser-stone-garden
     title: Stone Garden
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-stone-garden.mp3
   - slug: roof-raiser-warning-signal
     title: Warning Signal
     artist_name: Roof Raiser
     artist_slug: roof-raiser
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/roof-raiser-warning-signal.mp3
   - slug: saikozaurus-key-meeting
     title: Key Meeting
     artist_name: Saikozaurus
     artist_slug: saikozaurus
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/saikozaurus-key-meeting.mp3
   - slug: scarlet-crow-all-or-nothing-seamoon-rmx
     title: All Or Nothing (🇩🇪 SeaMoon Rmx)
     artist_name: 🇺🇸 Scarlet Crow
     artist_slug: scarlet-crow
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/scarlet-crow-all-or-nothing-seamoon-rmx.mp3
   - slug: seamoon-the-coolness-of-love
     title: The Coolness Of Love
     artist_name: 🇩🇪 Seamoon
@@ -16937,43 +16934,43 @@ tracks:
     artist_name: Senzar
     artist_slug: senzar
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-before-the-morning-sun.mp3
   - slug: senzar-before-the-morning-sun-nasa-rmx
     title: Before The Morning Sun (NASA Rmx)
     artist_name: Senzar
     artist_slug: senzar
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-before-the-morning-sun-nasa-rmx.mp3
   - slug: senzar-book-of-dzyan
     title: Book Of Dzyan
     artist_name: Senzar
     artist_slug: senzar
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-book-of-dzyan.mp3
   - slug: senzar-deep-sea-civilization
     title: Deep Sea Civilization
     artist_name: Senzar
     artist_slug: senzar
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-deep-sea-civilization.mp3
   - slug: senzar-finsteraarhorn-erot-rmx
     title: Finsteraarhorn (Erot Rmx)
     artist_name: Senzar
     artist_slug: senzar
     bpm: 85
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-finsteraarhorn-erot-rmx.mp3
   - slug: senzar-intro-feat-ariel-electron
     title: Intro (feat. Ariel Electron)
     artist_name: Senzar
     artist_slug: senzar
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-intro-feat-ariel-electron.mp3
   - slug: senzar-mos-pa-tr-erne
     title: Mos På Træerne
     artist_name: Senzar
     artist_slug: senzar
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-mos-pa-tr-erne.mp3
   - slug: senzar-nature-moves
     title: Nature Moves
     artist_name: Senzar
@@ -16985,37 +16982,37 @@ tracks:
     artist_name: Senzar
     artist_slug: senzar
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-path-of-dhyana.mp3
   - slug: senzar-power-of-light
     title: Power Of Light
     artist_name: Senzar
     artist_slug: senzar
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-power-of-light.mp3
   - slug: senzar-sun-dance
     title: Sun Dance
     artist_name: Senzar
     artist_slug: senzar
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/senzar-sun-dance.mp3
   - slug: shiva3-old-moon
     title: Old Moon
     artist_name: Shiva3
     artist_slug: shiva3
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shiva3-old-moon.mp3
   - slug: shivattva-foggy-land-of-zartak
     title: Foggy Land Of Zartak
     artist_name: Shivattva
     artist_slug: shivattva
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shivattva-foggy-land-of-zartak.mp3
   - slug: shizolizer-gin-come-back
     title: Come Back
     artist_name: ShizoLizer Gin
     artist_slug: shizolizer-gin
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shizolizer-gin-come-back.mp3
   - slug: shizolizer-gin-kinder-pingui
     title: Kinder Pingui
     artist_name: ShizoLizer Gin
@@ -17027,49 +17024,49 @@ tracks:
     artist_name: ShizoLizer Gin
     artist_slug: shizolizer-gin
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shizolizer-gin-pony-ponyslas.mp3
   - slug: shizolizer-gin-skygravity-trance-mission
     title: Skygravity Trance Mission
     artist_name: ShizoLizer Gin
     artist_slug: shizolizer-gin
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shizolizer-gin-skygravity-trance-mission.mp3
   - slug: shizolizer-gin-sweet-dino
     title: Sweet Dino
     artist_name: ShizoLizer Gin
     artist_slug: shizolizer-gin
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shizolizer-gin-sweet-dino.mp3
   - slug: shmewl-deuteroz-fusion-contrast
     title: Fusion Contrast
     artist_name: sHmewl & Deuteroz
     artist_slug: shmewl,deuteroz
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shmewl-deuteroz-fusion-contrast.mp3
   - slug: shunya-ocean-of-sound
     title: Ocean Of Sound
     artist_name: ShunyA
     artist_slug: shunya
     bpm: 60
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/shunya-ocean-of-sound.mp3
   - slug: sinister-sequence-tribe-5-0
     title: Tribe 5.0
     artist_name: Sinister Sequence
     artist_slug: sinister-sequence
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sinister-sequence-tribe-5-0.mp3
   - slug: sky-mavka-glass-cave
     title: Glass Cave
     artist_name: Sky Mavka
     artist_slug: sky-mavka
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sky-mavka-glass-cave.mp3
   - slug: sky-technology-reactor-of-life
     title: Reactor Of Life
     artist_name: Sky Technology
     artist_slug: sky-technology
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sky-technology-reactor-of-life.mp3
   - slug: sol-chudo-81-harax-version
     title: Chudo 81 (Harax Version)
     artist_name: Sol
@@ -17081,223 +17078,223 @@ tracks:
     artist_name: Solcast
     artist_slug: solcast
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/solcast-cheiook.mp3
   - slug: solcast-chinese-pineapple
     title: Chinese Pineapple
     artist_name: Solcast
     artist_slug: solcast
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/solcast-chinese-pineapple.mp3
   - slug: solcast-hi-paul
     title: Hi Paul
     artist_name: Solcast
     artist_slug: solcast
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/solcast-hi-paul.mp3
   - slug: sourone-ghostwire
     title: Ghostwire
     artist_name: Sourone
     artist_slug: sourone
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sourone-ghostwire.mp3
   - slug: sourone-insane-in-the-mainframe
     title: Insane In The Mainframe
     artist_name: 🇵🇱 Sourone
     artist_slug: sourone
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sourone-insane-in-the-mainframe.mp3
   - slug: sourone-qualia
     title: Qualia
     artist_name: 🇵🇱 Sourone
     artist_slug: sourone
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sourone-qualia.mp3
   - slug: sourone-the-alpha
     title: The Alpha
     artist_name: Sourone
     artist_slug: sourone
     bpm: 138
-    audio_url: null
-  - slug: space-organ-07-irukanji-auto-approve-space-organ-rmx
-    title: 07 Irukanji - Auto-approve (Space Organ Rmx)
-    artist_name: Space Organ
-    artist_slug: space-organ
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sourone-the-alpha.mp3
+  - slug: irukanji-auto-approve-space-organ-rmx
+    title: Auto-approve (Space Organ Rmx)
+    artist_name: Irukanji
+    artist_slug: irukanji
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/irukanji-auto-approve-space-organ-rmx.mp3
   - slug: space-organ-2030
     title: "2030"
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-2030.mp3
   - slug: space-organ-bapho
     title: Bapho
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-bapho.mp3
   - slug: space-organ-forest-call
     title: Forest Call
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-forest-call.mp3
   - slug: space-organ-hide-on-bush
     title: Hide On Bush
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-hide-on-bush.mp3
   - slug: space-organ-hybrid
     title: Hybrid
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-hybrid.mp3
   - slug: space-organ-ollof
     title: Ollof
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-ollof.mp3
   - slug: space-organ-ota
     title: OtA
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-ota.mp3
   - slug: space-organ-short-flow
     title: Short Flow
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 144
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-short-flow.mp3
   - slug: space-organ-troius
     title: Troius
     artist_name: 🇧🇷 Space Organ
     artist_slug: space-organ
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-troius.mp3
   - slug: space-organ-ultimate-rush-vs-juelz
     title: Ultimate Rush (vs. Juelz)
     artist_name: Space Organ
     artist_slug: space-organ
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-ultimate-rush-vs-juelz.mp3
   - slug: space-organ-vs-omega-sound-compbrake
     title: Compbrake
     artist_name: Space Organ vs. Omega Sound
     artist_slug: space-organ-vs-omega-sound
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-vs-omega-sound-compbrake.mp3
   - slug: space-vibes-system-space-energy
     title: Space Energy
     artist_name: Space Vibes System
     artist_slug: space-vibes-system
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-vibes-system-space-energy.mp3
   - slug: spacecraft-boogyman
     title: Boogyman
     artist_name: SpaceCraft
     artist_slug: spacecraft
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spacecraft-boogyman.mp3
   - slug: spacecraft-metamorphosis
     title: Metamorphosis
     artist_name: SpaceCraft
     artist_slug: spacecraft
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spacecraft-metamorphosis.mp3
   - slug: spacecraft-new-age-behaviour
     title: New Age Behaviour
     artist_name: SpaceCraft
     artist_slug: spacecraft
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spacecraft-new-age-behaviour.mp3
   - slug: spacecraft-alternative-roots-space-roots
     title: Space Roots
     artist_name: SpaceCraft & Alternative Roots
     artist_slug: spacecraft,alternative-roots
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spacecraft-alternative-roots-space-roots.mp3
   - slug: spacecraft-uncover
     title: Uncover
     artist_name: SpaceCraft
     artist_slug: spacecraft
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spacecraft-uncover.mp3
   - slug: specialmind-alterlife
     title: Alterlife
     artist_name: Specialmind
     artist_slug: specialmind
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/specialmind-alterlife.mp3
   - slug: specialmind-alterlife-tentura-rmx
     title: Alterlife (Tentura Rmx)
     artist_name: Specialmind
     artist_slug: specialmind
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/specialmind-alterlife-tentura-rmx.mp3
   - slug: specialmind-perception-of-calmness
     title: Perception Of Calmness
     artist_name: Specialmind
     artist_slug: specialmind
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/specialmind-perception-of-calmness.mp3
   - slug: specialmind-soul-language
     title: Soul Language
     artist_name: Specialmind
     artist_slug: specialmind
     bpm: 113
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/specialmind-soul-language.mp3
   - slug: specialmind-soul-language-unusual-cosmic-process-rmx
     title: Soul Language (Unusual Cosmic Process Rmx)
     artist_name: Specialmind
     artist_slug: specialmind
     bpm: 113
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/specialmind-soul-language-unusual-cosmic-process-rmx.mp3
   - slug: specialmind-the-missing-particle
     title: The Missing Particle
     artist_name: Specialmind
     artist_slug: specialmind
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/specialmind-the-missing-particle.mp3
   - slug: specialmind-usual-magic
     title: Usual Magic
     artist_name: 🇺🇦 Specialmind
     artist_slug: specialmind
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/specialmind-usual-magic.mp3
   - slug: spectrum-vision-ameica
     title: Ameica
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-ameica.mp3
   - slug: spectrum-vision-anna
     title: Anna
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-anna.mp3
   - slug: spectrum-vision-devise-25
     title: Devise 25
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-devise-25.mp3
   - slug: spectrum-vision-electro-system
     title: Electro System
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 124
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-electro-system.mp3
   - slug: spectrum-vision-liquid-world
     title: Liquid World
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-liquid-world.mp3
   - slug: spectrum-vision-mono-town
     title: Mono Town
     artist_name: Spectrum Vision
@@ -17309,7 +17306,7 @@ tracks:
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-mystical-bruhoo.mp3
   - slug: spectrum-vision-mystical-experiences
     title: Mystical Experiences
     artist_name: Spectrum Vision
@@ -17321,37 +17318,37 @@ tracks:
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 72
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-natural-burn.mp3
   - slug: spectrum-vision-outsiders
     title: Outsiders
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-outsiders.mp3
   - slug: spectrum-vision-paper-love
     title: Paper Love
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-paper-love.mp3
   - slug: spectrum-vision-pikake
     title: Pikake
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-pikake.mp3
   - slug: spectrum-vision-sympotronic
     title: Sympotronic
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 95
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-sympotronic.mp3
   - slug: spectrum-vision-tajmahal
     title: Tajmahal
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-tajmahal.mp3
   - slug: spectrum-vision-time-out-man-out
     title: Time Out Man (Out)
     artist_name: Spectrum Vision
@@ -17363,43 +17360,43 @@ tracks:
     artist_name: Spectrum Vision
     artist_slug: spectrum-vision
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spectrum-vision-tunguska.mp3
   - slug: sphingida-after-this
     title: After This
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-after-this.mp3
   - slug: sphingida-alone-in-aqua-endless
     title: Alone In Aqua Endless
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-alone-in-aqua-endless.mp3
   - slug: sphingida-crystal-silence
     title: Crystal Silence
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-crystal-silence.mp3
   - slug: sphingida-fountain-of-youth
     title: Fountain Of Youth
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-fountain-of-youth.mp3
   - slug: sphingida-gigs-faka-vs-roof-raiser
     title: Gigs Faka (vs. Roof Raiser)
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-gigs-faka-vs-roof-raiser.mp3
   - slug: sphingida-in-the-algae
     title: In The Algae
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-in-the-algae.mp3
   - slug: sphingida-machaon
     title: Machaon
     artist_name: Sphingida
@@ -17411,67 +17408,67 @@ tracks:
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 96
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-new-age-lullaby.mp3
   - slug: sphingida-outside
     title: Outside
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 64
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-outside.mp3
   - slug: sphingida-over-the-depth
     title: Over The Depth
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 72
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-over-the-depth.mp3
   - slug: sphingida-spaceward
     title: Spaceward
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-spaceward.mp3
   - slug: sphingida-springled-planet
     title: Springled Planet
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-springled-planet.mp3
   - slug: sphingida-submerge
     title: Submerge
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-submerge.mp3
   - slug: sphingida-sunset-sign
     title: Sunset Sign
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-sunset-sign.mp3
   - slug: sphingida-toxic-memory
     title: Toxic Memory
     artist_name: Sphingida
     artist_slug: sphingida
     bpm: 77
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sphingida-toxic-memory.mp3
   - slug: spirit-medicine-in-the-brain-machines
     title: In The Brain Machines
     artist_name: Spirit Medicine
     artist_slug: spirit-medicine
     bpm: 150
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/spirit-medicine-in-the-brain-machines.mp3
   - slug: sumiruna-sourone-antithesis-sourone-mix
     title: Antithesis (🇵🇱 Sourone Mix)
     artist_name: Sumiruna & Sourone
     artist_slug: sumiruna,sourone
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sumiruna-sourone-antithesis-sourone-mix.mp3
   - slug: sumiruna-kismet-space-organ-rmx
     title: Kismet (Space Organ Rmx)
     artist_name: Sumiruna
     artist_slug: sumiruna
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/sumiruna-kismet-space-organ-rmx.mp3
   - slug: sygnals-among-others
     title: Among Others
     artist_name: Sygnals
@@ -17483,37 +17480,37 @@ tracks:
     artist_name: Syned Brain
     artist_slug: syned-brain
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/syned-brain-inception.mp3
   - slug: syned-brain-inception-dementor-remix
     title: Inception (Dementor Remix)
     artist_name: Syned Brain
     artist_slug: syned-brain
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/syned-brain-inception-dementor-remix.mp3
   - slug: syned-brain-dementor-mysterium-tremendum
     title: MysteriUM TremendUM
     artist_name: Syned Brain & Dementor
     artist_slug: syned-brain,dementor
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/syned-brain-dementor-mysterium-tremendum.mp3
   - slug: syned-brain-dementor-origin-of-valak
     title: Origin Of Valak
     artist_name: Syned Brain & Dementor
     artist_slug: syned-brain,dementor
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/syned-brain-dementor-origin-of-valak.mp3
   - slug: syned-brain-phantom-veil
     title: Phantom Veil
     artist_name: Syned Brain
     artist_slug: syned-brain
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/syned-brain-phantom-veil.mp3
   - slug: syned-brain-veil-of-eternity
     title: Veil Of Eternity
     artist_name: Syned Brain
     artist_slug: syned-brain
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/syned-brain-veil-of-eternity.mp3
   - slug: taff-wind
     title: Wind
     artist_name: Taff
@@ -17525,151 +17522,151 @@ tracks:
     artist_name: 🇩🇪 Tee Moe
     artist_slug: tee-moe
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tee-moe-babylon-groove.mp3
   - slug: tentura-alchemy
     title: Alchemy
     artist_name: Tentura
     artist_slug: tentura
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-alchemy.mp3
   - slug: tentura-aurora
     title: Aurora
     artist_name: Tentura
     artist_slug: tentura
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-aurora.mp3
   - slug: tentura-beginning-of-time
     title: Beginning Of Time
     artist_name: Tentura
     artist_slug: tentura
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-beginning-of-time.mp3
   - slug: tentura-echoes
     title: Echoes
     artist_name: Tentura
     artist_slug: tentura
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-echoes.mp3
   - slug: tentura-eclipse
     title: Eclipse
     artist_name: Tentura
     artist_slug: tentura
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-eclipse.mp3
   - slug: tentura-high-way
     title: High Way
     artist_name: Tentura
     artist_slug: tentura
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-high-way.mp3
   - slug: tentura-interstellar
     title: Interstellar
     artist_name: Tentura
     artist_slug: tentura
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-interstellar.mp3
   - slug: tentura-liftoff
     title: Liftoff
     artist_name: Tentura
     artist_slug: tentura
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-liftoff.mp3
   - slug: tentura-liftoff-omnisound-rmx
     title: Liftoff (Omnisound Rmx)
     artist_name: Tentura
     artist_slug: tentura
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-liftoff-omnisound-rmx.mp3
   - slug: tentura-melting
     title: Melting
     artist_name: Tentura
     artist_slug: tentura
     bpm: 75
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-melting.mp3
   - slug: tentura-presence-of-the-sence
     title: Presence Of The Sence
     artist_name: Tentura
     artist_slug: tentura
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-presence-of-the-sence.mp3
   - slug: tentura-resident-vs-specialmind
     title: Resident (vs. Specialmind)
     artist_name: Tentura
     artist_slug: tentura
     bpm: 113
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-resident-vs-specialmind.mp3
   - slug: tentura-resonance-remake
     title: Resonance (Remake)
     artist_name: Tentura
     artist_slug: tentura
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-resonance-remake.mp3
   - slug: tentura-rising
     title: Rising
     artist_name: Tentura
     artist_slug: tentura
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-rising.mp3
   - slug: tentura-theme-patcher-omnisound-rmx
     title: Theme Patcher (Omnisound Rmx)
     artist_name: Tentura
     artist_slug: tentura
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-theme-patcher-omnisound-rmx.mp3
   - slug: tentura-vivid
     title: Vivid
     artist_name: Tentura
     artist_slug: tentura
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tentura-vivid.mp3
   - slug: tharok-djeriko-out-of-orbit
     title: Out Of Orbit
     artist_name: Tharok & Djeriko
     artist_slug: tharok,djeriko
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tharok-djeriko-out-of-orbit.mp3
   - slug: the-doox-rano-zymosis-rmx
     title: Rano (Zymosis Rmx)
     artist_name: The Doox
     artist_slug: the-doox
     bpm: 124
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/the-doox-rano-zymosis-rmx.mp3
   - slug: tonal-sense-dark-sense
     title: Dark Sense
     artist_name: Tonal Sense
     artist_slug: tonal-sense
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tonal-sense-dark-sense.mp3
   - slug: tonal-sense-emveloping-rhythms
     title: Emveloping Rhythms
     artist_name: Tonal Sense
     artist_slug: tonal-sense
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tonal-sense-emveloping-rhythms.mp3
   - slug: tonal-sense-runs-through-my-veins
     title: Runs Through My Veins
     artist_name: Tonal Sense
     artist_slug: tonal-sense
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tonal-sense-runs-through-my-veins.mp3
   - slug: tonal-sense-sound-storm
     title: Sound Storm
     artist_name: Tonal Sense
     artist_slug: tonal-sense
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tonal-sense-sound-storm.mp3
   - slug: tookytooky-nature-of-uncertainty
     title: Nature Of Uncertainty
     artist_name: Tookytooky
     artist_slug: tookytooky
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tookytooky-nature-of-uncertainty.mp3
   - slug: tookytooky-nocturna-rmx
     title: Nocturna (Rmx)
     artist_name: Tookytooky
     artist_slug: tookytooky
     bpm: 146
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tookytooky-nocturna-rmx.mp3
   - slug: tracklist-in-alphabetical-order
     title: "* - tracklist in alphabetical order"
     artist_name: ""
@@ -17687,223 +17684,223 @@ tracks:
     artist_name: TyStix
     artist_slug: tystix
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-canyon.mp3
   - slug: tystix-cellular-witness
     title: Cellular Witness
     artist_name: TyStix
     artist_slug: tystix
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-cellular-witness.mp3
   - slug: tystix-coastal-erosion
     title: Coastal Erosion
     artist_name: TyStix
     artist_slug: tystix
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-coastal-erosion.mp3
   - slug: tystix-desert-storm
     title: Desert Storm
     artist_name: TyStix
     artist_slug: tystix
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-desert-storm.mp3
   - slug: tystix-entropy-engine
     title: Entropy Engine
     artist_name: TyStix
     artist_slug: tystix
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-entropy-engine.mp3
   - slug: tystix-expedition-1
     title: Expedition 1
     artist_name: 🇿🇦 TyStix
     artist_slug: tystix
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-expedition-1.mp3
   - slug: tystix-free-lance
     title: Free Lance
     artist_name: TyStix
     artist_slug: tystix
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-free-lance.mp3
   - slug: tystix-just-a-name
     title: Just A Name
     artist_name: TyStix
     artist_slug: tystix
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-just-a-name.mp3
   - slug: tystix-light-path
     title: Light Path
     artist_name: TyStix
     artist_slug: tystix
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-light-path.mp3
   - slug: tystix-nimbus
     title: Nimbus
     artist_name: TyStix
     artist_slug: tystix
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-nimbus.mp3
   - slug: tystix-optics
     title: Optics
     artist_name: TyStix
     artist_slug: tystix
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-optics.mp3
   - slug: tystix-quanto
     title: Quanto
     artist_name: TyStix
     artist_slug: tystix
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-quanto.mp3
   - slug: tystix-quest-fold
     title: Quest Fold
     artist_name: 🇿🇦 TyStix
     artist_slug: tystix
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-quest-fold.mp3
   - slug: tystix-romanesca
     title: Romanesca
     artist_name: TyStix
     artist_slug: tystix
     bpm: 141
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-romanesca.mp3
   - slug: tystix-spectral
     title: Spectral
     artist_name: TyStix
     artist_slug: tystix
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-spectral.mp3
   - slug: tystix-water-strider
     title: Water Strider
     artist_name: TyStix
     artist_slug: tystix
     bpm: 141
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/tystix-water-strider.mp3
   - slug: u-wave-autumn-discovery
     title: Wave - Autumn Discovery
     artist_name: U
     artist_slug: u
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/u-wave-autumn-discovery.mp3
   - slug: u-wave-caravan-dream
     title: Caravan Dream
     artist_name: U-Wave
     artist_slug: u-wave
     bpm: 96
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/u-wave-caravan-dream.mp3
   - slug: u-wave-indian-pattern
     title: Wave - Indian Pattern
     artist_name: U
     artist_slug: u
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/u-wave-indian-pattern.mp3
   - slug: u-wave-line-of-fate
     title: Line Of Fate
     artist_name: U-Wave
     artist_slug: u-wave
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/u-wave-line-of-fate.mp3
   - slug: u-wave-mama-africa
     title: Wave - Mama Africa
     artist_name: U
     artist_slug: u
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/u-wave-mama-africa.mp3
   - slug: ufomatka-afrodancerequesting
     title: Afrodancerequesting
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-afrodancerequesting.mp3
   - slug: ufomatka-alien-controlled-human-exterminator
     title: Alien Controlled Human Exterminator
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-alien-controlled-human-exterminator.mp3
   - slug: ufomatka-asteroid
     title: Asteroid
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 148
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-asteroid.mp3
   - slug: ufomatka-fornax-cluster
     title: Fornax Cluster
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-fornax-cluster.mp3
   - slug: ufomatka-freaky-son-of-a-bitch
     title: Freaky Son Of A Bitch
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 154
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-freaky-son-of-a-bitch.mp3
   - slug: ufomatka-multiplexer
     title: Multiplexer
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-multiplexer.mp3
   - slug: ufomatka-no-end
     title: No End...
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 154
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-no-end.mp3
   - slug: ufomatka-the-binman
     title: The Binman
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-the-binman.mp3
   - slug: ufomatka-vanguard1
     title: Vanguard1
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 146
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-vanguard1.mp3
   - slug: ufomatka-vega
     title: Vega
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-vega.mp3
   - slug: ufomatka-warper-mutator
     title: Warper-mutator
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-warper-mutator.mp3
   - slug: ufomatka-wasteland
     title: Wasteland
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-wasteland.mp3
   - slug: ufomatka-weird-species
     title: Weird Species
     artist_name: Ufomatka
     artist_slug: ufomatka
     bpm: 153
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/ufomatka-weird-species.mp3
   - slug: unstable-elements-emotions
     title: Emotions
     artist_name: Unstable Elements
     artist_slug: unstable-elements
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unstable-elements-emotions.mp3
   - slug: unstable-elements-once-upon-a-time
     title: Once Upon A Time
     artist_name: Unstable Elements
     artist_slug: unstable-elements
     bpm: 70
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unstable-elements-once-upon-a-time.mp3
   - slug: unstable-elements-thaw-intro
     title: Thaw (Intro)
     artist_name: Unstable Elements
     artist_slug: unstable-elements
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unstable-elements-thaw-intro.mp3
   - slug: unstable-elements-yumy-vs-madgentel
     title: Yumy (vs. Madgentel)
     artist_name: Unstable Elements
@@ -17915,61 +17912,61 @@ tracks:
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-brain-channel.mp3
   - slug: unusual-cosmic-process-brain-channel-psypheric-rmx
     title: Brain Channel (Psypheric Rmx)
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-brain-channel-psypheric-rmx.mp3
   - slug: unusual-cosmic-process-brockengespenst
     title: Brockengespenst
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-brockengespenst.mp3
   - slug: unusual-cosmic-process-connected-trough-an-ozone-hole
     title: Connected Trough An Ozone Hole
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 92
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-connected-trough-an-ozone-hole.mp3
   - slug: unusual-cosmic-process-cosmic-harmony
     title: Cosmic Harmony
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 96
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-cosmic-harmony.mp3
   - slug: unusual-cosmic-process-diadema-setosum
     title: Diadema Setosum
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-diadema-setosum.mp3
   - slug: unusual-cosmic-process-electric-fields
     title: Electric Fields
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-electric-fields.mp3
   - slug: unusual-cosmic-process-emotional-trip
     title: Emotional Trip
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-emotional-trip.mp3
   - slug: unusual-cosmic-process-fanget-av-sj-en-psypheric-rmx
     title: Fanget Av Sjøen (🇺🇦 Psypheric Rmx)
     artist_name: 🇺🇦 Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 118
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-fanget-av-sj-en-psypheric-rmx.mp3
   - slug: unusual-cosmic-process-final-race
     title: Final Race
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 126
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-final-race.mp3
   - slug: unusual-cosmic-process-insignificant-information
     title: Insignificant Information
     artist_name: Unusual Cosmic Process
@@ -17981,37 +17978,37 @@ tracks:
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 126
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-lighted-up.mp3
   - slug: unusual-cosmic-process-maximum-depth
     title: Maximum Depth
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 103
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-maximum-depth.mp3
   - slug: unusual-cosmic-process-phantom-flicker
     title: Phantom Flicker
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-phantom-flicker.mp3
   - slug: unusual-cosmic-process-place-on-earth
     title: Place On Earth
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 118
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-place-on-earth.mp3
   - slug: unusual-cosmic-process-preasure
     title: Preasure
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-preasure.mp3
   - slug: unusual-cosmic-process-sequoia
     title: Sequoia
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-sequoia.mp3
   - slug: unusual-cosmic-process-smooth-turbulence
     title: Smooth Turbulence
     artist_name: Unusual Cosmic Process
@@ -18023,91 +18020,91 @@ tracks:
     artist_name: Unusual Cosmic Process & E-Mantra
     artist_slug: unusual-cosmic-process,e-mantra
     bpm: 105
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-e-mantra-sunrise-over-black-sea.mp3
   - slug: unusual-cosmic-process-ultima-thule
     title: Ultima Thule
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 105
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-ultima-thule.mp3
   - slug: unusual-cosmic-process-utgar-ar-psypheric-rmx
     title: Útgarðar (Psypheric Rmx)
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-utgar-ar-psypheric-rmx.mp3
   - slug: unusual-cosmic-process-weightlessness
     title: Weightlessness
     artist_name: Unusual Cosmic Process
     artist_slug: unusual-cosmic-process
     bpm: 95
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/unusual-cosmic-process-weightlessness.mp3
   - slug: urjasa-reeferman
     title: Reeferman
     artist_name: Urjasa
     artist_slug: urjasa
     bpm: 132
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urjasa-reeferman.mp3
   - slug: urklang-alience-dance
     title: Alience Dance
     artist_name: Urklang
     artist_slug: urklang
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-alience-dance.mp3
   - slug: urklang-dark-stepper
     title: Dark Stepper
     artist_name: Urklang
     artist_slug: urklang
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-dark-stepper.mp3
   - slug: urklang-holon
     title: Holon
     artist_name: Urklang
     artist_slug: urklang
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-holon.mp3
   - slug: urklang-liberta
     title: Libertá
     artist_name: Urklang
     artist_slug: urklang
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-liberta.mp3
   - slug: urklang-parallel-multiverse
     title: Parallel Multiverse
     artist_name: Urklang
     artist_slug: urklang
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-parallel-multiverse.mp3
   - slug: urklang-psyral-lifeforms
     title: Psyral Lifeforms
     artist_name: Urklang
     artist_slug: urklang
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-psyral-lifeforms.mp3
   - slug: urklang-space-nomad
     title: Space Nomad
     artist_name: Urklang
     artist_slug: urklang
     bpm: 136
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-space-nomad.mp3
   - slug: urklang-transformation
     title: Transformation
     artist_name: Urklang
     artist_slug: urklang
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/urklang-transformation.mp3
   - slug: vonoom-dirty-dishwater
     title: Dirty Dishwater
     artist_name: Vonoom
     artist_slug: vonoom
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vonoom-dirty-dishwater.mp3
   - slug: vonoom-space-baby
     title: Space Baby
     artist_name: Vonoom
     artist_slug: vonoom
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vonoom-space-baby.mp3
   - slug: vorg-17-earths
     title: 17 Earths
     artist_name: VORG
@@ -18119,31 +18116,31 @@ tracks:
     artist_name: VORG
     artist_slug: vorg
     bpm: 134
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-abduction.mp3
   - slug: vorg-acid-kid
     title: Acid Kid
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-acid-kid.mp3
   - slug: vorg-adventure-nature
     title: Adventure Nature
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-adventure-nature.mp3
   - slug: vorg-ambious
     title: Ambious
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-ambious.mp3
   - slug: vorg-antiseptic-love
     title: Antiseptic Love
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-antiseptic-love.mp3
   - slug: vorg-cardio-drums
     title: Cardio Drums
     artist_name: VORG
@@ -18155,49 +18152,49 @@ tracks:
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-cicle.mp3
   - slug: vorg-digital-choice
     title: Digital Choice
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-digital-choice.mp3
   - slug: vorg-elastic
     title: Elastic
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-elastic.mp3
   - slug: vorg-escape
     title: Escape
     artist_name: VORG
     artist_slug: vorg
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-escape.mp3
   - slug: vorg-exposed
     title: Exposed
     artist_name: VORG
     artist_slug: vorg
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-exposed.mp3
   - slug: vorg-face-to-silence
     title: Face To Silence
     artist_name: VORG
     artist_slug: vorg
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-face-to-silence.mp3
   - slug: vorg-guided-and-quiet
     title: Guided And Quiet
     artist_name: VORG
     artist_slug: vorg
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-guided-and-quiet.mp3
   - slug: vorg-human-interaction
     title: Human Interaction
     artist_name: 🇧🇷 VORG
     artist_slug: vorg
     bpm: 110
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-human-interaction.mp3
   - slug: vorg-impass
     title: Impass
     artist_name: VORG
@@ -18221,13 +18218,13 @@ tracks:
     artist_name: VORG & Soulid
     artist_slug: vorg,soulid
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-soulid-medicated.mp3
   - slug: vorg-nebula
     title: Nebula
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-nebula.mp3
   - slug: vorg-no-forms
     title: No Forms
     artist_name: VORG
@@ -18239,7 +18236,7 @@ tracks:
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-orange-and-green.mp3
   - slug: vorg-our-reason
     title: Our Reason
     artist_name: VORG
@@ -18251,19 +18248,19 @@ tracks:
     artist_name: VORG
     artist_slug: vorg
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-part-of-the-wall.mp3
   - slug: vorg-past-changes
     title: Past Changes
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-past-changes.mp3
   - slug: vorg-respect-the-robots
     title: Respect The Robots
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-respect-the-robots.mp3
   - slug: vorg-sacred
     title: Sacred
     artist_name: VORG
@@ -18275,67 +18272,67 @@ tracks:
     artist_name: VORG
     artist_slug: vorg
     bpm: 149
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-silence.mp3
   - slug: vorg-smilevil
     title: Smilevil
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-smilevil.mp3
   - slug: vorg-submerged-feelings
     title: Submerged Feelings
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-submerged-feelings.mp3
   - slug: vorg-terms-of-life
     title: Terms Of Life
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-terms-of-life.mp3
   - slug: vorg-the-conflict
     title: The Conflict
     artist_name: VORG
     artist_slug: vorg
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-the-conflict.mp3
   - slug: vorg-the-internal-flight
     title: The Internal Flight
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-the-internal-flight.mp3
   - slug: vorg-the-light
     title: The Light
     artist_name: VORG
     artist_slug: vorg
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-the-light.mp3
   - slug: vorg-the-maze
     title: The Maze
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-the-maze.mp3
   - slug: vorg-unreverse
     title: Unreverse
     artist_name: VORG
     artist_slug: vorg
     bpm: 137
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-unreverse.mp3
   - slug: vorg-valley-of-darkness
     title: Valley Of Darkness
     artist_name: 🇧🇷 VORG
     artist_slug: vorg
     bpm: 138
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-valley-of-darkness.mp3
   - slug: vorg-valley-of-the-lightness
     title: Valley Of The Lightness
     artist_name: VORG
     artist_slug: vorg
     bpm: 139
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/vorg-valley-of-the-lightness.mp3
   - slug: vorg-way-for-forest
     title: Way For Forest
     artist_name: VORG
@@ -18347,7 +18344,7 @@ tracks:
     artist_name: Wanderlust
     artist_slug: wanderlust
     bpm: 147
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/wanderlust-square-of-the-cadboard-clocks.mp3
   - slug: wizack-twizack-lejon
     title: Lejon
     artist_name: Wizack Twizack
@@ -18359,55 +18356,55 @@ tracks:
     artist_name: Xylonite
     artist_slug: xylonite
     bpm: 125
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/xylonite-thermal-expansion.mp3
   - slug: zelur-project-the-new-creature
     title: The New Creature
     artist_name: Zelur Project
     artist_slug: zelur-project
     bpm: 145
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zelur-project-the-new-creature.mp3
   - slug: zymosis-08-zymosis-overdream-hardcore-buddhist-shiva-shambo
     title: 08. Zymosis, Overdream & Hardcore Buddhist - Shiva Shambo
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-08-zymosis-overdream-hardcore-buddhist-shiva-shambo.mp3
   - slug: zymosis-7-seconds
     title: 7 Seconds
     artist_name: 🇺🇦 Zymosis
     artist_slug: zymosis
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-7-seconds.mp3
   - slug: zymosis-7-seconds-2024
     title: 7 Seconds (2024)
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 142
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-7-seconds-2024.mp3
   - slug: zymosis-a-way-away
     title: A Way Away
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-a-way-away.mp3
   - slug: zymosis-alien-creation
     title: Alien Creation
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 68
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-alien-creation.mp3
   - slug: zymosis-an-endless-sense-of-the-past
     title: An Endless Sense Of The Past
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: null
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-an-endless-sense-of-the-past.mp3
   - slug: zymosis-an-expression-of-age
     title: An Expression Of Age
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 128
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-an-expression-of-age.mp3
   - slug: zymosis-beautiful-thing
     title: Beautiful Thing
     artist_name: Zymosis
@@ -18419,7 +18416,7 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-because-i-still-love-you.mp3
   - slug: zymosis-but-i-will-not-know
     title: But I Will Not Know
     artist_name: Zymosis
@@ -18431,19 +18428,19 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 120
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-deeper-than-truth.mp3
   - slug: zymosis-discover-yourself
     title: Discover Yourself
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-discover-yourself.mp3
   - slug: zymosis-dytyna
     title: Dytyna
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-dytyna.mp3
   - slug: zymosis-feat-katya-chilly-u-zemli
     title: U Zemli
     artist_name: Zymosis feat. Katya Chilly
@@ -18455,31 +18452,31 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 90
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-kiss-me-goodbye.mp3
   - slug: zymosis-kotyk
     title: Kotyk
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-kotyk.mp3
   - slug: zymosis-kycyu
     title: Kycyu
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 86
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-kycyu.mp3
   - slug: zymosis-last-call
     title: Last Call
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-last-call.mp3
   - slug: zymosis-last-call-2024
     title: Last Call (2024)
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-last-call-2024.mp3
   - slug: zymosis-let-it-all-out
     title: Let It All Out
     artist_name: Zymosis
@@ -18497,7 +18494,7 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 80
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-lystochok.mp3
   - slug: zymosis-make-a-wish
     title: Make A Wish
     artist_name: Zymosis
@@ -18515,7 +18512,7 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 135
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-never-last.mp3
   - slug: zymosis-omgty
     title: OMGTY
     artist_name: Zymosis
@@ -18527,13 +18524,13 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 160
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-perception-limit.mp3
   - slug: zymosis-return-to-the-path
     title: Return To The Path
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-return-to-the-path.mp3
   - slug: zymosis-sansara-rework
     title: Sansara (Rework)
     artist_name: Zymosis
@@ -18545,37 +18542,37 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 115
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-serdenko.mp3
   - slug: zymosis-small-but-very-important-thing-2024
     title: Small But Very Important Thing (2024)
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 140
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-small-but-very-important-thing-2024.mp3
   - slug: zymosis-sound-of-magic
     title: Sound Of Magic
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 91
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-sound-of-magic.mp3
   - slug: zymosis-spirit-in-the-box-feat-irukanji
     title: Spirit In The Box (feat. Irukanji)
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 112
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-spirit-in-the-box-feat-irukanji.mp3
   - slug: zymosis-strange-emotions
     title: Strange Emotions
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 100
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-strange-emotions.mp3
   - slug: zymosis-the-way-i-see-it
     title: The Way I See It
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 144
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-the-way-i-see-it.mp3
   - slug: zymosis-katya-chilly-u-zemli
     title: U Zemli
     artist_name: Zymosis & Katya Chilly
@@ -18593,4 +18590,4 @@ tracks:
     artist_name: Zymosis
     artist_slug: zymosis
     bpm: 130
-    audio_url: null
+    audio_url: https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/zymosis-you-don-t-have-time.mp3

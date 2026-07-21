@@ -40,6 +40,7 @@ const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 const hasLinks = computed(() => {
   const a = item.value
   return !!(
+    a?.bandcamp_url ||
     a?.soundcloud_url ||
     a?.spotify ||
     a?.apple_music ||
@@ -153,16 +154,14 @@ useSeoMeta({
 
             </div>
 
-            <div v-if="item.bandcamp_url">
-              <p><span class="text-[10px] md:text-[12px] text-white/50">Follow and support:</span></p>
-              <BtnPrimary
-                :to="item.bandcamp_url"
-                title="Bandcamp"
-                iconify="simple-icons:bandcamp"
-              />
-            </div>
-
             <p v-if="hasLinks"><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+
+            <BtnPrimary
+              v-if="item.bandcamp_url"
+              :to="item.bandcamp_url"
+              title="Bandcamp"
+              iconify="simple-icons:bandcamp"
+            />
 
             <BtnPrimary
               v-if="item.soundcloud_url"
@@ -229,6 +228,7 @@ useSeoMeta({
 
               <Tab
                 v-if="hasSentimonyTracks"
+                :order="0"
                 icon="sentimony:logo"
                 title="Sentimony"
               >
@@ -237,6 +237,7 @@ useSeoMeta({
 
               <Tab
                 v-if="item.mix_audio_url"
+                :order="1"
                 icon="lucide:music"
                 title="Mix"
               >
@@ -249,6 +250,7 @@ useSeoMeta({
 
               <Tab
                 v-if="item.youtube_playlist_id"
+                :order="2"
                 icon="simple-icons:youtube"
                 title="YouTube"
               >
@@ -267,6 +269,7 @@ useSeoMeta({
 
               <Tab
                 v-if="item.soundcloud_track_id"
+                :order="3"
                 icon="simple-icons:soundcloud"
                 title="SoundCloud"
               >

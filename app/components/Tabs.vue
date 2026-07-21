@@ -3,11 +3,11 @@ import { computed, provide } from 'vue'
 import { createTabsContext, tabsKey } from '~/utils/tabs'
 
 const tabsContext = createTabsContext()
-const { tabs, selected } = tabsContext
+const { orderedTabs, selected } = tabsContext
 
 provide(tabsKey, tabsContext)
 
-const hideTitles = computed(() => tabs.length >= 5)
+const hideTitles = computed(() => orderedTabs.value.length >= 5)
 
 function plainTitle(title?: string) {
   return title ? title.replace(/<[^>]+>/g, '') : undefined
@@ -19,7 +19,7 @@ function plainTitle(title?: string) {
     <TabsRoot v-model="selected" :unmount-on-hide="false">
 
       <TabsList>
-        <TooltipProvider v-for="tab in tabs" :key="tab.id" :delay-duration="0">
+        <TooltipProvider v-for="tab in orderedTabs" :key="tab.id" :delay-duration="0">
           <Tooltip>
             <TooltipTrigger as-child>
               <TabsTrigger
