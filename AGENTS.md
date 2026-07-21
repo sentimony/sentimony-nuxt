@@ -45,10 +45,6 @@ Env: `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) -
 
 The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed `TMPDIR=/tmp` - don't remove it. Nuxt 4.x's vite-node IPC uses a Unix socket under `os.tmpdir()`; on macOS the default `$TMPDIR` (`/var/folders/…/T/`) pushes the socket path past the 104-char `sun_path` limit → `connect EINVAL …sock` on the first request. `/tmp` keeps it short. Harmless on Linux/Netlify (already short) and Windows (named pipes, not affected).
 
-## Git worktrees
-
-**Do not use git worktrees in this repo.** Never run `git worktree add`, and never launch agents with worktree isolation (`isolation: "worktree"`). Do all work directly in the primary working directory / current branch. Changes stranded in a separate worktree are easy to lose and complicate review; keeping everything in one working tree avoids that.
-
 ## Architecture
 
 **Data sources.** Server catalog handlers (`server/api/`) use `defineCachedEventHandler` and read public content from the active `catalogSource`: Firebase Realtime DB or Supabase content tables (`releases`, `artists`, `videos`, `events`, `playlists`, `friends`, `tracks`). In Firebase mode, track API responses are derived from each release's `tracklistCompact` via `server/utils/firebaseCatalog.ts`. Supabase is always used for auth, profile/avatar storage, and likes/favourites.
