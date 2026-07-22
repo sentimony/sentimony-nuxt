@@ -36,50 +36,31 @@ const imgHeight = computed(() =>
         class="w-15 md:w-30 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50 overflow-hidden"
         :class="aspectClass"
       >
-        <NuxtImg
+        <img
           class="rounded-sm w-full h-full object-cover"
           v-if="i.cover_xl"
-          :src="i.cover_xl"
+          :src="thumb(i.cover_xl)"
           :alt="i.title + ' Cover Thumbnail'"
           :width="imgWidth"
           :height="imgHeight"
-          sizes="70px md:140px"
-          densities="1x 2x"
-          fit="cover"
-          format="webp"
           loading="lazy"
         />
-        <!-- <div v-else class="text-[7px]/[1.25] md:text-[10px]/[1.5] py-[0.3em] px-[0.5em] md:py-[0.6em] md:px-[1em] text-white/50" v-html="texts.comingCover"/> -->
-        <NuxtImg
+        <img
           class="rounded-sm w-full h-full object-cover"
           v-if="i.photo_xl"
-          :src="i.photo_xl"
+          :src="thumb(i.photo_xl)"
           :alt="i.title + ' Photo Thumbnail'"
           :width="imgWidth"
           :height="imgHeight"
-          sizes="70px md:140px"
-          densities="1x 2x"
-          fit="cover"
-          format="webp"
           loading="lazy"
         />
-        <!-- <img
-          class="rounded-sm w-full h-full object-cover"
-          v-if="i.artwork_th"
-          :src="i.artwork_th"
-          :alt="i.title + ' Artwork Thumbnail'"
-        /> -->
-        <NuxtImg
+        <img
           class="rounded-sm w-full h-full object-cover"
           v-if="i.flyer_a_xl"
-          :src="i.flyer_a_xl"
+          :src="thumb(i.flyer_a_xl)"
           :alt="i.title + ' Flyer Thumbnail'"
           :width="imgWidth"
           :height="imgHeight"
-          sizes="70px md:140px"
-          densities="1x 2x"
-          fit="cover"
-          format="webp"
           loading="lazy"
         />
         <!-- <div class="swiper-lazy-preloader"></div> -->

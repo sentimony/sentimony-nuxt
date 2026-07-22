@@ -2,7 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 function toSlugArray(value: unknown): string[] {
   if (Array.isArray(value)) return value.map(String).map(s => s.trim()).filter(Boolean)
-  if (typeof value === 'string') return value.split(',').map(s => s.trim()).filter(Boolean)
+  if (typeof value === 'string') return value.split(/[\s,]+/).map(s => s.trim()).filter(Boolean)
   return []
 }
 

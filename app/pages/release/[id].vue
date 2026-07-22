@@ -27,27 +27,6 @@ if (releaseError.value || !item.value) {
 const playCounts = ref<Record<string, number>>({})
 const tracklistSlugs = computed(() => (item.value?.tracklist ?? []).map(t => t.slug).filter(Boolean))
 
-const hasReleaseLinks = computed(() => {
-  const l = item.value?.links
-  return !!(
-    l?.diggersfactory_url ||
-    l?.bandcamp_url ||
-    l?.bandcamp24_url ||
-    l?.beatport ||
-    l?.spotify ||
-    l?.applemusic_url ||
-    l?.youtube_music ||
-    l?.deezer ||
-    l?.amazon_music ||
-    l?.tidal ||
-    l?.qobuz ||
-    l?.youtube ||
-    l?.soundcloud_url ||
-    l?.ektoplazm ||
-    l?.discogs
-  )
-})
-
 onMounted(async () => {
   if (tracklistSlugs.value.length) {
     playCounts.value = await $fetch<Record<string, number>>('/api/track-plays', {
@@ -129,7 +108,7 @@ useSeoMeta({
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36 pr-2">
 
-            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <div class="flex flex-col sm:flex-row">
 
               <div class="shrink-0">
                 <OpenImage
@@ -148,16 +127,12 @@ useSeoMeta({
             <p><span class="text-foreground/50">Total Time:</span> {{ item.total_time }}</p>
 
             <div class="flex justify-start mb-4">
-              <button
-                @click="toggleLike(item.slug)"
-                class="transition-background ease-in-out duration-300 inline-flex items-center gap-2 h-[36px] md:h-[42px] text-[12px] md:text-[15px] tracking-tighter rounded-md border hover:bg-white/30 px-3 md:px-4 backdrop-blur-sm"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : ''"
-                v-wave
-              >
-                <Icon name="lucide:thumbs-up" size="19" />
-                {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
-                <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
-              </button>
+              <LikeButton
+                size="lg"
+                :liked="isLiked(item.slug)"
+                :count="likeCount(item.slug)"
+                @like="toggleLike(item.slug)"
+              />
             </div>
 
               </div>
@@ -175,99 +150,7 @@ useSeoMeta({
             </p> -->
             <!-- <br> -->
 
-            <p v-if="hasReleaseLinks"><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
-
-            <BtnPrimary
-              v-if="item.links?.diggersfactory_url"
-              :to="item.links?.diggersfactory_url"
-              title="Diggers Factory"
-              img="https://content.sentimony.com/assets/img/svg-icons/diggers-factory.svg?01"
-            />
-            <BtnPrimary
-              v-if="item.links?.bandcamp_url"
-              :to="item.links?.bandcamp_url"
-              title="Bandcamp <small>(16bit)</small>"
-              iconify="simple-icons:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links?.bandcamp24_url"
-              :to="item.links?.bandcamp24_url"
-              title="Bandcamp <small>(24bit)</small>"
-              iconify="simple-icons:bandcamp"
-            />
-            <BtnPrimary
-              v-if="item.links?.beatport"
-              :to="item.links?.beatport"
-              title="Beatport"
-              iconify="simple-icons:beatport"
-            />
-            <BtnPrimary
-              v-if="item.links?.spotify"
-              :to="item.links?.spotify"
-              title="Spotify"
-              iconify="simple-icons:spotify"
-            />
-            <BtnPrimary
-              v-if="item.links?.applemusic_url"
-              :to="item.links?.applemusic_url"
-              title="Apple Music"
-              iconify="simple-icons:applemusic"
-            />
-            <BtnPrimary
-              v-if="item.links?.youtube_music"
-              :to="item.links?.youtube_music"
-              title="YT Music"
-              iconify="simple-icons:youtubemusic"
-            />
-            <BtnPrimary
-              v-if="item.links?.deezer"
-              :to="item.links?.deezer"
-              title="Deezer"
-              iconify="simple-icons:deezer"
-            />
-            <BtnPrimary
-              v-if="item.links?.amazon_music"
-              :to="item.links?.amazon_music"
-              title="Amazon Music"
-              iconify="simple-icons:amazonmusic"
-            />
-            <BtnPrimary
-              v-if="item.links?.tidal"
-              :to="item.links?.tidal"
-              title="Tidal"
-              iconify="simple-icons:tidal"
-            />
-            <BtnPrimary
-              v-if="item.links?.qobuz"
-              :to="item.links?.qobuz"
-              title="Qobuz"
-              img="https://content.sentimony.com/assets/img/svg-icons/qobuz-2.svg?01"
-            />
-            <BtnPrimary
-              v-if="item.links?.youtube"
-              :to="item.links?.youtube"
-              title="YouTube"
-              iconify="simple-icons:youtube"
-            />
-            <BtnPrimary
-              v-if="item.links?.soundcloud_url"
-              :to="item.links?.soundcloud_url"
-              title="SoundCloud"
-              iconify="simple-icons:soundcloud"
-            />
-            <BtnPrimary
-              v-if="item.links?.ektoplazm"
-              :to="item.links?.ektoplazm"
-              title="Ektoplazm"
-              img="https://content.sentimony.com/assets/img/svg-icons/ektoplazm.svg?01"
-            />
-
-            <BtnPrimary
-              v-if="item.links?.discogs"
-              :to="item.links?.discogs"
-              title="Discogs"
-              iconify="simple-icons:discogs"
-            />
+            <EntityLinks :links="item.links" />
 
           </div>
           <div class="relative max-w-[540px] mx-auto w-full mb-4">
@@ -423,8 +306,7 @@ useSeoMeta({
                 </TooltipProvider>
                 <button
                   @click="toggleTrackLike(t.slug)"
-                  class="flex items-center gap-1 text-xs border rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10"
-                  :class="isTrackLiked(t.slug) ? 'border-red-400/30 text-red-400' : 'border-transparent hover:border-foreground/20 text-foreground/40 hover:text-foreground/70'"
+                  class="flex items-center gap-1 text-xs border border-transparent rounded px-2 py-1 transition-colors duration-200 text-foreground/40 hover:text-foreground/70 hover:border-foreground/20 hover:bg-foreground/10"
                 >
                   <Icon name="lucide:thumbs-up" size="12" />
                   <span v-if="trackLikeCount(t.slug) > 0">{{ trackLikeCount(t.slug) }}</span>

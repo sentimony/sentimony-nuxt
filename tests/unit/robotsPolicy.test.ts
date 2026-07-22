@@ -12,6 +12,7 @@ describe('buildNoindexRouteRules', () => {
     expect(rules['/confirm']).toEqual({ robots: false })
     expect(rules['/profile']).toEqual({ robots: false })
     expect(rules['/profile/**']).toEqual({ robots: false })
+    expect(rules['/ui']).toEqual({ robots: false })
   })
 
   it('does not touch public catalog routes', () => {

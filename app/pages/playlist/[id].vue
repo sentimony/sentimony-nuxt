@@ -58,68 +58,26 @@ useSeoMeta({
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
 
-            <OpenImage
-              :image_th="item.cover_th"
-              :image_xl="item.cover_xl"
-              :alt="(item.title || 'Playlist') + ' cover'"
-              class="float-left"
-            />
+            <div class="flex items-start gap-2 mb-4">
+              <OpenImage
+                :image_th="item.cover_th"
+                :image_xl="item.cover_xl"
+                :alt="(item.title || 'Playlist') + ' cover'"
+              />
+              <div class="pt-1">
+                <p><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
 
-            <!-- <h1 class="text-center mt-0 mb-[1.2em]">{{ item.title }}</h1> -->
-            <p><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
-
-            <div class="flex justify-start mb-4">
-              <button
-                @click="toggleLike(item.slug)"
-                class="inline-flex items-center gap-1 px-2 py-0.5 text-[13px] font-medium rounded-md border transition-[background-color,border-color] ease-in-out duration-300 hover:bg-white/30"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:border-foreground/40'"
-                v-wave
-              >
-                <Icon name="lucide:thumbs-up" size="18" />
-                {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
-                <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
-              </button>
+                <div class="flex justify-start mt-3">
+                  <LikeButton
+                    :liked="isLiked(item.slug)"
+                    :count="likeCount(item.slug)"
+                    @like="toggleLike(item.slug)"
+                  />
+                </div>
+              </div>
             </div>
 
-            <div class="clear-left" />
-
-            <p><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
-            <BtnPrimary
-              v-if="item.links?.spotify"
-              :to="item.links?.spotify"
-              title="Spotify"
-              iconify="simple-icons:spotify"
-            />
-            <BtnPrimary
-              v-if="item.links?.apple_music"
-              :to="item.links?.apple_music"
-              title="Apple Music"
-              iconify="simple-icons:applemusic"
-            />
-            <BtnPrimary
-              v-if="item.links?.youtube_music"
-              :to="item.links?.youtube_music"
-              title="YT Music"
-              iconify="simple-icons:youtubemusic"
-            />
-            <BtnPrimary
-              v-if="item.links?.deezer"
-              :to="item.links?.deezer"
-              title="Deezer"
-              iconify="simple-icons:deezer"
-            />
-            <BtnPrimary
-              v-if="item.links?.youtube"
-              :to="item.links?.youtube"
-              title="YouTube"
-              iconify="simple-icons:youtube"
-            />
-            <BtnPrimary
-              v-if="item.links?.soundcloud_url"
-              :to="item.links?.soundcloud_url"
-              title="SoundCloud"
-              iconify="simple-icons:soundcloud"
-            />
+            <EntityLinks :links="item.links" />
 
           </div>
           <div class="relative max-w-[540px] mx-auto w-full mb-4">
@@ -193,33 +151,24 @@ useSeoMeta({
 
         <div>
           <hr class="my-4 border-black/30">
-          <p><small><b>Releases:</b></small></p>
-          <div class="flex flex-wrap justify-center w-full">
+          <p><small><b>Releases / Tracks:</b></small></p>
+          <ol class="list-decimal ps-9">
             <template v-for="(i, index) in releasesSortedByDate" :key="index">
-              <Item
+              <div
                 v-if="i.at_playlists?.includes(item.slug)"
-                :i="i"
-                category="release"
-              />
+                class="mb-4"
+              >
+                <RelativeItem :i="i" category="release" class="mb-2" />
+                <div v-if="i.tracklistCompact" class="Tracklist">
+                  <li
+                    v-for="(iii, tIndex) in i.tracklistCompact"
+                    :key="'t' + tIndex"
+                    v-html="sanitizeHtml(iii.p)"
+                  />
+                </div>
+              </div>
             </template>
-          </div>
-        </div>
-
-        <div
-          v-for="(i, index) in releasesSortedByDate"
-          :key="'tracks-' + index"
-        >
-          <template v-if="i.at_playlists?.includes(item.slug) && i.tracklistCompact">
-            <hr class="my-4 border-black/30">
-            <p><small><b>{{ i.title }}:</b></small></p>
-            <div class="Tracklist">
-              <p
-                v-for="(iii, tIndex) in i.tracklistCompact"
-                :key="tIndex"
-                v-html="sanitizeHtml(iii.p)"
-              />
-            </div>
-          </template>
+          </ol>
         </div>
 
     </ItemContent>

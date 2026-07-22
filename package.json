@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.118",
+    "@iconify-json/lucide-lab": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.91",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/vite": "^4.3.3",
@@ -44,7 +45,6 @@
   },
   "dependencies": {
     "@nuxt/icon": "^2.3.1",
-    "@nuxt/image": "^2.0.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^6.1.3",
     "@nuxtjs/sitemap": "^8.3.0",

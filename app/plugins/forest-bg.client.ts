@@ -2,8 +2,7 @@ const FOREST_SRC =
   'https://content.sentimony.com/assets/img/backgrounds/trees-origin_v1.jpg'
 
 export default defineNuxtPlugin(() => {
-  const img = useImage()
-  const forestBg = img(FOREST_SRC, { format: 'webp', width: 1920, quality: 60 })
+  const forestBg = FOREST_SRC
 
   const reveal = () => {
     const preload = new Image()

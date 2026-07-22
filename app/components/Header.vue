@@ -44,7 +44,7 @@ async function signOut() {
             v-wave
           >
             <img
-              src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3.svg?01"
+              src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01"
               alt="Sentimony Records Logo SVG"
               class="mr-3 dark:invert"
               width="40" height="40"
@@ -151,7 +151,7 @@ async function signOut() {
             v-else
             to="/signin"
             aria-label="Sign In"
-            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 rounded-md text-sm border border-black/20 dark:border-white/20"
+            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 rounded-md text-sm"
             :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20' : ''"
             v-wave
           >

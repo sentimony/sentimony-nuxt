@@ -9,7 +9,7 @@ export const NAV: NavItem[] = [
   { title: 'Home', route: '/', icon: 'lucide:house' },
   { title: 'News', route: '/news', icon: 'lucide:newspaper' },
   { title: 'Releases', route: '/releases', icon: 'lucide:disc-3', inHeader: true },
-  { title: 'Artists', route: '/artists', icon: 'lucide:keyboard-music', inHeader: true },
+  { title: 'Artists', route: '/artists', icon: 'lucide:person-standing', inHeader: true },
   { title: 'Videos', route: '/videos', icon: 'lucide:monitor-play', inHeader: true },
   { title: 'Playlists', route: '/playlists', icon: 'lucide:list-music', inHeader: true },
   { title: 'Events', route: '/events', icon: 'lucide:tent-tree' },

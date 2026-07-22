@@ -19,24 +19,22 @@ const year = computed(() => formatYear(i.value?.date))
 
     <NuxtLink
       :to="'/' + category + '/' + i.slug"
-      class="pr-1 flex items-center rounded-md transition-colors duration-300 hover:text-emerald-900 dark:hover:text-emerald-100"
+      class="pr-1 flex items-center rounded-md transition-colors duration-300 hover:bg-black/5 dark:hover:bg-white/10 hover:text-emerald-900 dark:hover:text-emerald-100"
       v-wave
     >
-      <NuxtImg v-if="i.cover_xl"
-        :src="i.cover_xl"
+      <img v-if="i.cover_xl || i.flyer_a_xl"
+        :src="thumb(i.cover_xl || i.flyer_a_xl)"
         class="rounded-md ring-1 ring-black/20 dark:ring-white/50 w-[24px] mr-2"
         :alt="i.title + ' thumbnail'"
         width="24"
-        format="webp"
         loading="lazy"
       />
-      <NuxtImg
+      <img
         v-if="i.photo_xl"
-        :src="i.photo_xl"
+        :src="thumb(i.photo_xl)"
         class="rounded-full ring-1 ring-black/20 dark:ring-white/50 w-[24px] mr-2"
         :alt="i.title + ' thumbnail'"
         width="24"
-        format="webp"
         loading="lazy"
       />
 

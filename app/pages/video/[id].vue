@@ -49,32 +49,35 @@ useSeoMeta({
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
 
-            <OpenImage
-              :image_th="item.cover_th"
-              :image_xl="item.cover_xl"
-              :alt="(item.title || 'Video') + ' cover'"
-              class="float-left"
-            />
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
 
-            <p><span class="text-foreground/50">Release Date:</span> {{ formattedDate }}</p>
+              <div class="shrink-0">
+                <OpenImage
+                  :image_th="item.cover_th"
+                  :image_xl="item.cover_xl"
+                  :alt="(item.title || 'Video') + ' cover'"
+                  ratio="video"
+                />
+              </div>
 
-            <div class="flex justify-start mb-4">
-              <button
-                @click="toggleLike(item.slug)"
-                class="inline-flex items-center gap-1 px-2 py-0.5 text-[13px] font-medium rounded-md border transition-[background-color,border-color] ease-in-out duration-300 hover:bg-white/30"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:border-foreground/40'"
-                v-wave
-              >
-                <Icon name="lucide:thumbs-up" size="18" />
-                {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
-                <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
-              </button>
+              <div class="flex-1 min-w-0">
+
+                <p><span class="text-foreground/50">Release Date:</span> {{ formattedDate }}</p>
+
+                <div class="flex justify-start mb-4">
+                  <LikeButton
+                    :liked="isLiked(item.slug)"
+                    :count="likeCount(item.slug)"
+                    @like="toggleLike(item.slug)"
+                  />
+                </div>
+
+              </div>
+
             </div>
 
-            <div class="clear-left"/>
-
             <p><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.links?.youtube"
               :to="item.links?.youtube"
               title="YouTube"

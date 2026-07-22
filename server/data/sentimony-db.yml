@@ -937,6 +937,8 @@ artists:
     name: Yuriy
     location: Kyiv, Ukraine
     style: Psychill, Psybient
+    photo_og: https://content.sentimony.com/assets/img/artists/hagen-01_og.jpg
+    photo_th: https://content.sentimony.com/assets/img/artists/hagen-01_th.jpg
     photo_xl: https://content.sentimony.com/assets/img/artists/hagen-01_xl.jpg
     information: ""
     info_sc: ""
@@ -7499,7 +7501,10 @@ events:
     date: 2008-11-01T12:00:00.000Z
     time: null
     visible: true
+    flyer_a_og: https://content.sentimony.com/assets/img/events/shift-space_a_og.jpg
+    flyer_a_th: https://content.sentimony.com/assets/img/events/shift-space_a_th.jpg
     flyer_a_xl: https://content.sentimony.com/assets/img/events/shift-space_a_xl.jpg
+    flyer_b_th: https://content.sentimony.com/assets/img/events/shift-space_b_th.jpg
     flyer_b_xl: https://content.sentimony.com/assets/img/events/shift-space_b_xl.jpg
     location: Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)
     info: "<p>On an autumn Saturday evening, November 1, you’ll have the opportunity to find yourself under the dome of the starry sky.</p><p>At the planetarium, Sentimony Records will present two brand-new releases:</p><p>The fifth label release: Spectrum Vision – Lost Space Device.</p><p>The author, Ivan Uzdyaev, will arrive from Moscow for a live 90-minute performance.</p><p>and</p><p>The sixth CD: Irukanji – Z Lisu, from DJ, musician, and Sentimony Records co-founder Ihor Orlovskyi.</p><p>A debut chill-out & psy-ambient party featuring three live performances!</p><p>Special guest and friend of Sentimony - Chronos (Moscow).</p><p>November 1 (Saturday), 2008</p><p>19:30 – 23:30 (please arrive 20 minutes before the start)</p><p>Sentimony Records presents</p><p>its debut evening of psy-ambient & chill-out music:</p><p><<< SENTIMONY: SHIFT SPACE >>></p>"
@@ -7520,7 +7525,10 @@ events:
     date: 2009-11-21T12:00:00.000Z
     time: null
     visible: true
+    flyer_a_og: https://content.sentimony.com/assets/img/events/alt-space_a_og.jpg
+    flyer_a_th: https://content.sentimony.com/assets/img/events/alt-space_a_th.jpg
     flyer_a_xl: https://content.sentimony.com/assets/img/events/alt-space_a_xl.jpg
+    flyer_b_th: https://content.sentimony.com/assets/img/events/alt-space_b_th.jpg
     flyer_b_xl: https://content.sentimony.com/assets/img/events/alt-space_b_xl.jpg
     location: Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)
     info: <p></p>
@@ -7545,7 +7553,10 @@ events:
     date: 2010-08-28T12:00:00.000Z
     time: 22:00 - 08:00
     visible: true
+    flyer_a_og: https://content.sentimony.com/assets/img/events/water-marks_a_og.jpg
+    flyer_a_th: https://content.sentimony.com/assets/img/events/water-marks_a_th.jpg
     flyer_a_xl: https://content.sentimony.com/assets/img/events/water-marks_a_xl.jpg
+    flyer_b_th: https://content.sentimony.com/assets/img/events/water-marks_b_th.jpg
     flyer_b_xl: https://content.sentimony.com/assets/img/events/water-marks_b_xl.jpg
     location: Kyiv boat station
     info: "<p>On the eve of autumn, Sentimony Records invites friends to embark on a water journey.</p><p>At the territory of a boat station, we’ll host the first party in our new event series</p><p><b>SENTIMONY: WATER MARKS.</b></p><p>On the night of August 28–29, a picturesque bay near Kyiv will welcome you with music from Senzar (Denmark) and a number of live performances by Ukrainian artists.</p><p>The program includes: album and track premieres, debut shows, and collaborative experiments.</p><p>For adventurers and restless souls - active recreation on the water: boat rental at affordable prices under the supervision of a rescue team.</p><p>Face control, tea and sweets, an inexpensive bar, a cozy dancefloor, open-air cinema, candles, and nature - all to create the comfort and warmth essential for a Saturday chill-out concert.</p><p>Open-air night concert at a boat station in the Kyiv suburbs:</p><p>August 28 (Saturday), 2010</p><p>22:00 – 08:00</p>"
@@ -7575,7 +7586,10 @@ events:
     date: 2010-11-13T12:00:00.000Z
     time: null
     visible: true
+    flyer_a_og: https://content.sentimony.com/assets/img/events/home-space_a_og.jpg
+    flyer_a_th: https://content.sentimony.com/assets/img/events/home-space_a_th.jpg
     flyer_a_xl: https://content.sentimony.com/assets/img/events/home-space_a_xl.jpg
+    flyer_b_th: https://content.sentimony.com/assets/img/events/home-space_b_th.jpg
     flyer_b_xl: https://content.sentimony.com/assets/img/events/home-space_b_xl.jpg
     location: Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)
     info: <p></p>
@@ -7604,7 +7618,10 @@ events:
     date: 2011-11-05T12:00:00.000Z
     time: null
     visible: true
+    flyer_a_og: https://content.sentimony.com/assets/img/events/five-years_a_og.jpg
+    flyer_a_th: https://content.sentimony.com/assets/img/events/five-years_a_th.jpg
     flyer_a_xl: https://content.sentimony.com/assets/img/events/five-years_a_xl.jpg
+    flyer_b_th: https://content.sentimony.com/assets/img/events/five-years_b_th.jpg
     flyer_b_xl: https://content.sentimony.com/assets/img/events/five-years_b_xl.jpg
     location: Kyiv City Planetarium (str. Velyka Vasylkivska, 57/3)
     info: <p></p>
@@ -13271,7 +13288,7 @@ releases:
       - p: <small>10.</small> 🇧🇷 <b>Gaz Mask</b> - Radioactive Alert <small>(142bpm)</small>
       - p: <small>11.</small> 🇲🇽 <b>DMnT</b> - Abyss <small>(142bpm)</small>
       - p: <small>12.</small> 🇲🇽 <b>Fracktom</b> - Console Debug <small>(142bpm)</small>
-      - p: <small>13.</small> 🇧🇷 <b>Paracozm</b> - Framed (<b>TyStix</b> Rmx) <small>(138bpm)</small>
+      - p: <small>13.</small> 🇧🇷 <b>Paracozm</b> - Framed (<b>🇿🇦🇧🇪 TyStix</b> Rmx) <small>(138bpm)</small>
       - p: <small>14.</small> 🇬🇹 <b>Tonal Sense</b> - Runs Through My Veins <small>(140bpm)</small>
       - p: <small>15.</small> 🇦🇹 <b>Urklang</b> - Dark Stepper <small>(142bpm)</small>
       - p: <small>16.</small> 🇦🇺 <b>Nuada</b> - The Sonny Side <small>(144bpm)</small>

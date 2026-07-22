@@ -124,13 +124,13 @@ Run: `npx nuxi analyze`
 
 - [ ] **Step 2: ADR-рішення щодо модульного плагіна**
 
-Якщо `@supabase/supabase-js` лишається в entry > ~30 KiB gzip — додати в `ROADMAP.md` (розділ P2) пункт «Замінити @nuxtjs/supabase плагін на ручний lazy-клієнт» з виміряними числами. Якщо ні — зафіксувати в PR, що подальша оптимізація недоцільна.
+Якщо `@supabase/supabase-js` лишається в entry > ~30 KiB gzip — додати в `docs/roadmap/auth-bundle.md` пункт «Замінити @nuxtjs/supabase плагін на ручний lazy-клієнт» з виміряними числами. Якщо ні — зафіксувати в PR, що подальша оптимізація недоцільна.
 
 - [ ] **Step 3: Повна верифікація + commit**
 
 Run: `npm run test:unit && npx nuxi typecheck && node scripts/web-debug.mjs` → зелено.
 
 ```bash
-git add ROADMAP.md
+git add docs/roadmap/auth-bundle.md
 git commit -m "docs(roadmap): record auth bundle results and follow-up decision"
 ```

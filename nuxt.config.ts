@@ -2,8 +2,6 @@ import tailwindcss from '@tailwindcss/vite'
 import { buildApiRouteRules } from './server/utils/cachePolicy'
 import { buildNoindexRouteRules } from './server/utils/robotsPolicy'
 
-const isDev = process.env.NODE_ENV === 'development'
-const isNodeServer = process.env.NITRO_PRESET === 'node-server'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
 const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY || ''
@@ -62,6 +60,7 @@ export default defineNuxtConfig({
   ],
   components: [
     { path: '~/components/ui', pathPrefix: false, extensions: ['vue'] },
+    { path: '~/components/buttons', pathPrefix: false, extensions: ['vue'] },
     '~/components',
   ],
   runtimeConfig: {
@@ -100,7 +99,6 @@ export default defineNuxtConfig({
     'reka-ui/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
-    '@nuxt/image',
     'v-wave/nuxt',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
@@ -118,7 +116,11 @@ export default defineNuxtConfig({
         'lucide:house',
         'lucide:newspaper',
         'lucide:disc-3',
+        'lucide:person-standing',
         'lucide:keyboard-music',
+        'lucide:turntable',
+        'lucide:speaker',
+        'lucide:palette',
         'lucide:monitor-play',
         'lucide:list-music',
         'lucide:tent-tree',
@@ -165,10 +167,6 @@ export default defineNuxtConfig({
   },
   vWave: {
     easing: 'cubic-bezier(0,.57,.89,0)'
-  },
-  image: {
-    provider: isDev || isNodeServer ? 'ipx' : 'netlify',
-    domains: ['content.sentimony.com'],
   },
   sitemap: {
     enabled: !process.env.URL?.includes('stage') && process.env.CONTEXT !== 'deploy-preview',

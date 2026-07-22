@@ -159,8 +159,8 @@ watch(current, (val) => {
                 class="shrink-0"
                 :aria-label="current.releaseLink ? 'Open release' : undefined"
               >
-                <NuxtImg
-                  :src="current.cover"
+                <img
+                  :src="thumb(current.cover)"
                   :alt="trackParts.name || 'Release cover'"
                   width="44"
                   height="44"

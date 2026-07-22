@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   image_th?: string
   image_xl?: string
   alt?: string
-}>()
+  ratio?: 'square' | 'video'
+}>(), { ratio: 'square' })
 
 const isOpen = ref(false)
 const open = () => { if (props.image_xl) isOpen.value = true }
-const previewImage = computed(() => props.image_th || props.image_xl)
+const previewImage = computed(() => thumb(props.image_th))
+
+const boxClass = computed(() =>
+  props.ratio === 'video'
+    ? 'w-[160px] sm:w-[280px] aspect-video'
+    : 'size-[100px] sm:size-[190px]'
+)
+const imgWidth = computed(() => (props.ratio === 'video' ? 280 : 190))
+const imgHeight = computed(() => (props.ratio === 'video' ? 158 : 190))
 
 const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>coming ⛄</div>'
 </script>
@@ -22,18 +31,14 @@ const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>comi
       v-wave
       @click="open"
     >
-      <div class="size-[100px] sm:size-[190px] shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30">
-        <NuxtImg
+      <div :class="boxClass" class="shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30">
+        <img
           v-if="previewImage"
           :src="previewImage"
           :alt="alt"
-          class="size-[100px] sm:size-[190px] object-cover"
-          width="190"
-          height="190"
-          sizes="100px sm:190px"
-          densities="1x 2x"
-          fit="cover"
-          format="webp"
+          class="w-full h-full object-cover"
+          :width="imgWidth"
+          :height="imgHeight"
           loading="lazy"
         />
         <div

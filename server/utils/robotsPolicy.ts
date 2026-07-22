@@ -10,6 +10,7 @@ const noindexRoutes = [
   '/confirm',
   '/profile',
   '/profile/**',
+  '/ui',
 ] as const
 
 export function buildNoindexRouteRules(): Record<string, RobotsRouteRule> {

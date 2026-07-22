@@ -176,7 +176,7 @@ git commit -m "fix(theme): tokenize remaining paired black/white duplicates"
 
 **Files:**
 - Modify: `AGENTS.md` (секція Styling)
-- Modify: `ROADMAP.md`
+- Modify: `docs/roadmap/design-system.md`
 
 - [ ] **Step 1: AGENTS.md**
 
@@ -195,6 +195,6 @@ DevTools Lighthouse (обидві теми, mobile): Accessibility залиша�
 Перенести P3 #12 у «Закрито» з підсумком (кількість замінених класів, файли-винятки).
 
 ```bash
-git add AGENTS.md ROADMAP.md
+git add AGENTS.md docs/roadmap/design-system.md
 git commit -m "docs: token convention, close design system roadmap item"
 ```

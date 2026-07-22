@@ -27,7 +27,7 @@
 - Modify `.gitignore`: ignore generated Playwright reports and test results.
 - Modify `DESIGN.md`, `CLAUDE.md`, and the two theme specs: document the final one-image homepage treatment and mark implemented work accurately.
 
-Do not add or modify `docs/profile-v2-brief.md`; it is an unrelated untracked user file.
+Do not add or modify `docs/impeccable/2026-06-11-profile-v2-design-brief.md`; it is an unrelated user document.
 
 ### Task 1: Add A Failing Homepage Atmosphere Contract
 

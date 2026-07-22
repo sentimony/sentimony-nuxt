@@ -109,8 +109,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
         <div class="flex justify-center mb-4">
           <button
             @click="toggleTrackLike(track.slug)"
-            class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-            :class="isTrackLiked(track.slug) ? 'border-red-400/50 text-red-400' : 'border-foreground/20 text-foreground/40 hover:text-foreground/70'"
+            class="flex items-center gap-2 border border-foreground/20 text-foreground/40 rounded px-4 py-2 text-sm transition-colors duration-200 hover:text-foreground/70 hover:bg-white/10"
             v-wave
           >
             <Icon name="lucide:thumbs-up" size="18" />
@@ -144,19 +143,19 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             <p v-if="release?.links?.bandcamp_url">
               <span class="text-[10px] md:text-[12px] text-foreground/50">Buy / Download</span>
             </p>
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.bandcamp_url"
               :to="release.links.bandcamp_url"
               title="Bandcamp"
               iconify="simple-icons:bandcamp"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.bandcamp24_url"
               :to="release.links.bandcamp24_url"
               title="Bandcamp <small>(24bit)</small>"
               iconify="simple-icons:bandcamp"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.beatport"
               :to="release.links.beatport"
               title="Beatport"
@@ -165,31 +164,31 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
             <p v-if="release?.links?.spotify || release?.links?.applemusic_url || release?.links?.youtube_music || release?.links?.soundcloud_url">
               <span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span>
             </p>
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.spotify"
               :to="release.links.spotify"
               title="Spotify"
               iconify="simple-icons:spotify"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.applemusic_url"
               :to="release.links.applemusic_url"
               title="Apple Music"
               iconify="simple-icons:applemusic"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.youtube_music"
               :to="release.links.youtube_music"
               title="YT Music"
               iconify="simple-icons:youtubemusic"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.youtube"
               :to="release.links.youtube"
               title="YouTube"
               iconify="simple-icons:youtube"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="release?.links?.soundcloud_url"
               :to="release.links.soundcloud_url"
               title="SoundCloud"

@@ -188,9 +188,9 @@ Expected: Performance ≥ 80, TBT < 300 ms, tap-targets 100%. Якщо ціль 
 
 - [ ] **Step 3: Оновити ROADMAP**
 
-У `ROADMAP.md` перенести P0 #1 у «Закрито» з фактичними числами (або оновити залишок, якщо ціль частково).
+У `docs/roadmap/mobile-performance.md` оновити статус і фактичні числа; після повного завершення додати підсумок до `docs/roadmap/completed.md`.
 
 ```bash
-git add ROADMAP.md
+git add docs/roadmap/mobile-performance.md docs/roadmap/completed.md
 git commit -m "docs(roadmap): record mobile performance results"
 ```

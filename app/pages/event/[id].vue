@@ -56,16 +56,11 @@ useSeoMeta({
         <p v-if="item.time">{{ item?.time }}</p>
 
         <div class="flex justify-start mb-4">
-          <button
-            @click="toggleLike(item.slug)"
-            class="flex items-center gap-2 border rounded px-4 py-2 text-sm transition-colors duration-200 hover:bg-white/10"
-            :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : 'border-white/20 text-white/40 hover:text-white/70'"
-            v-wave
-          >
-            <Icon name="lucide:thumbs-up" size="18" />
-            {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
-            <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
-          </button>
+          <LikeButton
+            :liked="isLiked(item.slug)"
+            :count="likeCount(item.slug)"
+            @like="toggleLike(item.slug)"
+          />
         </div>
 
         <div class="clear-left" />

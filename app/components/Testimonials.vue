@@ -15,14 +15,10 @@ const { current } = useAudioPlayer()
   >
     <div class="text-left mx-auto max-w-lg p-4 rounded-lg bg-[#b5ccb5]/85 border border-black/20 text-black dark:bg-[#2a4030]/85 dark:border-white/20 dark:text-white">
       <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1 rounded-full overflow-hidden block" v-wave>
-        <NuxtImg
-          src="https://content.sentimony.com/assets/img/artists/irukanji-01_xl.jpg"
+        <img
+          src="https://content.sentimony.com/assets/img/artists/irukanji-01_th.jpg"
           alt="Irukanji avatar"
           width="72" height="72"
-          sizes="72px"
-          densities="1x 2x"
-          fit="cover"
-          format="webp"
           loading="lazy"
           class="size-18 rounded-full object-cover ring-1 ring-black/20 dark:ring-white/20"
         />

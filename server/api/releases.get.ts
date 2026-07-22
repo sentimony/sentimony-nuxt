@@ -5,7 +5,7 @@ export default defineCachedEventHandler(
     if (isSupabaseCatalogSource()) {
       const { data, error } = await useSupabase()
         .from('releases')
-        .select('slug, title, cover_xl, date, visible, coming_soon, is_new, artists, at_playlists, style')
+        .select('slug, title, cover_xl, date, visible, coming_soon, is_new, artists, at_playlists, style, tracklist_compact')
         .eq('visible', true)
         .order('date', { ascending: false })
 
@@ -14,7 +14,7 @@ export default defineCachedEventHandler(
     }
 
     const data = await fetchFirebaseCollection('releases')
-    return pickListFields(data, ['slug', 'title', 'cover_xl', 'date', 'visible', 'coming_soon', 'new', 'artists', 'at_playlists', 'style'], { visibleOnly: true })
+    return pickListFields(data, ['slug', 'title', 'cover_xl', 'date', 'visible', 'coming_soon', 'new', 'artists', 'at_playlists', 'style', 'tracklistCompact'], { visibleOnly: true })
   },
   catalogCacheOptions()
 )

@@ -138,16 +138,12 @@ useSeoMeta({
             <p v-if="item.style"><span class="text-white/50">Styles:</span> {{ item.style }}</p>
 
             <div class="flex justify-start mb-4">
-              <button
-                @click="toggleLike(item.slug)"
-                class="transition-background ease-in-out duration-300 inline-flex items-center gap-2 h-[36px] md:h-[42px] text-[12px] md:text-[15px] tracking-tighter rounded-md border hover:bg-white/30 px-3 md:px-4 backdrop-blur-sm"
-                :class="isLiked(item.slug) ? 'border-red-400/50 text-red-400' : ''"
-                v-wave
-              >
-                <Icon name="lucide:thumbs-up" size="19" />
-                {{ isLiked(item.slug) ? 'Liked' : 'Like' }}
-                <span v-if="likeCount(item.slug) > 0" class="opacity-50">{{ likeCount(item.slug) }}</span>
-              </button>
+              <LikeButton
+                size="lg"
+                :liked="isLiked(item.slug)"
+                :count="likeCount(item.slug)"
+                @like="toggleLike(item.slug)"
+              />
             </div>
 
               </div>
@@ -156,63 +152,63 @@ useSeoMeta({
 
             <p v-if="hasLinks"><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
 
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.bandcamp_url"
               :to="item.bandcamp_url"
               title="Bandcamp"
               iconify="simple-icons:bandcamp"
             />
 
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.soundcloud_url"
               :to="item.soundcloud_url"
               title="SoundCloud"
               iconify="simple-icons:soundcloud"
             />
 
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.spotify"
               :to="item.spotify"
               title="Spotify"
               iconify="simple-icons:spotify"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.apple_music"
               :to="item.apple_music"
               title="Apple Music"
               iconify="simple-icons:applemusic"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.youtubemusic_url"
               :to="item.youtubemusic_url"
               title="YT Music"
               iconify="simple-icons:youtubemusic"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.youtube_url"
               :to="item.youtube_url"
               title="YouTube"
               iconify="simple-icons:youtube"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.facebook"
               :to="item.facebook"
               title="Facebook"
               iconify="simple-icons:facebook"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.instagram"
               :to="item.instagram"
               title="Instagram"
               iconify="simple-icons:instagram"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.discogs"
               :to="item.discogs"
               title="Discogs"
               iconify="simple-icons:discogs"
             />
-            <BtnPrimary
+            <PrimaryButton
               v-if="item.wikipedia_url"
               :to="item.wikipedia_url"
               title="Wikipedia"
@@ -301,28 +297,30 @@ useSeoMeta({
       <div v-if="organizedEvents.length > 0">
         <hr class="my-4 border-black/30">
         <p><small><b>Organized Events:</b></small></p>
-        <div class="flex flex-wrap justify-start w-full">
-          <Item
-            v-for="e in organizedEvents"
-            :key="e.slug"
+        <p
+          v-for="e in organizedEvents"
+          :key="e.slug"
+        >
+          <RelativeItem
             :i="e"
             category="event"
           />
-        </div>
+        </p>
       </div>
 
       <div>
         <hr class="my-4 border-black/30">
         <p><small><b>Releases with {{ item.title }}:</b></small></p>
-        <div class="flex flex-wrap justify-start w-full">
-          <template v-for="(i, index) in releasesSortedByDate" :key="index">
-            <Item
-              v-if="i.artists?.includes(item.slug)"
-              :i="i"
-              category="release"
-            />
-          </template>
-        </div>
+        <p
+          v-for="(i, index) in releasesSortedByDate"
+          :key="index"
+        >
+          <RelativeItem
+            v-if="i.artists?.includes(item.slug)"
+            :i="i"
+            category="release"
+          />
+        </p>
       </div>
 
       <div v-if="portfolioReleases.length > 0">
@@ -335,8 +333,8 @@ useSeoMeta({
             :to="'/release/' + r.slug"
             class="block aspect-square overflow-hidden rounded"
           >
-            <NuxtImg
-              :src="(r.cover_xl || r.cover_og)!"
+            <img
+              :src="thumb(r.cover_xl || r.cover_og)"
               :alt="r.title || ''"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               loading="lazy"
