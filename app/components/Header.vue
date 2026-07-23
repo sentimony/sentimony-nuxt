@@ -49,13 +49,13 @@ async function signOut() {
               class="mr-3 dark:invert"
               width="40" height="40"
             />
-            <div class="text-left leading-normal pr-1">
-              <div class="text-[16px]">Sentimony Records</div>
-              <div class="opacity-[0.4] text-[12px] tracking-[0.4px]">Psychedelic Music Label</div>
+            <div class="text-left leading-normal pr-1 min-w-0">
+              <div class="text-[16px] truncate">Sentimony Records</div>
+              <div class="opacity-[0.4] text-[12px] tracking-[0.4px] truncate">Psychedelic Music Label</div>
             </div>
           </NuxtLink>
 
-          <div class="hidden md:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div class="hidden sm:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
@@ -72,7 +72,7 @@ async function signOut() {
 
           <div class="flex items-center gap-2">
 
-          <div class="hidden xl:flex gap-2">
+          <div class="hidden md:flex gap-2">
             <TooltipProvider v-for="i in soc" :key="i.id" :delay-duration="0">
               <Tooltip>
                 <TooltipTrigger as-child>
@@ -156,7 +156,7 @@ async function signOut() {
             v-wave
           >
             <Icon name="lucide:circle-user-round" size="18" />
-            <span class="hidden lg:inline">Sign In</span>
+            <span class="hidden xl:inline">Sign In</span>
           </NuxtLink>
 
           <div class="size-9 lg:hidden" />

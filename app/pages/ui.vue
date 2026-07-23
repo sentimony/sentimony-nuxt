@@ -18,6 +18,7 @@ useSeoMeta({
       <section class="flex flex-col gap-4">
         <h2 class="text-xs uppercase tracking-widest text-foreground/50">Button</h2>
         <div class="flex flex-wrap items-center gap-3">
+          <Button variant="default" v-wave>Default</Button>
           <Button variant="outline" v-wave>Outline</Button>
           <Button variant="outline" disabled>Disabled</Button>
           <Button variant="link" v-wave>Link</Button>
@@ -26,6 +27,18 @@ useSeoMeta({
           <Button as-child variant="link">
             <NuxtLink to="/releases" v-wave>as-child link</NuxtLink>
           </Button>
+        </div>
+      </section>
+
+      <section class="flex flex-col gap-4">
+        <h2 class="text-xs uppercase tracking-widest text-foreground/50">DefaultButton</h2>
+        <div class="flex flex-wrap items-center gap-3">
+          <DefaultButton to="/releases/all" title="Default" />
+          <DefaultButton to="/releases/all" title="With count" :count="101" />
+          <DefaultButton to="/releases/all" title="Icon" iconify="lucide:disc-3" />
+          <DefaultButton to="/releases/all" title="Small" small />
+          <DefaultButton to="/releases/all" title="Outline" outline />
+          <DefaultButton to="/releases/all" title="Small outline" :count="42" small outline />
         </div>
       </section>
 

@@ -30,8 +30,6 @@ useSeoMeta({
 
     <GenreTabs />
 
-    <p class="text-white/40 text-sm mb-4">{{ releasesSortedByDate.length }} releases</p>
-
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in releasesSortedByDate"

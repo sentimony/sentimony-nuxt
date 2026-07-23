@@ -26,6 +26,7 @@ const catalogRoutes = [
   '/api/release/**',
   '/api/artists',
   '/api/artist/**',
+  '/api/artist-track-counts',
   '/api/events',
   '/api/event/**',
   '/api/friends',

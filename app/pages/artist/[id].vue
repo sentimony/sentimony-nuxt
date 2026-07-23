@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import AudioTrackPlaylist from '~/components/AudioTrackPlaylist.vue'
+import PagePlayer from '~/components/players/PagePlayer.vue'
 import type { TitleSegment } from '~/utils/tracks'
 import type { Release, Event } from '~/types'
 
@@ -58,6 +58,9 @@ const mixRelease = computed(() =>
 )
 
 const artistTracksAsync = useFetch<ArtistTrack[]>(`/api/artist/${id}/tracks`)
+const releaseTitleBySlug = computed(() =>
+  new Map(releases.value.map(r => [r.slug, r.title]))
+)
 const sentimonyTracks = computed(() =>
   (artistTracksAsync.data.value ?? []).map(t => ({
     title: `${t.artist_name} - ${t.title}`,
@@ -70,6 +73,7 @@ const sentimonyTracks = computed(() =>
     nameSegments: t.nameSegments,
     cover: t.cover ?? undefined,
     releaseLink: `/release/${t.release_slug}`,
+    releaseTitle: releaseTitleBySlug.value.get(t.release_slug),
     artistLink: item.value ? `/artist/${item.value.slug}` : undefined,
   }))
 )
@@ -133,9 +137,9 @@ useSeoMeta({
 
               <div class="flex-1 min-w-0">
 
-            <p v-if="item.name"><span class="text-white/50">Name:</span> {{ item.name }}</p>
-            <p v-if="item.location"><span class="text-white/50">Location:</span> {{ item.location }}</p>
-            <p v-if="item.style"><span class="text-white/50">Styles:</span> {{ item.style }}</p>
+            <p v-if="item.name"><span class="text-foreground/50">Name:</span> {{ item.name }}</p>
+            <p v-if="item.location"><span class="text-foreground/50">Location:</span> {{ item.location }}</p>
+            <p v-if="item.style"><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
 
             <div class="flex justify-start mb-4">
               <LikeButton
@@ -150,7 +154,7 @@ useSeoMeta({
 
             </div>
 
-            <p v-if="hasLinks"><span class="text-[10px] md:text-[12px] text-white/50">Links</span></p>
+            <p v-if="hasLinks"><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
 
             <PrimaryButton
               v-if="item.bandcamp_url"
@@ -228,7 +232,7 @@ useSeoMeta({
                 icon="sentimony:logo"
                 title="Sentimony"
               >
-                <AudioTrackPlaylist :tracks="sentimonyTracks" />
+                <PagePlayer :tracks="sentimonyTracks" />
               </Tab>
 
               <Tab
@@ -294,20 +298,6 @@ useSeoMeta({
         <div v-html="sanitizeHtml(item.information)" />
       </div>
 
-      <div v-if="organizedEvents.length > 0">
-        <hr class="my-4 border-black/30">
-        <p><small><b>Organized Events:</b></small></p>
-        <p
-          v-for="e in organizedEvents"
-          :key="e.slug"
-        >
-          <RelativeItem
-            :i="e"
-            category="event"
-          />
-        </p>
-      </div>
-
       <div>
         <hr class="my-4 border-black/30">
         <p><small><b>Releases with {{ item.title }}:</b></small></p>
@@ -319,6 +309,20 @@ useSeoMeta({
             v-if="i.artists?.includes(item.slug)"
             :i="i"
             category="release"
+          />
+        </p>
+      </div>
+
+      <div v-if="organizedEvents.length > 0">
+        <hr class="my-4 border-black/30">
+        <p><small><b>Organized Events:</b></small></p>
+        <p
+          v-for="e in organizedEvents"
+          :key="e.slug"
+        >
+          <RelativeItem
+            :i="e"
+            category="event"
           />
         </p>
       </div>

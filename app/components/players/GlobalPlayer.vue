@@ -22,6 +22,12 @@ const nameSegments = computed(() => {
   return [{ text: trackParts.value.name, slug: null }]
 })
 
+const canPrev = computed(() => !!current.value?.queue && (current.value.queueIndex ?? 0) > 0)
+const canNext = computed(() => {
+  const c = current.value
+  return !!c?.queue && (c.queueIndex ?? 0) < c.queue.length - 1
+})
+
 function onSeek(event: Event) {
   seek(Number((event.target as HTMLInputElement).value))
 }
@@ -51,8 +57,6 @@ const seekProgress = computed(() => {
 })
 
 const volumeProgress = computed(() => Math.min(100, volume.value * 100))
-
-const NuxtLink = resolveComponent('NuxtLink')
 
 const footerOffset = ref(0)
 let rafId = 0
@@ -102,38 +106,16 @@ watch(current, (val) => {
     >
       <div class="container max-w-7xl">
         <div class="grid min-h-18 grid-cols-[auto_1fr] items-center gap-x-3 gap-y-2 px-2 py-2 sm:grid-cols-[auto_1fr] sm:py-0">
-          <div class="order-2 flex items-center gap-1 sm:order-1">
-            <button
-              type="button"
-              class="flex size-9 shrink-0 items-center justify-center rounded-full border border-black/15 transition-colors duration-200 hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-35 dark:border-white/20 dark:hover:bg-white/10"
-              aria-label="Previous track"
-              :disabled="!current.queue || (current.queueIndex ?? 0) <= 0"
-              @click="prev"
-              v-wave
-            >
-              <Icon name="lucide:skip-back" size="18" />
-            </button>
-
-            <button
-              type="button"
-              class="flex size-11 shrink-0 items-center justify-center rounded-full border border-black/25 transition-colors duration-200 hover:bg-black/5 dark:border-white/40 dark:hover:bg-white/10"
-              :aria-label="isPlaying ? 'Pause' : 'Play'"
-              @click="toggle"
-              v-wave
-            >
-              <Icon :name="isPlaying ? 'lucide:pause' : 'lucide:play'" size="20" />
-            </button>
-
-            <button
-              type="button"
-              class="flex size-9 shrink-0 items-center justify-center rounded-full border border-black/15 transition-colors duration-200 hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-35 dark:border-white/20 dark:hover:bg-white/10"
-              aria-label="Next track"
-              :disabled="!current.queue || (current.queueIndex ?? 0) >= current.queue.length - 1"
-              @click="next"
-              v-wave
-            >
-              <Icon name="lucide:skip-forward" size="18" />
-            </button>
+          <div class="order-2 sm:order-1">
+            <PlayerControls
+              size="sm"
+              :is-playing="isPlaying"
+              :can-prev="canPrev"
+              :can-next="canNext"
+              @prev="prev"
+              @toggle="toggle"
+              @next="next"
+            />
           </div>
 
           <div class="order-1 col-span-2 flex min-w-0 items-center gap-3 sm:order-2 sm:col-span-1">
@@ -151,50 +133,16 @@ watch(current, (val) => {
             >
             <span class="font-mono text-xs tabular-nums opacity-70">{{ formatDuration(duration) }}</span>
 
-            <div class="ml-1 flex min-w-0 items-center gap-3">
-              <component
-                :is="current.releaseLink ? NuxtLink : 'div'"
-                v-if="current.cover"
-                :to="current.releaseLink"
-                class="shrink-0"
-                :aria-label="current.releaseLink ? 'Open release' : undefined"
-              >
-                <img
-                  :src="thumb(current.cover)"
-                  :alt="trackParts.name || 'Release cover'"
-                  width="44"
-                  height="44"
-                  class="size-11 rounded object-cover"
-                />
-              </component>
-
-              <div class="min-w-0 text-left text-sm font-medium leading-tight">
-                <span class="block truncate">
-                  <template v-for="(segment, i) in artistSegments" :key="i">
-                    <component
-                      :is="segment.slug ? NuxtLink : 'span'"
-                      :to="segment.slug ? `/artist/${segment.slug}` : undefined"
-                      :class="segment.slug && 'hover:underline'"
-                    >{{ segment.text }}</component>
-                  </template>
-                </span>
-                <span class="block truncate opacity-60">
-                  <template v-for="(segment, i) in nameSegments" :key="i">
-                    <NuxtLink
-                      v-if="segment.slug"
-                      :to="`/artist/${segment.slug}`"
-                      class="hover:underline"
-                    >{{ segment.text }}</NuxtLink>
-                    <component
-                      v-else
-                      :is="current.link ? NuxtLink : 'span'"
-                      :to="current.link"
-                      :class="current.link && 'hover:underline'"
-                    >{{ segment.text }}</component>
-                  </template>
-                </span>
-              </div>
-            </div>
+            <PlayerTrackInfo
+              class="ml-1"
+              :cover="current.cover"
+              :cover-size="44"
+              :release-link="current.releaseLink"
+              :release-title="current.releaseTitle"
+              :artist-segments="artistSegments"
+              :name-segments="nameSegments"
+              :track-link="current.link"
+            />
 
             <div class="ml-auto flex shrink-0 items-center gap-1.5">
               <div class="hidden items-center gap-1.5 md:flex">

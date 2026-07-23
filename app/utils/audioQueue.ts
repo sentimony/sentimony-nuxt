@@ -10,6 +10,7 @@ export interface QueueItem {
   nameSegments?: TitleSegment[]
   cover?: string
   releaseLink?: string
+  releaseTitle?: string
   artistLink?: string
 }
 

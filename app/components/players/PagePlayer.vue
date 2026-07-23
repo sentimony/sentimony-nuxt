@@ -16,13 +16,14 @@ const props = defineProps<{
     nameSegments?: TitleSegment[]
     cover?: string
     releaseLink?: string
+    releaseTitle?: string
     artistLink?: string
   }[]
   playCounts?: Record<string, number>
 }>()
 
 const route = useRoute()
-const { current, isPlaying, play, toggle, next, prev } = useAudioPlayer()
+const { current, isPlaying, play, toggle } = useAudioPlayer()
 
 const playCounts = ref<Record<string, number>>({ ...(props.playCounts ?? {}) })
 const countedThisSession = new Set<string>()
@@ -57,6 +58,7 @@ function toQueueItem(t: typeof props.tracks[number]): QueueItem {
     nameSegments: t.nameSegments,
     cover: t.cover,
     releaseLink: t.releaseLink ?? route.path,
+    releaseTitle: t.releaseTitle,
     artistLink: t.artistLink,
   }
 }
@@ -69,6 +71,21 @@ const activeIndex = computed(() =>
 const isActive = computed(() => activeIndex.value !== -1)
 const playingThis = computed(() => isActive.value && isPlaying.value)
 const currentTrack = computed(() => playable.value[activeIndex.value] ?? playable.value[0])
+
+const currentArtistSegments = computed(() => {
+  const t = currentTrack.value
+  if (t?.artistSegments?.length) return t.artistSegments
+  return [{ text: t?.artist ?? '', slug: null }]
+})
+const currentNameSegments = computed(() => {
+  const t = currentTrack.value
+  if (t?.nameSegments?.length) return t.nameSegments
+  return [{ text: t?.name ?? '', slug: null }]
+})
+const currentTrackLink = computed(() => currentTrack.value?.slug ? `/track/${currentTrack.value.slug}` : undefined)
+
+const canPrev = computed(() => isActive.value && activeIndex.value > 0)
+const canNext = computed(() => isActive.value && activeIndex.value < playable.value.length - 1)
 
 function registerPlay(slug?: string) {
   if (!slug || countedThisSession.has(slug)) return
@@ -103,52 +120,25 @@ defineExpose({ playTrack })
 <template>
   <div class="flex flex-col gap-3">
     <div class="flex items-center gap-2">
-      <button
-        type="button"
-        class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-black/15 hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
-        aria-label="Previous track"
-        :disabled="!isActive || activeIndex === 0"
-        @click="prev"
-        v-wave
-      >
-        <Icon name="lucide:skip-back" size="14" />
-      </button>
+      <PlayerControls
+        size="sm"
+        :show-sides="false"
+        :is-playing="playingThis"
+        :can-prev="canPrev"
+        :can-next="canNext"
+        :play-disabled="!hasAudio"
+        @toggle="togglePlay"
+      />
 
-      <button
-        type="button"
-        class="flex items-center justify-center w-11 h-11 shrink-0 rounded-full border border-black/25 hover:bg-black/5 transition-colors duration-200 disabled:opacity-30 dark:border-white/40 dark:hover:bg-white/10"
-        :aria-label="playingThis ? 'Pause' : 'Play'"
-        :disabled="!hasAudio"
-        @click="togglePlay"
-        v-wave
-      >
-        <Icon :name="playingThis ? 'lucide:pause' : 'lucide:play'" size="20" />
-      </button>
-
-      <button
-        type="button"
-        class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full border border-black/15 hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10 transition-colors duration-200 disabled:opacity-30"
-        aria-label="Next track"
-        :disabled="!isActive || activeIndex === playable.length - 1"
-        @click="next"
-        v-wave
-      >
-        <Icon name="lucide:skip-forward" size="14" />
-      </button>
-
-      <span class="text-sm truncate">
-        <template v-if="currentTrack?.titleSegments?.length">
-          <template v-for="(seg, si) in currentTrack.titleSegments" :key="si">
-            <NuxtLink
-              v-if="seg.slug"
-              :to="`/artist/${seg.slug}`"
-              class="hover:underline"
-            >{{ seg.text }}</NuxtLink>
-            <template v-else>{{ seg.text }}</template>
-          </template>
-        </template>
-        <template v-else>{{ currentTrack?.title }}</template>
-      </span>
+      <PlayerTrackInfo
+        v-if="isActive && currentTrack"
+        :cover="currentTrack.cover"
+        :release-link="currentTrack.releaseLink"
+        :release-title="currentTrack.releaseTitle"
+        :artist-segments="currentArtistSegments"
+        :name-segments="currentNameSegments"
+        :track-link="currentTrackLink"
+      />
     </div>
 
     <div v-if="!hasAudio" class="py-4 text-center text-black/60 dark:text-white/70">Music is coming</div>

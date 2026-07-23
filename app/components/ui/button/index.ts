@@ -8,6 +8,8 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
+        default:
+          'h-9 px-4 text-sm font-normal border border-transparent hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30',
         outline:
           'h-9 px-4 py-2 text-sm border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
         link:
@@ -19,7 +21,7 @@ export const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'outline',
+      variant: 'default',
     },
   },
 )

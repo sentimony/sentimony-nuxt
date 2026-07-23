@@ -20,6 +20,7 @@ export type IconKey =
   | 'twitterX'
   | 'youtube'
   | 'youtubeMusic'
+  | 'diggersfactory'
 
 export type IconDef =
   | { kind: 'iconify'; name: string }
@@ -31,6 +32,7 @@ export const ICONS: Record<IconKey, IconDef> = {
   beatport:     { kind: 'iconify', name: 'simple-icons:beatport' },
   deezer:       { kind: 'iconify', name: 'simple-icons:deezer' },
   discogs:      { kind: 'iconify', name: 'simple-icons:discogs' },
+  diggersfactory: { kind: 'svg', url: 'https://content.sentimony.com/assets/img/svg-icons/diggers-factory.svg' },
   facebook:     { kind: 'iconify', name: 'simple-icons:facebook' },
   instagram:    { kind: 'iconify', name: 'simple-icons:instagram' },
   tumblr:       { kind: 'iconify', name: 'simple-icons:tumblr' },

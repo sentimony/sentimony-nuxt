@@ -33,10 +33,9 @@ const { current } = useAudioPlayer()
         pages.
       </p>
       <p>
-        Thank you
-        <Icon name="lucide:handshake" mode="svg" class="inline-block align-middle"/>
+        Thank you,
         I really appreciate it
-        <Icon name="lucide:heart" mode="svg" class="inline-block align-middle"/>
+        <Icon name="lucide:handshake" mode="svg" class="inline-block align-middle"/>
       </p>
       <p>- Ihor</p>
     </div>

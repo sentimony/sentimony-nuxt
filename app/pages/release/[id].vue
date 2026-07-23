@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import AudioTrackPlaylist from '~/components/AudioTrackPlaylist.vue'
+import PagePlayer from '~/components/players/PagePlayer.vue'
 import { toArray } from '~/composables/toArray'
 import type { Artist } from '~/types'
 
@@ -35,7 +35,7 @@ onMounted(async () => {
   }
 })
 
-const player = ref<InstanceType<typeof AudioTrackPlaylist> | null>(null)
+const player = ref<InstanceType<typeof PagePlayer> | null>(null)
 
 function playFromTracklist(slug: string) {
   const index = playerTracks.value.findIndex(t => t.slug === slug)
@@ -58,6 +58,7 @@ const playerTracks = computed(() =>
       nameSegments: splitTitleByArtists(t.title, titleArtists.value),
       cover: releaseCover.value,
       releaseLink: route.path,
+      releaseTitle: item.value?.title,
       artistLink: t.artist_slug ? `/artist/${t.artist_slug}` : undefined,
     }
   })
@@ -161,7 +162,7 @@ useSeoMeta({
                 icon="sentimony:logo"
                 title="Sentimony"
               >
-                <AudioTrackPlaylist ref="player" :tracks="playerTracks" :play-counts="playCounts" />
+                <PagePlayer ref="player" :tracks="playerTracks" :play-counts="playCounts" />
               </Tab>
 
               <Tab

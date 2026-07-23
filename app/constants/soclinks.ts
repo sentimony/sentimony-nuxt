@@ -19,6 +19,7 @@ export const TUMBLR_URL        = 'https://sentimony.tumblr.com'
 export const GIPHY_URL         = 'https://giphy.com/channel/sentimony'
 export const LINKEDIN_URL      = 'https://www.linkedin.com/company/3256285'
 export const VK_URL            = 'https://vk.com/club1342946'
+export const DIGGERS_FACTORY_URL = 'https://www.diggersfactory.com/vinyl/317332/zymosis-memento'
 
 export type SocialLink = {
   id: IconKey
@@ -33,9 +34,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { id: 'beatport',     title: 'Beatport',      url: BEATPORT_URL },
   { id: 'deezer',       title: 'Deezer',        url: DEEZER_URL },
   { id: 'discogs',      title: 'Discogs',       url: DISCOGS_URL },
+  { id: 'diggersfactory', title: 'Diggers Factory', url: DIGGERS_FACTORY_URL },
   { id: 'facebook',     title: 'Facebook',      url: FACEBOOK_URL },
   { id: 'instagram',    title: 'Instagram',     url: INSTAGRAM_URL, inHeader: true },
-  { id: 'mixcloud',     title: 'Mixcloud',      url: MIXCLOUD_URL },
+  // { id: 'mixcloud',     title: 'Mixcloud',      url: MIXCLOUD_URL },
   { id: 'patreon',      title: 'Patreon',       url: PATREON_URL },
   { id: 'qobuz',        title: 'Qobuz',         url: QOBUZ_URL },
   { id: 'soundcloud',   title: 'SoundCloud',    url: SOUNDCLOUD_URL, inHeader: true },

@@ -12,6 +12,7 @@ export interface PlayerItem {
   nameSegments?: TitleSegment[]
   cover?: string
   releaseLink?: string
+  releaseTitle?: string
   artistLink?: string
   kind: 'mix' | 'track'
   queue?: QueueItem[]
@@ -70,6 +71,7 @@ export function useAudioPlayer() {
       nameSegments: entry.nameSegments,
       cover: entry.cover,
       releaseLink: entry.releaseLink,
+      releaseTitle: entry.releaseTitle,
       artistLink: entry.artistLink,
       queueIndex: index,
     })

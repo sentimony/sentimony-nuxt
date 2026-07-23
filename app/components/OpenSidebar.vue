@@ -52,6 +52,7 @@ watch(() => route.path, () => { isOpen.value = false })
       class="fixed left-full w-screen h-screen top-0 z-30 lg:hidden bg-white/30 dark:bg-black/30 backdrop-blur-sm transition-transform duration-300 ease-in-out"
       :class="isOpen ? '-translate-x-full pointer-events-auto' : 'pointer-events-none'"
       @click="isOpen = false"
+      v-wave
     />
 
     <DialogPortal>

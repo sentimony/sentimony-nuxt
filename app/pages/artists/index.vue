@@ -39,7 +39,7 @@ useSeoMeta({
 
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
-    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:keyboard-music" class="inline-block align-middle mr-2" />Producers & Musicians</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:keyboard-music" />Producers & Musicians</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMusician"
@@ -49,7 +49,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:turntable" class="inline-block align-middle mr-2" />DJs</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:turntable" />DJs</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDj"
@@ -59,7 +59,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:speaker" class="inline-block align-middle mr-2" />Sound Engineers & Mastering Services</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:speaker" />Sound Engineers & Mastering Services</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMastering"
@@ -69,7 +69,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:palette" class="inline-block align-middle mr-2" />Visual Artists & Designers</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:palette" />Visual Artists & Designers</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDesigner"
@@ -79,12 +79,9 @@ useSeoMeta({
       />
     </div>
 
-    <div class="flex justify-center pb-7.5 md:pb-15">
-      <Button as-child variant="link" class="text-white/50 hover:text-white/80">
-        <NuxtLink to="/artists/all">
-          All Artists
-        </NuxtLink>
-      </Button>
+    <div class="flex justify-center gap-2 pb-7.5 md:pb-15">
+      <DefaultButton to="/releases/all" title="All Releases" small outline />
+      <DefaultButton to="/artists/all" title="All Artists" small outline />
     </div>
 
   </div>
