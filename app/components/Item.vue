@@ -17,24 +17,31 @@ const imgWidth = computed(() =>
 const imgHeight = computed(() =>
   props.category === 'video' ? 135 : props.category === 'event' ? 310 : 120
 )
+
+// Event flyers are portrait, so narrower cards keep the whole card (title included)
+// within the swiper's fixed row height.
+const linkWidthClass = computed(() => props.category === 'event' ? 'w-16 md:w-32' : 'w-20 md:w-40')
+const boxWidthClass = computed(() => props.category === 'event' ? 'w-14 md:w-27' : 'w-17.5 md:w-35')
+const imgWidthClass = computed(() => props.category === 'event' ? 'w-11 md:w-22' : 'w-15 md:w-30')
 </script>
 
 <template>
 
   <NuxtLink
-    class="w-20 md:w-40 block group rounded-sm py-1 md:py-3 -mt-1 md:-mt-3"
+    class="block group rounded-sm py-1 md:py-3 -mt-1 md:-mt-3"
+    :class="linkWidthClass"
     :to="'/' + category + '/' + i.slug"
     v-slot="{ isActive }"
     v-wave
   >
 
     <div
-      class="relative flex items-center justify-center w-17.5 md:w-35 p-1.25 md:p-2.5 mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-black/10 dark:group-hover:bg-white/30 mb-1"
-      :class="isActive ? 'bg-black/10 dark:bg-white/20' : ''"
+      class="relative flex items-center justify-center p-1.25 md:p-2.5 mx-auto rounded-sm transition-[background-color] duration-200 ease-in-out group-hover:bg-black/10 dark:group-hover:bg-white/30 mb-1"
+      :class="[boxWidthClass, isActive ? 'bg-black/10 dark:bg-white/20' : '']"
     >
       <div
-        class="w-15 md:w-30 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50 overflow-hidden"
-        :class="aspectClass"
+        class="shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] text-left rounded-sm bg-black/50 overflow-hidden"
+        :class="[imgWidthClass, aspectClass]"
       >
         <img
           class="rounded-sm w-full h-full object-cover"

@@ -39,7 +39,7 @@ watch(() => route.path, () => { isOpen.value = false })
         ref="triggerRef"
         type="button"
         :aria-label="isOpen ? 'Close menu' : 'Menu'"
-        class="fixed top-0 right-0 mr-2 mt-[19px] z-50 lg:hidden flex items-center justify-center transition-[background-color,border-color,rotate] ease-in-out duration-300 cursor-pointer rounded-md border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 size-9"
+        class="fixed top-0 right-0 mr-2 mt-[18px] z-50 lg:hidden flex items-center justify-center transition-[background-color,border-color,rotate] ease-in-out duration-300 cursor-pointer rounded-md border hover:bg-white/30 hover:border-black/50 dark:hover:border-white/30 size-9"
         :class="isOpen ? 'bg-white/20 border-black/30 dark:border-white/20 rotate-[360deg]' : 'border-transparent'"
         v-wave
       >
@@ -48,12 +48,18 @@ watch(() => route.path, () => { isOpen.value = false })
       </button>
     </DialogTrigger>
 
-    <div
-      class="fixed left-full w-screen h-screen top-0 z-30 lg:hidden bg-white/30 dark:bg-black/30 backdrop-blur-sm transition-transform duration-300 ease-in-out"
-      :class="isOpen ? '-translate-x-full pointer-events-auto' : 'pointer-events-none'"
-      @click="isOpen = false"
-      v-wave
-    />
+    <Transition
+      enter-active-class="transition-opacity duration-200 ease-out"
+      enter-from-class="opacity-0"
+      leave-active-class="transition-opacity duration-200 ease-in"
+      leave-to-class="opacity-0"
+    >
+      <Overlay
+        v-if="isOpen"
+        class="fixed inset-0 z-30 lg:hidden"
+        @click="isOpen = false"
+      />
+    </Transition>
 
     <DialogPortal>
       <DialogContent

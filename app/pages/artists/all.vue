@@ -58,7 +58,7 @@ useSeoMeta({
       :key="group.category"
       class="pb-7.5 md:pb-15"
     >
-      <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60">
+      <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60">
         <Icon :name="categoryMeta[group.category].icon" />{{ categoryMeta[group.category].title }}
       </h2>
 

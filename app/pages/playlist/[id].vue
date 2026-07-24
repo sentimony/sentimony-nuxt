@@ -27,6 +27,27 @@ const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 
+type TrackListItem = {
+  slug: string
+  title: string
+  release_slug: string
+  artist_slug: string
+  artist_name: string
+  track_number: number
+  bpm: number | null
+  audio_url: string | null
+}
+const { data: allTracks } = await useFetch<TrackListItem[]>('/api/tracks')
+const tracksByRelease = computed(() => {
+  const map = new Map<string, TrackListItem[]>()
+  for (const track of allTracks.value ?? []) {
+    const list = map.get(track.release_slug)
+    if (list) list.push(track)
+    else map.set(track.release_slug, [track])
+  }
+  return map
+})
+
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 useCanonical(() => absoluteUrl.value)
@@ -69,6 +90,7 @@ useSeoMeta({
 
                 <div class="flex justify-start mt-3">
                   <LikeButton
+                    size="lg"
                     :liked="isLiked(item.slug)"
                     :count="likeCount(item.slug)"
                     @like="toggleLike(item.slug)"
@@ -158,13 +180,20 @@ useSeoMeta({
                 v-if="i.at_playlists?.includes(item.slug)"
                 class="mb-4"
               >
-                <RelativeItem :i="i" category="release" class="mb-2" />
-                <div v-if="i.tracklistCompact" class="Tracklist">
+                <div class="mb-2">
+                  <RelativeItem :i="i" category="release" />
+                </div>
+                <div v-if="tracksByRelease.get(i.slug)?.length" class="Tracklist">
                   <li
-                    v-for="(iii, tIndex) in i.tracklistCompact"
-                    :key="'t' + tIndex"
-                    v-html="sanitizeHtml(iii.p)"
-                  />
+                    v-for="t in tracksByRelease.get(i.slug)"
+                    :key="t.slug"
+                  >
+                    <small class="font-mono">{{ Number(t.track_number) }}.</small>
+                    <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
+                    -
+                    <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+                    <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
+                  </li>
                 </div>
               </div>
             </template>

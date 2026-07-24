@@ -61,7 +61,7 @@ export default defineNuxtConfig({
   components: [
     { path: '~/components/ui', pathPrefix: false, extensions: ['vue'] },
     { path: '~/components/buttons', pathPrefix: false, extensions: ['vue'] },
-    { path: '~/components/players', pathPrefix: false, extensions: ['vue'] },
+    { path: '~/components/player', pathPrefix: false, extensions: ['vue'] },
     '~/components',
   ],
   runtimeConfig: {

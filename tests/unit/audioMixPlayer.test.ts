@@ -7,7 +7,7 @@ const readProjectFile = (path: string) => readFileSync(projectFile(path), 'utf8'
 
 describe('AudioMixPlayer.vue', () => {
   const component = readProjectFile('app/components/AudioMixPlayer.vue')
-  const bottomPlayer = readProjectFile('app/components/AudioBottomPlayer.vue')
+  const bottomPlayer = readProjectFile('app/components/player/GlobalPlayer.vue')
 
   it('defines src, title, and tracklist props', () => {
     expect(component).toContain('src: string')

@@ -7,10 +7,10 @@ const componentPath = fileURLToPath(
 )
 
 describe('OpenImage', () => {
-  it('uses the xl image as the preview fallback when a thumbnail is missing', () => {
+  it('derives the preview from the thumbnail variant', () => {
     const source = readFileSync(componentPath, 'utf8')
 
-    expect(source).toContain('props.image_th || props.image_xl')
+    expect(source).toContain('thumb(props.image_th)')
     expect(source).toContain('v-if="previewImage"')
     expect(source).toContain(':src="previewImage"')
   })

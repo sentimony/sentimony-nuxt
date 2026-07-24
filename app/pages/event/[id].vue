@@ -57,6 +57,7 @@ useSeoMeta({
 
         <div class="flex justify-start mb-4">
           <LikeButton
+            size="lg"
             :liked="isLiked(item.slug)"
             :count="likeCount(item.slug)"
             @like="toggleLike(item.slug)"

@@ -22,7 +22,7 @@ const newsItems = computed<NewsItem[]>(() => {
       title: i.title,
       href: `/release/${i.slug}`,
       category: 'release' as const,
-      image: i.cover_xl,
+      image: thumb(i.cover_xl),
     }))
 
   const e = events.value
@@ -33,7 +33,7 @@ const newsItems = computed<NewsItem[]>(() => {
       title: i.title,
       href: `/event/${i.slug}`,
       category: 'event' as const,
-      image: i.flyer_a_xl,
+      image: thumb(i.flyer_a_xl),
     }))
 
   const v = videos.value
@@ -44,7 +44,7 @@ const newsItems = computed<NewsItem[]>(() => {
       title: i.title,
       href: `/video/${i.slug}`,
       category: 'video' as const,
-      image: i.cover_xl,
+      image: thumb(i.cover_xl),
     }))
 
   return sortByDate([...r, ...e, ...v])

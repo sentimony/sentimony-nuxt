@@ -78,63 +78,61 @@ const events = computed(() => eventsArr.value.filter(e => Boolean(e?.visible)).l
 const { data: friendsRaw } = await useFriends({ server: true })
 const friendsArr = computed(() => toArray<Friend>(friendsRaw.value, 'friends'))
 const friends = computed(() => friendsArr.value.filter(f => Boolean(f?.visible)).length)
+
+const stats = computed(() => [
+  { label: 'Tracks', value: tracks.value },
+  { label: 'Releases', value: releases.value },
+  { label: 'Artists', value: artists.value },
+  { label: 'Playlists', value: playlists.value },
+  { label: 'Videos', value: videos.value },
+  { label: 'Events', value: events.value },
+])
 </script>
 
 <template>
-  <div class="container max-w-4xl ">
+  <div class="container max-w-4xl">
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
-    <div class="flex justify-between my-12">
-      <div class="">Tracks<br>{{ tracks }}</div>
-      <div class="">Releases<br>{{ releases }}</div>
-      <div class="">Artists<br>{{ artists }}</div>
-      <div class="">Playlists<br>{{ playlists }}</div>
-      <div class="">Videos<br>{{ videos }}</div>
-      <div class="">Events<br>{{ events }}</div>
-      <!-- <div class="">Friends<br>{{ friends }}</div> -->
+    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-3 my-8 md:my-10">
+      <div
+        v-for="s in stats"
+        :key="s.label"
+        class="text-center rounded-md border border-black/15 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] py-3"
+      >
+        <div class="font-mono text-xl md:text-2xl">{{ s.value }}</div>
+        <div class="text-[11px] uppercase tracking-wide text-foreground/50">{{ s.label }}</div>
+      </div>
     </div>
 
-    <div class=" text-left pb-7.5 md:pb-15">
+    <div class="text-left pb-7.5 md:pb-15">
       <div class="max-w-[640px] mx-auto">
 
-        <hr class="my-4 border-white/30">
+        <hr class="my-4 border-black/30 dark:border-white/30">
         <p><small><b>Releases / Tracks:</b></small></p>
 
-        <ol class="list-decimal ps-9">
-          <div
-            v-for="(i, index) in releasesWithTracks"
-            :key="i.slug || index"
-            class="mb-4"
-          >
-            <RelativeItem
-              :i="i"
-              category="release"
-              class="mb-2"
-            />
+        <div
+          v-for="(i, index) in releasesWithTracks"
+          :key="i.slug || index"
+          class="mb-5"
+        >
+          <RelativeItem
+            :i="i"
+            category="release"
+          />
 
-            <div class="Tracklist">
-              <li
-                v-for="t in tracksByRelease.get(i.slug)"
-                :key="t.slug"
-              >
-                <small class="font-mono">{{ String(t.track_number).padStart(2, '0') }}.</small>
-                <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
-                -
-                <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
-                <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
-                <a
-                  v-if="t.audio_url"
-                  :href="t.audio_url"
-                  target="_blank"
-                  rel="noopener"
-                  class="ms-1 text-foreground/40 hover:text-foreground/70"
-                >
-                  <Icon name="lucide:play" mode="svg" class="inline size-3.5 align-middle" />
-                </a>
-              </li>
-            </div>
+          <div class="Tracklist mt-1">
+            <p
+              v-for="t in tracksByRelease.get(i.slug)"
+              :key="t.slug"
+            >
+              <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
+              <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
+              -
+              <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+              <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
+            </p>
           </div>
-        </ol>
+        </div>
       </div>
     </div>
 

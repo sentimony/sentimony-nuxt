@@ -12,8 +12,8 @@
     "build": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt build",
     "generate": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt generate",
     "preview": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt preview",
-    "sync:firebase": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-firebase.mjs",
-    "sync:supabase": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
+    "sync:firebase": "npm run convert:yml && node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-firebase.mjs",
+    "sync:supabase": "npm run convert:yml && node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
     "sync:field": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-field.mjs",
     "convert:yml": "node scripts/convert-yml-json.mjs",
     "sync:track-audio": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-track-audio.mjs",
@@ -30,7 +30,7 @@
     "netlify:prod": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.118",
+    "@iconify-json/lucide": "^1.2.119",
     "@iconify-json/lucide-lab": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.91",
     "@playwright/test": "^1.61.1",

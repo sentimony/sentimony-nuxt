@@ -4,7 +4,7 @@ import type { QueueItem } from '~/utils/audioQueue'
 
 import type { TitleSegment } from '~/utils/tracks'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   tracks: {
     title: string
     titleSegments?: TitleSegment[]
@@ -20,13 +20,13 @@ const props = defineProps<{
     artistLink?: string
   }[]
   playCounts?: Record<string, number>
-}>()
+  showIndex?: boolean
+}>(), { showIndex: true })
 
 const route = useRoute()
-const { current, isPlaying, play, toggle } = useAudioPlayer()
+const { current, isPlaying, play, toggle, playToken } = useAudioPlayer()
 
 const playCounts = ref<Record<string, number>>({ ...(props.playCounts ?? {}) })
-const countedThisSession = new Set<string>()
 
 const trackSlugs = computed(() =>
   props.tracks.map(t => t.slug).filter((s): s is string => Boolean(s))
@@ -70,6 +70,7 @@ const activeIndex = computed(() =>
 )
 const isActive = computed(() => activeIndex.value !== -1)
 const playingThis = computed(() => isActive.value && isPlaying.value)
+
 const currentTrack = computed(() => playable.value[activeIndex.value] ?? playable.value[0])
 
 const currentArtistSegments = computed(() => {
@@ -88,8 +89,7 @@ const canPrev = computed(() => isActive.value && activeIndex.value > 0)
 const canNext = computed(() => isActive.value && activeIndex.value < playable.value.length - 1)
 
 function registerPlay(slug?: string) {
-  if (!slug || countedThisSession.has(slug)) return
-  countedThisSession.add(slug)
+  if (!slug) return
   playCounts.value = { ...playCounts.value, [slug]: (playCounts.value[slug] ?? 0) + 1 }
   $fetch('/api/track-plays', { method: 'POST', body: { slug } }).catch(() => {})
 }
@@ -99,12 +99,13 @@ function playTrack(index: number) {
   if (!track?.url) return
   const queueIndex = playable.value.findIndex(t => t.url === track.url)
   play({ kind: 'track', ...toQueueItem(track), queue: queue.value, queueIndex })
-  registerPlay(track.slug)
 }
 
-watch(activeIndex, (index) => {
-  if (index === -1) return
-  registerPlay(playable.value[index]?.slug)
+// Count one play per playback cycle (new track, queue move, or repeat replay)
+// for whichever queued track is currently active.
+watch(playToken, () => {
+  if (!isActive.value) return
+  registerPlay(playable.value[activeIndex.value]?.slug)
 })
 
 const hasAudio = computed(() => playable.value.length > 0)
@@ -148,22 +149,25 @@ defineExpose({ playTrack })
         v-for="(track, index) in tracks"
         :key="index"
         type="button"
-        class="flex items-center gap-2 text-xs text-left px-2 py-1 rounded transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/10"
+        class="flex items-center gap-2 text-xs text-left py-1 rounded transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/10"
         :class="track.url && track.url === current?.src ? 'text-black font-bold dark:text-white' : 'text-black/60 dark:text-white/60'"
         @click="playTrack(index)"
       >
-        <span class="font-mono w-6 shrink-0">{{ String(index + 1).padStart(2, '0') }}</span>
+        <span
+          v-if="showIndex || (track.url && track.url === current?.src)"
+          class="font-mono w-6 shrink-0 flex items-center justify-end"
+        >
+          <Icon
+            v-if="track.url && track.url === current?.src"
+            name="lucide:loader"
+            size="14"
+            class="animate-spin text-white [animation-duration:1.33s]"
+          />
+          <template v-else-if="showIndex">{{ index + 1 }}</template>
+        </span>
         <span class="truncate">
           <template v-if="track.titleSegments?.length">
-            <template v-for="(seg, si) in track.titleSegments" :key="si">
-              <NuxtLink
-                v-if="seg.slug"
-                :to="`/artist/${seg.slug}`"
-                class="hover:underline"
-                @click.stop
-              >{{ seg.text }}</NuxtLink>
-              <template v-else>{{ seg.text }}</template>
-            </template>
+            <template v-for="(seg, si) in track.titleSegments" :key="si">{{ seg.text }}</template>
           </template>
           <template v-else>{{ track.title }}</template>
         </span>
@@ -171,8 +175,8 @@ defineExpose({ playTrack })
           v-if="track.slug && playCounts[track.slug]"
           class="ml-auto flex items-center gap-1 font-mono shrink-0 opacity-60"
         >
-          <Icon name="lucide:headphones" size="12" />
-          {{ playCounts[track.slug] }}
+          <Icon name="lucide:play" size="12" />
+          <span class=" w-6">{{ playCounts[track.slug] }}</span>
         </span>
       </button>
     </div>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { toast } from 'vue-sonner'
+import { nextQueueIndex } from '~/utils/audioQueue'
 
 const audioEl = ref<HTMLAudioElement | null>(null)
-const { current, isPlaying, currentTime, duration, volume, seekTo, toggle, seek, next, prev, close } = useAudioPlayer()
+const { current, isPlaying, currentTime, duration, volume, seekTo, repeatMode, playToken, toggle, seek, next, prev, moveTo, close } = useAudioPlayer()
 
 onMounted(() => {
   const stored = localStorage.getItem('player-volume')
@@ -53,10 +54,28 @@ function onLoadedMetadata() {
   if (audioEl.value) duration.value = audioEl.value.duration
 }
 
+function replayCurrent() {
+  const el = audioEl.value
+  if (!el) return
+  el.currentTime = 0
+  currentTime.value = 0
+  el.play().catch(() => { isPlaying.value = false })
+  playToken.value++
+}
+
 function onEnded() {
+  if (repeatMode.value === 'one') {
+    replayCurrent()
+    return
+  }
   const item = current.value
-  if (item?.queue) next()
-  else isPlaying.value = false
+  if (!item?.queue) {
+    isPlaying.value = false
+    return
+  }
+  if (nextQueueIndex(item.queue.length, item.queueIndex ?? 0) !== null) next()
+  else if (repeatMode.value === 'all') moveTo(0)
+  else close()
 }
 
 function onError() {

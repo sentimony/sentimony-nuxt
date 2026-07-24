@@ -15,10 +15,15 @@ const likePages = [
 ]
 
 describe('like buttons', () => {
-  it.each(likePages)('uses thumbs-up on %s', (path) => {
+  it.each(likePages)('uses a thumbs-up like control on %s', (path) => {
     const page = readProjectFile(path)
 
-    expect(page).toContain('lucide:thumbs-up')
+    // Detail pages either inline the icon or use the shared <LikeButton> wrapper.
+    expect(page.includes('lucide:thumbs-up') || page.includes('<LikeButton')).toBe(true)
     expect(page).not.toContain('lucide:heart')
+  })
+
+  it('renders thumbs-up inside the shared LikeButton', () => {
+    expect(readProjectFile('app/components/buttons/LikeButton.vue')).toContain('lucide:thumbs-up')
   })
 })

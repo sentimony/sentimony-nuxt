@@ -111,6 +111,8 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
   <div class="min-h-screen flex flex-col relative z-[2]">
     <div class="flex-1">
 
+      <div>
+
       <Header />
 
       <div class="flex flex-col justify-center">
@@ -182,13 +184,14 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
         </div>
 
       </div>
-    </div>
 
-    <div class="">
+      </div>
+
       <Testimonials />
-      <Footer />
       <GlobalPlayer />
     </div>
-    
+
+    <Footer />
+
   </div>
 </template>

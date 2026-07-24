@@ -35,7 +35,7 @@ async function signOut() {
   <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
-        <div class="relative flex justify-between items-center h-18.75 px-2">
+        <div class="relative flex justify-between items-center h-18 px-2">
 
           <NuxtLink
             to="/"
@@ -151,8 +151,8 @@ async function signOut() {
             v-else
             to="/signin"
             aria-label="Sign In"
-            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-black/10 dark:hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 rounded-md text-sm"
-            :class="isNavActive('/signin') ? 'bg-black/10 dark:bg-white/20' : ''"
+            class="transition-[background-color] ease-in-out duration-300 inline-flex items-center justify-center gap-2 hover:bg-white/30 px-2 lg:px-3 min-w-9 h-9 rounded-md text-sm"
+            :class="isNavActive('/signin') ? 'bg-white/20' : ''"
             v-wave
           >
             <Icon name="lucide:circle-user-round" size="18" />

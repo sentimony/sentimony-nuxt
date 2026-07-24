@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import PagePlayer from '~/components/players/PagePlayer.vue'
+import PagePlayer from '~/components/player/PagePlayer.vue'
 import { toArray } from '~/composables/toArray'
 import type { Artist } from '~/types'
 
 const { id } = useRoute().params
 const { isLiked, toggleLike, likeCount } = useLikes()
-const { isTrackLiked, toggleTrackLike, trackLikeCount } = useTrackLikes()
 
 type RelatedRelease = { slug: string, title?: string, cover_xl?: string, date?: string }
 type RelatedArtist = { slug: string, title?: string, photo_xl?: string }
@@ -35,13 +34,6 @@ onMounted(async () => {
   }
 })
 
-const player = ref<InstanceType<typeof PagePlayer> | null>(null)
-
-function playFromTracklist(slug: string) {
-  const index = playerTracks.value.findIndex(t => t.slug === slug)
-  if (index >= 0) player.value?.playTrack(index)
-}
-
 const route = useRoute()
 const releaseCover = computed(() => item.value?.cover_th || item.value?.cover_xl)
 
@@ -69,7 +61,6 @@ const allArtists = computed(() => toArray<Artist>(allArtistsAsync.data.value))
 const titleArtists = computed(() =>
   (allArtists.value.length ? allArtists.value : relatedArtists.value),
 )
-
 const { formatDate, formatYear } = useDate()
 const formattedDate = computed(() => formatDate(item.value?.date))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
@@ -162,7 +153,7 @@ useSeoMeta({
                 icon="sentimony:logo"
                 title="Sentimony"
               >
-                <PagePlayer ref="player" :tracks="playerTracks" :play-counts="playCounts" />
+                <PagePlayer :tracks="playerTracks" :play-counts="playCounts" />
               </Tab>
 
               <Tab
@@ -262,57 +253,12 @@ useSeoMeta({
             <p
               v-for="t in item.tracklist"
               :key="t.slug"
-              class="flex items-center justify-between gap-2"
             >
-              <span class="min-w-0">
-                <small class="font-mono">{{ String(t.track_number).padStart(2, '0') }}.</small>
-                <TrackArtists :name="t.artist" :slug="t.artist_slug" />
-                -
-                <TrackTitle :title="t.title" :artists="titleArtists" />
-                <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
-              </span>
-              <span class="flex items-center gap-1 shrink-0">
-                <TooltipProvider :delay-duration="0">
-                  <Tooltip>
-                    <TooltipTrigger as-child>
-                      <button
-                        :disabled="!t.url"
-                        @click="playFromTracklist(t.slug)"
-                        class="flex items-center text-xs rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 text-foreground/40 hover:text-foreground/70 disabled:opacity-30 disabled:pointer-events-none"
-                        aria-label="Play"
-                      >
-                        <Icon name="lucide:circle-play" size="16" />
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent>Play</TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <NuxtLink
-                  :to="`/track/${t.slug}`"
-                  class="flex items-center gap-1 text-xs border border-transparent rounded px-2 py-1 transition-colors duration-200 hover:bg-foreground/10 hover:border-foreground/20 text-foreground/40 hover:text-foreground/70"
-                >
-                  <Icon name="lucide:audio-lines" size="12" />
-                  View Track
-                </NuxtLink>
-                <TooltipProvider v-if="playCounts[t.slug]" :delay-duration="0">
-                  <Tooltip>
-                    <TooltipTrigger as-child>
-                      <span class="flex items-center gap-1 text-xs font-mono px-2 py-1 text-foreground/40">
-                        <Icon name="lucide:headphones" size="12" />
-                        {{ playCounts[t.slug] }}
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent>Plays</TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <button
-                  @click="toggleTrackLike(t.slug)"
-                  class="flex items-center gap-1 text-xs border border-transparent rounded px-2 py-1 transition-colors duration-200 text-foreground/40 hover:text-foreground/70 hover:border-foreground/20 hover:bg-foreground/10"
-                >
-                  <Icon name="lucide:thumbs-up" size="12" />
-                  <span v-if="trackLikeCount(t.slug) > 0">{{ trackLikeCount(t.slug) }}</span>
-                </button>
-              </span>
+              <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
+              <TrackArtists :name="t.artist" :slug="t.artist_slug" />
+              -
+              <TrackTitle :title="t.title" :artists="titleArtists" />
+              <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
             </p>
           </template>
         </div>

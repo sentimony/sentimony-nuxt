@@ -5,8 +5,8 @@ import { describe, expect, it } from 'vitest'
 const projectFile = (path: string) => fileURLToPath(new URL(`../../${path}`, import.meta.url))
 const readProjectFile = (path: string) => readFileSync(projectFile(path), 'utf8')
 
-describe('AudioTrackPlaylist.vue', () => {
-  const component = readProjectFile('app/components/AudioTrackPlaylist.vue')
+describe('PagePlayer.vue', () => {
+  const component = readProjectFile('app/components/player/PagePlayer.vue')
 
   it('defines a tracks prop of title/url/slug entries', () => {
     expect(component).toMatch(/tracks:\s*{\s*title:\s*string\s*(?:titleSegments\?:[^\n]*\s*)?url:\s*string\s*slug\?:\s*string/)
@@ -40,15 +40,20 @@ describe('AudioTrackPlaylist.vue', () => {
     expect(component).toContain('{ deep: true }')
   })
 
-  it('toggles lucide play/pause icons off playing state', () => {
-    expect(component).toContain('lucide:play')
-    expect(component).toContain('lucide:pause')
+  const controls = readProjectFile('app/components/player/PlayerControls.vue')
+
+  it('delegates play/pause to the shared PlayerControls', () => {
+    expect(component).toContain('<PlayerControls')
+    expect(component).toContain(':is-playing="playingThis"')
+    expect(controls).toContain('lucide:play')
+    expect(controls).toContain('lucide:pause')
   })
 
   it('provides prev/next controls gated on playlist boundaries', () => {
-    expect(component).toContain('lucide:skip-back')
-    expect(component).toContain('lucide:skip-forward')
-    expect(component).toContain(':disabled="!isActive || activeIndex === 0"')
+    expect(controls).toContain('lucide:skip-back')
+    expect(controls).toContain('lucide:skip-forward')
+    expect(component).toContain('const canPrev = computed(() => isActive.value && activeIndex.value > 0)')
+    expect(component).toContain(':can-prev="canPrev"')
   })
 
   it('renders a clickable track list highlighting the current track', () => {
@@ -74,8 +79,8 @@ describe('release page Sentimony tab', () => {
     expect(page).toContain('v-if="item.tracklist?.length"')
   })
 
-  it('renders AudioTrackPlaylist with artist-title player tracks', () => {
-    expect(page).toContain('<AudioTrackPlaylist')
+  it('renders PagePlayer with artist-title player tracks', () => {
+    expect(page).toContain('<PagePlayer')
     expect(page).toContain(':tracks="playerTracks"')
   })
 })

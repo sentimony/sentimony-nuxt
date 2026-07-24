@@ -26,12 +26,21 @@ export function useAudioPlayer() {
   const duration = useState<number>('audio-player-duration', () => 0)
   const volume = useState<number>('audio-player-volume', () => 1)
   const seekTo = useState<number | null>('audio-player-seek', () => null)
+  const repeatMode = useState<'off' | 'all' | 'one'>('audio-player-repeat', () => 'off')
+  // Bumped on every playback start (new track, queue move, or repeat replay) so
+  // listeners can count one play per cycle.
+  const playToken = useState<number>('audio-player-token', () => 0)
+
+  function cycleRepeat() {
+    repeatMode.value = repeatMode.value === 'off' ? 'all' : repeatMode.value === 'all' ? 'one' : 'off'
+  }
 
   function play(item: PlayerItem) {
     currentTime.value = 0
     duration.value = 0
     current.value = item
     isPlaying.value = true
+    playToken.value++
   }
 
   function toggle() {
@@ -93,5 +102,5 @@ export function useAudioPlayer() {
     return current.value?.src === src
   }
 
-  return { current, isPlaying, currentTime, duration, volume, seekTo, play, toggle, seek, setVolume, close, next, prev, isCurrent }
+  return { current, isPlaying, currentTime, duration, volume, seekTo, repeatMode, playToken, cycleRepeat, play, toggle, seek, setVolume, close, next, prev, moveTo, isCurrent }
 }

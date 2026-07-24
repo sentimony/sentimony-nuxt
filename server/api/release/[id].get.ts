@@ -12,7 +12,6 @@ export default defineCachedEventHandler(
         .from('releases')
         .select('*')
         .eq('slug', id)
-        .eq('visible', true)
         .single()
 
       if (error || !data) throw createError({ statusCode: 404, statusMessage: 'Release not found' })
@@ -20,7 +19,7 @@ export default defineCachedEventHandler(
     }
     else {
       const data = await fetchFirebaseEntity('releases', id)
-      if (!isPublicEntity(data)) throw createError({ statusCode: 404, statusMessage: 'Release not found' })
+      if (!data) throw createError({ statusCode: 404, statusMessage: 'Release not found' })
       release = data as Record<string, unknown>
     }
 

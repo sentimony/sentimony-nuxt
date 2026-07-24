@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import type { Release } from '~/types'
+import type { Release, ReleasesResponse } from '~/types'
 
-const { data: releasesRaw } = await useReleases()
+const { data: releasesRaw } = await useAsyncData<ReleasesResponse>('releases-all', () =>
+  $fetch<ReleasesResponse>('/api/releases-all')
+)
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
-const releasesSortedByDate = computed(() => visibleByDate(releases.value))
+const releasesSortedByDate = computed(() => sortByDate(releases.value))
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 useCanonical(() => absoluteUrl.value)

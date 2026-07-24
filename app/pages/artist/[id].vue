@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { createError } from '#app'
-import PagePlayer from '~/components/players/PagePlayer.vue'
+import PagePlayer from '~/components/player/PagePlayer.vue'
 import type { TitleSegment } from '~/utils/tracks'
 import type { Release, Event } from '~/types'
 

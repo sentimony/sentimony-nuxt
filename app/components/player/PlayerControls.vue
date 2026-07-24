@@ -23,7 +23,7 @@ const mainClass = 'flex size-11 shrink-0 items-center justify-center rounded-ful
     <button
       v-if="showSides"
       type="button"
-      :class="[sideClass, size === 'sm' ? 'size-8' : 'size-9']"
+      :class="[sideClass, size === 'sm' ? 'size-7.5' : 'size-9']"
       aria-label="Previous track"
       :disabled="!canPrev"
       @click="$emit('prev')"
@@ -46,7 +46,7 @@ const mainClass = 'flex size-11 shrink-0 items-center justify-center rounded-ful
     <button
       v-if="showSides"
       type="button"
-      :class="[sideClass, size === 'sm' ? 'size-8' : 'size-9']"
+      :class="[sideClass, size === 'sm' ? 'size-7.5' : 'size-9']"
       aria-label="Next track"
       :disabled="!canNext"
       @click="$emit('next')"

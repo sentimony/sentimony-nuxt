@@ -26,7 +26,7 @@ const show = ref(false)
       @click="show = !show"
       class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer text-foreground/40 hover:text-foreground/80 transition-colors"
     >
-      <Icon :name="show ? 'lucide:eye-off' : 'lucide:eye'" size="18" />
+      <Icon :name="show ? 'lucide:eye-closed' : 'lucide:eye'" size="18" />
     </button>
   </div>
 </template>

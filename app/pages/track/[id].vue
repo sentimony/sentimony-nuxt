@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { createError } from '#app'
+import PagePlayer from '~/components/player/PagePlayer.vue'
+import { toArray } from '~/composables/toArray'
+import type { Artist } from '~/types'
 
 const { id } = useRoute().params
 const {
@@ -27,8 +30,6 @@ if (data.value.redirect) {
 const track = computed(() => data.value!.track ?? ({} as NonNullable<typeof data.value.track>))
 const release = computed(() => data.value!.release)
 const artists = computed(() => data.value!.artists ?? [])
-const releaseTracks = computed(() => data.value!.releaseTracks ?? [])
-const similarTracks = computed(() => data.value!.similarTracks ?? [])
 
 const { formatDate, formatYear } = useDate()
 const releaseDate = computed(() => formatDate(release.value?.date))
@@ -38,6 +39,41 @@ const primaryArtist = computed(() => artists.value[0])
 const artistsTitleLine = computed(() =>
   artists.value.map(a => a.title).filter(Boolean).join(' & ') || track.value.artist_name,
 )
+
+const releaseCover = computed(() => release.value?.cover_th || release.value?.cover_xl)
+
+const allArtistsAsync = useFetch<Record<string, Artist> | Artist[]>('/api/artists-all', { server: false })
+const allArtists = computed(() => toArray<Artist>(allArtistsAsync.data.value))
+const titleArtists = computed(() => (allArtists.value.length ? allArtists.value : artists.value))
+
+const playerTracks = computed(() => {
+  const t = track.value
+  if (!t.audio_url) return []
+  return [{
+    title: `${t.artist_name} - ${t.title}`,
+    titleSegments: splitTitleByArtists(`${t.artist_name} - ${t.title}`, titleArtists.value),
+    url: t.audio_url,
+    slug: t.slug,
+    artist: t.artist_name,
+    artistSegments: splitTitleByArtists(t.artist_name, titleArtists.value),
+    name: t.title,
+    nameSegments: splitTitleByArtists(t.title, titleArtists.value),
+    cover: releaseCover.value,
+    releaseLink: release.value ? `/release/${release.value.slug}` : undefined,
+    releaseTitle: release.value?.title,
+    artistLink: t.artist_slug ? `/artist/${t.artist_slug.split(',')[0]!.trim()}` : undefined,
+  }]
+})
+
+const playCounts = ref<Record<string, number>>({})
+
+onMounted(async () => {
+  if (track.value.slug) {
+    playCounts.value = await $fetch<Record<string, number>>('/api/track-plays', {
+      query: { slugs: track.value.slug },
+    }).catch(() => ({}))
+  }
+})
 
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(
   computed(() => release.value?.links?.youtube_music),
@@ -66,8 +102,6 @@ useSeoMeta({
   twitterCard: 'summary',
 })
 
-const comingMusic = '<div class="p-4 text-center text-white/70">Player coming soon</div>'
-
 const hasBandcamp = computed(() => Boolean(release.value?.links?.bandcamp_id))
 const hasSoundcloud = computed(() => Boolean(release.value?.links?.soundcloud_playlist_id))
 const hasYoutube = computed(() => Boolean(release.value?.links?.youtube_playlist_id))
@@ -79,126 +113,59 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
     <div class="relative z-[2] px-2">
       <div class="container max-w-7xl">
 
-        <p class="text-center text-[11px] md:text-[13px] text-foreground/60 mt-4 md:mt-6">
-          <span>Track</span>
-          <span v-if="release"> · </span>
-          <NuxtLink
-            v-if="release"
-            :to="`/release/${release.slug}`"
-            class="hover:text-foreground transition-colors"
-          >
-            {{ release.title }}
-          </NuxtLink>
-          <span v-if="releaseYear"> · {{ releaseYear }}</span>
-          <span v-if="track.bpm"> · {{ track.bpm }} bpm</span>
-        </p>
-
-        <h1 class="text-center text-2xl md:text-4xl my-2 md:my-4">{{ track.title }}</h1>
-
-        <p class="text-center text-sm md:text-base text-foreground/80 mb-4">
-          <template v-for="(artist, index) in artists" :key="artist.slug">
-            <NuxtLink
-              :to="`/artist/${artist.slug}`"
-              class="underline-offset-2 hover:underline"
-            >{{ artist.title }}</NuxtLink>
-            <span v-if="index < artists.length - 1"> &amp; </span>
-          </template>
-          <span v-if="!artists.length">{{ track.artist_name }}</span>
-        </p>
-
-        <div class="flex justify-center mb-4">
-          <button
-            @click="toggleTrackLike(track.slug)"
-            class="flex items-center gap-2 border border-foreground/20 text-foreground/40 rounded px-4 py-2 text-sm transition-colors duration-200 hover:text-foreground/70 hover:bg-white/10"
-            v-wave
-          >
-            <Icon name="lucide:thumbs-up" size="18" />
-            {{ isTrackLiked(track.slug) ? 'Liked' : 'Like' }}
-            <span v-if="trackLikeCount(track.slug) > 0" class="opacity-50">{{ trackLikeCount(track.slug) }}</span>
-          </button>
-        </div>
+        <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ artistsTitleLine }} - {{ track.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
           <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36 pr-2">
 
-            <OpenImage
-              v-if="release"
-              :image_th="release.cover_th"
-              :image_xl="release.cover_xl"
-              :alt="(release.title || 'Release') + ' cover'"
-              class="float-left"
-            />
+            <div class="flex flex-col sm:flex-row">
 
-            <p v-if="release"><span class="text-foreground/50">Release:</span>
-              <NuxtLink :to="`/release/${release.slug}`" class="ml-1 hover:underline">{{ release.title }}</NuxtLink>
-            </p>
-            <p v-if="releaseDate"><span class="text-foreground/50">Release Date:</span> {{ releaseDate }}</p>
-            <p v-if="release?.cat_no"><span class="text-foreground/50">Catalog Number:</span> {{ release.cat_no }}</p>
-            <p v-if="release?.style"><span class="text-foreground/50">Styles:</span> {{ release.style }}</p>
-            <p v-if="track.bpm"><span class="text-foreground/50">BPM:</span> {{ track.bpm }}</p>
-            <p><span class="text-foreground/50">Track No:</span> {{ track.track_number }}</p>
+              <div class="shrink-0">
+                <OpenImage
+                  v-if="release"
+                  :image_th="release.cover_th"
+                  :image_xl="release.cover_xl"
+                  :alt="(release.title || 'Release') + ' cover'"
+                />
+              </div>
 
-            <div class="clear-left" />
+              <div class="flex-1 min-w-0">
 
-            <p v-if="release?.links?.bandcamp_url">
-              <span class="text-[10px] md:text-[12px] text-foreground/50">Buy / Download</span>
-            </p>
-            <PrimaryButton
-              v-if="release?.links?.bandcamp_url"
-              :to="release.links.bandcamp_url"
-              title="Bandcamp"
-              iconify="simple-icons:bandcamp"
-            />
-            <PrimaryButton
-              v-if="release?.links?.bandcamp24_url"
-              :to="release.links.bandcamp24_url"
-              title="Bandcamp <small>(24bit)</small>"
-              iconify="simple-icons:bandcamp"
-            />
-            <PrimaryButton
-              v-if="release?.links?.beatport"
-              :to="release.links.beatport"
-              title="Beatport"
-              iconify="simple-icons:beatport"
-            />
-            <p v-if="release?.links?.spotify || release?.links?.applemusic_url || release?.links?.youtube_music || release?.links?.soundcloud_url">
-              <span class="text-[10px] md:text-[12px] text-foreground/50">Stream</span>
-            </p>
-            <PrimaryButton
-              v-if="release?.links?.spotify"
-              :to="release.links.spotify"
-              title="Spotify"
-              iconify="simple-icons:spotify"
-            />
-            <PrimaryButton
-              v-if="release?.links?.applemusic_url"
-              :to="release.links.applemusic_url"
-              title="Apple Music"
-              iconify="simple-icons:applemusic"
-            />
-            <PrimaryButton
-              v-if="release?.links?.youtube_music"
-              :to="release.links.youtube_music"
-              title="YT Music"
-              iconify="simple-icons:youtubemusic"
-            />
-            <PrimaryButton
-              v-if="release?.links?.youtube"
-              :to="release.links.youtube"
-              title="YouTube"
-              iconify="simple-icons:youtube"
-            />
-            <PrimaryButton
-              v-if="release?.links?.soundcloud_url"
-              :to="release.links.soundcloud_url"
-              title="SoundCloud"
-              iconify="simple-icons:soundcloud"
-            />
+                <p v-if="release"><span class="text-foreground/50">Release:</span>
+                  <NuxtLink :to="`/release/${release.slug}`" class="ml-1 hover:underline">{{ release.title }}</NuxtLink>
+                </p>
+                <p v-if="releaseDate"><span class="text-foreground/50">Release Date:</span> {{ releaseDate }}</p>
+                <p v-if="release?.cat_no"><span class="text-foreground/50">Catalog Number:</span> {{ release.cat_no }}</p>
+                <p v-if="release?.style"><span class="text-foreground/50">Styles:</span> {{ release.style }}</p>
+                <p v-if="track.bpm"><span class="text-foreground/50">BPM:</span> {{ track.bpm }}</p>
+                <p><span class="text-foreground/50">Track No:</span> {{ track.track_number }}</p>
+
+              </div>
+
+            </div>
+
+            <div class="flex justify-start mt-4 mb-2">
+              <LikeButton
+                size="lg"
+                :liked="isTrackLiked(track.slug)"
+                :count="trackLikeCount(track.slug)"
+                @like="toggleTrackLike(track.slug)"
+              />
+            </div>
+
+            <EntityLinks :links="release?.links" />
 
           </div>
           <div class="relative max-w-[540px] mx-auto w-full mb-4">
 
             <Tabs>
+
+              <Tab
+                icon="sentimony:logo"
+                title="Sentimony"
+              >
+                <PagePlayer :tracks="playerTracks" :play-counts="playCounts" :show-index="false" />
+              </Tab>
 
               <Tab
                 v-if="hasBandcamp"
@@ -270,17 +237,6 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
                 </div>
               </Tab>
 
-              <Tab
-                v-if="!hasBandcamp && !hasSoundcloud && !hasYoutube && !hasYTMusic"
-                icon="lucide:music"
-                title="Player"
-              >
-                <div
-                  class="rounded-md overflow-hidden bg-black/50 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)]"
-                  v-html="comingMusic"
-                />
-              </Tab>
-
             </Tabs>
 
           </div>
@@ -290,61 +246,35 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
     <ItemContent>
 
-        <div v-if="artists.length">
-          <hr class="my-4 border-black/30">
-          <p><small><b>Artists:</b></small></p>
-          <div class="flex flex-wrap justify-center w-full">
-            <Item
-              v-for="artist in artists"
-              :key="artist.slug"
-              :i="artist"
-              category="artist"
-            />
-          </div>
-        </div>
+        <p class="text-[11px] md:text-[13px] text-foreground/60">
+          <span>Track</span>
+          <span v-if="release"> · </span>
+          <NuxtLink
+            v-if="release"
+            :to="`/release/${release.slug}`"
+            class="hover:text-foreground transition-colors"
+          >{{ release.title }}</NuxtLink>
+          <span v-if="releaseYear"> · {{ releaseYear }}</span>
+          <span v-if="track.bpm"> · {{ track.bpm }} bpm</span>
+        </p>
 
         <div v-if="release">
           <hr class="my-4 border-black/30">
           <p><small><b>From release:</b></small></p>
-          <div class="flex flex-wrap justify-center w-full">
-            <Item :i="release" category="release" />
-          </div>
-        </div>
-
-        <div v-if="releaseTracks.length > 1">
-          <hr class="my-4 border-black/30">
-          <p><small><b>More from this release:</b></small></p>
-          <p
-            v-for="t in releaseTracks"
-            :key="t.slug"
-            class="m-0"
-          >
-            <template v-if="t.slug !== track.slug">
-              <small>{{ t.track_number < 10 ? ' ' + t.track_number : t.track_number }}.</small>
-              <span class="ml-1"><TrackArtists :name="t.artist_name" :slug="t.artist_slug" /></span> -
-              <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
-              <small v-if="t.bpm" class="text-black/60">({{ t.bpm }}bpm)</small>
-            </template>
-            <span v-else class="text-black/50">
-              <small>{{ t.track_number < 10 ? ' ' + t.track_number : t.track_number }}.</small>
-              <b class="ml-1">{{ t.artist_name }}</b> - {{ t.title }}
-              <small v-if="t.bpm">({{ t.bpm }}bpm)</small>
-              <small> · current</small>
-            </span>
+          <p>
+            <RelativeItem :i="release" category="release" />
           </p>
         </div>
 
-        <div v-if="similarTracks.length">
+        <div v-if="artists.length">
           <hr class="my-4 border-black/30">
-          <p><small><b>Similar tracks:</b></small></p>
+          <p><small><b>Artists:</b></small></p>
           <p
-            v-for="t in similarTracks"
-            :key="t.slug"
-            class="m-0"
+            v-for="artist in artists"
+            :key="artist.slug"
+            class="mb-2 mr-4 last:mr-0"
           >
-            <TrackArtists :name="t.artist_name" :slug="t.artist_slug" /> -
-            <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
-            <small v-if="t.bpm" class="text-black/60">({{ t.bpm }}bpm)</small>
+            <RelativeItem :i="artist" category="artist" />
           </p>
         </div>
 

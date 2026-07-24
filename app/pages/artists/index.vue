@@ -39,7 +39,7 @@ useSeoMeta({
 
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:keyboard-music" />Producers & Musicians</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:keyboard-music" />Producers & Musicians</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMusician"
@@ -49,7 +49,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:turntable" />DJs</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:turntable" />DJs</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDj"
@@ -59,7 +59,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:speaker" />Sound Engineers & Mastering Services</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:speaker" />Sound Engineers & Mastering Services</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdMastering"
@@ -69,7 +69,7 @@ useSeoMeta({
       />
     </div>
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-white/60"><Icon name="lucide:palette" />Visual Artists & Designers</h2>
+    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:palette" />Visual Artists & Designers</h2>
     <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
       <Item
         v-for="i in artistsSortedByCategoryIdDesigner"

@@ -7,19 +7,18 @@ const read = (p: string) => {
   return existsSync(path) ? readFileSync(path, 'utf8') : ''
 }
 
-describe('AudioBottomPlayer.vue', () => {
-  const component = read('app/components/AudioBottomPlayer.vue')
+describe('GlobalPlayer.vue', () => {
+  const component = read('app/components/player/GlobalPlayer.vue')
 
-  it('renders only while something is loaded', () => {
+  it('stays mounted even when nothing is loaded', () => {
+    expect(component).not.toContain('<div v-if="current">')
     expect(component).toContain('v-if="current"')
   })
 
-  it('has play/pause, seek, volume and close controls', () => {
-    expect(component).toContain('lucide:pause')
-    expect(component).toContain('lucide:play')
+  it('has seek and volume controls but no close button', () => {
     expect(component).toContain('@input="onSeek"')
     expect(component).toContain('@input="onVolumeChange"')
-    expect(component).toContain('lucide:x')
+    expect(component).not.toContain('aria-label="Close player"')
   })
 
   it('shows font-mono timings and links the title to its source page', () => {
@@ -30,7 +29,6 @@ describe('AudioBottomPlayer.vue', () => {
 
   it('is mounted outside the header as a bottom player', () => {
     expect(component).toContain('data-testid="audio-bottom-player"')
-    expect(read('app/components/Header.vue')).not.toContain('<HeaderMiniPlayer />')
-    expect(read('app/layouts/default.vue')).toContain('<AudioBottomPlayer />')
+    expect(read('app/layouts/default.vue')).toContain('<GlobalPlayer />')
   })
 })
