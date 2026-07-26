@@ -28,6 +28,7 @@ npx skills add https://github.com/obra/superpowers -s \
   brainstorming \
   writing-plans \
   executing-plans \
+  finishing-a-development-branch \
   -a codex claude-code -y
   # test-driven-development \
   # systematic-debugging \
@@ -37,7 +38,6 @@ npx skills add https://github.com/obra/superpowers -s \
   # receiving-code-review \
   # dispatching-parallel-agents \
   # subagent-driven-development \
-  # finishing-a-development-branch \
   # writing-skills \
 
 # SENTIMONY SKILLS
@@ -47,6 +47,9 @@ npx skills add https://github.com/sentimony/skills -s \
   vitest \
   -a codex claude-code -y
   # echarts \
+
+# TASTE SKILL
+npx skills add https://github.com/Leonxlnx/taste-skill -s design-taste-frontend -a codex claude-code -y
 
 echo ""
 echo "npx skillio ls" && npx skillio ls

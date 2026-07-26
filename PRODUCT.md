@@ -86,41 +86,41 @@ depend on color alone.
 
 ## Active Initiatives
 
-Current priority and status live in [`docs/roadmap/README.md`](docs/roadmap/README.md).
+Current priority and status live in [`docs/roadmap.md`](docs/roadmap.md).
 Each initiative links to its detailed spec and implementation plan where available.
 
 1. **Release artist/title split.** Render the release artist and the release
    name as separate lines across cards, related items, and the release page,
    derived from the canonical `Artist «Name»` title.
-   Roadmap: [`release-title-split.md`](docs/roadmap/release-title-split.md).
+   Roadmap: [`release-title-split.md`](docs/initiatives/release-title-split.md).
 2. **Public API list envelope.** Unify all public catalog list endpoints on a
    `{ info: { count, pages, next, prev }, results }` envelope with optional
    pagination, one shape for both backends.
-   Roadmap: [`api-list-envelope.md`](docs/roadmap/api-list-envelope.md).
-3. **[Mobile performance](docs/roadmap/mobile-performance.md).** Raise Lighthouse mobile Performance
+   Roadmap: [`api-list-envelope.md`](docs/initiatives/api-list-envelope.md).
+3. **[Mobile performance](docs/initiatives/mobile-performance.md).** Raise Lighthouse mobile Performance
    from 68 by cutting main-thread work, unused JS, and DOM size; passive
    listeners; larger footer tap targets.
-4. **[CI quality gate](docs/roadmap/ci-quality-gate.md).** Close the gaps in the existing
+4. **[CI quality gate](docs/initiatives/ci-quality-gate.md).** Close the gaps in the existing
    `web-debug.yml` pipeline (typecheck + unit + build already run): add e2e,
    build the production `netlify` preset, and make the checks required before
    deploy; sync scripts stay manual-only.
 5. **Lazy third-party players.** Implemented: tabs mount
    Bandcamp/YouTube/SoundCloud iframes only once their tab is activated
    (`app/components/Tabs.vue` + `Tab.vue`).
-   History: [`completed.md`](docs/roadmap/completed.md).
-6. **[Lighter auth/session bundle](docs/roadmap/auth-bundle.md).** Keep Supabase/auth code out
+   History: [`completed.md`](docs/completed.md).
+6. **[Lighter auth/session bundle](docs/initiatives/auth-bundle.md).** Keep Supabase/auth code out
    of the global layout path; lazy-load it for auth, profile, and like
    interactions.
-7. **[Profile aggregation](docs/roadmap/profile-aggregation.md).** Serve profile summary plus the
+7. **[Profile aggregation](docs/initiatives/profile-aggregation.md).** Serve profile summary plus the
    first page of each collection in one private request.
 8. **Server hardening.** Slug validation, entity existence
    checks, and rate limiting for like mutations; redacted, sampled production
-   request logging. Roadmap: [`mutation-hardening.md`](docs/roadmap/mutation-hardening.md)
-   and [`request-logging.md`](docs/roadmap/request-logging.md).
+   request logging. Roadmap: [`mutation-hardening.md`](docs/initiatives/mutation-hardening.md)
+   and [`request-logging.md`](docs/initiatives/request-logging.md).
 9. **Brand assets refresh.** PWA icon set with the logo
    breaking out of the safe area; README with AgileCharts-style badges.
-   Roadmap: [`pwa-icons.md`](docs/roadmap/pwa-icons.md) and
-   [`readme-branding.md`](docs/roadmap/readme-branding.md).
-10. **[Design system validity](docs/roadmap/design-system.md).** Audit theme tokens versus
+   Roadmap: [`pwa-icons.md`](docs/initiatives/pwa-icons.md) and
+   [`readme-branding.md`](docs/initiatives/readme-branding.md).
+10. **[Design system validity](docs/initiatives/design-system.md).** Audit theme tokens versus
     per-component hardcoded colors so the light theme is component-polished,
     not token-only.

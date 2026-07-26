@@ -3,7 +3,7 @@ export default defineCachedEventHandler(
     if (isSupabaseCatalogSource()) {
       const { data, error } = await useSupabase()
         .from('artists')
-        .select('slug, title, visible, category, category_id, location')
+        .select('slug, title, photo_xl, visible, category, category_id, location')
         .order('category_id', { ascending: true })
 
       if (error) throw createError({ statusCode: 500, statusMessage: error.message })
@@ -11,7 +11,7 @@ export default defineCachedEventHandler(
     }
 
     const data = await fetchFirebaseCollection('artists')
-    return pickListFields(data, ['slug', 'title', 'visible', 'category', 'category_id', 'location'])
+    return pickListFields(data, ['slug', 'title', 'photo_xl', 'visible', 'category', 'category_id', 'location'])
   },
   catalogCacheOptions()
 )

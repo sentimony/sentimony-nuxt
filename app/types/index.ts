@@ -153,7 +153,10 @@ export interface EventLineup {
 export interface Event extends BaseEntity {
   cover_og?: string
   cover_th?: string
+  flyer_a_og?: string
+  flyer_a_th?: string
   flyer_a_xl?: string
+  flyer_b_th?: string
   flyer_b_xl?: string
   time?: string
   location?: string

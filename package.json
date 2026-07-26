@@ -33,7 +33,7 @@
     "@iconify-json/lucide": "^1.2.119",
     "@iconify-json/lucide-lab": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.91",
-    "@playwright/test": "^1.61.1",
+    "@playwright/test": "^1.62.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.1.1",
     "@typescript/native": "npm:typescript@^7.0.2",

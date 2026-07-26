@@ -24,6 +24,7 @@ useSeoMeta({
           <Button variant="link" v-wave>Link</Button>
           <Button variant="glass" v-wave>Glass</Button>
           <Button variant="soft" v-wave>Soft</Button>
+          <Button variant="submit" v-wave>Submit</Button>
           <Button as-child variant="link">
             <NuxtLink to="/releases" v-wave>as-child link</NuxtLink>
           </Button>
@@ -51,8 +52,8 @@ useSeoMeta({
           <Alert variant="destructive">
             <AlertDescription>Something went wrong.</AlertDescription>
           </Alert>
-          <Alert class="text-green-400">
-            <AlertDescription class="text-green-400/90">Saved successfully.</AlertDescription>
+          <Alert variant="success">
+            <AlertDescription>Saved successfully.</AlertDescription>
           </Alert>
         </div>
       </section>

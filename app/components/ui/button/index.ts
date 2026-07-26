@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority'
 export { default as Button } from './Button.vue'
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium rounded-md outline-none transition-[color,background-color,border-color] duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium rounded-md transition-[color,background-color,border-color] duration-300 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -18,6 +18,8 @@ export const buttonVariants = cva(
           'h-[36px] md:h-[42px] px-3 md:px-4 text-[12px] md:text-[15px] tracking-tighter border backdrop-blur-sm hover:bg-white/30',
         soft:
           'gap-1 px-2 py-0.5 text-[13px] border border-foreground/20 text-foreground/40 hover:border-foreground/40 hover:bg-white/30',
+        submit:
+          'h-10 px-4 text-sm border border-foreground/30 bg-foreground/12 hover:bg-foreground/20 hover:border-foreground/45',
       },
     },
     defaultVariants: {

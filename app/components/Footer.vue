@@ -10,7 +10,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
 </script>
 
 <template>
-  <div data-testid="site-footer" class="relative z-100 bg-black/90 dark:bg-black/75 text-white/50 leading-[1.4] md:leading-[1.5] px-1 py-24">
+  <div data-testid="site-footer" class="relative z-100 bg-black/90 dark:bg-black/75 text-white/50 [--ring:oklch(1_0_0_/_65%)] leading-[1.4] md:leading-[1.5] px-1 py-24">
     <div class="container flex flex-col items-center">
 
       <div class="mb-10 text-sm">
@@ -19,7 +19,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
             v-for="i in getNav()"
             :key="i.route"
             :to="i.route"
-            class="transition-colors ease-in-out duration-300 text-white/80 hover:text-white/100 hover:bg-white/20 p-[0.6em]"
+            class="transition-[color,background-color] ease-in-out duration-300 text-white/80 hover:text-white/100 hover:bg-white/20 p-[0.6em]"
             :class="isNavActive(i.route) ? 'bg-white/10' : ''"
             v-wave
           >

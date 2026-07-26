@@ -11,6 +11,7 @@ export const alertVariants = cva(
       variant: {
         default: 'bg-card text-card-foreground',
         destructive: 'bg-card text-destructive',
+        success: 'bg-card text-success',
       },
     },
     defaultVariants: {

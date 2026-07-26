@@ -16,7 +16,7 @@
   --background: oklch(0.97 0.01 155);
   --foreground: oklch(0.18 0.02 155);
 
-  --card: oklch(0 0 0 / 4%);
+  --card: oklch(1 0 0 / 55%);
   --card-foreground: oklch(0.18 0.02 155);
 
   --popover: oklch(0.99 0.005 155);
@@ -29,16 +29,17 @@
   --secondary-foreground: oklch(0.18 0.02 155);
 
   --muted: oklch(0 0 0 / 5%);
-  --muted-foreground: oklch(0 0 0 / 50%);
+  --muted-foreground: oklch(0 0 0 / 62%);
 
   --accent: oklch(0 0 0 / 8%);
   --accent-foreground: oklch(0.18 0.02 155);
 
-  --destructive: oklch(0.6 0.2 22);
+  --destructive: oklch(0.52 0.19 22);
+  --success: oklch(0.48 0.12 155);
 
   --border: oklch(0 0 0 / 15%);
-  --input: oklch(0 0 0 / 15%);
-  --ring: oklch(0 0 0 / 40%);
+  --input: oklch(0 0 0 / 25%);
+  --ring: oklch(0 0 0 / 55%);
 }
 
 .dark {
@@ -46,7 +47,7 @@
   --petal-gradient: radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.5) 100%);
   --foreground: oklch(1 0 0);
 
-  --card: oklch(1 0 0 / 5%);
+  --card: oklch(0 0 0 / 25%);
   --card-foreground: oklch(1 0 0);
 
   --popover: oklch(0.2 0.02 155);
@@ -59,16 +60,17 @@
   --secondary-foreground: oklch(1 0 0);
 
   --muted: oklch(1 0 0 / 8%);
-  --muted-foreground: oklch(1 0 0 / 50%);
+  --muted-foreground: oklch(1 0 0 / 62%);
 
   --accent: oklch(1 0 0 / 12%);
   --accent-foreground: oklch(1 0 0);
 
   --destructive: oklch(0.7 0.19 22);
+  --success: oklch(0.8 0.18 155);
 
   --border: oklch(1 0 0 / 20%);
-  --input: oklch(1 0 0 / 20%);
-  --ring: oklch(1 0 0 / 50%);
+  --input: oklch(1 0 0 / 28%);
+  --ring: oklch(1 0 0 / 65%);
 }
 
 @theme inline {
@@ -87,6 +89,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-success: var(--success);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -99,6 +102,18 @@
 
 @utility container {
   margin-inline: auto;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+button.password-toggle:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: var(--ring);
+  outline-offset: 2px;
 }
 
 html {
