@@ -37,10 +37,13 @@ await collection.ensureLoaded()
 
     <ProfileCollectionStatus
       :loading="collection.loading.value"
+      :loaded="collection.loaded.value"
       :has-more="collection.hasMore.value"
       :remaining="collection.total.value - collection.items.value.length"
       :empty="collection.loaded.value && collection.items.value.length === 0"
+      :error="collection.error.value"
       @load-more="collection.loadMore()"
+      @retry="collection.retry()"
     />
   </section>
 </template>

@@ -29,15 +29,15 @@ npx skills add https://github.com/obra/superpowers -s \
   writing-plans \
   executing-plans \
   finishing-a-development-branch \
+  test-driven-development \
+  systematic-debugging \
+  verification-before-completion \
+  using-git-worktrees \
+  requesting-code-review \
+  receiving-code-review \
+  dispatching-parallel-agents \
+  subagent-driven-development \
   -a codex claude-code -y
-  # test-driven-development \
-  # systematic-debugging \
-  # verification-before-completion \
-  # using-git-worktrees \
-  # requesting-code-review \
-  # receiving-code-review \
-  # dispatching-parallel-agents \
-  # subagent-driven-development \
   # writing-skills \
 
 # SENTIMONY SKILLS

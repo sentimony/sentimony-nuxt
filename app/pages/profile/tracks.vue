@@ -21,21 +21,21 @@ await tracks.ensureLoaded()
       <NuxtLink
         v-for="(track, index) in tracks.items.value"
         :key="track.slug"
-        :to="`/release/${track.release_slug}`"
-        class="group grid grid-cols-[1.25rem_minmax(0,auto)_minmax(0,1fr)] items-baseline gap-x-3 rounded border-b border-black/5 px-2 py-2.5 transition-colors duration-150 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 sm:grid-cols-[1.25rem_minmax(0,auto)_minmax(0,1fr)_auto] sm:gap-x-4 dark:border-white/5 dark:hover:bg-white/5"
+        :to="`/track/${track.slug}`"
+        class="grid grid-cols-[1.25rem_minmax(0,auto)_minmax(0,1fr)] items-baseline gap-x-3 border-b border-foreground/5 px-2 py-2.5 transition-[background-color] duration-150 hover:bg-foreground/5 sm:grid-cols-[1.25rem_minmax(0,auto)_minmax(0,1fr)_auto] sm:gap-x-4"
       >
-        <span class="shrink-0 text-right font-mono text-[10px] text-foreground/25">
+        <span class="shrink-0 text-right font-mono text-[10px] text-muted-foreground">
           {{ index + 1 }}
         </span>
-        <span class="shrink-0 text-xs text-foreground/50">
+        <span class="shrink-0 text-xs text-muted-foreground">
           {{ track.artist_name }}
         </span>
-        <span class="min-w-0 truncate text-xs text-foreground/85">
+        <span class="min-w-0 truncate text-xs text-foreground">
           {{ track.title }}
         </span>
         <span
           v-if="track.bpm"
-          class="col-start-3 font-mono text-[10px] text-foreground/25 sm:col-start-4"
+          class="col-start-3 font-mono text-[10px] text-muted-foreground sm:col-start-4"
         >
           {{ track.bpm }}bpm
         </span>
@@ -44,10 +44,13 @@ await tracks.ensureLoaded()
 
     <ProfileCollectionStatus
       :loading="tracks.loading.value"
+      :loaded="tracks.loaded.value"
       :has-more="tracks.hasMore.value"
       :remaining="tracks.total.value - tracks.items.value.length"
       :empty="tracks.loaded.value && tracks.items.value.length === 0"
+      :error="tracks.error.value"
       @load-more="tracks.loadMore()"
+      @retry="tracks.retry()"
     />
   </section>
 </template>

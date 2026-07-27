@@ -30,6 +30,6 @@ describe('profile pages', () => {
     expect(indexPage).toContain('profileSections')
     expect(indexPage).toContain('`/profile/${section.key}`')
     expect(indexPage).toContain("lucide:arrow-right")
-    expect(indexPage).toContain('Collection overview')
+    expect(indexPage).not.toContain('Collection overview')
   })
 })

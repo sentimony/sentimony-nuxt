@@ -26,6 +26,7 @@ supabase/*
 .opencode/
 skills-lock.json
 .superpowers/
+.worktrees/
 
 playwright-report/
 test-results/

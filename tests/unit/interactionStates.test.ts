@@ -180,6 +180,59 @@ describe('auth surface', () => {
   })
 })
 
+describe('profile surface', () => {
+  const PROFILE_FILES = [
+    'app/components/ProfileCollectionPage.vue',
+    'app/components/ProfileCollectionStatus.vue',
+    'app/pages/profile.vue',
+    'app/pages/profile/index.vue',
+    'app/pages/profile/tracks.vue',
+  ]
+
+  it('uses only the two semantic text tiers', () => {
+    for (const file of PROFILE_FILES) {
+      expect(readProjectFile(file), `${file} keeps an alpha text tier`)
+        .not.toMatch(/text-foreground\/\d+/)
+    }
+  })
+
+  it('has no paired black/white duplicates', () => {
+    for (const file of PROFILE_FILES) {
+      expect(readProjectFile(file), `${file} keeps a paired light/dark duplicate`)
+        .not.toMatch(/-(?:black|white)\/\d+\s+dark:[a-z:-]*-(?:white|black)\/\d+/)
+    }
+  })
+
+  it('leaves focus indicators to the global rule and the button base', () => {
+    for (const file of PROFILE_FILES) {
+      const source = readProjectFile(file)
+      expect(source, `${file} kills the focus outline`).not.toContain('outline-none')
+      expect(source, `${file} halves the ring token`).not.toContain('focus-visible:ring-')
+    }
+  })
+
+  it('keeps technical labels at a legible size', () => {
+    for (const file of PROFILE_FILES) {
+      expect(readProjectFile(file), `${file} uses a 9px tier`).not.toContain('text-[9px]')
+    }
+  })
+
+  it('has no hardcoded accent or status colours', () => {
+    for (const file of PROFILE_FILES) {
+      const source = readProjectFile(file)
+      expect(source).not.toMatch(/(?:text|bg|border|ring)-red-\d+/)
+      expect(source).not.toMatch(/(?:text|bg|border|ring)-blue-\d+/)
+    }
+  })
+
+  it('associates the editable name field with its visible label', () => {
+    const profile = readProjectFile('app/pages/profile/index.vue')
+
+    expect(profile).toContain('<label for="profile-name"')
+    expect(profile).toContain('id="profile-name"')
+  })
+})
+
 describe('auth form accessibility', () => {
   it('links field errors to their inputs and announces them', () => {
     const authForm = readProjectFile('app/components/AuthForm.vue')

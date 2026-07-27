@@ -381,7 +381,7 @@ git commit -m "test(auth): cover unified auth route and sign-in dialog"
 ### Task 7: Документація
 
 **Files:**
-- Modify: `AGENTS.md`, `docs/roadmap.md`
+- Modify: `AGENTS.md`, `docs/ROADMAP.md`
 - Create: `docs/initiatives/unified-auth.md`
 
 - [ ] **Step 1: `AGENTS.md`**
@@ -390,7 +390,7 @@ git commit -m "test(auth): cover unified auth route and sign-in dialog"
 
 - [ ] **Step 2: Roadmap**
 
-`docs/initiatives/unified-auth.md` за шаблоном інших файлів (Status `Implemented`, Priority P2, `Ініційовано: 2026-07-26`, посилання на spec/plan). Рядок у `docs/roadmap.md` (P2) і оновлений `Last reviewed`. У `mutation-hardening.md` додати примітку, що спільний limiter уже існує в `server/utils/rateLimit.ts`.
+`docs/initiatives/unified-auth.md` за шаблоном інших файлів (Status `Implemented`, Priority P2, `Ініційовано: 2026-07-26`, посилання на spec/plan). Рядок у `docs/ROADMAP.md` (P2) і оновлений `Last reviewed`. У `mutation-hardening.md` додати примітку, що спільний limiter уже існує в `server/utils/rateLimit.ts`.
 
 - [ ] **Step 3: commit + merge**
 

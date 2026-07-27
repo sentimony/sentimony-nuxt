@@ -52,10 +52,10 @@ export interface Release extends BaseEntity {
   coming_soon?: boolean
   new?: boolean
   links?: ReleaseLinks
-  tracklist?: ReleaseTrack[]
+  tracklist?: ReleaseTracklistEntry[]
 }
 
-export interface ReleaseTrack {
+export interface ReleaseTracklistEntry {
   track_number: number
   slug: string
   artist: string
@@ -106,21 +106,24 @@ export interface ArtistsResponse {
 export interface Track {
   slug: string
   title: string
-  release_slug: string
   artist_slug: string
   artist_name: string
-  track_number: number
   bpm: number | null
   audio_url?: string | null
 }
 
+export interface ReleaseTrack extends Track {
+  release_slug: string
+  track_number: number
+}
+
 export interface TrackResponse {
-  track?: Track
+  track?: ReleaseTrack
   release?: Release | null
   releases?: Release[]
   artists?: Artist[]
-  releaseTracks?: Track[]
-  similarTracks?: Track[]
+  releaseTracks?: ReleaseTrack[]
+  similarTracks?: ReleaseTrack[]
   redirect?: string
 }
 

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ComponentPublicInstance } from 'vue'
 import { profileSections } from '~/utils/profileSections'
 import { toast } from 'vue-sonner'
 
@@ -22,14 +23,14 @@ const editing = ref(false)
 const newName = ref('')
 const saving = ref(false)
 const nameError = ref('')
-const nameInput = ref<HTMLInputElement | null>(null)
+const nameInput = ref<ComponentPublicInstance | null>(null)
 
 async function startEdit() {
   newName.value = user.value?.user_metadata?.full_name ?? ''
   nameError.value = ''
   editing.value = true
   await nextTick()
-  nameInput.value?.focus()
+  nameInput.value?.$el.focus()
 }
 
 function cancelEdit() {
@@ -95,6 +96,21 @@ async function uploadAvatar(e: Event) {
 }
 
 const deletingAvatar = ref(false)
+const confirmingDelete = ref(false)
+const removeAvatarButton = ref<ComponentPublicInstance | null>(null)
+const confirmDeleteButton = ref<ComponentPublicInstance | null>(null)
+
+async function confirmAvatarDelete() {
+  confirmingDelete.value = true
+  await nextTick()
+  confirmDeleteButton.value?.$el.focus()
+}
+
+async function cancelAvatarDelete() {
+  confirmingDelete.value = false
+  await nextTick()
+  removeAvatarButton.value?.$el.focus()
+}
 
 async function deleteAvatar() {
   if (deletingAvatar.value || !user.value) return
@@ -110,72 +126,87 @@ async function deleteAvatar() {
   if (!error) await supabase.auth.refreshSession()
   deletingAvatar.value = false
   if (error) { toast.error(error.message); return }
+  confirmingDelete.value = false
   toast.success('Avatar removed')
 }
 </script>
 
 <template>
   <section aria-labelledby="profile-overview-title" class="mx-auto max-w-5xl">
-    <div class="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+    <div class="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <div
-        class="relative rounded-lg border border-black/10 bg-black/3 p-5 text-left dark:border-white/10 dark:bg-white/3"
+        class="relative min-h-40 rounded-lg border border-foreground/10 bg-foreground/3 p-5 text-left"
       >
         <div class="mb-3 flex items-center justify-between">
-          <p class="text-[9px] uppercase tracking-[0.24em] text-foreground/30">Name</p>
-          <button
+          <label for="profile-name" class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
+            Name
+          </label>
+          <Button
             v-if="!editing"
             type="button"
+            variant="default"
             aria-label="Edit name"
-            class="text-foreground/40 hover:text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 rounded cursor-pointer transition-colors p-0.5"
+            class="w-9 px-0"
             @click="startEdit"
           >
             <Icon name="lucide:pencil" size="14" />
-          </button>
+          </Button>
         </div>
 
-        <div v-if="!editing" class="text-sm text-foreground/70">
-          {{ user?.user_metadata?.full_name || '—' }}
+        <div v-if="!editing" class="text-sm text-foreground">
+          {{ user?.user_metadata?.full_name || 'Not set' }}
         </div>
 
         <div v-else>
-          <input
+          <Input
             ref="nameInput"
             v-model="newName"
+            id="profile-name"
             type="text"
-            class="w-full rounded-md border border-white/20 bg-black/20 px-3 py-2 text-sm text-foreground outline-none ring-0 transition-colors focus:border-blue-500 focus:ring-1 focus:ring-blue-500 dark:bg-black/40"
+            :aria-invalid="!!nameError"
+            :aria-describedby="nameError ? 'profile-name-error' : undefined"
             @keydown="handleNameKeydown"
           />
-          <p v-if="nameError" class="mt-1 text-[10px] text-red-400">{{ nameError }}</p>
+          <span
+            v-if="nameError"
+            id="profile-name-error"
+            role="alert"
+            class="mt-1 block text-xs text-destructive"
+          >
+            {{ nameError }}
+          </span>
           <div class="mt-2 flex gap-2">
-            <button
+            <Button
               type="button"
+              variant="submit"
               :disabled="saving"
-              class="flex-1 rounded-md border border-white/10 bg-white/10 px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-white/20 disabled:opacity-50 cursor-pointer"
+              class="flex-1"
               @click="saveName"
             >
               {{ saving ? 'Saving…' : 'Save' }}
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
+              variant="default"
               aria-label="Cancel"
-              class="rounded-md border border-white/10 bg-white/10 px-3 py-2 text-foreground/60 transition-colors hover:bg-white/20 cursor-pointer"
+              class="w-9 px-0"
               @click="cancelEdit"
             >
               <Icon name="lucide:x" size="16" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
 
-      <div class="rounded-lg border border-black/10 bg-black/3 p-5 text-left dark:border-white/10 dark:bg-white/3">
-        <p class="mb-3 text-[9px] uppercase tracking-[0.24em] text-foreground/30">Email</p>
-        <p class="text-sm text-foreground/70 break-all">{{ user?.email }}</p>
+      <div class="rounded-lg border border-foreground/10 bg-foreground/3 p-5 text-left">
+        <p class="mb-3 text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Email</p>
+        <p class="break-all text-sm text-foreground">{{ user?.email }}</p>
       </div>
 
-      <div class="rounded-lg border border-black/10 bg-black/3 p-5 text-left dark:border-white/10 dark:bg-white/3">
-        <p class="mb-3 text-[9px] uppercase tracking-[0.24em] text-foreground/30">Avatar</p>
+      <div class="rounded-lg border border-foreground/10 bg-foreground/3 p-5 text-left">
+        <p class="mb-3 text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Avatar</p>
         <div class="flex items-center gap-4">
-          <div class="size-14 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shrink-0 text-foreground/40">
+          <div class="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-foreground/10 text-muted-foreground">
             <img
               v-if="avatarUrl && !avatarFailed"
               :src="avatarUrl"
@@ -187,28 +218,56 @@ async function deleteAvatar() {
             <Icon v-else name="lucide:user-round" size="24" />
           </div>
           <div class="flex flex-col gap-2">
-            <div class="flex gap-2">
-              <button
+            <div class="flex gap-1">
+              <Button
                 type="button"
+                variant="default"
                 :disabled="uploadingAvatar || deletingAvatar"
-                class="inline-flex items-center gap-2 rounded-md border border-black/10 dark:border-white/10 px-3 py-2 text-sm text-foreground/50 transition-colors hover:bg-black/10 dark:hover:bg-white/10 hover:text-foreground/80 disabled:opacity-50 cursor-pointer"
+                class="px-2 text-xs"
                 @click="avatarInput?.click()"
               >
                 <Icon name="lucide:upload" size="15" />
                 {{ uploadingAvatar ? 'Uploading…' : 'Upload' }}
-              </button>
-              <button
-                v-if="avatarUrl && !avatarFailed"
+              </Button>
+              <Button
+                ref="removeAvatarButton"
+                v-if="avatarUrl && !avatarFailed && !confirmingDelete"
                 type="button"
+                variant="default"
                 :disabled="deletingAvatar || uploadingAvatar"
                 aria-label="Remove avatar"
-                class="inline-flex items-center justify-center rounded-md border border-black/10 dark:border-white/10 px-2.5 py-2 text-foreground/40 transition-colors hover:bg-red-500/10 hover:text-red-400 hover:border-red-400/30 disabled:opacity-50 cursor-pointer"
-                @click="deleteAvatar"
+                class="w-9 px-0 hover:border-destructive/30 hover:bg-destructive/10 hover:text-destructive"
+                @click="confirmAvatarDelete"
               >
                 <Icon name="lucide:trash-2" size="15" />
-              </button>
+              </Button>
+              <div
+                v-else-if="avatarUrl && !avatarFailed"
+                class="flex gap-1"
+                @keydown.esc="cancelAvatarDelete"
+              >
+                <Button
+                  ref="confirmDeleteButton"
+                  type="button"
+                  variant="default"
+                  :disabled="deletingAvatar || uploadingAvatar"
+                  class="px-1.5 text-xs hover:border-destructive/30 hover:bg-destructive/10 hover:text-destructive"
+                  @click="deleteAvatar"
+                >
+                  Remove?
+                </Button>
+                <Button
+                  type="button"
+                  variant="default"
+                  :disabled="deletingAvatar"
+                  class="px-1.5 text-xs"
+                  @click="cancelAvatarDelete"
+                >
+                  Cancel
+                </Button>
+              </div>
             </div>
-            <p class="text-[9px] text-foreground/25">JPG, PNG, WebP · max 2 MB</p>
+            <p class="text-[10px] text-muted-foreground">JPG, PNG, WebP · max 2 MB</p>
           </div>
         </div>
         <input
@@ -220,30 +279,27 @@ async function deleteAvatar() {
         />
       </div>
 
-      <div class="rounded-lg border border-black/10 bg-black/3 p-5 text-left dark:border-white/10 dark:bg-white/3">
-        <p class="mb-3 text-[9px] uppercase tracking-[0.24em] text-foreground/30">Account</p>
-        <button
+      <div class="rounded-lg border border-foreground/10 bg-foreground/3 p-5 text-left">
+        <p class="mb-3 text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Account</p>
+        <Button
           type="button"
-          class="inline-flex items-center gap-2 rounded-md border border-black/10 dark:border-white/10 px-3 py-2 text-sm text-foreground/50 transition-colors hover:bg-black/10 dark:hover:bg-white/10 hover:text-foreground/80 cursor-pointer"
+          variant="default"
           @click="signOut"
         >
           <Icon name="lucide:log-out" size="15" />
           Sign out
-        </button>
+        </Button>
       </div>
     </div>
 
     <div class="mb-8 text-center">
-      <p class="mb-2 text-[9px] uppercase tracking-[0.28em] text-foreground/30">
-        Collection overview
-      </p>
       <h1
         id="profile-overview-title"
-        class="font-julius text-2xl tracking-wide text-foreground/85 sm:text-3xl"
+        class="font-julius text-2xl tracking-wide text-foreground sm:text-3xl"
       >
         {{ totalSaved }} saved {{ totalSaved === 1 ? 'item' : 'items' }}
       </h1>
-      <p class="mx-auto mt-3 max-w-lg text-xs leading-relaxed text-foreground/35">
+      <p class="mx-auto mt-3 max-w-lg text-xs leading-relaxed text-muted-foreground">
         Your personal archive of music, artists, videos and events from Sentimony Records.
       </p>
     </div>
@@ -253,30 +309,25 @@ async function deleteAvatar() {
         v-for="section in profileSections"
         :key="section.key"
         :to="`/profile/${section.key}`"
-        class="group relative overflow-hidden rounded-lg border border-black/10 bg-black/3 p-5 text-left transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-black/20 hover:bg-black/6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 motion-reduce:transform-none dark:border-white/10 dark:bg-white/3 dark:hover:border-white/20 dark:hover:bg-white/6"
+        class="group relative overflow-hidden rounded-lg border border-foreground/10 bg-foreground/3 p-5 text-left transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-foreground/6 motion-reduce:transform-none"
       >
         <div class="flex items-start justify-between gap-4">
-          <span class="flex size-9 items-center justify-center rounded-full bg-black/5 text-foreground/45 transition-colors duration-200 group-hover:bg-black/10 group-hover:text-foreground/70 dark:bg-white/5 dark:group-hover:bg-white/10">
+          <span class="flex size-9 items-center justify-center rounded-full bg-foreground/5 text-muted-foreground transition-[color,background-color] duration-200 group-hover:bg-foreground/10 group-hover:text-foreground">
             <Icon :name="section.icon" size="17" />
           </span>
-          <span class="font-mono text-2xl text-foreground/20">
+          <span class="font-mono text-2xl text-muted-foreground">
             {{ summary?.[section.key] ?? 0 }}
           </span>
         </div>
 
         <div class="mt-7 flex items-end justify-between gap-3">
-          <div>
-            <h2 class="text-xs uppercase tracking-[0.18em] text-foreground/70">
-              {{ section.label }}
-            </h2>
-            <p class="mt-1 text-[10px] text-foreground/30">
-              Open collection
-            </p>
-          </div>
+          <h2 class="text-xs uppercase tracking-[0.18em] text-foreground">
+            {{ section.label }}
+          </h2>
           <Icon
             name="lucide:arrow-right"
             size="15"
-            class="text-foreground/20 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground/50 motion-reduce:transform-none"
+            class="text-muted-foreground transition-[color,transform] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground motion-reduce:transform-none"
           />
         </div>
       </NuxtLink>
@@ -284,7 +335,7 @@ async function deleteAvatar() {
 
     <p
       v-if="totalSaved === 0"
-      class="mt-8 text-center text-[10px] uppercase tracking-[0.16em] text-foreground/25"
+      class="mt-8 text-center text-[10px] uppercase tracking-[0.16em] text-muted-foreground"
     >
       Explore the catalogue and add favourites to start your collection
     </p>

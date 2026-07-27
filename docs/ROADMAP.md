@@ -1,6 +1,6 @@
 # Sentimony Nuxt Roadmap
 
-- Last reviewed: 2026-07-26
+- Last reviewed: 2026-07-27
 
 Кожна активна або майбутня ініціатива має окремий файл. Цей індекс є єдиною
 актуальною точкою входу; детальний дизайн і implementation steps зберігаються у
@@ -30,7 +30,7 @@
 - [E2E reliability](initiatives/e2e-reliability.md) — стабільний first-paint test і ширше browser coverage. `Planned`
 - [Auth bundle](initiatives/auth-bundle.md) — зменшити public-route auth/Supabase JS. `Planned`
 - [API list envelope](initiatives/api-list-envelope.md) — уніфікувати list responses як `{ info, results }`. `Planned`
-- [Profile surface](initiatives/profile-surface.md) — полагодити лайкнуті треки, відділити помилку від порожнечі, домігрувати focus і текстові тири. `Planned`
+- [Profile surface](initiatives/profile-surface.md) — полагоджені лайкнуті треки, помилки колекцій відділені від порожнього стану, profile використовує outline-focus і два текстові тири. `Implemented`
 
 ## P2
 
@@ -67,7 +67,7 @@
 
 ## Completed
 
-- [Завершені ініціативи](completed.md).
+- [Завершені ініціативи](COMPLETED.md).
 
 ## Аудити
 

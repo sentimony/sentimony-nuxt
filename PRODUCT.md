@@ -86,7 +86,7 @@ depend on color alone.
 
 ## Active Initiatives
 
-Current priority and status live in [`docs/roadmap.md`](docs/roadmap.md).
+Current priority and status live in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 Each initiative links to its detailed spec and implementation plan where available.
 
 1. **Release artist/title split.** Render the release artist and the release
@@ -107,7 +107,7 @@ Each initiative links to its detailed spec and implementation plan where availab
 5. **Lazy third-party players.** Implemented: tabs mount
    Bandcamp/YouTube/SoundCloud iframes only once their tab is activated
    (`app/components/Tabs.vue` + `Tab.vue`).
-   History: [`completed.md`](docs/completed.md).
+   History: [`COMPLETED.md`](docs/COMPLETED.md).
 6. **[Lighter auth/session bundle](docs/initiatives/auth-bundle.md).** Keep Supabase/auth code out
    of the global layout path; lazy-load it for auth, profile, and like
    interactions.

@@ -1,9 +1,9 @@
 # Profile surface
 
-- Status: Planned
+- Status: Implemented
 - Priority: P1
 - Ініційовано: 2026-07-26
-- Last reviewed: 2026-07-26
+- Last reviewed: 2026-07-27
 - Related: [audit](../audits/2026-07-26-profile-pages-audit.md), [spec](../superpowers/specs/2026-07-26-profile-surface-design.md), [plan](../superpowers/plans/2026-07-26-profile-surface.md)
 
 ## Навіщо
@@ -42,7 +42,7 @@ auth.
 - Одна ширина (`max-w-5xl`), одна шкала радіусів, мінус зайві мікро-лейбли,
   підтвердження видалення аватара.
 - Охорона: блок `profile surface` у `tests/unit/interactionStates.test.ts` плюс
-  `likedTracksColumns` і `usePaginatedLikes` тести.
+  `likedTracksColumns`, `usePaginatedLikes` і `profileCollectionStatus` тести.
 
 ## Залежності
 
@@ -65,5 +65,5 @@ auth.
 
 ## Наступний крок
 
-Task 1 і Task 2 плану — продовий фікс плюс стан помилки, який не дасть такому
-бага знову сховатися.
+Стежити за стабільністю profile surface через unit/type checks і перевіряти
+авторизований сценарій під час змін колекцій або Supabase-схеми.

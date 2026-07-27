@@ -1,37 +1,60 @@
 <script setup lang="ts">
 defineProps<{
   loading: boolean
+  loaded: boolean
   hasMore: boolean
   remaining: number
   empty?: boolean
+  error?: boolean
 }>()
 
 defineEmits<{
   loadMore: []
+  retry: []
 }>()
 </script>
 
 <template>
-  <div v-if="loading" class="flex justify-center py-10">
-    <span class="animate-pulse text-[10px] uppercase tracking-widest text-foreground/30 motion-reduce:animate-none">
+  <div
+    v-if="error"
+    role="alert"
+    class="py-16 text-center"
+  >
+    <p class="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+      Could not load this collection
+    </p>
+    <Button
+      type="button"
+      variant="default"
+      :disabled="loading"
+      class="mx-auto mt-6 text-[10px] uppercase tracking-widest"
+      @click="$emit('retry')"
+    >
+      {{ loading ? 'Retrying…' : 'Try again' }}
+    </Button>
+  </div>
+
+  <div v-else-if="loading && !loaded" class="flex justify-center py-10">
+    <span class="animate-pulse text-[10px] uppercase tracking-widest text-muted-foreground motion-reduce:animate-none">
       Loading
     </span>
   </div>
 
   <p
     v-else-if="empty"
-    class="py-16 text-center text-[10px] uppercase tracking-[0.2em] text-foreground/25"
+    class="py-16 text-center text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
   >
     Nothing saved here yet
   </p>
 
-  <button
-    v-if="hasMore"
+  <Button
+    v-else-if="hasMore"
     type="button"
+    variant="default"
     :disabled="loading"
-    class="mx-auto mt-6 block rounded px-3 py-2 text-[10px] uppercase tracking-widest text-foreground/35 transition-colors duration-200 hover:bg-black/5 hover:text-foreground/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:opacity-25 dark:hover:bg-white/5"
+    class="mx-auto mt-6 text-[10px] uppercase tracking-widest"
     @click="$emit('loadMore')"
   >
     {{ loading ? 'Loading…' : `Show more · ${remaining} left` }}
-  </button>
+  </Button>
 </template>
