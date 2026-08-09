@@ -295,7 +295,7 @@ useSeoMeta({
     <ItemContent v-if="item">
 
       <div v-if="item.information">
-        <div v-html="sanitizeHtml(item.information)" />
+        <div class="indent-5" v-html="sanitizeHtml(item.information)" />
       </div>
 
       <div>

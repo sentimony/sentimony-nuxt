@@ -15,6 +15,8 @@ const props = withDefaults(defineProps<{
 
 const hasArtistLinks = computed(() => props.artistSegments.some(s => s.slug))
 const NuxtLink = resolveComponent('NuxtLink')
+
+const linkHoverClass = 'rounded transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/10'
 </script>
 
 <template>
@@ -50,7 +52,7 @@ const NuxtLink = resolveComponent('NuxtLink')
           <component
             :is="segment.slug ? NuxtLink : 'span'"
             :to="segment.slug ? `/artist/${segment.slug}` : undefined"
-            :class="segment.slug ? 'hover:underline' : (hasArtistLinks && 'font-normal opacity-60')"
+            :class="segment.slug ? linkHoverClass : (hasArtistLinks && 'font-normal opacity-60')"
           >{{ segment.text }}</component>
         </template>
       </span>
@@ -59,13 +61,13 @@ const NuxtLink = resolveComponent('NuxtLink')
           <NuxtLink
             v-if="segment.slug"
             :to="`/artist/${segment.slug}`"
-            class="hover:underline"
+            :class="linkHoverClass"
           >{{ segment.text }}</NuxtLink>
           <component
             v-else
             :is="trackLink ? NuxtLink : 'span'"
             :to="trackLink"
-            :class="trackLink && 'hover:underline'"
+            :class="trackLink && linkHoverClass"
           >{{ segment.text }}</component>
         </template>
       </span>

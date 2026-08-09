@@ -78,10 +78,6 @@ const canNext = computed(() => {
   return !!c?.queue && (c.queueIndex ?? 0) < c.queue.length - 1
 })
 
-function onSeek(event: Event) {
-  seek(Number((event.target as HTMLInputElement).value))
-}
-
 const lastVolume = ref(1)
 
 function onVolumeChange(event: Event) {
@@ -100,24 +96,34 @@ function toggleMute() {
   }
 }
 
-const seekProgress = computed(() => {
-  const total = duration.value || 0
-  if (!total) return 0
-  return Math.min(100, (currentTime.value / total) * 100)
+const volumeProgress = computed(() => Math.min(100, volume.value * 100))
+
+const introDone = useState('fractal-intro-done', () => false)
+const pageLoaded = ref(false)
+const revealed = ref(false)
+
+onMounted(() => {
+  if (document.readyState === 'complete') pageLoaded.value = true
+  else window.addEventListener('load', () => { pageLoaded.value = true }, { once: true })
 })
 
-const volumeProgress = computed(() => Math.min(100, volume.value * 100))
+watch([pageLoaded, introDone], ([loaded, intro]) => {
+  if (loaded && intro) revealed.value = true
+})
 </script>
 
 <template>
   <div class="sticky bottom-0 z-[110]">
     <div
       data-testid="audio-bottom-player"
-      class="border-t border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-md"
+      class="border-t border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-md transition-[translate,opacity] duration-700 ease-out motion-reduce:transition-none!"
+      :class="revealed ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'"
+      :aria-hidden="!revealed"
+      :inert="!revealed"
     >
       <div class="container max-w-7xl">
         <div class="grid min-h-[71px] grid-cols-[auto_1fr] items-center gap-x-3 gap-y-2 px-2 py-2 sm:grid-cols-[auto_1fr] sm:py-0">
-          <div class="order-2 sm:order-1">
+          <div class="order-2 flex items-center gap-1.5 sm:order-1">
             <PlayerControls
               size="sm"
               :is-playing="isPlaying"
@@ -128,23 +134,26 @@ const volumeProgress = computed(() => Math.min(100, volume.value * 100))
               @toggle="onPlayToggle"
               @next="next"
             />
+
+            <button
+              type="button"
+              class="flex size-7.5 shrink-0 items-center justify-center rounded-md transition-[background-color,opacity] duration-300 ease-in-out hover:bg-black/10 dark:hover:bg-white/20"
+              :class="repeatMode === 'off' ? 'opacity-50 hover:opacity-80' : 'text-emerald-600 opacity-100 dark:text-emerald-300'"
+              :aria-label="repeatMode === 'off' ? 'Repeat off' : repeatMode === 'all' ? 'Repeat all' : 'Repeat one'"
+              @click="cycleRepeat"
+              v-wave
+            >
+              <Icon :name="repeatMode === 'one' ? 'lucide:repeat-1' : 'lucide:repeat'" size="14" />
+            </button>
           </div>
 
           <div class="order-1 col-span-2 flex min-w-0 items-center gap-3 sm:order-2 sm:col-span-1">
-            <span class="hidden font-mono text-xs tabular-nums opacity-70 sm:inline">{{ formatDuration(currentTime) }}</span>
-            <input
-              type="range"
-              class="player-range w-full min-w-0 flex-1 sm:max-w-md lg:max-w-lg"
-              :style="{ '--progress': `${seekProgress}%` }"
-              min="0"
-              :max="duration || 0"
-              step="1"
-              :value="currentTime"
+            <PlayerSeek
+              :current-time="currentTime"
+              :duration="duration"
               :disabled="!current"
-              aria-label="Seek"
-              @input="onSeek"
-            >
-            <span class="font-mono text-xs tabular-nums opacity-70">{{ formatDuration(duration) }}</span>
+              @seek="seek"
+            />
 
             <PlayerTrackInfo
               v-if="current"
@@ -196,16 +205,6 @@ const volumeProgress = computed(() => Math.min(100, volume.value * 100))
                   aria-label="Volume"
                   @input="onVolumeChange"
                 >
-                <button
-                  type="button"
-                  class="flex size-7.5 shrink-0 items-center justify-center rounded-md transition-[background-color,opacity] duration-300 ease-in-out hover:bg-black/10 dark:hover:bg-white/20"
-                  :class="repeatMode === 'off' ? 'opacity-50 hover:opacity-80' : 'text-emerald-600 opacity-100 dark:text-emerald-300'"
-                  :aria-label="repeatMode === 'off' ? 'Repeat off' : repeatMode === 'all' ? 'Repeat all' : 'Repeat one'"
-                  @click="cycleRepeat"
-                  v-wave
-                >
-                  <Icon :name="repeatMode === 'one' ? 'lucide:repeat-1' : 'lucide:repeat'" size="14" />
-                </button>
               </div>
             </div>
           </div>
@@ -214,48 +213,3 @@ const volumeProgress = computed(() => Math.min(100, volume.value * 100))
     </div>
   </div>
 </template>
-
-<style scoped>
-.player-range {
-  --track-fill: #047857;
-  --track-bg: rgba(0, 0, 0, 0.2);
-  appearance: none;
-  -webkit-appearance: none;
-  height: 1rem;
-  background:
-    linear-gradient(
-      to right,
-      var(--track-fill) 0%,
-      var(--track-fill) var(--progress, 0%),
-      var(--track-bg) var(--progress, 0%),
-      var(--track-bg) 100%
-    )
-    no-repeat center / 100% 3px;
-  cursor: pointer;
-}
-
-:global(.dark) .player-range {
-  --track-fill: #6ee7b7;
-  --track-bg: rgba(255, 255, 255, 0.2);
-}
-
-.player-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 4px;
-  height: 14px;
-  border-radius: 9999px;
-  background: var(--track-fill);
-  border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.player-range::-moz-range-thumb {
-  width: 4px;
-  height: 14px;
-  border-radius: 9999px;
-  background: var(--track-fill);
-  border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-</style>

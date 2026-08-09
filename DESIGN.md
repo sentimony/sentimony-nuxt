@@ -143,7 +143,7 @@ The system is flat by default and separates surfaces with tonal layering, not sh
 
 ## 5. Components
 
-Built on shadcn-vue (new-york) primitives over reka-ui, themed with the green-monochrome tokens. Every interactive element carries a `v-wave` ripple and an `ease-in-out` transition (200–300ms).
+Built on the local `app/components/ui/*` primitives over reka-ui, themed with the green-monochrome tokens. Every interactive element carries a `v-wave` ripple and an `ease-in-out` transition (200–300ms).
 
 ### Buttons
 - **Shape:** Gently rounded (`rounded-md`, 6px). Default height 36px (`h-9`), sm 32px, lg 40px.
@@ -154,10 +154,10 @@ Built on shadcn-vue (new-york) primitives over reka-ui, themed with the green-mo
 ### Cards / Containers
 - **Thumbnail card (signature `Item`):** The universal card across every list page. A fixed-width tile (80px mobile / 180px desktop) holding a cover framed in `bg-black/50` with the Cover-lift shadow, `rounded-sm` corners. The frame's aspect ratio is category-driven: `aspect-square` for releases/artists, `aspect-video` for videos, `aspect-[440/620]` for event flyers. Hover raises a translucent backdrop behind the cover; title sits below in a 2-line clamp.
 - **Status badges:** Tiny corner tags — "Coming Soon" on green-600, "Out Now" on red-600 — `rounded-tr-sm rounded-bl-sm`, with the Cover-lift shadow.
-- **Auth cards (shadcn Card):** `bg-card` over an explicit `border-white/20` (no global border base layer exists, so borders are set per instance).
+- **Auth cards (`ui/card`):** `bg-card` over an explicit `border-white/20` (no global border base layer exists, so borders are set per instance).
 
 ### Inputs / Fields
-- **Style:** shadcn Input — single border (`border-input`), translucent fill, `rounded-md`. The shared `PasswordInput` adds a show/hide toggle.
+- **Style:** `ui/input` — single border (`border-input`), translucent fill, `rounded-md`. The shared `PasswordInput` adds a show/hide toggle.
 - **Focus:** 3px `ring-ring/50` halo plus border shift to `ring`. No glow.
 - **Autofill:** Overridden globally so Chrome's autofill text uses `var(--foreground)` and stays on-theme in both modes.
 - **Error:** `aria-invalid` paints the border and ring Signal Red; server errors surface in an inline `Alert`.

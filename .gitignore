@@ -28,7 +28,6 @@ skills-lock.json
 .superpowers/
 .worktrees/
 
-playwright-report/
 test-results/
 
 scripts/out/

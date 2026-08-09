@@ -27,7 +27,6 @@ watch(avatarUrl, () => { avatarFailed.value = false })
 
 async function signOut() {
   await supabase.auth.signOut()
-  await navigateTo('/signin')
 }
 </script>
 

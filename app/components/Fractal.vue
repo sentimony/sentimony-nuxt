@@ -7,6 +7,7 @@ const props = withDefaults(defineProps<{
 
 const route = useRoute()
 const isAnimating = ref(false)
+const introDone = useState('fractal-intro-done', () => false)
 
 const PETAL_COUNT = 24
 const ROTATION_ANGLE = 360 / PETAL_COUNT
@@ -23,6 +24,7 @@ const startAnimation = () => {
   isAnimating.value = true
   setTimeout(() => {
     isAnimating.value = false
+    introDone.value = true
   }, ANIMATION_DURATION)
 }
 

@@ -10,7 +10,7 @@ const { isDark, toggle } = useTheme()
     @click="toggle($event)"
     v-wave
   >
-    <Icon v-if="isDark" name="lucide:moon" size="18" aria-hidden="true" />
-    <Icon v-else name="lucide:sun" size="18" aria-hidden="true" />
+    <span class="hidden dark:flex"><Icon name="lucide:moon" size="18" aria-hidden="true" /></span>
+    <span class="flex dark:hidden"><Icon name="lucide:sun" size="18" aria-hidden="true" /></span>
   </button>
 </template>

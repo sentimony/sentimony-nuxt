@@ -24,7 +24,9 @@ const props = withDefaults(defineProps<{
 }>(), { showIndex: true })
 
 const route = useRoute()
-const { current, isPlaying, play, toggle, playToken } = useAudioPlayer()
+const { current, isPlaying, currentTime, duration, seek, play, toggle, playToken } = useAudioPlayer()
+const { isTrackLiked, toggleTrackLike, trackLikeCount } = useTrackLikes()
+const user = useSupabaseUser()
 
 const playCounts = ref<Record<string, number>>({ ...(props.playCounts ?? {}) })
 
@@ -85,6 +87,9 @@ const currentNameSegments = computed(() => {
 })
 const currentTrackLink = computed(() => currentTrack.value?.slug ? `/track/${currentTrack.value.slug}` : undefined)
 
+const seekTime = computed(() => isActive.value ? currentTime.value : 0)
+const seekDuration = computed(() => isActive.value ? duration.value : 0)
+
 const canPrev = computed(() => isActive.value && activeIndex.value > 0)
 const canNext = computed(() => isActive.value && activeIndex.value < playable.value.length - 1)
 
@@ -110,6 +115,13 @@ watch(playToken, () => {
 
 const hasAudio = computed(() => playable.value.length > 0)
 
+// Two digits minimum so short and long tracklists share the same number column.
+const indexColumnWidth = computed(() => `${Math.max(2, String(props.tracks.length).length)}ch`)
+
+function isCurrent(track: typeof props.tracks[number]) {
+  return Boolean(track.url && track.url === current.value?.src)
+}
+
 function togglePlay() {
   if (isActive.value) toggle()
   else playTrack(props.tracks.findIndex(t => t.url))
@@ -132,8 +144,9 @@ defineExpose({ playTrack })
       />
 
       <PlayerTrackInfo
-        v-if="isActive && currentTrack"
+        v-if="currentTrack"
         :cover="currentTrack.cover"
+        :cover-size="44"
         :release-link="currentTrack.releaseLink"
         :release-title="currentTrack.releaseTitle"
         :artist-segments="currentArtistSegments"
@@ -142,43 +155,82 @@ defineExpose({ playTrack })
       />
     </div>
 
+    <div v-if="hasAudio" class="font-mono text-xs px-[1ch]">
+      <PlayerSeek
+        :current-time="seekTime"
+        :duration="seekDuration"
+        :disabled="!isActive"
+        @seek="seek"
+      />
+    </div>
+
     <div v-if="!hasAudio" class="py-4 text-center text-black/60 dark:text-white/70">Music is coming</div>
 
     <div v-else class="flex flex-col gap-1">
-      <button
+      <div
         v-for="(track, index) in tracks"
         :key="index"
-        type="button"
-        class="flex items-center gap-2 text-xs text-left py-1 rounded transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/10"
-        :class="track.url && track.url === current?.src ? 'text-black font-bold dark:text-white' : 'text-black/60 dark:text-white/60'"
-        @click="playTrack(index)"
+        class="flex items-center gap-2 text-xs rounded transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/10"
+        :class="isCurrent(track) ? 'text-black font-bold dark:text-white' : 'text-black/60 dark:text-white/60'"
       >
-        <span
-          v-if="showIndex || (track.url && track.url === current?.src)"
-          class="font-mono w-6 shrink-0 flex items-center justify-end"
+        <button
+          type="button"
+          class="flex min-w-0 flex-1 items-center gap-2 text-left py-1"
+          @click="playTrack(index)"
+        >
+          <span
+            v-if="showIndex || isCurrent(track)"
+            class="font-mono w-6 ml-[1ch] shrink-0 flex items-center justify-start"
+          >
+            <span
+              v-if="isCurrent(track)"
+              class="flex justify-center"
+              :style="{ width: indexColumnWidth }"
+            >
+              <Icon
+                name="lucide:loader"
+                size="14"
+                class="shrink-0 animate-spin [animation-duration:1.33s]"
+              />
+            </span>
+            <span
+              v-else-if="showIndex"
+              class="text-right"
+              :style="{ width: indexColumnWidth }"
+            >{{ index + 1 }}</span>
+          </span>
+          <span class="truncate">
+            <template v-if="track.titleSegments?.length">
+              <template v-for="(seg, si) in track.titleSegments" :key="si">{{ seg.text }}</template>
+            </template>
+            <template v-else>{{ track.title }}</template>
+          </span>
+        </button>
+
+        <button
+          v-if="track.slug && isCurrent(track)"
+          type="button"
+          class="flex h-6 shrink-0 items-center gap-1 rounded px-[1ch] font-mono font-normal text-black/60 opacity-60 transition-[background-color,opacity,color] duration-300 ease-in-out hover:bg-black/10 hover:font-bold hover:text-black hover:opacity-100 dark:text-white/60 dark:hover:bg-white/20 dark:hover:text-white"
+          :aria-label="isTrackLiked(track.slug) ? 'Liked' : 'Like track'"
+          @click="toggleTrackLike(track.slug)"
+          v-wave
         >
           <Icon
-            v-if="track.url && track.url === current?.src"
-            name="lucide:loader"
-            size="14"
-            class="animate-spin text-white [animation-duration:1.33s]"
+            name="lucide:thumbs-up"
+            size="12"
+            :class="user && isTrackLiked(track.slug) && 'text-emerald-600 dark:text-emerald-300'"
           />
-          <template v-else-if="showIndex">{{ index + 1 }}</template>
-        </span>
-        <span class="truncate">
-          <template v-if="track.titleSegments?.length">
-            <template v-for="(seg, si) in track.titleSegments" :key="si">{{ seg.text }}</template>
-          </template>
-          <template v-else>{{ track.title }}</template>
-        </span>
+          <span v-if="trackLikeCount(track.slug) > 0" class="tabular-nums">{{ trackLikeCount(track.slug) }}</span>
+        </button>
+
         <span
           v-if="track.slug && playCounts[track.slug]"
-          class="ml-auto flex items-center gap-1 font-mono shrink-0 opacity-60"
+          class="mr-[1ch] flex items-center gap-1 font-mono shrink-0 opacity-60"
         >
           <Icon name="lucide:play" size="12" />
-          <span class=" w-6">{{ playCounts[track.slug] }}</span>
+          <span class="tabular-nums">{{ playCounts[track.slug] }}</span>
         </span>
-      </button>
+      </div>
     </div>
   </div>
 </template>

@@ -95,9 +95,8 @@ watch(() => route.path, () => { isOpen.value = false })
             @click="toggle($event)"
             v-wave
           >
-            <Icon v-if="isDark" name="lucide:sun" size="18" />
-            <Icon v-else name="lucide:moon" size="18" />
-            <span>{{ isDark ? 'Light' : 'Dark' }}</span>
+            <span class="hidden dark:flex items-center gap-2"><Icon name="lucide:sun" size="18" />Light</span>
+            <span class="flex dark:hidden items-center gap-2"><Icon name="lucide:moon" size="18" />Dark</span>
           </button>
 
           <NuxtLink

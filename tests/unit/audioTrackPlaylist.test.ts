@@ -61,8 +61,13 @@ describe('PagePlayer.vue', () => {
     expect(component).toContain('@click="playTrack(index)"')
   })
 
-  it('delegates seek/time/volume to the global bottom player', () => {
-    expect(component).not.toContain('@input="onSeek"')
+  it('shares the bottom player seek slider and gates it on its own queue', () => {
+    expect(component).toContain('<PlayerSeek')
+    expect(component).toContain('const seekTime = computed(() => isActive.value ? currentTime.value : 0)')
+    expect(component).toContain(':disabled="!isActive"')
+  })
+
+  it('delegates volume to the global bottom player', () => {
     expect(component).not.toContain('lucide:volume-2')
     expect(component).not.toContain('setVolume')
   })

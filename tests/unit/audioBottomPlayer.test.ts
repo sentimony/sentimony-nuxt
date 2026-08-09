@@ -16,14 +16,16 @@ describe('GlobalPlayer.vue', () => {
   })
 
   it('has seek and volume controls but no close button', () => {
-    expect(component).toContain('@input="onSeek"')
+    expect(component).toContain('<PlayerSeek')
+    expect(component).toContain('@seek="seek"')
     expect(component).toContain('@input="onVolumeChange"')
     expect(component).not.toContain('aria-label="Close player"')
   })
 
   it('shows font-mono timings and links the title to its source page', () => {
-    expect(component).toContain('font-mono')
-    expect(component).toContain('formatDuration(')
+    const seek = read('app/components/player/PlayerSeek.vue')
+    expect(seek).toContain('font-mono')
+    expect(seek).toContain('formatDuration(')
     expect(component).toContain('current.link')
   })
 

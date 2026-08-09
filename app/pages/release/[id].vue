@@ -235,7 +235,7 @@ useSeoMeta({
 
     <ItemContent v-if="item">
 
-        <div v-if="item.information" v-html="sanitizeHtml(item.information)" />
+        <div v-if="item.information" class="indent-5" v-html="sanitizeHtml(item.information)" />
 
         <div v-if="item.tracklist?.length || item.tracklistCompact" class="Tracklist">
           <hr class="my-4 border-black/30">

@@ -16,7 +16,7 @@ const totalSaved = computed(() =>
 
 async function signOut() {
   await supabase.auth.signOut()
-  await navigateTo('/signin')
+  await navigateTo('/')
 }
 
 const editing = ref(false)

@@ -213,3 +213,46 @@ small { @apply opacity-60 }
 .dark .Content hr { @apply border-white/20 }
 
 .Tracklist i { @apply block pl-6 text-[80%] opacity-60 }
+
+.player-range {
+  --track-fill: #047857;
+  --track-bg: rgba(0, 0, 0, 0.2);
+  appearance: none;
+  -webkit-appearance: none;
+  height: 1rem;
+  background:
+    linear-gradient(
+      to right,
+      var(--track-fill) 0%,
+      var(--track-fill) var(--progress, 0%),
+      var(--track-bg) var(--progress, 0%),
+      var(--track-bg) 100%
+    )
+    no-repeat center / 100% 3px;
+  cursor: pointer;
+}
+
+.dark .player-range {
+  --track-fill: #6ee7b7;
+  --track-bg: rgba(255, 255, 255, 0.2);
+}
+
+.player-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--track-fill);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.player-range::-moz-range-thumb {
+  width: 4px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--track-fill);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}

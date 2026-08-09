@@ -44,7 +44,8 @@ describe('AudioMixPlayer.vue', () => {
 
   it('leaves volume and total duration in the global bottom player', () => {
     expect(bottomPlayer).toContain('lucide:volume-2')
-    expect(bottomPlayer).toContain('formatDuration(duration)')
+    expect(bottomPlayer).toContain(':duration="duration"')
+    expect(readProjectFile('app/components/player/PlayerSeek.vue')).toContain('formatDuration(duration)')
     expect(bottomPlayer).toContain('setVolume')
   })
 

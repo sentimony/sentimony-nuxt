@@ -99,7 +99,7 @@
       "name": "Text Input",
       "kind": "input",
       "refersTo": "input",
-      "description": "shadcn input: single border on a translucent fill, 3px ring on focus, on-theme placeholder.",
+      "description": "Text input: single border on a translucent fill, 3px ring on focus, on-theme placeholder.",
       "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"your@email.com\" />",
       "css": ".ds-input { width:240px; height:36px; padding:0 12px; border:1px solid oklch(1 0 0 / 20%); border-radius:6px; background:oklch(1 0 0 / 4%); color:oklch(1 0 0); font-family:'Montserrat',sans-serif; font-size:14px; } .ds-input::placeholder { color:oklch(1 0 0 / 50%); } .ds-input:focus-visible { outline:none; border-color:oklch(1 0 0 / 50%); box-shadow:0 0 0 3px oklch(1 0 0 / 50%); }"
     },

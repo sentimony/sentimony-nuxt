@@ -172,7 +172,7 @@ useSeoMeta({
 
     <ItemContent v-if="item">
 
-        <div v-if="item.info" v-html="sanitizeHtml(item.info)" />
+        <div v-if="item.info" class="indent-5" v-html="sanitizeHtml(item.info)" />
 
         <div v-if="organizers.length">
           <hr class="my-4 border-black/30">
