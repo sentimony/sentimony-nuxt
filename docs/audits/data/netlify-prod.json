@@ -1,0 +1,792 @@
+{
+  "label": "netlify-prod",
+  "baseUrl": "https://sentimony.com",
+  "startedAt": "2026-08-10T13:00:18.172Z",
+  "runs": 5,
+  "node": "v24.15.0",
+  "targets": [
+    {
+      "target": "/",
+      "kind": "page",
+      "url": "https://sentimony.com/",
+      "status": 200,
+      "bytes": 269758,
+      "cold": {
+        "min": 379.20058400000016,
+        "median": 447.2877920000001,
+        "p95": 602.568209,
+        "n": 5,
+        "totalMs": {
+          "min": 603.5494579999995,
+          "median": 631.1558749999995,
+          "p95": 1047.9670839999999,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 409.5773339999996,
+        "median": 494.1933749999989,
+        "p95": 657.306834,
+        "n": 5,
+        "totalMs": {
+          "min": 587.5185839999995,
+          "median": 688.3755000000001,
+          "p95": 1029.4773340000002,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/releases",
+      "kind": "page",
+      "url": "https://sentimony.com/releases",
+      "status": 200,
+      "bytes": 329416,
+      "cold": {
+        "min": 429.0059160000019,
+        "median": 455.59612500000003,
+        "p95": 579.9242919999997,
+        "n": 5,
+        "totalMs": {
+          "min": 505.6047080000026,
+          "median": 631.4241250000014,
+          "p95": 815.9728340000001,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 408.87629200000083,
+        "median": 430.14404099999956,
+        "p95": 517.4517080000005,
+        "n": 5,
+        "totalMs": {
+          "min": 536.4206249999988,
+          "median": 613.7026249999981,
+          "p95": 698.833749999998,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "1"
+      }
+    },
+    {
+      "target": "/releases/psytrance",
+      "kind": "page",
+      "url": "https://sentimony.com/releases/psytrance",
+      "status": 200,
+      "bytes": 290115,
+      "cold": {
+        "min": 400.60808299999917,
+        "median": 514.7742499999949,
+        "p95": 652.9783329999991,
+        "n": 5,
+        "totalMs": {
+          "min": 466.7243750000016,
+          "median": 656.5832500000033,
+          "p95": 814.8253330000007,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 430.911500000002,
+        "median": 435.48391699999775,
+        "p95": 559.4625000000015,
+        "n": 5,
+        "totalMs": {
+          "min": 572.0977910000001,
+          "median": 614.5722080000014,
+          "p95": 635.5034159999996,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/releases/psychill",
+      "kind": "page",
+      "url": "https://sentimony.com/releases/psychill",
+      "status": 200,
+      "bytes": 280040,
+      "cold": {
+        "min": 374.75787500000297,
+        "median": 599.1637919999994,
+        "p95": 632.757958000002,
+        "n": 5,
+        "totalMs": {
+          "min": 552.8660410000011,
+          "median": 781.2987499999945,
+          "p95": 819.9790829999984,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 357.17429199999606,
+        "median": 390.6298749999987,
+        "p95": 645.2244999999966,
+        "n": 5,
+        "totalMs": {
+          "min": 386.1273749999964,
+          "median": 566.9003329999978,
+          "p95": 823.4539159999986,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/artists",
+      "kind": "page",
+      "url": "https://sentimony.com/artists",
+      "status": 200,
+      "bytes": 305958,
+      "cold": {
+        "min": 385.9728330000071,
+        "median": 445.3179999999993,
+        "p95": 491.60425000000396,
+        "n": 5,
+        "totalMs": {
+          "min": 564.7296250000072,
+          "median": 627.726708000002,
+          "p95": 672.2515830000048,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 380.7427080000052,
+        "median": 419.85916700000234,
+        "p95": 480.2314170000027,
+        "n": 5,
+        "totalMs": {
+          "min": 559.5917500000069,
+          "median": 598.6153330000016,
+          "p95": 660.7657500000059,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/artists/all",
+      "kind": "page",
+      "url": "https://sentimony.com/artists/all",
+      "status": 200,
+      "bytes": 798931,
+      "cold": {
+        "min": 458.30629199999385,
+        "median": 607.4314169999998,
+        "p95": 1211.8178340000013,
+        "n": 5,
+        "totalMs": {
+          "min": 655.9358749999956,
+          "median": 872.3516669999954,
+          "p95": 1702.579792000004,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 414.83770899999945,
+        "median": 567.4007920000004,
+        "p95": 596.9477909999987,
+        "n": 5,
+        "totalMs": {
+          "min": 610.9855419999949,
+          "median": 801.5797499999899,
+          "p95": 949.3767499999958,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/videos",
+      "kind": "page",
+      "url": "https://sentimony.com/videos",
+      "status": 200,
+      "bytes": 251700,
+      "cold": {
+        "min": 380.95295800000895,
+        "median": 451.34454099999857,
+        "p95": 617.2049580000021,
+        "n": 5,
+        "totalMs": {
+          "min": 560.8972080000094,
+          "median": 631.4401250000083,
+          "p95": 799.3181249999907,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 365.61900000000605,
+        "median": 380.1790000000037,
+        "p95": 399.1776249999966,
+        "n": 5,
+        "totalMs": {
+          "min": 396.631916000013,
+          "median": 542.5293329999986,
+          "p95": 571.7249579999916,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/events",
+      "kind": "page",
+      "url": "https://sentimony.com/events",
+      "status": 200,
+      "bytes": 250299,
+      "cold": {
+        "min": 390.75841700000456,
+        "median": 401.99695800000336,
+        "p95": 428.8077920000069,
+        "n": 5,
+        "totalMs": {
+          "min": 550.809334000005,
+          "median": 574.1573750000098,
+          "p95": 612.0684590000019,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 362.06666699999187,
+        "median": 392.17541700000584,
+        "p95": 468.63262499999837,
+        "n": 5,
+        "totalMs": {
+          "min": 480.2884159999958,
+          "median": 510.41879199999676,
+          "p95": 634.3391659999907,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "1"
+      }
+    },
+    {
+      "target": "/playlists",
+      "kind": "page",
+      "url": "https://sentimony.com/playlists",
+      "status": 200,
+      "bytes": 249331,
+      "cold": {
+        "min": 364.33308399999805,
+        "median": 498.0724590000027,
+        "p95": 573.924874999997,
+        "n": 5,
+        "totalMs": {
+          "min": 500.78608400000667,
+          "median": 621.7972499999887,
+          "p95": 758.9695409999986,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 366.3328749999928,
+        "median": 410.95900000000256,
+        "p95": 590.7127080000064,
+        "n": 5,
+        "totalMs": {
+          "min": 546.6156669999909,
+          "median": 594.6860830000078,
+          "p95": 769.0672909999994,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/friends",
+      "kind": "page",
+      "url": "https://sentimony.com/friends",
+      "status": 200,
+      "bytes": 245589,
+      "cold": {
+        "min": 385.0834170000162,
+        "median": 491.0343329999887,
+        "p95": 549.5894999999873,
+        "n": 5,
+        "totalMs": {
+          "min": 608.1714999999967,
+          "median": 623.3291250000184,
+          "p95": 742.5782079999917,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 373.78216699999757,
+        "median": 459.3155000000115,
+        "p95": 516.671250000014,
+        "n": 5,
+        "totalMs": {
+          "min": 454.8230419999745,
+          "median": 554.8815420000028,
+          "p95": 649.3379169999971,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/tracks",
+      "kind": "page",
+      "url": "https://sentimony.com/tracks",
+      "status": 200,
+      "bytes": 798391,
+      "cold": {
+        "min": 901.3218749999942,
+        "median": 927.3782089999877,
+        "p95": 1312.7496249999967,
+        "n": 5,
+        "totalMs": {
+          "min": 1120.318041999999,
+          "median": 1265.4901660000032,
+          "p95": 1855.8598749999946,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 977.8457500000077,
+        "median": 984.0225409999839,
+        "p95": 1137.605958,
+        "n": 5,
+        "totalMs": {
+          "min": 1171.0299999999988,
+          "median": 1363.3935420000053,
+          "p95": 1556.5101250000007,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "1"
+      }
+    },
+    {
+      "target": "/news",
+      "kind": "page",
+      "url": "https://sentimony.com/news",
+      "status": 200,
+      "bytes": 338174,
+      "cold": {
+        "min": 441.5057910000032,
+        "median": 579.9706250000163,
+        "p95": 617.5332079999789,
+        "n": 5,
+        "totalMs": {
+          "min": 583.416750000004,
+          "median": 671.8310420000053,
+          "p95": 799.0262909999874,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 489.2087500000198,
+        "median": 531.9772079999966,
+        "p95": 1129.548542000004,
+        "n": 5,
+        "totalMs": {
+          "min": 673.5624160000007,
+          "median": 887.1517920000188,
+          "p95": 1310.461834000016,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/contacts",
+      "kind": "page",
+      "url": "https://sentimony.com/contacts",
+      "status": 200,
+      "bytes": 245083,
+      "cold": {
+        "min": 364.87691600000835,
+        "median": 381.1710829999938,
+        "p95": 402.0093329999945,
+        "n": 5,
+        "totalMs": {
+          "min": 399.92599999997765,
+          "median": 447.67337499998393,
+          "p95": 557.5730829999957,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 344.8095420000027,
+        "median": 365.65950000000885,
+        "p95": 418.40654200001154,
+        "n": 5,
+        "totalMs": {
+          "min": 412.7365829999908,
+          "median": 421.4530000000086,
+          "p95": 431.6984170000069,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/signin",
+      "kind": "page",
+      "url": "https://sentimony.com/signin",
+      "status": 200,
+      "bytes": 248499,
+      "cold": {
+        "min": 366.80166699999245,
+        "median": 399.49183399998583,
+        "p95": 690.2312919999822,
+        "n": 5,
+        "totalMs": {
+          "min": 550.8479999999981,
+          "median": 572.4820839999884,
+          "p95": 873.5255419999885,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 358.3693750000093,
+        "median": 385.22675000000163,
+        "p95": 494.2233750000014,
+        "n": 5,
+        "totalMs": {
+          "min": 539.9427500000165,
+          "median": 563.9572920000064,
+          "p95": 624.4036250000063,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "1"
+      }
+    },
+    {
+      "target": "/release/vorg-cyber-soul-chill",
+      "kind": "page",
+      "url": "https://sentimony.com/release/vorg-cyber-soul-chill",
+      "status": 200,
+      "bytes": 267151,
+      "cold": {
+        "min": 375.20008300000336,
+        "median": 453.5281670000113,
+        "p95": 1200.7356250000012,
+        "n": 5,
+        "totalMs": {
+          "min": 549.636708999984,
+          "median": 617.9419589999889,
+          "p95": 1651.5848750000005,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 400.7676250000077,
+        "median": 502.3012499999895,
+        "p95": 549.6446660000074,
+        "n": 5,
+        "totalMs": {
+          "min": 579.3739160000114,
+          "median": 683.8554580000055,
+          "p95": 732.9916249999951,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "1"
+      }
+    },
+    {
+      "target": "/artist/irukanji",
+      "kind": "page",
+      "url": "https://sentimony.com/artist/irukanji",
+      "status": 200,
+      "bytes": 313744,
+      "cold": {
+        "min": 394.2247080000234,
+        "median": 720.0063329999975,
+        "p95": 1666.5121250000084,
+        "n": 5,
+        "totalMs": {
+          "min": 577.7943749999977,
+          "median": 900.5097499999974,
+          "p95": 2115.078375000012,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 474.65729199998896,
+        "median": 507.4870419999934,
+        "p95": 693.5890000000072,
+        "n": 5,
+        "totalMs": {
+          "min": 654.2560419999936,
+          "median": 689.5015830000048,
+          "p95": 933.0658330000006,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/video/irukanji-live-eve8-2022",
+      "kind": "page",
+      "url": "https://sentimony.com/video/irukanji-live-eve8-2022",
+      "status": 200,
+      "bytes": 260797,
+      "cold": {
+        "min": 353.64329099998577,
+        "median": 428.8880000000063,
+        "p95": 762.5854159999872,
+        "n": 5,
+        "totalMs": {
+          "min": 531.274665999983,
+          "median": 610.2121249999909,
+          "p95": 1286.5687500000058,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 349.66545900001074,
+        "median": 434.6617499999993,
+        "p95": 604.7952079999959,
+        "n": 5,
+        "totalMs": {
+          "min": 520.380999999994,
+          "median": 542.1264159999846,
+          "p95": 786.4628749999974,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/event/five-years",
+      "kind": "page",
+      "url": "https://sentimony.com/event/five-years",
+      "status": 200,
+      "bytes": 268243,
+      "cold": {
+        "min": 409.99533400000655,
+        "median": 432.9133750000037,
+        "p95": 787.7615419999929,
+        "n": 5,
+        "totalMs": {
+          "min": 597.5103750000126,
+          "median": 617.984334000008,
+          "p95": 982.5750420000113,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 351.44337500000256,
+        "median": 385.1757079999952,
+        "p95": 603.6491659999883,
+        "n": 5,
+        "totalMs": {
+          "min": 489.1514169999864,
+          "median": 579.4573749999981,
+          "p95": 784.2511249999807,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/playlist/goa-trance",
+      "kind": "page",
+      "url": "https://sentimony.com/playlist/goa-trance",
+      "status": 200,
+      "bytes": 496518,
+      "cold": {
+        "min": 460.772667000012,
+        "median": 590.0542089999944,
+        "p95": 686.726708000002,
+        "n": 5,
+        "totalMs": {
+          "min": 642.2989999999991,
+          "median": 798.4272079999791,
+          "p95": 1039.3299589999951,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 495.34262500004843,
+        "median": 559.6042500000331,
+        "p95": 611.2541670000064,
+        "n": 5,
+        "totalMs": {
+          "min": 677.8694170000381,
+          "median": 747.5512080000481,
+          "p95": 793.2190420000115,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/friend/treetrolla",
+      "kind": "page",
+      "url": "https://sentimony.com/friend/treetrolla",
+      "status": 200,
+      "bytes": 245709,
+      "cold": {
+        "min": 346.3263750000042,
+        "median": 347.8352910000249,
+        "p95": 812.4867080000113,
+        "n": 5,
+        "totalMs": {
+          "min": 356.27841600001557,
+          "median": 529.6144580000546,
+          "p95": 990.0144580000197,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 347.343499999959,
+        "median": 432.77129199996125,
+        "p95": 483.4386250000098,
+        "n": 5,
+        "totalMs": {
+          "min": 434.4083339999779,
+          "median": 489.50029200001154,
+          "p95": 652.4409999999916,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "image thumb",
+      "kind": "asset",
+      "url": "https://content.sentimony.com/assets/img/artists/irukanji-02_th.jpg",
+      "status": 200,
+      "bytes": 19537,
+      "cold": {
+        "min": 41.34474999998929,
+        "median": 43.56274999998277,
+        "p95": 203.65683300001547,
+        "n": 5,
+        "totalMs": {
+          "min": 78.76229199999943,
+          "median": 81.62179100001231,
+          "p95": 243.46383299998706,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31517302"
+      },
+      "warm": {
+        "min": 46.78412500000559,
+        "median": 97.18150000000605,
+        "p95": 135.08158300002106,
+        "n": 5,
+        "totalMs": {
+          "min": 82.68483300000662,
+          "median": 148.7948749999632,
+          "p95": 180.63920799997868,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31517302",
+        "age": "18698"
+      }
+    },
+    {
+      "target": "image full",
+      "kind": "asset",
+      "url": "https://content.sentimony.com/assets/img/artists/irukanji-02_xl.jpg",
+      "status": 200,
+      "bytes": 314823,
+      "cold": {
+        "min": 65.99833299999591,
+        "median": 128.65224999998463,
+        "p95": 270.8685000000405,
+        "n": 5,
+        "totalMs": {
+          "min": 77.68066700000782,
+          "median": 134.03291699994588,
+          "p95": 293.1280830000178,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31530449"
+      },
+      "warm": {
+        "min": 67.19174999999814,
+        "median": 266.0684170000022,
+        "p95": 431.985250000027,
+        "n": 5,
+        "totalMs": {
+          "min": 95.075708999997,
+          "median": 291.7391250000219,
+          "p95": 456.42149999999674,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31530448",
+        "age": "5552"
+      }
+    },
+    {
+      "target": "audio track",
+      "kind": "asset",
+      "url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-occult-melodies.mp3",
+      "status": 200,
+      "bytes": 16960111,
+      "cold": {
+        "min": 87.8051250000135,
+        "median": 111.11816700000782,
+        "p95": 207.37304099998437,
+        "n": 5,
+        "totalMs": {
+          "min": 758.8594170000288,
+          "median": 986.0263750000158,
+          "p95": 1634.4698750000098,
+          "n": 5
+        },
+        "cacheState": "unknown"
+      },
+      "warm": {
+        "min": 69.75562499999069,
+        "median": 126.56145799998194,
+        "p95": 257.1382079999894,
+        "n": 5,
+        "totalMs": {
+          "min": 789.5760840000003,
+          "median": 1003.5738750000019,
+          "p95": 1048.8142909999588,
+          "n": 5
+        },
+        "cacheState": "unknown",
+        "age": null
+      }
+    }
+  ],
+  "psi": {}
+}
