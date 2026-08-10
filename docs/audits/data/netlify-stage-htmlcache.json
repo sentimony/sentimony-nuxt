@@ -1,0 +1,792 @@
+{
+  "label": "netlify-stage-htmlcache",
+  "baseUrl": "https://stage--sentimony-nuxt.netlify.app",
+  "startedAt": "2026-08-10T17:03:25.488Z",
+  "runs": 5,
+  "node": "v24.15.0",
+  "targets": [
+    {
+      "target": "/",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/",
+      "status": 200,
+      "bytes": 269456,
+      "cold": {
+        "min": 292.1203750000004,
+        "median": 331.704667,
+        "p95": 388.5307499999999,
+        "n": 5,
+        "totalMs": {
+          "min": 405.7724160000007,
+          "median": 433.88087500000074,
+          "p95": 478.717709,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 44.06700000000001,
+        "median": 89.14254100000016,
+        "p95": 193.59845799999948,
+        "n": 5,
+        "totalMs": {
+          "min": 83.00520899999992,
+          "median": 129.53458300000057,
+          "p95": 235.65212499999961,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3593",
+        "age": "8"
+      }
+    },
+    {
+      "target": "/releases",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/releases",
+      "status": 200,
+      "bytes": 329118,
+      "cold": {
+        "min": 392.781167000001,
+        "median": 408.5434170000008,
+        "p95": 440.453125,
+        "n": 5,
+        "totalMs": {
+          "min": 430.9944169999999,
+          "median": 450.470292,
+          "p95": 479.9682079999984,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 41.38337499999943,
+        "median": 84.69345799999974,
+        "p95": 140.70750000000044,
+        "n": 5,
+        "totalMs": {
+          "min": 77.79691599999933,
+          "median": 123.94795800000065,
+          "p95": 155.03108300000167,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/releases/psytrance",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/releases/psytrance",
+      "status": 200,
+      "bytes": 289817,
+      "cold": {
+        "min": 311.0183339999967,
+        "median": 467.8719170000004,
+        "p95": 686.9686250000013,
+        "n": 5,
+        "totalMs": {
+          "min": 357.9221670000006,
+          "median": 545.729124999998,
+          "p95": 759.0722920000007,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 46.390166999997746,
+        "median": 183.81145800000013,
+        "p95": 334.11175000000003,
+        "n": 5,
+        "totalMs": {
+          "min": 55.3729170000006,
+          "median": 225.23812499999985,
+          "p95": 405.1503750000011,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3593",
+        "age": "7"
+      }
+    },
+    {
+      "target": "/releases/psychill",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/releases/psychill",
+      "status": 200,
+      "bytes": 279742,
+      "cold": {
+        "min": 266.48770800000057,
+        "median": 316.53841600000305,
+        "p95": 440.1693749999977,
+        "n": 5,
+        "totalMs": {
+          "min": 307.3247080000001,
+          "median": 354.8137910000005,
+          "p95": 479.2469579999997,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 41.70470799999748,
+        "median": 50.908166999997775,
+        "p95": 105.06874999999854,
+        "n": 5,
+        "totalMs": {
+          "min": 66.5736250000009,
+          "median": 89.23704199999702,
+          "p95": 143.21375000000262,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3595",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/artists",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/artists",
+      "status": 200,
+      "bytes": 305660,
+      "cold": {
+        "min": 275.7380839999969,
+        "median": 291.8790000000008,
+        "p95": 313.84433400000125,
+        "n": 5,
+        "totalMs": {
+          "min": 330.0729169999977,
+          "median": 347.41183399999863,
+          "p95": 359.7114169999986,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 42.33875000000262,
+        "median": 44.96991700000217,
+        "p95": 203.12108299999818,
+        "n": 5,
+        "totalMs": {
+          "min": 82.63608300000487,
+          "median": 152.04258399999526,
+          "p95": 237.80391699999745,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/artists/all",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/artists/all",
+      "status": 200,
+      "bytes": 798633,
+      "cold": {
+        "min": 391.9817500000063,
+        "median": 457.66362500000105,
+        "p95": 1064.6057910000018,
+        "n": 5,
+        "totalMs": {
+          "min": 432.66191600000457,
+          "median": 501.82158300000447,
+          "p95": 1495.561708000001,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 41.132999999994354,
+        "median": 48.00995900000271,
+        "p95": 49.32850000000326,
+        "n": 5,
+        "totalMs": {
+          "min": 52.13991700000042,
+          "median": 82.7342079999944,
+          "p95": 166.99266599999828,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3593",
+        "age": "7"
+      }
+    },
+    {
+      "target": "/videos",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/videos",
+      "status": 200,
+      "bytes": 251402,
+      "cold": {
+        "min": 239.0592919999981,
+        "median": 269.543875000003,
+        "p95": 393.80204099999537,
+        "n": 5,
+        "totalMs": {
+          "min": 281.7005410000056,
+          "median": 362.3998330000031,
+          "p95": 431.0148330000011,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 40.945707999999286,
+        "median": 41.644625000000815,
+        "p95": 54.30774999999994,
+        "n": 5,
+        "totalMs": {
+          "min": 81.7766249999986,
+          "median": 84.73612499999581,
+          "p95": 91.89970799999719,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3595",
+        "age": "5"
+      }
+    },
+    {
+      "target": "/events",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/events",
+      "status": 200,
+      "bytes": 250001,
+      "cold": {
+        "min": 253.6521670000002,
+        "median": 299.020958000001,
+        "p95": 335.6996670000008,
+        "n": 5,
+        "totalMs": {
+          "min": 334.8833750000049,
+          "median": 364.86945800000103,
+          "p95": 404.33674999999494,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 41.42266599999857,
+        "median": 45.35250000000087,
+        "p95": 112.69758300000103,
+        "n": 5,
+        "totalMs": {
+          "min": 79.4496250000011,
+          "median": 90.89237500000309,
+          "p95": 151.03800000000047,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "7"
+      }
+    },
+    {
+      "target": "/playlists",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/playlists",
+      "status": 200,
+      "bytes": 249033,
+      "cold": {
+        "min": 247.5474169999943,
+        "median": 296.02862499999173,
+        "p95": 740.601791000001,
+        "n": 5,
+        "totalMs": {
+          "min": 286.1229999999923,
+          "median": 344.1246669999964,
+          "p95": 819.7693329999965,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 42.89783300000272,
+        "median": 44.86741599999368,
+        "p95": 103.79441600000428,
+        "n": 5,
+        "totalMs": {
+          "min": 65.52720899999258,
+          "median": 87.06150000001071,
+          "p95": 171.27229100000113,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/friends",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/friends",
+      "status": 200,
+      "bytes": 245291,
+      "cold": {
+        "min": 267.43133400000806,
+        "median": 329.04362499999115,
+        "p95": 351.6702499999956,
+        "n": 5,
+        "totalMs": {
+          "min": 343.3286250000092,
+          "median": 371.8630419999972,
+          "p95": 414.9977910000016,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 40.48745799998869,
+        "median": 43.13749999999709,
+        "p95": 145.2273750000022,
+        "n": 5,
+        "totalMs": {
+          "min": 78.87299999999232,
+          "median": 92.11004200000025,
+          "p95": 182.33670900001016,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/tracks",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/tracks",
+      "status": 200,
+      "bytes": 798093,
+      "cold": {
+        "min": 794.4149999999936,
+        "median": 975.8937500000029,
+        "p95": 3829.899667000005,
+        "n": 5,
+        "totalMs": {
+          "min": 934.4552919999987,
+          "median": 1017.5082090000069,
+          "p95": 3959.739167000007,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 40.92579099998693,
+        "median": 47.44045900000492,
+        "p95": 177.48037499999919,
+        "n": 5,
+        "totalMs": {
+          "min": 43.85208299999067,
+          "median": 86.56083300001046,
+          "p95": 220.76200000000244,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3591",
+        "age": "10"
+      }
+    },
+    {
+      "target": "/news",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/news",
+      "status": 200,
+      "bytes": 337876,
+      "cold": {
+        "min": 343.3675419999927,
+        "median": 378.3909160000039,
+        "p95": 619.9173339999979,
+        "n": 5,
+        "totalMs": {
+          "min": 415.573916999987,
+          "median": 423.23266599999624,
+          "p95": 658.8262090000062,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 41.51129099998798,
+        "median": 48.83354200000758,
+        "p95": 115.21866700000828,
+        "n": 5,
+        "totalMs": {
+          "min": 80.13679099999717,
+          "median": 86.99454200000037,
+          "p95": 157.05408299999544,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/contacts",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/contacts",
+      "status": 200,
+      "bytes": 244785,
+      "cold": {
+        "min": 234.28445800000918,
+        "median": 258.9141249999957,
+        "p95": 567.6568330000009,
+        "n": 5,
+        "totalMs": {
+          "min": 277.84500000000116,
+          "median": 296.309500000003,
+          "p95": 736.1761250000127,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 42.885917000006884,
+        "median": 54.76120799999626,
+        "p95": 114.89741600000707,
+        "n": 5,
+        "totalMs": {
+          "min": 82.03812499999185,
+          "median": 91.88062499999069,
+          "p95": 155.5538749999978,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3595",
+        "age": "5"
+      }
+    },
+    {
+      "target": "/signin",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/signin",
+      "status": 200,
+      "bytes": 248161,
+      "cold": {
+        "min": 227.56412500000442,
+        "median": 267.92045900000085,
+        "p95": 350.5332919999928,
+        "n": 5,
+        "totalMs": {
+          "min": 265.4083329999994,
+          "median": 321.25929099999485,
+          "p95": 417.1543340000062,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200"
+      },
+      "warm": {
+        "min": 240.3916670000035,
+        "median": 277.57024999998976,
+        "p95": 373.57329200000095,
+        "n": 5,
+        "totalMs": {
+          "min": 317.2404580000002,
+          "median": 357.3822919999948,
+          "p95": 412.3288750000065,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200",
+        "age": "0"
+      }
+    },
+    {
+      "target": "/release/vorg-cyber-soul-chill",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/release/vorg-cyber-soul-chill",
+      "status": 200,
+      "bytes": 266849,
+      "cold": {
+        "min": 261.36508299999696,
+        "median": 296.19075000000885,
+        "p95": 2288.9263749999955,
+        "n": 5,
+        "totalMs": {
+          "min": 328.8271250000107,
+          "median": 354.1804160000029,
+          "p95": 2365.108791999999,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 41.98237499999232,
+        "median": 42.739457999996375,
+        "p95": 269.8796250000014,
+        "n": 5,
+        "totalMs": {
+          "min": 85.1919579999958,
+          "median": 143.68745800000033,
+          "p95": 273.1603330000071,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3593",
+        "age": "7"
+      }
+    },
+    {
+      "target": "/artist/irukanji",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/artist/irukanji",
+      "status": 200,
+      "bytes": 313440,
+      "cold": {
+        "min": 292.82291700001224,
+        "median": 409.67533299999195,
+        "p95": 2140.223125000004,
+        "n": 5,
+        "totalMs": {
+          "min": 344.81650000001537,
+          "median": 447.8041660000017,
+          "p95": 2247.1621659999946,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 40.73004199999559,
+        "median": 43.766792000009445,
+        "p95": 51.731457999994745,
+        "n": 5,
+        "totalMs": {
+          "min": 44.0659169999999,
+          "median": 48.16624999999476,
+          "p95": 83.97500000000582,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/video/irukanji-live-eve8-2022",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/video/irukanji-live-eve8-2022",
+      "status": 200,
+      "bytes": 260495,
+      "cold": {
+        "min": 241.81508400000166,
+        "median": 354.4648750000051,
+        "p95": 555.514542000019,
+        "n": 5,
+        "totalMs": {
+          "min": 282.51712500001304,
+          "median": 392.75170799999614,
+          "p95": 634.3600840000145,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 44.97583400001167,
+        "median": 60.14262499997858,
+        "p95": 129.24400000000605,
+        "n": 5,
+        "totalMs": {
+          "min": 82.71370900000329,
+          "median": 99.6157499999972,
+          "p95": 165.5702089999977,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/event/five-years",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/event/five-years",
+      "status": 200,
+      "bytes": 267942,
+      "cold": {
+        "min": 260.09070799997426,
+        "median": 305.0431250000256,
+        "p95": 714.6680419999757,
+        "n": 5,
+        "totalMs": {
+          "min": 301.2856249999895,
+          "median": 354.4853750000184,
+          "p95": 791.1303329999791,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 42.85537500001374,
+        "median": 133.54087499997695,
+        "p95": 308.09900000001653,
+        "n": 5,
+        "totalMs": {
+          "min": 44.24587500002235,
+          "median": 135.97570899999118,
+          "p95": 347.8286660000158,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3593",
+        "age": "7"
+      }
+    },
+    {
+      "target": "/playlist/goa-trance",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/playlist/goa-trance",
+      "status": 200,
+      "bytes": 496216,
+      "cold": {
+        "min": 373.8035830000008,
+        "median": 394.72308299998986,
+        "p95": 865.6981659999874,
+        "n": 5,
+        "totalMs": {
+          "min": 426.7424159999937,
+          "median": 442.98179099999834,
+          "p95": 949.0384579999954,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 43.88991699999315,
+        "median": 48.50908300001174,
+        "p95": 94.57870800001547,
+        "n": 5,
+        "totalMs": {
+          "min": 81.80825000000186,
+          "median": 86.71204099999159,
+          "p95": 136.598708000005,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3594",
+        "age": "6"
+      }
+    },
+    {
+      "target": "/friend/treetrolla",
+      "kind": "page",
+      "url": "https://stage--sentimony-nuxt.netlify.app/friend/treetrolla",
+      "status": 200,
+      "bytes": 245411,
+      "cold": {
+        "min": 254.38762500000303,
+        "median": 289.19679200000246,
+        "p95": 534.063124999986,
+        "n": 5,
+        "totalMs": {
+          "min": 301.3735419999866,
+          "median": 359.54025000002,
+          "p95": 574.9671669999952,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=200; stored"
+      },
+      "warm": {
+        "min": 41.55062500000349,
+        "median": 52.7662920000148,
+        "p95": 113.18841599998996,
+        "n": 5,
+        "totalMs": {
+          "min": 84.37133299998823,
+          "median": 91.07170900001074,
+          "p95": 151.93174999998882,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=3595",
+        "age": "5"
+      }
+    },
+    {
+      "target": "image thumb",
+      "kind": "asset",
+      "url": "https://content.sentimony.com/assets/img/artists/irukanji-02_th.jpg",
+      "status": 200,
+      "bytes": 19537,
+      "cold": {
+        "min": 39.39358299999731,
+        "median": 41.3940419999999,
+        "p95": 207.47254099999554,
+        "n": 5,
+        "totalMs": {
+          "min": 74.39912500002538,
+          "median": 78.61987499997485,
+          "p95": 246.98808300000383,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31526691"
+      },
+      "warm": {
+        "min": 39.74895900001866,
+        "median": 100.0262910000165,
+        "p95": 105.85312499999418,
+        "n": 5,
+        "totalMs": {
+          "min": 136.69666600000346,
+          "median": 144.27370799999335,
+          "p95": 166.05387499998324,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31526690",
+        "age": "9310"
+      }
+    },
+    {
+      "target": "image full",
+      "kind": "asset",
+      "url": "https://content.sentimony.com/assets/img/artists/irukanji-02_xl.jpg",
+      "status": 200,
+      "bytes": 314823,
+      "cold": {
+        "min": 46.33300000001327,
+        "median": 89.86758399999235,
+        "p95": 125.58095899998443,
+        "n": 5,
+        "totalMs": {
+          "min": 102.18583400000352,
+          "median": 134.93108300000313,
+          "p95": 279.70650000000023,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31515858"
+      },
+      "warm": {
+        "min": 40.63833300000988,
+        "median": 41.95916699999361,
+        "p95": 184.23562500000116,
+        "n": 5,
+        "totalMs": {
+          "min": 83.7530830000178,
+          "median": 86.89574999999604,
+          "p95": 225.79745800001547,
+          "n": 5
+        },
+        "cacheState": "\"Netlify Edge\"; hit; ttl=31515857",
+        "age": "20143"
+      }
+    },
+    {
+      "target": "audio track",
+      "kind": "asset",
+      "url": "https://pub-38745cb64da2489d8cc71777425fd24b.r2.dev/space-organ-occult-melodies.mp3",
+      "status": 200,
+      "bytes": 16960111,
+      "cold": {
+        "min": 71.74799999999232,
+        "median": 144.9196670000092,
+        "p95": 411.7800419999985,
+        "n": 5,
+        "totalMs": {
+          "min": 560.8732910000253,
+          "median": 760.5740419999929,
+          "p95": 1512.268333999993,
+          "n": 5
+        },
+        "cacheState": "unknown"
+      },
+      "warm": {
+        "min": 63.85329100000672,
+        "median": 74.8691669999971,
+        "p95": 105.98695900000166,
+        "n": 5,
+        "totalMs": {
+          "min": 624.1770409999881,
+          "median": 662.9275419999904,
+          "p95": 691.0082919999841,
+          "n": 5
+        },
+        "cacheState": "unknown",
+        "age": null
+      }
+    }
+  ],
+  "psi": {}
+}

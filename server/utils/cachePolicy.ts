@@ -4,6 +4,7 @@ type RouteRule = {
 
 const publicCacheRule: RouteRule = {
   headers: {
+    'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
     'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
   },
 }
@@ -11,12 +12,14 @@ const publicCacheRule: RouteRule = {
 const privateCacheRule: RouteRule = {
   headers: {
     'Cache-Control': 'private, no-store',
+    'CDN-Cache-Control': 'private, no-store',
     'Netlify-CDN-Cache-Control': 'private, no-store',
   },
 }
 
 const countCacheRule: RouteRule = {
   headers: {
+    'CDN-Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
     'Netlify-CDN-Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
   },
 }

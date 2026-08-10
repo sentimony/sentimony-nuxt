@@ -7,6 +7,7 @@ describe('buildApiRouteRules', () => {
 
     expect(rules['/api/releases']).toEqual({
       headers: {
+        'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
         'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
       },
     })
@@ -18,6 +19,7 @@ describe('buildApiRouteRules', () => {
     const privateRule = {
       headers: {
         'Cache-Control': 'private, no-store',
+        'CDN-Cache-Control': 'private, no-store',
         'Netlify-CDN-Cache-Control': 'private, no-store',
       },
     }
@@ -35,5 +37,27 @@ describe('buildApiRouteRules', () => {
       .toBe('public, max-age=60, stale-while-revalidate=300')
     expect(rules['/api/track-likes/**']?.headers?.['Netlify-CDN-Cache-Control'])
       .toBe('private, no-store')
+  })
+
+  it('mirrors every Netlify CDN directive into the standard CDN-Cache-Control header', () => {
+    const rules = buildApiRouteRules()
+    const entries = Object.entries(rules)
+
+    expect(entries.length).toBeGreaterThan(0)
+
+    for (const [route, rule] of entries) {
+      const netlify = rule.headers['Netlify-CDN-Cache-Control']
+      expect(netlify, `${route} must keep the Netlify header while prod runs on Netlify`).toBeTruthy()
+      expect(rule.headers['CDN-Cache-Control'], `${route} must mirror the Netlify directive`).toBe(netlify)
+    }
+  })
+
+  it('keeps private routes uncacheable through the browser Cache-Control header', () => {
+    const rules = buildApiRouteRules()
+
+    expect(rules['/api/likes']?.headers?.['Cache-Control']).toBe('private, no-store')
+    expect(rules['/api/profile/summary']?.headers?.['Cache-Control']).toBe('private, no-store')
+    expect(rules['/api/track-plays']?.headers?.['Cache-Control']).toBe('private, no-store')
+    expect(rules['/api/releases']?.headers?.['Cache-Control']).toBeUndefined()
   })
 })
