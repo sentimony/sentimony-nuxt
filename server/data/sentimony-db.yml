@@ -888,8 +888,8 @@ artists:
     youtube_playlist_id: ""
     spotify: ""
     apple_music: ""
-    discogs: "https://www.discogs.com/artist/801854"
-    facebook: "https://www.facebook.com/ihororlovskyi"
+    discogs: https://www.discogs.com/artist/801854
+    facebook: https://www.facebook.com/ihororlovskyi
     facebook_personal: ""
     instagram: ""
     instagram_personal: ""
@@ -903,7 +903,7 @@ artists:
     visible: false
     category: dj
     category_id: "028"
-    name: "Yulia Levchenko"
+    name: Yulia Levchenko
     location: Kyiv, Ukraine -> Warsaw, Poland
     style: ""
     photo_og: ""
@@ -919,8 +919,8 @@ artists:
     youtube_playlist_id: ""
     spotify: ""
     apple_music: ""
-    discogs: "https://www.discogs.com/artist/1977506"
-    facebook: "https://www.facebook.com/juliia.zea"
+    discogs: https://www.discogs.com/artist/1977506
+    facebook: https://www.facebook.com/juliia.zea
     facebook_personal: ""
     instagram: ""
     instagram_personal: ""
@@ -950,7 +950,7 @@ artists:
     youtube_playlist_id: ""
     spotify: ""
     apple_music: ""
-    discogs: "https://www.discogs.com/artist/2197312"
+    discogs: https://www.discogs.com/artist/2197312
     facebook: ""
     facebook_personal: ""
     instagram: ""
@@ -2329,15 +2329,15 @@ artists:
     visible: false
     category: musician
     category_id: "072"
-    name: "Tommy Axelsson"
-    location: "Stockholm, Sweden"
+    name: Tommy Axelsson
+    location: Stockholm, Sweden
     style: ""
     photo_og: ""
     photo_th: ""
     photo_xl: ""
     information: ""
     info_sc: ""
-    soundcloud_url: "https://soundcloud.com/wizack_twizack"
+    soundcloud_url: https://soundcloud.com/wizack_twizack
     soundcloud_label_playlist_id: ""
     soundcloud_artist_playlist_id: ""
     mixcloud: ""
@@ -2368,7 +2368,7 @@ artists:
     photo_xl: ""
     information: ""
     info_sc: ""
-    soundcloud_url: "https://soundcloud.com/ooze-primordial"
+    soundcloud_url: https://soundcloud.com/ooze-primordial
     soundcloud_label_playlist_id: ""
     soundcloud_artist_playlist_id: ""
     mixcloud: ""
@@ -2377,7 +2377,7 @@ artists:
     spotify: ""
     apple_music: ""
     discogs: ""
-    facebook: "https://www.facebook.com/primordial.ooze"
+    facebook: https://www.facebook.com/primordial.ooze
     facebook_personal: ""
     instagram: ""
     instagram_personal: ""
@@ -7101,15 +7101,15 @@ artists:
     visible: false
     category: musician
     category_id: "213"
-    name: "Ivan Pirog"
-    location: "Kyiv, Ukraine"
+    name: Ivan Pirog
+    location: Kyiv, Ukraine
     style: ""
     photo_og: ""
     photo_th: ""
     photo_xl: ""
     information: ""
     info_sc: ""
-    soundcloud_url: "https://soundcloud.com/flexxodus"
+    soundcloud_url: https://soundcloud.com/flexxodus
     soundcloud_label_playlist_id: ""
     soundcloud_artist_playlist_id: ""
     mixcloud: ""
@@ -7494,7 +7494,7 @@ artists:
     name: Andrii Averin
     location: Lviv, Ukraine
     style: ""
-    information: "UV psychedelic backdrops, festival installations & decor, dj stage & canopy sets, double-layer prints and many other wonderful products"
+    information: UV psychedelic backdrops, festival installations & decor, dj stage & canopy sets, double-layer prints and many other wonderful products
     instagram: https://www.instagram.com/shivaomart/
 events:
   - slug: shift-space
