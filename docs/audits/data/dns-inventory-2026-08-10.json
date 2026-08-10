@@ -1,0 +1,177 @@
+{
+  "capturedAt": "2026-08-10T13:26:41.339533+00:00",
+  "authoritativeServer": "nsa1.srv53.net",
+  "zone": "sentimony.com",
+  "records": {
+    "@": {
+      "A": [
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "A",
+          "content": "104.198.14.52"
+        }
+      ],
+      "TXT": [
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "TXT",
+          "content": "\"google-site-verification=1weMlNgNhGhSlAC_zfNU9w0nk_eCfipsNF9wTv-OpAE\""
+        }
+      ],
+      "NS": [
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsd2.srv53.org."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsc3.srv53.com."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsb2.srv53.com."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsa1.srv53.net."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsc1.srv53.net."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsd2.srv53.com."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsb1.srv53.net."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsb3.srv53.org."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsa2.srv53.org."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsa2.srv53.com."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsc2.srv53.org."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsd3.srv53.net."
+        }
+      ],
+      "SOA": [
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "SOA",
+          "content": "nsa1.srv53.net. support.dnshosting.org. 1770007022 1800 600 2419200 1800"
+        }
+      ]
+    },
+    "www": {
+      "CNAME": [
+        {
+          "name": "www.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-nuxt.netlify.com."
+        }
+      ]
+    },
+    "content": {
+      "CNAME": [
+        {
+          "name": "content.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-content.netlify.com."
+        }
+      ]
+    },
+    "img": {
+      "CNAME": [
+        {
+          "name": "img.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-content.netlify.com."
+        }
+      ]
+    },
+    "jekyll": {
+      "CNAME": [
+        {
+          "name": "jekyll.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-jekyll.netlify.com."
+        }
+      ]
+    },
+    "gatsby": {
+      "CNAME": [
+        {
+          "name": "gatsby.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-gatsby.netlify.com."
+        }
+      ]
+    },
+    "irukanji": {
+      "CNAME": [
+        {
+          "name": "irukanji.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "irukanji-gatsby.netlify.com."
+        }
+      ]
+    },
+    "aquadeep": {
+      "CNAME": [
+        {
+          "name": "aquadeep.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "aquadeep-jekyll.netlify.com."
+        }
+      ]
+    }
+  }
+}
