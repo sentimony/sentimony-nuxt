@@ -4,5 +4,9 @@
   "compatibility_date": "2026-07-26",
   "compatibility_flags": ["nodejs_compat"],
   "assets": { "directory": ".output/public", "binding": "ASSETS" },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "vars": {
+    "NUXT_CATALOG_SOURCE": "supabase",
+    "NUXT_SITEMAP_ENABLED": "false"
+  }
 }
