@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-08-10T13:26:41.339533+00:00",
+  "capturedAt": "2026-08-10T14:39:00.465074+00:00",
   "authoritativeServer": "nsa1.srv53.net",
   "zone": "sentimony.com",
   "records": {
@@ -31,13 +31,13 @@
           "name": "sentimony.com.",
           "ttl": 3600,
           "type": "NS",
-          "content": "nsc3.srv53.com."
+          "content": "nsb1.srv53.net."
         },
         {
           "name": "sentimony.com.",
           "ttl": 3600,
           "type": "NS",
-          "content": "nsb2.srv53.com."
+          "content": "nsa2.srv53.org."
         },
         {
           "name": "sentimony.com.",
@@ -61,24 +61,6 @@
           "name": "sentimony.com.",
           "ttl": 3600,
           "type": "NS",
-          "content": "nsb1.srv53.net."
-        },
-        {
-          "name": "sentimony.com.",
-          "ttl": 3600,
-          "type": "NS",
-          "content": "nsb3.srv53.org."
-        },
-        {
-          "name": "sentimony.com.",
-          "ttl": 3600,
-          "type": "NS",
-          "content": "nsa2.srv53.org."
-        },
-        {
-          "name": "sentimony.com.",
-          "ttl": 3600,
-          "type": "NS",
           "content": "nsa2.srv53.com."
         },
         {
@@ -86,6 +68,24 @@
           "ttl": 3600,
           "type": "NS",
           "content": "nsc2.srv53.org."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsb2.srv53.com."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsc3.srv53.com."
+        },
+        {
+          "name": "sentimony.com.",
+          "ttl": 3600,
+          "type": "NS",
+          "content": "nsb3.srv53.org."
         },
         {
           "name": "sentimony.com.",
@@ -123,10 +123,10 @@
         }
       ]
     },
-    "img": {
+    "www.content": {
       "CNAME": [
         {
-          "name": "img.sentimony.com.",
+          "name": "www.content.sentimony.com.",
           "ttl": 3600,
           "type": "CNAME",
           "content": "sentimony-content.netlify.com."
@@ -143,6 +143,16 @@
         }
       ]
     },
+    "www.jekyll": {
+      "CNAME": [
+        {
+          "name": "www.jekyll.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-jekyll.netlify.com."
+        }
+      ]
+    },
     "gatsby": {
       "CNAME": [
         {
@@ -150,6 +160,76 @@
           "ttl": 3600,
           "type": "CNAME",
           "content": "sentimony-gatsby.netlify.com."
+        }
+      ]
+    },
+    "www.gatsby": {
+      "CNAME": [
+        {
+          "name": "www.gatsby.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-gatsby.netlify.com."
+        }
+      ]
+    },
+    "nuxt": {
+      "CNAME": [
+        {
+          "name": "nuxt.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-nuxt.netlify.com."
+        }
+      ]
+    },
+    "www.nuxt": {
+      "CNAME": [
+        {
+          "name": "www.nuxt.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-nuxt.netlify.com."
+        }
+      ]
+    },
+    "aquadeep": {
+      "CNAME": [
+        {
+          "name": "aquadeep.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "aquadeep-jekyll.netlify.com."
+        }
+      ]
+    },
+    "www.aquadeep": {
+      "CNAME": [
+        {
+          "name": "www.aquadeep.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "aquadeep-jekyll.netlify.com."
+        }
+      ]
+    },
+    "lookinglook": {
+      "CNAME": [
+        {
+          "name": "lookinglook.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "lookinglook-jekyll.netlify.com."
+        }
+      ]
+    },
+    "www.lookinglook": {
+      "CNAME": [
+        {
+          "name": "www.lookinglook.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "lookinglook-jekyll.netlify.com."
         }
       ]
     },
@@ -163,13 +243,53 @@
         }
       ]
     },
-    "aquadeep": {
+    "www.irukanji": {
       "CNAME": [
         {
-          "name": "aquadeep.sentimony.com.",
+          "name": "www.irukanji.sentimony.com.",
           "ttl": 3600,
           "type": "CNAME",
-          "content": "aquadeep-jekyll.netlify.com."
+          "content": "irukanji-gatsby.netlify.com."
+        }
+      ]
+    },
+    "vue": {
+      "CNAME": [
+        {
+          "name": "vue.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-jekyll.netlify.com."
+        }
+      ]
+    },
+    "www.vue": {
+      "CNAME": [
+        {
+          "name": "www.vue.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-jekyll.netlify.com."
+        }
+      ]
+    },
+    "img": {
+      "CNAME": [
+        {
+          "name": "img.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-content.netlify.com."
+        }
+      ]
+    },
+    "www.img": {
+      "CNAME": [
+        {
+          "name": "www.img.sentimony.com.",
+          "ttl": 3600,
+          "type": "CNAME",
+          "content": "sentimony-content.netlify.com."
         }
       ]
     }
