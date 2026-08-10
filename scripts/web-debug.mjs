@@ -4,34 +4,10 @@
 // from the catalog API so a broken SSR path (e.g. a crashing transitive dep)
 // surfaces as a non-2xx/3xx exit code instead of silently shipping.
 
+import { dynamicRoutes, staticRoutes } from './lib/routes.mjs'
+
 const BASE_URL = (process.env.BASE_URL || 'http://localhost:3000').replace(/\/+$/, '')
 const TIMEOUT_MS = Number(process.env.WEB_DEBUG_TIMEOUT || 25000)
-
-const staticRoutes = [
-  '/',
-  '/releases',
-  '/releases/psytrance',
-  '/releases/psychill',
-  '/artists',
-  '/artists/all',
-  '/videos',
-  '/events',
-  '/playlists',
-  '/friends',
-  '/tracks',
-  '/news',
-  '/contacts',
-  '/signin',
-]
-
-const dynamicRoutes = [
-  { api: '/api/releases', path: slug => `/release/${slug}` },
-  { api: '/api/artists', path: slug => `/artist/${slug}` },
-  { api: '/api/videos', path: slug => `/video/${slug}` },
-  { api: '/api/events', path: slug => `/event/${slug}` },
-  { api: '/api/playlists', path: slug => `/playlist/${slug}` },
-  { api: '/api/friends', path: slug => `/friend/${slug}` },
-]
 
 function firstSlug(payload) {
   const list = Array.isArray(payload) ? payload : Object.values(payload ?? {})
