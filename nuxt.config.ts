@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 import { buildApiRouteRules } from './server/utils/cachePolicy'
 import { buildNoindexRouteRules } from './server/utils/robotsPolicy'
+import { isSitemapEnabled } from './server/utils/sitemapPolicy'
 
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
@@ -170,7 +171,7 @@ export default defineNuxtConfig({
     easing: 'cubic-bezier(0,.57,.89,0)'
   },
   sitemap: {
-    enabled: !process.env.URL?.includes('stage') && process.env.CONTEXT !== 'deploy-preview',
+    enabled: isSitemapEnabled(process.env),
     autoLastmod: true,
     discoverImages: false,
     discoverVideos: false,
