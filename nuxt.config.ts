@@ -80,7 +80,7 @@ export default defineNuxtConfig({
     serverAppConfig: false,
   },
   nitro: {
-    preset: 'netlify',
+    preset: process.env.NITRO_PRESET || 'netlify',
   },
   ssr: true,
   routeRules: {

@@ -10,6 +10,7 @@
     "postinstall": "npm run skills",
     "dev": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt dev",
     "build": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt build",
+    "build:cf": "NITRO_PRESET=cloudflare_module npm run build",
     "generate": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt generate",
     "preview": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt preview",
     "sync:firebase": "npm run convert:yml && node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-firebase.mjs",
@@ -28,6 +29,8 @@
     "web-debug": "node scripts/web-debug.mjs",
     "deploy:stage": "npm run netlify:stage",
     "deploy:prod": "npm run netlify:prod",
+    "deploy:cf:stage": "npm run build:cf && npx -y wrangler@4 versions upload",
+    "deploy:cf:prod": "npm run build:cf && npx -y wrangler@4 deploy",
     "netlify:stage": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --alias stage --context deploy-preview",
     "netlify:prod": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },

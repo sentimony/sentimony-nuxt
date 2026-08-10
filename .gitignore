@@ -21,6 +21,8 @@ supabase/*
 .netlify/*
 !.netlify/state.json
 
+.wrangler/
+
 .agents/
 .claude/
 .opencode/

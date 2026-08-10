@@ -1,0 +1,8 @@
+{
+  "name": "sentimony-nuxt",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2026-07-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "directory": ".output/public", "binding": "ASSETS" },
+  "observability": { "enabled": true }
+}
