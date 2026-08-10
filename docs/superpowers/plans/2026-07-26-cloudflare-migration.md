@@ -53,30 +53,30 @@
 **Interfaces:**
 - Produces: `staticRoutes: string[]`, `dynamicRoutes: { api: string, path: (slug: string) => string }[]`, `assetTargets: { label: string, url: string }[]`.
 
-- [ ] **Step 1: Написати падаючий тест**
+- [x] **Step 1: Написати падаючий тест**
 
 Створити `tests/unit/perfRoutes.test.ts`: перевірити, що `staticRoutes` містить `/`, `/releases`, `/artists`, `/tracks`, `/signin`; що кожен `dynamicRoutes[].path('x')` дає шлях, який починається з `/` і містить `x`; що `assetTargets` містить хост `content.sentimony.com` і хост `r2.dev`; що в `staticRoutes` немає дублікатів.
 
-- [ ] **Step 2: Запустити тест і переконатися, що він падає**
+- [x] **Step 2: Запустити тест і переконатися, що він падає**
 
 Run: `npx vitest run tests/unit/perfRoutes.test.ts`
 Expected: FAIL — модуль `scripts/lib/routes.mjs` не існує.
 
-- [ ] **Step 3: Створити `scripts/lib/routes.mjs`**
+- [x] **Step 3: Створити `scripts/lib/routes.mjs`**
 
 Перенести `staticRoutes` і `dynamicRoutes` із `scripts/web-debug.mjs` без змін вмісту. Додати `assetTargets` — по одному представнику кожного класу асета, узятому з `server/data/sentimony-db.yml`: `content.sentimony.com` варіант `_th`, той самий варіант `_xl` і один `audio_url` з `r2.dev`.
 
-- [ ] **Step 4: Переписати `web-debug.mjs` на імпорт**
+- [x] **Step 4: Переписати `web-debug.mjs` на імпорт**
 
 Замінити локальні константи на `import { staticRoutes, dynamicRoutes } from './lib/routes.mjs'`. Більше нічого не чіпати.
 
-- [ ] **Step 5: Перевірити, що поведінка не змінилась**
+- [x] **Step 5: Перевірити, що поведінка не змінилась**
 
 Run: `npx vitest run tests/unit/perfRoutes.test.ts && npm run typecheck:ts7`
 Run: підняти сервер на 3100 і `BASE_URL=http://localhost:3100 npm run web-debug`
 Expected: той самий перелік маршрутів і той самий результат, що й до рефакторингу.
 
-- [ ] **Step 6: Коміт**
+- [x] **Step 6: Коміт**
 
 `git add scripts/lib/routes.mjs scripts/web-debug.mjs tests/unit/perfRoutes.test.ts && git commit -m "refactor(scripts): share route inventory between web-debug and perf tooling"`
 
@@ -91,7 +91,7 @@ Expected: той самий перелік маршрутів і той сами
 **Interfaces:**
 - Produces: `summarize(samples: number[]) => { min, median, p95, n }`, `cacheStateOf(headers) => string`, `bustUrl(url, token) => string`, JSON-артефакт у `docs/audits/data/<label>.json`.
 
-- [ ] **Step 1: Написати падаючий тест на чисті хелпери**
+- [x] **Step 1: Написати падаючий тест на чисті хелпери**
 
 Створити `tests/unit/perfStats.test.ts`:
 
@@ -102,16 +102,16 @@ Expected: той самий перелік маршрутів і той сами
 - `cacheStateOf(new Headers({ 'cf-cache-status': 'HIT' }))` → `'HIT'`; для `{ 'cache-status': '"Netlify Edge"; hit' }` → рядок, що містить `hit`; за відсутності обох → `'unknown'`.
 - `bustUrl('https://x/a', 't1')` → містить `?_pb=t1`; `bustUrl('https://x/a?b=1', 't1')` → містить і `b=1`, і `_pb=t1`.
 
-- [ ] **Step 2: Запустити тест і переконатися, що він падає**
+- [x] **Step 2: Запустити тест і переконатися, що він падає**
 
 Run: `npx vitest run tests/unit/perfStats.test.ts`
 Expected: FAIL — `scripts/lib/perfStats.mjs` не існує.
 
-- [ ] **Step 3: Реалізувати `scripts/lib/perfStats.mjs`**
+- [x] **Step 3: Реалізувати `scripts/lib/perfStats.mjs`**
 
 Тільки чисті функції, без мережі й без fs: `summarize`, `cacheStateOf`, `bustUrl`, `formatMarkdownTable(rows)`.
 
-- [ ] **Step 4: Реалізувати `scripts/perf-baseline.mjs`**
+- [x] **Step 4: Реалізувати `scripts/perf-baseline.mjs`**
 
 Поведінка:
 
@@ -127,16 +127,16 @@ Expected: FAIL — `scripts/lib/perfStats.mjs` не існує.
 - Друкує markdown-таблицю в stdout.
 - Exit code `1`, якщо будь-яка ціль дала не-2xx/3xx — інакше зламаний маршрут потрапить у baseline як «швидкий».
 
-- [ ] **Step 5: Додати npm-скрипт**
+- [x] **Step 5: Додати npm-скрипт**
 
 У `package.json`: `"perf:baseline": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/perf-baseline.mjs"`.
 
-- [ ] **Step 6: Прогнати локально**
+- [x] **Step 6: Прогнати локально**
 
 Run: підняти сервер на 3100, потім `BASE_URL=http://localhost:3100 PERF_LABEL=local-smoke PERF_RUNS=2 npm run perf:baseline`
 Expected: таблиця друкується, JSON створюється, exit 0. Артефакт `local-smoke` після перевірки видалити — він не є baseline.
 
-- [ ] **Step 7: Коміт**
+- [x] **Step 7: Коміт**
 
 `git add scripts/perf-baseline.mjs scripts/lib/perfStats.mjs tests/unit/perfStats.test.ts package.json && git commit -m "feat(scripts): add first-load performance baseline collector"`
 
@@ -147,17 +147,19 @@ Expected: таблиця друкується, JSON створюється, exit
 **Files:**
 - Modify: `scripts/perf-baseline.mjs`
 
-- [ ] **Step 1: Додати збирач**
+- [x] **Step 1: Додати збирач**
 
 Якщо `PSI_API_KEY` присутній і `BASE_URL` публічний (не `localhost`), для підмножини маршрутів (`/`, `/releases`, один `/release/<slug>`, `/artists`, один `/artist/<slug>`, `/tracks`) виконати запит до `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?strategy=mobile&category=performance`. Зберегти в JSON `psi: { performance, lcpMs, tbtMs, cls, fcpMs }`.
 
-- [ ] **Step 2: Обробити відсутність ключа**
+- [x] **Step 2: Обробити відсутність ключа**
 
 Без `PSI_API_KEY` — надрукувати один рядок `psi: skipped (no PSI_API_KEY)` і продовжити. Помилка PSI (429/5xx) не валить прогін: пише `null` і йде далі. Мережеві заміри — основна метрика, PSI — довідкова.
 
-- [ ] **Step 3: Коміт**
+- [x] **Step 3: Коміт**
 
 `git add scripts/perf-baseline.mjs && git commit -m "feat(scripts): collect optional PageSpeed Insights metrics in baseline"`
+
+**Відхилення (2026-08-10).** Окремого коміту не було: PSI-збирач написано одразу разом зі збирачем Task 2 і закомічено в `c61d939`. Практично PSI не спрацював — `PSI_API_KEY` не заданий, тож у baseline є лише мережеві метрики, лабораторних (LCP, TBT, CLS) немає.
 
 ---
 
@@ -167,28 +169,28 @@ Expected: таблиця друкується, JSON створюється, exit
 - Create: `docs/audits/2026-07-26-first-load-baseline-audit.md`, `docs/audits/data/netlify-prod.json`, `docs/audits/data/netlify-stage.json`
 - Modify: `docs/audits/README.md`
 
-- [ ] **Step 1: `[A]` Прогін по проду**
+- [x] **Step 1: `[A]` Прогін по проду**
 
 Run: `BASE_URL=https://sentimony.com PERF_LABEL=netlify-prod PERF_RUNS=5 npm run perf:baseline`
 
-- [ ] **Step 2: `[A]` Прогін по stage**
+- [x] **Step 2: `[A]` Прогін по stage**
 
 Run: `BASE_URL=https://stage--sentimony-nuxt.netlify.app PERF_LABEL=netlify-stage PERF_RUNS=5 npm run perf:baseline`
 
-- [ ] **Step 3: `[A]` Зафіксувати контекст замірів**
+- [x] **Step 3: `[A]` Зафіксувати контекст замірів**
 
 У той самий аудит записати: дату/час із таймзоною, географію клієнта, тип з'єднання, версію Node, поточний `NUXT_CATALOG_SOURCE` (`supabase`), і те, що на момент замірів `sentimony.com` A вказує на `104.198.14.52`. Без цього числа «після» не будуть порівнюваними.
 
-- [ ] **Step 4: `[A]` Написати аудит**
+- [x] **Step 4: `[A]` Написати аудит**
 
 `docs/audits/2026-07-26-first-load-baseline-audit.md` з таблицями cold/warm по кожному типу сторінки, окремим блоком по асетах (`content.sentimony.com`, `r2.dev`), і **порожніми колонками** `cloudflare-dns` та `cloudflare-workers`, які заповнять фази 1 і 3. Дописати рядок в індекс `docs/audits/README.md`.
 
-- [ ] **Step 5: `[A]` Виміряти розмір майбутнього Worker-бандла**
+- [x] **Step 5: `[A]` Виміряти розмір майбутнього Worker-бандла**
 
 Run: `NITRO_PRESET=cloudflare_module npm run build` і зафіксувати розмір `.output/server` та gzip-розмір `index.mjs`.
 Expected: якщо gzip > 1 MiB — це блокер для free-тарифу Workers, і про нього треба сказати користувачу **зараз**, до будь-яких дій з DNS. Записати число в аудит.
 
-- [ ] **Step 6: Коміт**
+- [x] **Step 6: Коміт**
 
 `git add docs/audits/2026-07-26-first-load-baseline-audit.md docs/audits/data docs/audits/README.md && git commit -m "docs(audits): record pre-migration first-load baseline"`
 
@@ -201,52 +203,60 @@ Expected: якщо gzip > 1 MiB — це блокер для free-тарифу W
 ### Task 5: Підготовка й зниження TTL
 
 **Files:**
-- Create: `docs/audits/data/dns-inventory-2026-07-26.json`
+- Create: `docs/audits/data/dns-inventory-2026-08-10.json`
 
-- [ ] **Step 1: `[A]` Зафіксувати повний інвентар зони машинно**
+- [x] **Step 1: `[A]` Зафіксувати повний інвентар зони машинно**
 
-Зберегти в JSON результати запитів до `nsa1.srv53.net` по всіх відомих іменах (`@`, `www`, `content`, `img`, `jekyll`, `gatsby`, `irukanji`, `aquadeep`) для типів `A`, `AAAA`, `CNAME`, `TXT`, `MX`, `CAA`, `NS`, `SOA`. Це — еталон, проти якого звірятиметься імпорт у Cloudflare.
+Зберегти в JSON результати запитів до `nsa1.srv53.net` по всіх іменах зони для типів `A`, `AAAA`, `CNAME`, `TXT`, `MX`, `CAA`, `NS`, `SOA`. Це — еталон, проти якого звірятиметься імпорт у Cloudflare.
 
-- [ ] **Step 2: `[A→U]` Підготувати запит на зниження TTL**
+**Поправка (2026-08-10).** Цей крок не можна виконати самим лише `dig`: AXFR на `srv53` закритий, а `dig` перевіряє тільки ті імена, які вже відомі. Список у первинній редакції плану (`@`, `www`, `content`, `img`, `jekyll`, `gatsby`, `irukanji`, `aquadeep`) дав 9 записів із 21 реального. Повний перелік дала лише панель DNS-хостингу. **Єдине надійне джерело інвентаря — панель, а не `dig`;** `dig` слугує для перевірки вже відомого списку. Фактичний стан зони: **21 запис на 20 іменах** — `@` (A + TXT), `www`, `content`, `img`, `jekyll`, `gatsby`, `irukanji`, `aquadeep`, `lookinglook`, `nuxt`, `vue` і `www.`-аліас до кожного з дев'яти піддоменів.
 
-Скласти точний перелік: які записи, з якого TTL (зараз 3600) на який (300). Користувач застосовує в панелі Imena.ua.
+- [x] **Step 2: `[A→U]` Підготувати запит на зниження TTL**
 
-- [ ] **Step 3: `[U]` Знизити TTL до 300 s**
+Скласти точний перелік: які записи, з якого TTL (зараз 3600) на який (300). TTL живе в панелі DNS-хостингу (DNSHosting.org) — це поле `TTL` рівня зони, воно застосовується до всіх записів одразу, окремо кожен не редагується. `Negative TTL` (SOA, 1800 s) не чіпати: він керує лише кешуванням NXDOMAIN, а неіснуючих імен у міграції не з'являється. Делегування (`NS`) міняється в іншому місці — у реєстратора (Imena.ua), Task 7.
 
-- [ ] **Step 4: `[A]` Перевірити пропагацію**
+- [x] **Step 3: `[U]` Знизити TTL до 300 s**
+
+- [x] **Step 4: `[A]` Перевірити пропагацію**
 
 Run: `dig +noall +answer @nsa1.srv53.net sentimony.com A` та по кожному піддомену; переконатися, що TTL = 300.
 Далі витримати ≥ 1 годину (стара TTL 3600), перш ніж міняти NS.
+
+Результат 2026-08-10 14:47 UTC: усі 21 запис віддають `ttl=300`; 1.1.1.1, 8.8.8.8 і 9.9.9.9 теж повертають 300, тобто старі значення з їхнього кешу вийшли. Гейт відкрився о 15:47 UTC.
 
 ---
 
 ### Task 6: Зона в Cloudflare
 
-- [ ] **Step 1: `[U]` Додати зону `sentimony.com` у Cloudflare**
+- [x] **Step 1: `[U]` Додати зону `sentimony.com` у Cloudflare**
 
 Cloudflare сам просканує наявні записи. **Не** підтверджувати перемикання NS на цьому кроці.
 
-- [ ] **Step 2: `[U]` Створити API token і покласти в `.env/.env.local`**
+- [x] **Step 2: `[U]` Створити API token і покласти в `.env/.env.local`**
 
 `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`. Дозволи — див. розділ «Що знадобиться від користувача».
 
-- [ ] **Step 3: `[A]` Звірити імпорт із еталоном**
+- [x] **Step 3: `[A]` Звірити імпорт із еталоном**
 
-Через Cloudflare API (`GET /zones/{id}/dns_records`) вивантажити записи й порівняти з `dns-inventory-2026-07-26.json`. Розбіжності виправити через API.
+Через Cloudflare API (`GET /zones/{id}/dns_records`) вивантажити записи й порівняти з `dns-inventory-2026-08-10.json`. Розбіжності виправити через API.
 
-- [ ] **Step 4: `[A]` Виставити режим проксі**
+**Поправка (2026-08-10).** Автоскан Cloudflare знайшов 4 записи з 21 — покладатись на нього не можна взагалі. Довелось додавати через API двома заходами: 5 записів після звірки з `dig`-інвентарем і ще 12 після того, як панель показала повний список. Звірка мусить порівнювати **кількість** записів, а не лише збіг відомих: `expected records: 21 | cloudflare records: 21`. З 20 імен реально працюють 6 (`content`, `jekyll`, `gatsby`, `irukanji`, `aquadeep`, `www`); решта 14 віддають TLS-помилку SAN — переносяться як є (див. Step 5), чистка у фазі 4.
+
+- [x] **Step 4: `[A]` Виставити режим проксі**
 
 Усі записи — **DNS-only** (сіра хмара). Це принципово: у фазі 1 request path не змінюється, і заміри мусять лишитись такими самими.
 
-- [ ] **Step 5: `[A]` Ухвалити рішення щодо `img.sentimony.com`**
+- [x] **Step 5: `[A]` Ухвалити рішення щодо `img.sentimony.com`**
 
 Запис зараз мертвий (TLS-помилка). Не переносити мовчки: перенести як є, позначивши в аудиті як відомий зламаний запис, і полагодити або видалити у фазі 4.
 
-- [ ] **Step 6: `[A]` Виставити SSL/TLS = Full (strict)**
+**Поправка (2026-08-10).** Так само мертві ще 13 імен, а не одне: `www.img`, `nuxt`, `vue`, `lookinglook` і всі `www.`-аліаси піддоменів. Усі віддають curl error 60 (SAN не покриває ім'я) **до** зміни NS. Це — зафіксований стан «до»; ті самі помилки після зміни делегування є очікуваними, а не регресом.
+
+- [x] **Step 6: `[A]` Виставити SSL/TLS = Full (strict)**
 
 Походження (Netlify) має валідний сертифікат, тому `Flexible` створив би зайвий ризик редирект-петель.
 
-- [ ] **Step 7: `[A→U]` Підготувати текст для зміни NS**
+- [x] **Step 7: `[A→U]` Підготувати текст для зміни NS**
 
 Виписати поточні 12 srv53-серверів і дві Cloudflare-адреси, які видала зона.
 
@@ -261,6 +271,8 @@ Cloudflare сам просканує наявні записи. **Не** під�
 - [ ] **Step 2: `[A]` Моніторити пропагацію**
 
 Run: перевіряти `dig +short sentimony.com NS @8.8.8.8` і `@1.1.1.1` кожні 10 хвилин; фіксувати момент, коли зона активна в Cloudflare API (`status: active`).
+
+**Поправка (2026-08-10).** Знижений TTL прискорює пропагацію **записів**, але не делегування: у реєстрі `.com` NS-запис має фіксований TTL 172800 (48 год), і знизити його з панелі неможливо. Тому вікно співіснування двох наборів NS — до двох діб, і весь цей час частина резолверів ходитиме на `srv53`. Це безпечно рівно тому, що обидві зони віддають ідентичні дані; звідси й вимога не чіпати зону в DNSHosting до кінця фази.
 
 - [ ] **Step 3: `[A]` Перевірити, що нічого не зламалось**
 
@@ -296,24 +308,24 @@ Expected: медіана TTFB у межах ±15% від `netlify-prod`. Біл�
 **Files:**
 - Modify: `server/utils/cachePolicy.ts:5-22`, `tests/unit/cachePolicy.test.ts`
 
-- [ ] **Step 1: Розширити тест**
+- [x] **Step 1: Розширити тест**
 
 У `tests/unit/cachePolicy.test.ts` додати очікування, що кожне з трьох правил містить `CDN-Cache-Control` з тим самим значенням, що й `Netlify-CDN-Cache-Control`, і що приватне правило зберігає `Cache-Control: private, no-store`.
 
-- [ ] **Step 2: Запустити тест і переконатися, що він падає**
+- [x] **Step 2: Запустити тест і переконатися, що він падає**
 
 Run: `npx vitest run tests/unit/cachePolicy.test.ts`
 Expected: FAIL — `CDN-Cache-Control` відсутній.
 
-- [ ] **Step 3: Додати заголовок**
+- [x] **Step 3: Додати заголовок**
 
 У `publicCacheRule`, `privateCacheRule`, `countCacheRule` додати `CDN-Cache-Control` з ідентичним значенням. `Netlify-CDN-Cache-Control` **не видаляти** — прод ще на Netlify.
 
-- [ ] **Step 4: Перевірити**
+- [x] **Step 4: Перевірити**
 
 Run: `npx vitest run tests/unit/cachePolicy.test.ts && npm run typecheck`
 
-- [ ] **Step 5: Коміт**
+- [x] **Step 5: Коміт**
 
 `git add server/utils/cachePolicy.ts tests/unit/cachePolicy.test.ts && git commit -m "feat(cache): emit standard CDN-Cache-Control alongside the Netlify header"`
 
@@ -328,28 +340,28 @@ Run: `npx vitest run tests/unit/cachePolicy.test.ts && npm run typecheck`
 **Interfaces:**
 - Produces: `isSitemapEnabled(env: Record<string, string | undefined>) => boolean`.
 
-- [ ] **Step 1: Написати падаючий тест**
+- [x] **Step 1: Написати падаючий тест**
 
 - `{ NUXT_SITEMAP_ENABLED: 'false' }` → `false`.
 - `{ NUXT_SITEMAP_ENABLED: 'true' }` → `true`.
 - `{}` → `true` (типово ввімкнено).
 - Зворотна сумісність із Netlify: `{ URL: 'https://stage--sentimony-nuxt.netlify.app' }` → `false`; `{ CONTEXT: 'deploy-preview' }` → `false`. Явний `NUXT_SITEMAP_ENABLED` має пріоритет над обома.
 
-- [ ] **Step 2: Запустити тест і переконатися, що він падає**
+- [x] **Step 2: Запустити тест і переконатися, що він падає**
 
 Run: `npx vitest run tests/unit/sitemapPolicy.test.ts`
 
-- [ ] **Step 3: Реалізувати `isSitemapEnabled`**
+- [x] **Step 3: Реалізувати `isSitemapEnabled`**
 
-- [ ] **Step 4: Підключити в `nuxt.config.ts`**
+- [x] **Step 4: Підключити в `nuxt.config.ts`**
 
 `enabled: isSitemapEnabled(process.env)` замість інлайн-умови; додати імпорт поруч із наявними `buildApiRouteRules` / `buildNoindexRouteRules`.
 
-- [ ] **Step 5: Перевірити**
+- [x] **Step 5: Перевірити**
 
 Run: `npx vitest run tests/unit/sitemapPolicy.test.ts && npm run typecheck`
 
-- [ ] **Step 6: Коміт**
+- [x] **Step 6: Коміт**
 
 `git add server/utils/sitemapPolicy.ts tests/unit/sitemapPolicy.test.ts nuxt.config.ts && git commit -m "refactor(sitemap): gate sitemap on an explicit env flag instead of Netlify build vars"`
 
@@ -366,7 +378,7 @@ Edge-функція `redirects.ts` — частина контракту сай�
 **Interfaces:**
 - Produces: `resolveLegacyRedirect(pathname: string) => string | null`.
 
-- [ ] **Step 1: Написати падаючий тест, який фіксує поведінку edge-функції один-в-один**
+- [x] **Step 1: Написати падаючий тест, який фіксує поведінку edge-функції один-в-один**
 
 Кейси прямо з `netlify/edge-functions/redirects.ts` і коментарів-тестів у `netlify.toml`:
 
@@ -386,24 +398,26 @@ Edge-функція `redirects.ts` — частина контракту сай�
 | `/releases` | `null` |
 | `/release/va-fantazma/spotify` | `null` |
 
-- [ ] **Step 2: Запустити тест і переконатися, що він падає**
+- [x] **Step 2: Запустити тест і переконатися, що він падає**
 
 Run: `npx vitest run tests/unit/legacyRedirects.test.ts`
 
-- [ ] **Step 3: Реалізувати `resolveLegacyRedirect`**
+- [x] **Step 3: Реалізувати `resolveLegacyRedirect`**
 
 Портувати три гілки з edge-функції. `console.log` з ANSI-кольорами не переносити.
 
-- [ ] **Step 4: Підключити middleware**
+- [x] **Step 4: Підключити middleware**
 
 `server/middleware/legacyRedirects.ts`: викликати `resolveLegacyRedirect(getRequestURL(event).pathname)`, за не-null — `sendRedirect(event, target, 301)`.
 
-- [ ] **Step 5: Перевірити наскрізно**
+- [x] **Step 5: Перевірити наскрізно**
 
 Run: підняти сервер на 3100 і `curl -sS -o /dev/null -w '%{http_code} %{redirect_url}\n' http://localhost:3100/sencd097.htm` та решту кейсів.
 Expected: `301` і правильна ціль для кожного; `/releases` — `200`.
 
-- [ ] **Step 6: Коміт**
+**Поправка (2026-08-10).** `/release/<slug>/spotify` наскрізно віддає **не `200`, а `301` на `open.spotify.com/...`** — це штатний вихідний лінк застосунку, який існував і до цієї задачі. У Step 1 очікування `null` стосується чистої функції `resolveLegacyRedirect` і лишається правильним; у наскрізній перевірці критерій інший — код і ціль мусять збігатися з тими, що були **до** підключення middleware. Так само `/release/<slug>/googleplay` не редиректить на Google Play напряму: middleware переписує шлях на `/youtubemusic`, а вже той обробник веде на зовнішній лінк.
+
+- [x] **Step 6: Коміт**
 
 `git add server/utils/legacyRedirects.ts server/middleware/legacyRedirects.ts tests/unit/legacyRedirects.test.ts && git commit -m "feat(server): move legacy redirects from the Netlify edge function into Nitro"`
 
@@ -415,11 +429,11 @@ Expected: `301` і правильна ціль для кожного; `/releases
 - Create: `wrangler.jsonc`, `.gitignore` доповнення (`.wrangler/`)
 - Modify: `nuxt.config.ts:80-84`, `package.json`
 
-- [ ] **Step 1: Зробити preset керованим через env**
+- [x] **Step 1: Зробити preset керованим через env**
 
 У `nuxt.config.ts`: `preset: process.env.NITRO_PRESET || 'netlify'`. Дефолт лишається `netlify`, поки прод на Netlify — це навмисно, щоб фаза 2 не могла випадково змінити прод-збірку.
 
-- [ ] **Step 2: Створити `wrangler.jsonc`**
+- [x] **Step 2: Створити `wrangler.jsonc`**
 
 ```jsonc
 {
@@ -432,7 +446,7 @@ Expected: `301` і правильна ціль для кожного; `/releases
 }
 ```
 
-- [ ] **Step 3: Додати npm-скрипти**
+- [x] **Step 3: Додати npm-скрипти**
 
 ```
 "build:cf": "NITRO_PRESET=cloudflare_module npm run build",
@@ -440,13 +454,13 @@ Expected: `301` і правильна ціль для кожного; `/releases
 "deploy:cf:prod": "npm run build:cf && npx -y wrangler@4 deploy"
 ```
 
-- [ ] **Step 4: Додати `.wrangler/` у `.gitignore`**
+- [x] **Step 4: Додати `.wrangler/` у `.gitignore`**
 
-- [ ] **Step 5: Перевірити, що збірка Netlify не зачеплена**
+- [x] **Step 5: Перевірити, що збірка Netlify не зачеплена**
 
 Run: `npm run build` (без `NITRO_PRESET`) і переконатися, що вихід — Netlify-функції, як раніше.
 
-- [ ] **Step 6: Коміт**
+- [x] **Step 6: Коміт**
 
 `git add wrangler.jsonc nuxt.config.ts package.json .gitignore && git commit -m "build: add Cloudflare Workers target without changing the default preset"`
 
@@ -582,7 +596,7 @@ Run: `BASE_URL=https://sentimony.com PERF_LABEL=cloudflare-prod PERF_RUNS=5 npm 
 
 - [ ] **Step 4: Оновити документацію**
 
-`AGENTS.md`: команди деплою, розділ про Netlify Edge Functions → Cloudflare, `Netlify-CDN-Cache-Control` → `CDN-Cache-Control`, згадки про Netlify serverless у Project Overview. `docs/roadmap/cloudflare-domain.md` → `Implemented`, перенести в `docs/roadmap/completed.md`.
+`CLAUDE.md` (єдине джерело настанов; `AGENTS.md` лише вказує на нього): команди деплою, розділ про Netlify Edge Functions → Cloudflare, `Netlify-CDN-Cache-Control` → `CDN-Cache-Control`, згадки про Netlify serverless у Project Overview. `docs/initiatives/cloudflare-domain.md` → `- Status: Implemented` **і** той самий статус у рядку `docs/ROADMAP.md`, потім перенести запис у `docs/COMPLETED.md`. Звірити: `npm run docs:check`.
 
 - [ ] **Step 5: Перевірити**
 
@@ -633,5 +647,5 @@ Run: `BASE_URL=https://sentimony.com npm run web-debug`
 - [ ] Auth, лайки, аватар, service worker перевірені вручну
 - [ ] Редиректи й блокування відтворені та покриті тестами до видалення edge-функцій
 - [ ] Аудит містить заповнену таблицю «до / після» і розділ про наступні кроки оптимізації
-- [ ] `AGENTS.md` і roadmap оновлені
+- [ ] `CLAUDE.md`, `docs/ROADMAP.md` і `docs/COMPLETED.md` оновлені, `npm run docs:check` зелений
 - [ ] Netlify-сайт `sentimony-nuxt` не видалений щонайменше тиждень після cutover
