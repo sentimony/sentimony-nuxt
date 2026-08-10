@@ -107,12 +107,19 @@ function checkStatusMatch(entries) {
   }
 }
 
+const REQUIRED_DOCS = [INDEX, 'docs/COMPLETED.md', AUDITS_INDEX, 'PRODUCT.md']
+
+// A required document that silently drops out of the list would take its links
+// with it, so a casing drift on macOS looks like a passing check.
+function checkRequiredDocuments() {
+  for (const file of REQUIRED_DOCS) {
+    if (!exactExists(file)) fail(file, 'missing, or its name differs in case')
+  }
+}
+
 function livingDocuments() {
   return [
-    INDEX,
-    'docs/COMPLETED.md',
-    AUDITS_INDEX,
-    'PRODUCT.md',
+    ...REQUIRED_DOCS,
     ...markdownFiles(INITIATIVES_DIR).map(file => join(INITIATIVES_DIR, file)),
   ].filter(exactExists)
 }
@@ -153,6 +160,7 @@ function checkDatedNames() {
 
 const entries = parseIndex()
 
+checkRequiredDocuments()
 checkIndexCoverage(entries)
 checkStatusMatch(entries)
 checkLinks()
