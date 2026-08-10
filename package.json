@@ -23,6 +23,7 @@
     "test:e2e:update": "playwright test --update-snapshots",
     "test:unit": "vitest run",
     "docs:check": "node scripts/docs-check.mjs",
+    "perf:baseline": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/perf-baseline.mjs",
     "verify:pwa": "node scripts/verify-pwa.mjs",
     "web-debug": "node scripts/web-debug.mjs",
     "deploy:stage": "npm run netlify:stage",
@@ -31,7 +32,7 @@
     "netlify:prod": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.122",
+    "@iconify-json/lucide": "^1.2.123",
     "@iconify-json/lucide-lab": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.93",
     "@playwright/test": "^1.62.1",
@@ -45,7 +46,7 @@
     "yaml": "^2.9.0"
   },
   "dependencies": {
-    "@nuxt/icon": "^2.4.1",
+    "@nuxt/icon": "^2.5.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/robots": "^6.1.4",
     "@nuxtjs/sitemap": "^8.3.4",
@@ -57,7 +58,7 @@
     "dompurify": "^3.4.13",
     "flag-icons": "^7.5.0",
     "nuxt": "^4.5.2",
-    "reka-ui": "^2.10.1",
+    "reka-ui": "^2.10.3",
     "swiper": "^14.1.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss-animate": "^1.0.7",
