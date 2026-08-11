@@ -1,4 +1,12 @@
 const HTML_CACHE_DIRECTIVE = 'public, max-age=3600, stale-while-revalidate=86400'
+const HTML_DURABLE_DIRECTIVE = 'public, durable, max-age=3600, stale-while-revalidate=86400'
+
+// Netlify varies serverless cache keys on the full query string by default, so
+// every ?utm_source=… link would miss the cache and force a full SSR. No page
+// reads query params, and Netlify folds all non-matches of an allowlist into a
+// single cache object, so an allowlist of one unused name drops query from the
+// key entirely. Add a real param here before shipping a query-driven page.
+const HTML_VARY = 'query=_'
 
 const privatePrefixes = ['/api/', '/profile']
 
@@ -24,6 +32,7 @@ export function htmlCacheHeaders(
 
   return {
     'CDN-Cache-Control': HTML_CACHE_DIRECTIVE,
-    'Netlify-CDN-Cache-Control': HTML_CACHE_DIRECTIVE,
+    'Netlify-CDN-Cache-Control': HTML_DURABLE_DIRECTIVE,
+    'Netlify-Vary': HTML_VARY,
   }
 }

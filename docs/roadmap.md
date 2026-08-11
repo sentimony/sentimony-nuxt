@@ -31,6 +31,7 @@
 - [Auth bundle](initiatives/auth-bundle.md) — зменшити public-route auth/Supabase JS. `Planned`
 - [API list envelope](initiatives/api-list-envelope.md) — уніфікувати list responses як `{ info, results }`. `Planned`
 - [Profile surface](initiatives/profile-surface.md) — полагоджені лайкнуті треки, помилки колекцій відділені від порожнього стану, profile використовує outline-focus і два текстові тири. `Implemented`
+- [Origin response time](initiatives/origin-response-time.md) — Durable Cache і cache key HTML, нечутливий до query-міток. `Implemented`
 
 ## P2
 

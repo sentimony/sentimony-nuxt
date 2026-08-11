@@ -2,26 +2,29 @@ type RouteRule = {
   headers: Record<string, string>
 }
 
+// `durable` opts a serverless response into Netlify's central cache layer, so a
+// cold PoP is served from it instead of re-invoking the function. It is a
+// Netlify extension, hence never mirrored into the portable CDN-Cache-Control.
+function cdnHeaders(directive: string, durable = false): Record<string, string> {
+  return {
+    'CDN-Cache-Control': directive,
+    'Netlify-CDN-Cache-Control': durable ? directive.replace('public,', 'public, durable,') : directive,
+  }
+}
+
 const publicCacheRule: RouteRule = {
-  headers: {
-    'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
-    'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
-  },
+  headers: cdnHeaders('public, max-age=3600, stale-while-revalidate=86400', true),
 }
 
 const privateCacheRule: RouteRule = {
   headers: {
     'Cache-Control': 'private, no-store',
-    'CDN-Cache-Control': 'private, no-store',
-    'Netlify-CDN-Cache-Control': 'private, no-store',
+    ...cdnHeaders('private, no-store'),
   },
 }
 
 const countCacheRule: RouteRule = {
-  headers: {
-    'CDN-Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
-    'Netlify-CDN-Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
-  },
+  headers: cdnHeaders('public, max-age=60, stale-while-revalidate=300', true),
 }
 
 const catalogRoutes = [
