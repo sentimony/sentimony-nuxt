@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildApiRouteRules } from '../../server/utils/cachePolicy'
+import { buildApiRouteRules, privateHeaders, publicCounterHeaders } from '../../server/utils/cachePolicy'
 
 describe('buildApiRouteRules', () => {
   it('caches only explicitly public catalog endpoints', () => {
@@ -70,7 +70,23 @@ describe('buildApiRouteRules', () => {
 
     expect(rules['/api/likes']?.headers?.['Cache-Control']).toBe('private, no-store')
     expect(rules['/api/profile/summary']?.headers?.['Cache-Control']).toBe('private, no-store')
-    expect(rules['/api/track-plays']?.headers?.['Cache-Control']).toBe('private, no-store')
     expect(rules['/api/releases']?.headers?.['Cache-Control']).toBeUndefined()
+  })
+
+  it('caches the unfiltered catalog listings the detail pages fetch client-side', () => {
+    const rules = buildApiRouteRules()
+
+    expect(rules['/api/artists-all']).toEqual(rules['/api/releases'])
+    expect(rules['/api/releases-all']).toEqual(rules['/api/releases'])
+  })
+
+  it('leaves /api/track-plays to its handlers, which split public GET from private POST', () => {
+    // One path, two methods: route rules cannot tell them apart, so a rule here
+    // would force the public GET back to no-store and wake the function on
+    // every detail-page view.
+    expect(buildApiRouteRules()['/api/track-plays']).toBeUndefined()
+    expect(publicCounterHeaders['Netlify-CDN-Cache-Control'])
+      .toBe('public, durable, max-age=60, stale-while-revalidate=300')
+    expect(privateHeaders['Cache-Control']).toBe('private, no-store')
   })
 })

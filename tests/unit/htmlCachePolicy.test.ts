@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { htmlCacheHeaders } from '../../server/utils/htmlCachePolicy'
 
 const publicHeaders = {
-  'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
-  'Netlify-CDN-Cache-Control': 'public, durable, max-age=3600, stale-while-revalidate=86400',
+  'CDN-Cache-Control': 'public, max-age=86400, stale-while-revalidate=604800',
+  'Netlify-CDN-Cache-Control': 'public, durable, max-age=86400, stale-while-revalidate=604800',
   'Netlify-Vary': 'query=_',
 }
 

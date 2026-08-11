@@ -12,25 +12,34 @@ function cdnHeaders(directive: string, durable = false): Record<string, string> 
   }
 }
 
+// Both are also set straight from a handler, because `/api/track-plays` serves
+// a public GET and a private POST off one path and route rules cannot tell the
+// two methods apart.
+export const publicCounterHeaders = cdnHeaders('public, max-age=60, stale-while-revalidate=300', true)
+
+export const privateHeaders: Record<string, string> = {
+  'Cache-Control': 'private, no-store',
+  ...cdnHeaders('private, no-store'),
+}
+
 const publicCacheRule: RouteRule = {
   headers: cdnHeaders('public, max-age=3600, stale-while-revalidate=86400', true),
 }
 
 const privateCacheRule: RouteRule = {
-  headers: {
-    'Cache-Control': 'private, no-store',
-    ...cdnHeaders('private, no-store'),
-  },
+  headers: privateHeaders,
 }
 
 const countCacheRule: RouteRule = {
-  headers: cdnHeaders('public, max-age=60, stale-while-revalidate=300', true),
+  headers: publicCounterHeaders,
 }
 
 const catalogRoutes = [
   '/api/releases',
+  '/api/releases-all',
   '/api/release/**',
   '/api/artists',
+  '/api/artists-all',
   '/api/artist/**',
   '/api/artist-track-counts',
   '/api/events',
@@ -82,7 +91,6 @@ export function buildApiRouteRules(): Record<string, RouteRule> {
   }
 
   rules['/api/profile/summary'] = privateCacheRule
-  rules['/api/track-plays'] = privateCacheRule
 
   return rules
 }

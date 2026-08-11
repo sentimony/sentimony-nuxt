@@ -1,5 +1,8 @@
-const HTML_CACHE_DIRECTIVE = 'public, max-age=3600, stale-while-revalidate=86400'
-const HTML_DURABLE_DIRECTIVE = 'public, durable, max-age=3600, stale-while-revalidate=86400'
+// A day of freshness plus a week of stale-while-revalidate: catalog content
+// changes on deploy, not on a clock, and every hour of TTL is another forced
+// revalidation per page against a 125k/month function budget.
+const HTML_CACHE_DIRECTIVE = 'public, max-age=86400, stale-while-revalidate=604800'
+const HTML_DURABLE_DIRECTIVE = 'public, durable, max-age=86400, stale-while-revalidate=604800'
 
 // Netlify varies serverless cache keys on the full query string by default, so
 // every ?utm_source=… link would miss the cache and force a full SSR. No page
