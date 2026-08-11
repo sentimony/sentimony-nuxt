@@ -2,8 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { htmlCacheHeaders } from '../../server/utils/htmlCachePolicy'
 
 const publicHeaders = {
-  'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
-  'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+  'CDN-Cache-Control': 'public, max-age=86400, stale-while-revalidate=604800',
+  'Netlify-CDN-Cache-Control': 'public, durable, max-age=86400, stale-while-revalidate=604800',
+  'Netlify-Vary': 'query=_',
 }
 
 describe('htmlCacheHeaders', () => {
@@ -36,8 +37,17 @@ describe('htmlCacheHeaders', () => {
     expect(htmlCacheHeaders('/api/likes', '')).toBeNull()
   })
 
-  it('mirrors the two CDN headers', () => {
+  it('mirrors the two CDN headers apart from the Netlify-only durable directive', () => {
     const headers = htmlCacheHeaders('/', '')
-    expect(headers?.['CDN-Cache-Control']).toBe(headers?.['Netlify-CDN-Cache-Control'])
+    expect(headers?.['Netlify-CDN-Cache-Control']).toContain('durable')
+    expect(headers?.['Netlify-CDN-Cache-Control']?.replace('durable, ', ''))
+      .toBe(headers?.['CDN-Cache-Control'])
+  })
+
+  it('keeps the cache key free of query params so tracking links stay warm', () => {
+    // No page reads route.query. Extend the allowlist here before shipping one.
+    expect(htmlCacheHeaders('/', '')?.['Netlify-Vary']).toBe('query=_')
+    expect(htmlCacheHeaders('/releases', '')?.['Netlify-Vary']).toBe('query=_')
+    expect(htmlCacheHeaders('/confirm', '')).toBeNull()
   })
 })

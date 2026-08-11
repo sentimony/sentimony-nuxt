@@ -1,4 +1,8 @@
 export default defineEventHandler(async (event) => {
+  // Public play totals, keyed by the requested slugs and identical for everyone:
+  // without this the page-detail fetch woke the function on every single view.
+  setHeaders(event, publicCounterHeaders)
+
   const slugsParam = getQuery(event).slugs
   const slugs = String(slugsParam ?? '')
     .split(',')

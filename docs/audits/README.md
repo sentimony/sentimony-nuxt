@@ -23,3 +23,6 @@
 - [2026-08-10 — baseline першого завантаження](2026-08-10-first-load-baseline-audit.md):
   заміри cold/warm по кожному типу сторінки й асета перед міграцією на
   Cloudflare, відсутнє кешування HTML на Netlify, розмір Worker-бандла.
+- [2026-08-11 — гілка `reduce-initial-server-response-time` проти прода](2026-08-11-branch-vs-prod-perf-audit.md):
+  durable-кеш і query-стабільний ключ на стейджі проти `main`, Lighthouse по
+  трьох хостах, застарілий A-запис апексу як окрема знахідка.

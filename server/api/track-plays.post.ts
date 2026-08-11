@@ -1,4 +1,6 @@
 export default defineEventHandler(async (event) => {
+  setHeaders(event, privateHeaders)
+
   const body = await readBody<{ slug?: string }>(event)
   const slug = body?.slug?.trim()
 

@@ -232,6 +232,11 @@ Supabase is also used for auth, profile storage, and favourites.
       <td><a href="https://github.com/vercel-labs/skills"><img src="https://img.shields.io/github/stars/vercel-labs/skills?style=flat&logo=github&logoColor=white&label=&color=555" alt="skills stars"></a></td>
     </tr>
     <tr>
+      <td><a href="https://github.com/sentimony/skills">skills</a></td>
+      <td><a href="https://skills.sh/sentimony/skills"><img src="https://skills.sh/b/sentimony/skills" alt="skills.sh"></a> Agent skills collection</td>
+      <td><a href="https://github.com/sentimony/skills"><img src="https://img.shields.io/github/stars/sentimony/skills?style=flat&logo=github&logoColor=white&label=&color=555" alt="skills stars"></a></td>
+    </tr>
+    <tr>
       <td><a href="https://www.npmjs.com/package/skillio">skillio</a></td>
       <td>Skills usage stats</td>
       <td><a href="https://github.com/ihororlovskyi/skillio"><img src="https://img.shields.io/github/stars/ihororlovskyi/skillio?style=flat&logo=github&logoColor=white&label=&color=555" alt="skillio stars"></a></td>

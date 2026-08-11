@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildApiRouteRules } from '../../server/utils/cachePolicy'
+import { buildApiRouteRules, privateHeaders, publicCounterHeaders } from '../../server/utils/cachePolicy'
 
 describe('buildApiRouteRules', () => {
   it('caches only explicitly public catalog endpoints', () => {
@@ -8,7 +8,7 @@ describe('buildApiRouteRules', () => {
     expect(rules['/api/releases']).toEqual({
       headers: {
         'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
-        'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+        'Netlify-CDN-Cache-Control': 'public, durable, max-age=3600, stale-while-revalidate=86400',
       },
     })
     expect(rules['/api/release/**']).toEqual(rules['/api/releases'])
@@ -34,7 +34,7 @@ describe('buildApiRouteRules', () => {
     const rules = buildApiRouteRules()
 
     expect(rules['/api/track-likes/count/**']?.headers?.['Netlify-CDN-Cache-Control'])
-      .toBe('public, max-age=60, stale-while-revalidate=300')
+      .toBe('public, durable, max-age=60, stale-while-revalidate=300')
     expect(rules['/api/track-likes/**']?.headers?.['Netlify-CDN-Cache-Control'])
       .toBe('private, no-store')
   })
@@ -48,7 +48,20 @@ describe('buildApiRouteRules', () => {
     for (const [route, rule] of entries) {
       const netlify = rule.headers['Netlify-CDN-Cache-Control']
       expect(netlify, `${route} must keep the Netlify header while prod runs on Netlify`).toBeTruthy()
-      expect(rule.headers['CDN-Cache-Control'], `${route} must mirror the Netlify directive`).toBe(netlify)
+      expect(rule.headers['CDN-Cache-Control'], `${route} must mirror the Netlify directive`)
+        .toBe(netlify?.replace('durable, ', ''))
+    }
+  })
+
+  it('marks public responses durable and never the private ones', () => {
+    const rules = buildApiRouteRules()
+
+    for (const [route, rule] of Object.entries(rules)) {
+      const netlify = rule.headers['Netlify-CDN-Cache-Control'] ?? ''
+      expect(netlify.includes('durable'), `${route} durability must follow its visibility`)
+        .toBe(netlify.startsWith('public'))
+      expect(rule.headers['CDN-Cache-Control'], `${route} must not leak the Netlify-only directive`)
+        .not.toContain('durable')
     }
   })
 
@@ -57,7 +70,23 @@ describe('buildApiRouteRules', () => {
 
     expect(rules['/api/likes']?.headers?.['Cache-Control']).toBe('private, no-store')
     expect(rules['/api/profile/summary']?.headers?.['Cache-Control']).toBe('private, no-store')
-    expect(rules['/api/track-plays']?.headers?.['Cache-Control']).toBe('private, no-store')
     expect(rules['/api/releases']?.headers?.['Cache-Control']).toBeUndefined()
+  })
+
+  it('caches the unfiltered catalog listings the detail pages fetch client-side', () => {
+    const rules = buildApiRouteRules()
+
+    expect(rules['/api/artists-all']).toEqual(rules['/api/releases'])
+    expect(rules['/api/releases-all']).toEqual(rules['/api/releases'])
+  })
+
+  it('leaves /api/track-plays to its handlers, which split public GET from private POST', () => {
+    // One path, two methods: route rules cannot tell them apart, so a rule here
+    // would force the public GET back to no-store and wake the function on
+    // every detail-page view.
+    expect(buildApiRouteRules()['/api/track-plays']).toBeUndefined()
+    expect(publicCounterHeaders['Netlify-CDN-Cache-Control'])
+      .toBe('public, durable, max-age=60, stale-while-revalidate=300')
+    expect(privateHeaders['Cache-Control']).toBe('private, no-store')
   })
 })
