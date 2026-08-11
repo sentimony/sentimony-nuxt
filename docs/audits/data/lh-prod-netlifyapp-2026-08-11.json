@@ -1,0 +1,274 @@
+{
+  "label": "prod-netlifyapp-2026-08-11",
+  "baseUrl": "https://sentimony-nuxt.netlify.app",
+  "startedAt": "2026-08-11T13:14:13.179Z",
+  "runs": 3,
+  "formFactor": "mobile",
+  "node": "v24.15.0",
+  "targets": [
+    {
+      "route": "/",
+      "runs": 3,
+      "performance": 0.82,
+      "lcpMs": 3735.4494747848503,
+      "fcpMs": 2434.063,
+      "tbtMs": 74,
+      "cls": 0,
+      "siMs": 5388.1600077588755,
+      "ttfbMs": 42.33600000000001,
+      "transferBytes": 416487,
+      "samples": [
+        {
+          "performance": 0.8,
+          "lcpMs": 3797.647474784852,
+          "fcpMs": 2434.063,
+          "tbtMs": 84.5,
+          "cls": 0.001109933353722769,
+          "siMs": 5956.052024510165,
+          "ttfbMs": 41.19499999999999,
+          "transferBytes": 2337784
+        },
+        {
+          "performance": 0.82,
+          "lcpMs": 3735.4494747848503,
+          "fcpMs": 2286.5344999999998,
+          "tbtMs": 74,
+          "cls": 0,
+          "siMs": 5388.1600077588755,
+          "ttfbMs": 46.78399999999999,
+          "transferBytes": 416487
+        },
+        {
+          "performance": 0.82,
+          "lcpMs": 3650.483974784852,
+          "fcpMs": 2464.1735,
+          "tbtMs": 60,
+          "cls": 0,
+          "siMs": 5366.781964583439,
+          "ttfbMs": 42.33600000000001,
+          "transferBytes": 416485
+        }
+      ]
+    },
+    {
+      "route": "/releases",
+      "runs": 3,
+      "performance": 0.86,
+      "lcpMs": 3326.207974784851,
+      "fcpMs": 2360.984,
+      "tbtMs": 57,
+      "cls": 0,
+      "siMs": 4732.848378162929,
+      "ttfbMs": 48.932000000000016,
+      "transferBytes": 397644,
+      "samples": [
+        {
+          "performance": 0.86,
+          "lcpMs": 3326.207974784851,
+          "fcpMs": 2360.984,
+          "tbtMs": 57,
+          "cls": 0,
+          "siMs": 4645.074398587499,
+          "ttfbMs": 55.945999999999984,
+          "transferBytes": 397644
+        },
+        {
+          "performance": 0.86,
+          "lcpMs": 3301.9724747848513,
+          "fcpMs": 2343.9700000000003,
+          "tbtMs": 54.5,
+          "cls": 0,
+          "siMs": 4732.848378162929,
+          "ttfbMs": 48.932000000000016,
+          "transferBytes": 397507
+        },
+        {
+          "performance": 0.68,
+          "lcpMs": 8695.591999999997,
+          "fcpMs": 2417.003,
+          "tbtMs": 114,
+          "cls": 0.006295971863682658,
+          "siMs": 4986.557917798852,
+          "ttfbMs": 48.78800000000001,
+          "transferBytes": 2894843
+        }
+      ]
+    },
+    {
+      "route": "/artists",
+      "runs": 3,
+      "performance": 0.87,
+      "lcpMs": 3384.269474784851,
+      "fcpMs": 2108.267,
+      "tbtMs": 70.50000000000023,
+      "cls": 0.003802093299097582,
+      "siMs": 3513.6157839670404,
+      "ttfbMs": 46.05699999999999,
+      "transferBytes": 1534479,
+      "samples": [
+        {
+          "performance": 0.87,
+          "lcpMs": 3384.269474784851,
+          "fcpMs": 2108.267,
+          "tbtMs": 55.5,
+          "cls": 0,
+          "siMs": 4765.968319284512,
+          "ttfbMs": 46.899,
+          "transferBytes": 409543
+        },
+        {
+          "performance": 0.71,
+          "lcpMs": 7990.498499999999,
+          "fcpMs": 2126.095,
+          "tbtMs": 119,
+          "cls": 0.003802093299097582,
+          "siMs": 3513.6157839670404,
+          "ttfbMs": 46.04299999999999,
+          "transferBytes": 1534479
+        },
+        {
+          "performance": 0.99,
+          "lcpMs": 1730.9783937225343,
+          "fcpMs": 1395.976,
+          "tbtMs": 70.50000000000023,
+          "cls": 0.003802093299097582,
+          "siMs": 1816.6436300132505,
+          "ttfbMs": 46.05699999999999,
+          "transferBytes": 2451496
+        }
+      ]
+    },
+    {
+      "route": "/tracks",
+      "runs": 3,
+      "performance": 0.76,
+      "lcpMs": 4021.010974784851,
+      "fcpMs": 2409.0085,
+      "tbtMs": 233,
+      "cls": 0.01520733203196115,
+      "siMs": 5036.4362852434215,
+      "ttfbMs": 54.37700000000001,
+      "transferBytes": 462474,
+      "samples": [
+        {
+          "performance": 0.73,
+          "lcpMs": 4609.0709747848505,
+          "fcpMs": 2411.0685,
+          "tbtMs": 233,
+          "cls": 0.01520733203196115,
+          "siMs": 5031.846083102979,
+          "ttfbMs": 54.37700000000001,
+          "transferBytes": 1812766
+        },
+        {
+          "performance": 0.76,
+          "lcpMs": 4021.010974784851,
+          "fcpMs": 2409.0085,
+          "tbtMs": 233,
+          "cls": 0.01520733203196115,
+          "siMs": 5071.055944948353,
+          "ttfbMs": 56.73400000000001,
+          "transferBytes": 461726
+        },
+        {
+          "performance": 0.78,
+          "lcpMs": 3848.313974784851,
+          "fcpMs": 2408.3115,
+          "tbtMs": 226.5,
+          "cls": 0.01520733203196115,
+          "siMs": 5036.4362852434215,
+          "ttfbMs": 44.714,
+          "transferBytes": 462474
+        }
+      ]
+    },
+    {
+      "route": "/release/vorg-cyber-soul-chill",
+      "runs": 3,
+      "performance": 0.75,
+      "lcpMs": 4551.911474784852,
+      "fcpMs": 2281.2410000000004,
+      "tbtMs": 91,
+      "cls": 0,
+      "siMs": 5806.7048907779545,
+      "ttfbMs": 44.96499999999999,
+      "transferBytes": 577554,
+      "samples": [
+        {
+          "performance": 0.72,
+          "lcpMs": 3989.4364747848504,
+          "fcpMs": 1190.006,
+          "tbtMs": 88.5,
+          "cls": 0.29518089809276116,
+          "siMs": 2832.8216194821925,
+          "ttfbMs": 44.96499999999999,
+          "transferBytes": 1986362
+        },
+        {
+          "performance": 0.75,
+          "lcpMs": 4558.962474784852,
+          "fcpMs": 2535.86,
+          "tbtMs": 91,
+          "cls": 0,
+          "siMs": 5806.7048907779545,
+          "ttfbMs": 47.87899999999999,
+          "transferBytes": 577543
+        },
+        {
+          "performance": 0.76,
+          "lcpMs": 4551.911474784852,
+          "fcpMs": 2281.2410000000004,
+          "tbtMs": 95,
+          "cls": 0,
+          "siMs": 5960.599162666358,
+          "ttfbMs": 42.13300000000001,
+          "transferBytes": 577554
+        }
+      ]
+    },
+    {
+      "route": "/artist/irukanji",
+      "runs": 3,
+      "performance": 0.79,
+      "lcpMs": 4216.29797478485,
+      "fcpMs": 2184.5559999999996,
+      "tbtMs": 85.5,
+      "cls": 0,
+      "siMs": 5671.826711095529,
+      "ttfbMs": 44.221000000000004,
+      "transferBytes": 483393,
+      "samples": [
+        {
+          "performance": 0.79,
+          "lcpMs": 4217.157974784851,
+          "fcpMs": 2183.1555,
+          "tbtMs": 91.5,
+          "cls": 0,
+          "siMs": 5455.392321166193,
+          "ttfbMs": 44.221000000000004,
+          "transferBytes": 483393
+        },
+        {
+          "performance": 0.8,
+          "lcpMs": 4025.0864747848505,
+          "fcpMs": 2184.5559999999996,
+          "tbtMs": 85.5,
+          "cls": 0,
+          "siMs": 5671.826711095529,
+          "ttfbMs": 70.136,
+          "transferBytes": 483373
+        },
+        {
+          "performance": 0.79,
+          "lcpMs": 4216.29797478485,
+          "fcpMs": 2193.1044999999995,
+          "tbtMs": 85,
+          "cls": 0,
+          "siMs": 5735.404211818504,
+          "ttfbMs": 42.07499999999999,
+          "transferBytes": 483393
+        }
+      ]
+    }
+  ]
+}
