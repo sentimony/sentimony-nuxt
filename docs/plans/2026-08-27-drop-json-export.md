@@ -8,6 +8,7 @@
 
 - Гілка `main`. У дереві є **незв'язані незакомічені зміни** (`README.md`, `package.json`, `scripts/skills.sh`, `.github/workflows/*`, обидва db-файли). Тому кожен `git add` перелічує файли явно; **`git add -A` заборонено**, amend у попередні коміти — теж.
 - Кожна фаза — свій коміт.
+- **Перед кожним `git commit` звіряти індекс з allowlist фази:** `git diff --cached --name-only`. `git add <paths>` не захищає від того, що в індексі вже лежить чужа зміна, застейджена раніше.
 - Вміст каталогу (`sentimony-db.yml`) у цьому плані **не редагується**.
 
 ---
@@ -16,14 +17,22 @@
 
 Мета — переконатися, що поточні modified-копії не розійшлися, перш ніж фіксувати YAML як єдине джерело.
 
+**Порівнювати треба non-destructively:** `npm run convert:yml` беззастережно перезаписує JSON (`scripts/convert-yml-json.mjs`), тому спершу генеруємо очікуваний результат у temp і робимо semantic diff проти файлу на диску — інакше ручна правка JSON зникне ще до того, як ми її побачимо.
+
 ```bash
-npm run convert:yml
-git diff --stat server/data/sentimony-db-export.json
+node -e "
+const {parse}=require('yaml'); const fs=require('fs');
+const expected = parse(fs.readFileSync('server/data/sentimony-db.yml','utf-8'));
+const actual = JSON.parse(fs.readFileSync('server/data/sentimony-db-export.json','utf-8'));
+console.log('in sync:', JSON.stringify(expected) === JSON.stringify(actual));
+"
 ```
 
-**Очікування:** діф порожній — JSON уже точно відповідає YAML.
+**Очікування:** `in sync: true` — JSON відповідає YAML, генерація нічого не втратить.
 
-**Якщо діф НЕ порожній — зупинитись і показати його користувачу.** Це означає, що JSON редагували руками повз YAML, і треба вирішити, який бік правильний. Не продовжувати автоматично: мовчазний `convert:yml` тут може знищити правку, якої немає в YAML.
+**Якщо `false` — зупинитись і показати розбіжність користувачу.** Це означає, що JSON редагували руками повз YAML, і треба вирішити, який бік правильний. Не запускати `convert:yml` до цього рішення: він знищить правку, якої немає в YAML.
+
+Якщо JSON на диску відсутній — звіряти нічого, крок пройдено.
 
 Комітів немає.
 
@@ -33,13 +42,17 @@ git diff --stat server/data/sentimony-db-export.json
 
 Без них свіжий клон і CI ламаються — робимо це **до** видалення файлу з git.
 
-У `package.json#scripts` додати три хуки:
+У `package.json#scripts` додати п'ять хуків:
 
 ```json
 "predev": "npm run convert:yml",
 "prebuild": "npm run convert:yml",
-"pretest:unit": "npm run convert:yml"
+"pretest:unit": "npm run convert:yml",
+"pregenerate": "npm run convert:yml",
+"pretypecheck": "npm run convert:yml"
 ```
+
+`pretypecheck` і `pregenerate` — **обов'язкові, не опційні**: обидві команди резолвлять import `sentimony-db-export.json`, не запускаючи build. На чистому checkout без них `typecheck` падає з `TS2307` і виходить з кодом 2 (тобто CI-job `Typecheck` червонітиме на кожному PR), а `generate` — з Rollup `Could not resolve`.
 
 Зауваги:
 - `prebuild` покриває і `build:cf`, бо той викликає `npm run build` всередині.
@@ -104,9 +117,10 @@ git commit -m "chore: untrack derived catalog JSON export"
 
 **Перевірка:**
 ```bash
-grep -rn "convert-json-yml" --include="*.json" --include="*.mjs" --include="*.md" . | grep -v node_modules | grep -v docs/superpowers
+# executable references only - historical docs are allowed to mention it
+grep -rn "convert-json-yml" --include="*.json" --include="*.mjs" --include="*.sh" --include="*.yml" . | grep -v node_modules
 ```
-Очікування: жодних згадок поза історичними планами.
+Очікування: **жодного** збігу. Docs шукати окремо (`--include="*.md"`) — там легальні згадки лишаються в `docs/superpowers/` і в цих спеці й плані, тож змішувати обидві перевірки в один grep не можна: він завжди «щось знаходить» і перестає бути сигналом.
 
 **Коміт:**
 ```bash
@@ -136,8 +150,10 @@ git commit -m "chore: drop reverse JSON->YAML converter, fix generator docstring
 ```bash
 npm run docs:check
 grep -rn "sentimony-db-export" AGENTS.md README.md docs/artist-numbering.md docs/completed.md docs/initiatives/
+# операційні коментарі в скриптах - окремо
+grep -rn "sentimony-db-export\|editing the JSON" scripts/
 ```
-Кожен вцілілий збіг має описувати JSON як похідний артефакт, не як джерело.
+Кожен вцілілий збіг має описувати JSON як похідний артефакт, не як джерело. Зокрема `scripts/sync-field.mjs` і `scripts/sync-track-audio.mjs` радили редагувати JSON — під варіантом A це тихий data loss при наступному `sync:supabase`, тому їхні docstring-и правляться теж.
 
 **Коміт:**
 ```bash
@@ -151,16 +167,21 @@ git commit -m "docs: describe catalog JSON export as a generated build artifact"
 
 Симуляція свіжого клону — головний ризик цього плану:
 
-```bash
-git stash list                                  # переконатись, що нічого не загубимо
-rm server/data/sentimony-db-export.json
+**Видаляти JSON перед КОЖНОЮ командою.** Перша ж команда генерує його хуком, тож наступні перевірятимуть уже наявний файл — і відсутність артефакту не протестується. Найнадійніше — одноразовий checkout:
 
-npm run test:unit          # зелений
-npm run build              # зелений (netlify preset)
-npm run build:cf           # зелений (cloudflare_module preset)
-npm run docs:check         # зелений
-npm run typecheck          # зелений
+```bash
+git clone --no-hardlinks -b drop-json-export . /tmp/verify && cd /tmp/verify
+npm ci
+cp -R <project>/.env .env    # креди для nuxt
+
+for cmd in test:unit build build:cf typecheck generate; do
+  rm -f server/data/sentimony-db-export.json
+  npm run "$cmd" || echo "FAILED: $cmd"
+done
+npm run docs:check
 ```
+
+`typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
 Sync-скрипти — без мережі:
 ```bash
@@ -179,4 +200,7 @@ E2E — якщо середовище налаштоване (`npm run test:e2e`
 
 ## Rollback
 
-Кожна фаза — окремий коміт, тож `git revert` точковий. Повне повернення: revert фази 2 і `git add -f server/data/sentimony-db-export.json`.
+Кожна фаза — окремий коміт, тож `git revert` точковий.
+
+- **Частковий** (повернути лише tracking JSON): revert коміту фази 2 і `git add -f server/data/sentimony-db-export.json`. Хуки, видалений reverse-конвертер і docs при цьому лишаються зміненими — стан буде змішаний.
+- **Повний** (повернути ініціативу цілком): revert у зворотному порядку фаз — 4 → 3 → 2 → 1, інакше docs і хуки суперечитимуть відновленому tracking-у.

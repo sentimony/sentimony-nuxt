@@ -64,12 +64,15 @@ Sync-скрипти парсять YAML напряму (тривіально —
 | `scripts/sync-firebase.mjs:7` | `readFileSync` | без змін (`sync:firebase` уже робить `convert:yml`) |
 | `scripts/sync-supabase.mjs:12` | `readFileSync` | без змін (те саме) |
 | `tests/unit/sitemapEndpoint.test.ts`, `sitemapUrls.test.ts` | через sitemap-ендпоінт | потрібен `pretest:unit` хук |
-| `scripts/sync-field.mjs` | пише **лише** в YAML | без змін |
+| `scripts/sync-field.mjs` | пише **лише** в YAML | код без змін, docstring радив редагувати JSON — виправити |
+| `scripts/sync-track-audio.mjs` | делегує в `sync-field.mjs` | те саме: стейл-коментар про «local export» |
+| `npm run typecheck` | резолвить import без build | потрібен `pretypecheck` |
+| `npm run generate` | Rollup резолвить import | потрібен `pregenerate` |
 | `scripts/convert-json-yml.mjs` | зворотний напрям JSON → YAML | видалити (див. нижче) |
 
 ## Що врахувати
 
-1. **Свіжий клон / CI.** Без JSON на диску `build`, `dev` і `test:unit` падають. Хуки `prebuild`/`predev`/`pretest:unit` обов'язкові — це єдина справжня точка відмови цього рішення. `.github/workflows/ci.yml` (наразі untracked у дереві) мусить викликати `convert:yml` або таргет, що його тягне.
+1. **Свіжий клон / CI.** Без JSON на диску падають `build`, `dev`, `test:unit`, а також **`typecheck` і `generate`** — останні два резолвлять import, не запускаючи build, тому потребують власних хуків (`pretypecheck`, `pregenerate`). Без `pretypecheck` CI-job `Typecheck` червоніє на кожному PR (`TS2307`, exit 2). Усі п'ять хуків обов'язкові — це єдина справжня точка відмови цього рішення. `.github/workflows/ci.yml` (наразі untracked у дереві) мусить викликати `convert:yml` або таргет, що його тягне.
 2. **`convert-json-yml.mjs` (зворотний напрям).** Під A він стає небезпечним: генерувати source of truth із похідного файлу — це шлях повернути drift. Видалити.
 3. **Стейл-коментар у конвертерах.** `convert-yml-json.mjs:5-6` і `convert-json-yml.mjs` описують себе як «standalone sandbox pair, unrelated to the canonical export» — це прямо суперечить `package.json`, де `sync:*` викликають `convert:yml`. Коментар застарілий, виправити.
 4. **Docs.** Оновити `AGENTS.md` (рядки 43, 95, 149) і `docs/artist-numbering.md:24` (посилається на JSON як джерело порядку артистів — має вказувати на YAML). **Історичні файли в `docs/superpowers/{specs,plans}` не чіпати** — це записи минулого.
@@ -82,6 +85,7 @@ Sync-скрипти парсять YAML напряму (тривіально —
 
 - `server/data/sentimony-db-export.json` не трекається git-ом, у `.gitignore`.
 - Свіжий клон: `npm ci && npm run build` проходить (JSON генерується хуком).
+- На чистому checkout кожна з `test:unit` / `build` / `build:cf` / `typecheck` / `generate` зелена **при видаленому перед нею JSON** (перевіряти exit code, не вивід).
 - `npm run test:unit` зелений; `npm run build:cf` зелений.
 - `npm run sync:firebase -- --dry-run` працює як раніше.
 - `convert-json-yml.mjs` видалений; docs не згадують JSON як джерело істини.
