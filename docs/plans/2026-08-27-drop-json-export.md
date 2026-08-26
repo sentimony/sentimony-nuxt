@@ -181,33 +181,49 @@ verify=$(mktemp -d) || exit 1
 git clone --no-hardlinks -b drop-json-export "$src" "$verify" || exit 1
 cd "$verify" || exit 1
 npm ci || exit 1
-cp -R "$src"/.env .env || exit 1    # креди для nuxt
+cp "$src"/.env/.env "$src"/.env/.env.local .env/ || exit 1    # креди для nuxt
 
+json=server/data/sentimony-db-export.json
 fail=0
 for cmd in test:unit build build:cf typecheck; do
-  rm -f server/data/sentimony-db-export.json
+  rm -f "$json" || { echo "FAILED: rm before $cmd"; fail=1; continue; }
   npm run "$cmd" || { echo "FAILED: $cmd"; fail=1; }
 done
 npm run docs:check || fail=1
 
 # generate: дозволена лише передіснуюча prerender-помилка, будь-яка інша - fail
-rm -f server/data/sentimony-db-export.json
-if npm run generate > /tmp/generate.log 2>&1; then
+log=$(mktemp)
+rm -f "$json" || { echo "FAILED: rm before generate"; fail=1; }
+if npm run generate > "$log" 2>&1; then
   :
-elif grep -q 'Could not resolve' /tmp/generate.log; then
-  echo "FAILED: generate (JSON resolve)"; fail=1
-elif grep -q 'Unknown platform' /tmp/generate.log; then
-  echo "generate: pre-existing prerender failure, allowed"
 else
-  echo "FAILED: generate (unexpected)"; fail=1
+  # Could not resolve - завжди регресія цієї ініціативи
+  if grep -q 'Could not resolve' "$log"; then
+    echo "FAILED: generate (JSON resolve)"; fail=1
+  elif ! grep -q 'Unknown platform' "$log"; then
+    echo "FAILED: generate (non-zero exit, no recognised error)"; tail -30 "$log"; fail=1
+  else
+    # вирізати заголовок відомого prerender-блоку і подивитись, чи лишились ERROR-и
+    grep -B1 'Unknown platform' "$log" | grep -v 'Unknown platform' > "$log.known"
+    if grep 'ERROR' "$log" | grep -vxFf "$log.known" | grep -q .; then
+      echo "FAILED: generate (extra errors beyond the known prerender one)"
+      grep 'ERROR' "$log" | grep -vxFf "$log.known"; fail=1
+    else
+      echo "generate: pre-existing prerender failure only, allowed"
+    fi
+  fi
 fi
+
+# заявлені preconditions - теж частина harness-а, а не ручна перевірка
+git status --short | grep -q 'sentimony-db-export.json' && { echo "FAILED: JSON is tracked/dirty"; fail=1; }
+[ -f "$json" ] || { echo "FAILED: JSON missing on disk after builds"; fail=1; }
 
 exit $fail
 ```
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** падає саме на `Unknown platform`; `Could not resolve` для JSON-import-у чи будь-яка інша помилка — fail.
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** в лозі є `Unknown platform`, немає `Could not resolve`, і кількість `ERROR`-рядків не перевищує тих, що належать самому prerender-блоку. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Вирізання блоку, а не `grep -v` по одному рядку, тому що Nuxt друкує помилку двома рядками (заголовок `ERROR` + окремий `[404] Unknown platform`), і фільтр по рядку завжди лишав би заголовок і давав хибний fail. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити `$log.known` з реальним логом, бо форма блоку залежить від версії Nuxt.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
@@ -218,7 +234,7 @@ npm run sync:firebase -- --dry-run
 
 E2E — якщо середовище налаштоване (`npm run test:e2e`); інакше явно зазначити в звіті, що пропущено і чому.
 
-**Критерій готовності:** harness завершується з exit 0 (тобто `test:unit` / `build` / `build:cf` / `typecheck` / `docs:check` зелені, а `generate` або зелений, або впав саме на `Unknown platform`), `git status --short` не показує `sentimony-db-export.json`, а файл при цьому лежить на диску.
+**Критерій готовності:** harness завершується з exit 0. Це покриває все: `test:unit` / `build` / `build:cf` / `typecheck` / `docs:check` зелені, `generate` або зелений, або впав саме на `Unknown platform`, `git status --short` не показує `sentimony-db-export.json`, а файл при цьому лежить на диску. Останні дві умови перевіряє сам скрипт — окремих ручних кроків після нього немає.
 
 ---
 
