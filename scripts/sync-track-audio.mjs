@@ -5,8 +5,8 @@
  * Thin convenience wrapper over sync-field.mjs, tailored to the audio pipeline
  * (sentimony-audio-manager skill): it maps `<slug>=<url>` pairs to
  * `tracks <slug> audio_url=<url>` field edits and delegates. Updates only the
- * audio_url column and mirrors it into the local export, so a release's
- * Sentimony Player lights up without a full catalog sync.
+ * audio_url column and mirrors it into server/data/sentimony-db.yml, so a
+ * release's Sentimony Player lights up without a full catalog sync.
  *
  * Usage:
  *   node scripts/sync-track-audio.mjs <slug>=<url> [<slug>=<url> …]
