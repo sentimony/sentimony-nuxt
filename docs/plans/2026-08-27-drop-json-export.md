@@ -21,18 +21,24 @@
 
 ```bash
 node -e "
-const {parse}=require('yaml'); const fs=require('fs');
-const expected = parse(fs.readFileSync('server/data/sentimony-db.yml','utf-8'));
-const actual = JSON.parse(fs.readFileSync('server/data/sentimony-db-export.json','utf-8'));
-console.log('in sync:', JSON.stringify(expected) === JSON.stringify(actual));
+const {isDeepStrictEqual}=require('util'); const {parse}=require('yaml'); const fs=require('fs');
+const j='server/data/sentimony-db-export.json';
+if (!fs.existsSync(j)) { console.log('no JSON on disk - nothing to compare'); process.exit(0) }
+const ok = isDeepStrictEqual(
+  parse(fs.readFileSync('server/data/sentimony-db.yml','utf-8')),
+  JSON.parse(fs.readFileSync(j,'utf-8'))
+);
+console.log('in sync:', ok); process.exit(ok ? 0 : 1)
 "
 ```
 
+`isDeepStrictEqual` замість порівняння серіалізованих рядків: `JSON.stringify` залежить від порядку ключів і дав би хибний drift на еквівалентних даних. Відсутній файл і drift розрізняються exit-кодом (0 / 1), а не лише виводом у stdout.
+
 **Очікування:** `in sync: true` — JSON відповідає YAML, генерація нічого не втратить.
 
-**Якщо `false` — зупинитись і показати розбіжність користувачу.** Це означає, що JSON редагували руками повз YAML, і треба вирішити, який бік правильний. Не запускати `convert:yml` до цього рішення: він знищить правку, якої немає в YAML.
+**Якщо `in sync: false` (exit 1) — зупинитись і показати розбіжність користувачу.** Це означає, що JSON редагували руками повз YAML, і треба вирішити, який бік правильний. Не запускати `convert:yml` до цього рішення: він знищить правку, якої немає в YAML.
 
-Якщо JSON на диску відсутній — звіряти нічого, крок пройдено.
+Якщо JSON на диску відсутній — команда це друкує і виходить з 0: звіряти нічого, крок пройдено.
 
 Комітів немає.
 
@@ -57,7 +63,7 @@ console.log('in sync:', JSON.stringify(expected) === JSON.stringify(actual));
 Зауваги:
 - `prebuild` покриває і `build:cf`, бо той викликає `npm run build` всередині.
 - `sync:firebase` / `sync:supabase` уже роблять `convert:yml` явно — не чіпати.
-- `generate` не має хука; якщо ним користуються — додати `pregenerate` так само.
+- `sync:*` викликають `convert:yml` явно всередині, тож дублювати хук для них не треба.
 
 **Перевірка:**
 ```bash
@@ -174,12 +180,18 @@ git clone --no-hardlinks -b drop-json-export . /tmp/verify && cd /tmp/verify
 npm ci
 cp -R <project>/.env .env    # креди для nuxt
 
+fail=0
 for cmd in test:unit build build:cf typecheck generate; do
   rm -f server/data/sentimony-db-export.json
-  npm run "$cmd" || echo "FAILED: $cmd"
+  npm run "$cmd" || { echo "FAILED: $cmd"; fail=1; }
 done
-npm run docs:check
+npm run docs:check || fail=1
+exit $fail
 ```
+
+Цикл накопичує exit-коди й завершується ненульовим: `|| echo` сам по собі проковтнув би падіння і дав хибний green. `set -e` тут не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін.
+
+**Виняток для `generate`:** він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Від `generate` тут вимагається лише відсутність Rollup `Could not resolve` для JSON-import-у; якщо він падає саме на `Unknown platform`, крок вважається пройденим.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
@@ -194,9 +206,9 @@ E2E — якщо середовище налаштоване (`npm run test:e2e`
 
 ---
 
-## Відкрите питання для користувача
+## CI (вирішено)
 
-`.github/workflows/ci.yml` зараз **untracked** у дереві (і `web-debug.yml` видалений). Якщо CI буде закомічено — його job-и мусять або викликати `npm run convert:yml`, або йти через `test:unit`/`build`, які тягнуть хук самі. Оскільки файл поза git, цей план його не редагує — але при коміті CI перевірити цей пункт.
+`.github/workflows/ci.yml` закомічено (замінив видалений `web-debug.yml`). Його job-и покриті хуками: `unit` іде через `test:unit` (`pretest:unit`), `smoke` — через `build` (`prebuild`), `typecheck` — через `pretypecheck`. Окремого виклику `convert:yml` у workflow не потрібно.
 
 ## Rollback
 

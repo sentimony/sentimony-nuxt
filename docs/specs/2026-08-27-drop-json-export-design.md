@@ -72,11 +72,11 @@ Sync-скрипти парсять YAML напряму (тривіально —
 
 ## Що врахувати
 
-1. **Свіжий клон / CI.** Без JSON на диску падають `build`, `dev`, `test:unit`, а також **`typecheck` і `generate`** — останні два резолвлять import, не запускаючи build, тому потребують власних хуків (`pretypecheck`, `pregenerate`). Без `pretypecheck` CI-job `Typecheck` червоніє на кожному PR (`TS2307`, exit 2). Усі п'ять хуків обов'язкові — це єдина справжня точка відмови цього рішення. `.github/workflows/ci.yml` (наразі untracked у дереві) мусить викликати `convert:yml` або таргет, що його тягне.
+1. **Свіжий клон / CI.** Без JSON на диску падають `build`, `dev`, `test:unit`, а також **`typecheck` і `generate`** — останні два резолвлять import, не запускаючи build, тому потребують власних хуків (`pretypecheck`, `pregenerate`). Без `pretypecheck` CI-job `Typecheck` червоніє на кожному PR (`TS2307`, exit 2). Усі п'ять хуків обов'язкові — це єдина справжня точка відмови цього рішення. `.github/workflows/ci.yml` покритий: `unit` → `test:unit`, `smoke` → `build`, `typecheck` → `pretypecheck`; окремий виклик `convert:yml` у workflow не потрібен.
 2. **`convert-json-yml.mjs` (зворотний напрям).** Під A він стає небезпечним: генерувати source of truth із похідного файлу — це шлях повернути drift. Видалити.
 3. **Стейл-коментар у конвертерах.** `convert-yml-json.mjs:5-6` і `convert-json-yml.mjs` описують себе як «standalone sandbox pair, unrelated to the canonical export» — це прямо суперечить `package.json`, де `sync:*` викликають `convert:yml`. Коментар застарілий, виправити.
 4. **Docs.** Оновити `AGENTS.md` (рядки 43, 95, 149) і `docs/artist-numbering.md:24` (посилається на JSON як джерело порядку артистів — має вказувати на YAML). **Історичні файли в `docs/superpowers/{specs,plans}` не чіпати** — це записи минулого.
-5. **Стан робочого дерева.** Обидва db-файли зараз modified. Перед стартом — звірити їх (`convert:yml` + `git diff --stat`), щоб зафіксувати YAML як джерело з чистою совістю.
+5. **Стан робочого дерева.** Обидва db-файли зараз modified. Перед стартом — звірити їх **non-destructively** (`isDeepStrictEqual` YAML-парсу проти JSON на диску, див. Фазу 0 плану), щоб зафіксувати YAML як джерело з чистою совістю. Запускати `convert:yml` до звірки не можна: він перезаписує JSON і знищив би ручну правку, якої немає в YAML.
 6. **Git-гігієна.** У дереві є незв'язані незакомічені зміни (`README.md`, `package.json`, `scripts/skills.sh`, `.github/*`). Кожен `git add` перелічує файли явно, `git add -A` заборонено, amend не робити.
 7. **Інші чекаути.** Після `git rm --cached` будь-який інший чекаут репо втратить JSON з диска на першому ж `git pull`, бо файл більше не трекається. Деплої це не зачіпає (`prebuild` регенерує), але локальний другий чекаут буде зламаний до першої збірки.
 8. **Історію не переписуємо.** `git rm --cached` прибирає файл із майбутніх комітів; ~940 KB попередніх ревізій лишаються в історії. Filter-repo не робимо — ціна не варта.
@@ -85,10 +85,11 @@ Sync-скрипти парсять YAML напряму (тривіально —
 
 - `server/data/sentimony-db-export.json` не трекається git-ом, у `.gitignore`.
 - Свіжий клон: `npm ci && npm run build` проходить (JSON генерується хуком).
-- На чистому checkout кожна з `test:unit` / `build` / `build:cf` / `typecheck` / `generate` зелена **при видаленому перед нею JSON** (перевіряти exit code, не вивід).
+- На чистому checkout кожна з `test:unit` / `build` / `build:cf` / `typecheck` зелена **при видаленому перед нею JSON** (перевіряти exit code, не вивід).
+- `generate` на тому ж checkout проходить Rollup-резолв JSON-import-у. Зеленого exit-коду від нього **не вимагається**: він падає на передіснуючій prerender-помилці `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, коміт `7093c30`), не пов'язаній із цією ініціативою. Критерій — відсутність `Could not resolve "../../data/sentimony-db-export.json"`.
 - `npm run test:unit` зелений; `npm run build:cf` зелений.
 - `npm run sync:firebase -- --dry-run` працює як раніше.
-- `convert-json-yml.mjs` видалений; docs не згадують JSON як джерело істини.
+- `convert-json-yml.mjs` видалений; **living docs** (`AGENTS.md`, `README.md`, `docs/artist-numbering.md`, `docs/initiatives/`, `docs/completed.md`) не згадують JSON як джерело істини. Історичні записи в `docs/superpowers/{specs,plans}/` під критерій не підпадають — вони фіксують стан на свою дату і навмисно лишаються недоторканими.
 
 ## Поза скоупом
 
