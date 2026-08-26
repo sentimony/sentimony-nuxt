@@ -1,0 +1,113 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Supersede in-flight runs of the same ref: a force-push or a quick follow-up
+# commit should not keep four jobs busy on already-stale code.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  docs-check:
+    name: Docs
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run docs:check
+
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      # Two separate programs: nuxi/vue-tsc covers the app SFCs, the TS7 native
+      # compiler covers netlify/ (the edge functions are outside the Nuxt program).
+      - name: Typecheck app (TypeScript 6 / nuxi)
+        run: npm run typecheck
+      - name: Typecheck edge functions (TypeScript 7 native)
+        run: npm run typecheck:ts7
+
+  unit:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run test:unit
+
+  # Smoke-check that every page kind renders (HTTP 2xx/3xx) after a build.
+  # NOTE: this runs the `node-server` Nitro preset on Node 24, which tolerates
+  # require(ESM). Production runs the `netlify` preset in a CJS lambda that does
+  # NOT — so an ESM/CJS module-system mismatch (the class of bug that first
+  # shipped the 500 regression) will pass here. This job guards SSR *render*
+  # regressions generally; it does not model the lambda's module resolution.
+  smoke:
+    name: Build + smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NUXT_CATALOG_SOURCE: firebase
+      NUXT_FIREBASE_DB_SECRET: ${{ secrets.FIREBASE_DB_SECRET }}
+      NUXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      NUXT_PUBLIC_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (node-server preset)
+        env:
+          NITRO_PRESET: node-server
+        run: npm run build
+
+      - name: Start server
+        run: |
+          node .output/server/index.mjs &
+          echo "SERVER_PID=$!" >> "$GITHUB_ENV"
+
+      - name: Wait for server
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null http://localhost:3000/; then
+              echo "server up after ${i}s"; exit 0
+            fi
+            sleep 1
+          done
+          echo "server did not start in time"; exit 1
+
+      - name: Smoke-check pages
+        env:
+          BASE_URL: http://localhost:3000
+        run: npm run web-debug
+
+      - name: Stop server
+        if: always()
+        run: kill "$SERVER_PID" 2>/dev/null || true
