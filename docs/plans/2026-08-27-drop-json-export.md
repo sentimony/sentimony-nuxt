@@ -176,22 +176,38 @@ git commit -m "docs: describe catalog JSON export as a generated build artifact"
 **Видаляти JSON перед КОЖНОЮ командою.** Перша ж команда генерує його хуком, тож наступні перевірятимуть уже наявний файл — і відсутність артефакту не протестується. Найнадійніше — одноразовий checkout:
 
 ```bash
-git clone --no-hardlinks -b drop-json-export . /tmp/verify && cd /tmp/verify
-npm ci
-cp -R <project>/.env .env    # креди для nuxt
+src=$PWD
+verify=$(mktemp -d) || exit 1
+git clone --no-hardlinks -b drop-json-export "$src" "$verify" || exit 1
+cd "$verify" || exit 1
+npm ci || exit 1
+cp -R "$src"/.env .env || exit 1    # креди для nuxt
 
 fail=0
-for cmd in test:unit build build:cf typecheck generate; do
+for cmd in test:unit build build:cf typecheck; do
   rm -f server/data/sentimony-db-export.json
   npm run "$cmd" || { echo "FAILED: $cmd"; fail=1; }
 done
 npm run docs:check || fail=1
+
+# generate: дозволена лише передіснуюча prerender-помилка, будь-яка інша - fail
+rm -f server/data/sentimony-db-export.json
+if npm run generate > /tmp/generate.log 2>&1; then
+  :
+elif grep -q 'Could not resolve' /tmp/generate.log; then
+  echo "FAILED: generate (JSON resolve)"; fail=1
+elif grep -q 'Unknown platform' /tmp/generate.log; then
+  echo "generate: pre-existing prerender failure, allowed"
+else
+  echo "FAILED: generate (unexpected)"; fail=1
+fi
+
 exit $fail
 ```
 
-Цикл накопичує exit-коди й завершується ненульовим: `|| echo` сам по собі проковтнув би падіння і дав хибний green. `set -e` тут не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін.
+Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`:** він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Від `generate` тут вимагається лише відсутність Rollup `Could not resolve` для JSON-import-у; якщо він падає саме на `Unknown platform`, крок вважається пройденим.
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** падає саме на `Unknown platform`; `Could not resolve` для JSON-import-у чи будь-яка інша помилка — fail.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
@@ -202,7 +218,7 @@ npm run sync:firebase -- --dry-run
 
 E2E — якщо середовище налаштоване (`npm run test:e2e`); інакше явно зазначити в звіті, що пропущено і чому.
 
-**Критерій готовності:** усі команди вище зелені, `git status --short` не показує `sentimony-db-export.json`, а файл при цьому лежить на диску.
+**Критерій готовності:** harness завершується з exit 0 (тобто `test:unit` / `build` / `build:cf` / `typecheck` / `docs:check` зелені, а `generate` або зелений, або впав саме на `Unknown platform`), `git status --short` не показує `sentimony-db-export.json`, а файл при цьому лежить на диску.
 
 ---
 
