@@ -119,7 +119,7 @@ git commit -m "chore: untrack derived catalog JSON export"
    > `Converts server/data/sentimony-db.yml to server/data/sentimony-db.json.`
    > `This is a standalone sandbox pair, unrelated to the canonical server/data/sentimony-db-export.json used by the app/sync scripts.`
 
-   Обидва твердження хибні: пише він саме в `sentimony-db-export.json`, і він канонічний. Замінити на опис, що це єдиний генератор похідного export-у, який запускається автоматично перед dev/build/test і всередині `sync:*`.
+   Обидва твердження хибні: пише він саме в `sentimony-db-export.json`, і він канонічний. Замінити на опис, що це єдиний генератор похідного export-у, який запускається автоматично п'ятьма хуками (`predev`, `prebuild`, `pretest:unit`, `pretypecheck`, `pregenerate`) і всередині `sync:*`.
 
 **Перевірка:**
 ```bash
@@ -143,7 +143,7 @@ git commit -m "chore: drop reverse JSON->YAML converter, fix generator docstring
 
 Оновити так, щоб ніде не лишилось «JSON — джерело»:
 
-- **`AGENTS.md:43`** — рядок про `npm run convert:yml`: додати, що JSON gitignored і генерується автоматично перед dev/build/test.
+- **`AGENTS.md:43`** — рядок про `npm run convert:yml`: додати, що JSON gitignored і генерується автоматично хуками `predev` / `prebuild` / `pretest:unit` / `pretypecheck` / `pregenerate`.
 - **`AGENTS.md:95`** («Catalog export») — головний абзац. Зафіксувати: YAML — єдине, що комітиться; JSON — локальний build-артефакт, не в git; ручний `convert:yml` потрібен лише щоб оглянути результат.
 - **`AGENTS.md:149`** (Sitemap) — уточнити, що `buildSitemapUrls()` читає **згенерований** export.
 - **`docs/artist-numbering.md:24`** — зараз каже визначати порядок «за першою появою в `server/data/sentimony-db-export.json`». Перевести на `sentimony-db.yml`.
@@ -194,24 +194,28 @@ npm run docs:check || fail=1
 # generate: дозволена лише передіснуюча prerender-помилка, будь-яка інша - fail
 log=$(mktemp)
 rm -f "$json" || { echo "FAILED: rm before generate"; fail=1; }
-if npm run generate > "$log" 2>&1; then
-  :
+npm run generate > "$log" 2>&1; gen=$?
+markers='ERROR|FATAL|npm error|Error:|error during build|Exception'
+
+# Could not resolve - завжди регресія цієї ініціативи, навіть при exit 0
+if grep -q 'Could not resolve' "$log"; then
+  echo "FAILED: generate (JSON resolve)"; fail=1
+elif [ $gen -eq 0 ]; then
+  echo "generate: green"
+elif ! grep -q 'Unknown platform' "$log"; then
+  echo "FAILED: generate (non-zero exit, no recognised error)"; tail -30 "$log"; fail=1
 else
-  # Could not resolve - завжди регресія цієї ініціативи
-  if grep -q 'Could not resolve' "$log"; then
-    echo "FAILED: generate (JSON resolve)"; fail=1
-  elif ! grep -q 'Unknown platform' "$log"; then
-    echo "FAILED: generate (non-zero exit, no recognised error)"; tail -30 "$log"; fail=1
+  # зняти саме contiguous-пару рядків відомого блоку, звіряючи їх ПОВНІСТЮ
+  awk '
+    /^[[:space:]]*ERROR[[:space:]]+Nuxt prerender error[[:space:]]*$/ { hdr = NR; next }
+    /^[[:space:]]*\[404\] Unknown platform[[:space:]]*$/ && hdr == NR - 1 { next }
+    { print }
+  ' "$log" > "$log.rest"
+  if grep -Eq "$markers" "$log.rest"; then
+    echo "FAILED: generate (extra errors beyond the known prerender one)"
+    grep -E "$markers" "$log.rest"; fail=1
   else
-    # відкинути рядки самого відомого prerender-блоку за ВМІСТОМ і перевірити решту
-    known='ERROR +Nuxt prerender error|\[404\] Unknown platform'
-    markers='ERROR|FATAL|npm error|Error:|error during build|Exception'
-    if grep -Ev "$known" "$log" | grep -Eq "$markers"; then
-      echo "FAILED: generate (extra errors beyond the known prerender one)"
-      grep -Ev "$known" "$log" | grep -E "$markers"; fail=1
-    else
-      echo "generate: pre-existing prerender failure only, allowed"
-    fi
+    echo "generate: pre-existing prerender failure only, allowed"
   fi
 fi
 
@@ -225,9 +229,9 @@ exit $fail
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** в лозі є `Unknown platform`, немає `Could not resolve`, і після вирізання відомого prerender-блоку не лишилося жодного failure-маркера. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Nuxt друкує цю помилку двома рядками (заголовок `ERROR  Nuxt prerender error` + окремий `[404] Unknown platform`), тож фільтр мусить знімати обидва — інакше заголовок лишався б і давав хибний fail. Але знімати їх треба **за вмістом**, а не за позицією: `grep -B1 'Unknown platform'` зараховував до дозволеного блоку будь-який рядок, що просто стоїть перед ним, тому лог `ERROR unrelated failure` + `[404] Unknown platform` проходив як зелений. Набір маркерів ширший за `ERROR`: `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили б повз uppercase-фільтр. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити патерн `$known` з реальним логом, бо формулювання заголовка залежить від версії Nuxt (якщо воно розійдеться, крок впаде як `extra errors` — хибний fail, а не хибний green).
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. `Could not resolve` перевіряється **до** розгалуження за exit-кодом: зелений вихід із цим рядком у лозі — теж регресія, а гілка «exit 0 → пропустити аналіз» його б проковтнула. Далі пройденим крок вважається, якщо `generate` зелений **або** в лозі є `Unknown platform` і після зняття відомого prerender-блоку не лишилося жодного failure-маркера. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Nuxt друкує цю помилку двома рядками (заголовок `ERROR  Nuxt prerender error` + окремий `[404] Unknown platform`), тож фільтр мусить знімати обидва — інакше заголовок лишався б і давав хибний fail. Знімає їх `awk`, а не `grep`, бо потрібні дві умови одночасно, яких `grep` не дає: рядки звіряються **цілком** (якорі `^…$`, а не входження) і мають іти **підряд** (`hdr == NR - 1`). Позиційний `grep -B1 'Unknown platform'` зараховував до дозволеного блоку будь-який попередній рядок, тож `ERROR unrelated failure` + `[404] Unknown platform` проходив як зелений; неякорений `grep -Ev` глушив і `ERROR  Nuxt prerender error: unrelated failure`, бо той містить очікуваний текст як підрядок. Набір маркерів ширший за `ERROR`: `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили б повз uppercase-фільтр. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити awk-патерни з реальним логом, бо формулювання заголовка залежить від версії Nuxt (якщо воно розійдеться, крок впаде як `extra errors` — хибний fail, а не хибний green).
 
-Класифікатор перевірений на синтетичних логах — цей набір лишається як регресійні фікстури, будь-яка його зміна має пройти всі дев'ять:
+Класифікатор перевірений на синтетичних логах — цей набір лишається як регресійні фікстури, будь-яка його зміна має пройти всі одинадцять:
 
 | Лог | Очікування |
 | --- | --- |
@@ -240,8 +244,11 @@ exit $fail
 | відомий блок + `Error: boom` | FAIL (extra) |
 | відомий блок + `FATAL oops` | FAIL (extra) |
 | `ERROR unrelated failure` безпосередньо перед `[404] Unknown platform` | FAIL (extra) |
+| `ERROR  Nuxt prerender error: unrelated failure` + відомий блок | FAIL (extra) |
+| exit 0, але в лозі `Could not resolve` | FAIL (resolve) |
+| exit 0, чистий лог | ALLOWED |
 
-Останній рядок — саме той кейс, який ловив позиційний `grep -B1`.
+Три останні рядки — кейси, які по черзі пропускали позиційний `grep -B1`, неякорений `grep -Ev` і гілка «exit 0 → аналіз пропускається».
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
