@@ -209,15 +209,15 @@ elif [ $gen -ne 1 ]; then
   echo "FAILED: generate (unexpected exit code $gen)"; tail -30 "$plain"; fail=1
 elif ! grep -q '^Errors prerendering:' "$plain" || ! grep -q 'Exiting due to prerender errors\.' "$plain"; then
   echo "FAILED: generate (exit 1 without the known prerender block)"; tail -30 "$plain"; fail=1
-elif grep -E '└── Error:' "$plain" | grep -qv '\[404\] Unknown platform'; then
+elif grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -qv 'Unknown platform'; then
   # серед failed-маршрутів є помилка, відмінна від відомої
   echo "FAILED: generate (prerender error other than Unknown platform)"
-  grep -E '└── Error:' "$plain" | grep -v '\[404\] Unknown platform' | head -5; fail=1
-elif ! grep -qE '└── Error: \[404\] Unknown platform' "$plain"; then
+  grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -v 'Unknown platform' | head -5; fail=1
+elif ! grep -qE '├──[[:space:]]*\[404\] Unknown platform' "$plain"; then
   echo "FAILED: generate (no Unknown platform route error found)"; tail -30 "$plain"; fail=1
 else
   # зняти рядки відомого блоку і перевірити, чи лишились failure-маркери
-  grep -vE '\[404\] Unknown platform|Exiting due to prerender errors\.|└── Linked from|^Errors prerendering:' "$plain" \
+  grep -vE '\[404\] Unknown platform|Exiting due to prerender errors\.|Linked from |^Errors prerendering:' "$plain" \
     | grep -E "$markers" > "$log.rest"
   if [ -s "$log.rest" ]; then
     echo "FAILED: generate (extra errors beyond the known prerender one)"
@@ -237,16 +237,16 @@ exit $fail
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи, а всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, якщо `generate` зелений **або** виконані всі умови: `Could not resolve` у лозі відсутній, exit-код рівно `1`, у лозі є обидва маркери блоку (`Errors prerendering:` і `Exiting due to prerender errors.`), кожен рядок `└── Error:` — саме `[404] Unknown platform`, і після зняття рядків блоку не лишилося failure-маркерів.
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи, а всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, якщо `generate` зелений **або** виконані всі умови: `Could not resolve` у лозі відсутній, exit-код рівно `1`, у лозі є обидва маркери блоку (`Errors prerendering:` і `Exiting due to prerender errors.`), кожен рядок-помилка маршруту (`│ ├── [код] …`) — саме `[404] Unknown platform`, і після зняття рядків блоку не лишилося failure-маркерів.
 
 Кожна з умов закриває конкретний false green, який давали простіші версії:
 - **`Could not resolve` — до розгалуження за exit-кодом.** Це маркер регресії саме цієї ініціативи (JSON-import не резолвиться), тож зелений вихід із ним у лозі — теж fail; гілка «exit 0 → пропустити аналіз» його проковтувала.
 - **Exit-код рівно `1`.** Prerender-падіння Nuxt дає `1`; `2`, `137` (OOM-kill) чи `139` означають щось геть інше, і без цієї перевірки лог із валідною парою плюс тихий signal-kill проходив як зелений.
-- **Перевіряється кожен рядок `└── Error:`, а не їх кількість.** Prerender падає на сотнях маршрутів (424 у прогоні 2026-08-27) — по рядку `└── Error: [404] Unknown platform` на кожен, плюс необов'язковий `└── Linked from …`. Зайва помилка іншого роду з'явиться в такому ж рядку серед сотень однакових і не додасть жодного нового `ERROR`-рядка, тому лічильники й фільтри по `ERROR` її не бачать.
+- **Перевіряється кожен рядок-помилка маршруту, а не їх кількість.** Nitro друкує `  │ ├── [404] Unknown platform` на кожен упалий маршрут (18 у прогоні 2026-08-27; число плаває між прогонами залежно від того, скільки маршрутів встигло обійти), плюс необов'язковий `  │ └── Linked from …`. Зайва помилка іншого роду з'явиться в такому ж рядку серед сотень однакових і не додасть жодного нового `ERROR`-рядка, тому лічильники й фільтри по `ERROR` її не бачать.
 - **Обидва маркери блоку обов'язкові.** `Errors prerendering:` відкриває перелік, `Exiting due to prerender errors.` — рядок, з яким Nitro кидає фінальний `Error` (`nitropack/dist/core/index.mjs:2191`). Exit 1 без них означає падіння геть іншої природи. Заголовка `ERROR  Nuxt prerender error` в Nitro **не існує** — рання версія цього harness-а перевіряла саме його і давала хибний fail на першому ж реальному прогоні.
 - **Набір маркерів ширший за `ERROR`:** `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили повз uppercase-фільтр. Лічильники ERROR-рядків не годяться зовсім: вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів.
 
-Патерни звірені з `nitropack/dist/core/index.mjs:2182-2191` (структура друку) і з реальним логом прогону 2026-08-27, а не з синтетичних прикладів. Якщо майбутня версія Nitro змінить формулювання, крок впаде як `no prerender block` або `no Unknown platform route error` — хибний fail, а не хибний green.
+Патерни звірені з **реальним логом** прогону 2026-08-27 (збережений як артефакт), а не з синтетичних прикладів. Формат рядка — `  │ ├── [404] Unknown platform`: box-drawing префікс без слова `Error:`. Дві попередні версії цього класифікатора вигадували формат (`ERROR  Nuxt prerender error`, потім `└── Error:`) і давали хибний fail на першому ж живому прогоні. Якщо майбутня версія Nitro змінить формулювання, крок впаде як `no prerender block` або `no Unknown platform route error` — хибний fail, а не хибний green.
 
 **ANSI.** Nitro фарбує вивід escape-кодами, тому лог спершу проганяється через `sed` і всі перевірки йдуть по очищеній копії: `grep` по сирому логу не збігався б з `Exiting due to prerender errors.`, обгорнутим у `\033[31m…\033[0m`.
 
@@ -254,17 +254,17 @@ exit $fail
 
 | Лог (у форматі, який реально друкує Nitro) | Очікування |
 | --- | --- |
-| `Errors prerendering:` + `└── Error: [404] Unknown platform` + `Exiting due to prerender errors.` | ALLOWED |
-| те саме + `Linked from /release/…` | ALLOWED |
+| `Errors prerendering:` + `│ ├── [404] Unknown platform` + `Exiting due to prerender errors.` | ALLOWED |
+| те саме + `│ └── Linked from /release/…` | ALLOWED |
 | те саме + `Could not resolve "…sentimony-db-export.json"` | FAIL (resolve) |
 | exit 0, чистий лог | ALLOWED (green) |
 | exit 0, але в лозі `Could not resolve` | FAIL (resolve) |
 | валідний блок, але exit 137 | FAIL (unexpected exit code) |
 | exit 1 без `Errors prerendering:` / `Exiting due to…` | FAIL (no prerender block) |
-| серед маршрутів є `└── Error: [500] Internal Server Error` | FAIL (other route error) |
+| серед маршрутів є `│ ├── [404] Artist not found` | FAIL (other route error) |
 | відомий блок + окремий `npm error code 137` | FAIL (extra) |
 
-Ключовий рядок — передостанній: prerender падає на **сотнях** маршрутів (424 у прогоні 2026-08-27), і зайва помилка серед них не додає нового `ERROR`-рядка, а ховається серед однакових. Тому перевіряється кожен рядок `└── Error:`, а не їх кількість.
+Ключовий рядок — передостанній: зайва помилка не додає нового `ERROR`-рядка, а ховається серед однакових рядків маршрутів (`Artist not found` серед `Unknown platform` — реальний випадок із прогону 2026-08-27). Тому перевіряється кожен рядок `└── Error:`, а не їх кількість.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
