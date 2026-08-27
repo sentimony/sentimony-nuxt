@@ -196,30 +196,32 @@ log=$(mktemp)
 rm -f "$json" || { echo "FAILED: rm before generate"; fail=1; }
 npm run generate > "$log" 2>&1; gen=$?
 markers='ERROR|FATAL|npm error|Error:|error during build|Exception'
+plain="$log.plain"
+sed $'s/\033\\[[0-9;]*m//g' "$log" > "$plain"   # Nitro фарбує вивід ANSI-кодами
 
 # Could not resolve - завжди регресія цієї ініціативи, навіть при exit 0
-if grep -q 'Could not resolve' "$log"; then
+if grep -q 'Could not resolve' "$plain"; then
   echo "FAILED: generate (JSON resolve)"; fail=1
 elif [ $gen -eq 0 ]; then
   echo "generate: green"
 elif [ $gen -ne 1 ]; then
   # prerender-падіння Nuxt - це рівно exit 1; 2, 137, 139 - щось інше
-  echo "FAILED: generate (unexpected exit code $gen)"; tail -30 "$log"; fail=1
+  echo "FAILED: generate (unexpected exit code $gen)"; tail -30 "$plain"; fail=1
+elif ! grep -q '^Errors prerendering:' "$plain" || ! grep -q 'Exiting due to prerender errors\.' "$plain"; then
+  echo "FAILED: generate (exit 1 without the known prerender block)"; tail -30 "$plain"; fail=1
+elif grep -E '└── Error:' "$plain" | grep -qv '\[404\] Unknown platform'; then
+  # серед failed-маршрутів є помилка, відмінна від відомої
+  echo "FAILED: generate (prerender error other than Unknown platform)"
+  grep -E '└── Error:' "$plain" | grep -v '\[404\] Unknown platform' | head -5; fail=1
+elif ! grep -qE '└── Error: \[404\] Unknown platform' "$plain"; then
+  echo "FAILED: generate (no Unknown platform route error found)"; tail -30 "$plain"; fail=1
 else
-  # зняти саме contiguous-пару рядків відомого блоку, звіряючи їх ПОВНІСТЮ;
-  # ненульовий exit awk = пари не знайшлося
-  awk '
-    BEGIN { hdr = 0; matched = 0 }
-    /^[[:space:]]*ERROR[[:space:]]+Nuxt prerender error[[:space:]]*$/ { hdr = NR; next }
-    /^[[:space:]]*\[404\] Unknown platform[[:space:]]*$/ && hdr > 0 && hdr == NR - 1 { matched = 1; next }
-    { print }
-    END { exit matched == 1 ? 0 : 1 }
-  ' "$log" > "$log.rest"
-  if [ $? -ne 0 ]; then
-    echo "FAILED: generate (no exact prerender block found)"; tail -30 "$log"; fail=1
-  elif grep -Eq "$markers" "$log.rest"; then
+  # зняти рядки відомого блоку і перевірити, чи лишились failure-маркери
+  grep -vE '\[404\] Unknown platform|Exiting due to prerender errors\.|└── Linked from|^Errors prerendering:' "$plain" \
+    | grep -E "$markers" > "$log.rest"
+  if [ -s "$log.rest" ]; then
     echo "FAILED: generate (extra errors beyond the known prerender one)"
-    grep -E "$markers" "$log.rest"; fail=1
+    head -5 "$log.rest"; fail=1
   else
     echo "generate: pre-existing prerender failure only, allowed"
   fi
@@ -235,38 +237,34 @@ exit $fail
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи, а всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, якщо `generate` зелений **або** виконані всі чотири умови: `Could not resolve` у лозі відсутній, exit-код рівно `1`, awk знайшов точну contiguous-пару рядків відомого блоку, і після її зняття не лишилося failure-маркерів.
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи, а всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, якщо `generate` зелений **або** виконані всі умови: `Could not resolve` у лозі відсутній, exit-код рівно `1`, у лозі є обидва маркери блоку (`Errors prerendering:` і `Exiting due to prerender errors.`), кожен рядок `└── Error:` — саме `[404] Unknown platform`, і після зняття рядків блоку не лишилося failure-маркерів.
 
 Кожна з умов закриває конкретний false green, який давали простіші версії:
 - **`Could not resolve` — до розгалуження за exit-кодом.** Це маркер регресії саме цієї ініціативи (JSON-import не резолвиться), тож зелений вихід із ним у лозі — теж fail; гілка «exit 0 → пропустити аналіз» його проковтувала.
 - **Exit-код рівно `1`.** Prerender-падіння Nuxt дає `1`; `2`, `137` (OOM-kill) чи `139` означають щось геть інше, і без цієї перевірки лог із валідною парою плюс тихий signal-kill проходив як зелений.
-- **Прапорець `matched`.** Без нього awk мовчки нічого не знімав, а вхідною умовою був простий `grep -q 'Unknown platform'` — самотній рядок `[404] Unknown platform` без заголовка чи заголовок, відділений від нього іншим рядком, зараховувалися як пройдені. `hdr > 0` обов'язковий: неініціалізована `hdr` дорівнює 0, тож на першому ж рядку логу `hdr == NR - 1` збігалося б хибно.
-- **Зняття блоку через awk, а не grep.** Nuxt друкує помилку двома рядками (заголовок `ERROR  Nuxt prerender error` + окремий `[404] Unknown platform`), тож знімати треба обидва, інакше заголовок дає хибний fail. Потрібні дві умови, яких `grep` не поєднує: рядки звіряються **цілком** (якорі `^…$`) і йдуть **підряд**. Позиційний `grep -B1` зараховував до блоку будь-який попередній рядок (`ERROR unrelated failure` проходив); неякорений `grep -Ev` глушив `ERROR  Nuxt prerender error: unrelated failure`, бо той містить очікуваний текст як підрядок.
+- **Перевіряється кожен рядок `└── Error:`, а не їх кількість.** Prerender падає на сотнях маршрутів (424 у прогоні 2026-08-27) — по рядку `└── Error: [404] Unknown platform` на кожен, плюс необов'язковий `└── Linked from …`. Зайва помилка іншого роду з'явиться в такому ж рядку серед сотень однакових і не додасть жодного нового `ERROR`-рядка, тому лічильники й фільтри по `ERROR` її не бачать.
+- **Обидва маркери блоку обов'язкові.** `Errors prerendering:` відкриває перелік, `Exiting due to prerender errors.` — рядок, з яким Nitro кидає фінальний `Error` (`nitropack/dist/core/index.mjs:2191`). Exit 1 без них означає падіння геть іншої природи. Заголовка `ERROR  Nuxt prerender error` в Nitro **не існує** — рання версія цього harness-а перевіряла саме його і давала хибний fail на першому ж реальному прогоні.
 - **Набір маркерів ширший за `ERROR`:** `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили повз uppercase-фільтр. Лічильники ERROR-рядків не годяться зовсім: вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів.
 
-При першому прогоні звірити awk-патерни з реальним логом — формулювання заголовка залежить від версії Nuxt. Якщо воно розійдеться, крок впаде як `no exact prerender block found`, тобто хибний fail, а не хибний green.
+Патерни звірені з `nitropack/dist/core/index.mjs:2182-2191` (структура друку) і з реальним логом прогону 2026-08-27, а не з синтетичних прикладів. Якщо майбутня версія Nitro змінить формулювання, крок впаде як `no prerender block` або `no Unknown platform route error` — хибний fail, а не хибний green.
 
-Класифікатор перевірений на синтетичних логах — цей набір лишається як регресійні фікстури, будь-яка його зміна має пройти всі п'ятнадцять:
+**ANSI.** Nitro фарбує вивід escape-кодами, тому лог спершу проганяється через `sed` і всі перевірки йдуть по очищеній копії: `grep` по сирому логу не збігався б з `Exiting due to prerender errors.`, обгорнутим у `\033[31m…\033[0m`.
 
-| Лог | Очікування |
+Класифікатор перевірений на синтетичних логах — цей набір лишається як регресійні фікстури, будь-яка його зміна має пройти всі дев'ять:
+
+| Лог (у форматі, який реально друкує Nitro) | Очікування |
 | --- | --- |
-| `ERROR Nuxt prerender error` + `[404] Unknown platform` | ALLOWED |
-| те саме + `ERROR Could not resolve ./db.json` | FAIL (resolve) |
-| лише `Could not resolve` | FAIL (resolve) |
-| exit 1 без жодного знайомого маркера | FAIL (no pair) |
-| відомий блок + `ERROR something else` | FAIL (extra) |
-| відомий блок + `npm error code 1` | FAIL (extra) |
-| відомий блок + `Error: boom` | FAIL (extra) |
-| відомий блок + `FATAL oops` | FAIL (extra) |
-| `ERROR unrelated failure` безпосередньо перед `[404] Unknown platform` | FAIL (extra) |
-| `ERROR  Nuxt prerender error: unrelated failure` + відомий блок | FAIL (extra) |
+| `Errors prerendering:` + `└── Error: [404] Unknown platform` + `Exiting due to prerender errors.` | ALLOWED |
+| те саме + `Linked from /release/…` | ALLOWED |
+| те саме + `Could not resolve "…sentimony-db-export.json"` | FAIL (resolve) |
+| exit 0, чистий лог | ALLOWED (green) |
 | exit 0, але в лозі `Could not resolve` | FAIL (resolve) |
-| exit 0, чистий лог | ALLOWED |
-| самотній `[404] Unknown platform` без заголовка | FAIL (no pair) |
-| заголовок і `[404]` через рядок (не contiguous) | FAIL (no pair) |
-| валідна пара, але exit 137 | FAIL (unexpected exit code) |
+| валідний блок, але exit 137 | FAIL (unexpected exit code) |
+| exit 1 без `Errors prerendering:` / `Exiting due to…` | FAIL (no prerender block) |
+| серед маршрутів є `└── Error: [500] Internal Server Error` | FAIL (other route error) |
+| відомий блок + окремий `npm error code 137` | FAIL (extra) |
 
-Останні рядки — кейси, які по черзі пропускали позиційний `grep -B1`, неякорений `grep -Ev`, гілка «exit 0 → аналіз пропускається», відсутність `matched`-прапорця й невизначений exit-код.
+Ключовий рядок — передостанній: prerender падає на **сотнях** маршрутів (424 у прогоні 2026-08-27), і зайва помилка серед них не додає нового `ERROR`-рядка, а ховається серед однакових. Тому перевіряється кожен рядок `└── Error:`, а не їх кількість.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
