@@ -209,15 +209,15 @@ elif [ $gen -ne 1 ]; then
   echo "FAILED: generate (unexpected exit code $gen)"; tail -30 "$plain"; fail=1
 elif ! grep -q '^Errors prerendering:' "$plain" || ! grep -q 'Exiting due to prerender errors\.' "$plain"; then
   echo "FAILED: generate (exit 1 without the known prerender block)"; tail -30 "$plain"; fail=1
-elif grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -qv 'Unknown platform'; then
-  # серед failed-маршрутів є помилка, відмінна від відомої
-  echo "FAILED: generate (prerender error other than Unknown platform)"
-  grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -v 'Unknown platform' | head -5; fail=1
+elif grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -qvE 'Unknown platform|Artist not found'; then
+  # серед failed-маршрутів є помилка, відмінна від двох відомих
+  echo "FAILED: generate (prerender error other than the known ones)"
+  grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -vE 'Unknown platform|Artist not found' | head -5; fail=1
 elif ! grep -qE '├──[[:space:]]*\[404\] Unknown platform' "$plain"; then
   echo "FAILED: generate (no Unknown platform route error found)"; tail -30 "$plain"; fail=1
 else
   # зняти рядки відомого блоку і перевірити, чи лишились failure-маркери
-  grep -vE '\[404\] Unknown platform|Exiting due to prerender errors\.|Linked from |^Errors prerendering:' "$plain" \
+  grep -vE '\[404\] Unknown platform|\[404\] Artist not found|Exiting due to prerender errors\.|Linked from |^Errors prerendering:' "$plain" \
     | grep -E "$markers" > "$log.rest"
   if [ -s "$log.rest" ]; then
     echo "FAILED: generate (extra errors beyond the known prerender one)"
@@ -237,12 +237,13 @@ exit $fail
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи, а всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, якщо `generate` зелений **або** виконані всі умови: `Could not resolve` у лозі відсутній, exit-код рівно `1`, у лозі є обидва маркери блоку (`Errors prerendering:` і `Exiting due to prerender errors.`), кожен рядок-помилка маршруту (`│ ├── [код] …`) — саме `[404] Unknown platform`, і після зняття рядків блоку не лишилося failure-маркерів.
+**Виняток для `generate`** тому й винесений з циклу: він доходить до **двох** передіснуючих prerender-помилок — `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) і `[404] Artist not found` — і жодна не є регресією цієї ініціативи, а всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, якщо `generate` зелений **або** виконані всі умови: `Could not resolve` у лозі відсутній, exit-код рівно `1`, у лозі є обидва маркери блоку (`Errors prerendering:` і `Exiting due to prerender errors.`), кожен рядок-помилка маршруту (`│ ├── [код] …`) — одна з двох відомих (`[404] Unknown platform` або `[404] Artist not found`), і після зняття рядків блоку не лишилося failure-маркерів.
 
 Кожна з умов закриває конкретний false green, який давали простіші версії:
 - **`Could not resolve` — до розгалуження за exit-кодом.** Це маркер регресії саме цієї ініціативи (JSON-import не резолвиться), тож зелений вихід із ним у лозі — теж fail; гілка «exit 0 → пропустити аналіз» його проковтувала.
 - **Exit-код рівно `1`.** Prerender-падіння Nuxt дає `1`; `2`, `137` (OOM-kill) чи `139` означають щось геть інше, і без цієї перевірки лог із валідною парою плюс тихий signal-kill проходив як зелений.
 - **Перевіряється кожен рядок-помилка маршруту, а не їх кількість.** Nitro друкує `  │ ├── [404] Unknown platform` на кожен упалий маршрут (18 у прогоні 2026-08-27; число плаває між прогонами залежно від того, скільки маршрутів встигло обійти), плюс необов'язковий `  │ └── Linked from …`. Зайва помилка іншого роду з'явиться в такому ж рядку серед сотень однакових і не додасть жодного нового `ERROR`-рядка, тому лічильники й фільтри по `ERROR` її не бачать.
+- **Дозволені рівно дві помилки маршрутів, обидві іменовані.** `[404] Unknown platform` (424 маршрути в прогоні 2026-08-27) — з `platformRedirect.ts:12`. `[404] Artist not found` (12 маршрутів, лінковані з `/playlist/psychill-psybient`, `/playlist/dark-prog-zenonesque` і шести релізів) — наслідок зіпсованих `artist_slug` у самому каталозі: `e`, `no`, `u`, `jai`, `sol` і порожні рядки, з яких `splitTitleByArtists` (`app/utils/tracks.ts:42`) будує неіснуючі маршрути `/artist/e`. Що це передіснує, доведено звіркою з `main`: `git show 6c1ca79:server/data/sentimony-db.yml` дає ті самі значення в тій самій кількості, а код (`app/`, `server/`, `nuxt.config.ts`) між `main` і гілкою не змінювався взагалі. Виправлення цих даних — окрема ініціатива: спека виносить «будь-які зміни вмісту каталогу» за скоуп, і кожен запис потребує рішення, який артист мався на увазі. Будь-який третій код помилки крок далі валить.
 - **Обидва маркери блоку обов'язкові.** `Errors prerendering:` відкриває перелік, `Exiting due to prerender errors.` — рядок, з яким Nitro кидає фінальний `Error` (`nitropack/dist/core/index.mjs:2191`). Exit 1 без них означає падіння геть іншої природи. Заголовка `ERROR  Nuxt prerender error` в Nitro **не існує** — рання версія цього harness-а перевіряла саме його і давала хибний fail на першому ж реальному прогоні.
 - **Набір маркерів ширший за `ERROR`:** `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили повз uppercase-фільтр. Лічильники ERROR-рядків не годяться зовсім: вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів.
 
@@ -261,10 +262,11 @@ exit $fail
 | exit 0, але в лозі `Could not resolve` | FAIL (resolve) |
 | валідний блок, але exit 137 | FAIL (unexpected exit code) |
 | exit 1 без `Errors prerendering:` / `Exiting due to…` | FAIL (no prerender block) |
-| серед маршрутів є `│ ├── [404] Artist not found` | FAIL (other route error) |
+| серед маршрутів є `│ ├── [404] Artist not found` | ALLOWED (друга відома помилка) |
+| серед маршрутів є `│ ├── [500] Internal Server Error` | FAIL (other route error) |
 | відомий блок + окремий `npm error code 137` | FAIL (extra) |
 
-Ключовий рядок — передостанній: зайва помилка не додає нового `ERROR`-рядка, а ховається серед однакових рядків маршрутів (`Artist not found` серед `Unknown platform` — реальний випадок із прогону 2026-08-27). Тому перевіряється кожен рядок `└── Error:`, а не їх кількість.
+Ключовий рядок — передостанній: зайва помилка не додає нового `ERROR`-рядка, а ховається серед однакових рядків маршрутів (`Artist not found` серед `Unknown platform` — реальний випадок із прогону 2026-08-27). Тому перевіряється кожен рядок `│ ├── [код] …`, а не їх кількість.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
