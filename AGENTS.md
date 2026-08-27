@@ -16,9 +16,9 @@ Guidance for coding agents working in this repository.
 
 > Source of truth for skill names is `ls .claude/skills/` — do not invoke invented ones. Code review and security review are built-in slash commands (`/code-review`, `/security-review`), not skills.
 
-- **New feature:** `scope-triage` → `plan-crafting` → `executing-plans` (independent parallel tasks — `subagent-driven-development`). Along the way as needed: `typescript` · `frontend-design` / `impeccable` · `vitest`. Finish with `requesting-code-review` → `verification-before-completion` → **check**.
+- **New feature:** `scope-triage` → `plan-crafting` → `executing-plans` (independent parallel tasks — `subagent-driven-development`). Along the way as needed: `typescript` · `vitest`. Finish with `requesting-code-review` → `verification-before-completion` → **check**.
 - **Bug / regression:** `systematic-debugging` → `test-driven-development` → `verification-before-completion` → **check**.
-- **UI work:** `impeccable` / `frontend-design` → `web-debug` → **check**.
+- **UI work:** `web-debug` → **check**.
 - **Prose (docs, README, UI copy):** `dashfix` · `negafix`.
 - **Received review feedback:** `receiving-code-review` → fixes → `verification-before-completion` → **check**.
 
