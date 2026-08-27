@@ -101,7 +101,7 @@ Each initiative links to its detailed spec and implementation plan where availab
    from 68 by cutting main-thread work, unused JS, and DOM size; passive
    listeners; larger footer tap targets.
 4. **[CI quality gate](docs/initiatives/ci-quality-gate.md).** Close the gaps in the existing
-   `web-debug.yml` pipeline (typecheck + unit + build already run): add e2e,
+   `ci.yml` pipeline (typecheck + unit + build already run): add e2e,
    build the production `netlify` preset, and make the checks required before
    deploy; sync scripts stay manual-only.
 5. **Lazy third-party players.** Implemented: tabs mount

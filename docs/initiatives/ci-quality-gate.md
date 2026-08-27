@@ -8,7 +8,7 @@
 
 ## Навіщо
 
-`.github/workflows/web-debug.yml` уже запускає `typecheck`, `typecheck:ts7`,
+`.github/workflows/ci.yml` уже запускає `typecheck`, `typecheck:ts7`,
 unit tests, `node-server` build і HTTP smoke на push/PR. Але він не запускає
 Playwright і не перевіряє production Netlify preset, тому клас помилок
 ESM/CJS у lambda й browser regressions лишається непокритим. Git-triggered

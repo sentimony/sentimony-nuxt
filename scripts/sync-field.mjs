@@ -5,13 +5,14 @@
  *
  * Use it for narrow, automated edits — e.g. flipping a release's `visible`,
  * setting a track's `audio_url`, fixing one artist field — where a full catalog
- * sync would be overkill. For broad edits, keep editing the JSON and run
- * `npm run sync:supabase` (it upserts every row by slug).
+ * sync would be overkill. For broad edits, edit server/data/sentimony-db.yml
+ * and run `npm run sync:supabase` (it upserts every row by slug).
  *
  * It updates the named column(s) of the given slug in the given table, and
  * mirrors the same value into server/data/sentimony-db.yml (unless
- * --no-local). server/data/sentimony-db-export.json is a generated conversion
- * of the yml (see scripts/convert-yml-json.mjs) and is not written here.
+ * --no-local). server/data/sentimony-db-export.json is a gitignored artifact
+ * generated from the yml (see scripts/convert-yml-json.mjs); it is not written
+ * here and hand edits to it are overwritten.
  * Column names are Supabase columns; the local mirror maps a few renamed
  * release columns back to their JSON keys (see COLUMN_TO_JSON_KEY).
  *
