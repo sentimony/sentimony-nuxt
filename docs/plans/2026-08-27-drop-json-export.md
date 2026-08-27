@@ -203,12 +203,12 @@ else
   elif ! grep -q 'Unknown platform' "$log"; then
     echo "FAILED: generate (non-zero exit, no recognised error)"; tail -30 "$log"; fail=1
   else
-    # вирізати відомий prerender-блок і подивитись, чи лишились failure-маркери
-    grep -B1 'Unknown platform' "$log" > "$log.known"
+    # відкинути рядки самого відомого prerender-блоку за ВМІСТОМ і перевірити решту
+    known='ERROR +Nuxt prerender error|\[404\] Unknown platform'
     markers='ERROR|FATAL|npm error|Error:|error during build|Exception'
-    if grep -Ev -xFf "$log.known" "$log" | grep -Eq "$markers"; then
+    if grep -Ev "$known" "$log" | grep -Eq "$markers"; then
       echo "FAILED: generate (extra errors beyond the known prerender one)"
-      grep -Ev -xFf "$log.known" "$log" | grep -E "$markers"; fail=1
+      grep -Ev "$known" "$log" | grep -E "$markers"; fail=1
     else
       echo "generate: pre-existing prerender failure only, allowed"
     fi
@@ -225,7 +225,23 @@ exit $fail
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** в лозі є `Unknown platform`, немає `Could not resolve`, і після вирізання відомого prerender-блоку не лишилося жодного failure-маркера. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Вирізається саме блок (`grep -B1`), а не окремий рядок, тому що Nuxt друкує помилку двома рядками (заголовок `ERROR` + окремий `[404] Unknown platform`), і фільтр по рядку завжди лишав би заголовок і давав хибний fail. Набір маркерів ширший за `ERROR`: `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили б повз uppercase-фільтр. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити `$log.known` з реальним логом, бо форма блоку залежить від версії Nuxt.
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** в лозі є `Unknown platform`, немає `Could not resolve`, і після вирізання відомого prerender-блоку не лишилося жодного failure-маркера. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Nuxt друкує цю помилку двома рядками (заголовок `ERROR  Nuxt prerender error` + окремий `[404] Unknown platform`), тож фільтр мусить знімати обидва — інакше заголовок лишався б і давав хибний fail. Але знімати їх треба **за вмістом**, а не за позицією: `grep -B1 'Unknown platform'` зараховував до дозволеного блоку будь-який рядок, що просто стоїть перед ним, тому лог `ERROR unrelated failure` + `[404] Unknown platform` проходив як зелений. Набір маркерів ширший за `ERROR`: `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили б повз uppercase-фільтр. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити патерн `$known` з реальним логом, бо формулювання заголовка залежить від версії Nuxt (якщо воно розійдеться, крок впаде як `extra errors` — хибний fail, а не хибний green).
+
+Класифікатор перевірений на синтетичних логах — цей набір лишається як регресійні фікстури, будь-яка його зміна має пройти всі дев'ять:
+
+| Лог | Очікування |
+| --- | --- |
+| `ERROR Nuxt prerender error` + `[404] Unknown platform` | ALLOWED |
+| те саме + `ERROR Could not resolve ./db.json` | FAIL (resolve) |
+| лише `Could not resolve` | FAIL (resolve) |
+| ненульовий вихід без жодного знайомого маркера | FAIL (unrecognised) |
+| відомий блок + `ERROR something else` | FAIL (extra) |
+| відомий блок + `npm error code 1` | FAIL (extra) |
+| відомий блок + `Error: boom` | FAIL (extra) |
+| відомий блок + `FATAL oops` | FAIL (extra) |
+| `ERROR unrelated failure` безпосередньо перед `[404] Unknown platform` | FAIL (extra) |
+
+Останній рядок — саме той кейс, який ловив позиційний `grep -B1`.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
