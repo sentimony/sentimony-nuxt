@@ -53,7 +53,7 @@
 - `@nuxt/image` прибрано; рендер медіа використовує статичні `_th` варіанти через
   auto-imported `thumb()`, повний `_xl` відкриває лише `OpenImage`.
 - `npm run typecheck` і `npm run typecheck:ts7` додані й виконуються в CI
-  (`.github/workflows/web-debug.yml`) разом з unit tests, `node-server` build і HTTP smoke.
+  (`.github/workflows/ci.yml`) разом з unit tests, `node-server` build і HTTP smoke.
 - On-page плеєр і tracklist злиті в `PagePlayer`, що прибрало розділений
   play-count state (див. [play-count synchronization](initiatives/play-count-sync.md)).
 - `/event/[id]` переверстано за макетом release detail: двоколонковий hero,

@@ -4,7 +4,7 @@
 
 Кожна активна або майбутня ініціатива має окремий файл. Цей індекс є єдиною
 актуальною точкою входу; детальний дизайн і implementation steps зберігаються у
-`docs/superpowers/specs` та `docs/superpowers/plans`.
+`docs/specs` та `docs/plans` (`docs/superpowers/*` — архів).
 
 Статуси: `Planned` — є визначений результат або готові spec/plan; `Partial` —
 частина результату вже в коді; `Idea` — потрібен окремий discovery/design;

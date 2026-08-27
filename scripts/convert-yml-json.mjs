@@ -24,7 +24,9 @@ const data = parse(source)
 
 // Write then rename: five hooks can run this, and a concurrent reader
 // (a `nuxt dev` from predev while test:unit runs) must never see a partial file.
-const tmpPath = `${JSON_PATH}.tmp`
+// The pid keeps two concurrent runs off the same temp path - a shared one makes
+// the second rename fail with ENOENT.
+const tmpPath = `${JSON_PATH}.${process.pid}.tmp`
 writeFileSync(tmpPath, `${JSON.stringify(data, null, 2)}\n`)
 renameSync(tmpPath, JSON_PATH)
 

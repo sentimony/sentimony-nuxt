@@ -203,17 +203,22 @@ sed $'s/\033\\[[0-9;]*m//g' "$log" > "$plain"   # Nitro фарбує вивід 
 if grep -q 'Could not resolve' "$plain"; then
   echo "FAILED: generate (JSON resolve)"; fail=1
 elif [ $gen -eq 0 ]; then
-  echo "generate: green"
+  # exit 0 сам по собі не доказ: Nitro може лишити ERROR/Exception у лозі
+  if grep -E "$markers" "$plain" > "$log.rest"; then
+    echo "FAILED: generate (exit 0 but errors in log)"; head -5 "$log.rest"; fail=1
+  else
+    echo "generate: green"
+  fi
 elif [ $gen -ne 1 ]; then
   # prerender-падіння Nuxt - це рівно exit 1; 2, 137, 139 - щось інше
   echo "FAILED: generate (unexpected exit code $gen)"; tail -30 "$plain"; fail=1
 elif ! grep -q '^Errors prerendering:' "$plain" || ! grep -q 'Exiting due to prerender errors\.' "$plain"; then
   echo "FAILED: generate (exit 1 without the known prerender block)"; tail -30 "$plain"; fail=1
-elif grep -E '├──[[:space:]]*\[[0-9]+\]' "$plain" | grep -qvE '├──[[:space:]]*\[404\] (Unknown platform|Artist not found)[[:space:]]*$'; then
+elif grep -E '(├──|└──)[[:space:]]*\[[0-9]+\]' "$plain" | grep -qvE '(├──|└──)[[:space:]]*\[404\] (Unknown platform|Artist not found)[[:space:]]*$'; then
   # серед failed-маршрутів є помилка, відмінна від двох відомих (код + текст цілком)
   echo "FAILED: generate (prerender error other than the known ones)"
-  grep -E '├──[[:space:]]*\[[0-9]+\]' "$plain" | grep -vE '├──[[:space:]]*\[404\] (Unknown platform|Artist not found)[[:space:]]*$' | head -5; fail=1
-elif ! grep -qE '├──[[:space:]]*\[404\] Unknown platform[[:space:]]*$' "$plain"; then
+  grep -E '(├──|└──)[[:space:]]*\[[0-9]+\]' "$plain" | grep -vE '(├──|└──)[[:space:]]*\[404\] (Unknown platform|Artist not found)[[:space:]]*$' | head -5; fail=1
+elif ! grep -qE '(├──|└──)[[:space:]]*\[404\] Unknown platform[[:space:]]*$' "$plain"; then
   echo "FAILED: generate (no Unknown platform route error found)"; tail -30 "$plain"; fail=1
 else
   # зняти рядки відомого блоку і перевірити, чи лишились failure-маркери
