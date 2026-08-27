@@ -13,7 +13,7 @@
  */
 
 import { parse } from 'yaml'
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, renameSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 
 const YML_PATH = resolve('server/data/sentimony-db.yml')
@@ -22,6 +22,10 @@ const JSON_PATH = resolve('server/data/sentimony-db-export.json')
 const source = readFileSync(YML_PATH, 'utf-8')
 const data = parse(source)
 
-writeFileSync(JSON_PATH, `${JSON.stringify(data, null, 2)}\n`)
+// Write then rename: five hooks can run this, and a concurrent reader
+// (a `nuxt dev` from predev while test:unit runs) must never see a partial file.
+const tmpPath = `${JSON_PATH}.tmp`
+writeFileSync(tmpPath, `${JSON.stringify(data, null, 2)}\n`)
+renameSync(tmpPath, JSON_PATH)
 
 console.log(`Synced ${YML_PATH} -> ${JSON_PATH}`)

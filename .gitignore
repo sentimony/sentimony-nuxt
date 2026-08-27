@@ -36,3 +36,4 @@ scripts/out/
 
 # Derived from server/data/sentimony-db.yml via `npm run convert:yml`
 server/data/sentimony-db-export.json
+server/data/sentimony-db-export.json.tmp

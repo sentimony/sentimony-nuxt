@@ -86,7 +86,7 @@ Sync-скрипти парсять YAML напряму (тривіально —
 - `server/data/sentimony-db-export.json` не трекається git-ом, у `.gitignore`.
 - Свіжий клон: `npm ci && npm run build` проходить (JSON генерується хуком).
 - На чистому checkout кожна з `test:unit` / `build` / `build:cf` / `typecheck` зелена **при видаленому перед нею JSON** (перевіряти exit code, не вивід).
-- `generate` на тому ж checkout проходить Rollup-резолв JSON-import-у. Зеленого exit-коду від нього **не вимагається**: він падає на передіснуючій prerender-помилці `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, коміт `7093c30`), не пов'язаній із цією ініціативою. Критерій — відсутність `Could not resolve "../../data/sentimony-db-export.json"`.
+- `generate` на тому ж checkout проходить Rollup-резолв JSON-import-у. Зеленого exit-коду від нього **не вимагається**: він падає на двох передіснуючих prerender-помилках, не пов'язаних із цією ініціативою: `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, коміт `7093c30`) і `[404] Artist not found` — наслідок зіпсованих `artist_slug` у каталозі (`e`, `no`, `u`, `jai`, `sol`), ідентичних на `main`. Критерій — відсутність `Could not resolve "../../data/sentimony-db-export.json"`.
 - `npm run test:unit` зелений; `npm run build:cf` зелений.
 - `npm run sync:firebase -- --dry-run` працює як раніше.
 - `convert-json-yml.mjs` видалений; **living docs** (`AGENTS.md`, `README.md`, `docs/artist-numbering.md`, `docs/initiatives/`, `docs/completed.md`) не згадують JSON як джерело істини. Історичні записи в `docs/superpowers/{specs,plans}/` під критерій не підпадають — вони фіксують стан на свою дату і навмисно лишаються недоторканими.
