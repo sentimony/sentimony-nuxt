@@ -163,7 +163,7 @@ grep -rn "sentimony-db-export\|editing the JSON" scripts/
 
 **Коміт:**
 ```bash
-git add AGENTS.md docs/artist-numbering.md docs/specs/2026-08-27-drop-json-export-design.md docs/plans/2026-08-27-drop-json-export.md
+git add AGENTS.md docs/artist-numbering.md docs/specs/2026-08-27-drop-json-export-design.md docs/plans/2026-08-27-drop-json-export.md scripts/sync-field.mjs scripts/sync-track-audio.mjs
 git commit -m "docs: describe catalog JSON export as a generated build artifact"
 ```
 
@@ -203,11 +203,12 @@ else
   elif ! grep -q 'Unknown platform' "$log"; then
     echo "FAILED: generate (non-zero exit, no recognised error)"; tail -30 "$log"; fail=1
   else
-    # вирізати заголовок відомого prerender-блоку і подивитись, чи лишились ERROR-и
-    grep -B1 'Unknown platform' "$log" | grep -v 'Unknown platform' > "$log.known"
-    if grep 'ERROR' "$log" | grep -vxFf "$log.known" | grep -q .; then
+    # вирізати відомий prerender-блок і подивитись, чи лишились failure-маркери
+    grep -B1 'Unknown platform' "$log" > "$log.known"
+    markers='ERROR|FATAL|npm error|Error:|error during build|Exception'
+    if grep -Ev -xFf "$log.known" "$log" | grep -Eq "$markers"; then
       echo "FAILED: generate (extra errors beyond the known prerender one)"
-      grep 'ERROR' "$log" | grep -vxFf "$log.known"; fail=1
+      grep -Ev -xFf "$log.known" "$log" | grep -E "$markers"; fail=1
     else
       echo "generate: pre-existing prerender failure only, allowed"
     fi
@@ -215,7 +216,8 @@ else
 fi
 
 # заявлені preconditions - теж частина harness-а, а не ручна перевірка
-git status --short | grep -q 'sentimony-db-export.json' && { echo "FAILED: JSON is tracked/dirty"; fail=1; }
+git status --short | grep -q 'sentimony-db-export.json' && { echo "FAILED: JSON is dirty"; fail=1; }
+git ls-files --error-unmatch "$json" >/dev/null 2>&1 && { echo "FAILED: JSON is still tracked"; fail=1; }
 [ -f "$json" ] || { echo "FAILED: JSON missing on disk after builds"; fail=1; }
 
 exit $fail
@@ -223,7 +225,7 @@ exit $fail
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** в лозі є `Unknown platform`, немає `Could not resolve`, і кількість `ERROR`-рядків не перевищує тих, що належать самому prerender-блоку. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Вирізання блоку, а не `grep -v` по одному рядку, тому що Nuxt друкує помилку двома рядками (заголовок `ERROR` + окремий `[404] Unknown platform`), і фільтр по рядку завжди лишав би заголовок і давав хибний fail. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити `$log.known` з реальним логом, бо форма блоку залежить від версії Nuxt.
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, лише якщо `generate` зелений **або** в лозі є `Unknown platform`, немає `Could not resolve`, і після вирізання відомого prerender-блоку не лишилося жодного failure-маркера. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Вирізається саме блок (`grep -B1`), а не окремий рядок, тому що Nuxt друкує помилку двома рядками (заголовок `ERROR` + окремий `[404] Unknown platform`), і фільтр по рядку завжди лишав би заголовок і давав хибний fail. Набір маркерів ширший за `ERROR`: `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили б повз uppercase-фільтр. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити `$log.known` з реальним логом, бо форма блоку залежить від версії Nuxt.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
@@ -234,7 +236,7 @@ npm run sync:firebase -- --dry-run
 
 E2E — якщо середовище налаштоване (`npm run test:e2e`); інакше явно зазначити в звіті, що пропущено і чому.
 
-**Критерій готовності:** harness завершується з exit 0. Це покриває все: `test:unit` / `build` / `build:cf` / `typecheck` / `docs:check` зелені, `generate` або зелений, або впав саме на `Unknown platform`, `git status --short` не показує `sentimony-db-export.json`, а файл при цьому лежить на диску. Останні дві умови перевіряє сам скрипт — окремих ручних кроків після нього немає.
+**Критерій готовності:** harness завершується з exit 0. Це покриває все: `test:unit` / `build` / `build:cf` / `typecheck` / `docs:check` зелені, `generate` або зелений, або впав саме на `Unknown platform`, `git status --short` не показує `sentimony-db-export.json`, `git ls-files --error-unmatch` не знаходить його серед tracked (окрема перевірка: чистий tracked-файл у `git status` не з'явився б узагалі), а файл при цьому лежить на диску. Останні дві умови перевіряє сам скрипт — окремих ручних кроків після нього немає.
 
 ---
 
