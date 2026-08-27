@@ -202,16 +202,22 @@ if grep -q 'Could not resolve' "$log"; then
   echo "FAILED: generate (JSON resolve)"; fail=1
 elif [ $gen -eq 0 ]; then
   echo "generate: green"
-elif ! grep -q 'Unknown platform' "$log"; then
-  echo "FAILED: generate (non-zero exit, no recognised error)"; tail -30 "$log"; fail=1
+elif [ $gen -ne 1 ]; then
+  # prerender-падіння Nuxt - це рівно exit 1; 2, 137, 139 - щось інше
+  echo "FAILED: generate (unexpected exit code $gen)"; tail -30 "$log"; fail=1
 else
-  # зняти саме contiguous-пару рядків відомого блоку, звіряючи їх ПОВНІСТЮ
+  # зняти саме contiguous-пару рядків відомого блоку, звіряючи їх ПОВНІСТЮ;
+  # ненульовий exit awk = пари не знайшлося
   awk '
+    BEGIN { hdr = 0; matched = 0 }
     /^[[:space:]]*ERROR[[:space:]]+Nuxt prerender error[[:space:]]*$/ { hdr = NR; next }
-    /^[[:space:]]*\[404\] Unknown platform[[:space:]]*$/ && hdr == NR - 1 { next }
+    /^[[:space:]]*\[404\] Unknown platform[[:space:]]*$/ && hdr > 0 && hdr == NR - 1 { matched = 1; next }
     { print }
+    END { exit matched == 1 ? 0 : 1 }
   ' "$log" > "$log.rest"
-  if grep -Eq "$markers" "$log.rest"; then
+  if [ $? -ne 0 ]; then
+    echo "FAILED: generate (no exact prerender block found)"; tail -30 "$log"; fail=1
+  elif grep -Eq "$markers" "$log.rest"; then
     echo "FAILED: generate (extra errors beyond the known prerender one)"
     grep -E "$markers" "$log.rest"; fail=1
   else
@@ -229,16 +235,25 @@ exit $fail
 
 Підготовка harness-а завершується `|| exit 1` на кожному кроці: без цього падіння `git clone`, `npm ci` чи `cp` не зупинило б сценарій і решта команд виконалася б у **поточному** дереві, де JSON уже є, — тобто перевірка свіжого клону не відбулася б узагалі. `mktemp -d` замість фіксованого `/tmp/verify`, щоб повторний прогін не впирався в зайняту теку. `set -e` для самого циклу не годиться — він обірве на першій помилці, а хочеться побачити всі за один прогін, тому цикл накопичує exit-коди й завершується ненульовим.
 
-**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи. Всередині циклу `fail=1` від нього робив би результат ненульовим завжди. `Could not resolve` перевіряється **до** розгалуження за exit-кодом: зелений вихід із цим рядком у лозі — теж регресія, а гілка «exit 0 → пропустити аналіз» його б проковтнула. Далі пройденим крок вважається, якщо `generate` зелений **або** в лозі є `Unknown platform` і після зняття відомого prerender-блоку не лишилося жодного failure-маркера. Перевіряти лише `grep -q 'Unknown platform'` не можна: лог, де поруч із цією помилкою є ще й `Could not resolve` для JSON-import-у, зарахувався б як пройдений. Nuxt друкує цю помилку двома рядками (заголовок `ERROR  Nuxt prerender error` + окремий `[404] Unknown platform`), тож фільтр мусить знімати обидва — інакше заголовок лишався б і давав хибний fail. Знімає їх `awk`, а не `grep`, бо потрібні дві умови одночасно, яких `grep` не дає: рядки звіряються **цілком** (якорі `^…$`, а не входження) і мають іти **підряд** (`hdr == NR - 1`). Позиційний `grep -B1 'Unknown platform'` зараховував до дозволеного блоку будь-який попередній рядок, тож `ERROR unrelated failure` + `[404] Unknown platform` проходив як зелений; неякорений `grep -Ev` глушив і `ERROR  Nuxt prerender error: unrelated failure`, бо той містить очікуваний текст як підрядок. Набір маркерів ширший за `ERROR`: `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили б повз uppercase-фільтр. Лічильники ERROR-рядків теж не годяться — вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів. Ненульовий exit без жодної розпізнаної помилки — теж fail; при першому прогоні звірити awk-патерни з реальним логом, бо формулювання заголовка залежить від версії Nuxt (якщо воно розійдеться, крок впаде як `extra errors` — хибний fail, а не хибний green).
+**Виняток для `generate`** тому й винесений з циклу: він доходить до передіснуючої prerender-помилки `[404] Unknown platform` (`server/utils/platformRedirect.ts:12`, з коміту `7093c30`) — це не регресія цієї ініціативи, а всередині циклу `fail=1` від нього робив би результат ненульовим завжди. Пройденим крок вважається, якщо `generate` зелений **або** виконані всі чотири умови: `Could not resolve` у лозі відсутній, exit-код рівно `1`, awk знайшов точну contiguous-пару рядків відомого блоку, і після її зняття не лишилося failure-маркерів.
 
-Класифікатор перевірений на синтетичних логах — цей набір лишається як регресійні фікстури, будь-яка його зміна має пройти всі одинадцять:
+Кожна з умов закриває конкретний false green, який давали простіші версії:
+- **`Could not resolve` — до розгалуження за exit-кодом.** Це маркер регресії саме цієї ініціативи (JSON-import не резолвиться), тож зелений вихід із ним у лозі — теж fail; гілка «exit 0 → пропустити аналіз» його проковтувала.
+- **Exit-код рівно `1`.** Prerender-падіння Nuxt дає `1`; `2`, `137` (OOM-kill) чи `139` означають щось геть інше, і без цієї перевірки лог із валідною парою плюс тихий signal-kill проходив як зелений.
+- **Прапорець `matched`.** Без нього awk мовчки нічого не знімав, а вхідною умовою був простий `grep -q 'Unknown platform'` — самотній рядок `[404] Unknown platform` без заголовка чи заголовок, відділений від нього іншим рядком, зараховувалися як пройдені. `hdr > 0` обов'язковий: неініціалізована `hdr` дорівнює 0, тож на першому ж рядку логу `hdr == NR - 1` збігалося б хибно.
+- **Зняття блоку через awk, а не grep.** Nuxt друкує помилку двома рядками (заголовок `ERROR  Nuxt prerender error` + окремий `[404] Unknown platform`), тож знімати треба обидва, інакше заголовок дає хибний fail. Потрібні дві умови, яких `grep` не поєднує: рядки звіряються **цілком** (якорі `^…$`) і йдуть **підряд**. Позиційний `grep -B1` зараховував до блоку будь-який попередній рядок (`ERROR unrelated failure` проходив); неякорений `grep -Ev` глушив `ERROR  Nuxt prerender error: unrelated failure`, бо той містить очікуваний текст як підрядок.
+- **Набір маркерів ширший за `ERROR`:** `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили повз uppercase-фільтр. Лічильники ERROR-рядків не годяться зовсім: вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів.
+
+При першому прогоні звірити awk-патерни з реальним логом — формулювання заголовка залежить від версії Nuxt. Якщо воно розійдеться, крок впаде як `no exact prerender block found`, тобто хибний fail, а не хибний green.
+
+Класифікатор перевірений на синтетичних логах — цей набір лишається як регресійні фікстури, будь-яка його зміна має пройти всі п'ятнадцять:
 
 | Лог | Очікування |
 | --- | --- |
 | `ERROR Nuxt prerender error` + `[404] Unknown platform` | ALLOWED |
 | те саме + `ERROR Could not resolve ./db.json` | FAIL (resolve) |
 | лише `Could not resolve` | FAIL (resolve) |
-| ненульовий вихід без жодного знайомого маркера | FAIL (unrecognised) |
+| exit 1 без жодного знайомого маркера | FAIL (no pair) |
 | відомий блок + `ERROR something else` | FAIL (extra) |
 | відомий блок + `npm error code 1` | FAIL (extra) |
 | відомий блок + `Error: boom` | FAIL (extra) |
@@ -247,8 +262,11 @@ exit $fail
 | `ERROR  Nuxt prerender error: unrelated failure` + відомий блок | FAIL (extra) |
 | exit 0, але в лозі `Could not resolve` | FAIL (resolve) |
 | exit 0, чистий лог | ALLOWED |
+| самотній `[404] Unknown platform` без заголовка | FAIL (no pair) |
+| заголовок і `[404]` через рядок (не contiguous) | FAIL (no pair) |
+| валідна пара, але exit 137 | FAIL (unexpected exit code) |
 
-Три останні рядки — кейси, які по черзі пропускали позиційний `grep -B1`, неякорений `grep -Ev` і гілка «exit 0 → аналіз пропускається».
+Останні рядки — кейси, які по черзі пропускали позиційний `grep -B1`, неякорений `grep -Ev`, гілка «exit 0 → аналіз пропускається», відсутність `matched`-прапорця й невизначений exit-код.
 
 `typecheck` перевіряти саме на exit code (`echo $?`), а не на вивід: `nuxt typecheck` друкує помилки `TS2307` і виходить з кодом 2, який легко пропустити у хвості логу.
 
