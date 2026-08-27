@@ -209,11 +209,11 @@ elif [ $gen -ne 1 ]; then
   echo "FAILED: generate (unexpected exit code $gen)"; tail -30 "$plain"; fail=1
 elif ! grep -q '^Errors prerendering:' "$plain" || ! grep -q 'Exiting due to prerender errors\.' "$plain"; then
   echo "FAILED: generate (exit 1 without the known prerender block)"; tail -30 "$plain"; fail=1
-elif grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -qvE '\[404\] (Unknown platform|Artist not found)'; then
-  # серед failed-маршрутів є помилка, відмінна від двох відомих (код + текст разом)
+elif grep -E '├──[[:space:]]*\[[0-9]+\]' "$plain" | grep -qvE '├──[[:space:]]*\[404\] (Unknown platform|Artist not found)[[:space:]]*$'; then
+  # серед failed-маршрутів є помилка, відмінна від двох відомих (код + текст цілком)
   echo "FAILED: generate (prerender error other than the known ones)"
-  grep -E '├──[[:space:]]*\[[0-9]{3}\]' "$plain" | grep -vE '\[404\] (Unknown platform|Artist not found)' | head -5; fail=1
-elif ! grep -qE '├──[[:space:]]*\[404\] Unknown platform' "$plain"; then
+  grep -E '├──[[:space:]]*\[[0-9]+\]' "$plain" | grep -vE '├──[[:space:]]*\[404\] (Unknown platform|Artist not found)[[:space:]]*$' | head -5; fail=1
+elif ! grep -qE '├──[[:space:]]*\[404\] Unknown platform[[:space:]]*$' "$plain"; then
   echo "FAILED: generate (no Unknown platform route error found)"; tail -30 "$plain"; fail=1
 else
   # зняти рядки відомого блоку і перевірити, чи лишились failure-маркери
@@ -243,7 +243,7 @@ exit $fail
 - **`Could not resolve` — до розгалуження за exit-кодом.** Це маркер регресії саме цієї ініціативи (JSON-import не резолвиться), тож зелений вихід із ним у лозі — теж fail; гілка «exit 0 → пропустити аналіз» його проковтувала.
 - **Exit-код рівно `1`.** Prerender-падіння Nuxt дає `1`; `2`, `137` (OOM-kill) чи `139` означають щось геть інше, і без цієї перевірки лог із валідною парою плюс тихий signal-kill проходив як зелений.
 - **Перевіряється кожен рядок-помилка маршруту, а не їх кількість.** Nitro друкує `  │ ├── [404] Unknown platform` на кожен упалий маршрут (18 у прогоні 2026-08-27; число плаває між прогонами залежно від того, скільки маршрутів встигло обійти), плюс необов'язковий `  │ └── Linked from …`. Зайва помилка іншого роду з'явиться в такому ж рядку серед сотень однакових і не додасть жодного нового `ERROR`-рядка, тому лічильники й фільтри по `ERROR` її не бачать.
-- **Дозволені рівно дві помилки маршрутів, обидві іменовані.** `[404] Unknown platform` (424 маршрути в прогоні 2026-08-27) — з `platformRedirect.ts:12`. `[404] Artist not found` (12 маршрутів, лінковані з `/playlist/psychill-psybient`, `/playlist/dark-prog-zenonesque` і шести релізів) — наслідок зіпсованих `artist_slug` у самому каталозі: `e`, `no`, `u`, `jai`, `sol` і порожні рядки, з яких `splitTitleByArtists` (`app/utils/tracks.ts:42`) будує неіснуючі маршрути `/artist/e`. Що це передіснує, доведено звіркою з `main`: `git show 6c1ca79:server/data/sentimony-db.yml` дає ті самі значення в тій самій кількості, а код (`app/`, `server/`, `nuxt.config.ts`) між `main` і гілкою не змінювався взагалі. Виправлення цих даних — окрема ініціатива: спека виносить «будь-які зміни вмісту каталогу» за скоуп, і кожен запис потребує рішення, який артист мався на увазі. Обидві звіряються **разом із кодом** (`\[404\] (Unknown platform|Artist not found)`), а не лише за текстом: інакше `[500] Unknown platform` — знайомий текст під чужим кодом — прослизнув би як відомий, бо позитивна перевірка нижче вимагає лише **одного** справжнього `[404] Unknown platform` у лозі. Будь-який інший код чи текст крок далі валить.
+- **Дозволені рівно дві помилки маршрутів, обидві іменовані.** `[404] Unknown platform` (424 маршрути в прогоні 2026-08-27) — з `platformRedirect.ts:12`. `[404] Artist not found` (12 маршрутів, лінковані з `/playlist/psychill-psybient`, `/playlist/dark-prog-zenonesque` і шести релізів) — наслідок зіпсованих `artist_slug` у самому каталозі: `e`, `no`, `u`, `jai`, `sol` і порожні рядки, з яких `splitTitleByArtists` (`app/utils/tracks.ts:42`) будує неіснуючі маршрути `/artist/e`. Що це передіснує, доведено звіркою з `main`: `git show 6c1ca79:server/data/sentimony-db.yml` дає ті самі значення в тій самій кількості, а код (`app/`, `server/`, `nuxt.config.ts`) між `main` і гілкою не змінювався взагалі. Виправлення цих даних — окрема ініціатива: спека виносить «будь-які зміни вмісту каталогу» за скоуп, і кожен запис потребує рішення, який артист мався на увазі. Обидві звіряються **цілим рядком** — від префікса `├──` до кінця рядка (`[[:space:]]*$`), разом із кодом, а не лише за текстом: інакше `[500] Unknown platform` — знайомий текст під чужим кодом — прослизнув би як відомий, бо позитивна перевірка нижче вимагає лише **одного** справжнього `[404] Unknown platform` у лозі. Якорі на обох кінцях обов'язкові: без `$` рядок `[404] Unknown platform is broken` зараховувався б як відомий, а зовнішній фільтр мусить брати код цілком (`\[[0-9]+\]`, не `\[[0-9]{3}\]`), інакше `[4041]` не потрапляв би навіть у перевірку. Будь-який інший код чи текст крок далі валить.
 - **Обидва маркери блоку обов'язкові.** `Errors prerendering:` відкриває перелік, `Exiting due to prerender errors.` — рядок, з яким Nitro кидає фінальний `Error` (`nitropack/dist/core/index.mjs:2191`). Exit 1 без них означає падіння геть іншої природи. Заголовка `ERROR  Nuxt prerender error` в Nitro **не існує** — рання версія цього harness-а перевіряла саме його і давала хибний fail на першому ж реальному прогоні.
 - **Набір маркерів ширший за `ERROR`:** `npm error`, `Error:`, `FATAL`, `error during build`, `Exception` — інакше падіння самого npm або невідформатований stack trace проходили повз uppercase-фільтр. Лічильники ERROR-рядків не годяться зовсім: вони пропускають зайву помилку, якщо очікуваний блок дає стільки ж збігів.
 
@@ -265,6 +265,8 @@ exit $fail
 | серед маршрутів є `│ ├── [404] Artist not found` | ALLOWED (друга відома помилка) |
 | серед маршрутів є `│ ├── [500] Internal Server Error` | FAIL (other route error) |
 | серед маршрутів є `│ ├── [500] Unknown platform` (знайомий текст, чужий код) | FAIL (other route error) |
+| `│ ├── [4041] Unknown platform` (код — надмножина відомого) | FAIL (other route error) |
+| `│ ├── [404] Unknown platform is broken` (суфікс після відомого тексту) | FAIL (other route error) |
 | відомий блок + окремий `npm error code 137` | FAIL (extra) |
 
 Ключовий рядок — передостанній: зайва помилка не додає нового `ERROR`-рядка, а ховається серед однакових рядків маршрутів (`Artist not found` серед `Unknown platform` — реальний випадок із прогону 2026-08-27). Тому перевіряється кожен рядок `│ ├── [код] …`, а не їх кількість.
