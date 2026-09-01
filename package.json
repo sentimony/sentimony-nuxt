@@ -44,12 +44,12 @@
     "netlify:prod": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.126",
+    "@iconify-json/lucide": "^1.2.128",
     "@iconify-json/lucide-lab": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.93",
+    "@iconify-json/simple-icons": "^1.2.94",
     "@playwright/test": "^1.62.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^26.3.0",
+    "@types/node": "^26.4.0",
     "@typescript/native": "npm:typescript@^7.0.2",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",

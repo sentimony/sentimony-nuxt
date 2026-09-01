@@ -1,38 +1,65 @@
 # Accessibility structure
 
 - Status: Planned
-- Priority: P2
+- Priority: P1
 - Ініційовано: 2026-07-19
-- Last reviewed: 2026-07-22
-- Related: [quality audit](../audits/2026-07-19-quality-audit.md)
+- Last reviewed: 2026-09-01
+- Related: [quality audit](../audits/2026-07-19-quality-audit.md),
+  [frontend audit](../audits/2026-09-01-frontend-crafting-audit.md),
+  [design spec](../specs/2026-09-01-accessibility-baseline-design.md)
 
 ## Навіщо
 
 WEB-4 виявив, що public layout не має `<main>`, а homepage не має змістовного
-`<h1>`. Це погіршує landmark і heading navigation для assistive technology.
+`<h1>`. Аудит 2026-09-01 показав, що це частина ширшої прогалини: у проєкті
+відсутні цілі шари доступності, а не окремі атрибути. Три P0 — немає жодного
+лендмарка й скіп-лінки, глобальне focus-правило написане під селектор `a` (тож
+14 кнопок і 2 повзунки не мають видимого фокуса), клікабельна прев'ю зображення
+на семи детальних сторінках є `div` із `@click`.
+
+Пріоритет підвищено з P2 до P1 за результатами того аудиту.
 
 ## Очікуваний результат
 
-Кожна public page має один основний landmark, а homepage — один meaningful `<h1>`
-без зміни затвердженої композиції.
+Кожна public page має один основний landmark і коректну ієрархію заголовків,
+кожен інтерактивний елемент досяжний з клавіатури з видимим фокусом і
+доступним іменем, а списки мають спроєктовані порожній і помилковий стани.
+Композиція й візуальна мова не змінюються.
 
 ## Обсяг
 
-- Замінити wrapper навколо page slot на семантичний `<main>`.
-- Позначити homepage brand heading як `<h1>` без visual redesign.
-- Додати browser assertions на landmark і heading counts.
+Повний перелік і ухвалені рішення — у
+[спеці](../specs/2026-09-01-accessibility-baseline-design.md). Коротко:
+
+- Лендмарки (`<main>`, `<header>`, `<nav>`, `<footer>`), скіп-лінка і
+  `scroll-padding` під дві липкі панелі; `<h1>` на homepage і на сторінці
+  помилки.
+- Розширення focus-селектора на кнопки, повзунки й `[role="button"]`.
+- Доступні імена: іконкові таби, стрілки свайпера, тригер повнорозмірного
+  зображення як справжня кнопка.
+- Live-region на зміну треку в плеєрі.
+- Два семантичні текстові рівні на детальних сторінках каталогу.
+- `CollectionStatus` (узагальнений `ProfileCollectionStatus`) на восьми
+  сторінках списків.
+
+Поза обсягом: CTA на головній, метадані на картці каталогу, контраст футера,
+токени кольорів — причини в розділі «Скоуп» спеки.
 
 ## Залежності
 
-- WEB-4 із quality audit.
-- Візуальна перевірка homepage в обох темах.
+- WEB-4 із quality audit; знахідки T1-T5, T9, T10, V2, V3, V6 аудиту 2026-09-01.
+- Пороги контрасту з [аудиту 2026-07-25](../audits/2026-07-25-auth-theme-contrast-audit.md).
+- Візуальна перевірка обведення на `.player-range` в обох темах.
 
 ## Критерії завершення
 
-- Public routes мають рівно один `<main>`.
-- Homepage має рівно один meaningful `<h1>`.
+- Public routes мають рівно один `<main>`; homepage має рівно один meaningful `<h1>`.
+- Кожен інтерактивний елемент має видимий focus-стан і доступне ім'я.
+- Кожна сторінка списку розрізняє loading, empty і error.
+- Нові інваріанти закріплені в `tests/unit/interactionStates.test.ts`.
 - Lighthouse Accessibility 100 і visual baselines збережені.
 
 ## Наступний крок
 
-Написати browser contract для `<main>`/`<h1>`, потім змінити лише семантичні tags.
+Implementation plan через `plan-crafting` на чотири кроки з розділу «Порядок
+виконання» спеки.

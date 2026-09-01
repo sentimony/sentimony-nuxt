@@ -57,6 +57,7 @@ npx skills add https://github.com/sentimony/skills -s \
   negafix \
   commit-all \
   maintaining-agent-context \
+  frontend-crafting \
   -a codex claude-code -y
 
 # MATTPOCOCK SKILLS
