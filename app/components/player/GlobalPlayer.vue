@@ -72,6 +72,13 @@ const nameSegments = computed(() => {
   return [{ text: trackParts.value.name, slug: null }]
 })
 
+const nowPlayingLabel = computed(() => {
+  const c = current.value
+  if (!c) return ''
+  const { artist, name } = trackParts.value
+  return name ? `${artist} - ${name}` : artist
+})
+
 const canPrev = computed(() => !!current.value?.queue && (current.value.queueIndex ?? 0) > 0)
 const canNext = computed(() => {
   const c = current.value
@@ -114,6 +121,7 @@ watch([pageLoaded, introDone], ([loaded, intro]) => {
 
 <template>
   <div class="sticky bottom-0 z-[110]">
+    <p class="sr-only" aria-live="polite" aria-atomic="true">{{ nowPlayingLabel }}</p>
     <div
       data-testid="audio-bottom-player"
       class="border-t border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-md transition-[translate,opacity] duration-700 ease-out motion-reduce:transition-none!"
