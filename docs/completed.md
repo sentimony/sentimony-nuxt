@@ -22,6 +22,12 @@
 - [Array export sync, `track_artists` і `like_counters`](superpowers/specs/2026-07-18-export-sync-roadmap-2-4-7-design.md).
 - [Release tracklist performance optimization](superpowers/specs/2026-07-21-release-tracklist-perf-design.md).
 
+- [Accessibility baseline](specs/2026-09-01-accessibility-baseline-design.md) за
+  [аудитом 2026-09-01](audits/2026-09-01-frontend-crafting-audit.md): лендмарки й
+  скіп-лінка, видимий фокус на кнопках і повзунках, доступні імена для
+  іконкових табів і стрілок свайпера, два текстові рівні в каталозі та
+  спроєктовані порожній і помилковий стани списків.
+
 ## Закрито з попередніх аудитів
 
 - DB export прибрано з public path.

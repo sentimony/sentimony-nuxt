@@ -1,9 +1,9 @@
 # Accessibility structure
 
-- Status: Planned
+- Status: Implemented
 - Priority: P1
 - Ініційовано: 2026-07-19
-- Last reviewed: 2026-09-01
+- Last reviewed: 2026-09-02
 - Related: [quality audit](../audits/2026-07-19-quality-audit.md),
   [frontend audit](../audits/2026-09-01-frontend-crafting-audit.md),
   [design spec](../specs/2026-09-01-accessibility-baseline-design.md)
