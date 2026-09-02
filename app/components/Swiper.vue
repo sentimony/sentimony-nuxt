@@ -139,7 +139,7 @@ watch(() => [props.activeSlug, totalLength.value], () => {
               class="!pointer-events-none select-none"
               style="width: 2.5rem"
             >
-              <div class="h-full flex flex-col items-center justify-center px-1 text-foreground/25">
+              <div class="h-full flex flex-col items-center justify-center px-1 text-muted-foreground">
                 <div class="w-px flex-1 bg-current" />
                 <span
                   class="text-[8px] tracking-widest uppercase py-2"
@@ -190,10 +190,10 @@ watch(() => [props.activeSlug, totalLength.value], () => {
 .swiper { @apply overflow-visible static }
 .swiper-slide { @apply w-[auto] }
 
-.swiper-pagination { @apply text-xs/3 md:text-sm/4 text-foreground/50 }
+.swiper-pagination { @apply text-xs/3 md:text-sm/4 text-muted-foreground }
 
 .swiper-button-prev,
-.swiper-button-next { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-foreground/40 hover:text-foreground/80 hover:bg-black/5 dark:hover:bg-white/5 hover:backdrop-blur-sm hidden md:block p-4 }
+.swiper-button-next { @apply transition-colors ease-in-out duration-300 cursor-pointer absolute top-[0px] h-[100%] z-10 text-muted-foreground hover:text-foreground/80 hover:bg-black/5 dark:hover:bg-white/5 hover:backdrop-blur-sm hidden md:block p-4 }
 .swiper-button-prev { @apply left-0 }
 .swiper-button-next { @apply right-0 }
 

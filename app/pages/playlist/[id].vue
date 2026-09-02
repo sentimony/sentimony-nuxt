@@ -86,7 +86,7 @@ useSeoMeta({
                 :alt="(item.title || 'Playlist') + ' cover'"
               />
               <div class="pt-1">
-                <p><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
+                <p><span class="text-muted-foreground">Styles:</span> {{ item.style }}</p>
 
                 <div class="flex justify-start mt-3">
                   <LikeButton

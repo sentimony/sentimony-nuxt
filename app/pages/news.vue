@@ -95,11 +95,11 @@ useSeoMeta({
               <div v-else class="h-6 w-6 rounded bg-foreground/10"></div>
             <!-- </div> -->
             <div class="text-left ml-4">
-              <div class="text-xs md:text-sm text-foreground/50">{{ formatDate(i.date) }}</div>
+              <div class="text-xs md:text-sm text-muted-foreground">{{ formatDate(i.date) }}</div>
               <div class="text-base md:text-lg font-medium text-foreground transition-colors">{{ i.title }}</div>
             </div>
           </div>
-          <span class="ml-4 text-foreground/40 group-hover:text-foreground/70 transition-colors">
+          <span class="ml-4 text-muted-foreground group-hover:text-foreground/70 transition-colors">
             <Icon name="lucide:chevron-right" size="18" />
           </span>
         </NuxtLink>

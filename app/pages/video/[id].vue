@@ -62,7 +62,7 @@ useSeoMeta({
 
               <div class="flex-1 min-w-0">
 
-                <p><span class="text-foreground/50">Release Date:</span> {{ formattedDate }}</p>
+                <p><span class="text-muted-foreground">Release Date:</span> {{ formattedDate }}</p>
 
                 <div class="flex justify-start mb-4">
                   <LikeButton
@@ -77,7 +77,7 @@ useSeoMeta({
 
             </div>
 
-            <p><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
+            <p><span class="text-[10px] md:text-[12px] text-muted-foreground">Links</span></p>
             <PrimaryButton
               v-if="item.links?.youtube"
               :to="item.links?.youtube"

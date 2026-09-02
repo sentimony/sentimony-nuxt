@@ -100,7 +100,7 @@ const stats = computed(() => [
         class="text-center rounded-md border border-black/15 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] py-3"
       >
         <div class="font-mono text-xl md:text-2xl">{{ s.value }}</div>
-        <div class="text-[11px] uppercase tracking-wide text-foreground/50">{{ s.label }}</div>
+        <div class="text-[11px] uppercase tracking-wide text-muted-foreground">{{ s.label }}</div>
       </div>
     </div>
 

@@ -112,11 +112,11 @@ useSeoMeta({
 
               <div class="flex-1 min-w-0">
 
-            <p><span class="text-foreground/50">Release Date:</span> {{ formattedDate }}</p>
-            <p><span class="text-foreground/50">Catalog Number:</span> {{ item.cat_no }}</p>
-            <p><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
-            <p><span class="text-foreground/50">Format:</span> {{ item.format }}</p>
-            <p><span class="text-foreground/50">Total Time:</span> {{ item.total_time }}</p>
+            <p><span class="text-muted-foreground">Release Date:</span> {{ formattedDate }}</p>
+            <p><span class="text-muted-foreground">Catalog Number:</span> {{ item.cat_no }}</p>
+            <p><span class="text-muted-foreground">Styles:</span> {{ item.style }}</p>
+            <p><span class="text-muted-foreground">Format:</span> {{ item.format }}</p>
+            <p><span class="text-muted-foreground">Total Time:</span> {{ item.total_time }}</p>
 
             <div class="flex justify-start mb-4">
               <LikeButton
@@ -132,13 +132,13 @@ useSeoMeta({
             </div>
 
             <!-- <p>
-              <span class="text-[10px] md:text-[12px] text-foreground/50">{{ item.cat_no }}</span>
-              <span class="text-[10px] md:text-[12px] text-foreground/50"> | {{ formattedDate }}</span>
+              <span class="text-[10px] md:text-[12px] text-muted-foreground">{{ item.cat_no }}</span>
+              <span class="text-[10px] md:text-[12px] text-muted-foreground"> | {{ formattedDate }}</span>
             </p>
             <h1 class="">{{ item.title }}</h1>
             <p>
-              <span class="text-[10px] md:text-[12px] text-foreground/50">{{ item.style }}</span>
-              <span class="text-[10px] md:text-[12px] text-foreground/50"> | {{ item.total_time }}</span>
+              <span class="text-[10px] md:text-[12px] text-muted-foreground">{{ item.style }}</span>
+              <span class="text-[10px] md:text-[12px] text-muted-foreground"> | {{ item.total_time }}</span>
             </p> -->
             <!-- <br> -->
 

@@ -248,6 +248,29 @@ describe('profile surface', () => {
   })
 })
 
+describe('catalog surface', () => {
+  const CATALOG_FILES = [
+    'app/pages/release/[id].vue',
+    'app/pages/track/[id].vue',
+    'app/pages/artist/[id].vue',
+    'app/pages/event/[id].vue',
+    'app/pages/video/[id].vue',
+    'app/pages/playlist/[id].vue',
+    'app/pages/tracks.vue',
+    'app/pages/news.vue',
+    'app/components/EntityLinks.vue',
+    'app/components/Swiper.vue',
+    'app/components/ui/button/index.ts',
+  ]
+
+  it('uses only the two semantic text tiers', () => {
+    for (const file of CATALOG_FILES) {
+      expect(readProjectFile(file), `${file} keeps a sub-AA text tier`)
+        .not.toMatch(/text-foreground\/(?:25|30|35|40|45|50)\b/)
+    }
+  })
+})
+
 describe('auth form accessibility', () => {
   it('links field errors to their inputs and announces them', () => {
     const authForm = readProjectFile('app/components/AuthForm.vue')

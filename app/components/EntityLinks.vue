@@ -44,7 +44,7 @@ const resolvedLinks = computed(() => {
 
 <template>
   <template v-if="resolvedLinks.length">
-    <p><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
+    <p><span class="text-[10px] md:text-[12px] text-muted-foreground">Links</span></p>
     <PrimaryButton
       v-for="link in resolvedLinks"
       :key="link.title"
