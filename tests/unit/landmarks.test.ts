@@ -21,7 +21,7 @@ describe('document landmarks', () => {
     const owners = appSourceFiles().filter(file => readProjectFile(file).includes('<main'))
 
     // error.vue renders outside NuxtLayout and gains its own <main> in Task 3.
-    expect(owners.sort()).toEqual(['app/layouts/default.vue'])
+    expect(owners.sort()).toEqual(['app/error.vue', 'app/layouts/default.vue'])
   })
 
   it('gives the layout main the skip-link target id', () => {
@@ -68,5 +68,28 @@ describe('skip link', () => {
 
     expect(htmlRule).toContain('scroll-padding-top: 5rem')
     expect(htmlRule).toContain('scroll-padding-bottom: 5rem')
+  })
+})
+
+describe('page title elements', () => {
+  it('makes the homepage hero the h1', () => {
+    const hero = readProjectFile('app/components/Hero.vue')
+
+    expect(hero).toContain('<h1 v-html="heroTitle"/>')
+  })
+
+  it('gives the error page its own main and h1', () => {
+    const errorPage = readProjectFile('app/error.vue')
+
+    expect(errorPage).toContain('<main')
+    expect(errorPage).toContain('<h1')
+    expect(errorPage, 'client navigation does not clear the error state').not.toMatch(/<NuxtLink|:to="/)
+    // One helper, three call sites: every exit must clear the error, not just navigate.
+    expect(errorPage).toContain('const handleError = (redirect: string) => clearError({ redirect })')
+    expect(errorPage.match(/@click="handleError\('/g) ?? []).toHaveLength(3)
+  })
+
+  it('drops the dead transition utility from the error page', () => {
+    expect(readProjectFile('app/error.vue')).not.toContain('transition-background')
   })
 })

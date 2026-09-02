@@ -24,7 +24,7 @@ const heroDescription = 'Psychedelic Music Label'
         xl:text-[100px] xl:tracking-[14px]"
       >
         
-        <div v-html="heroTitle"/>
+        <h1 v-html="heroTitle"/>
 
         <div
           class="tracking-normal flex justify-center 
