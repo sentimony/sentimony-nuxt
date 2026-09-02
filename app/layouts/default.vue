@@ -179,9 +179,9 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :pagination="false"
         />
 
-        <div class="order-[2]">
+        <main id="main" tabindex="-1" class="order-[2]">
           <slot/>
-        </div>
+        </main>
 
       </div>
 

@@ -29,7 +29,7 @@ const profileNavItems = computed(() => [
 </script>
 
 <template>
-  <main class="px-4 py-10 sm:py-12">
+  <div class="px-4 py-10 sm:py-12">
     <div class="container mx-auto max-w-5xl">
       <nav
         aria-label="Profile collection"
@@ -49,5 +49,5 @@ const profileNavItems = computed(() => [
 
       <NuxtPage />
     </div>
-  </main>
+  </div>
 </template>

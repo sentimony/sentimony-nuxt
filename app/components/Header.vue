@@ -31,7 +31,7 @@ async function signOut() {
 </script>
 
 <template>
-  <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
+  <header data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
         <div class="relative flex justify-between items-center h-18 px-2">
@@ -54,7 +54,7 @@ async function signOut() {
             </div>
           </NuxtLink>
 
-          <div class="hidden sm:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <nav aria-label="Main" class="hidden sm:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
@@ -67,7 +67,7 @@ async function signOut() {
               <Icon :name="i.icon" size="18" />
               <span class="hidden lg:inline">{{ i.title }}</span>
             </NuxtLink>
-          </div>
+          </nav>
 
           <div class="flex items-center gap-2">
 
@@ -165,5 +165,5 @@ async function signOut() {
         </div>
       </div>
     </div>
-  </div>
+  </header>
 </template>
