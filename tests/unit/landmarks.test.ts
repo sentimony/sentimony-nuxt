@@ -20,7 +20,7 @@ describe('document landmarks', () => {
   it('declares exactly one main per rendered document', () => {
     const owners = appSourceFiles().filter(file => readProjectFile(file).includes('<main'))
 
-    // error.vue renders outside NuxtLayout and gains its own <main> in Task 3.
+    // error.vue renders outside NuxtLayout, so it owns its own <main>.
     expect(owners.sort()).toEqual(['app/error.vue', 'app/layouts/default.vue'])
   })
 

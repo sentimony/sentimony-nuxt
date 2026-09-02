@@ -7,7 +7,7 @@ Guidance for coding agents working in this repository.
 ## Conventions
 
 - **Instruction files:** the canonical file is `AGENTS.md`; `CLAUDE.md` beside it holds the single line `@AGENTS.md`. Write rules here and touch `CLAUDE.md` only when the import scheme changes. Do not symlink them.
-- **Instruction size:** keep this file under ~250 lines. A topic longer than ~800 characters becomes sub-bullets. Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas. Detail that only concerns one directory belongs in an `AGENTS.md` in that directory once this file outgrows the budget.
+- **Instruction size:** keep this file under ~250 lines. A topic longer than ~800 characters becomes sub-bullets. Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas. Detail that only concerns one directory belongs in an `AGENTS.md` in that directory; cross-cutting reference material that agents need only on demand lives in `docs/agent-context/` and is linked from here.
 - **Language:** Ukrainian in conversation. **Exception — artifacts that live in GitHub: PR title and description, issue text and commit messages are English**, because the team reads them and they stay in the repo history.
 - **Code comments are English**, and only where the name cannot carry the meaning: an external constraint, a deliberate workaround, a non-obvious invariant. A comment restating the code is not wanted.
 - **No git worktrees.** Do not create them (`git worktree add`, the `using-git-worktrees` skill, `isolation: worktree`); work directly in the main checkout.
@@ -76,7 +76,7 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 **Server utils.** `server/utils/catalogSource.ts` - normalized catalog source switch. `server/utils/firebaseCatalog.ts` - Firebase fetch helpers + track parsing. `server/utils/supabase.ts` - anon client + Supabase row mappers. `server/utils/trackArtists.ts` - normalized Supabase track↔artist lookups. `server/utils/likeCountersHandler.ts` - public aggregate counter endpoint factory. `server/utils/supabaseAdmin.ts` - service-role client for privileged auth/likes/profile writes.
 
-**PostgREST row cap.** Supabase REST responses are capped at 1000 rows; every unbounded table read must paginate via `.range()` with a stable `.order()`; see `server/utils/likeCountersHandler.ts` and `selectAll()` in `scripts/sync-supabase.mjs`.
+**PostgREST row cap.** Supabase REST responses are capped at 1000 rows; every unbounded table read must paginate via `.range()` with a stable `.order()`; see `server/utils/likeCountersHandler.ts` and `selectAll()` in `scripts/sync-supabase.mjs`. `tracks` (~770) and `track_artists` (~790) already sit near the cap.
 
 **Composables.** Each entity has `useXxx()` (wraps `useAsyncData` + `$fetch('/api/xxx')`) and `useXxxLikes()` built on the `createLikes(key, apiBase, countsUrl)` factory (`app/composables/createLikes.ts`). `useLikes()` (`app/composables/useLikes.ts`) is the release reference; artist/video/track/event/playlist variants follow it. A failed like reverts the optimistic update and fires `toast.error` (vue-sonner); `<Toaster>` is mounted once in `app/app.vue`. `toArray()` (`app/composables/toArray.ts`) normalises Firebase object-keyed and Supabase array responses into one array.
 

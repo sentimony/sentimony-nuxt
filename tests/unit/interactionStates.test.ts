@@ -266,7 +266,7 @@ describe('catalog surface', () => {
   it('uses only the two semantic text tiers', () => {
     for (const file of CATALOG_FILES) {
       expect(readProjectFile(file), `${file} keeps a sub-AA text tier`)
-        .not.toMatch(/text-foreground\/(?:25|30|35|40|45|50)\b/)
+        .not.toMatch(/text-(?:foreground|white|black)\/(?:25|30|35|40|45|50)\b/)
     }
   })
 })

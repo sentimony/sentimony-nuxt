@@ -76,7 +76,7 @@ watch(() => [props.activeSlug, totalLength.value], () => {
 
 <template>
   <section
-    :aria-label="title"
+    :aria-label="title ?? category"
     :class="['relative overflow-hidden h-[174px] md:h-[284px] lg:h-[292px] ', 'swiper-' + category]"
   >
 

@@ -181,9 +181,16 @@ test('uses theme foregrounds and stable read surfaces', async ({ page }) => {
 
   const themeToggle = page.getByRole('button', { name: 'Switch to light theme' })
   await themeToggle.focus()
+  // The click above was a pointer interaction, so script focus alone does not
+  // match :focus-visible in Chromium; a keyboard round trip does.
+  await page.keyboard.press('Shift+Tab')
+  await page.keyboard.press('Tab')
   await expect(themeToggle).toBeFocused()
-  // Focus styling now comes from the unlayered global rule, not per-component classes.
-  await expect(themeToggle).not.toHaveClass(/focus-visible:ring-/)
+  const outline = await themeToggle.evaluate((element) => {
+    const style = getComputedStyle(element)
+    return { style: style.outlineStyle, width: style.outlineWidth }
+  })
+  expect(outline).toEqual({ style: 'solid', width: '2px' })
 })
 
 test('switches instantly with reduced motion', async ({ page }) => {

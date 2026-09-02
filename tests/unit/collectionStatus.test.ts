@@ -55,6 +55,12 @@ describe('list pages report their state', () => {
       .toContain('empty-text="No releases in this genre yet"')
   })
 
+  it('receives the resolved state from the profile collection pages', () => {
+    for (const file of ['app/components/ProfileCollectionPage.vue', 'app/pages/profile/tracks.vue']) {
+      expect(readProjectFile(file)).toContain(':loaded="')
+    }
+  })
+
   it('leaves no reference to the profile-only component name', () => {
     for (const file of [...LIST_FILES, 'app/components/ProfileCollectionPage.vue', 'app/pages/profile/tracks.vue']) {
       expect(readProjectFile(file)).not.toContain('ProfileCollectionStatus')

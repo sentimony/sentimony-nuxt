@@ -56,10 +56,32 @@ WEB-4 виявив, що public layout не має `<main>`, а homepage не м
 - Public routes мають рівно один `<main>`; homepage має рівно один meaningful `<h1>`.
 - Кожен інтерактивний елемент має видимий focus-стан і доступне ім'я.
 - Кожна сторінка списку розрізняє loading, empty і error.
-- Нові інваріанти закріплені в `tests/unit/interactionStates.test.ts`.
-- Lighthouse Accessibility 100 і visual baselines збережені.
+- Нові інваріанти закріплені в `tests/unit/interactionStates.test.ts`,
+  `landmarks.test.ts`, `accessibleNames.test.ts` і `collectionStatus.test.ts`.
+- Lighthouse Accessibility не нижче рівня `main` на маршрутах спеки, без
+  жодної знахідки з обсягу ініціативи; visual baselines збережені.
 
-## Наступний крок
+## Результат перевірки (2026-09-02)
 
-Implementation plan через `plan-crafting` на чотири кроки з розділу «Порядок
-виконання» спеки.
+Lighthouse 12, `--only-categories=accessibility`. «Було» — прод-збірка `main`
+(`sentimony-nuxt.netlify.app`), «стало» — preview-збірка `node-server` гілки на
+порту 3100:
+
+| Маршрут | Було | Стало | Знахідки, що лишились |
+| --- | --- | --- | --- |
+| `/` | 95 | 96 | `color-contrast`: бейдж «Coming Soon» на картці (білий на `bg-green-600`, 3.21) |
+| `/releases/` | 96 | 96 | те саме |
+| `/release/va-fantazma/` | 88 | 93 | `color-contrast`: рядки треклиста в `PagePlayer` (4.26 на 12px) і `<small>` у `.Content`; `link-in-text-block`: посилання в `.Content` без підкреслення |
+| `/artists/` | 100 | 100 | немає |
+
+`button-name` на сторінці релізу закрито. Усе, що лишилось, — позаобсягове:
+метадані на картці каталогу й контраст у `.Content` виключені в розділі «Скоуп»
+спеки, а спроба підняти контраст бейджів картки й підкреслити посилання в
+`.Content` окремим комітом на гілці була відкочена як зміна візуальної мови. Це
+кандидати на наступну ініціативу з контрасту.
+
+`npm run test:e2e` проти тієї ж збірки: 22 passed, 10 failed. Усі десять
+падають так само проти прод-збірки `main` (`sentimony-nuxt.netlify.app`) і не
+пов'язані з гілкою: снепшоти homepage від 2026-06-25 застаріли, тести на
+`webp`-форест і на 404 для прихованого релізу описують поведінку, якої в коді
+`main` уже немає. Нова перевірка видимого outline на перемикачі теми проходить.

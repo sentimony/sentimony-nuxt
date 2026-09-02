@@ -15,6 +15,16 @@ const artistsSortedByCategoryIdMusician = filterByCategory('musician')
 const artistsSortedByCategoryIdDj = filterByCategory('dj')
 const artistsSortedByCategoryIdDesigner = filterByCategory('designer')
 const artistsSortedByCategoryIdMastering = filterByCategory('mastering')
+// Emptiness follows what the four category grids render, not the whole catalog,
+// so an artist with an unknown category cannot hide the empty state.
+const hasArtists = computed(() =>
+  [
+    artistsSortedByCategoryIdMusician,
+    artistsSortedByCategoryIdDj,
+    artistsSortedByCategoryIdMastering,
+    artistsSortedByCategoryIdDesigner,
+  ].some(list => list.value.length > 0)
+)
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 useCanonical(() => absoluteUrl.value)
@@ -43,12 +53,14 @@ useSeoMeta({
       :loading="status === 'pending'"
       :loaded="status === 'success'"
       :error="!!error"
-      :empty="status === 'success' && artistsSortedForCatalog.length === 0"
+      :empty="status === 'success' && !hasArtists"
       empty-text="No artists listed yet"
       @retry="refresh()"
     />
 
-    <template v-if="status === 'success' && artistsSortedForCatalog.length">
+    <!-- Unlike the flat list pages the grid stays hidden while empty, otherwise
+         four bare category headings would render above the empty state. -->
+    <template v-if="hasArtists">
       <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:keyboard-music" />Producers & Musicians</h2>
       <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
         <Item

@@ -52,7 +52,7 @@ describe('swiper controls', () => {
   })
 
   it('groups the carousel in a named region without breaking heading order', () => {
-    expect(source()).toMatch(/<section\s+:aria-label="title"/)
+    expect(source()).toMatch(/<section\s+:aria-label="title \?\? category"/)
     expect(source(), 'a swiper heading would render before the page h1').not.toContain('<h2')
   })
 })
