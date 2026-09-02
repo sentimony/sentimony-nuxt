@@ -182,7 +182,8 @@ test('uses theme foregrounds and stable read surfaces', async ({ page }) => {
   const themeToggle = page.getByRole('button', { name: 'Switch to light theme' })
   await themeToggle.focus()
   await expect(themeToggle).toBeFocused()
-  await expect(themeToggle).toHaveClass(/focus-visible:ring-2/)
+  // Focus styling now comes from the unlayered global rule, not per-component classes.
+  await expect(themeToggle).not.toHaveClass(/focus-visible:ring-/)
 })
 
 test('switches instantly with reduced motion', async ({ page }) => {

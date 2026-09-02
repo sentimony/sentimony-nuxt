@@ -98,15 +98,30 @@ describe('non-primitive focus', () => {
   it('replaces browser-default focus colours with the semantic ring token', () => {
     const css = readProjectFile('app/assets/css/tailwind.css')
 
-    const linkFocusRule = cssBlock(css, '\na:focus-visible {')
-    expect(linkFocusRule).toContain('outline: 2px solid var(--ring)')
-    expect(linkFocusRule).toContain('outline-offset: 2px')
+    const focusRule = cssBlock(css, '\n:is(a, button, [role="button"], input[type="range"], summary):focus-visible {')
+    expect(focusRule).toContain('outline: 2px solid var(--ring)')
+    expect(focusRule).toContain('outline-offset: 2px')
+
+    // Unlayered declarations outrank anything in @layer utilities regardless of
+    // specificity; wrapping this rule in a layer would silently disable it.
+    // tailwind.css has no @layer today, so any earlier @layer means it moved.
+    const ruleIndex = css.indexOf(':is(a, button, [role="button"], input[type="range"], summary):focus-visible')
+    const enclosingLayer = css.lastIndexOf('@layer', ruleIndex)
+    expect(enclosingLayer, 'the rule must stay unlayered').toBe(-1)
 
     const passwordToggleFocusRule = cssBlock(css, '\nbutton.password-toggle:focus-visible {')
     expect(passwordToggleFocusRule).toContain('outline-style: solid')
     expect(passwordToggleFocusRule).toContain('outline-width: 2px')
     expect(passwordToggleFocusRule).toContain('outline-color: var(--ring)')
     expect(passwordToggleFocusRule).toContain('outline-offset: 2px')
+  })
+
+  it('lets no component suppress the shared focus indicator', () => {
+    for (const file of ['app/components/ThemeToggle.vue', 'app/components/Header.vue']) {
+      const source = readProjectFile(file)
+      expect(source, `${file} keeps a dead outline-none`).not.toContain('outline-none')
+      expect(source, `${file} draws a ring on top of the outline`).not.toContain('focus-visible:ring-')
+    }
   })
 
   it('keeps focus immediate and light on the intentional dark footer', () => {

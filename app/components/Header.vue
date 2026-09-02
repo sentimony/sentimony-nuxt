@@ -126,7 +126,7 @@ async function signOut() {
                 <DropdownMenuItem as-child>
                   <NuxtLink
                     to="/profile"
-                    class="flex items-center gap-3 px-3 py-2 text-sm transition-colors hover:bg-black/10 dark:hover:bg-white/10 outline-none data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10"
+                    class="flex items-center gap-3 px-3 py-2 text-sm transition-colors hover:bg-black/10 dark:hover:bg-white/10 data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10"
                   >
                     <Icon name="lucide:circle-user-round" size="18" class="opacity-50" />
                     <span>Profile</span>
@@ -135,7 +135,7 @@ async function signOut() {
                 <DropdownMenuItem as-child>
                   <button
                     type="button"
-                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 outline-none data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 cursor-pointer"
+                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 cursor-pointer"
                     @click="signOut"
                   >
                     <Icon name="lucide:log-out" size="18" class="opacity-50" />
