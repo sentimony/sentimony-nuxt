@@ -120,6 +120,14 @@ html {
   background-color: #ffffff;
   scrollbar-gutter: stable;
   overflow-x: hidden;
+  /* Sticky header (4.5rem + border) and bottom player (71px) overlap anchor targets. */
+  scroll-padding-top: 5rem;
+  scroll-padding-bottom: 5rem;
+}
+
+/* The skip link moves focus here programmatically; the region itself is not interactive. */
+#main:focus {
+  outline: none;
 }
 
 html.dark {
