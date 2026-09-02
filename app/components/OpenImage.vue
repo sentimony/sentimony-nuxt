@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { toast } from 'vue-sonner'
 
 const props = withDefaults(defineProps<{
@@ -9,8 +9,6 @@ const props = withDefaults(defineProps<{
   ratio?: 'square' | 'video'
 }>(), { ratio: 'square' })
 
-const isOpen = ref(false)
-const open = () => { if (props.image_xl) isOpen.value = true }
 const previewImage = computed(() => thumb(props.image_th))
 
 // The preview only fixes a width; height follows the image's real aspect ratio.
@@ -21,7 +19,7 @@ const boxClass = computed(() =>
 )
 const imgWidth = computed(() => (props.ratio === 'video' ? 280 : 190))
 
-const comingImage = '<div class="p-4 text-[12px] text-white/50">Image is<br>coming ⛄</div>'
+const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">Image is<br>coming ⛄</span>'
 
 async function downloadImage() {
   const url = props.image_xl
@@ -57,29 +55,33 @@ async function copyPath() {
 </script>
 
 <template>
-  <DialogRoot v-model:open="isOpen">
+  <DialogRoot>
 
-    <div
-      class="cursor-pointer w-fit mr-4 mb-2 p-[5px] md:p-[10px] rounded-sm transition-[background-color] duration-200 ease-in-out hover:bg-black/10 dark:hover:bg-white/30"
-      v-wave
-      @click="open"
-    >
-      <div :class="boxClass" class="shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30">
-        <img
-          v-if="previewImage"
-          :src="previewImage"
-          :alt="alt"
-          class="block w-full h-auto object-contain"
-          :width="imgWidth"
-          loading="lazy"
-        />
-        <div
-          v-else
-          class="aspect-square flex items-center justify-center"
-          v-html="comingImage"
-        />
-      </div>
-    </div>
+    <DialogTrigger as-child>
+      <button
+        type="button"
+        :disabled="!image_xl"
+        :aria-label="`Open full-size image: ${alt || 'image'}`"
+        class="block cursor-pointer w-fit mr-4 mb-2 p-[5px] md:p-[10px] rounded-sm transition-[background-color] duration-200 ease-in-out hover:bg-black/10 dark:hover:bg-white/30 disabled:cursor-default"
+        v-wave
+      >
+        <span :class="boxClass" class="block shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-black/30">
+          <img
+            v-if="previewImage"
+            :src="previewImage"
+            :alt="alt"
+            class="block w-full h-auto object-contain"
+            :width="imgWidth"
+            loading="lazy"
+          />
+          <span
+            v-else
+            class="aspect-square flex items-center justify-center"
+            v-html="comingImage"
+          />
+        </span>
+      </button>
+    </DialogTrigger>
 
     <DialogPortal>
       <DialogOverlay as-child>

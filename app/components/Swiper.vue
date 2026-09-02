@@ -75,7 +75,8 @@ watch(() => [props.activeSlug, totalLength.value], () => {
 </script>
 
 <template>
-  <div class="overflow-hidden"
+  <section
+    :aria-label="title"
     :class="['relative overflow-hidden h-[174px] md:h-[284px] lg:h-[292px] ', 'swiper-' + category]"
   >
 
@@ -165,18 +166,22 @@ watch(() => [props.activeSlug, totalLength.value], () => {
         </template>
 
         <button
+          type="button"
+          aria-label="Next"
           class="swiper-button-next"
           v-wave
         />
 
         <button
+          type="button"
+          aria-label="Previous"
           class="swiper-button-prev"
           v-wave
         />
       </Swiper>
 
     </ClientOnly>
-  </div>
+  </section>
 </template>
 
 <style>
