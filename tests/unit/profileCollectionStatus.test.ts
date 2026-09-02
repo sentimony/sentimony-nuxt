@@ -7,7 +7,7 @@ const readProjectFile = (path: string) =>
 
 describe('profile collection status', () => {
   it('keeps retry and pagination actions mounted while they load', () => {
-    const status = readProjectFile('app/components/ProfileCollectionStatus.vue')
+    const status = readProjectFile('app/components/CollectionStatus.vue')
 
     expect(status.indexOf('v-if="error"')).toBeLessThan(
       status.indexOf('v-else-if="loading && !loaded"'),

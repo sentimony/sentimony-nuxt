@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Release } from '~/types'
 
-const { data: releasesRaw } = await useReleases()
+const { data: releasesRaw, status, error, refresh } = await useReleases()
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
 const appConfig = useAppConfig()
@@ -36,6 +36,15 @@ useSeoMeta({
         :i="i"
       />
     </div>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && releasesSortedByDate.length === 0"
+      empty-text="No releases published yet"
+      @retry="refresh()"
+    />
 
   </div>
 </template>

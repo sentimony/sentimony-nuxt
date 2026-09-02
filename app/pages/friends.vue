@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Friend } from '~/types'
 
-const { data: friendsRaw } = await useFriends()
+const { data: friendsRaw, status, error, refresh } = await useFriends()
 const friends = computed(() => toArray<Friend>(friendsRaw.value, 'friends'))
 const friendsSortedByDate = computed(() => visibleByDate(friends.value))
 
@@ -52,6 +52,15 @@ useSeoMeta({
         </NuxtLink>
       </p>
     </div>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && friendsSortedByDate.length === 0"
+      empty-text="No friends listed yet"
+      @retry="refresh()"
+    />
 
   </div>
 </template>

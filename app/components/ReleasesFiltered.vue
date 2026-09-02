@@ -7,7 +7,7 @@ const props = defineProps<{
   title: string
 }>()
 
-const { data: releasesRaw } = await useReleases()
+const { data: releasesRaw, status, error, refresh } = await useReleases()
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const filtered = computed(() =>
   [...releases.value]
@@ -31,6 +31,15 @@ const filtered = computed(() =>
         :i="i"
       />
     </div>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && filtered.length === 0"
+      empty-text="No releases in this genre yet"
+      @retry="refresh()"
+    />
 
   </div>
 </template>

@@ -42,7 +42,7 @@ await tracks.ensureLoaded()
       </NuxtLink>
     </div>
 
-    <ProfileCollectionStatus
+    <CollectionStatus
       :loading="tracks.loading.value"
       :loaded="tracks.loaded.value"
       :has-more="tracks.hasMore.value"

@@ -1,12 +1,17 @@
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   loading: boolean
   loaded: boolean
-  hasMore: boolean
-  remaining: number
+  hasMore?: boolean
+  remaining?: number
   empty?: boolean
   error?: boolean
-}>()
+  emptyText?: string
+}>(), {
+  hasMore: false,
+  remaining: 0,
+  emptyText: 'Nothing saved here yet',
+})
 
 defineEmits<{
   loadMore: []
@@ -44,7 +49,7 @@ defineEmits<{
     v-else-if="empty"
     class="py-16 text-center text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
   >
-    Nothing saved here yet
+    {{ emptyText }}
   </p>
 
   <Button

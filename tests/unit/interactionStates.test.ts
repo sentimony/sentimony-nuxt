@@ -198,7 +198,7 @@ describe('auth surface', () => {
 describe('profile surface', () => {
   const PROFILE_FILES = [
     'app/components/ProfileCollectionPage.vue',
-    'app/components/ProfileCollectionStatus.vue',
+    'app/components/CollectionStatus.vue',
     'app/pages/profile.vue',
     'app/pages/profile/index.vue',
     'app/pages/profile/tracks.vue',

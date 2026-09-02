@@ -5,9 +5,19 @@ const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 useCanonical(() => absoluteUrl.value)
 
-const { data: releasesRaw } = await useReleases()
-const { data: eventsRaw } = await useEvents()
-const { data: videosRaw } = await useVideos()
+const { data: releasesRaw, status: releasesStatus, error: releasesError, refresh: refreshReleases } = await useReleases()
+const { data: eventsRaw, status: eventsStatus, error: eventsError, refresh: refreshEvents } = await useEvents()
+const { data: videosRaw, status: videosStatus, error: videosError, refresh: refreshVideos } = await useVideos()
+
+const status = computed(() => {
+  const all = [releasesStatus.value, eventsStatus.value, videosStatus.value]
+  if (all.includes('pending')) return 'pending'
+  if (all.includes('error')) return 'error'
+  if (all.every(s => s === 'success')) return 'success'
+  return 'idle'
+})
+const error = computed(() => releasesError.value || eventsError.value || videosError.value)
+const refresh = () => Promise.all([refreshReleases(), refreshEvents(), refreshVideos()])
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
@@ -104,6 +114,15 @@ useSeoMeta({
           </span>
         </NuxtLink>
       </div>
+
+      <CollectionStatus
+        :loading="status === 'pending'"
+        :loaded="status === 'success'"
+        :error="!!error"
+        :empty="status === 'success' && newsItems.length === 0"
+        empty-text="Nothing published yet"
+        @retry="refresh()"
+      />
     </div>
 
   </div>

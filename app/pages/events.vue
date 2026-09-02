@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Event } from '~/types'
 
-const { data: eventsRaw } = await useEvents()
+const { data: eventsRaw, status, error, refresh } = await useEvents()
 const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
 const eventsSortedByDate = computed(() => visibleByDate(events.value))
 const appConfig = useAppConfig()
@@ -49,6 +49,15 @@ useSeoMeta({
         </NuxtLink> -->
       <!-- </p> -->
     </div>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && eventsSortedByDate.length === 0"
+      empty-text="No events announced yet"
+      @retry="refresh()"
+    />
 
   </div>
 </template>
