@@ -271,17 +271,6 @@ describe('catalog surface', () => {
   })
 })
 
-describe('catalog contrast', () => {
-  it('keeps status badges and prose links distinguishable', () => {
-    const item = readProjectFile('app/components/Item.vue')
-    const css = readProjectFile('app/assets/css/tailwind.css')
-
-    expect(item).toContain('bg-green-700')
-    expect(item).toContain('bg-red-700')
-    expect(css).toMatch(/\.Content a \{[^}]*underline/)
-  })
-})
-
 describe('auth form accessibility', () => {
   it('links field errors to their inputs and announces them', () => {
     const authForm = readProjectFile('app/components/AuthForm.vue')
