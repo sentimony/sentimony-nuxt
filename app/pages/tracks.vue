@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { toArray } from '~/composables/toArray'
 import { sortByDate } from '~/composables/sortByDate'
-import type { Artist, Event, Friend, Playlist, Release, Video } from '~/types'
+import type { Artist, Event, Playlist, Release, Video } from '~/types'
 
 definePageMeta({
   layout: 'default',
@@ -74,10 +74,6 @@ const playlists = computed(() => playlistsArr.value.filter(p => Boolean(p?.visib
 const { data: eventsRaw } = await useEvents({ server: true })
 const eventsArr = computed(() => toArray<Event>(eventsRaw.value, 'events'))
 const events = computed(() => eventsArr.value.filter(e => Boolean(e?.visible)).length)
-
-const { data: friendsRaw } = await useFriends({ server: true })
-const friendsArr = computed(() => toArray<Friend>(friendsRaw.value, 'friends'))
-const friends = computed(() => friendsArr.value.filter(f => Boolean(f?.visible)).length)
 
 const stats = computed(() => [
   { label: 'Tracks', value: tracks.value },

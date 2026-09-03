@@ -1,5 +1,3 @@
-const isDev = process.env.NODE_ENV === 'development'
-
 export default defineCachedEventHandler(
   async (event) => {
     const id = event.context.params?.id as string | undefined

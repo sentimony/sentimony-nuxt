@@ -83,6 +83,8 @@ export default defineNuxtConfig({
     tsConfig: {
       compilerOptions: {
         noFallthroughCasesInSwitch: true,
+        noUnusedLocals: true,
+        noUnusedParameters: true,
       },
     },
   },
@@ -93,6 +95,8 @@ export default defineNuxtConfig({
         compilerOptions: {
           noImplicitOverride: true,
           noFallthroughCasesInSwitch: true,
+          noUnusedLocals: true,
+          noUnusedParameters: true,
         },
       },
     },

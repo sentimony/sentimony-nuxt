@@ -2,8 +2,6 @@
 import type { Release, Artist, ArtistCategory, Video, Playlist, Event } from '~/types'
 import { groupArtistsByCategory, sortArtistsForCatalog } from '~/utils/artists'
 
-const host = useRequestURL().hostname
-
 const route = useRoute()
 const isIndex = computed(() => route.path === '/')
 const showReleases = computed(() => route.path.startsWith('/release/') || isIndex.value)
