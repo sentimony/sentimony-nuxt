@@ -33,8 +33,8 @@
 
 **Files:** `docs/specs/2026-09-04-*.md`, `docs/plans/2026-09-04-*.md`, `docs/initiatives/catalog-semantics.md`, `docs/roadmap.md`
 
-- [ ] `git diff --cached --name-only` порожній.
-- [ ] `git add` шість документів + ініціатива + roadmap; `npm run docs:check`; commit `docs: add 2026-09-04 remediation specs, plans and the catalog-semantics initiative`.
+- [x] `git diff --cached --name-only` порожній.
+- [x] `git add` шість документів + ініціатива + roadmap; `npm run docs:check`; commit `docs: add 2026-09-04 remediation specs, plans and the catalog-semantics initiative`.
 
 ---
 
@@ -46,13 +46,13 @@
 - Modify: `tests/unit/releasesApi.test.ts`, `tests/unit/perfStats.test.ts`, `tests/unit/perfRoutes.test.ts`, `tests/e2e/homepage-theme.spec.ts`
 - Depends: `tests/setup/nitroMocks.ts` (план Vitest, задача 1)
 
-- [ ] **Step 1:** створити `tsconfig.tests.json` зі спеки (extends `./.nuxt/tsconfig.app.json`, include `.nuxt/nuxt.d.ts`, `tests/**/*.ts`, `vitest.config.ts`, `playwright.config.ts`, `exclude: []`).
-- [ ] **Step 2:** `package.json` → `"typecheck:tests": "node_modules/.bin/vue-tsc --noEmit -p tsconfig.tests.json"`, `"pretypecheck:tests": "npm run prepare:types"`. Запустити `npm run typecheck:tests` — очікується 9 діагностик (baseline аудиту).
-- [ ] **Step 3:** `perfStats.test.ts`, `perfRoutes.test.ts` — прибрати рядок `// @ts-expect-error …`; у `perfStats` звузити `summarize()` (`expect(result).not.toBeNull()` + optional chaining, або окремий `it('returns null for no finite samples')`).
-- [ ] **Step 4:** `homepage-theme.spec.ts:200,217` — `window as unknown as Window & { __viewTransitionCalls: number }`.
-- [ ] **Step 5:** `releasesApi.test.ts:51,79` — `handler(fakeEvent())` з `../setup/nitroMocks`.
-- [ ] **Step 6:** `ci.yml` job `typecheck` → третій крок `- name: Typecheck tests (vue-tsc, tests program)` / `run: npm run typecheck:tests`. Позначити в коміті, що крок не верифікований до пушу.
-- [ ] **Step 7:** гейт; `git add tsconfig.tests.json .github/workflows/ci.yml tests/unit/releasesApi.test.ts tests/unit/perfStats.test.ts tests/unit/perfRoutes.test.ts tests/e2e/homepage-theme.spec.ts` + `git add -p package.json` (лише хунк скриптів); commit `feat(typecheck): type-check the test suite`.
+- [x] **Step 1:** створити `tsconfig.tests.json` зі спеки (extends `./.nuxt/tsconfig.app.json`, include `.nuxt/nuxt.d.ts`, `tests/**/*.ts`, `vitest.config.ts`, `playwright.config.ts`, `exclude: []`).
+- [x] **Step 2:** `package.json` → `"typecheck:tests": "node_modules/.bin/vue-tsc --noEmit -p tsconfig.tests.json"`, `"pretypecheck:tests": "npm run prepare:types"`. Запустити `npm run typecheck:tests` — очікується 9 діагностик (baseline аудиту).
+- [x] **Step 3:** `perfStats.test.ts`, `perfRoutes.test.ts` — прибрати рядок `// @ts-expect-error …`; у `perfStats` звузити `summarize()` (`expect(result).not.toBeNull()` + optional chaining, або окремий `it('returns null for no finite samples')`).
+- [x] **Step 4:** `homepage-theme.spec.ts:200,217` — `window as unknown as Window & { __viewTransitionCalls: number }`.
+- [x] **Step 5:** `releasesApi.test.ts:51,79` — `handler(fakeEvent())` з `../setup/nitroMocks`.
+- [x] **Step 6:** `ci.yml` job `typecheck` → третій крок `- name: Typecheck tests (vue-tsc, tests program)` / `run: npm run typecheck:tests`. Позначити в коміті, що крок не верифікований до пушу.
+- [x] **Step 7:** гейт; `git add tsconfig.tests.json .github/workflows/ci.yml tests/unit/releasesApi.test.ts tests/unit/perfStats.test.ts tests/unit/perfRoutes.test.ts tests/e2e/homepage-theme.spec.ts` + `git add -p package.json` (лише хунк скриптів); commit `feat(typecheck): type-check the test suite`.
 
 ---
 
@@ -60,9 +60,9 @@
 
 **Files:** `nuxt.config.ts`
 
-- [ ] **Step 1:** додати `typescript: { tsConfig: { compilerOptions: { noFallthroughCasesInSwitch: true } } }` і `nitro.typescript.tsConfig.compilerOptions = { noImplicitOverride: true, noFallthroughCasesInSwitch: true }`.
-- [ ] **Step 2:** `npm run prepare:types`; `node -e` прочитати `.nuxt/tsconfig.app.json` і `.nuxt/tsconfig.server.json` — обидва прапорці `true`.
-- [ ] **Step 3:** гейт; commit `chore(typescript): enable fallthrough and override checks in the Nuxt programs`.
+- [x] **Step 1:** додати `typescript: { tsConfig: { compilerOptions: { noFallthroughCasesInSwitch: true } } }` і `nitro.typescript.tsConfig.compilerOptions = { noImplicitOverride: true, noFallthroughCasesInSwitch: true }`.
+- [x] **Step 2:** `npm run prepare:types`; `node -e` прочитати `.nuxt/tsconfig.app.json` і `.nuxt/tsconfig.server.json` — обидва прапорці `true`.
+- [x] **Step 3:** гейт; commit `chore(typescript): enable fallthrough and override checks in the Nuxt programs`.
 
 ---
 
@@ -70,10 +70,10 @@
 
 **Files:** `app/layouts/default.vue`, `app/pages/index.vue`, `app/pages/tracks.vue`, 13 × `server/api/**/*.get.ts` з `const isDev`, `nuxt.config.ts`, будь-які тестові файли, що впадуть під `noUnused*`
 
-- [ ] **Step 1:** прибрати `host` (`default.vue:5`), чотири константи `logoNewUrlv2/AltV2/UrlV3/AltV3` (`index.vue:6-9`), `friends` разом із `useFriends()`/`friendsRaw`/`friendsArr` і імпортом `Friend` (`tracks.vue`), 13 × `const isDev = …` (перевірити, що `isDev` ніде далі у файлі не читається).
-- [ ] **Step 2:** `nuxt.config.ts` → `noUnusedLocals: true, noUnusedParameters: true` в обох `compilerOptions`.
-- [ ] **Step 3:** `npm run prepare:types && npm run typecheck && npm run typecheck:tests` — виправити все, що з'явиться в тестах (невикористані імпорти/змінні), без супресій.
-- [ ] **Step 4:** гейт; commit `chore(typescript): drop unused declarations and enforce noUnused checks` з тілом про мінус один SSR-запит `useFriends` на `/tracks`.
+- [x] **Step 1:** прибрати `host` (`default.vue:5`), чотири константи `logoNewUrlv2/AltV2/UrlV3/AltV3` (`index.vue:6-9`), `friends` разом із `useFriends()`/`friendsRaw`/`friendsArr` і імпортом `Friend` (`tracks.vue`), 13 × `const isDev = …` (перевірити, що `isDev` ніде далі у файлі не читається).
+- [x] **Step 2:** `nuxt.config.ts` → `noUnusedLocals: true, noUnusedParameters: true` в обох `compilerOptions`.
+- [x] **Step 3:** `npm run prepare:types && npm run typecheck && npm run typecheck:tests` — виправити все, що з'явиться в тестах (невикористані імпорти/змінні), без супресій.
+- [x] **Step 4:** гейт; commit `chore(typescript): drop unused declarations and enforce noUnused checks` з тілом про мінус один SSR-запит `useFriends` на `/tracks`.
 
 ---
 
@@ -81,11 +81,11 @@
 
 **Files:** `app/pages/track/[id].vue:30-32,64`, `server/utils/firebaseCatalog.ts:66,70,71,83`, `server/api/track/[id].get.ts:29,30`, `app/utils/sanitizeHtml.ts:70`, `app/utils/tracks.ts:68`, `app/components/player/GlobalPlayer.vue:36`
 
-- [ ] **Step 1:** сторінка треку — після throw-guard `const payload = data.value` (тип звужений), computed-и читають `payload.track` тощо; `split(',')[0]!.trim()` → `split(',')[0]?.trim()` з `?? undefined`-гілкою.
-- [ ] **Step 2:** `firebaseCatalog.ts` — capture groups через `?.[1] ?? ''`; `sanitizeHtml.ts:70` — так само; `tracks.ts:68` — `slugs[index] ?? null`.
-- [ ] **Step 3:** `track/[id].get.ts:29,30` — `const [release] = releases; if (!release) …` (з тим самим early return, що і для порожнього масиву); `GlobalPlayer.vue:36` — `const [first] = queue; if (!first) return`.
-- [ ] **Step 4:** `grep -rnE '[A-Za-z0-9_)\]]!(\.|\[|\)|,|;| |$)' app server netlify --include='*.ts' --include='*.vue' | grep -v '!=' | grep -v 'class='` → 0.
-- [ ] **Step 5:** гейт; commit `refactor(typescript): replace non-null assertions with guards`.
+- [x] **Step 1:** сторінка треку — після throw-guard `const payload = data.value` (тип звужений), computed-и читають `payload.track` тощо; `split(',')[0]!.trim()` → `split(',')[0]?.trim()` з `?? undefined`-гілкою.
+- [x] **Step 2:** `firebaseCatalog.ts` — capture groups через `?.[1] ?? ''`; `sanitizeHtml.ts:70` — так само; `tracks.ts:68` — `slugs[index] ?? null`.
+- [x] **Step 3:** `track/[id].get.ts:29,30` — `const [release] = releases; if (!release) …` (з тим самим early return, що і для порожнього масиву); `GlobalPlayer.vue:36` — `const [first] = queue; if (!first) return`.
+- [x] **Step 4:** `grep -rnE '[A-Za-z0-9_)\]]!(\.|\[|\)|,|;| |$)' app server netlify --include='*.ts' --include='*.vue' | grep -v '!=' | grep -v 'class='` → 0.
+- [x] **Step 5:** гейт; commit `refactor(typescript): replace non-null assertions with guards`.
 
 ---
 
@@ -93,9 +93,9 @@
 
 **Files:** `AGENTS.md`
 
-- [ ] **Step 1:** рядок **check** і абзац «Commands» → `npm run test:unit && npm run typecheck && npm run typecheck:tests && npm run docs:check`; речення про `tsconfig.tests.json` (extends generated app-програму, `exclude: []`, без Vitest-globals). `Last reviewed: 2026-09-04`. Під 250 рядків.
-- [ ] **Step 2:** `docs/initiatives/typescript-hardening.md` — обсяг: `typecheck:tests` ✓, зелені прапорці ✓, unused ✓, non-null ✓; лишаються `exactOptionalPropertyTypes` (якщо задача 6 не виконана) і ESLint; `Last reviewed: 2026-09-04`; статус `Partial` (roadmap уже `Partial`).
-- [ ] **Step 3:** `npm run docs:check`; commit `docs: record the test typecheck gate in AGENTS.md`.
+- [x] **Step 1:** рядок **check** і абзац «Commands» → `npm run test:unit && npm run typecheck && npm run typecheck:tests && npm run docs:check`; речення про `tsconfig.tests.json` (extends generated app-програму, `exclude: []`, без Vitest-globals). `Last reviewed: 2026-09-04`. Під 250 рядків.
+- [x] **Step 2:** `docs/initiatives/typescript-hardening.md` — обсяг: `typecheck:tests` ✓, зелені прапорці ✓, unused ✓, non-null ✓; лишаються `exactOptionalPropertyTypes` (якщо задача 6 не виконана) і ESLint; `Last reviewed: 2026-09-04`; статус `Partial` (roadmap уже `Partial`).
+- [x] **Step 3:** `npm run docs:check`; commit `docs: record the test typecheck gate in AGENTS.md`.
 
 ---
 
@@ -103,6 +103,6 @@
 
 **Files:** 20 місць передавання `undefined` в optional prop (`OpenImage` ×5 сторінок, `EntityLinks` ×3, `PlayerTrackInfo` ×2, `Item` у `Swiper` ×2, `Tab`, `Tabs`, `AuthForm`, `DefaultButton` в `OpenImage`, `AudioMixPlayer`, `PagePlayer` ×3); 7 reka-ui обгорток `ui/{input,label,sonner,tooltip/*}`; 10 об'єктів (`QueueItem`/`PlayerItem` у `useAudioPlayer`, `GlobalPlayer`, `PagePlayer`; `sitemapUrls.ts` ×2; `news.vue` ×2; `artist`, `release`, `track` playerTracks)
 
-- [ ] **Step 1:** прапорець у обох `compilerOptions`; `prepare:types`; зафіксувати список діагностик (очікується 37 + можливі в тестах).
-- [ ] **Step 2:** для компонентів, що навмисно приймають `undefined`, — `x?: T | undefined` у `defineProps`; для об'єктів — `| undefined` у типі поля або пропуск ключа через spread умовно.
-- [ ] **Step 3:** гейт; commit `chore(typescript): enable exactOptionalPropertyTypes`. Якщо задача не завершена в сесії — **відкотити прапорець і правки** (`git checkout -- .` по allowlist задачі), лишити цей блок без галочок і зафіксувати в ініціативі число 37.
+- [x] **Step 1:** прапорець у обох `compilerOptions`; `prepare:types`; зафіксувати список діагностик (очікується 37 + можливі в тестах). **Результат 2026-09-04:** 39 в app/server (+21 у тестовій програмі, ті самі файли).
+- [ ] **Step 2 (не виконано):** для компонентів, що навмисно приймають `undefined`, — `x?: T | undefined` у `defineProps`; для об'єктів — `| undefined` у типі поля або пропуск ключа через spread умовно.
+- [ ] **Step 3 (не виконано, прапорець відкочено — 7 reka-ui обгорток не проходять без кастів, див. ініціативу):** гейт; commit `chore(typescript): enable exactOptionalPropertyTypes`. Якщо задача не завершена в сесії — **відкотити прапорець і правки** (`git checkout -- .` по allowlist задачі), лишити цей блок без галочок і зафіксувати в ініціативі число 37.

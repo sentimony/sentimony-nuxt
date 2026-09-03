@@ -16,7 +16,14 @@ TS-1–TS-5 і VITEST-3 показали, що test TypeScript не переві
 `noFallthroughCasesInSwitch` + `noImplicitOverride` в обох Nuxt-програмах,
 `noUnusedLocals`/`noUnusedParameters` після видалення 19 декларацій, нуль
 non-null assertions у `app/`, `server/`, `netlify/`. Лишаються
-`exactOptionalPropertyTypes` (37 правок за аудитом) і ESLint guardrails.
+`exactOptionalPropertyTypes` і ESLint guardrails.
+
+`exactOptionalPropertyTypes` пробували 2026-09-04 (задача 6 плану): 39
+діагностик у app/server, з них 7 у обгортках `ui/{tooltip,label,input,sonner}`
+— Vue типізує resolved props як `x: T | undefined`, а `v-bind="props"` у
+reka-ui/vue-sonner очікує `x?: T` без `undefined`; без кастів на кожній
+обгортці прапорець не проходить. Прапорець відкочено; повернутися після
+оновлення Vue/reka-ui або з рішенням про типізований `compact()`-хелпер.
 
 ## Очікуваний результат
 
@@ -29,7 +36,7 @@ unused declarations, unsafe suppressions і невиправдані assertions 
 - ✓ Зелені `noFallthroughCasesInSwitch` та `noImplicitOverride` через `nuxt.config.ts`.
 - ✓ Declarations очищено, unused checks увімкнено.
 - ✓ Non-null assertions замінено guard-ами.
-- Окремо мігрувати `exactOptionalPropertyTypes`.
+- Окремо мігрувати `exactOptionalPropertyTypes` (заблоковано типами Vue props, див. вище).
 - Додати ESLint type-safety guardrails (потребує нової залежності).
 
 ## Залежності
@@ -45,4 +52,4 @@ unused declarations, unsafe suppressions і невиправдані assertions 
 
 ## Наступний крок
 
-Увімкнути `exactOptionalPropertyTypes` за задачею 6 плану, потім обрати ESLint-конфіг разом із `chore(deps)`.
+Обрати ESLint-конфіг разом із `chore(deps)`; `exactOptionalPropertyTypes` — після рішення про обгортки reka-ui.

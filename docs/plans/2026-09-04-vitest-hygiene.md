@@ -33,10 +33,10 @@
 - Modify: сім тестових файлів вище
 - Test: `tests/unit/nitroMocks.test.ts` (create) — `installNitroGlobals` ставить дефолти й overrides, `restore()` повертає попередні значення і видаляє нові ключі
 
-- [ ] **Step 1:** створити хелпер за спекою (дефолти `defineEventHandler`, `defineCachedEventHandler`, `catalogCacheOptions`, `createError`; `fakeEvent`).
-- [ ] **Step 2:** написати `nitroMocks.test.ts` (3 кейси) — падає до створення хелпера, проходить після.
-- [ ] **Step 3:** мігрувати файли по одному: `beforeEach` → `restore = installNitroGlobals({...overrides файлу})`; `afterEach` → `restore()`; прибрати ручні `delete (globalThis…)[key]`. `vi.resetModules()` лишити. Кожен файл — окремий `npx vitest run tests/unit/<file>`.
-- [ ] **Step 4:** гейт + shuffle; commit `test: share Nitro auto-import mocks through installNitroGlobals`.
+- [x] **Step 1:** створити хелпер за спекою (дефолти `defineEventHandler`, `defineCachedEventHandler`, `catalogCacheOptions`, `createError`; `fakeEvent`).
+- [x] **Step 2:** написати `nitroMocks.test.ts` (3 кейси) — падає до створення хелпера, проходить після.
+- [x] **Step 3:** мігрувати файли по одному: `beforeEach` → `restore = installNitroGlobals({...overrides файлу})`; `afterEach` → `restore()`; прибрати ручні `delete (globalThis…)[key]`. `vi.resetModules()` лишити. Кожен файл — окремий `npx vitest run tests/unit/<file>`.
+- [x] **Step 4:** гейт + shuffle; commit `test: share Nitro auto-import mocks through installNitroGlobals`.
 
 ---
 
@@ -44,9 +44,9 @@
 
 **Files:** `vitest.config.ts`, 9 файлів із `vi.restoreAllMocks()`
 
-- [ ] **Step 1:** `test.restoreMocks: true`.
-- [ ] **Step 2:** видалити `vi.restoreAllMocks()` у 9 файлах; порожні `afterEach` видалити, непорожні лишити (там `restore()` хелпера).
-- [ ] **Step 3:** гейт + shuffle; commit `test: restore mocks from the Vitest config instead of per-file hooks`.
+- [x] **Step 1:** `test.restoreMocks: true`.
+- [x] **Step 2:** видалити `vi.restoreAllMocks()` у 9 файлах; порожні `afterEach` видалити, непорожні лишити (там `restore()` хелпера).
+- [x] **Step 3:** гейт + shuffle; commit `test: restore mocks from the Vitest config instead of per-file hooks`.
 
 ---
 
@@ -54,8 +54,8 @@
 
 **Files:** `vitest.config.ts`
 
-- [ ] **Step 1:** `include: ['tests/unit/**/*.test.ts', 'tests/nuxt/**/*.test.ts']`.
-- [ ] **Step 2:** `npm run test:unit` — 52 + 1 (nitroMocks) файли, як і до зміни; commit `test: include the reserved tests/nuxt directory`.
+- [x] **Step 1:** `include: ['tests/unit/**/*.test.ts', 'tests/nuxt/**/*.test.ts']`.
+- [x] **Step 2:** `npm run test:unit` — 52 + 1 (nitroMocks) файли, як і до зміни; commit `test: include the reserved tests/nuxt directory`.
 
 ---
 
@@ -63,6 +63,6 @@
 
 **Files:** `AGENTS.md`, `docs/initiatives/component-testing-and-coverage.md`
 
-- [ ] **Step 1:** у AGENTS.md абзац про моки Nitro auto-imports → посилання на `installNitroGlobals` у `tests/setup/nitroMocks.ts` замість «assigning them to globalThis … see likeCountersHandler.test.ts»; речення про `restoreMocks: true` (ручний `vi.restoreAllMocks` не потрібен) і про пораду Vitest 5 `isolate: false` (не застосовувати — тести мутують `globalThis`).
-- [ ] **Step 2:** ініціатива: обсяг «скоротити manual globalThis mocks» і «cleanup policy» — виконано; лишаються harness, coverage (заблоковані `chore(deps)`); `Last reviewed: 2026-09-04`; статус лишається `Planned`.
-- [ ] **Step 3:** `npm run docs:check`; commit `docs: describe the shared Nitro mock helper and restoreMocks policy`.
+- [x] **Step 1:** у AGENTS.md абзац про моки Nitro auto-imports → посилання на `installNitroGlobals` у `tests/setup/nitroMocks.ts` замість «assigning them to globalThis … see likeCountersHandler.test.ts»; речення про `restoreMocks: true` (ручний `vi.restoreAllMocks` не потрібен) і про пораду Vitest 5 `isolate: false` (не застосовувати — тести мутують `globalThis`).
+- [x] **Step 2:** ініціатива: обсяг «скоротити manual globalThis mocks» і «cleanup policy» — виконано; лишаються harness, coverage (заблоковані `chore(deps)`); `Last reviewed: 2026-09-04`; статус лишається `Planned`.
+- [x] **Step 3:** `npm run docs:check`; commit `docs: describe the shared Nitro mock helper and restoreMocks policy`.
