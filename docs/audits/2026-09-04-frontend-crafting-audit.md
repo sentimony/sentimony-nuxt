@@ -18,11 +18,17 @@
 чорний текст потребує альфи ≥ 0.56 для AA 4.5; темна: білий ≥ 0.46), токени
 `--foreground` / `--muted-foreground` з того часу не змінювалися.
 
-**Вибірка.** Відкрито порядково кожен файл у `app/layouts/`, `app/pages/`
-(35 сторінок) і `app/components/` (усі 40 компонентів, включно з `buttons/*`,
-`player/*` і `ui/{button,input,alert,card}`); `ui/{label,sonner,tooltip}`
-лише через споживачів. Кожна цифра в звіті — результат повторного підрахунку
-в джерелі після grep.
+**Вибірка.** Відкрито порядково 23 із 36 сторінок (усі списки, усі сім
+детальних, `index`, `contacts`, `profile.vue`, `profile/index`, `signin`,
+`reset-password`) і 42 із 50 компонентів (усі поза `ui/*` плюс
+`ui/{alert,button,card,input}`). Решта 13 сторінок пройшли лише grep-інвентар
+(заголовки, токени, атрибути), бо є тонкими обгортками вже відкритих
+компонентів: `signup` і `forgot-password` — над `AuthForm`; шість
+`profile/*` — над `ProfileCollectionPage`; три `releases/{psychill,psytrance,ungrouped}`
+— над `ReleasesFiltered`; `confirm` — редирект; `ui.vue` — поза скоупом.
+Вісім примітивів `ui/{alert/AlertDescription,card/CardContent,label,sonner,tooltip/*}`
+оцінено через споживачів. Кожна цифра в звіті — результат повторного
+підрахунку в джерелі після grep.
 
 **Поверхні та їхні режими** — ті самі сім груп, що й 2026-09-01: головна
 (Persuade + Experience), списки каталогу (Persuade → Operate), детальні
