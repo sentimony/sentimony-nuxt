@@ -297,35 +297,3 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
   </div>
 </template>
-
-<style>
-.BandcampIframe { height: 276px; }
-.BandcampIframe.tracks-1 { height: 176px; }
-.BandcampIframe.tracks-2 { height: 209px; }
-.BandcampIframe.tracks-3 { height: 242px; }
-.BandcampIframe.tracks-4 { height: 276px; }
-.BandcampIframe.tracks-5 { height: 309px; }
-.BandcampIframe.tracks-6 { height: 342px; }
-.BandcampIframe.tracks-7 { height: 376px; }
-.BandcampIframe.tracks-8 { height: 409px; }
-.BandcampIframe.tracks-9 { height: 442px; }
-.BandcampIframe.tracks-10 { height: 476px; }
-.BandcampIframe.tracks-11 { height: 509px; }
-.BandcampIframe.tracks-12 { height: 542px; }
-.BandcampIframe.tracks-13 { height: 575px; }
-
-.SoundcloudIframe { height: 400px; }
-.SoundcloudIframe.tracks-1 { height: 290px; }
-.SoundcloudIframe.tracks-2 { height: 320px; }
-.SoundcloudIframe.tracks-3 { height: 360px; }
-.SoundcloudIframe.tracks-4 { height: 400px; }
-.SoundcloudIframe.tracks-5 { height: 430px; }
-.SoundcloudIframe.tracks-6 { height: 460px; }
-.SoundcloudIframe.tracks-7 { height: 500px; }
-.SoundcloudIframe.tracks-8 { height: 530px; }
-.SoundcloudIframe.tracks-9 { height: 560px; }
-.SoundcloudIframe.tracks-10 { height: 590px; }
-.SoundcloudIframe.tracks-11 { height: 620px; }
-.SoundcloudIframe.tracks-12 { height: 650px; }
-.SoundcloudIframe.tracks-13 { height: 680px; }
-</style>

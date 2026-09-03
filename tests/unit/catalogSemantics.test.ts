@@ -85,3 +85,18 @@ describe('catalog images declare their dimensions', () => {
     }
   })
 })
+
+describe('embedded player heights come from one map', () => {
+  it('release and track pages carry no page-level style block', () => {
+    for (const file of ['app/pages/release/[id].vue', 'app/pages/track/[id].vue']) {
+      expect(readProjectFile(file)).not.toContain('<style')
+    }
+  })
+
+  it('tailwind.css holds the superset of both former maps', () => {
+    const css = readProjectFile('app/assets/css/tailwind.css')
+    for (const selector of ['.BandcampIframe.tracks-1', '.BandcampIframe.tracks-22', '.SoundcloudIframe.tracks-27']) {
+      expect(css).toContain(selector)
+    }
+  })
+})
