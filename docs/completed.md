@@ -1,7 +1,7 @@
 # Завершені ініціативи
 
 - Status: Implemented
-- Last reviewed: 2026-07-25
+- Last reviewed: 2026-09-04
 
 Це стислий історичний індекс. Детальні рішення та кроки залишаються у
 відповідних спеках і планах.
@@ -27,6 +27,17 @@
   скіп-лінка, видимий фокус на кнопках і повзунках, доступні імена для
   іконкових табів і стрілок свайпера, два текстові рівні в каталозі та
   спроєктовані порожній і помилковий стани списків.
+- [Catalog semantics](specs/2026-09-04-frontend-semantics-design.md) за
+  [аудитом 2026-09-04](audits/2026-09-04-frontend-crafting-audit.md): треклісти й
+  списки зв'язків як `<ol>`/`<ul>`, декоративний `alt` у підписаних посиланнях,
+  `title` на кожному плеєрі, стани на решті списків, розміри зображень,
+  `color-scheme`, токени `--color-moss`/`--forest-tint`, одна карта висот
+  iframe-ів, контраст без накладеної прозорості.
+- [TypeScript hardening (частково)](specs/2026-09-04-typescript-hardening-design.md)
+  і [Vitest hygiene](specs/2026-09-04-vitest-hygiene-design.md) за
+  [аудитами 2026-09-04](audits/README.md): `typecheck:tests` у гейті й CI,
+  `noUnused*`/fallthrough/override прапорці, нуль non-null assertions,
+  `installNitroGlobals` + `restoreMocks`.
 
 ## Закрито з попередніх аудитів
 

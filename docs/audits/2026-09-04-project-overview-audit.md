@@ -14,7 +14,7 @@
 Nuxt 4.5 (SSR на Netlify), Nitro з 78 файлами в `server/api/` (20 на
 `defineCachedEventHandler`), два джерела каталогу (Firebase RTDB або
 Supabase) за одним перемикачем, Supabase для auth і лайків з 15 міграціями,
-Tailwind v4 без конфігів. Фронтенд — 90 `.vue` і 58 `.ts` в `app/`, 35
+Tailwind v4 без конфігів. Фронтенд — 90 `.vue` і 58 `.ts` в `app/`, 36
 сторінок; тести — 52 unit-файли / 272 тести + 3 Playwright-специфікації;
 документація — `AGENTS.md` на 135 рядків, 28 ініціатив у roadmap, 13
 датованих аудитів включно з п'ятьма цієї сесії.
