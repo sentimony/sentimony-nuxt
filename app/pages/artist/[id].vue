@@ -261,7 +261,7 @@ useSeoMeta({
                   <iframe
                     class="border-0 aspect-video w-full"
                     :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -278,6 +278,7 @@ useSeoMeta({
               >
                 <iframe
                   width="100%"
+                  :title="item.title + ' SoundCloud player'"
                   height="300"
                   scrolling="no"
                   frameborder="no"

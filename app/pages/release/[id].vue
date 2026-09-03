@@ -167,7 +167,7 @@ useSeoMeta({
                     :class="'BandcampIframe tracks-' + item.tracks_number"
                     :src="'https://bandcamp.com/EmbeddedPlayer/album=' + (item.links?.bandcamp_id || '') + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                     seamless
-                    :title="item.title + ' Bandcamp Iframe'"
+                    :title="item.title + ' Bandcamp player'"
                   />
                 </div>
               </Tab>
@@ -181,7 +181,7 @@ useSeoMeta({
                   <iframe
                     class="border-[0px] aspect-video w-full"
                     :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.links?.youtube_playlist_id || '') + '&loop=1'"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -203,7 +203,7 @@ useSeoMeta({
                     height="450"
                     allow="autoplay"
                     :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                    :title="item.title + ' SoundCloud Iframe'"
+                    :title="item.title + ' SoundCloud player'"
                   />
                 </div>
               </Tab>
@@ -217,7 +217,7 @@ useSeoMeta({
                   <iframe
                     class="border-[0px] aspect-video w-full"
                     :src="embedYTMusic"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"

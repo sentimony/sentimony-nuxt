@@ -114,7 +114,7 @@ useSeoMeta({
                     v-if="item.links?.youtube"
                     class="border-[0px] aspect-video w-full"
                     :src="embedYouTube"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -138,7 +138,7 @@ useSeoMeta({
                     height="450"
                     allow="autoplay"
                     :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                    :title="item.title + ' SoundCloud Iframe'"
+                    :title="item.title + ' SoundCloud player'"
                   />
                 </div>
               </Tab>
@@ -151,7 +151,7 @@ useSeoMeta({
                   <iframe
                     class="border-[0px] aspect-video w-full"
                     :src="embedYTMusic"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"

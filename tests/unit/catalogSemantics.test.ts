@@ -42,3 +42,25 @@ describe('catalog lists are list elements', () => {
     expect(source).not.toMatch(/<RelativeItem\s*\n\s*v-if="i\.artists/)
   })
 })
+
+describe('embedded players are named', () => {
+  const pages = [
+    'app/pages/release/[id].vue',
+    'app/pages/track/[id].vue',
+    'app/pages/artist/[id].vue',
+    'app/pages/video/[id].vue',
+    'app/pages/playlist/[id].vue',
+  ]
+
+  it.each(pages)('%s gives every <iframe> a title with a spaced label', (path) => {
+    const source = readProjectFile(path)
+    const iframes = source.match(/<iframe\b[^>]*>/g) ?? []
+    expect(iframes.length).toBeGreaterThan(0)
+    for (const iframe of iframes) {
+      const title = iframe.match(/:?title="([^"]*)"/)?.[1]
+      expect(title, 'iframe without a title').toBeTruthy()
+      expect(title).not.toMatch(/\+ '[A-Za-z]/)
+      expect(title).not.toContain('Iframe')
+    }
+  })
+})
