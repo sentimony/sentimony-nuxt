@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { installNitroGlobals } from '../setup/nitroMocks'
 
 const releases = [
   { slug: 'release-old', date: '2020-01-01T00:00:00.000Z', tracklist: ['track-one', 'track-two'] },
@@ -12,25 +13,25 @@ const trackRows = [
 ]
 
 describe('fetchAllCatalogTrackRows (tracks page data contract)', () => {
+  let restore: () => void
+
   beforeEach(() => {
     vi.resetModules()
-    ;(globalThis as Record<string, unknown>).createError = (input: { statusMessage?: string }) => new Error(input.statusMessage ?? 'Error')
-    ;(globalThis as Record<string, unknown>).isSupabaseCatalogSource = () => true
-    ;(globalThis as Record<string, unknown>).useSupabase = () => ({
-      from: () => ({
-        select: () => ({ eq: async () => ({ data: releases, error: null }) }),
+    restore = installNitroGlobals({
+      isSupabaseCatalogSource: () => true,
+      useSupabase: () => ({
+        from: () => ({
+          select: () => ({ eq: async () => ({ data: releases, error: null }) }),
+        }),
       }),
-    })
-    ;(globalThis as Record<string, unknown>).supabaseAdmin = () => ({
-      from: () => ({ select: async () => ({ data: trackRows, error: null }) }),
+      supabaseAdmin: () => ({
+        from: () => ({ select: async () => ({ data: trackRows, error: null }) }),
+      }),
     })
   })
 
   afterEach(() => {
-    vi.restoreAllMocks()
-    for (const key of ['createError', 'isSupabaseCatalogSource', 'useSupabase', 'supabaseAdmin']) {
-      delete (globalThis as Record<string, unknown>)[key]
-    }
+    restore()
   })
 
   it('returns a non-empty row per tracklist entry with derived track numbers', async () => {

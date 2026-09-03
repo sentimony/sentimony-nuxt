@@ -1,6 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { installNitroGlobals } from '../setup/nitroMocks'
 
 describe('trackArtists utils degrade on query errors', () => {
+  let restore: () => void = () => {}
+
   beforeEach(() => {
     vi.resetModules()
     vi.spyOn(console, 'warn').mockImplementation(() => {})
@@ -8,19 +11,21 @@ describe('trackArtists utils degrade on query errors', () => {
 
   afterEach(() => {
     vi.restoreAllMocks()
-    delete (globalThis as Record<string, unknown>).supabaseAdmin
+    restore()
   })
 
   function mockError(message: string) {
     const result = { data: null, error: { message } }
-    ;(globalThis as Record<string, unknown>).supabaseAdmin = () => ({
-      from: () => ({
-        select: () => ({
-          eq: (..._args: unknown[]) => ({
-            order: async () => result,
-            then: (resolve: (value: typeof result) => unknown) => resolve(result),
+    restore = installNitroGlobals({
+      supabaseAdmin: () => ({
+        from: () => ({
+          select: () => ({
+            eq: (..._args: unknown[]) => ({
+              order: async () => result,
+              then: (resolve: (value: typeof result) => unknown) => resolve(result),
+            }),
+            in: async () => result,
           }),
-          in: async () => result,
         }),
       }),
     })
