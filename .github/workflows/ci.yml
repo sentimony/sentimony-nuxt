@@ -43,6 +43,8 @@ jobs:
         run: npm run typecheck
       - name: Typecheck edge functions (TypeScript 7 native)
         run: npm run typecheck:ts7
+      - name: Typecheck tests (vue-tsc, tests program)
+        run: npm run typecheck:tests
 
   unit:
     name: Unit tests

@@ -197,7 +197,7 @@ test('switches instantly with reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.addInitScript(() => {
     localStorage.setItem('theme', 'dark')
-    const testWindow = window as Window & { __viewTransitionCalls: number }
+    const testWindow = window as unknown as Window & { __viewTransitionCalls: number }
     testWindow.__viewTransitionCalls = 0
     Object.defineProperty(document, 'startViewTransition', {
       configurable: true,
@@ -214,7 +214,7 @@ test('switches instantly with reduced motion', async ({ page }) => {
 
   await expect(page.locator('html')).not.toHaveClass(/dark/)
   const calls = await page.evaluate(() => {
-    return (window as Window & { __viewTransitionCalls: number }).__viewTransitionCalls
+    return (window as unknown as Window & { __viewTransitionCalls: number }).__viewTransitionCalls
   })
   expect(calls).toBe(0)
   await expect(page.locator('[data-fractal-orbit]')).toHaveCSS('animation-name', 'none')
