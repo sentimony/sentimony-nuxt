@@ -106,29 +106,32 @@ const stats = computed(() => [
         <hr class="my-4 border-black/30 dark:border-white/30">
         <p><small><b>Releases / Tracks:</b></small></p>
 
-        <div
-          v-for="(i, index) in releasesWithTracks"
-          :key="i.slug || index"
-          class="mb-5"
-        >
-          <RelativeItem
-            :i="i"
-            category="release"
-          />
+        <ul class="list-none">
+          <li
+            v-for="(i, index) in releasesWithTracks"
+            :key="i.slug || index"
+            class="mb-5"
+          >
+            <RelativeItem
+              :i="i"
+              category="release"
+            />
 
-          <div class="Tracklist mt-1">
-            <p
-              v-for="t in tracksByRelease.get(i.slug)"
-              :key="t.slug"
-            >
-              <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
-              <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
-              -
-              <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
-              <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
-            </p>
-          </div>
-        </div>
+            <ol class="Tracklist list-none mt-1">
+              <li
+                v-for="t in tracksByRelease.get(i.slug)"
+                :key="t.slug"
+                class="mb-2"
+              >
+                <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
+                <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
+                -
+                <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+                <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
+              </li>
+            </ol>
+          </li>
+        </ul>
       </div>
     </div>
 

@@ -174,30 +174,31 @@ useSeoMeta({
         <div>
           <hr class="my-4 border-black/30">
           <p><small><b>Releases / Tracks:</b></small></p>
-          <ol class="list-decimal ps-9">
+          <ul class="list-none">
             <template v-for="(i, index) in releasesSortedByDate" :key="index">
-              <div
+              <li
                 v-if="i.at_playlists?.includes(item.slug)"
                 class="mb-4"
               >
                 <div class="mb-2">
                   <RelativeItem :i="i" category="release" />
                 </div>
-                <div v-if="tracksByRelease.get(i.slug)?.length" class="Tracklist">
+                <ol v-if="tracksByRelease.get(i.slug)?.length" class="Tracklist list-none">
                   <li
                     v-for="t in tracksByRelease.get(i.slug)"
                     :key="t.slug"
+                    class="mb-2"
                   >
-                    <small class="font-mono">{{ Number(t.track_number) }}.</small>
+                    <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
                     <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
                     -
                     <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
                     <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
                   </li>
-                </div>
-              </div>
+                </ol>
+              </li>
             </template>
-          </ol>
+          </ul>
         </div>
 
     </ItemContent>

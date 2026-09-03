@@ -36,6 +36,9 @@ if (artistError.value || !item.value) {
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
+const artistReleases = computed(() =>
+  releasesSortedByDate.value.filter(r => item.value && r.artists?.includes(item.value.slug))
+)
 
 const hasLinks = computed(() => {
   const a = item.value
@@ -298,33 +301,38 @@ useSeoMeta({
         <div class="indent-5" v-html="sanitizeHtml(item.information)" />
       </div>
 
-      <div>
+      <div v-if="artistReleases.length > 0">
         <hr class="my-4 border-black/30">
         <p><small><b>Releases with {{ item.title }}:</b></small></p>
-        <p
-          v-for="(i, index) in releasesSortedByDate"
-          :key="index"
-        >
-          <RelativeItem
-            v-if="i.artists?.includes(item.slug)"
-            :i="i"
-            category="release"
-          />
-        </p>
+        <ul class="list-none">
+          <li
+            v-for="i in artistReleases"
+            :key="i.slug"
+            class="mb-2"
+          >
+            <RelativeItem
+              :i="i"
+              category="release"
+            />
+          </li>
+        </ul>
       </div>
 
       <div v-if="organizedEvents.length > 0">
         <hr class="my-4 border-black/30">
         <p><small><b>Organized Events:</b></small></p>
-        <p
-          v-for="e in organizedEvents"
-          :key="e.slug"
-        >
-          <RelativeItem
-            :i="e"
-            category="event"
-          />
-        </p>
+        <ul class="list-none">
+          <li
+            v-for="e in organizedEvents"
+            :key="e.slug"
+            class="mb-2"
+          >
+            <RelativeItem
+              :i="e"
+              category="event"
+            />
+          </li>
+        </ul>
       </div>
 
       <div v-if="portfolioReleases.length > 0">

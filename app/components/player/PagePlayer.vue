@@ -166,8 +166,8 @@ defineExpose({ playTrack })
 
     <div v-if="!hasAudio" class="py-4 text-center text-black/60 dark:text-white/70">Music is coming</div>
 
-    <div v-else class="flex flex-col gap-1">
-      <div
+    <ol v-else class="list-none flex flex-col gap-1">
+      <li
         v-for="(track, index) in tracks"
         :key="index"
         class="flex items-center gap-2 text-xs rounded transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/10"
@@ -230,7 +230,7 @@ defineExpose({ playTrack })
           <Icon name="lucide:play" size="12" />
           <span class="tabular-nums">{{ playCounts[track.slug] }}</span>
         </span>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </template>

@@ -270,13 +270,15 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
         <div v-if="artists.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Artists:</b></small></p>
-          <p
-            v-for="artist in artists"
-            :key="artist.slug"
-            class="mb-2 mr-4 last:mr-0"
-          >
-            <RelativeItem :i="artist" category="artist" />
-          </p>
+          <ul class="list-none">
+            <li
+              v-for="artist in artists"
+              :key="artist.slug"
+              class="mb-2 mr-4 last:mr-0"
+            >
+              <RelativeItem :i="artist" category="artist" />
+            </li>
+          </ul>
         </div>
 
         <div v-if="primaryArtist?.bandcamp_url">

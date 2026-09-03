@@ -1,0 +1,44 @@
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { describe, expect, it } from 'vitest'
+
+const readProjectFile = (path: string) =>
+  readFileSync(fileURLToPath(new URL(`../../${path}`, import.meta.url)), 'utf8')
+
+const listPages = [
+  'app/pages/release/[id].vue',
+  'app/pages/track/[id].vue',
+  'app/pages/artist/[id].vue',
+  'app/pages/event/[id].vue',
+  'app/pages/tracks.vue',
+  'app/pages/playlist/[id].vue',
+  'app/components/player/PagePlayer.vue',
+]
+
+// Release credits are CMS paragraphs, not a list; every other repeated block is one.
+const allowedParagraphLoops: Record<string, number> = { 'app/pages/release/[id].vue': 1 }
+
+describe('catalog lists are list elements', () => {
+  it.each(listPages)('%s repeats items as <li>, never as <p>', (path) => {
+    const source = readProjectFile(path)
+    const repeatedParagraphs = source.match(/<p\s*\n\s*v-for=/g) ?? []
+    expect(repeatedParagraphs.length, 'v-for on <p> is a list wearing paragraph markup').toBe(allowedParagraphLoops[path] ?? 0)
+    expect(source).toMatch(/<(ol|ul)[^>]*class="[^"]*list-none/)
+    expect(source).toMatch(/<li\s*\n\s*v-for=/)
+  })
+
+  it('playlist releases are list items with a nested tracklist', () => {
+    const source = readProjectFile('app/pages/playlist/[id].vue')
+    const listStart = source.indexOf('<ul class="list-none">')
+    const firstChild = source.slice(listStart).match(/<(?!template)[a-z]+/g)?.[1]
+    expect(firstChild).toBe('<li')
+    expect(source).not.toContain('<ol class="list-decimal')
+  })
+
+  it('artist page renders releases from a filtered list, not empty paragraphs', () => {
+    const source = readProjectFile('app/pages/artist/[id].vue')
+    expect(source).toContain('const artistReleases = computed(')
+    expect(source).toContain('v-if="artistReleases.length > 0"')
+    expect(source).not.toMatch(/<RelativeItem\s*\n\s*v-if="i\.artists/)
+  })
+})

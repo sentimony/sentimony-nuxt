@@ -241,26 +241,28 @@ useSeoMeta({
           <hr class="my-4 border-black/30">
           <p><small><b>Tracklist:</b></small></p>
 
-          <template v-if="item.tracklistCompact && !item.tracklist?.length">
-            <p
+          <ol v-if="item.tracklistCompact && !item.tracklist?.length" class="list-none">
+            <li
               v-for="(i, index) in item.tracklistCompact"
               :key="index"
+              class="mb-2"
               v-html="sanitizeHtml(i.p)"
             />
-          </template>
+          </ol>
 
-          <template v-if="item.tracklist?.length">
-            <p
+          <ol v-if="item.tracklist?.length" class="list-none">
+            <li
               v-for="t in item.tracklist"
               :key="t.slug"
+              class="mb-2"
             >
               <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
               <TrackArtists :name="t.artist" :slug="t.artist_slug" />
               -
               <TrackTitle :title="t.title" :artists="titleArtists" />
               <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
-            </p>
-          </template>
+            </li>
+          </ol>
         </div>
 
         <div v-if="item.creditsCompact">
@@ -276,30 +278,35 @@ useSeoMeta({
         <div v-if="relatedReleases.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Relative Releases:</b></small></p>
-          <p
-            v-for="(iii, index) in relatedReleases"
-            :key="index"
-          >
-            <RelativeItem
-              :i="iii"
-              category="release"
-            />
-          </p>
+          <ul class="list-none">
+            <li
+              v-for="(iii, index) in relatedReleases"
+              :key="index"
+              class="mb-2"
+            >
+              <RelativeItem
+                :i="iii"
+                category="release"
+              />
+            </li>
+          </ul>
         </div>
 
         <div v-if="relatedArtists.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Relative Artists:</b></small></p>
-          <p
-            v-for="(iiii, index) in relatedArtists"
-            :key="index"
-            class="mb-2 mr-4 last:mr-0"
-          >
-            <RelativeItem
-              :i="iiii"
-              category="artist"
-            />
-          </p>
+          <ul class="list-none">
+            <li
+              v-for="(iiii, index) in relatedArtists"
+              :key="index"
+              class="mb-2 mr-4 last:mr-0"
+            >
+              <RelativeItem
+                :i="iiii"
+                category="artist"
+              />
+            </li>
+          </ul>
         </div>
 
         <div v-if="item.links?.beatspace || item.links?.psyshop">
