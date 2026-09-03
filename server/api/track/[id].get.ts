@@ -26,8 +26,9 @@ export default defineCachedEventHandler(
     if (!releases.length) throw createError({ statusCode: 404, statusMessage: 'Track not found' })
 
     releases.sort((a, b) => String(a.date ?? '').localeCompare(String(b.date ?? '')))
-    const release = releases[0]!
-    const track = occurrences.find(o => o.release_slug === release.slug) ?? occurrences[0]!
+    const [release] = releases
+    const track = release && (occurrences.find(o => o.release_slug === release.slug) ?? occurrences[0])
+    if (!release || !track) throw createError({ statusCode: 404, statusMessage: 'Track not found' })
 
     const csvArtistSlugs = (track.artist_slug || '')
       .split(',')

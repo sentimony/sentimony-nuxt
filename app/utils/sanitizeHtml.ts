@@ -67,8 +67,8 @@ const urlAttributes = new Set(['href'])
 function sanitizeAttributes(raw: string): string {
   const kept: string[] = []
   for (const match of raw.matchAll(attrPattern)) {
-    const name = match[1]!.toLowerCase()
-    if (!allowedAttrSet.has(name)) continue
+    const name = match[1]?.toLowerCase()
+    if (!name || !allowedAttrSet.has(name)) continue
     const value = match[2] ?? match[3] ?? match[4] ?? ''
     if (urlAttributes.has(name) && !hasSafeUrlScheme(value)) continue
     kept.push(`${name}="${value.replace(/"/g, '&quot;')}"`)

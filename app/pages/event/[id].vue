@@ -52,10 +52,10 @@ const linkIcons: Record<string, string> = {
 
 const eventLinks = computed(() =>
   (item.value?.links ?? [])
-    .filter(link => link.url)
+    .filter((link): link is typeof link & { url: string } => Boolean(link.url))
     .map(link => ({
-      title: link.id || link.url!,
-      url: link.url!,
+      title: link.id || link.url,
+      url: link.url,
       iconify: linkIcons[(link.id || '').toLowerCase()] ?? 'lucide:link',
     }))
 )

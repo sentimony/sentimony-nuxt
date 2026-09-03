@@ -48,7 +48,7 @@ export function splitTitleByArtists(title: string, artists: { slug: string, titl
   let cursor = 0
 
   for (const match of title.matchAll(pattern)) {
-    const index = match.index!
+    const index = match.index
     if (index > cursor) segments.push({ text: title.slice(cursor, index), slug: null })
     const artist = known.find(a => a.title.toLowerCase() === match[0].toLowerCase())
     segments.push({ text: match[0], slug: artist?.slug ?? null })
@@ -65,6 +65,6 @@ export function splitTrackArtists(artistName: string, artistSlug?: string | null
 
   return names.map((name, index) => ({
     name,
-    slug: names.length === slugs.length ? slugs[index]! : (names.length === 1 ? slugs[0] ?? null : null),
+    slug: names.length === slugs.length ? slugs[index] ?? null : (names.length === 1 ? slugs[0] ?? null : null),
   }))
 }

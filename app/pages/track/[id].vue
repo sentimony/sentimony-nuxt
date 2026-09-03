@@ -27,9 +27,9 @@ if (data.value.redirect) {
   await navigateTo(`/track/${data.value.redirect}`, { redirectCode: 301, replace: true })
 }
 
-const track = computed(() => data.value!.track ?? ({} as NonNullable<typeof data.value.track>))
-const release = computed(() => data.value!.release)
-const artists = computed(() => data.value!.artists ?? [])
+const track = computed(() => data.value?.track ?? ({} as NonNullable<typeof data.value.track>))
+const release = computed(() => data.value?.release)
+const artists = computed(() => data.value?.artists ?? [])
 
 const { formatDate, formatYear } = useDate()
 const releaseDate = computed(() => formatDate(release.value?.date))
@@ -49,6 +49,7 @@ const titleArtists = computed(() => (allArtists.value.length ? allArtists.value 
 const playerTracks = computed(() => {
   const t = track.value
   if (!t.audio_url) return []
+  const firstArtistSlug = t.artist_slug?.split(',')[0]?.trim()
   return [{
     title: `${t.artist_name} - ${t.title}`,
     titleSegments: splitTitleByArtists(`${t.artist_name} - ${t.title}`, titleArtists.value),
@@ -61,7 +62,7 @@ const playerTracks = computed(() => {
     cover: releaseCover.value,
     releaseLink: release.value ? `/release/${release.value.slug}` : undefined,
     releaseTitle: release.value?.title,
-    artistLink: t.artist_slug ? `/artist/${t.artist_slug.split(',')[0]!.trim()}` : undefined,
+    artistLink: firstArtistSlug ? `/artist/${firstArtistSlug}` : undefined,
   }]
 })
 
