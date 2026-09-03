@@ -349,6 +349,8 @@ useSeoMeta({
             <img
               :src="thumb(r.cover_xl || r.cover_og)"
               :alt="r.title || ''"
+              width="120"
+              height="120"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />

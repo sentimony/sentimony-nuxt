@@ -64,3 +64,23 @@ describe('embedded players are named', () => {
     }
   })
 })
+
+describe('catalog images declare their dimensions', () => {
+  const files = [
+    'app/components/OpenImage.vue',
+    'app/components/RelativeItem.vue',
+    'app/pages/artist/[id].vue',
+    'app/pages/friend/[id].vue',
+  ]
+
+  it.each(files)('%s sets width and height on every rendered <img>', (path) => {
+    const source = readProjectFile(path)
+    // The zoom dialog image is viewport-bound; its size is unknown before load.
+    const images = (source.match(/<img\b[^>]*>/g) ?? []).filter(image => !image.includes('vh]'))
+    expect(images.length).toBeGreaterThan(0)
+    for (const image of images) {
+      expect(image, 'img without width').toMatch(/:?width=/)
+      expect(image, 'img without height').toMatch(/:?height=/)
+    }
+  })
+})
