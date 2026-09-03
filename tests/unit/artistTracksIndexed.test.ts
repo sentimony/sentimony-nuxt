@@ -34,7 +34,6 @@ describe('artist tracks endpoint with track_artists index', () => {
   })
 
   afterEach(() => {
-    vi.restoreAllMocks()
     for (const key of GLOBALS) delete (globalThis as Record<string, unknown>)[key]
   })
 

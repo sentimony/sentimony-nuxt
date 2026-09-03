@@ -6,7 +6,6 @@ describe('fetchFirebaseEntity', () => {
   let restore: () => void = () => {}
 
   afterEach(() => {
-    vi.restoreAllMocks()
     restore()
   })
 

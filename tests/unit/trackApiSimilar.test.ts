@@ -43,7 +43,6 @@ describe('track detail similar tracks', () => {
   })
 
   afterEach(() => {
-    vi.restoreAllMocks()
     for (const key of GLOBALS) delete (globalThis as Record<string, unknown>)[key]
   })
 

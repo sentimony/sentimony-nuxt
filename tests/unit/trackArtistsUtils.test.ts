@@ -10,7 +10,6 @@ describe('trackArtists utils degrade on query errors', () => {
   })
 
   afterEach(() => {
-    vi.restoreAllMocks()
     restore()
   })
 
