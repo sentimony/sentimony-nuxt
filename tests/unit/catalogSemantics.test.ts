@@ -13,6 +13,7 @@ const listPages = [
   'app/pages/tracks.vue',
   'app/pages/playlist/[id].vue',
   'app/components/player/PagePlayer.vue',
+  'app/components/AudioMixPlayer.vue',
 ]
 
 // Release credits are CMS paragraphs, not a list; every other repeated block is one.

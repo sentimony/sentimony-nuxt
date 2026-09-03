@@ -75,3 +75,15 @@ describe('images inside labelled links are decorative', () => {
     expect(source).not.toContain('alt="Sentimony Records Logo SVG"\n              class="mr-3')
   })
 })
+
+describe('AudioMixPlayer seek slider', () => {
+  const source = () => readProjectFile('app/components/AudioMixPlayer.vue')
+
+  it('is named and styled like the other player ranges', () => {
+    const range = source().match(/<input\s+type="range"[^>]*>/)?.[0] ?? ''
+    expect(range).toContain('aria-label="Seek"')
+    expect(range).toContain('player-range')
+    expect(range).toContain("'--progress'")
+    expect(source()).not.toContain('accent-[#')
+  })
+})
