@@ -21,7 +21,7 @@ const boxClass = computed(() =>
 const imgWidth = computed(() => (props.ratio === 'video' ? 280 : 190))
 const imgHeight = computed(() => (props.ratio === 'video' ? 158 : 190))
 
-const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">Image is<br>coming ⛄</span>'
+const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">Coming soon</span>'
 
 async function downloadImage() {
   const url = props.image_xl

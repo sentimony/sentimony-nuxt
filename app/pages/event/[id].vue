@@ -193,7 +193,7 @@ useSeoMeta({
 
         <div v-if="lineupArtists.length">
           <hr class="my-4 border-black/30">
-          <p><small><b>Relative Artists:</b></small></p>
+          <p><small><b>Related Artists:</b></small></p>
           <ul class="list-none">
             <li
               v-for="artist in lineupArtists"

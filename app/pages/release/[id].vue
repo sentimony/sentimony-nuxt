@@ -277,7 +277,7 @@ useSeoMeta({
 
         <div v-if="relatedReleases.length">
           <hr class="my-4 border-black/30">
-          <p><small><b>Relative Releases:</b></small></p>
+          <p><small><b>Related Releases:</b></small></p>
           <ul class="list-none">
             <li
               v-for="(iii, index) in relatedReleases"
@@ -294,7 +294,7 @@ useSeoMeta({
 
         <div v-if="relatedArtists.length">
           <hr class="my-4 border-black/30">
-          <p><small><b>Relative Artists:</b></small></p>
+          <p><small><b>Related Artists:</b></small></p>
           <ul class="list-none">
             <li
               v-for="(iiii, index) in relatedArtists"

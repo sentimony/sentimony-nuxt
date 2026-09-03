@@ -21,7 +21,7 @@ if (playlistError.value || !item.value) {
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
-const comingMusic = '<div class="p-4 text-[12px] text-muted-foreground">Music is<br>coming ⛄</div>'
+const comingMusic = '<div class="p-4 text-[12px] text-muted-foreground">Coming soon</div>'
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 

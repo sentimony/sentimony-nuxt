@@ -120,7 +120,7 @@ useSeoMeta({
 
         <div v-if="item.credits">
           <hr class="my-4 border-black/30">
-          <p><small><b>Сredits:</b></small></p>
+          <p><small><b>Credits:</b></small></p>
           <!-- <p
             v-for="(i, index) in item.credits"
             :key="index"

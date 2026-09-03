@@ -100,3 +100,20 @@ describe('embedded player heights come from one map', () => {
     }
   })
 })
+
+describe('catalog copy', () => {
+  it('uses "Related" and a Latin "Credits" label', () => {
+    for (const file of ['app/pages/release/[id].vue', 'app/pages/event/[id].vue', 'app/pages/track/[id].vue']) {
+      expect(readProjectFile(file)).not.toMatch(/Relative (Releases|Artists)/)
+    }
+    expect(readProjectFile('app/pages/video/[id].vue')).not.toContain('Сredits')
+  })
+
+  it('shares one placeholder line for missing media', () => {
+    for (const file of ['app/components/player/PagePlayer.vue', 'app/components/OpenImage.vue', 'app/pages/playlist/[id].vue']) {
+      const source = readProjectFile(file)
+      expect(source).toContain('Coming soon')
+      expect(source).not.toMatch(/(Music|Image) is(<br>| )coming/)
+    }
+  })
+})

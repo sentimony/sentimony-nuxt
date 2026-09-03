@@ -164,7 +164,7 @@ defineExpose({ playTrack })
       />
     </div>
 
-    <div v-if="!hasAudio" class="py-4 text-center text-black/60 dark:text-white/70">Music is coming</div>
+    <div v-if="!hasAudio" class="py-4 text-center text-black/60 dark:text-white/70">Coming soon</div>
 
     <ol v-else class="list-none flex flex-col gap-1">
       <li
@@ -210,7 +210,7 @@ defineExpose({ playTrack })
         <button
           v-if="track.slug && isCurrent(track)"
           type="button"
-          class="flex h-6 shrink-0 items-center gap-1 rounded px-[1ch] font-mono font-normal text-black/60 opacity-60 transition-[background-color,opacity,color] duration-300 ease-in-out hover:bg-black/10 hover:font-bold hover:text-black hover:opacity-100 dark:text-white/60 dark:hover:bg-white/20 dark:hover:text-white"
+          class="flex h-6 shrink-0 items-center gap-1 rounded px-[1ch] font-mono font-normal text-black/60 transition-[background-color,color] duration-300 ease-in-out hover:bg-black/10 hover:font-bold hover:text-black dark:text-white/60 dark:hover:bg-white/20 dark:hover:text-white"
           :aria-label="isTrackLiked(track.slug) ? 'Liked' : 'Like track'"
           @click="toggleTrackLike(track.slug)"
           v-wave
@@ -225,7 +225,7 @@ defineExpose({ playTrack })
 
         <span
           v-if="track.slug && playCounts[track.slug]"
-          class="mr-[1ch] flex items-center gap-1 font-mono shrink-0 opacity-60"
+          class="mr-[1ch] flex items-center gap-1 font-mono shrink-0"
         >
           <Icon name="lucide:play" size="12" />
           <span class="tabular-nums">{{ playCounts[track.slug] }}</span>

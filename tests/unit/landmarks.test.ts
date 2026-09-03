@@ -75,7 +75,10 @@ describe('page title elements', () => {
   it('makes the homepage hero the h1', () => {
     const hero = readProjectFile('app/components/Hero.vue')
 
-    expect(hero).toContain('<h1 v-html="heroTitle"/>')
+    expect(hero.match(/<h1\b/g)).toHaveLength(1)
+    const heading = hero.slice(hero.indexOf('<h1'), hero.indexOf('</h1>'))
+    expect(heading, 'the h1 names the label, not just its first word').toContain('v-html="heroTitle"')
+    expect(heading).toContain('v-html="heroSubTitle"')
   })
 
   it('gives the error page its own main and h1', () => {
