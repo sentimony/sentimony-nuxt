@@ -56,3 +56,22 @@ describe('swiper controls', () => {
     expect(source(), 'a swiper heading would render before the page h1').not.toContain('<h2')
   })
 })
+
+describe('images inside labelled links are decorative', () => {
+  const files = [
+    'app/components/Item.vue',
+    'app/components/RelativeItem.vue',
+    'app/pages/news.vue',
+    'app/components/Header.vue',
+    'app/components/Footer.vue',
+    'app/components/OpenSidebar.vue',
+    'app/components/buttons/PrimaryButton.vue',
+    'app/components/buttons/DefaultButton.vue',
+  ]
+
+  it.each(files)('%s does not build alt text from the visible label or the file URL', (path) => {
+    const source = readProjectFile(path)
+    expect(source).not.toMatch(/:alt="[^"]*\+ ' ?(Thumbnail|thumbnail|Icon|icon)'"/)
+    expect(source).not.toContain('alt="Sentimony Records Logo SVG"\n              class="mr-3')
+  })
+})

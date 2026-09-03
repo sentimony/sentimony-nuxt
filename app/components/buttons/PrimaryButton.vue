@@ -26,7 +26,7 @@ const linkProps = computed(() =>
   <Button v-if="to" as-child variant="glass" class="mb-2 mr-2 last:mr-0">
     <component :is="linkTag" v-bind="linkProps" v-wave>
       <Icon v-if="iconify" :name="iconify" size="19" />
-      <img v-if="img" class="dark:invert" :src="img" :alt="img + ' icon'" width="19" height="19">
+      <img v-if="img" class="dark:invert" :src="img" alt="" width="19" height="19">
       <span v-if="svg" v-html="sanitizeHtml(svg)" />
       <span v-if="title" v-html="sanitizeHtml(title)" />
     </component>

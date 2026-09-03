@@ -97,7 +97,7 @@ useSeoMeta({
             <!-- <div class="w-12 rounded-md bg-white/5 ring-1 ring-white/10 flex items-center justify-center overflow-hidden"> -->
               <img v-if="i.image"
                 :src="i.image"
-                :alt="i.title + ' Thumbnail'"
+                alt=""
                 class="rounded-sm ring-1 ring-foreground/30 group-hover:ring-foreground/60"
                 width="48" height="48"
                 loading="lazy"
