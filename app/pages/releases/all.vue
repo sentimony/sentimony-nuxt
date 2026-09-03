@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Release, ReleasesResponse } from '~/types'
 
-const { data: releasesRaw } = await useAsyncData<ReleasesResponse>('releases-all', () =>
+const { data: releasesRaw, status, error, refresh } = await useAsyncData<ReleasesResponse>('releases-all', () =>
   $fetch<ReleasesResponse>('/api/releases-all')
 )
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
@@ -40,6 +40,15 @@ useSeoMeta({
         :i="i"
       />
     </div>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && releasesSortedByDate.length === 0"
+      empty-text="No releases yet"
+      @retry="refresh()"
+    />
 
   </div>
 </template>

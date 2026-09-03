@@ -37,7 +37,7 @@ type TrackListItem = {
 }
 
 const { data: releasesRaw } = await useReleases({ server: true })
-const { data: allTracks } = await useFetch<TrackListItem[]>('/api/tracks')
+const { data: allTracks, status, error, refresh } = await useFetch<TrackListItem[]>('/api/tracks')
 const releasesArr = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasedReleases = computed(() =>
   releasesArr.value.filter(r => Boolean(r?.visible) && !r?.coming_soon)
@@ -132,6 +132,15 @@ const stats = computed(() => [
             </ol>
           </li>
         </ul>
+
+        <CollectionStatus
+          :loading="status === 'pending'"
+          :loaded="status === 'success'"
+          :error="!!error"
+          :empty="status === 'success' && releasesWithTracks.length === 0"
+          empty-text="No tracks yet"
+          @retry="refresh()"
+        />
       </div>
     </div>
 
