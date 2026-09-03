@@ -305,3 +305,29 @@ describe('color-scheme follows the active theme', () => {
     expect(css).toMatch(/\.dark \{\s*color-scheme: dark;/)
   })
 })
+
+describe('moss palette and forest tint live in tokens', () => {
+  const css = () => readProjectFile('app/assets/css/tailwind.css')
+
+  it('declares the moss colours once, inside @theme', () => {
+    const theme = css().match(/@theme \{[\s\S]*?\n\}/)?.[0] ?? ''
+    expect(theme).toContain('--color-moss: #b5ccb5;')
+    expect(theme).toContain('--color-moss-dark: #2a4030;')
+    expect(css().match(/#b5ccb5/gi)).toHaveLength(1)
+    expect(css().match(/#2a4030/gi)).toHaveLength(1)
+  })
+
+  it('keeps the literal colours out of components', () => {
+    for (const file of ['app/components/SvgTriangle.vue', 'app/components/Testimonials.vue']) {
+      expect(readProjectFile(file)).not.toMatch(/#b5ccb5|#2a4030/i)
+    }
+  })
+
+  it('shares the forest tint between the global overlay and the homepage layer', () => {
+    expect(css()).toMatch(/--forest-tint:/)
+    expect(css()).toContain('background: var(--forest-tint);')
+    const atmosphere = readProjectFile('app/components/HomepageAtmosphere.vue')
+    expect(atmosphere).toContain('background: var(--forest-tint);')
+    expect(atmosphere).not.toContain('linear-gradient(')
+  })
+})

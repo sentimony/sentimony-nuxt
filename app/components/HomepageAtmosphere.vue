@@ -38,9 +38,7 @@
   content: "";
   inset: 0;
   z-index: 2;
-  background:
-    linear-gradient(rgba(23, 102, 28, 0.33), rgba(23, 102, 28, 0.33)),
-    linear-gradient(rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.44));
+  background: var(--forest-tint);
 }
 
 .dark .homepage-atmosphere {
@@ -49,10 +47,6 @@
 
 .dark.forest-ready .homepage-atmosphere::before {
   opacity: 0.17;
-}
-
-.dark .homepage-atmosphere::after {
-  background: linear-gradient(rgba(23, 102, 28, 0.44), rgba(23, 102, 28, 0.44));
 }
 
 .dark body.homepage-route {

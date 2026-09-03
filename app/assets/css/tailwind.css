@@ -7,11 +7,16 @@
   --font-montserrat: "Montserrat", sans-serif;
   --font-julius: "Julius Sans One", sans-serif;
   --font-mono: "Azeret Mono", monospace;
+  --color-moss: #b5ccb5;
+  --color-moss-dark: #2a4030;
 }
 
 :root {
   color-scheme: light;
   --radius: 0.5rem;
+  --forest-tint:
+    linear-gradient(rgba(23, 102, 28, 0.33), rgba(23, 102, 28, 0.33)),
+    linear-gradient(rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.44));
   --petal-gradient: radial-gradient(ellipse at 50% 0, rgba(0,0,0,0.05) 0%, rgba(138,2,2,0) 50%, rgba(255,255,255,0.33) 100%);
 
   --background: oklch(0.97 0.01 155);
@@ -45,6 +50,7 @@
 
 .dark {
   color-scheme: dark;
+  --forest-tint: linear-gradient(rgba(23, 102, 28, 0.44), rgba(23, 102, 28, 0.44));
   --background: oklch(0.16 0.02 155);
   --petal-gradient: radial-gradient(ellipse at 50% 0, rgba(255,255,255,0.05) 0%, rgba(138,2,2,0) 50%, rgba(0,0,0,0.5) 100%);
   --foreground: oklch(1 0 0);
@@ -162,13 +168,7 @@ html::after {
   content: '';
   @apply fixed inset-0;
   z-index: -10;
-  background:
-    linear-gradient(rgba(23, 102, 28, 0.33), rgba(23, 102, 28, 0.33)),
-    linear-gradient(rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.44));
-}
-
-html.dark::after {
-  background: linear-gradient(rgba(23, 102, 28, 0.44), rgba(23, 102, 28, 0.44));
+  background: var(--forest-tint);
 }
 
 @keyframes spin2 {
@@ -212,10 +212,10 @@ small { @apply opacity-60 }
 
 .Content { @apply relative z-1 text-black border-b border-black/20 }
 .dark .Content { @apply text-white border-white/20 }
-.Content svg path { fill: #b5ccb5 }
-.dark .Content svg path { fill: #2a4030 }
-.Content .ContentBg { @apply absolute left-0 top-0 w-full h-full z-1 bg-[#b5ccb5] }
-.dark .Content .ContentBg { @apply bg-[#2a4030] }
+.Content svg path { fill: var(--color-moss) }
+.dark .Content svg path { fill: var(--color-moss-dark) }
+.Content .ContentBg { @apply absolute left-0 top-0 w-full h-full z-1 bg-moss }
+.dark .Content .ContentBg { @apply bg-moss-dark }
 .Content a { @apply text-emerald-700 transition-colors duration-300 }
 .Content a:hover { @apply text-emerald-900 }
 .dark .Content a { @apply text-emerald-300 }

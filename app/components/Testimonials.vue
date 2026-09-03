@@ -11,7 +11,7 @@ const linkClass = "inline-flex items-center gap-1 align-middle rounded-md border
   <div
     class="px-4 pt-8 md:pt-16 pb-8 md:pb-16 box-border bg-linear-to-t from-transparent via-transparent to-white/50 dark:to-black/50"
   >
-    <div class="text-left mx-auto max-w-lg p-4 rounded-lg bg-[#b5ccb5]/85 border border-black/20 text-black dark:bg-[#2a4030]/85 dark:border-white/20 dark:text-white">
+    <div class="text-left mx-auto max-w-lg p-4 rounded-lg bg-moss/85 border border-black/20 text-black dark:bg-moss-dark/85 dark:border-white/20 dark:text-white">
       <NuxtLink to="/artist/irukanji" class="float-left mr-3 mb-1 rounded-full overflow-hidden block" v-wave>
         <img
           src="https://content.sentimony.com/assets/img/artists/irukanji-01_th.jpg"
