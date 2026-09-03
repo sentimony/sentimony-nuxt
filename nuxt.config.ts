@@ -79,8 +79,23 @@ export default defineNuxtConfig({
   experimental: {
     serverAppConfig: false,
   },
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        noFallthroughCasesInSwitch: true,
+      },
+    },
+  },
   nitro: {
     preset: process.env.NITRO_PRESET || 'netlify',
+    typescript: {
+      tsConfig: {
+        compilerOptions: {
+          noImplicitOverride: true,
+          noFallthroughCasesInSwitch: true,
+        },
+      },
+    },
   },
   ssr: true,
   routeRules: {
