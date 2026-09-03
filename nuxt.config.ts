@@ -43,6 +43,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'author', content: 'Sentimony Records · Psychedelic music label' },
         { name: 'theme-color', content: '#111111' },
+        { name: 'color-scheme', content: 'dark light' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },

@@ -293,3 +293,15 @@ describe('auth form accessibility', () => {
     expect(passwordToggleClasses).not.toContain('transition-colors')
   })
 })
+
+describe('color-scheme follows the active theme', () => {
+  it('declares both schemes in the document head', () => {
+    expect(readProjectFile('nuxt.config.ts')).toContain("{ name: 'color-scheme', content: 'dark light' }")
+  })
+
+  it('sets color-scheme on the light root and the dark class', () => {
+    const css = readProjectFile('app/assets/css/tailwind.css')
+    expect(css).toMatch(/:root \{\s*color-scheme: light;/)
+    expect(css).toMatch(/\.dark \{\s*color-scheme: dark;/)
+  })
+})
