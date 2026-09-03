@@ -3,8 +3,8 @@
 - Status: Planned
 - Priority: P1
 - Ініційовано: 2026-07-19
-- Last reviewed: 2026-07-22
-- Related: [quality audit](../audits/2026-07-19-quality-audit.md)
+- Last reviewed: 2026-09-04
+- Related: [quality audit](../audits/2026-07-19-quality-audit.md), [vitest audit 2026-09-04](../audits/2026-09-04-vitest-audit.md), [spec](../specs/2026-09-04-vitest-hygiene-design.md), [plan](../plans/2026-09-04-vitest-hygiene.md)
 
 ## Навіщо
 
@@ -22,8 +22,8 @@ coverage signal, а mock lifecycle є однаковим і задокумент
 - Додати окремий Nuxt/Vue component-test project із DOM environment.
 - Мігрувати likes, audio, auth і tabs із source-string-only assertions.
 - Додати V8 coverage baseline та risk-based branch thresholds.
-- Визначити explicit cleanup або перевірений central restore policy.
-- Скоротити manual `globalThis` mocks через factories/test utilities там, де це виправдано.
+- ✓ Central restore policy: `restoreMocks: true` у `vitest.config.ts` (2026-09-04).
+- ✓ Manual `globalThis` mocks зведено до `installNitroGlobals` у `tests/setup/nitroMocks.ts`; `include` уже бачить `tests/nuxt/**`.
 
 ## Залежності
 
@@ -38,4 +38,4 @@ coverage signal, а mock lifecycle є однаковим і задокумент
 
 ## Наступний крок
 
-Вибрати найменший Nuxt/Vue test harness і перенести один high-risk source assertion як pilot.
+Harness і coverage провайдер потребують нових залежностей (`chore(deps)` власника); після них — pilot одного high-risk source assertion у `tests/nuxt/`.

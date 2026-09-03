@@ -2,7 +2,7 @@
 
 Guidance for coding agents working in this repository.
 
-- Last reviewed: 2026-09-02
+- Last reviewed: 2026-09-04
 
 ## Conventions
 
@@ -22,7 +22,7 @@ Guidance for coding agents working in this repository.
 - **Prose (docs, README, UI copy):** `dashfix` · `negafix`.
 - **Received review feedback:** `receiving-code-review` → fixes → `verification-before-completion` → **check**.
 
-> **check** = `npm run test:unit && npm run typecheck && npm run docs:check` — green before any task is called done. Playwright (`test:e2e`) and the Netlify preset build are not in CI, so run them by hand when the change touches rendering or the deploy path.
+> **check** = `npm run test:unit && npm run typecheck && npm run typecheck:tests && npm run docs:check` — green before any task is called done. Playwright (`test:e2e`) and the Netlify preset build are not in CI, so run them by hand when the change touches rendering or the deploy path.
 
 ## Project Overview
 
@@ -34,21 +34,21 @@ Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.
 
 Node `24.15.0` (`.nvmrc`).
 
-The canonical local gate is `npm run test:unit && npm run typecheck && npm run docs:check`.
-Use `npm run typecheck:ts7` for edge-function types, `BASE_URL=... npm run web-debug`
+The canonical local gate is `npm run test:unit && npm run typecheck && npm run typecheck:tests && npm run docs:check`.
+`typecheck:tests` runs `vue-tsc` over `tsconfig.tests.json` (extends the generated `.nuxt/tsconfig.app.json`, `exclude: []`, no Vitest globals) so `tests/`, `vitest.config.ts` and `playwright.config.ts` are typed; strictness flags for the app/server programs live in `typescript.tsConfig` / `nitro.typescript.tsConfig` in `nuxt.config.ts`, never in `.nuxt/`. `noUnusedLocals`/`noUnusedParameters` are on in every program, so an unused import fails the gate. Use `npm run typecheck:ts7` for edge-function types, `BASE_URL=... npm run web-debug`
 for HTTP smoke, and `npm run verify:pwa` after PWA asset changes. The package scripts
 remain the source of truth for routine dev, build, test, sync, and deploy commands.
 
 **Performance baselines.** Use `PERF_LABEL=... npm run perf:baseline` and `LH_LABEL=... npm run perf:lighthouse`; do not hand-roll `curl`. For methodology, cache behavior, host comparison, and Cloudflare evaluation details, read [`docs/agent-context/frontend-and-docs.md`](docs/agent-context/frontend-and-docs.md).
 
 Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores. **The exception is deploying:** `predeploy:stage` / `predeploy:prod` run `sync:supabase && sync:firebase` before every `deploy:stage` / `deploy:prod`; those npm scripts are the only path to prod and stage (the CLI uploads a local build, so the `netlify.toml` build commands do not run there). Netlify deploy previews are built from a PR push and run `sync:supabase && npm run build` (`[context.deploy-preview]` in `netlify.toml`), because previews read the same Supabase catalog and would otherwise show the content of the last manual deploy. This is what keeps `sentimony-db.yml` from silently diverging from the store prod reads. Three consequences: a manual deploy needs both `SUPABASE_SECRET_KEY` and `FIREBASE_DB_SECRET` present locally or it aborts before uploading; `sync-supabase.mjs` deletes stale `tracks` / `track_artists` rows, so a bad YAML edit propagates deletions at deploy time; and the Supabase store is shared by prod, stage and every preview, so pushing a branch whose YAML lags behind `main` removes newer catalog rows from prod until the next sync.
-CI (`.github/workflows/ci.yml`) runs `docs:check`, `typecheck`, `typecheck:ts7`, `test:unit`, a `node-server` build and `web-debug` on push/PR — Playwright and the Netlify preset build are **not** in CI yet. **CI runs on Linux, so file-path casing matters** even though macOS hides mismatches locally.
+CI (`.github/workflows/ci.yml`) runs `docs:check`, `typecheck`, `typecheck:ts7`, `typecheck:tests`, `test:unit`, a `node-server` build and `web-debug` on push/PR — Playwright and the Netlify preset build are **not** in CI yet. **CI runs on Linux, so file-path casing matters** even though macOS hides mismatches locally.
 
 `npm install` is not inert: `preinstall` → `scripts/setup.sh` (creates `.env/`, `.claude/skills/`, seeds `.claude/settings.json` attribution flags) and `postinstall` → `scripts/skills.sh` (re-installs the pinned agent skills via `npx skills add`, network required). `npm run clean` wipes `node_modules`, `package-lock.json`, `.nuxt` and the installed skills — do not run it casually.
 
 **Dev servers:** respect the user's already-running dev environments. Ports 3000–3002 (and any other running `nuxt dev`) are likely the user's — never stop them. Never run a broad `pkill -f "nuxt dev"`; it kills the user's servers too. If you need your own server for verification, start it on a distinct free port (e.g. `--port 3100`) via `.agents/skills/web-debug/scripts/with_server.py`, and stop only that instance once your work is done.
 `npm run typecheck` passes locally with Supabase env warnings when the secrets are absent — that warning is not a failure.
-Unit tests mock Nitro auto-imported utils (`supabaseAdmin`, `defineEventHandler`, `fetch*` helpers) by assigning them to `globalThis` with `vi.resetModules()` + dynamic import — see `tests/unit/likeCountersHandler.test.ts` for the reference pattern.
+Unit tests mock Nitro auto-imported utils (`supabaseAdmin`, `defineEventHandler`, `fetch*` helpers) through `installNitroGlobals(overrides)` from `tests/setup/nitroMocks.ts` (returns a `restore()` for `afterEach`; `fakeEvent()` for handler calls) with `vi.resetModules()` + dynamic import — see `tests/unit/likeCountersHandler.test.ts`. `restoreMocks: true` in `vitest.config.ts` restores spies, so no manual `vi.restoreAllMocks()`. Do not enable Vitest's suggested `isolate: false`: files mutate `globalThis`.
 
 **Supabase CLI / міграції:** усі команди CLI, токен `SUPABASE_ACCESS_TOKEN` і обхідний шлях для `db push` (падає з `read .env: is a directory`, бо `.env` — директорія) — у [`docs/supabase-cli.md`](docs/supabase-cli.md). Читай його перед тим, як застосовувати міграцію або лінкувати проєкт.
 
