@@ -50,7 +50,7 @@ async function signOut() {
             />
             <div class="text-left leading-normal pr-1 min-w-0">
               <div class="text-[16px] truncate">Sentimony Records</div>
-              <div class="opacity-[0.4] text-[12px] tracking-[0.4px] truncate">Psychedelic Music Label</div>
+              <div class="text-muted-foreground text-[12px] tracking-[0.4px] truncate">Psychedelic Music Label</div>
             </div>
           </NuxtLink>
 
@@ -121,7 +121,7 @@ async function signOut() {
               >
                 <div class="px-3 py-2.5 border-b border-black/10 dark:border-white/10">
                   <div v-if="username" class="text-sm font-medium truncate">{{ username }}</div>
-                  <div class="text-xs truncate opacity-50">{{ user.email }}</div>
+                  <div class="text-xs truncate text-muted-foreground">{{ user.email }}</div>
                 </div>
                 <DropdownMenuItem as-child>
                   <NuxtLink

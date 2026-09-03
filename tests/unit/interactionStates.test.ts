@@ -331,3 +331,29 @@ describe('moss palette and forest tint live in tokens', () => {
     expect(atmosphere).not.toContain('linear-gradient(')
   })
 })
+
+describe('text keeps two tiers without stacked opacity', () => {
+  const textLines = (path: string) => readProjectFile(path).split('\n').filter(line => line.includes('{{') || line.includes('Psychedelic Music Label'))
+
+  it.each([
+    'app/components/buttons/LikeButton.vue',
+    'app/components/player/PagePlayer.vue',
+    'app/components/Header.vue',
+  ])('%s never dims text with an opacity utility', (path) => {
+    for (const line of textLines(path)) {
+      expect(line, line.trim()).not.toMatch(/\bopacity-(40|50|60)\b|opacity-\[0\.4\]/)
+    }
+  })
+
+  it('footer text sits at 70% white, not 50%', () => {
+    const footer = readProjectFile('app/components/Footer.vue')
+    expect(footer).not.toContain('text-white/50')
+    expect(footer).toContain('text-white/70')
+  })
+
+  it('artist index hover uses the foreground token', () => {
+    const page = readProjectFile('app/pages/artists/all.vue')
+    expect(page).not.toContain('hover:text-white/80')
+    expect(page).toContain('hover:text-foreground/80')
+  })
+})

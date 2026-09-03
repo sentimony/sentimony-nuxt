@@ -10,7 +10,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
 </script>
 
 <template>
-  <footer data-testid="site-footer" class="relative z-100 bg-black/90 dark:bg-black/75 text-white/50 [--ring:oklch(1_0_0_/_65%)] leading-[1.4] md:leading-[1.5] px-1 py-24">
+  <footer data-testid="site-footer" class="relative z-100 bg-black/90 dark:bg-black/75 text-white/70 [--ring:oklch(1_0_0_/_65%)] leading-[1.4] md:leading-[1.5] px-1 py-24">
     <div class="container flex flex-col items-center">
 
       <div class="mb-10 text-sm">

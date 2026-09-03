@@ -68,7 +68,7 @@ useSeoMeta({
           :key="artist.slug"
         ><NuxtLink
             :to="'/artist/' + artist.slug"
-            class="inline-flex items-center gap-1 align-middle hover:text-white/80 transition-colors"
+            class="inline-flex items-center gap-1 align-middle hover:text-foreground/80 transition-colors"
           ><Icon
               v-if="flagCodes[artist.slug] === 'ru'"
               name="lucide:flag-off"
