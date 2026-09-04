@@ -11,7 +11,7 @@ describe('OpenImage trigger', () => {
   it('opens the dialog from a real button', () => {
     expect(source()).toContain('<DialogTrigger as-child>')
     expect(source()).toContain('<button')
-    expect(source()).toContain(':aria-label="`Open full-size image: ${alt || \'image\'}`"')
+    expect(source()).toContain('image_xl ? `Open full-size image: ${alt || \'image\'}` : `Full-size image unavailable: ${alt || \'image\'}`')
   })
 
   it('keeps the preview image decorative inside the named button', () => {

@@ -61,7 +61,7 @@ async function copyPath() {
       <button
         type="button"
         :disabled="!image_xl"
-        :aria-label="`Open full-size image: ${alt || 'image'}`"
+        :aria-label="image_xl ? `Open full-size image: ${alt || 'image'}` : `Full-size image unavailable: ${alt || 'image'}`"
         class="block cursor-pointer w-fit mr-4 mb-2 p-[5px] md:p-[10px] rounded-sm transition-[background-color] duration-200 ease-in-out enabled:hover:bg-black/10 dark:enabled:hover:bg-white/30 disabled:cursor-default"
         v-wave
       >

@@ -15,6 +15,15 @@ describe('CollectionStatus', () => {
     expect(source()).toContain('role="alert"')
   })
 
+  it('announces progress from an always-mounted status region', () => {
+    const statusIndex = source().indexOf('role="status"')
+    expect(statusIndex).toBeGreaterThan(-1)
+    expect(statusIndex, 'the live region must exist before the first state change').toBeLessThan(source().indexOf('v-if="error"'))
+    expect(source()).toMatch(/role="status"\s+aria-live="polite"\s+aria-atomic="true"/)
+    expect(source()).toContain("return props.loading ? 'Retrying' : ''")
+    expect(source()).toContain('Loaded, ${props.remaining} more available')
+  })
+
   it('keeps both actions mounted while they load', () => {
     expect(source()).toContain("{{ loading ? 'Retrying…' : 'Try again' }}")
     expect(source()).toContain("{{ loading ? 'Loading…' : `Show more · ${remaining} left` }}")

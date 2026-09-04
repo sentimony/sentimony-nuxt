@@ -6,8 +6,9 @@ organization. Universal guardrails remain in `AGENTS.md`.
 
 ## Landmarks
 
-`<main id="main" tabindex="-1">` lives in `app/layouts/default.vue` around
-`<slot/>`. Pages do not add their own `<main>`; `app/error.vue` is the exception
+`<main id="main" tabindex="-1">` lives in `app/layouts/default.vue` and wraps the
+hero, the route swipers and `<slot/>` (the `order-*` interleaving is why the slot
+alone cannot be the landmark). Pages do not add their own `<main>`; `app/error.vue` is the exception
 because it renders outside `NuxtLayout` and owns its `<main>` plus `<h1>`. The
 skip link is the first layout template node and targets `#main`.
 

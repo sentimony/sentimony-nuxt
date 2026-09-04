@@ -32,7 +32,7 @@
 - [API list envelope](initiatives/api-list-envelope.md) — уніфікувати list responses як `{ info, results }`. `Planned`
 - [Profile surface](initiatives/profile-surface.md) — полагоджені лайкнуті треки, помилки колекцій відділені від порожнього стану, profile використовує outline-focus і два текстові тири. `Implemented`
 - [Origin response time](initiatives/origin-response-time.md) — Durable Cache і cache key HTML, нечутливий до query-міток. `Implemented`
-- [Accessibility structure](initiatives/accessibility-structure.md) — лендмарки, скіп-лінка, видимий фокус на кнопках, доступні імена і стани списків. `Implemented`
+- [Accessibility structure](initiatives/accessibility-structure.md) — лендмарки, скіп-лінка, видимий фокус на кнопках, доступні імена і стани списків. `Partial`
 - [Function invocation budget](initiatives/function-invocation-budget.md) — тримати виклики функцій під лімітом Netlify, бо перевищення паузить усі сайти команди. `Idea`
 
 ## P2

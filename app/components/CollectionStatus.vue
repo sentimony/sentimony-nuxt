@@ -1,5 +1,7 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+import { computed } from 'vue'
+
+const props = withDefaults(defineProps<{
   loading: boolean
   loaded: boolean
   hasMore?: boolean
@@ -17,9 +19,22 @@ defineEmits<{
   loadMore: []
   retry: []
 }>()
+
+// The error branch announces itself via role="alert"; everything else goes
+// through one always-mounted status region so retries and pagination are heard.
+const statusText = computed(() => {
+  if (props.error) return props.loading ? 'Retrying' : ''
+  if (props.loading) return 'Loading'
+  if (!props.loaded) return ''
+  if (props.empty) return props.emptyText
+  if (props.hasMore) return `Loaded, ${props.remaining} more available`
+  return 'All items loaded'
+})
 </script>
 
 <template>
+  <p class="sr-only" role="status" aria-live="polite" aria-atomic="true">{{ statusText }}</p>
+
   <div
     v-if="error"
     role="alert"

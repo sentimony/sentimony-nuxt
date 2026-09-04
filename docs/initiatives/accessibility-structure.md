@@ -1,9 +1,9 @@
 # Accessibility structure
 
-- Status: Implemented
+- Status: Partial
 - Priority: P1
 - Ініційовано: 2026-07-19
-- Last reviewed: 2026-09-04
+- Last reviewed: 2026-09-05
 - Related: [quality audit](../audits/2026-07-19-quality-audit.md),
   [frontend audit](../audits/2026-09-01-frontend-crafting-audit.md),
   [design spec](../specs/2026-09-01-accessibility-baseline-design.md)
@@ -58,8 +58,22 @@ WEB-4 виявив, що public layout не має `<main>`, а homepage не м
 - Кожна сторінка списку розрізняє loading, empty і error.
 - Нові інваріанти закріплені в `tests/unit/interactionStates.test.ts`,
   `landmarks.test.ts`, `accessibleNames.test.ts` і `collectionStatus.test.ts`.
-- Lighthouse Accessibility не нижче рівня `main` на маршрутах спеки, без
-  жодної знахідки з обсягу ініціативи; visual baselines збережені.
+- Lighthouse Accessibility 100 на маршрутах спеки і зелений `npm run test:e2e`;
+  visual baselines збережені.
+
+### Стан критерію (2026-09-05)
+
+Після реалізації критерій був тимчасово пом'якшений до «не нижче рівня
+`main`», а статус виставлений `Implemented`. Рев'ю 2026-09-05 повернуло
+початковий критерій і статус `Partial`. Що лишилось до закриття:
+
+- Lighthouse `color-contrast` і `link-in-text-block` поза скоупом спеки:
+  бейджі картки каталогу, посилання й `<small>` у `.Content`, рядки треклиста
+  `PagePlayer`. Спроба закрити їх у гілці була відкочена як зміна візуальної
+  мови; потрібна окрема ініціатива з контрасту.
+- Десять падінь e2e, які так само падають проти `main`: застарілі снепшоти
+  homepage від 2026-06-25 і тести на поведінку, якої в коді `main` уже немає.
+  Потребують окремого перегляду, не сліпого `test:e2e:update`.
 
 ## Результат перевірки (2026-09-02)
 

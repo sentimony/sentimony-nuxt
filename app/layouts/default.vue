@@ -120,7 +120,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
 
       <Header />
 
-      <div class="flex flex-col justify-center">
+      <main id="main" tabindex="-1" class="flex flex-col justify-center">
 
         <Hero class="order-[0]" v-if="isIndex" />
 
@@ -184,11 +184,11 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           :pagination="false"
         />
 
-        <main id="main" tabindex="-1" class="order-[2]">
+        <div class="order-[2]">
           <slot/>
-        </main>
+        </div>
 
-      </div>
+      </main>
 
       </div>
 

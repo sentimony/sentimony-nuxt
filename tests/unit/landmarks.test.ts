@@ -30,6 +30,19 @@ describe('document landmarks', () => {
     expect(layout).toMatch(/<main\s+id="main"\s+tabindex="-1"/)
   })
 
+  it('keeps the hero, the swipers and the page slot inside main', () => {
+    const layout = readProjectFile('app/layouts/default.vue')
+    const mainStart = layout.indexOf('<main')
+    const mainEnd = layout.indexOf('</main>')
+
+    for (const node of ['<Hero', '<LazySwiper', '<slot/>']) {
+      const index = layout.indexOf(node)
+      expect(index, `${node} renders outside <main>`).toBeGreaterThan(mainStart)
+      expect(index, `${node} renders outside <main>`).toBeLessThan(mainEnd)
+    }
+    expect(layout.indexOf('<Header'), 'the header is its own landmark').toBeLessThan(mainStart)
+  })
+
   it('wraps the header and footer in their own landmarks', () => {
     expect(readProjectFile('app/components/Header.vue')).toContain('<header data-testid="site-header"')
     expect(readProjectFile('app/components/Footer.vue')).toContain('<footer data-testid="site-footer"')
