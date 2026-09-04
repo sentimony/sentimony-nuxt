@@ -20,8 +20,7 @@ describe('CollectionStatus', () => {
     expect(statusIndex).toBeGreaterThan(-1)
     expect(statusIndex, 'the live region must exist before the first state change').toBeLessThan(source().indexOf('v-if="error"'))
     expect(source()).toMatch(/role="status"\s+aria-live="polite"\s+aria-atomic="true"/)
-    expect(source()).toContain("return props.loading ? 'Retrying' : ''")
-    expect(source()).toContain('Loaded, ${props.remaining} more available')
+    expect(source()).toContain('collectionAnnouncement(next, previous)')
   })
 
   it('keeps both actions mounted while they load', () => {

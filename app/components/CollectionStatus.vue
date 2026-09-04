@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, watch } from 'vue'
+import { collectionAnnouncement, type CollectionState } from '~/utils/collectionAnnouncement'
 
 const props = withDefaults(defineProps<{
   loading: boolean
@@ -22,13 +23,18 @@ defineEmits<{
 
 // The error branch announces itself via role="alert"; everything else goes
 // through one always-mounted status region so retries and pagination are heard.
-const statusText = computed(() => {
-  if (props.error) return props.loading ? 'Retrying' : ''
-  if (props.loading) return 'Loading'
-  if (!props.loaded) return ''
-  if (props.empty) return props.emptyText
-  if (props.hasMore) return `Loaded, ${props.remaining} more available`
-  return 'All items loaded'
+const snapshot = (): CollectionState => ({
+  loading: props.loading,
+  loaded: props.loaded,
+  error: props.error ?? false,
+  empty: props.empty ?? false,
+  hasMore: props.hasMore,
+  remaining: props.remaining,
+  emptyText: props.emptyText,
+})
+const statusText = ref(collectionAnnouncement(snapshot()))
+watch(snapshot, (next, previous) => {
+  statusText.value = collectionAnnouncement(next, previous)
 })
 </script>
 

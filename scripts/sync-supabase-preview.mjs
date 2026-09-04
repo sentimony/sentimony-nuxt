@@ -3,10 +3,21 @@
 // `tracks` / `track_artists` rows, so an unmerged branch could rewrite what prod
 // serves. Sync only when HEAD contains `origin/main` and the catalog inputs are
 // byte-identical to it (then the sync writes exactly what a prod deploy of main
-// would); otherwise build with whatever the store holds.
+// would); otherwise build with whatever the store holds. package.json and the
+// lockfile count as inputs because they choose the sync command and its deps;
+// this guard and .nvmrc count because they decide whether and how it runs.
 import { execFileSync, spawnSync } from 'node:child_process'
 
-const CATALOG_INPUTS = ['server/data/sentimony-db.yml', 'scripts/convert-yml-json.mjs', 'scripts/sync-supabase.mjs', 'scripts/lib']
+const CATALOG_INPUTS = [
+  'server/data/sentimony-db.yml',
+  'scripts/convert-yml-json.mjs',
+  'scripts/sync-supabase.mjs',
+  'scripts/lib',
+  'scripts/sync-supabase-preview.mjs',
+  'package.json',
+  'package-lock.json',
+  '.nvmrc',
+]
 
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim()
 

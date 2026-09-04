@@ -36,9 +36,12 @@ describe('document landmarks', () => {
     const mainEnd = layout.indexOf('</main>')
 
     for (const node of ['<Hero', '<LazySwiper', '<slot/>']) {
-      const index = layout.indexOf(node)
-      expect(index, `${node} renders outside <main>`).toBeGreaterThan(mainStart)
-      expect(index, `${node} renders outside <main>`).toBeLessThan(mainEnd)
+      const indexes = [...layout.matchAll(new RegExp(node, 'g'))].map(match => match.index)
+      expect(indexes.length, `${node} is missing from the layout`).toBeGreaterThan(0)
+      for (const index of indexes) {
+        expect(index, `${node} renders outside <main>`).toBeGreaterThan(mainStart)
+        expect(index, `${node} renders outside <main>`).toBeLessThan(mainEnd)
+      }
     }
     expect(layout.indexOf('<Header'), 'the header is its own landmark').toBeLessThan(mainStart)
   })
