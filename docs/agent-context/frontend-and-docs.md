@@ -12,9 +12,10 @@ because it renders outside `NuxtLayout` and owns its `<main>` plus `<h1>`. The
 skip link is the first layout template node and targets `#main`.
 
 `scroll-padding-top/bottom: 5rem` on `html` compensates for the sticky header and
-bottom player. The three `<nav>` elements are named `Main` (Header), `Footer`, and
-`Mobile` (drawer). Swipers use `<section :aria-label="title">` without a local
-`<h2>` because they render before the page `<h1>`. Lists expose loading, empty, and
+bottom player. The four `<nav>` elements are named `Main` (Header), `Footer`,
+`Mobile` (drawer) and `Profile collection` (`app/pages/profile.vue`). Swipers use
+`<section :aria-label="title ?? category">` without a local `<h2>` because they
+render before the page `<h1>`. Lists expose loading, empty, and
 error states through `<CollectionStatus>` (formerly `ProfileCollectionStatus`).
 These invariants are covered by `tests/unit/landmarks.test.ts`,
 `accessibleNames.test.ts`, and `collectionStatus.test.ts`.

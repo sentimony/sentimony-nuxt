@@ -259,6 +259,7 @@ describe('catalog surface', () => {
     'app/pages/tracks.vue',
     'app/pages/news.vue',
     'app/components/EntityLinks.vue',
+    'app/components/OpenImage.vue',
     'app/components/Swiper.vue',
     'app/components/ui/button/index.ts',
   ]

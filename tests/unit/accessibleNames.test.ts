@@ -14,6 +14,10 @@ describe('OpenImage trigger', () => {
     expect(source()).toContain(':aria-label="`Open full-size image: ${alt || \'image\'}`"')
   })
 
+  it('keeps the preview image decorative inside the named button', () => {
+    expect(source()).toMatch(/:src="previewImage"\s+alt=""/)
+  })
+
   it('disables the trigger instead of guarding the click handler', () => {
     expect(source()).toContain(':disabled="!image_xl"')
     expect(source(), 'DialogRoot owns the open state now').not.toContain('const isOpen = ref(false)')
@@ -46,9 +50,8 @@ describe('swiper controls', () => {
   const source = () => readProjectFile('app/components/Swiper.vue')
 
   it('names the navigation buttons and types them', () => {
-    expect(source()).toContain('aria-label="Previous"')
-    expect(source()).toContain('aria-label="Next"')
-    expect(source().match(/type="button"/g) ?? []).toHaveLength(2)
+    expect(source()).toMatch(/<button\s+type="button"\s+aria-label="Previous"/)
+    expect(source()).toMatch(/<button\s+type="button"\s+aria-label="Next"/)
   })
 
   it('groups the carousel in a named region without breaking heading order', () => {

@@ -45,6 +45,7 @@ describe('GlobalPlayer.vue', () => {
   })
 
   it('keeps the announcement empty while nothing plays', () => {
-    expect(component).toContain("if (!c) return ''")
+    const label = component.match(/const nowPlayingLabel = computed\(\(\) => \{[\s\S]*?\n\}\)/)?.[0] ?? ''
+    expect(label).toMatch(/if \(!\w+\) return ''/)
   })
 })

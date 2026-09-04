@@ -84,9 +84,11 @@ describe('page title elements', () => {
     expect(errorPage).toContain('<main')
     expect(errorPage).toContain('<h1')
     expect(errorPage, 'client navigation does not clear the error state').not.toMatch(/<NuxtLink|:to="/)
-    // One helper, three call sites: every exit must clear the error, not just navigate.
+    // Every exit must clear the error, not just navigate.
     expect(errorPage).toContain('const handleError = (redirect: string) => clearError({ redirect })')
-    expect(errorPage.match(/@click="handleError\('/g) ?? []).toHaveLength(3)
+    const clicks = errorPage.match(/@click="[^"]*"/g) ?? []
+    expect(clicks.length).toBeGreaterThan(0)
+    for (const click of clicks) expect(click).toMatch(/^@click="handleError\('[^']+'\)"$/)
   })
 
   it('drops the dead transition utility from the error page', () => {

@@ -21,6 +21,7 @@
     "pretypecheck": "npm run convert:yml",
     "sync:firebase": "npm run convert:yml && node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-firebase.mjs",
     "sync:supabase": "npm run convert:yml && node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-supabase.mjs",
+    "sync:supabase:preview": "node scripts/sync-supabase-preview.mjs",
     "sync:field": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-field.mjs",
     "convert:yml": "node scripts/convert-yml-json.mjs",
     "sync:track-audio": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-track-audio.mjs",

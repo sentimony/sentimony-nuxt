@@ -9,9 +9,10 @@
   package = "@netlify/plugin-lighthouse"
 
 # Previews read the shared Supabase catalog, so push the branch YAML there first;
-# otherwise a preview shows the content of the last manual deploy.
+# otherwise a preview shows the content of the last manual deploy. The guard
+# script syncs only when the branch already contains main (see the script header).
 [context.deploy-preview]
-  command = "npm run sync:supabase && npm run build"
+  command = "npm run sync:supabase:preview && npm run build"
 
 [[context.deploy-preview.plugins]]
   package = "@netlify/plugin-lighthouse"
