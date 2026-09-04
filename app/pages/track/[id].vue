@@ -131,14 +131,14 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
               <div class="flex-1 min-w-0">
 
-                <p v-if="release"><span class="text-foreground/50">Release:</span>
+                <p v-if="release"><span class="text-muted-foreground">Release:</span>
                   <NuxtLink :to="`/release/${release.slug}`" class="ml-1 hover:underline">{{ release.title }}</NuxtLink>
                 </p>
-                <p v-if="releaseDate"><span class="text-foreground/50">Release Date:</span> {{ releaseDate }}</p>
-                <p v-if="release?.cat_no"><span class="text-foreground/50">Catalog Number:</span> {{ release.cat_no }}</p>
-                <p v-if="release?.style"><span class="text-foreground/50">Styles:</span> {{ release.style }}</p>
-                <p v-if="track.bpm"><span class="text-foreground/50">BPM:</span> {{ track.bpm }}</p>
-                <p><span class="text-foreground/50">Track No:</span> {{ track.track_number }}</p>
+                <p v-if="releaseDate"><span class="text-muted-foreground">Release Date:</span> {{ releaseDate }}</p>
+                <p v-if="release?.cat_no"><span class="text-muted-foreground">Catalog Number:</span> {{ release.cat_no }}</p>
+                <p v-if="release?.style"><span class="text-muted-foreground">Styles:</span> {{ release.style }}</p>
+                <p v-if="track.bpm"><span class="text-muted-foreground">BPM:</span> {{ track.bpm }}</p>
+                <p><span class="text-muted-foreground">Track No:</span> {{ track.track_number }}</p>
 
               </div>
 

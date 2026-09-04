@@ -114,9 +114,9 @@ useSeoMeta({
 
               <div class="flex-1 min-w-0">
 
-                <p v-if="formattedDate"><span class="text-foreground/50">Date:</span> {{ formattedDate }}</p>
-                <p v-if="item.time"><span class="text-foreground/50">Time:</span> {{ item.time }}</p>
-                <p v-if="item.location"><span class="text-foreground/50">Location:</span> {{ item.location }}</p>
+                <p v-if="formattedDate"><span class="text-muted-foreground">Date:</span> {{ formattedDate }}</p>
+                <p v-if="item.time"><span class="text-muted-foreground">Time:</span> {{ item.time }}</p>
+                <p v-if="item.location"><span class="text-muted-foreground">Location:</span> {{ item.location }}</p>
 
                 <div class="flex justify-start mb-4">
                   <LikeButton
@@ -132,7 +132,7 @@ useSeoMeta({
             </div>
 
             <template v-if="eventLinks.length">
-              <p><span class="text-[10px] md:text-[12px] text-foreground/50">Links</span></p>
+              <p><span class="text-[10px] md:text-[12px] text-muted-foreground">Links</span></p>
               <PrimaryButton
                 v-for="link in eventLinks"
                 :key="link.url"

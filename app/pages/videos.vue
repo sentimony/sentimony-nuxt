@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Video } from '~/types'
 
-const { data: videosRaw } = await useVideos()
+const { data: videosRaw, status, error, refresh } = await useVideos()
 const videos = computed(() => toArray<Video>(videosRaw.value, 'videos'))
 const videosSortedByDate = computed(() => visibleByDate(videos.value))
 const appConfig = useAppConfig()
@@ -36,6 +36,15 @@ useSeoMeta({
         :i="i"
       />
     </div>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && videosSortedByDate.length === 0"
+      empty-text="No videos published yet"
+      @retry="refresh()"
+    />
 
   </div>
 </template>

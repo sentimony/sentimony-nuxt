@@ -33,4 +33,19 @@ describe('GlobalPlayer.vue', () => {
     expect(component).toContain('data-testid="audio-bottom-player"')
     expect(read('app/layouts/default.vue')).toContain('<GlobalPlayer />')
   })
+
+  it('announces track changes outside the aria-hidden wrapper', () => {
+    const liveIndex = component.indexOf('aria-live="polite"')
+    const hiddenIndex = component.indexOf(':aria-hidden="!revealed"')
+
+    expect(liveIndex).toBeGreaterThan(-1)
+    expect(liveIndex, 'a live region inside the hidden wrapper stays silent').toBeLessThan(hiddenIndex)
+    expect(component).toContain('aria-atomic="true"')
+    expect(component).toContain('{{ nowPlayingLabel }}')
+  })
+
+  it('keeps the announcement empty while nothing plays', () => {
+    const label = component.match(/const nowPlayingLabel = computed\(\(\) => \{[\s\S]*?\n\}\)/)?.[0] ?? ''
+    expect(label).toMatch(/if \(!\w+\) return ''/)
+  })
 })

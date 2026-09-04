@@ -35,7 +35,7 @@ await collection.ensureLoaded()
       />
     </div>
 
-    <ProfileCollectionStatus
+    <CollectionStatus
       :loading="collection.loading.value"
       :loaded="collection.loaded.value"
       :has-more="collection.hasMore.value"

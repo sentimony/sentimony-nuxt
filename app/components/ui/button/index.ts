@@ -17,7 +17,7 @@ export const buttonVariants = cva(
         glass:
           'h-[36px] md:h-[42px] px-3 md:px-4 text-[12px] md:text-[15px] tracking-tighter border backdrop-blur-sm hover:bg-white/30',
         soft:
-          'gap-1 px-2 py-0.5 text-[13px] border border-foreground/20 text-foreground/40 hover:border-foreground/40 hover:bg-white/30',
+          'gap-1 px-2 py-0.5 text-[13px] border border-foreground/20 text-muted-foreground hover:border-foreground/40 hover:bg-white/30',
         submit:
           'h-10 px-4 text-sm border border-foreground/30 bg-foreground/12 hover:bg-foreground/20 hover:border-foreground/45',
       },

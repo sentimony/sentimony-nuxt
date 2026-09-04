@@ -21,7 +21,7 @@ if (playlistError.value || !item.value) {
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
-const comingMusic = '<div class="p-4 text-[12px] text-white/50">Music is<br>coming ⛄</div>'
+const comingMusic = '<div class="p-4 text-[12px] text-muted-foreground">Music is<br>coming ⛄</div>'
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 
@@ -86,7 +86,7 @@ useSeoMeta({
                 :alt="(item.title || 'Playlist') + ' cover'"
               />
               <div class="pt-1">
-                <p><span class="text-foreground/50">Styles:</span> {{ item.style }}</p>
+                <p><span class="text-muted-foreground">Styles:</span> {{ item.style }}</p>
 
                 <div class="flex justify-start mt-3">
                   <LikeButton

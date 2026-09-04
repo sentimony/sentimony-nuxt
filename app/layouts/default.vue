@@ -101,6 +101,11 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
 </script>
 
 <template>
+  <a
+    href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:border focus:border-foreground/30 focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:text-foreground"
+  >Skip to content</a>
+
   <HomepageAtmosphere v-if="isIndex" />
   
   <!-- <Fractal v-if="host == '!localhost'" /> -->
@@ -115,7 +120,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
 
       <Header />
 
-      <div class="flex flex-col justify-center">
+      <main id="main" tabindex="-1" class="flex flex-col justify-center">
 
         <Hero class="order-[0]" v-if="isIndex" />
 
@@ -183,7 +188,7 @@ const activeEventSlug = computed(() => showEvents.value ? String(route.params.id
           <slot/>
         </div>
 
-      </div>
+      </main>
 
       </div>
 

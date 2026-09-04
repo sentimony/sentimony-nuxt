@@ -71,7 +71,7 @@ watch(() => route.path, () => { isOpen.value = false })
           <DialogDescription>Site navigation and social links</DialogDescription>
         </VisuallyHidden>
 
-        <div class="flex flex-col items-center gap-1 px-2 py-2">
+        <nav aria-label="Mobile" class="flex flex-col items-center gap-1 px-2 py-2">
           <NuxtLink
             v-for="i in getNav()"
             :key="i.route"
@@ -83,7 +83,7 @@ watch(() => route.path, () => { isOpen.value = false })
             <Icon :name="i.icon" size="18" />
             <span>{{ i.title }}</span>
           </NuxtLink>
-        </div>
+        </nav>
 
         <hr class="border-black/30 dark:border-white/30" />
 

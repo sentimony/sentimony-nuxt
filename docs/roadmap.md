@@ -32,6 +32,7 @@
 - [API list envelope](initiatives/api-list-envelope.md) — уніфікувати list responses як `{ info, results }`. `Planned`
 - [Profile surface](initiatives/profile-surface.md) — полагоджені лайкнуті треки, помилки колекцій відділені від порожнього стану, profile використовує outline-focus і два текстові тири. `Implemented`
 - [Origin response time](initiatives/origin-response-time.md) — Durable Cache і cache key HTML, нечутливий до query-міток. `Implemented`
+- [Accessibility structure](initiatives/accessibility-structure.md) — лендмарки, скіп-лінка, видимий фокус на кнопках, доступні імена і стани списків. `Partial`
 - [Function invocation budget](initiatives/function-invocation-budget.md) — тримати виклики функцій під лімітом Netlify, бо перевищення паузить усі сайти команди. `Idea`
 
 ## P2
@@ -39,7 +40,6 @@
 - [Production request logging](initiatives/request-logging.md) — sampling і privacy redaction. `Planned`
 - [Profile aggregation](initiatives/profile-aggregation.md) — один overview request із початковими колекціями. `Planned`
 - [Mutation hardening](initiatives/mutation-hardening.md) — validation, existence checks і rate limiting. `Planned`
-- [Accessibility structure](initiatives/accessibility-structure.md) — `<main>` і homepage `<h1>`. `Planned`
 - [Auth contrast and focus states](initiatives/auth-contrast-focus.md) — focus-індикатори і AA-контраст auth-сторінок у двох темах. `Implemented`
 - [Cloudflare migration](initiatives/cloudflare-domain.md) — поетапний переїзд DNS і runtime із замірами до/після. `Planned`
 

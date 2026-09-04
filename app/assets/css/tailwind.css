@@ -104,7 +104,9 @@
   margin-inline: auto;
 }
 
-a:focus-visible {
+/* Unlayered on purpose: Tailwind utilities live in a lower-priority layer, so this
+   outranks any local outline-none and no component can suppress focus. */
+:is(a, button, [role="button"], input[type="range"], summary):focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
@@ -120,6 +122,14 @@ html {
   background-color: #ffffff;
   scrollbar-gutter: stable;
   overflow-x: hidden;
+  /* Sticky header (4.5rem + border) and bottom player (71px) overlap anchor targets. */
+  scroll-padding-top: 5rem;
+  scroll-padding-bottom: 5rem;
+}
+
+/* The skip link moves focus here programmatically; the region itself is not interactive. */
+#main:focus {
+  outline: none;
 }
 
 html.dark {

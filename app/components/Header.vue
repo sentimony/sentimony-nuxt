@@ -31,7 +31,7 @@ async function signOut() {
 </script>
 
 <template>
-  <div data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
+  <header data-testid="site-header" class="sticky top-0 left-0 w-full z-20 border-b border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 backdrop-blur-sm overflow-hidden">
     <div class="px-0">
       <div class="container max-w-7xl">
         <div class="relative flex justify-between items-center h-18 px-2">
@@ -54,7 +54,7 @@ async function signOut() {
             </div>
           </NuxtLink>
 
-          <div class="hidden sm:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <nav aria-label="Main" class="hidden sm:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <NuxtLink
               v-for="i in getHeaderNav()"
               :key="i.route"
@@ -67,7 +67,7 @@ async function signOut() {
               <Icon :name="i.icon" size="18" />
               <span class="hidden lg:inline">{{ i.title }}</span>
             </NuxtLink>
-          </div>
+          </nav>
 
           <div class="flex items-center gap-2">
 
@@ -126,7 +126,7 @@ async function signOut() {
                 <DropdownMenuItem as-child>
                   <NuxtLink
                     to="/profile"
-                    class="flex items-center gap-3 px-3 py-2 text-sm transition-colors hover:bg-black/10 dark:hover:bg-white/10 outline-none data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10"
+                    class="flex items-center gap-3 px-3 py-2 text-sm transition-colors hover:bg-black/10 dark:hover:bg-white/10 data-[highlighted]:bg-black/10 dark:data-[highlighted]:bg-white/10"
                   >
                     <Icon name="lucide:circle-user-round" size="18" class="opacity-50" />
                     <span>Profile</span>
@@ -135,7 +135,7 @@ async function signOut() {
                 <DropdownMenuItem as-child>
                   <button
                     type="button"
-                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 outline-none data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 cursor-pointer"
+                    class="w-full text-left flex items-center gap-3 px-3 py-2 text-sm transition-colors border-t border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 data-highlighted:bg-black/10 dark:data-highlighted:bg-white/10 cursor-pointer"
                     @click="signOut"
                   >
                     <Icon name="lucide:log-out" size="18" class="opacity-50" />
@@ -165,5 +165,5 @@ async function signOut() {
         </div>
       </div>
     </div>
-  </div>
+  </header>
 </template>

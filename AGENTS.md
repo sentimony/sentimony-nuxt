@@ -2,12 +2,12 @@
 
 Guidance for coding agents working in this repository.
 
-- Last reviewed: 2026-08-27
+- Last reviewed: 2026-09-04
 
 ## Conventions
 
 - **Instruction files:** the canonical file is `AGENTS.md`; `CLAUDE.md` beside it holds the single line `@AGENTS.md`. Write rules here and touch `CLAUDE.md` only when the import scheme changes. Do not symlink them.
-- **Instruction size:** keep this file under ~250 lines. A topic longer than ~800 characters becomes sub-bullets. Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas. Detail that only concerns one directory belongs in an `AGENTS.md` in that directory once this file outgrows the budget.
+- **Instruction size:** keep this file under ~250 lines. A topic longer than ~800 characters becomes sub-bullets. Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas. Detail that only concerns one directory belongs in an `AGENTS.md` in that directory; cross-cutting reference material that agents need only on demand lives in `docs/agent-context/` and is linked from here.
 - **Language:** Ukrainian in conversation. **Exception — artifacts that live in GitHub: PR title and description, issue text and commit messages are English**, because the team reads them and they stay in the repo history.
 - **Code comments are English**, and only where the name cannot carry the meaning: an external constraint, a deliberate workaround, a non-obvious invariant. A comment restating the code is not wanted.
 - **No git worktrees.** Do not create them (`git worktree add`, the `using-git-worktrees` skill, `isolation: worktree`); work directly in the main checkout.
@@ -34,37 +34,14 @@ Live: [sentimony.com](https://sentimony.com) · Staging: `stage--sentimony-nuxt.
 
 Node `24.15.0` (`.nvmrc`).
 
-```bash
-npm run dev   # dev (requires .env/.env)
-npm run build
-npm run test:unit       # Vitest unit tests
-npm run test:e2e        # Playwright e2e tests
-npm run test:e2e:update # refresh Playwright snapshots
-npm run convert:yml     # regenerate the gitignored sentimony-db-export.json from sentimony-db.yml (source of truth); runs automatically before dev/build/test:unit/generate/typecheck
-npm run sync:firebase   # convert:yml, then sync export → Firebase DB
-npm run sync:supabase   # convert:yml, then sync export → Supabase content tables
-npm run sync:field      # push a single catalog field to the remote store
-npm run sync:track-audio # push track audio_url values to Supabase
-npm run preview         # serve the built output locally
-npm run deploy:stage    # predeploy sync:supabase + sync:firebase, then Netlify stage
-npm run deploy:prod     # predeploy sync:supabase + sync:firebase, then Netlify prod
-npm run build:cf        # NITRO_PRESET=cloudflare_module build
-npm run deploy:cf:stage # build:cf, then wrangler versions upload (preview URL)
-npm run deploy:cf:prod  # build:cf, then wrangler deploy
-CATALOG_SOURCE=firebase npm run dev
-CATALOG_SOURCE=supabase npm run dev
-npm run verify:pwa      # validate manifest + custom service worker
-npm run docs:check      # structural invariants of docs/ (index ↔ initiatives, links, naming)
-npm run typecheck       # Nuxt/Nitro type check; warns if Supabase env vars are absent locally
-npm run typecheck:ts7   # netlify/edge functions via TypeScript native (TS7)
-npm run web-debug       # HTTP smoke over every page kind against BASE_URL
-PERF_LABEL=netlify-prod npm run perf:baseline   # first-load timings per page kind
-LH_LABEL=netlify-prod npm run perf:lighthouse   # Lighthouse lab metrics per page kind
-```
+The canonical local gate is `npm run test:unit && npm run typecheck && npm run docs:check`.
+Use `npm run typecheck:ts7` for edge-function types, `BASE_URL=... npm run web-debug`
+for HTTP smoke, and `npm run verify:pwa` after PWA asset changes. The package scripts
+remain the source of truth for routine dev, build, test, sync, and deploy commands.
 
-**Measuring first load: use `perf:baseline`, do not hand-roll `curl`.** `scripts/perf-baseline.mjs` walks every page kind and asset target from `scripts/lib/routes.mjs`, repeats each `PERF_RUNS` times (default 5), busts the cache to separate cold from warm, reads the CDN `cache-status`, optionally pulls PSI, and writes a markdown table — which is what makes two runs comparable. `PERF_LABEL` is required; `BASE_URL` defaults to prod. `perf:lighthouse` (`scripts/lighthouse-baseline.mjs`) is the lab-metric counterpart — it drives `npx lighthouse@12` over six representative routes (`LH_ROUTES` overrides), takes the median of `LH_RUNS` (default 3) and writes `docs/audits/data/lh-<LH_LABEL>.json`; it needs a local Chrome and downloads Lighthouse on demand. **Compare hosts, not just code:** `sentimony.com` resolves to a stale US Netlify LB while `*.netlify.app` hits the nearest PoP, so a prod-vs-stage run must include `sentimony-nuxt.netlify.app` (prod code, same PoP) or the network difference is read as a code difference — see [`docs/audits/2026-08-11-branch-vs-prod-perf-audit.md`](docs/audits/2026-08-11-branch-vs-prod-perf-audit.md). The Cloudflare path (`build:cf`, `deploy:cf:*`) exists for the Workers evaluation in [`docs/initiatives/cloudflare-domain.md`](docs/initiatives/cloudflare-domain.md); prod still runs the Netlify preset.
+**Performance baselines.** Use `PERF_LABEL=... npm run perf:baseline` and `LH_LABEL=... npm run perf:lighthouse`; do not hand-roll `curl`. For methodology, cache behavior, host comparison, and Cloudflare evaluation details, read [`docs/agent-context/frontend-and-docs.md`](docs/agent-context/frontend-and-docs.md).
 
-Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores. **The exception is deploying:** `predeploy:stage` / `predeploy:prod` run `sync:supabase && sync:firebase` before every `deploy:stage` / `deploy:prod`, because the Netlify site is not linked to the git repo (`build_settings` is empty - no build is triggered by a push), so those npm scripts are the only deploy path and the only place a sync can be guaranteed. This is what keeps `sentimony-db.yml` from silently diverging from the store prod reads. Two consequences: a deploy needs both `SUPABASE_SECRET_KEY` and `FIREBASE_DB_SECRET` present locally or it aborts before uploading, and `sync-supabase.mjs` deletes stale `tracks` / `track_artists` rows, so a bad YAML edit propagates deletions at deploy time.
+Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores. **The exception is deploying:** `predeploy:stage` / `predeploy:prod` run `sync:supabase && sync:firebase` before every `deploy:stage` / `deploy:prod`; those npm scripts are the only path to prod and stage (the CLI uploads a local build, so the `netlify.toml` build commands do not run there). Netlify deploy previews are built from a PR push (the site is linked to `sentimony/sentimony-nuxt`) and run `sync:supabase:preview && npm run build` (`[context.deploy-preview]` in `netlify.toml`), because previews read the same Supabase catalog and would otherwise show the content of the last manual deploy. `scripts/sync-supabase-preview.mjs` runs the sync only when the branch contains `origin/main` **and** its catalog inputs (the YAML, the convert, sync and guard scripts, `package.json`, the lockfile and `.nvmrc`) are identical to it, so a preview writes what a prod deploy of `main` would; this covers accidental drift, not a hostile PR, which only credential isolation would stop; a branch with catalog edits builds without syncing, because the store is shared by prod, stage and every preview and an unmerged catalog would otherwise rewrite or delete prod rows. This is what keeps `sentimony-db.yml` from silently diverging from the store prod reads. Two consequences: a manual deploy needs both `SUPABASE_SECRET_KEY` and `FIREBASE_DB_SECRET` present locally or it aborts before uploading, and `sync-supabase.mjs` deletes stale `tracks` / `track_artists` rows, so a bad YAML edit propagates deletions at deploy time.
 CI (`.github/workflows/ci.yml`) runs `docs:check`, `typecheck`, `typecheck:ts7`, `test:unit`, a `node-server` build and `web-debug` on push/PR — Playwright and the Netlify preset build are **not** in CI yet. **CI runs on Linux, so file-path casing matters** even though macOS hides mismatches locally.
 
 `npm install` is not inert: `preinstall` → `scripts/setup.sh` (creates `.env/`, `.claude/skills/`, seeds `.claude/settings.json` attribution flags) and `postinstall` → `scripts/skills.sh` (re-installs the pinned agent skills via `npx skills add`, network required). `npm run clean` wipes `node_modules`, `package-lock.json`, `.nuxt` and the installed skills — do not run it casually.
@@ -99,7 +76,7 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 **Server utils.** `server/utils/catalogSource.ts` - normalized catalog source switch. `server/utils/firebaseCatalog.ts` - Firebase fetch helpers + track parsing. `server/utils/supabase.ts` - anon client + Supabase row mappers. `server/utils/trackArtists.ts` - normalized Supabase track↔artist lookups. `server/utils/likeCountersHandler.ts` - public aggregate counter endpoint factory. `server/utils/supabaseAdmin.ts` - service-role client for privileged auth/likes/profile writes.
 
-**PostgREST row cap.** Supabase REST responses are capped at 1000 rows; every unbounded table read must paginate via `.range()` with a stable `.order()` — see `server/utils/likeCountersHandler.ts` and `selectAll()` in `scripts/sync-supabase.mjs`. `tracks` (~770) and `track_artists` (~790) already sit near the cap.
+**PostgREST row cap.** Supabase REST responses are capped at 1000 rows; every unbounded table read must paginate via `.range()` with a stable `.order()`; see `server/utils/likeCountersHandler.ts` and `selectAll()` in `scripts/sync-supabase.mjs`. `tracks` (~770) and `track_artists` (~790) already sit near the cap.
 
 **Composables.** Each entity has `useXxx()` (wraps `useAsyncData` + `$fetch('/api/xxx')`) and `useXxxLikes()` built on the `createLikes(key, apiBase, countsUrl)` factory (`app/composables/createLikes.ts`). `useLikes()` (`app/composables/useLikes.ts`) is the release reference; artist/video/track/event/playlist variants follow it. A failed like reverts the optimistic update and fires `toast.error` (vue-sonner); `<Toaster>` is mounted once in `app/app.vue`. `toArray()` (`app/composables/toArray.ts`) normalises Firebase object-keyed and Supabase array responses into one array.
 
@@ -147,32 +124,12 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 - No global `border-border` base layer (many bare `border` utilities rely on `currentColor`) - set borders per instance (auth Cards use `border-white/20`).
 - **`font-mono` = Azeret Mono** for technical data: BPM, catalog numbers (`SR-042`), track duration (`4:32`), total release duration. Apply `font-mono` to any element rendering these values.
 
-**Text tiers and focus states.** Тексту два семантичні рівні: `text-foreground` (основний) і `text-muted-foreground` (secondary: лейбли, placeholder, допоміжні лінки). Третього, тусклішого рівня немає - `text-foreground/40` і `/50` не проходять WCAG AA у світлій темі (2.58-3.94). Focus-стан кнопок та інпутів використовує `outline` (`focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring`); auth-лінки й кнопка видимості пароля отримують еквівалентне правило в `tailwind.css`. **Не** додавати безумовний `outline-none`: у Tailwind v4 він може зробити focus-обведення невидимим. Не замінювати outline інпута на `ring-*` без живої перевірки: разом із `shadow-xs` ring-слот лишався прозорим. Заливка `--card` навмисно інвертується між темами (світла - біла 55%, темна - чорна 25%), бо на світлому фоні затемнення картки погіршує контраст чорного тексту. Guarded by `tests/unit/interactionStates.test.ts`.
+**Text tiers and focus states.** Тексту два семантичні рівні: `text-foreground` (основний) і `text-muted-foreground` (secondary: лейбли, placeholder, допоміжні лінки). Третього, тусклішого рівня немає - `text-foreground/40` і `/50` не проходять WCAG AA у світлій темі (2.58-3.94). Focus-стан інтерактивних елементів із переліку `a`, `button`, `[role="button"]`, `input[type="range"]`, `summary` (текстові інпути в нього не входять: `ui/input` тримає власний рецепт `focus-visible:outline-*`) задає **одне нешарове** правило `:is(…):focus-visible` у `tailwind.css`: воно поза `@layer`, тому перебиває будь-який локальний `outline-none` чи `focus-visible:ring-*` незалежно від специфічності — **не** загортати його в `@layer` і не додавати компонентам власні focus-класи (буде подвійна індикація). **Не** додавати безумовний `outline-none`. Тому на елементах, які підпадають під глобальний селектор, `outline-none` і `focus-visible:ring-*` мертві (подвійна індикація або просто шум), а на решті — тихо вбивають фокус. Розширювати треба сам селектор, не додавати локальні правила. Не замінювати outline інпута на `ring-*` без живої перевірки: разом із `shadow-xs` ring-слот лишався прозорим. Заливка `--card` навмисно інвертується між темами (світла - біла 55%, темна - чорна 25%), бо на світлому фоні затемнення картки погіршує контраст чорного тексту. Guarded by `tests/unit/interactionStates.test.ts`.
 
-**Intentional dark focus surfaces.** Поверхня, яка навмисно лишається темною в обох темах, перевизначає `--ring` локально; значення Footer синхронізоване тестом із `.dark --ring`. У Tailwind v4 `transition-colors` включає `outline-color`, тому для focus-обведення без анімації використовуй явний `transition-[...]` без `outline-color`.
+**Landmarks.** Один `<main id="main" tabindex="-1">` живе в `app/layouts/default.vue`; `app/error.vue` — єдиний виняток. Скіп-лінка цілиться в `#main`. Для повних правил landmarks, focus-поверхонь, edge-функцій, SEO, порядку артистів і структури docs читай [`docs/agent-context/frontend-and-docs.md`](docs/agent-context/frontend-and-docs.md) перед роботою у відповідній області.
 
-- **No `@apply` in `<style scoped>`** - Tailwind v4 treats scoped blocks as isolated CSS contexts; `@apply` throws `Cannot apply unknown utility class`. Move styles to `class=""` in the template, or add `@reference "tailwindcss"` as the first line of the scoped block. Pure CSS (transitions, animations) without `@apply` is fine.
-
-**Netlify Edge Functions** (`netlify/edge-functions/`): `blocking.ts` (403 for PHP/WP/admin scanner probes), `redirects.ts` (legacy `.htm`/`.html` + dead platform links), `trailing-slash-add.ts` / `trailing-slash-remove.ts`.
-
-**Constants.** `app/constants/nav.ts` (nav items + `inHeader`; `isNavActive()` for section-level active), `icons.ts` (icon registry - Iconify names + custom SVG URLs), `soclinks.ts` (social links).
-
-**Types.** Shared types in `app/types/index.ts`. Entities extend `BaseEntity` (`slug`, `title`, `visible`, `date`); API responses typed `XxxResponse` as `Record<string, Xxx> | Xxx[]` for both backends.
-
-**SEO.** Every public page calls `useSeoMeta()` (full OG + Twitter tags) plus `useCanonical()` (`app/composables/useCanonical.ts` - thin wrapper over `useAbsoluteUrl()` rendering `<link rel="canonical">`); brand defaults in `app/app.config.ts`; sitemap suppressed on `stage--` deploys.
-
-**Sitemap.** `@nuxtjs/sitemap` sources URLs from `/api/__sitemap__/urls` (`server/api/__sitemap__/urls.get.ts`), backed by the pure, unit-testable `buildSitemapUrls()` (`server/utils/sitemapUrls.ts`) which reads the local generated `sentimony-db-export.json` export directly - **no** live Firebase/Supabase fetch. Track URLs reuse `parseTrackParagraph()` from `firebaseCatalog.ts` so slugs stay in sync with `/api/track/[id]`.
-
-**Robots/noindex.** Auth pages (`/signin`, `/signup`, `/forgot-password`, `/reset-password`, `/confirm`) and `/profile/**` are noindexed via `routeRules` + `buildNoindexRouteRules()` (`server/utils/robotsPolicy.ts`, same pattern as `buildApiRouteRules()`) - **not** `definePageMeta({ robots: false })`, which silently no-ops in this project's Nuxt 4 + `@nuxtjs/robots` setup (`pageMetaRobots` stays `{}` in the compiled bundle; verified via `.nuxt/dev/index.mjs`). `routeRules` with `robots: false` also auto-excludes those paths from the sitemap, so no separate `sitemap.exclude` is needed.
-
-**Artist `category_id` numbering.** `category_id` — унікальний рядок, який задає порядок артистів у межах категорії і відображається як бейдж на картці. Формат тризначний (`"001"`–`"240"` наразі, 242 артисти), з єдиним винятком — parking-діапазон `1600`+ для трьох невидимих designer-записів. Додаючи артиста: запис у `server/data/sentimony-db.yml` (потім `npm run convert:yml`), наступний вільний тризначний номер, місце в масиві за першою появою в релізах/подіях; коли з'явиться фото — рядок у `sentimony-images/src/data/artist-images.ts`. Повні правила відновлення нумерації, slug-аліаси й перелік винятків — [`docs/artist-numbering.md`](docs/artist-numbering.md).
-
-Artist list page ordering: use `sortArtistsForCatalog()` (`app/utils/artists.ts`) everywhere, including the artists page and artist Swiper. `/artists/all` is the exception: it lists all artists (hidden included) via `/api/artists-all` + `sortArtistsByCategory()` (same fields as `/api/artists` plus `location`, no `visible` filter). Client-side artist-name matching (`splitTitleByArtists` on release tracklists and event lineups) also reads `/api/artists-all`, so hidden artists stay linkable; its `photo_xl` feeds `<RelativeItem>` thumbnails. Categories render as `musician → dj → mastering → designer`; within each category sort by ascending numeric `category_id`.
+**Artist `category_id` numbering.** Додаючи артиста, внеси запис у `server/data/sentimony-db.yml`, виконай `npm run convert:yml`, використай наступний вільний тризначний номер і розмісти запис за першою появою в релізах/подіях. Для перенумерації, slug-аліасів і винятків читай [`docs/artist-numbering.md`](docs/artist-numbering.md); коли з'явиться фото, онови `sentimony-images/src/data/artist-images.ts`.
 
 ## Docs
 
-Корінь: `README.md` (публічний, стек + бейджі), `PRODUCT.md` (продуктовий контекст і register), `DESIGN.md` (design system — frontmatter із токенами кольорів).
-
-`docs/roadmap.md` — єдиний індекс ініціатив (статуси `Planned` / `Partial` / `Idea` / `Implemented` / `Descoped`; поле `Ініційовано` — дата, коли ідею вперше сформульовано, `Last reviewed` — дата останньої звірки з кодом); `docs/completed.md` — історія завершених. **Обидва імені — lowercase**, як і решта файлів у `docs/` (виняток — `README.md`); регістр перевіряє `docs:check`, бо `existsSync` на case-insensitive macOS пропустив би розбіжність, а Linux-CI — ні. Описи окремих ініціатив — по файлу в `docs/initiatives/`. `docs/audits/README.md` — індекс аудитів. Спеки й плани — `docs/specs/` і `docs/plans/` (`YYYY-MM-DD-<topic>.md`); `docs/superpowers/specs|plans/` — архів історичних записів, нові файли туди не кладемо. `docs/impeccable/` — датовані дизайн-брифи. `docs/artist-numbering.md` — довідник нумерації артистів.
-
-Статус живе у двох місцях — у рядку `docs/roadmap.md` і в полі `- Status:` файла ініціативи; міняти треба обидва. `npm run docs:check` (у CI) стежить за цим, а також за покриттям індексу, відносними посиланнями в живих документах, індексом аудитів і датованими іменами файлів. Датовані артефакти (аудити, спеки, плани) фіксують стан на свою дату — при рефакторингу структури `docs/` їх посилання навмисно не переписуються і не перевіряються.
+`docs/roadmap.md` і поле `- Status:` у кожному initiative-файлі мають залишатися синхронними; після змін у документах запускай `npm run docs:check`. Деталі про naming, архівні каталоги, індекси аудитів і dated snapshots описані в [`docs/agent-context/frontend-and-docs.md`](docs/agent-context/frontend-and-docs.md).

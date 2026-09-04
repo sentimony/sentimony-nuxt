@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Playlist } from '~/types'
 
-const { data: playlistsRaw } = await usePlaylists()
+const { data: playlistsRaw, status, error, refresh } = await usePlaylists()
 const playlists = computed(() => toArray<Playlist>(playlistsRaw.value, 'playlists'))
 const playlistsSortedByDate = computed(() => visibleByDate(playlists.value, 'asc'))
 const appConfig = useAppConfig()
@@ -36,6 +36,15 @@ useSeoMeta({
         :i="i"
       />
     </div>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && playlistsSortedByDate.length === 0"
+      empty-text="No playlists published yet"
+      @retry="refresh()"
+    />
 
   </div>
 </template>

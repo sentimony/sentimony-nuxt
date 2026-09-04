@@ -5,9 +5,19 @@ const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 useCanonical(() => absoluteUrl.value)
 
-const { data: releasesRaw } = await useReleases()
-const { data: eventsRaw } = await useEvents()
-const { data: videosRaw } = await useVideos()
+const { data: releasesRaw, status: releasesStatus, error: releasesError, refresh: refreshReleases } = await useReleases()
+const { data: eventsRaw, status: eventsStatus, error: eventsError, refresh: refreshEvents } = await useEvents()
+const { data: videosRaw, status: videosStatus, error: videosError, refresh: refreshVideos } = await useVideos()
+
+const status = computed(() => {
+  const all = [releasesStatus.value, eventsStatus.value, videosStatus.value]
+  if (all.includes('pending')) return 'pending'
+  if (all.includes('error')) return 'error'
+  if (all.every(s => s === 'success')) return 'success'
+  return 'idle'
+})
+const error = computed(() => releasesError.value || eventsError.value || videosError.value)
+const refresh = () => Promise.all([refreshReleases(), refreshEvents(), refreshVideos()])
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const events = computed(() => toArray<Event>(eventsRaw.value, 'events'))
@@ -95,15 +105,24 @@ useSeoMeta({
               <div v-else class="h-6 w-6 rounded bg-foreground/10"></div>
             <!-- </div> -->
             <div class="text-left ml-4">
-              <div class="text-xs md:text-sm text-foreground/50">{{ formatDate(i.date) }}</div>
+              <div class="text-xs md:text-sm text-muted-foreground">{{ formatDate(i.date) }}</div>
               <div class="text-base md:text-lg font-medium text-foreground transition-colors">{{ i.title }}</div>
             </div>
           </div>
-          <span class="ml-4 text-foreground/40 group-hover:text-foreground/70 transition-colors">
+          <span class="ml-4 text-muted-foreground group-hover:text-foreground/70 transition-colors">
             <Icon name="lucide:chevron-right" size="18" />
           </span>
         </NuxtLink>
       </div>
+
+      <CollectionStatus
+        :loading="status === 'pending'"
+        :loaded="status === 'success'"
+        :error="!!error"
+        :empty="status === 'success' && newsItems.length === 0"
+        empty-text="Nothing published yet"
+        @retry="refresh()"
+      />
     </div>
 
   </div>

@@ -2,7 +2,7 @@
 import type { Artist, ArtistCategory } from '~/types'
 import { sortArtistsForCatalog } from '~/utils/artists'
 
-const { data: artistsRaw } = await useArtists()
+const { data: artistsRaw, status, error, refresh } = await useArtists()
 const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
 const artistsSortedForCatalog = computed(() => sortArtistsForCatalog(artists.value))
 
@@ -15,6 +15,16 @@ const artistsSortedByCategoryIdMusician = filterByCategory('musician')
 const artistsSortedByCategoryIdDj = filterByCategory('dj')
 const artistsSortedByCategoryIdDesigner = filterByCategory('designer')
 const artistsSortedByCategoryIdMastering = filterByCategory('mastering')
+// Emptiness follows what the four category grids render, not the whole catalog,
+// so an artist with an unknown category cannot hide the empty state.
+const hasArtists = computed(() =>
+  [
+    artistsSortedByCategoryIdMusician,
+    artistsSortedByCategoryIdDj,
+    artistsSortedByCategoryIdMastering,
+    artistsSortedByCategoryIdDesigner,
+  ].some(list => list.value.length > 0)
+)
 const appConfig = useAppConfig()
 const { absoluteUrl } = useAbsoluteUrl()
 useCanonical(() => absoluteUrl.value)
@@ -39,45 +49,58 @@ useSeoMeta({
 
     <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ PageTitle }}</h1>
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:keyboard-music" />Producers & Musicians</h2>
-    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
-      <Item
-        v-for="i in artistsSortedByCategoryIdMusician"
-        :key="i.slug"
-        category="artist"
-        :i="i"
-      />
-    </div>
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && !hasArtists"
+      empty-text="No artists listed yet"
+      @retry="refresh()"
+    />
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:turntable" />DJs</h2>
-    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
-      <Item
-        v-for="i in artistsSortedByCategoryIdDj"
-        :key="i.slug"
-        category="artist"
-        :i="i"
-      />
-    </div>
+    <!-- Unlike the flat list pages the grid stays hidden while empty, otherwise
+         four bare category headings would render above the empty state. -->
+    <template v-if="hasArtists">
+      <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:keyboard-music" />Producers & Musicians</h2>
+      <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
+        <Item
+          v-for="i in artistsSortedByCategoryIdMusician"
+          :key="i.slug"
+          category="artist"
+          :i="i"
+        />
+      </div>
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:speaker" />Sound Engineers & Mastering Services</h2>
-    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
-      <Item
-        v-for="i in artistsSortedByCategoryIdMastering"
-        :key="i.slug"
-        category="artist"
-        :i="i"
-      />
-    </div>
+      <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:turntable" />DJs</h2>
+      <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
+        <Item
+          v-for="i in artistsSortedByCategoryIdDj"
+          :key="i.slug"
+          category="artist"
+          :i="i"
+        />
+      </div>
 
-    <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:palette" />Visual Artists & Designers</h2>
-    <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
-      <Item
-        v-for="i in artistsSortedByCategoryIdDesigner"
-        :key="i.slug"
-        category="artist"
-        :i="i"
-      />
-    </div>
+      <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:speaker" />Sound Engineers & Mastering Services</h2>
+      <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
+        <Item
+          v-for="i in artistsSortedByCategoryIdMastering"
+          :key="i.slug"
+          category="artist"
+          :i="i"
+        />
+      </div>
+
+      <h2 class="flex items-center justify-center gap-2 text-lg md:text-xl mt-8 mb-3 text-foreground/60"><Icon name="lucide:palette" />Visual Artists & Designers</h2>
+      <div class="flex flex-wrap justify-center w-full pb-7.5 md:pb-15">
+        <Item
+          v-for="i in artistsSortedByCategoryIdDesigner"
+          :key="i.slug"
+          category="artist"
+          :i="i"
+        />
+      </div>
+    </template>
 
     <div class="flex justify-center gap-2 pb-7.5 md:pb-15">
       <DefaultButton to="/releases/all" title="All Releases" small outline />

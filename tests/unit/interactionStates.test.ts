@@ -98,15 +98,30 @@ describe('non-primitive focus', () => {
   it('replaces browser-default focus colours with the semantic ring token', () => {
     const css = readProjectFile('app/assets/css/tailwind.css')
 
-    const linkFocusRule = cssBlock(css, '\na:focus-visible {')
-    expect(linkFocusRule).toContain('outline: 2px solid var(--ring)')
-    expect(linkFocusRule).toContain('outline-offset: 2px')
+    const focusRule = cssBlock(css, '\n:is(a, button, [role="button"], input[type="range"], summary):focus-visible {')
+    expect(focusRule).toContain('outline: 2px solid var(--ring)')
+    expect(focusRule).toContain('outline-offset: 2px')
+
+    // Unlayered declarations outrank anything in @layer utilities regardless of
+    // specificity; wrapping this rule in a layer would silently disable it.
+    // tailwind.css has no @layer today, so any earlier @layer means it moved.
+    const ruleIndex = css.indexOf(':is(a, button, [role="button"], input[type="range"], summary):focus-visible')
+    const enclosingLayer = css.lastIndexOf('@layer', ruleIndex)
+    expect(enclosingLayer, 'the rule must stay unlayered').toBe(-1)
 
     const passwordToggleFocusRule = cssBlock(css, '\nbutton.password-toggle:focus-visible {')
     expect(passwordToggleFocusRule).toContain('outline-style: solid')
     expect(passwordToggleFocusRule).toContain('outline-width: 2px')
     expect(passwordToggleFocusRule).toContain('outline-color: var(--ring)')
     expect(passwordToggleFocusRule).toContain('outline-offset: 2px')
+  })
+
+  it('lets no component suppress the shared focus indicator', () => {
+    for (const file of ['app/components/ThemeToggle.vue', 'app/components/Header.vue']) {
+      const source = readProjectFile(file)
+      expect(source, `${file} keeps a dead outline-none`).not.toContain('outline-none')
+      expect(source, `${file} draws a ring on top of the outline`).not.toContain('focus-visible:ring-')
+    }
   })
 
   it('keeps focus immediate and light on the intentional dark footer', () => {
@@ -183,7 +198,7 @@ describe('auth surface', () => {
 describe('profile surface', () => {
   const PROFILE_FILES = [
     'app/components/ProfileCollectionPage.vue',
-    'app/components/ProfileCollectionStatus.vue',
+    'app/components/CollectionStatus.vue',
     'app/pages/profile.vue',
     'app/pages/profile/index.vue',
     'app/pages/profile/tracks.vue',
@@ -230,6 +245,30 @@ describe('profile surface', () => {
 
     expect(profile).toContain('<label for="profile-name"')
     expect(profile).toContain('id="profile-name"')
+  })
+})
+
+describe('catalog surface', () => {
+  const CATALOG_FILES = [
+    'app/pages/release/[id].vue',
+    'app/pages/track/[id].vue',
+    'app/pages/artist/[id].vue',
+    'app/pages/event/[id].vue',
+    'app/pages/video/[id].vue',
+    'app/pages/playlist/[id].vue',
+    'app/pages/tracks.vue',
+    'app/pages/news.vue',
+    'app/components/EntityLinks.vue',
+    'app/components/OpenImage.vue',
+    'app/components/Swiper.vue',
+    'app/components/ui/button/index.ts',
+  ]
+
+  it('uses only the two semantic text tiers', () => {
+    for (const file of CATALOG_FILES) {
+      expect(readProjectFile(file), `${file} keeps a sub-AA text tier`)
+        .not.toMatch(/text-(?:foreground|white|black)\/(?:25|30|35|40|45|50)\b/)
+    }
   })
 })
 

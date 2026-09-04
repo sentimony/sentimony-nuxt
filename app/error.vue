@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { NuxtError } from '#app'
 
 const props = defineProps<{ error: NuxtError }>()
-const handleError = () => clearError({ redirect: '/' })
+const handleError = (redirect: string) => clearError({ redirect })
 
 const pageTitle = computed(() => String(props.error?.statusCode ?? 'Error'))
 useHead({
@@ -13,18 +13,13 @@ useHead({
 </script>
 
 <template>
-  <div class="max-w-sm flex flex-col justify-center min-h-screen mx-auto px-2 text-center text-white ">
-    <div class="text-2xl md:text-4xl my-4 md:my-6">{{ error?.statusCode }}</div>
-    <div class="mb-6">{{ error?.statusMessage }}</div>
-    <div>
-      <button
-        @click="handleError"
-        class="transition-background ease-in-out duration-300 inline-flex items-center h-9 md:h-10.5 text-[12px] md:text-[15px] tracking-tighter rounded-md border hover:bg-white/30 px-3 md:px-4 mb-2 mr-2 last:mr-0 shadow-[0_2px_10px_0_rgba(0,0,0,0.5)] backdrop-blur-sm"
-        v-wave
-      >
-        <Icon name="lucide:house" size="19" class="mr-2" />
-        <span>Go Home</span>
-      </button>
+  <main class="max-w-sm flex flex-col justify-center min-h-screen mx-auto px-2 text-center text-foreground">
+    <h1 class="text-2xl md:text-4xl my-4 md:my-6">{{ error?.statusCode }}</h1>
+    <p class="mb-6 text-muted-foreground">{{ error?.statusMessage }}</p>
+    <div class="flex flex-wrap justify-center gap-2">
+      <DefaultButton iconify="lucide:house" title="Go Home" @click="handleError('/')" />
+      <DefaultButton iconify="lucide:disc-3" title="Releases" @click="handleError('/releases')" />
+      <DefaultButton iconify="lucide:users" title="Artists" @click="handleError('/artists')" />
     </div>
-  </div>
+  </main>
 </template>
