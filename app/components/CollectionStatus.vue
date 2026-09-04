@@ -1,5 +1,8 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+import { ref, watch } from 'vue'
+import { collectionAnnouncement, type CollectionState } from '~/utils/collectionAnnouncement'
+
+const props = withDefaults(defineProps<{
   loading: boolean
   loaded: boolean
   hasMore?: boolean
@@ -17,9 +20,27 @@ defineEmits<{
   loadMore: []
   retry: []
 }>()
+
+// The error branch announces itself via role="alert"; everything else goes
+// through one always-mounted status region so retries and pagination are heard.
+const snapshot = (): CollectionState => ({
+  loading: props.loading,
+  loaded: props.loaded,
+  error: props.error ?? false,
+  empty: props.empty ?? false,
+  hasMore: props.hasMore,
+  remaining: props.remaining,
+  emptyText: props.emptyText,
+})
+const statusText = ref(collectionAnnouncement(snapshot()))
+watch(snapshot, (next, previous) => {
+  statusText.value = collectionAnnouncement(next, previous)
+})
 </script>
 
 <template>
+  <p class="sr-only" role="status" aria-live="polite" aria-atomic="true">{{ statusText }}</p>
+
   <div
     v-if="error"
     role="alert"

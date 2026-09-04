@@ -30,6 +30,22 @@ describe('document landmarks', () => {
     expect(layout).toMatch(/<main\s+id="main"\s+tabindex="-1"/)
   })
 
+  it('keeps the hero, the swipers and the page slot inside main', () => {
+    const layout = readProjectFile('app/layouts/default.vue')
+    const mainStart = layout.indexOf('<main')
+    const mainEnd = layout.indexOf('</main>')
+
+    for (const node of ['<Hero', '<LazySwiper', '<slot/>']) {
+      const indexes = [...layout.matchAll(new RegExp(node, 'g'))].map(match => match.index)
+      expect(indexes.length, `${node} is missing from the layout`).toBeGreaterThan(0)
+      for (const index of indexes) {
+        expect(index, `${node} renders outside <main>`).toBeGreaterThan(mainStart)
+        expect(index, `${node} renders outside <main>`).toBeLessThan(mainEnd)
+      }
+    }
+    expect(layout.indexOf('<Header'), 'the header is its own landmark').toBeLessThan(mainStart)
+  })
+
   it('wraps the header and footer in their own landmarks', () => {
     expect(readProjectFile('app/components/Header.vue')).toContain('<header data-testid="site-header"')
     expect(readProjectFile('app/components/Footer.vue')).toContain('<footer data-testid="site-footer"')
@@ -87,9 +103,11 @@ describe('page title elements', () => {
     expect(errorPage).toContain('<main')
     expect(errorPage).toContain('<h1')
     expect(errorPage, 'client navigation does not clear the error state').not.toMatch(/<NuxtLink|:to="/)
-    // One helper, three call sites: every exit must clear the error, not just navigate.
+    // Every exit must clear the error, not just navigate.
     expect(errorPage).toContain('const handleError = (redirect: string) => clearError({ redirect })')
-    expect(errorPage.match(/@click="handleError\('/g) ?? []).toHaveLength(3)
+    const clicks = errorPage.match(/@click="[^"]*"/g) ?? []
+    expect(clicks.length).toBeGreaterThan(0)
+    for (const click of clicks) expect(click).toMatch(/^@click="handleError\('[^']+'\)"$/)
   })
 
   it('drops the dead transition utility from the error page', () => {

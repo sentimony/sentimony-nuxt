@@ -11,7 +11,11 @@ describe('OpenImage trigger', () => {
   it('opens the dialog from a real button', () => {
     expect(source()).toContain('<DialogTrigger as-child>')
     expect(source()).toContain('<button')
-    expect(source()).toContain(':aria-label="`Open full-size image: ${alt || \'image\'}`"')
+    expect(source()).toContain('image_xl ? `Open full-size image: ${alt || \'image\'}` : `Full-size image unavailable: ${alt || \'image\'}`')
+  })
+
+  it('keeps the preview image decorative inside the named button', () => {
+    expect(source()).toMatch(/:src="previewImage"\s+alt=""/)
   })
 
   it('disables the trigger instead of guarding the click handler', () => {
@@ -46,9 +50,8 @@ describe('swiper controls', () => {
   const source = () => readProjectFile('app/components/Swiper.vue')
 
   it('names the navigation buttons and types them', () => {
-    expect(source()).toContain('aria-label="Previous"')
-    expect(source()).toContain('aria-label="Next"')
-    expect(source().match(/type="button"/g) ?? []).toHaveLength(2)
+    expect(source()).toMatch(/<button\s+type="button"\s+aria-label="Previous"/)
+    expect(source()).toMatch(/<button\s+type="button"\s+aria-label="Next"/)
   })
 
   it('groups the carousel in a named region without breaking heading order', () => {
