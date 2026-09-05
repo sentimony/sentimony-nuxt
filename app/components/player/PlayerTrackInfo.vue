@@ -52,11 +52,11 @@ const linkHoverClass = 'rounded transition-colors duration-200 hover:bg-black/5 
           <component
             :is="segment.slug ? NuxtLink : 'span'"
             :to="segment.slug ? `/artist/${segment.slug}` : undefined"
-            :class="segment.slug ? linkHoverClass : (hasArtistLinks && 'font-normal opacity-60')"
+            :class="segment.slug ? linkHoverClass : (hasArtistLinks && 'font-normal text-muted-foreground')"
           >{{ segment.text }}</component>
         </template>
       </span>
-      <span class="block truncate opacity-60">
+      <span class="block truncate text-muted-foreground">
         <template v-for="(segment, i) in nameSegments" :key="i">
           <NuxtLink
             v-if="segment.slug"

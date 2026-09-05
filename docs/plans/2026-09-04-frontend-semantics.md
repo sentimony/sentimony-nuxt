@@ -155,6 +155,7 @@
 **Files:** `tests/e2e/__screenshots__/**` (тільки за протоколом), `AGENTS.md`, `docs/initiatives/catalog-semantics.md`, `docs/roadmap.md`, `docs/completed.md`
 
 - [x] **Step 1:** `npm run test:e2e` один раз. Якщо снапшоти падають — відкрити diff-зображення; оновлювати (`test:e2e:update`) лише якщо змінені області — підпис хедера й текст футера. Інший diff — знайти задачу, що зрушила пікселі, і виправити.
+  _2026-09-05: еталон застарів наступного дня після зняття (`44efa83`: uppercase-навігація, інші іконки хедера) плюс Chromium 1228 → 1234; зсуву макета немає, еталони перезнято без DevTools, `test:e2e` зелений._
 - [x] **Step 2:** AGENTS.md — нові інваріанти (треклісти `<ol>`, `alt=""` у посиланнях із текстом, без `opacity-*` на тексті в напівпрозорому батьку, `--color-moss`, `title` на кожному iframe); `Last reviewed: 2026-09-04`; під 250 рядків.
 - [x] **Step 3:** ініціатива → `Implemented`, roadmap синхронно, запис у `docs/completed.md`.
 - [x] **Step 4:** `npm run docs:check`; commit `docs: record the catalog semantics invariants and close the initiative`.

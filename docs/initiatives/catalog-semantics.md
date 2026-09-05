@@ -3,7 +3,7 @@
 - Status: Implemented
 - Priority: P1
 - Ініційовано: 2026-09-04
-- Last reviewed: 2026-09-04
+- Last reviewed: 2026-09-05
 - Related: [frontend audit 2026-09-04](../audits/2026-09-04-frontend-crafting-audit.md), [spec](../specs/2026-09-04-frontend-semantics-design.md), [plan](../plans/2026-09-04-frontend-semantics.md), [accessibility-structure](accessibility-structure.md)
 
 ## Навіщо
@@ -47,19 +47,20 @@ Read-шар каталогу (сім детальних сторінок, `/trac
 - Юніт-тести по джерелу закріплюють кожен пункт обсягу — виконано
   (`catalogSemantics`, `accessibleNames`, `collectionStatus`,
   `interactionStates`, `landmarks`).
-- `npm run test:e2e`: 22 зелених; 10 падінь не пов'язані з цією
-  ініціативою — снапшоти головної розходяться з базовим комітом на ту саму
-  кількість пікселів (середовищний дрейф); `api-security` очікує 404 від
-  `/api/release/<hidden>` і `/api/artist/<hidden>`, тоді як за AGENTS.md
-  детальні маршрути навмисно читають без фільтра `visible`; два тести
-  forest-asset очікують `webp`, а `forest-bg.client.ts` віддає `.jpg`. Усі
-  три не залежать від цих змін.
-  Знімки **не** оновлено.
+- `npm run test:e2e` зелений (2026-09-05). Десять падінь, що були на
+  базовому коміті, зняті після рев'ю: еталони головної від 2026-06-25
+  застаріли ще наступного дня (`44efa83`: uppercase-навігація з ширшим
+  трекінгом, інші іконки хедера), а Chromium перейшов з 1228 на 1234 разом із
+  Playwright 1.61 → 1.62; жоден зсув на 1px не зменшував diff, тож макет не
+  чіпали, а еталони перезнято без DevTools;
+  `api-security` тепер очікує 200 від `/api/release/<hidden>` і
+  `/api/artist/<hidden>` (детальні маршрути навмисно читають без фільтра
+  `visible`) і 404 від решти; тести forest-asset очікують `.jpg`, який
+  віддає `forest-bg.client.ts`.
 - Повторний аудит не знаходить T12–T22, V7–V9, V11 відкритими — виконано
   2026-09-04.
 
 ## Наступний крок
 
-Зняти дрейф e2e-снапшотів окремою задачею ([e2e-reliability](e2e-reliability.md)):
-перезняти еталон на базовому коміті й підтвердити, що diff цієї ініціативи —
-лише підпис хедера.
+Немає: e2e зелений, решта надійності browser suite (first-paint race, CI) —
+в [e2e-reliability](e2e-reliability.md).

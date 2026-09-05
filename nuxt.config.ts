@@ -12,7 +12,8 @@ const catalogSource = process.env.NUXT_CATALOG_SOURCE || process.env.CATALOG_SOU
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: {
-    enabled: true,
+    // Playwright sets this to false so the timing pill stays out of screenshots.
+    enabled: process.env.NUXT_DEVTOOLS_ENABLED !== 'false',
   },
   site: {
     url: 'https://sentimony.com',

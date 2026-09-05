@@ -45,8 +45,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'NUXT_HOST=localhost NUXT_PORT=3100 npm run dev',
+    // DevTools would paint its timing pill over the mobile screenshots.
+    command: 'NUXT_DEVTOOLS_ENABLED=false NUXT_HOST=localhost NUXT_PORT=3100 npm run dev',
     url: baseURL,
+    // A reused dev server on 3100 keeps its own DevTools setting, so start
+    // it with NUXT_DEVTOOLS_ENABLED=false before running the screenshot tests.
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     stdout: 'pipe',

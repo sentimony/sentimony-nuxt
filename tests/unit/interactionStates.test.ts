@@ -346,6 +346,18 @@ describe('text keeps two tiers without stacked opacity', () => {
     }
   })
 
+  // These files carry text only, so the whole source is checked: the class
+  // attribute often sits on the line above the interpolation.
+  it.each([
+    'app/components/player/PlayerTrackInfo.vue',
+    'app/components/buttons/DefaultButton.vue',
+    'app/pages/artists/all.vue',
+  ])('%s dims secondary text with the muted tier, not opacity', (path) => {
+    const source = readProjectFile(path)
+    expect(source).not.toMatch(/(?<![\w:-])opacity-\d/)
+    expect(source).toContain('text-muted-foreground')
+  })
+
   it('footer text sits at 70% white, not 50%', () => {
     const footer = readProjectFile('app/components/Footer.vue')
     expect(footer).not.toContain('text-white/50')

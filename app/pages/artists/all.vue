@@ -81,7 +81,7 @@ useSeoMeta({
               :title="artist.location || ''"
             /><span>{{ artist.title }}</span><span
               v-if="group.category === 'musician' && trackCounts[artist.slug]"
-              class="font-mono opacity-60"
+              class="font-mono text-muted-foreground"
             >({{ trackCounts[artist.slug] }})</span></NuxtLink><template v-if="index < group.list.length - 1">,&nbsp;</template></template>
       </div>
     </section>

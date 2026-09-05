@@ -94,7 +94,10 @@ describe('page title elements', () => {
     expect(hero.match(/<h1\b/g)).toHaveLength(1)
     const heading = hero.slice(hero.indexOf('<h1'), hero.indexOf('</h1>'))
     expect(heading, 'the h1 names the label, not just its first word').toContain('v-html="heroTitle"')
-    expect(heading).toContain('v-html="heroSubTitle"')
+    const letterRow = heading.match(/<span[^>]*v-html="heroSubTitle"[^>]*\/>/s)?.[0] ?? ''
+    expect(letterRow, 'the spaced letters would be read one by one').toContain('aria-hidden="true"')
+    expect(heading.match(/<span[^>]*v-html="heroTitle"[^>]*\/>/s)?.[0]).not.toContain('aria-hidden')
+    expect(heading).toContain('<span class="sr-only">Records</span>')
   })
 
   it('gives the error page its own main and h1', () => {

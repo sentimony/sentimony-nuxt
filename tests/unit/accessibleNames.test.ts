@@ -75,7 +75,11 @@ describe('images inside labelled links are decorative', () => {
   it.each(files)('%s does not build alt text from the visible label or the file URL', (path) => {
     const source = readProjectFile(path)
     expect(source).not.toMatch(/:alt="[^"]*\+ ' ?(Thumbnail|thumbnail|Icon|icon)'"/)
-    expect(source).not.toContain('alt="Sentimony Records Logo SVG"\n              class="mr-3')
+  })
+
+  it('the header logo inside the named home link is decorative', () => {
+    const logo = readProjectFile('app/components/Header.vue').match(/<img[^>]*sentimony-records-logo[^>]*>/s)?.[0] ?? ''
+    expect(logo).toContain('alt=""')
   })
 })
 

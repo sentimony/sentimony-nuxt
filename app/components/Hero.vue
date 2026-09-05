@@ -24,10 +24,13 @@ const heroDescription = 'Psychedelic Music Label'
         xl:text-[100px] xl:tracking-[14px]"
       >
         <span class="block" v-html="heroTitle" />
+        <!-- The letter row is spaced per glyph, which screen readers spell out. -->
         <span
           class="tracking-normal flex justify-center md:gap-3.5"
+          aria-hidden="true"
           v-html="heroSubTitle"
         />
+        <span class="sr-only">Records</span>
       </h1>
       <div
         class="text-[12px] tracking-[4px]

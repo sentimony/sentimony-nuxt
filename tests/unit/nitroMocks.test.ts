@@ -1,9 +1,13 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it } from 'vitest'
 import { installNitroGlobals } from '../setup/nitroMocks'
 
 const g = globalThis as Record<string, unknown>
 
 describe('installNitroGlobals', () => {
+  afterEach(() => {
+    delete g.createError
+  })
+
   it('installs passthrough defaults', () => {
     const restore = installNitroGlobals()
     const handler = () => 'ok'
@@ -33,6 +37,5 @@ describe('installNitroGlobals', () => {
     expect(g.createError).toBe('previous')
     expect('supabaseAdmin' in g).toBe(false)
     expect('defineEventHandler' in g).toBe(false)
-    delete g.createError
   })
 })

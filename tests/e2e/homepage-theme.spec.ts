@@ -66,10 +66,10 @@ test('does not fetch the forest asset during first paint', async ({ page }) => {
 
   await waitForForestReveal(page)
 
-  // After the reveal exactly one asset is fetched, and it is the WebP variant.
+  // After the reveal exactly one asset is fetched, the JPEG the plugin preloads.
   await expect.poll(() => forestRequests.length).toBe(1)
   expect(forestRequests[0]).toContain(FOREST_MARKER)
-  expect(forestRequests[0]).toContain('webp')
+  expect(forestRequests[0]).toContain('.jpg')
 })
 
 test('reveals a single forest source that dims by theme on the homepage', async ({ page }) => {
@@ -133,7 +133,13 @@ test('loads only the approved forest asset on the homepage', async ({ page }) =>
   }, FOREST_MARKER)
 
   expect(forestRequests).toHaveLength(1)
-  expect(forestRequests[0]).toContain('webp')
+  expect(forestRequests[0]).toContain('.jpg')
+})
+
+test('names the hero heading without the spaced letters', async ({ page }) => {
+  await openWithTheme(page, 'light')
+
+  await expect(page.getByRole('heading', { level: 1, name: 'Sentimony Records' })).toBeVisible()
 })
 
 test('keeps the homepage legible when the forest image is unavailable', async ({ page }) => {
