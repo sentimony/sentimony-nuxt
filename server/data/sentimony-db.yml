@@ -13579,7 +13579,7 @@ releases:
     title: Frog Prog «Songs Of Buffo»
     cat_no: SENCD100
     visible: true
-    date: 2026-09-02T12:00:00.000Z
+    date: 2026-09-05T12:00:00.000Z
     coming_soon: false
     new: true
     cover_og: https://content.sentimony.com/assets/img/releases/frog-prog-songs-of-buffo_og.jpg
@@ -13610,8 +13610,8 @@ releases:
     links:
       bandcamp24_url: "https://sentimony.bandcamp.com/album/songs-of-buffo"
       bandcamp_id: "3841379632"
-      soundcloud_url: ""
-      soundcloud_playlist_id: ""
+      soundcloud_url: "https://soundcloud.com/sentimony/sets/frog-prog-songs-of-buffo"
+      soundcloud_playlist_id: "2293535061"
       applemusic_url: "https://music.apple.com/us/album/songs-of-buffo/6800927758"
       beatport: "https://www.beatport.com/release/songs-of-buffo/7344318"
       spotify: "https://open.spotify.com/album/7pl4FjBMPISrKynUqXVMIu"

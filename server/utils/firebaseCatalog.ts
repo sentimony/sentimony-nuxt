@@ -62,13 +62,13 @@ export function parseTrackParagraph(
   index: number,
   artistByTitle: Map<string, string>,
 ): FirebaseTrack {
-  const numMatch = paragraph.match(/<small>(\d+)\.<\/small>/)
-  const trackNumber = numMatch ? Number.parseInt(numMatch[1]!, 10) : index + 1
+  const numDigits = paragraph.match(/<small>(\d+)\.<\/small>/)?.[1]
+  const trackNumber = numDigits ? Number.parseInt(numDigits, 10) : index + 1
 
   const withoutBpm = paragraph.replace(/\s*<small>\([^)]*bpm\)<\/small>.*$/i, '')
   const prefixMatch = withoutBpm.match(/^<small>\d+\.<\/small>[^<]*((?:<b>.*?<\/b>(?:\s*&(?:amp;)?\s*)?)+)\s*-\s*/)
-  const artistHtml = prefixMatch ? prefixMatch[1]! : (withoutBpm.match(/<b>.*?<\/b>/)?.[0] ?? '')
-  const artistNames = [...artistHtml.matchAll(/<b>(.*?)<\/b>/g)].map(m => m[1]!.trim()).filter(Boolean)
+  const artistHtml = prefixMatch?.[1] ?? withoutBpm.match(/<b>.*?<\/b>/)?.[0] ?? ''
+  const artistNames = [...artistHtml.matchAll(/<b>(.*?)<\/b>/g)].map(m => m[1]?.trim() ?? '').filter(Boolean)
   const artistName = artistNames.join(' & ')
   const artistSlug = artistNames
     .map(name => artistByTitle.get(name.toLowerCase()) || slugifyFirebaseTrackPart(name))
@@ -79,8 +79,8 @@ export function parseTrackParagraph(
     : withoutBpm.replace(/^<small>\d+\.<\/small>[^<]*<b>.*?<\/b>\s*-\s*/, '')
   const title = titleRaw.replace(/<[^>]+>/g, '').replace(/\s*\(\d+(?:-\d+)?bpm\)\s*$/i, '').trim()
 
-  const bpmMatch = paragraph.match(/\((\d+)(?:-(\d+))?bpm\)/i)
-  const parsedBpm = bpmMatch ? Number.parseInt(bpmMatch[1]!, 10) : null
+  const bpmDigits = paragraph.match(/\((\d+)(?:-(\d+))?bpm\)/i)?.[1]
+  const parsedBpm = bpmDigits ? Number.parseInt(bpmDigits, 10) : null
   const bpm = parsedBpm === 0 ? null : parsedBpm
 
   return {

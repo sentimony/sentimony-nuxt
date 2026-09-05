@@ -40,11 +40,11 @@ const linkProps = computed(() =>
   <Button as-child variant="default" :class="extraClass">
     <component :is="linkTag" v-bind="linkProps" v-wave @click="emit('click', $event)">
       <Icon v-if="iconify && !iconRight" :name="iconify" size="18" />
-      <img v-if="img" class="dark:invert" :src="img" :alt="img + ' icon'" width="18" height="18">
+      <img v-if="img" class="dark:invert" :src="img" alt="" width="18" height="18">
       <span v-if="svg" v-html="sanitizeHtml(svg)" />
       <span v-if="title" v-html="sanitizeHtml(title)" />
       <Icon v-if="iconify && iconRight" :name="iconify" size="18" />
-      <span v-if="count != null" class="font-mono text-[0.85em] opacity-60">·   {{ count }}</span>
+      <span v-if="count != null" class="font-mono text-[0.85em] text-muted-foreground">·   {{ count }}</span>
     </component>
   </Button>
 </template>

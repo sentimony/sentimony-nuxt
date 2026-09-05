@@ -15,7 +15,7 @@ const heroDescription = 'Psychedelic Music Label'
     xl:py-[11.5em]"
   >
     <div class="relative max-w-[777px] px-2 box-border mx-auto">
-      <div
+      <h1
         class="uppercase mb-[0.2em]
         text-[40px] tracking-[2px]
         sm:text-[55px] sm:tracking-[5px]
@@ -23,16 +23,15 @@ const heroDescription = 'Psychedelic Music Label'
         lg:text-[85px] lg:tracking-[11px]
         xl:text-[100px] xl:tracking-[14px]"
       >
-        
-        <h1 v-html="heroTitle"/>
-
-        <div
-          class="tracking-normal flex justify-center 
-          md:gap-3.5"
+        <span class="block" v-html="heroTitle" />
+        <!-- The letter row is spaced per glyph, which screen readers spell out. -->
+        <span
+          class="tracking-normal flex justify-center md:gap-3.5"
+          aria-hidden="true"
           v-html="heroSubTitle"
         />
-
-      </div>
+        <span class="sr-only">Records</span>
+      </h1>
       <div
         class="text-[12px] tracking-[4px]
         sm:text-[14px] sm:tracking-[8px]

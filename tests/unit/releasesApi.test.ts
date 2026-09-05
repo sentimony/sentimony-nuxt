@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { pickListFields } from '../../server/utils/pickListFields'
+import { fakeEvent, installNitroGlobals } from '../setup/nitroMocks'
 
 const release = {
   slug: 'va-ocean-scenes-higher-titans',
@@ -14,69 +15,65 @@ const release = {
   style: 'Psytrance',
 }
 
+const shared = {
+  mapReleaseFromSupabase: (row: Record<string, unknown>) => row,
+  pickListFields,
+}
+
 describe('releases API', () => {
+  let restore: () => void = () => {}
+
   beforeEach(() => {
     vi.resetModules()
-    ;(globalThis as Record<string, unknown>).defineCachedEventHandler = (handler: unknown) => handler
-    ;(globalThis as Record<string, unknown>).catalogCacheOptions = () => ({})
-    ;(globalThis as Record<string, unknown>).createError = (input: { statusMessage?: string }) => new Error(input.statusMessage ?? 'Error')
-    ;(globalThis as Record<string, unknown>).mapReleaseFromSupabase = (row: Record<string, unknown>) => row
-    ;(globalThis as Record<string, unknown>).pickListFields = pickListFields
   })
 
   afterEach(() => {
-    vi.restoreAllMocks()
-    for (const key of [
-      'defineCachedEventHandler',
-      'catalogCacheOptions',
-      'createError',
-      'mapReleaseFromSupabase',
-      'pickListFields',
-      'isSupabaseCatalogSource',
-      'useSupabase',
-      'fetchFirebaseCollection',
-    ]) {
-      delete (globalThis as Record<string, unknown>)[key]
-    }
+    restore()
   })
 
   it('includes release style when Firebase is the catalog source', async () => {
-    ;(globalThis as Record<string, unknown>).isSupabaseCatalogSource = () => false
-    ;(globalThis as Record<string, unknown>).fetchFirebaseCollection = vi.fn(async () => ({
-      [release.slug]: { ...release, new: release.is_new },
-    }))
+    restore = installNitroGlobals({
+      ...shared,
+      isSupabaseCatalogSource: () => false,
+      fetchFirebaseCollection: vi.fn(async () => ({
+        [release.slug]: { ...release, new: release.is_new },
+      })),
+    })
 
     const { default: handler } = await import('../../server/api/releases.get')
 
-    await expect(handler()).resolves.toMatchObject({
+    await expect(handler(fakeEvent())).resolves.toMatchObject({
       [release.slug]: { style: 'Psytrance' },
     })
   })
 
   it('includes release style when Supabase is the catalog source', async () => {
     let selectedFields = ''
-    ;(globalThis as Record<string, unknown>).isSupabaseCatalogSource = () => true
-    ;(globalThis as Record<string, unknown>).useSupabase = () => ({
-      from: () => ({
-        select: (fields: string) => {
-          selectedFields = fields
-          return {
-            eq: () => ({
-              order: async () => ({
-                data: [Object.fromEntries(
-                  selectedFields.split(',').map(field => field.trim()).map(field => [field, release[field as keyof typeof release]])
-                )],
-                error: null,
+    restore = installNitroGlobals({
+      ...shared,
+      isSupabaseCatalogSource: () => true,
+      useSupabase: () => ({
+        from: () => ({
+          select: (fields: string) => {
+            selectedFields = fields
+            return {
+              eq: () => ({
+                order: async () => ({
+                  data: [Object.fromEntries(
+                    selectedFields.split(',').map(field => field.trim()).map(field => [field, release[field as keyof typeof release]])
+                  )],
+                  error: null,
+                }),
               }),
-            }),
-          }
-        },
+            }
+          },
+        }),
       }),
     })
 
     const { default: handler } = await import('../../server/api/releases.get')
 
-    await expect(handler()).resolves.toEqual([
+    await expect(handler(fakeEvent())).resolves.toEqual([
       expect.objectContaining({ style: 'Psytrance' }),
     ])
   })

@@ -3,7 +3,7 @@ import type { Artist, ArtistCategory, ArtistsResponse } from '~/types'
 import { groupArtistsByCategory, sortArtistsById } from '~/utils/artists'
 import { locationToIso2 } from '~/utils/countryFlag'
 
-const { data: artistsRaw } = await useAsyncData<ArtistsResponse>('artists-all', () =>
+const { data: artistsRaw, status, error, refresh } = await useAsyncData<ArtistsResponse>('artists-all', () =>
   $fetch<ArtistsResponse>('/api/artists-all')
 )
 const artists = computed(() => toArray<Artist>(artistsRaw.value, 'artists'))
@@ -68,7 +68,7 @@ useSeoMeta({
           :key="artist.slug"
         ><NuxtLink
             :to="'/artist/' + artist.slug"
-            class="inline-flex items-center gap-1 align-middle hover:text-white/80 transition-colors"
+            class="inline-flex items-center gap-1 align-middle hover:text-foreground/80 transition-colors"
           ><Icon
               v-if="flagCodes[artist.slug] === 'ru'"
               name="lucide:flag-off"
@@ -81,10 +81,19 @@ useSeoMeta({
               :title="artist.location || ''"
             /><span>{{ artist.title }}</span><span
               v-if="group.category === 'musician' && trackCounts[artist.slug]"
-              class="font-mono opacity-60"
+              class="font-mono text-muted-foreground"
             >({{ trackCounts[artist.slug] }})</span></NuxtLink><template v-if="index < group.list.length - 1">,&nbsp;</template></template>
       </div>
     </section>
+
+    <CollectionStatus
+      :loading="status === 'pending'"
+      :loaded="status === 'success'"
+      :error="!!error"
+      :empty="status === 'success' && artists.length === 0"
+      empty-text="No artists yet"
+      @retry="refresh()"
+    />
   </div>
 </template>
 

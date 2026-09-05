@@ -52,10 +52,10 @@ const linkIcons: Record<string, string> = {
 
 const eventLinks = computed(() =>
   (item.value?.links ?? [])
-    .filter(link => link.url)
+    .filter((link): link is typeof link & { url: string } => Boolean(link.url))
     .map(link => ({
-      title: link.id || link.url!,
-      url: link.url!,
+      title: link.id || link.url,
+      url: link.url,
       iconify: linkIcons[(link.id || '').toLowerCase()] ?? 'lucide:link',
     }))
 )
@@ -151,16 +151,16 @@ useSeoMeta({
                 icon="lucide:users"
                 title="Lineup"
               >
-                <div class="flex flex-col gap-1">
-                  <p
+                <ol class="list-none flex flex-col gap-1">
+                  <li
                     v-for="(name, index) in lineup"
                     :key="name"
                     class="flex items-center gap-2 text-xs py-1 text-black/60 dark:text-white/60"
                   >
                     <span class="font-mono w-6 shrink-0 flex items-center justify-end">{{ index + 1 }}</span>
                     <span class="truncate"><TrackTitle :title="name" :artists="allArtists" /></span>
-                  </p>
-                </div>
+                  </li>
+                </ol>
               </Tab>
 
             </Tabs>
@@ -177,30 +177,35 @@ useSeoMeta({
         <div v-if="organizers.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Organizers:</b></small></p>
-          <p
-            v-for="organizer in organizers"
-            :key="organizer.slug"
-          >
-            <RelativeItem
-              :i="organizer"
-              category="artist"
-            />
-          </p>
+          <ul class="list-none">
+            <li
+              v-for="organizer in organizers"
+              :key="organizer.slug"
+              class="mb-2"
+            >
+              <RelativeItem
+                :i="organizer"
+                category="artist"
+              />
+            </li>
+          </ul>
         </div>
 
         <div v-if="lineupArtists.length">
           <hr class="my-4 border-black/30">
-          <p><small><b>Relative Artists:</b></small></p>
-          <p
-            v-for="artist in lineupArtists"
-            :key="artist.slug"
-            class="mb-2 mr-4 last:mr-0"
-          >
-            <RelativeItem
-              :i="artist"
-              category="artist"
-            />
-          </p>
+          <p><small><b>Related Artists:</b></small></p>
+          <ul class="list-none">
+            <li
+              v-for="artist in lineupArtists"
+              :key="artist.slug"
+              class="mb-2 mr-4 last:mr-0"
+            >
+              <RelativeItem
+                :i="artist"
+                category="artist"
+              />
+            </li>
+          </ul>
         </div>
 
     </ItemContent>

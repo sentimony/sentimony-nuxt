@@ -13,6 +13,11 @@ const { isPlaying, currentTime, duration, play, toggle, seek, isCurrent } = useA
 
 const active = computed(() => isCurrent(props.src))
 const playingThis = computed(() => active.value && isPlaying.value)
+const progress = computed(() => {
+  const total = active.value ? duration.value || 0 : 0
+  if (!total) return 0
+  return Math.min(100, (currentTime.value / total) * 100)
+})
 
 function togglePlay() {
   if (active.value) toggle()
@@ -45,23 +50,25 @@ function onSeek(event: Event) {
       <span class="font-mono text-xs w-10 text-right">{{ formatDuration(active ? currentTime : 0) }}</span>
       <input
         type="range"
-        class="flex-1 accent-[#144B15] dark:accent-[#4e8b52]"
+        class="player-range flex-1 min-w-0"
+        :style="{ '--progress': `${progress}%` }"
         min="0"
         :max="active ? (duration || 0) : 0"
         step="1"
         :value="active ? currentTime : 0"
         :disabled="!active"
+        aria-label="Seek"
         @input="onSeek"
       >
     </div>
 
-    <div v-if="tracklist?.length" class="flex flex-col gap-1">
-      <p
+    <ol v-if="tracklist?.length" class="list-none flex flex-col gap-1">
+      <li
         v-for="(track, index) in tracklist"
         :key="index"
         class="text-xs"
         v-html="sanitizeHtml(track.p)"
       />
-    </div>
+    </ol>
   </div>
 </template>

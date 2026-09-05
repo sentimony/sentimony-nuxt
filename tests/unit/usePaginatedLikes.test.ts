@@ -12,7 +12,6 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  vi.restoreAllMocks()
   for (const key of ['ref', 'computed', '$fetch']) {
     delete (globalThis as Record<string, unknown>)[key]
   }

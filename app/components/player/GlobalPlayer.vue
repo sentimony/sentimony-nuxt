@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toArray } from '~/composables/toArray'
 import { visibleByDate } from '~/composables/sortByDate'
-import type { Release } from '~/types'
+import type { Release, ReleaseTracklistEntry } from '~/types'
 
 const { current, isPlaying, currentTime, duration, volume, repeatMode, cycleRepeat, play, toggle, seek, setVolume, next, prev } = useAudioPlayer()
 const { isTrackLiked, toggleTrackLike, trackLikeCount } = useTrackLikes()
@@ -20,10 +20,10 @@ async function playLatestRelease() {
   try {
     const detail = await $fetch<Release>(`/api/release/${rel.slug}`)
     const cover = detail.cover_th || detail.cover_xl
-    const playable = (detail.tracklist ?? []).filter(t => t.url)
+    const playable = (detail.tracklist ?? []).filter((t): t is ReleaseTracklistEntry & { url: string } => Boolean(t.url))
     if (!playable.length) return
     const queue = playable.map(t => ({
-      src: t.url!,
+      src: t.url,
       title: `${t.artist} - ${t.title}`,
       link: t.slug ? `/track/${t.slug}` : `/release/${rel.slug}`,
       artist: t.artist,
@@ -33,7 +33,9 @@ async function playLatestRelease() {
       releaseTitle: detail.title,
       artistLink: t.artist_slug ? `/artist/${t.artist_slug}` : undefined,
     }))
-    play({ kind: 'track', ...queue[0]!, queue, queueIndex: 0 })
+    const [first] = queue
+    if (!first) return
+    play({ kind: 'track', ...first, queue, queueIndex: 0 })
   }
   catch { /* nothing to play */ }
   finally {

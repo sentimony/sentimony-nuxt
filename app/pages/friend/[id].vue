@@ -49,7 +49,9 @@ useSeoMeta({
           <img
             v-if="item.cover_th"
             :src="item.cover_th"
-            class="inline text-xs w-[120px] mr-1"
+            class="inline text-xs w-[120px] h-auto mr-1"
+            width="120"
+            height="120"
             :alt="item.title"
           />
 

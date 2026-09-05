@@ -27,6 +27,8 @@
     "sync:track-audio": "node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local scripts/sync-track-audio.mjs",
     "typecheck": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt typecheck",
     "typecheck:ts7": "node node_modules/@typescript/native/bin/tsc -p netlify/tsconfig.json",
+    "pretypecheck:tests": "npm run prepare:types",
+    "typecheck:tests": "node_modules/.bin/vue-tsc --noEmit -p tsconfig.tests.json",
     "test:e2e": "playwright test",
     "test:e2e:update": "playwright test --update-snapshots",
     "test:unit": "vitest run",
@@ -45,7 +47,7 @@
     "netlify:prod": "npx -y dotenv-cli@11 -e .env/.env.local -e .env/.env -- npx -y netlify-cli@26 deploy --prod --context production"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.128",
+    "@iconify-json/lucide": "^1.2.129",
     "@iconify-json/lucide-lab": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.94",
     "@playwright/test": "^1.62.1",
@@ -64,7 +66,7 @@
     "@nuxtjs/robots": "^6.2.0",
     "@nuxtjs/sitemap": "^8.5.0",
     "@nuxtjs/supabase": "^2.0.10",
-    "@supabase/supabase-js": "^2.114.0",
+    "@supabase/supabase-js": "^2.115.0",
     "@vueuse/core": "^14.4.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

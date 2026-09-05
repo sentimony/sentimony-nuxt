@@ -10,7 +10,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
 </script>
 
 <template>
-  <footer data-testid="site-footer" class="relative z-100 bg-black/90 dark:bg-black/75 text-white/50 [--ring:oklch(1_0_0_/_65%)] leading-[1.4] md:leading-[1.5] px-1 py-24">
+  <footer data-testid="site-footer" class="relative z-100 bg-black/90 dark:bg-black/75 text-white/70 [--ring:oklch(1_0_0_/_65%)] leading-[1.4] md:leading-[1.5] px-1 py-24">
     <div class="container flex flex-col items-center">
 
       <div class="mb-10 text-sm">
@@ -42,7 +42,7 @@ const soc = computed(() => getSocials().map(l => ({ ...l, icon: getIcon(l.id) })
                   v-wave
                 >
                   <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="22" />
-                  <img v-else class="invert" :src="i.icon.url" width="22" height="22" :alt="i.title + ' Icon'" />
+                  <img v-else class="invert" :src="i.icon.url" width="22" height="22" alt="" />
                 </a>
               </TooltipTrigger>
               <TooltipContent class="flex items-center gap-1.5 bg-emerald-900 text-white" arrow-class="bg-emerald-900 fill-emerald-900">

@@ -36,6 +36,9 @@ if (artistError.value || !item.value) {
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasesSortedByDate = computed(() => visibleByDate(releases.value))
+const artistReleases = computed(() =>
+  releasesSortedByDate.value.filter(r => item.value && r.artists?.includes(item.value.slug))
+)
 
 const hasLinks = computed(() => {
   const a = item.value
@@ -258,7 +261,7 @@ useSeoMeta({
                   <iframe
                     class="border-0 aspect-video w-full"
                     :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.youtube_playlist_id || '') + '&loop=1'"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -275,6 +278,7 @@ useSeoMeta({
               >
                 <iframe
                   width="100%"
+                  :title="item.title + ' SoundCloud player'"
                   height="300"
                   scrolling="no"
                   frameborder="no"
@@ -298,33 +302,38 @@ useSeoMeta({
         <div class="indent-5" v-html="sanitizeHtml(item.information)" />
       </div>
 
-      <div>
+      <div v-if="artistReleases.length > 0">
         <hr class="my-4 border-black/30">
         <p><small><b>Releases with {{ item.title }}:</b></small></p>
-        <p
-          v-for="(i, index) in releasesSortedByDate"
-          :key="index"
-        >
-          <RelativeItem
-            v-if="i.artists?.includes(item.slug)"
-            :i="i"
-            category="release"
-          />
-        </p>
+        <ul class="list-none">
+          <li
+            v-for="i in artistReleases"
+            :key="i.slug"
+            class="mb-2"
+          >
+            <RelativeItem
+              :i="i"
+              category="release"
+            />
+          </li>
+        </ul>
       </div>
 
       <div v-if="organizedEvents.length > 0">
         <hr class="my-4 border-black/30">
         <p><small><b>Organized Events:</b></small></p>
-        <p
-          v-for="e in organizedEvents"
-          :key="e.slug"
-        >
-          <RelativeItem
-            :i="e"
-            category="event"
-          />
-        </p>
+        <ul class="list-none">
+          <li
+            v-for="e in organizedEvents"
+            :key="e.slug"
+            class="mb-2"
+          >
+            <RelativeItem
+              :i="e"
+              category="event"
+            />
+          </li>
+        </ul>
       </div>
 
       <div v-if="portfolioReleases.length > 0">
@@ -340,6 +349,8 @@ useSeoMeta({
             <img
               :src="thumb(r.cover_xl || r.cover_og)"
               :alt="r.title || ''"
+              width="120"
+              height="120"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />

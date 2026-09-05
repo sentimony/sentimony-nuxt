@@ -59,3 +59,38 @@ describe('swiper controls', () => {
     expect(source(), 'a swiper heading would render before the page h1').not.toContain('<h2')
   })
 })
+
+describe('images inside labelled links are decorative', () => {
+  const files = [
+    'app/components/Item.vue',
+    'app/components/RelativeItem.vue',
+    'app/pages/news.vue',
+    'app/components/Header.vue',
+    'app/components/Footer.vue',
+    'app/components/OpenSidebar.vue',
+    'app/components/buttons/PrimaryButton.vue',
+    'app/components/buttons/DefaultButton.vue',
+  ]
+
+  it.each(files)('%s does not build alt text from the visible label or the file URL', (path) => {
+    const source = readProjectFile(path)
+    expect(source).not.toMatch(/:alt="[^"]*\+ ' ?(Thumbnail|thumbnail|Icon|icon)'"/)
+  })
+
+  it('the header logo inside the named home link is decorative', () => {
+    const logo = readProjectFile('app/components/Header.vue').match(/<img[^>]*sentimony-records-logo[^>]*>/s)?.[0] ?? ''
+    expect(logo).toContain('alt=""')
+  })
+})
+
+describe('AudioMixPlayer seek slider', () => {
+  const source = () => readProjectFile('app/components/AudioMixPlayer.vue')
+
+  it('is named and styled like the other player ranges', () => {
+    const range = source().match(/<input\s+type="range"[^>]*>/)?.[0] ?? ''
+    expect(range).toContain('aria-label="Seek"')
+    expect(range).toContain('player-range')
+    expect(range).toContain("'--progress'")
+    expect(source()).not.toContain('accent-[#')
+  })
+})

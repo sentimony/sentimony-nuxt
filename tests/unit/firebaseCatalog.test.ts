@@ -1,27 +1,29 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { fetchFirebaseEntity, parseTrackParagraph } from '../../server/utils/firebaseCatalog'
+import { installNitroGlobals } from '../setup/nitroMocks'
 
 describe('fetchFirebaseEntity', () => {
+  let restore: () => void = () => {}
+
   afterEach(() => {
-    vi.restoreAllMocks()
-    delete (globalThis as Record<string, unknown>).useRuntimeConfig
-    delete (globalThis as Record<string, unknown>).$fetch
+    restore()
   })
 
   it('finds entities by slug when Firebase stores the collection under numeric keys', async () => {
-    ;(globalThis as Record<string, unknown>).useRuntimeConfig = () => ({
-      public: { firebaseBase: 'https://example.firebaseio.com' },
-    })
-
-    ;(globalThis as Record<string, unknown>).$fetch = vi.fn(async (url: string) => {
-      if (url === 'https://example.firebaseio.com/artists/irukanji.json') return null
-      if (url === 'https://example.firebaseio.com/artists.json') {
-        return {
-          0: { slug: 'irukanji', title: 'Irukanji', visible: true },
-          1: { slug: 'hidden', title: 'Hidden', visible: false },
+    restore = installNitroGlobals({
+      useRuntimeConfig: () => ({
+        public: { firebaseBase: 'https://example.firebaseio.com' },
+      }),
+      $fetch: vi.fn(async (url: string) => {
+        if (url === 'https://example.firebaseio.com/artists/irukanji.json') return null
+        if (url === 'https://example.firebaseio.com/artists.json') {
+          return {
+            0: { slug: 'irukanji', title: 'Irukanji', visible: true },
+            1: { slug: 'hidden', title: 'Hidden', visible: false },
+          }
         }
-      }
-      return null
+        return null
+      }),
     })
 
     await expect(fetchFirebaseEntity('artists', 'irukanji')).resolves.toEqual({

@@ -25,16 +25,18 @@ const year = computed(() => formatYear(i.value?.date))
       <img v-if="i.cover_xl || i.flyer_a_xl"
         :src="thumb(i.cover_xl || i.flyer_a_xl)"
         class="rounded-md ring-1 ring-black/20 dark:ring-white/50 w-[24px] mr-2"
-        :alt="i.title + ' thumbnail'"
+        alt=""
         width="24"
+        height="24"
         loading="lazy"
       />
       <img
         v-if="i.photo_xl"
         :src="thumb(i.photo_xl)"
         class="rounded-full ring-1 ring-black/20 dark:ring-white/50 w-[24px] mr-2"
-        :alt="i.title + ' thumbnail'"
+        alt=""
         width="24"
+        height="24"
         loading="lazy"
       />
 

@@ -11,15 +11,17 @@ const props = withDefaults(defineProps<{
 
 const previewImage = computed(() => thumb(props.image_th))
 
-// The preview only fixes a width; height follows the image's real aspect ratio.
+// The preview box fixes a width; the height attribute only reserves space
+// before load (h-auto lets the real aspect ratio win afterwards).
 const boxClass = computed(() =>
   props.ratio === 'video'
     ? 'w-[160px] sm:w-[280px]'
     : 'w-[100px] sm:w-[190px]'
 )
 const imgWidth = computed(() => (props.ratio === 'video' ? 280 : 190))
+const imgHeight = computed(() => (props.ratio === 'video' ? 158 : 190))
 
-const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">Image is<br>coming ⛄</span>'
+const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">Coming soon</span>'
 
 async function downloadImage() {
   const url = props.image_xl
@@ -72,6 +74,7 @@ async function copyPath() {
             alt=""
             class="block w-full h-auto object-contain"
             :width="imgWidth"
+            :height="imgHeight"
             loading="lazy"
           />
           <span

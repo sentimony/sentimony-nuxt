@@ -44,13 +44,13 @@ async function signOut() {
           >
             <img
               src="https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.1.svg?01"
-              alt="Sentimony Records Logo SVG"
+              alt=""
               class="mr-3 dark:invert"
               width="40" height="40"
             />
             <div class="text-left leading-normal pr-1 min-w-0">
               <div class="text-[16px] truncate">Sentimony Records</div>
-              <div class="opacity-[0.4] text-[12px] tracking-[0.4px] truncate">Psychedelic Music Label</div>
+              <div class="text-muted-foreground text-[12px] tracking-[0.4px] truncate">Psychedelic Music Label</div>
             </div>
           </NuxtLink>
 
@@ -83,7 +83,7 @@ async function signOut() {
                     v-wave
                   >
                     <Icon v-if="i.icon.kind === 'iconify'" :name="i.icon.name" size="18" />
-                    <img v-else class="dark:invert" :src="i.icon.url" :alt="i.title + ' Icon'" width="18" height="18">
+                    <img v-else class="dark:invert" :src="i.icon.url" alt="" width="18" height="18">
                   </a>
                 </TooltipTrigger>
                 <TooltipContent class="flex items-center gap-1.5">
@@ -121,7 +121,7 @@ async function signOut() {
               >
                 <div class="px-3 py-2.5 border-b border-black/10 dark:border-white/10">
                   <div v-if="username" class="text-sm font-medium truncate">{{ username }}</div>
-                  <div class="text-xs truncate opacity-50">{{ user.email }}</div>
+                  <div class="text-xs truncate text-muted-foreground">{{ user.email }}</div>
                 </div>
                 <DropdownMenuItem as-child>
                   <NuxtLink

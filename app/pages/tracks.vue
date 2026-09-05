@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { toArray } from '~/composables/toArray'
 import { sortByDate } from '~/composables/sortByDate'
-import type { Artist, Event, Friend, Playlist, Release, Video } from '~/types'
+import type { Artist, Event, Playlist, Release, Video } from '~/types'
 
 definePageMeta({
   layout: 'default',
@@ -37,7 +37,7 @@ type TrackListItem = {
 }
 
 const { data: releasesRaw } = await useReleases({ server: true })
-const { data: allTracks } = await useFetch<TrackListItem[]>('/api/tracks')
+const { data: allTracks, status, error, refresh } = await useFetch<TrackListItem[]>('/api/tracks')
 const releasesArr = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 const releasedReleases = computed(() =>
   releasesArr.value.filter(r => Boolean(r?.visible) && !r?.coming_soon)
@@ -75,10 +75,6 @@ const { data: eventsRaw } = await useEvents({ server: true })
 const eventsArr = computed(() => toArray<Event>(eventsRaw.value, 'events'))
 const events = computed(() => eventsArr.value.filter(e => Boolean(e?.visible)).length)
 
-const { data: friendsRaw } = await useFriends({ server: true })
-const friendsArr = computed(() => toArray<Friend>(friendsRaw.value, 'friends'))
-const friends = computed(() => friendsArr.value.filter(f => Boolean(f?.visible)).length)
-
 const stats = computed(() => [
   { label: 'Tracks', value: tracks.value },
   { label: 'Releases', value: releases.value },
@@ -110,29 +106,41 @@ const stats = computed(() => [
         <hr class="my-4 border-black/30 dark:border-white/30">
         <p><small><b>Releases / Tracks:</b></small></p>
 
-        <div
-          v-for="(i, index) in releasesWithTracks"
-          :key="i.slug || index"
-          class="mb-5"
-        >
-          <RelativeItem
-            :i="i"
-            category="release"
-          />
+        <ul class="list-none">
+          <li
+            v-for="(i, index) in releasesWithTracks"
+            :key="i.slug || index"
+            class="mb-5"
+          >
+            <RelativeItem
+              :i="i"
+              category="release"
+            />
 
-          <div class="Tracklist mt-1">
-            <p
-              v-for="t in tracksByRelease.get(i.slug)"
-              :key="t.slug"
-            >
-              <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
-              <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
-              -
-              <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
-              <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
-            </p>
-          </div>
-        </div>
+            <ol class="Tracklist list-none mt-1">
+              <li
+                v-for="t in tracksByRelease.get(i.slug)"
+                :key="t.slug"
+                class="mb-2"
+              >
+                <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
+                <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
+                -
+                <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
+                <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
+              </li>
+            </ol>
+          </li>
+        </ul>
+
+        <CollectionStatus
+          :loading="status === 'pending'"
+          :loaded="status === 'success'"
+          :error="!!error"
+          :empty="status === 'success' && releasesWithTracks.length === 0"
+          empty-text="No tracks yet"
+          @retry="refresh()"
+        />
       </div>
     </div>
 

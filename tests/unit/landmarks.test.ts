@@ -91,7 +91,13 @@ describe('page title elements', () => {
   it('makes the homepage hero the h1', () => {
     const hero = readProjectFile('app/components/Hero.vue')
 
-    expect(hero).toContain('<h1 v-html="heroTitle"/>')
+    expect(hero.match(/<h1\b/g)).toHaveLength(1)
+    const heading = hero.slice(hero.indexOf('<h1'), hero.indexOf('</h1>'))
+    expect(heading, 'the h1 names the label, not just its first word').toContain('v-html="heroTitle"')
+    const letterRow = heading.match(/<span[^>]*v-html="heroSubTitle"[^>]*\/>/s)?.[0] ?? ''
+    expect(letterRow, 'the spaced letters would be read one by one').toContain('aria-hidden="true"')
+    expect(heading.match(/<span[^>]*v-html="heroTitle"[^>]*\/>/s)?.[0]).not.toContain('aria-hidden')
+    expect(heading).toContain('<span class="sr-only">Records</span>')
   })
 
   it('gives the error page its own main and h1', () => {

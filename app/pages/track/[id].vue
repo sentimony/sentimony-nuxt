@@ -27,9 +27,9 @@ if (data.value.redirect) {
   await navigateTo(`/track/${data.value.redirect}`, { redirectCode: 301, replace: true })
 }
 
-const track = computed(() => data.value!.track ?? ({} as NonNullable<typeof data.value.track>))
-const release = computed(() => data.value!.release)
-const artists = computed(() => data.value!.artists ?? [])
+const track = computed(() => data.value?.track ?? ({} as NonNullable<typeof data.value.track>))
+const release = computed(() => data.value?.release)
+const artists = computed(() => data.value?.artists ?? [])
 
 const { formatDate, formatYear } = useDate()
 const releaseDate = computed(() => formatDate(release.value?.date))
@@ -49,6 +49,7 @@ const titleArtists = computed(() => (allArtists.value.length ? allArtists.value 
 const playerTracks = computed(() => {
   const t = track.value
   if (!t.audio_url) return []
+  const firstArtistSlug = t.artist_slug?.split(',')[0]?.trim()
   return [{
     title: `${t.artist_name} - ${t.title}`,
     titleSegments: splitTitleByArtists(`${t.artist_name} - ${t.title}`, titleArtists.value),
@@ -61,7 +62,7 @@ const playerTracks = computed(() => {
     cover: releaseCover.value,
     releaseLink: release.value ? `/release/${release.value.slug}` : undefined,
     releaseTitle: release.value?.title,
-    artistLink: t.artist_slug ? `/artist/${t.artist_slug.split(',')[0]!.trim()}` : undefined,
+    artistLink: firstArtistSlug ? `/artist/${firstArtistSlug}` : undefined,
   }]
 })
 
@@ -178,7 +179,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
                     :class="'BandcampIframe tracks-' + (release?.tracks_number || 1)"
                     :src="'https://bandcamp.com/EmbeddedPlayer/album=' + (release?.links?.bandcamp_id || '') + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/track=' + track.track_number + '/transparent=true/'"
                     seamless
-                    :title="track.title + ' Bandcamp Iframe'"
+                    :title="track.title + ' Bandcamp player'"
                   />
                 </div>
               </Tab>
@@ -196,7 +197,7 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
                     height="450"
                     allow="autoplay"
                     :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (release?.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                    :title="track.title + ' SoundCloud Iframe'"
+                    :title="track.title + ' SoundCloud player'"
                   />
                 </div>
               </Tab>
@@ -269,13 +270,15 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
         <div v-if="artists.length">
           <hr class="my-4 border-black/30">
           <p><small><b>Artists:</b></small></p>
-          <p
-            v-for="artist in artists"
-            :key="artist.slug"
-            class="mb-2 mr-4 last:mr-0"
-          >
-            <RelativeItem :i="artist" category="artist" />
-          </p>
+          <ul class="list-none">
+            <li
+              v-for="artist in artists"
+              :key="artist.slug"
+              class="mb-2 mr-4 last:mr-0"
+            >
+              <RelativeItem :i="artist" category="artist" />
+            </li>
+          </ul>
         </div>
 
         <div v-if="primaryArtist?.bandcamp_url">
@@ -294,35 +297,3 @@ const hasYTMusic = computed(() => Boolean(release.value?.links?.youtube_music))
 
   </div>
 </template>
-
-<style>
-.BandcampIframe { height: 276px; }
-.BandcampIframe.tracks-1 { height: 176px; }
-.BandcampIframe.tracks-2 { height: 209px; }
-.BandcampIframe.tracks-3 { height: 242px; }
-.BandcampIframe.tracks-4 { height: 276px; }
-.BandcampIframe.tracks-5 { height: 309px; }
-.BandcampIframe.tracks-6 { height: 342px; }
-.BandcampIframe.tracks-7 { height: 376px; }
-.BandcampIframe.tracks-8 { height: 409px; }
-.BandcampIframe.tracks-9 { height: 442px; }
-.BandcampIframe.tracks-10 { height: 476px; }
-.BandcampIframe.tracks-11 { height: 509px; }
-.BandcampIframe.tracks-12 { height: 542px; }
-.BandcampIframe.tracks-13 { height: 575px; }
-
-.SoundcloudIframe { height: 400px; }
-.SoundcloudIframe.tracks-1 { height: 290px; }
-.SoundcloudIframe.tracks-2 { height: 320px; }
-.SoundcloudIframe.tracks-3 { height: 360px; }
-.SoundcloudIframe.tracks-4 { height: 400px; }
-.SoundcloudIframe.tracks-5 { height: 430px; }
-.SoundcloudIframe.tracks-6 { height: 460px; }
-.SoundcloudIframe.tracks-7 { height: 500px; }
-.SoundcloudIframe.tracks-8 { height: 530px; }
-.SoundcloudIframe.tracks-9 { height: 560px; }
-.SoundcloudIframe.tracks-10 { height: 590px; }
-.SoundcloudIframe.tracks-11 { height: 620px; }
-.SoundcloudIframe.tracks-12 { height: 650px; }
-.SoundcloudIframe.tracks-13 { height: 680px; }
-</style>

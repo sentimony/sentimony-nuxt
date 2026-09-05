@@ -23,7 +23,7 @@ export function splitTitleByArtists(title: string, artists: ArtistRef[]): TitleS
   let cursor = 0
 
   for (const match of title.matchAll(pattern)) {
-    const index = match.index!
+    const index = match.index
     if (index > cursor) segments.push({ text: title.slice(cursor, index), slug: null })
     const artist = artists.find(a => a.title.toLowerCase() === match[0].toLowerCase())
     segments.push({ text: match[0], slug: artist?.slug ?? null })

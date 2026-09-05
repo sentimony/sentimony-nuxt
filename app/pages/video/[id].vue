@@ -98,7 +98,7 @@ useSeoMeta({
                   <iframe
                     class="border-[0px] aspect-video w-full"
                     :src="embed"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -120,7 +120,7 @@ useSeoMeta({
 
         <div v-if="item.credits">
           <hr class="my-4 border-black/30">
-          <p><small><b>Сredits:</b></small></p>
+          <p><small><b>Credits:</b></small></p>
           <!-- <p
             v-for="(i, index) in item.credits"
             :key="index"

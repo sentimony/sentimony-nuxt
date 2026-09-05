@@ -1,0 +1,10 @@
+{
+  "extends": "./.nuxt/tsconfig.app.json",
+  "include": [
+    ".nuxt/nuxt.d.ts",
+    "tests/**/*.ts",
+    "vitest.config.ts",
+    "playwright.config.ts"
+  ],
+  "exclude": []
+}

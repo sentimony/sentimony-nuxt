@@ -294,3 +294,79 @@ describe('auth form accessibility', () => {
     expect(passwordToggleClasses).not.toContain('transition-colors')
   })
 })
+
+describe('color-scheme follows the active theme', () => {
+  it('declares both schemes in the document head', () => {
+    expect(readProjectFile('nuxt.config.ts')).toContain("{ name: 'color-scheme', content: 'dark light' }")
+  })
+
+  it('sets color-scheme on the light root and the dark class', () => {
+    const css = readProjectFile('app/assets/css/tailwind.css')
+    expect(css).toMatch(/:root \{\s*color-scheme: light;/)
+    expect(css).toMatch(/\.dark \{\s*color-scheme: dark;/)
+  })
+})
+
+describe('moss palette and forest tint live in tokens', () => {
+  const css = () => readProjectFile('app/assets/css/tailwind.css')
+
+  it('declares the moss colours once, inside @theme', () => {
+    const theme = css().match(/@theme \{[\s\S]*?\n\}/)?.[0] ?? ''
+    expect(theme).toContain('--color-moss: #b5ccb5;')
+    expect(theme).toContain('--color-moss-dark: #2a4030;')
+    expect(css().match(/#b5ccb5/gi)).toHaveLength(1)
+    expect(css().match(/#2a4030/gi)).toHaveLength(1)
+  })
+
+  it('keeps the literal colours out of components', () => {
+    for (const file of ['app/components/SvgTriangle.vue', 'app/components/Testimonials.vue']) {
+      expect(readProjectFile(file)).not.toMatch(/#b5ccb5|#2a4030/i)
+    }
+  })
+
+  it('shares the forest tint between the global overlay and the homepage layer', () => {
+    expect(css()).toMatch(/--forest-tint:/)
+    expect(css()).toContain('background: var(--forest-tint);')
+    const atmosphere = readProjectFile('app/components/HomepageAtmosphere.vue')
+    expect(atmosphere).toContain('background: var(--forest-tint);')
+    expect(atmosphere).not.toContain('linear-gradient(')
+  })
+})
+
+describe('text keeps two tiers without stacked opacity', () => {
+  const textLines = (path: string) => readProjectFile(path).split('\n').filter(line => line.includes('{{') || line.includes('Psychedelic Music Label'))
+
+  it.each([
+    'app/components/buttons/LikeButton.vue',
+    'app/components/player/PagePlayer.vue',
+    'app/components/Header.vue',
+  ])('%s never dims text with an opacity utility', (path) => {
+    for (const line of textLines(path)) {
+      expect(line, line.trim()).not.toMatch(/\bopacity-(40|50|60)\b|opacity-\[0\.4\]/)
+    }
+  })
+
+  // These files carry text only, so the whole source is checked: the class
+  // attribute often sits on the line above the interpolation.
+  it.each([
+    'app/components/player/PlayerTrackInfo.vue',
+    'app/components/buttons/DefaultButton.vue',
+    'app/pages/artists/all.vue',
+  ])('%s dims secondary text with the muted tier, not opacity', (path) => {
+    const source = readProjectFile(path)
+    expect(source).not.toMatch(/(?<![\w:-])opacity-\d/)
+    expect(source).toContain('text-muted-foreground')
+  })
+
+  it('footer text sits at 70% white, not 50%', () => {
+    const footer = readProjectFile('app/components/Footer.vue')
+    expect(footer).not.toContain('text-white/50')
+    expect(footer).toContain('text-white/70')
+  })
+
+  it('artist index hover uses the foreground token', () => {
+    const page = readProjectFile('app/pages/artists/all.vue')
+    expect(page).not.toContain('hover:text-white/80')
+    expect(page).toContain('hover:text-foreground/80')
+  })
+})

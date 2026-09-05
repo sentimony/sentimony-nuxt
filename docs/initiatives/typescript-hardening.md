@@ -3,8 +3,8 @@
 - Status: Partial
 - Priority: P1
 - Ініційовано: 2026-07-19
-- Last reviewed: 2026-07-25
-- Related: [quality audit](../audits/2026-07-19-quality-audit.md)
+- Last reviewed: 2026-09-04
+- Related: [quality audit](../audits/2026-07-19-quality-audit.md), [typescript audit 2026-09-04](../audits/2026-09-04-typescript-audit.md), [spec](../specs/2026-09-04-typescript-hardening-design.md), [plan](../plans/2026-09-04-typescript-hardening.md)
 
 ## Навіщо
 
@@ -12,9 +12,18 @@ TS-1–TS-5 і VITEST-3 показали, що test TypeScript не переві
 частина strictness flags живе лише в неуспадкованому base config, unused code не
 блокується, а type-safety conventions не захищені lint rules.
 
-Закрито частково: `npm run typecheck` (Nuxt/Nitro) і `npm run typecheck:ts7`
-(edge functions через TypeScript native) існують і виконуються в CI. Окремого
-test typecheck contour, strictness/unused flags і lint guardrails досі немає.
+Закрито 2026-09-04: `typecheck:tests` (`tsconfig.tests.json`, у CI),
+`noFallthroughCasesInSwitch` + `noImplicitOverride` в обох Nuxt-програмах,
+`noUnusedLocals`/`noUnusedParameters` після видалення 19 декларацій, нуль
+non-null assertions у `app/`, `server/`, `netlify/`. Лишаються
+`exactOptionalPropertyTypes` і ESLint guardrails.
+
+`exactOptionalPropertyTypes` пробували 2026-09-04 (задача 6 плану): 39
+діагностик у app/server, з них 7 у обгортках `ui/{tooltip,label,input,sonner}`
+— Vue типізує resolved props як `x: T | undefined`, а `v-bind="props"` у
+reka-ui/vue-sonner очікує `x?: T` без `undefined`; без кастів на кожній
+обгортці прапорець не проходить. Прапорець відкочено; повернутися після
+оновлення Vue/reka-ui або з рішенням про типізований `compact()`-хелпер.
 
 ## Очікуваний результат
 
@@ -23,11 +32,12 @@ unused declarations, unsafe suppressions і невиправдані assertions 
 
 ## Обсяг
 
-- Додати `tsconfig.tests.json` і `typecheck:tests` у CI.
-- Підключити зелені `noFallthroughCasesInSwitch` та `noImplicitOverride` до Nuxt.
-- Очистити declarations і ввімкнути unused checks.
-- Окремо мігрувати `exactOptionalPropertyTypes`.
-- Скоротити non-null assertions і додати ESLint type-safety guardrails.
+- ✓ `tsconfig.tests.json` і `typecheck:tests` у CI.
+- ✓ Зелені `noFallthroughCasesInSwitch` та `noImplicitOverride` через `nuxt.config.ts`.
+- ✓ Declarations очищено, unused checks увімкнено.
+- ✓ Non-null assertions замінено guard-ами.
+- Окремо мігрувати `exactOptionalPropertyTypes` (заблоковано типами Vue props, див. вище).
+- Додати ESLint type-safety guardrails (потребує нової залежності).
 
 ## Залежності
 
@@ -42,4 +52,4 @@ unused declarations, unsafe suppressions і невиправдані assertions 
 
 ## Наступний крок
 
-Спочатку спроєктувати ізольований `tsconfig.tests.json` без Vitest globals у production configs.
+Обрати ESLint-конфіг разом із `chore(deps)`; `exactOptionalPropertyTypes` — після рішення про обгортки reka-ui.

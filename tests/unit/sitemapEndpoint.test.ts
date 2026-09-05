@@ -2,16 +2,20 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import { buildSitemapUrls } from '../../server/utils/sitemapUrls'
+import { installNitroGlobals } from '../setup/nitroMocks'
 
 describe('/api/__sitemap__/urls', () => {
+  let restore: () => void = () => {}
+
   afterEach(() => {
-    delete (globalThis as Record<string, unknown>).defineSitemapEventHandler
-    delete (globalThis as Record<string, unknown>).buildSitemapUrls
+    restore()
   })
 
   it('returns the sitemap url builder output shape', async () => {
-    ;(globalThis as Record<string, unknown>).defineSitemapEventHandler = (handler: () => unknown) => handler
-    ;(globalThis as Record<string, unknown>).buildSitemapUrls = buildSitemapUrls
+    restore = installNitroGlobals({
+      defineSitemapEventHandler: (handler: () => unknown) => handler,
+      buildSitemapUrls,
+    })
 
     const handler = (await import('../../server/api/__sitemap__/urls.get')).default as () => Array<{ loc: string }>
     const result = handler()

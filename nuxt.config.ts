@@ -12,7 +12,8 @@ const catalogSource = process.env.NUXT_CATALOG_SOURCE || process.env.CATALOG_SOU
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: {
-    enabled: true,
+    // Playwright sets this to false so the timing pill stays out of screenshots.
+    enabled: process.env.NUXT_DEVTOOLS_ENABLED !== 'false',
   },
   site: {
     url: 'https://sentimony.com',
@@ -43,6 +44,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'author', content: 'Sentimony Records · Psychedelic music label' },
         { name: 'theme-color', content: '#111111' },
+        { name: 'color-scheme', content: 'dark light' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
@@ -79,8 +81,27 @@ export default defineNuxtConfig({
   experimental: {
     serverAppConfig: false,
   },
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        noFallthroughCasesInSwitch: true,
+        noUnusedLocals: true,
+        noUnusedParameters: true,
+      },
+    },
+  },
   nitro: {
     preset: process.env.NITRO_PRESET || 'netlify',
+    typescript: {
+      tsConfig: {
+        compilerOptions: {
+          noImplicitOverride: true,
+          noFallthroughCasesInSwitch: true,
+          noUnusedLocals: true,
+          noUnusedParameters: true,
+        },
+      },
+    },
   },
   ssr: true,
   routeRules: {

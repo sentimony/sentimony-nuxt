@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest'
-// @ts-expect-error - plain ESM script module without type declarations
 import { bustUrl, cacheStateOf, summarize } from '../../scripts/lib/perfStats.mjs'
 
 describe('summarize', () => {
@@ -9,13 +8,14 @@ describe('summarize', () => {
 
   it('sorts before picking min and median', () => {
     const result = summarize([5, 1, 3])
-    expect(result.min).toBe(1)
-    expect(result.median).toBe(3)
+    expect(result).not.toBeNull()
+    expect(result?.min).toBe(1)
+    expect(result?.median).toBe(3)
   })
 
   it('uses nearest-rank p95 so the number is reproducible', () => {
     const samples = Array.from({ length: 100 }, (_, index) => index + 1)
-    expect(summarize(samples).p95).toBe(95)
+    expect(summarize(samples)?.p95).toBe(95)
   })
 
   it('returns null for an empty sample set', () => {

@@ -46,6 +46,9 @@ describe('list pages report their state', () => {
     'app/pages/friends.vue',
     'app/pages/news.vue',
     'app/pages/artists/index.vue',
+    'app/pages/artists/all.vue',
+    'app/pages/releases/all.vue',
+    'app/pages/tracks.vue',
     'app/components/ReleasesFiltered.vue',
   ]
 

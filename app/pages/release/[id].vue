@@ -167,7 +167,7 @@ useSeoMeta({
                     :class="'BandcampIframe tracks-' + item.tracks_number"
                     :src="'https://bandcamp.com/EmbeddedPlayer/album=' + (item.links?.bandcamp_id || '') + '/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/'"
                     seamless
-                    :title="item.title + ' Bandcamp Iframe'"
+                    :title="item.title + ' Bandcamp player'"
                   />
                 </div>
               </Tab>
@@ -181,7 +181,7 @@ useSeoMeta({
                   <iframe
                     class="border-[0px] aspect-video w-full"
                     :src="'https://www.youtube-nocookie.com/embed/videoseries?list=' + (item.links?.youtube_playlist_id || '') + '&loop=1'"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -203,7 +203,7 @@ useSeoMeta({
                     height="450"
                     allow="autoplay"
                     :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                    :title="item.title + ' SoundCloud Iframe'"
+                    :title="item.title + ' SoundCloud player'"
                   />
                 </div>
               </Tab>
@@ -217,7 +217,7 @@ useSeoMeta({
                   <iframe
                     class="border-[0px] aspect-video w-full"
                     :src="embedYTMusic"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -241,26 +241,28 @@ useSeoMeta({
           <hr class="my-4 border-black/30">
           <p><small><b>Tracklist:</b></small></p>
 
-          <template v-if="item.tracklistCompact && !item.tracklist?.length">
-            <p
+          <ol v-if="item.tracklistCompact && !item.tracklist?.length" class="list-none">
+            <li
               v-for="(i, index) in item.tracklistCompact"
               :key="index"
+              class="mb-2"
               v-html="sanitizeHtml(i.p)"
             />
-          </template>
+          </ol>
 
-          <template v-if="item.tracklist?.length">
-            <p
+          <ol v-if="item.tracklist?.length" class="list-none">
+            <li
               v-for="t in item.tracklist"
               :key="t.slug"
+              class="mb-2"
             >
               <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
               <TrackArtists :name="t.artist" :slug="t.artist_slug" />
               -
               <TrackTitle :title="t.title" :artists="titleArtists" />
               <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
-            </p>
-          </template>
+            </li>
+          </ol>
         </div>
 
         <div v-if="item.creditsCompact">
@@ -275,31 +277,36 @@ useSeoMeta({
 
         <div v-if="relatedReleases.length">
           <hr class="my-4 border-black/30">
-          <p><small><b>Relative Releases:</b></small></p>
-          <p
-            v-for="(iii, index) in relatedReleases"
-            :key="index"
-          >
-            <RelativeItem
-              :i="iii"
-              category="release"
-            />
-          </p>
+          <p><small><b>Related Releases:</b></small></p>
+          <ul class="list-none">
+            <li
+              v-for="(iii, index) in relatedReleases"
+              :key="index"
+              class="mb-2"
+            >
+              <RelativeItem
+                :i="iii"
+                category="release"
+              />
+            </li>
+          </ul>
         </div>
 
         <div v-if="relatedArtists.length">
           <hr class="my-4 border-black/30">
-          <p><small><b>Relative Artists:</b></small></p>
-          <p
-            v-for="(iiii, index) in relatedArtists"
-            :key="index"
-            class="mb-2 mr-4 last:mr-0"
-          >
-            <RelativeItem
-              :i="iiii"
-              category="artist"
-            />
-          </p>
+          <p><small><b>Related Artists:</b></small></p>
+          <ul class="list-none">
+            <li
+              v-for="(iiii, index) in relatedArtists"
+              :key="index"
+              class="mb-2 mr-4 last:mr-0"
+            >
+              <RelativeItem
+                :i="iiii"
+                category="artist"
+              />
+            </li>
+          </ul>
         </div>
 
         <div v-if="item.links?.beatspace || item.links?.psyshop">
@@ -313,41 +320,3 @@ useSeoMeta({
 
   </div>
 </template>
-
-<style>
-.BandcampIframe { height: 276px; }
-.BandcampIframe.tracks-1 { height: 176px; }
-.BandcampIframe.tracks-2 { height: 209px; }
-.BandcampIframe.tracks-3 { height: 242px; }
-.BandcampIframe.tracks-4 { height: 276px; }
-.BandcampIframe.tracks-5 { height: 309px; }
-.BandcampIframe.tracks-6 { height: 342px; }
-.BandcampIframe.tracks-7 { height: 376px; }
-.BandcampIframe.tracks-8 { height: 409px; }
-.BandcampIframe.tracks-9 { height: 442px; }
-.BandcampIframe.tracks-10 { height: 476px; }
-.BandcampIframe.tracks-11 { height: 509px; }
-.BandcampIframe.tracks-12 { height: 542px; }
-.BandcampIframe.tracks-13 { height: 575px; }
-.BandcampIframe.tracks-22 { height: 876px; }
-.BandcampIframe.tracks-25 { height: 976px; }
-.BandcampIframe.tracks-27 { height: 1042px; }
-
-.SoundcloudIframe { height: 400px; }
-.SoundcloudIframe.tracks-1 { height: 290px; }
-.SoundcloudIframe.tracks-2 { height: 320px; }
-.SoundcloudIframe.tracks-3 { height: 360px; }
-.SoundcloudIframe.tracks-4 { height: 400px; }
-.SoundcloudIframe.tracks-5 { height: 430px; }
-.SoundcloudIframe.tracks-6 { height: 460px; }
-.SoundcloudIframe.tracks-7 { height: 500px; }
-.SoundcloudIframe.tracks-8 { height: 530px; }
-.SoundcloudIframe.tracks-9 { height: 560px; }
-.SoundcloudIframe.tracks-10 { height: 590px; }
-.SoundcloudIframe.tracks-11 { height: 620px; }
-.SoundcloudIframe.tracks-12 { height: 650px; }
-.SoundcloudIframe.tracks-13 { height: 680px; }
-.SoundcloudIframe.tracks-22 { height: 960px; }
-.SoundcloudIframe.tracks-25 { height: 1030px; }
-.SoundcloudIframe.tracks-27 { height: 1100px; }
-</style>

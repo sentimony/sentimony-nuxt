@@ -23,6 +23,6 @@ const iconSize = computed(() => (props.size === 'lg' ? '19' : '18'))
   >
     <Icon name="lucide:thumbs-up" :size="iconSize" />
     {{ liked ? 'Liked' : 'Like' }}
-    <span v-if="count > 0" class="font-mono tabular-nums opacity-50">{{ count }}</span>
+    <span v-if="count > 0" class="font-mono tabular-nums text-muted-foreground">{{ count }}</span>
   </Button>
 </template>

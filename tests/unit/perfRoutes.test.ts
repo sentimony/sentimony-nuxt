@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest'
-// @ts-expect-error - plain ESM script module without type declarations
 import { assetTargets, dynamicRoutes, staticRoutes } from '../../scripts/lib/routes.mjs'
 
 describe('shared route inventory', () => {

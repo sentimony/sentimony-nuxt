@@ -11,16 +11,23 @@ test('uses public CDN caching only for public catalog API', async ({ request }) 
   expect(privateResponse.headers()['netlify-cdn-cache-control']).toBe('private, no-store')
 })
 
-test('does not expose hidden Firebase detail records', async ({ request }) => {
-  const responses = await Promise.all([
+// Release and artist detail routes read without the `visible` filter on
+// purpose (hidden entries stay reachable from /releases/all and /artists/all);
+// the other detail routes keep hiding invisible records.
+test('serves hidden release and artist details but hides the other invisible records', async ({ request }) => {
+  const [release, artist] = await Promise.all([
     request.get('/api/release/va-gatekey-vol-3'),
     request.get('/api/artist/harax'),
+  ])
+  expect(release.status()).toBe(200)
+  expect(artist.status()).toBe(200)
+
+  const hidden = await Promise.all([
     request.get('/api/playlist/psydnb'),
     request.get('/api/video/irukanji-from-my-nerves'),
     request.get('/api/friend/clocktail'),
   ])
-
-  for (const response of responses) {
+  for (const response of hidden) {
     expect(response.status()).toBe(404)
   }
 })

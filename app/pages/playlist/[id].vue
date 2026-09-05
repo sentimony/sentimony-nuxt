@@ -21,7 +21,7 @@ if (playlistError.value || !item.value) {
 const { embed: embedYouTube } = useYouTubePlaylist(computed(() => item.value?.links?.youtube))
 const { embed: embedYTMusic } = useYouTubeMusicPlaylist(computed(() => item.value?.links?.youtube_music))
 
-const comingMusic = '<div class="p-4 text-[12px] text-muted-foreground">Music is<br>coming ⛄</div>'
+const comingMusic = '<div class="p-4 text-[12px] text-muted-foreground">Coming soon</div>'
 
 const releases = computed(() => toArray<Release>(releasesRaw.value, 'releases'))
 
@@ -114,7 +114,7 @@ useSeoMeta({
                     v-if="item.links?.youtube"
                     class="border-[0px] aspect-video w-full"
                     :src="embedYouTube"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -138,7 +138,7 @@ useSeoMeta({
                     height="450"
                     allow="autoplay"
                     :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + (item.links?.soundcloud_playlist_id || '') + '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=true&show_teaser=false'"
-                    :title="item.title + ' SoundCloud Iframe'"
+                    :title="item.title + ' SoundCloud player'"
                   />
                 </div>
               </Tab>
@@ -151,7 +151,7 @@ useSeoMeta({
                   <iframe
                     class="border-[0px] aspect-video w-full"
                     :src="embedYTMusic"
-                    :title="item.title + 'YouTube video player'"
+                    :title="item.title + ' YouTube video player'"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
@@ -174,30 +174,31 @@ useSeoMeta({
         <div>
           <hr class="my-4 border-black/30">
           <p><small><b>Releases / Tracks:</b></small></p>
-          <ol class="list-decimal ps-9">
+          <ul class="list-none">
             <template v-for="(i, index) in releasesSortedByDate" :key="index">
-              <div
+              <li
                 v-if="i.at_playlists?.includes(item.slug)"
                 class="mb-4"
               >
                 <div class="mb-2">
                   <RelativeItem :i="i" category="release" />
                 </div>
-                <div v-if="tracksByRelease.get(i.slug)?.length" class="Tracklist">
+                <ol v-if="tracksByRelease.get(i.slug)?.length" class="Tracklist list-none">
                   <li
                     v-for="t in tracksByRelease.get(i.slug)"
                     :key="t.slug"
+                    class="mb-2"
                   >
-                    <small class="font-mono">{{ Number(t.track_number) }}.</small>
+                    <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
                     <TrackArtists :name="t.artist_name" :slug="t.artist_slug" />
                     -
                     <NuxtLink :to="`/track/${t.slug}`" class="hover:underline">{{ t.title }}</NuxtLink>
                     <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
                   </li>
-                </div>
-              </div>
+                </ol>
+              </li>
             </template>
-          </ol>
+          </ul>
         </div>
 
     </ItemContent>
