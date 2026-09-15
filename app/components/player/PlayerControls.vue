@@ -29,7 +29,7 @@ const mainClass = 'flex size-11 shrink-0 items-center justify-center rounded-ful
       @click="$emit('prev')"
       v-wave
     >
-      <Icon name="lucide:skip-back" :size="size === 'sm' ? 14 : 18" />
+      <Icon name="lucide:skip-back" :size="18" />
     </button>
 
     <button
@@ -52,7 +52,7 @@ const mainClass = 'flex size-11 shrink-0 items-center justify-center rounded-ful
       @click="$emit('next')"
       v-wave
     >
-      <Icon name="lucide:skip-forward" :size="size === 'sm' ? 14 : 18" />
+      <Icon name="lucide:skip-forward" :size="18" />
     </button>
   </div>
 </template>

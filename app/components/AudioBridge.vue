@@ -1,17 +1,41 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { toast } from 'vue-sonner'
-import { nextQueueIndex } from '~/utils/audioQueue'
+import { PLAYER_CURRENT_KEY, type PlayerItem } from '~/composables/useAudioPlayer'
 
 const audioEl = ref<HTMLAudioElement | null>(null)
-const { current, isPlaying, currentTime, duration, volume, seekTo, repeatMode, playToken, toggle, seek, next, prev, moveTo, close } = useAudioPlayer()
+const { current, isPlaying, currentTime, duration, volume, seekTo, repeatMode, shuffle, playToken, restore, reshuffle, stepIndex, toggle, seek, next, prev, moveTo, close } = useAudioPlayer()
+
+function readStoredItem(): PlayerItem | null {
+  const raw = localStorage.getItem(PLAYER_CURRENT_KEY)
+  if (!raw) return null
+  try {
+    const item = JSON.parse(raw) as PlayerItem
+    const valid = typeof item?.src === 'string' && typeof item?.title === 'string'
+      && (item.kind === 'track' || item.kind === 'mix')
+    return valid ? item : null
+  }
+  catch {
+    return null
+  }
+}
 
 onMounted(() => {
   const stored = localStorage.getItem('player-volume')
   const saved = Number(stored)
   if (stored !== null && Number.isFinite(saved) && saved >= 0 && saved <= 1) {
-    volume.value = saved
+    // Snap to the slider's 0-10 steps so the knob and the fill agree.
+    volume.value = Math.round(saved * 10) / 10
   }
+
+  const item = readStoredItem()
+  if (item && !current.value) restore(item)
+})
+
+watch(current, (item) => {
+  // Only non-null writes: a queue that ended calls close(), and forgetting the
+  // last track there would defeat the point of restoring it.
+  if (item) localStorage.setItem(PLAYER_CURRENT_KEY, JSON.stringify(item))
 })
 
 watch(() => current.value?.src, (src) => {
@@ -24,7 +48,8 @@ watch(() => current.value?.src, (src) => {
   }
   el.src = src
   el.volume = volume.value
-  el.play().catch(() => { isPlaying.value = false })
+  // A restored track is loaded paused; only an actual play request starts audio.
+  if (isPlaying.value) el.play().catch(() => { isPlaying.value = false })
   updateMediaSession()
 })
 
@@ -73,15 +98,21 @@ function onEnded() {
     isPlaying.value = false
     return
   }
-  if (nextQueueIndex(item.queue.length, item.queueIndex ?? 0) !== null) next()
-  else if (repeatMode.value === 'all') moveTo(0)
+  if (stepIndex('next') !== null) next()
+  else if (repeatMode.value === 'all') {
+    // A new pass gets a new order, otherwise shuffle would repeat the same sequence.
+    if (shuffle.value) reshuffle(0)
+    moveTo(0)
+  }
   else close()
 }
 
 function onError() {
   if (!current.value) return
+  // A stale restored src errors on page load with no user action; stay silent then.
+  const wasPlaying = isPlaying.value
   isPlaying.value = false
-  toast.error('Audio failed to load')
+  if (wasPlaying) toast.error('Audio failed to load')
 }
 
 function updateMediaSession() {
