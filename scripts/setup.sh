@@ -31,6 +31,3 @@ elif command -v jq >/dev/null 2>&1; then
 else
   echo "warning: jq not found, skipping attribution merge in $SETTINGS" >&2
 fi
-
-echo "npx -y skillio -v" && npx -y skillio -v
-echo "npx -y skills -v" && npx -y skills -v

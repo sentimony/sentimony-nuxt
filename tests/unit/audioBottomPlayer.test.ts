@@ -44,6 +44,11 @@ describe('GlobalPlayer.vue', () => {
     expect(component).toContain('{{ nowPlayingLabel }}')
   })
 
+  it('lets clicks through the sticky wrapper that spans the viewport bottom', () => {
+    expect(component).toContain('class="pointer-events-none sticky bottom-0')
+    expect(component).toContain('class="pointer-events-auto border-t')
+  })
+
   it('keeps the announcement empty while nothing plays', () => {
     const label = component.match(/const nowPlayingLabel = computed\(\(\) => \{[\s\S]*?\n\}\)/)?.[0] ?? ''
     expect(label).toMatch(/if \(!\w+\) return ''/)

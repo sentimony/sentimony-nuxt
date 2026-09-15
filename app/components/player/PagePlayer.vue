@@ -153,6 +153,22 @@ defineExpose({ playTrack })
         :name-segments="currentNameSegments"
         :track-link="currentTrackLink"
       />
+
+      <button
+        v-if="currentTrack?.slug"
+        type="button"
+        class="ml-auto flex h-7.5 shrink-0 items-center gap-1 rounded-md px-1.5 opacity-70 transition-[background-color,opacity] duration-300 ease-in-out hover:bg-black/10 hover:opacity-100 dark:hover:bg-white/20"
+        :aria-label="isTrackLiked(currentTrack.slug) ? 'Liked' : 'Like track'"
+        @click="toggleTrackLike(currentTrack.slug)"
+        v-wave
+      >
+        <Icon
+          name="lucide:thumbs-up"
+          size="18"
+          :class="user && isTrackLiked(currentTrack.slug) && 'text-emerald-600 dark:text-emerald-300'"
+        />
+        <span v-if="trackLikeCount(currentTrack.slug) > 0" class="font-mono text-xs tabular-nums">{{ trackLikeCount(currentTrack.slug) }}</span>
+      </button>
     </div>
 
     <div v-if="hasAudio" class="font-mono text-xs px-[1ch]">
@@ -205,22 +221,6 @@ defineExpose({ playTrack })
             </template>
             <template v-else>{{ track.title }}</template>
           </span>
-        </button>
-
-        <button
-          v-if="track.slug && isCurrent(track)"
-          type="button"
-          class="flex h-6 shrink-0 items-center gap-1 rounded px-[1ch] font-mono font-normal text-black/60 transition-[background-color,color] duration-300 ease-in-out hover:bg-black/10 hover:font-bold hover:text-black dark:text-white/60 dark:hover:bg-white/20 dark:hover:text-white"
-          :aria-label="isTrackLiked(track.slug) ? 'Liked' : 'Like track'"
-          @click="toggleTrackLike(track.slug)"
-          v-wave
-        >
-          <Icon
-            name="lucide:thumbs-up"
-            size="12"
-            :class="user && isTrackLiked(track.slug) && 'text-emerald-600 dark:text-emerald-300'"
-          />
-          <span v-if="trackLikeCount(track.slug) > 0" class="tabular-nums">{{ trackLikeCount(track.slug) }}</span>
         </button>
 
         <span
