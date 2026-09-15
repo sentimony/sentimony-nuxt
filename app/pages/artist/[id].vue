@@ -120,15 +120,15 @@ useSeoMeta({
 
 <template>
   <div class="text-left border-t border-black/20 dark:border-white/20">
-    <div class="relative z-2 px-2 pb-7.5 md:pb-15">
+    <div class="relative z-2 px-2">
         <div class="container max-w-7xl" v-if="item">
 
         <h1 class="text-center text-2xl md:text-4xl my-4 md:my-6">{{ item.title }}</h1>
 
         <div class="flex flex-col lg:flex-row">
-          <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36">
+          <div class="w-full mb-4 lg:mb-12 xl:mb-24 2xl:mb-36 pr-2">
 
-            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <div class="flex flex-col sm:flex-row">
 
               <div class="shrink-0">
                 <OpenImage
