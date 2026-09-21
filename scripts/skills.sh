@@ -1,9 +1,6 @@
 #!/usr/bin/env sh
 set -e
 
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-PROJECT_ROOT=$(dirname "$SCRIPT_DIR")
-
 echo "npx -y skillio -v" && npx -y skillio -v
 echo "npx -y skills -v" && npx -y skills -v
 # echo "npx -y skillio ls" && npx -y skillio ls
@@ -45,9 +42,25 @@ npx skills add https://github.com/mattpocock/skills -s \
   domain-modeling \
   -a codex claude-code -y
 
-# ln -sfn ../../../label-skills/skills/artist-upd \
-#   "$PROJECT_ROOT/.agents/skills/artist-upd"
-# ln -sfn ../../../label-skills/skills/artist-upd \
-#   "$PROJECT_ROOT/.claude/skills/artist-upd"
+# LOCAL SKILLS
+# sc-manage is not published anywhere, it lives in the sentimony/label-skills checkout
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PROJECT_ROOT=$(dirname "$SCRIPT_DIR")
+SC_MANAGE_SKILL=$(dirname "$(dirname "$PROJECT_ROOT")")/sentimony/label-skills/skills/sc-manage
+
+if [ -d "$SC_MANAGE_SKILL" ]; then
+  for dir in "$PROJECT_ROOT/.claude/skills" "$PROJECT_ROOT/.agents/skills"; do
+    mkdir -p "$dir"
+    link="$dir/sc-manage"
+    if [ -e "$link" ] && [ ! -L "$link" ]; then
+      echo "warning: $link exists and is not a symlink, skipped" >&2
+      continue
+    fi
+    ln -sfn "$SC_MANAGE_SKILL" "$link"
+    echo "linked $link"
+  done
+else
+  echo "warning: $SC_MANAGE_SKILL not found, sc-manage not linked" >&2
+fi
 
 echo "npx -y skillio ls" && npx -y skillio ls
