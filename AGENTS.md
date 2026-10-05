@@ -16,7 +16,7 @@ Guidance for coding agents working in this repository.
 
 > Source of truth for skill names is `ls .claude/skills/` — do not invoke invented ones. Code review and security review are built-in slash commands (`/code-review`, `/security-review`), not skills.
 
-- **New feature:** `scope-triage` → `plan-crafting` → `inline-plan-dev` (independent parallel tasks — `subagent-plan-dev`). Along the way as needed: `typescript` · `vitest`. Finish with `review-request` → `verification-gate` → **check**.
+- **New feature:** `scope-triage` → `plan-crafting` → `inline-plan-dev` (independent parallel tasks - `subagent-plan-dev`). Along the way as needed: `typescript` · `vitest`. Finish with `review-request` → `verification-gate` → **check**.
 - **Bug / regression:** `debugging` → `tdd` → `verification-gate` → **check**.
 - **UI work:** `web-debug` · `frontend-crafting` → **check**.
 - **Prose (docs, README, UI copy):** `dashfix` · `negafix`.
@@ -65,7 +65,7 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 Detailed architecture lives in two nested instruction files, loaded on demand when
 you work in that directory. A Codex session started at the repository root does not
-load them automatically — open the relevant one before touching that subtree.
+load them automatically - open the relevant one before touching that subtree.
 
 | Directory | File | Contains |
 | --- | --- | --- |
