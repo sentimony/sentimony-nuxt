@@ -22,14 +22,14 @@ functions прив'язані до Netlify.
 
 - Фаза 0: інструмент замірів (`scripts/perf-baseline.mjs`) і baseline «до».
 - Фаза 1: делегування зони з Imena.ua на Cloudflare у режимі DNS-only.
-- Фаза 2: runtime на Workers (`cloudflare_module`) з перевіркою трьох припущень —
+- Фаза 2: runtime на Workers (`cloudflare_module`) з перевіркою трьох припущень -
   розмір бандла, `CDN-Cache-Control`, поведінка Nitro-кешу.
 - Фаза 3: cutover прода з повторними замірами й перевіреним відкатом.
 - Фаза 4 (опційно): `audio.sentimony.com`, чистка `img.sentimony.com`.
 
 ## Залежності
 
-- Інвентар DNS, піддоменів і Netlify-сайтів — знято 2026-07-26, зафіксовано у спеці.
+- Інвентар DNS, піддоменів і Netlify-сайтів - знято 2026-07-26, зафіксовано у спеці.
 - Від користувача: Cloudflare API token, додавання зони, зміна NS у Imena.ua,
   апрув трьох воріт. Опційно `PSI_API_KEY`.
 

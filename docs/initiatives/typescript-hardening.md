@@ -8,7 +8,7 @@
 
 ## Навіщо
 
-TS-1–TS-5 і VITEST-3 показали, що test TypeScript не перевіряється статично,
+TS-1-TS-5 і VITEST-3 показали, що test TypeScript не перевіряється статично,
 частина strictness flags живе лише в неуспадкованому base config, unused code не
 блокується, а type-safety conventions не захищені lint rules.
 
@@ -19,8 +19,8 @@ non-null assertions у `app/`, `server/`, `netlify/`. Лишаються
 `exactOptionalPropertyTypes` і ESLint guardrails.
 
 `exactOptionalPropertyTypes` пробували 2026-09-04 (задача 6 плану): 39
-діагностик у app/server, з них 7 у обгортках `ui/{tooltip,label,input,sonner}`
-— Vue типізує resolved props як `x: T | undefined`, а `v-bind="props"` у
+діагностик у app/server, з них 7 у обгортках `ui/{tooltip,label,input,sonner}` -
+Vue типізує resolved props як `x: T | undefined`, а `v-bind="props"` у
 reka-ui/vue-sonner очікує `x?: T` без `undefined`; без кастів на кожній
 обгортці прапорець не проходить. Прапорець відкочено; повернутися після
 оновлення Vue/reka-ui або з рішенням про типізований `compact()`-хелпер.
@@ -52,4 +52,4 @@ unused declarations, unsafe suppressions і невиправдані assertions 
 
 ## Наступний крок
 
-Обрати ESLint-конфіг разом із `chore(deps)`; `exactOptionalPropertyTypes` — після рішення про обгортки reka-ui.
+Обрати ESLint-конфіг разом із `chore(deps)`; `exactOptionalPropertyTypes` - після рішення про обгортки reka-ui.

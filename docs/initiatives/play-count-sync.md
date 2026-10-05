@@ -1,7 +1,7 @@
 # Optimistic play-count synchronization
 
 - Status: Descoped
-- Priority: —
+- Priority: -
 - Ініційовано: 2026-07-21
 - Last reviewed: 2026-07-25
 - Related: [release performance spec](../superpowers/specs/2026-07-21-release-tracklist-perf-design.md), [status audit](../audits/2026-07-25-implementation-status-audit.md)

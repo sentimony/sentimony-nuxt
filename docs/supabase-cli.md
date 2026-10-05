@@ -4,9 +4,9 @@
 
 ## Встановлення й токен
 
-Використовувати через `npx supabase` — глобальний CLI не встановлюємо.
+Використовувати через `npx supabase` - глобальний CLI не встановлюємо.
 
-`SUPABASE_ACCESS_TOKEN` (формат `sbp_...`) — Personal Access Token з
+`SUPABASE_ACCESS_TOKEN` (формат `sbp_...`) - Personal Access Token з
 [Supabase Dashboard → Account → Access Tokens](https://supabase.com/dashboard/account/tokens),
 зберігати в `.env/.env.local`.
 
@@ -16,11 +16,11 @@
 npx supabase link --project-ref dugbgewuzowoogglccue --yes
 ```
 
-## Застосування міграцій: `.env` — це директорія
+## Застосування міграцій: `.env` - це директорія
 
 `npx supabase db push` падає з `read .env: is a directory`, бо в цьому репозиторії
-`.env` — директорія (`.env/.env`, `.env/.env.local`), а CLI очікує файл. Обхідний
-шлях — виконувати SQL напряму через `db query --linked --file` з тимчасової
+`.env` - директорія (`.env/.env`, `.env/.env.local`), а CLI очікує файл. Обхідний
+шлях - виконувати SQL напряму через `db query --linked --file` з тимчасової
 директорії, де `.env` є порожнім файлом:
 
 ```bash
