@@ -6,7 +6,7 @@
 
 ## Резюме
 
-TypeScript-стан основного застосунку та Netlify Edge Functions зелений у штатних перевірках. Базова конфігурація сувора, обидва компілятори закріплені lockfile і запускаються в CI. Браузерний smoke показав стабільний SSR усіх перевірених маршрутів, але виявив витік прихованого Supabase-запису, зламаний footer asset на всіх сторінках і відсутність browser E2E у CI. Основні TypeScript-ризики — відсутність статичної перевірки тестових файлів та розрив між базовим і реально згенерованими Nuxt-конфігами.
+TypeScript-стан основного застосунку та Netlify Edge Functions зелений у штатних перевірках. Базова конфігурація сувора, обидва компілятори закріплені lockfile і запускаються в CI. Браузерний smoke показав стабільний SSR усіх перевірених маршрутів, але виявив витік прихованого Supabase-запису, зламаний footer asset на всіх сторінках і відсутність browser E2E у CI. Основні TypeScript-ризики - відсутність статичної перевірки тестових файлів та розрив між базовим і реально згенерованими Nuxt-конфігами.
 
 ## 1. TypeScript
 
@@ -48,7 +48,7 @@ npx tsc --noEmit -p .nuxt/tsconfig.server.json --noImplicitOverride --noFallthro
 
 ### Знахідки
 
-#### TS-1 — Important: тести не мають статичного typecheck-контуру
+#### TS-1 - Important: тести не мають статичного typecheck-контуру
 
 `tsconfig.json` посилається лише на згенеровані Nuxt-проєкти. Вони охоплюють `app`, `server`, `shared` і Nuxt config, але не `tests/unit/**/*.ts`, `tests/e2e/**/*.ts`, `tests/setup/**/*.ts`, `vitest.config.ts` та `playwright.config.ts`. Усього поза статичною перевіркою лишаються 42 spec-файли та тестова setup-конфігурація.
 
@@ -60,7 +60,7 @@ Vitest і Playwright транспілюють TypeScript, але не замін
 2. Додати `typecheck:tests` і запустити його в CI.
 3. Не включати тестові globals у production-конфіги.
 
-#### TS-2 — Important: `tsconfig.base.json` не визначає суворість Nuxt-застосунку
+#### TS-2 - Important: `tsconfig.base.json` не визначає суворість Nuxt-застосунку
 
 `tsconfig.base.json` містить `exactOptionalPropertyTypes`, `noFallthroughCasesInSwitch` і `noImplicitOverride`, однак кореневий `tsconfig.json` його не наслідує: він складається з Nuxt project references. Фактичні згенеровані Nuxt-конфіги мають `strict` і `noUncheckedIndexedAccess`, але:
 
@@ -76,9 +76,9 @@ Vitest і Playwright транспілюють TypeScript, але не замін
 - `noImplicitOverride` для server-контуру проходить без помилок;
 - `exactOptionalPropertyTypes` виявляє 28 діагностик у компонентах, composables, сторінках і sitemap utility. Переважає передавання `undefined` у формально optional props замість пропуску властивості.
 
-Рекомендація: переносити Nuxt-specific compiler options через `typescript.tsConfig.compilerOptions` у `nuxt.config.ts`, вмикаючи по одному прапорцю. Спершу — два зелені прапорці, окремим етапом — `exactOptionalPropertyTypes` із виправленням усіх 28 місць.
+Рекомендація: переносити Nuxt-specific compiler options через `typescript.tsConfig.compilerOptions` у `nuxt.config.ts`, вмикаючи по одному прапорцю. Спершу - два зелені прапорці, окремим етапом - `exactOptionalPropertyTypes` із виправленням усіх 28 місць.
 
-#### TS-3 — Moderate: `noUnusedLocals`/`noUnusedParameters` виявляють 19 невикористаних декларацій
+#### TS-3 - Moderate: `noUnusedLocals`/`noUnusedParameters` виявляють 19 невикористаних декларацій
 
 Пробний запуск знайшов:
 
@@ -89,7 +89,7 @@ Vitest і Playwright транспілюють TypeScript, але не замін
 
 Рекомендація: очистити 19 декларацій, після чого ввімкнути `noUnusedLocals` і `noUnusedParameters` у Nuxt-конфігурації.
 
-#### TS-4 — Minor: production-код містить 17 non-null assertions
+#### TS-4 - Minor: production-код містить 17 non-null assertions
 
 Основні групи:
 
@@ -101,7 +101,7 @@ Vitest і Playwright транспілюють TypeScript, але не замін
 
 Рекомендація: у сторінці треку зберегти перевірене значення в локальну константу перед створенням computed; для regex/масивів використовувати guard або fallback. Не замінювати assertions на широкі casts.
 
-#### TS-5 — Minor: немає лінтера для запобігання регресіям типів
+#### TS-5 - Minor: немає лінтера для запобігання регресіям типів
 
 Інспектор не виявив ESLint або іншого linter-контуру. Поточна відсутність explicit `any` і suppression-директив позитивна, але не захищена автоматично.
 
@@ -159,7 +159,7 @@ PLAYWRIGHT_BASE_URL=http://localhost:3000 npx playwright test \
 
 ### Знахідки
 
-#### WEB-1 — Important: Supabase detail API віддає прихованого артиста
+#### WEB-1 - Important: Supabase detail API віддає прихованого артиста
 
 `GET /api/artist/harax` повертає `200` і повний запис із `"visible": false`. Інші чотири hidden-record probes повертають `404`.
 
@@ -173,7 +173,7 @@ PLAYWRIGHT_BASE_URL=http://localhost:3000 npx playwright test \
 2. Додати unit regression test окремо для Supabase і Firebase.
 3. Запускати security E2E для обох `CATALOG_SOURCE`, щонайменше detail visibility probes.
 
-#### WEB-2 — Important: footer SVG зламаний на кожній сторінці
+#### WEB-2 - Important: footer SVG зламаний на кожній сторінці
 
 У всіх 42 page loads Chromium зафіксував:
 
@@ -186,7 +186,7 @@ https://content.sentimony.com/assets/img/svg-icons/sentimony-records-logo-v3.3%2
 
 Рекомендація: прибрати пробіл із URL і додати browser assertion, що всі видимі `img` мають `naturalWidth > 0`.
 
-#### WEB-3 — Important: browser E2E не є CI quality gate
+#### WEB-3 - Important: browser E2E не є CI quality gate
 
 `.github/workflows/web-debug.yml` запускає typecheck, unit tests, build і `npm run web-debug`, але не `npm run test:e2e`. Сам `scripts/web-debug.mjs` перевіряє лише HTTP status через Node `fetch`: він не запускає браузер, не бачить hydration, console/page errors, broken assets або взаємодії.
 
@@ -198,7 +198,7 @@ Workflow також прямо зазначає, що `node-server` preset не 
 2. Залишити `scripts/web-debug.mjs` як швидкий SSR route smoke, але назвати й документувати його саме так.
 3. Додати Netlify-preset smoke для відомого ESM/CJS ризику або smoke deployed preview.
 
-#### WEB-4 — Moderate: public layout не має `<main>`, homepage не має `<h1>`
+#### WEB-4 - Moderate: public layout не має `<main>`, homepage не має `<h1>`
 
 Усі 42 перевірені public renders мають `mainCount = 0`; homepage додатково має `h1Count = 0`. Решта list/detail routes мають по одному `<h1>`.
 
@@ -206,15 +206,15 @@ Workflow також прямо зазначає, що `node-server` preset не 
 
 Рекомендація: замінити layout wrapper навколо page slot на `<main>` та дати homepage один змістовний `<h1>`; візуальний дизайн можна зберегти без змін.
 
-#### WEB-5 — Moderate: mobile first-paint тест має race
+#### WEB-5 - Moderate: mobile first-paint тест має race
 
 Тест `does not fetch the forest asset during first paint` пройшов у desktop, але впав у mobile під час повного suite і повторно 2 із 2 разів в isolated mobile run. На момент assertion `--forest-bg` ще порожній, але request до asset уже стартував.
 
-Plugin навмисно планує preload через `requestIdleCallback` після `load`; на швидкому mobile context idle callback може виконатися між `page.goto()` і assertion. Тому тест змішує дві події — початок request і застосування background — та залежить від scheduler timing.
+Plugin навмисно планує preload через `requestIdleCallback` після `load`; на швидкому mobile context idle callback може виконатися між `page.goto()` і assertion. Тому тест змішує дві події - початок request і застосування background - та залежить від scheduler timing.
 
 Рекомендація: інструментувати resource/paint timing через init script і порівнювати asset request із first paint, або тестувати чіткий DOM/state contract. Не покладатися на те, що assertion виконається раніше за idle callback.
 
-#### WEB-6 — Minor: route smoke не охоплює track detail і частину auth routes
+#### WEB-6 - Minor: route smoke не охоплює track detail і частину auth routes
 
 `scripts/web-debug.mjs` перевіряє `/tracks`, але не резолвить `/api/tracks` → `/track/:slug`. Також smoke має лише `/signin`, без signup/password/confirm flows. Саме track detail містить складну hydration/fallback логіку й вартий окремого probe.
 
@@ -258,7 +258,7 @@ npm run test:unit -- \
 
 ### Знахідки
 
-#### VITEST-1 — Important: unit-тест закріплює hidden-record exposure
+#### VITEST-1 - Important: unit-тест закріплює hidden-record exposure
 
 `tests/unit/artistPageApi.test.ts` має тест:
 
@@ -275,9 +275,9 @@ returns hidden artists by direct slug route
 
 Через відсутність Playwright job у CI unit suite зелений і фактично захищає дефект WEB-1 від виправлення.
 
-Рекомендація: інвертувати unit contract — окремо для Firebase і Supabase очікувати `404` на hidden artist. Спочатку виправити handler, потім замінити поточний тест regression-тестами правильної поведінки.
+Рекомендація: інвертувати unit contract - окремо для Firebase і Supabase очікувати `404` на hidden artist. Спочатку виправити handler, потім замінити поточний тест regression-тестами правильної поведінки.
 
-#### VITEST-2 — Important: component behavior майже не тестується у Vitest
+#### VITEST-2 - Important: component behavior майже не тестується у Vitest
 
 Проєкт не має `@nuxt/test-utils`, `@vue/test-utils`, `happy-dom` або `jsdom`; єдиний Vitest project працює в `node`. Тринадцять із 39 test files читають `.vue`/config source через `readFileSync`; у цих файлах розташовано 54 із 151 явно оголошених test cases.
 
@@ -299,13 +299,13 @@ returns hidden artists by direct slug route
 3. Поступово замінювати найцінніші source-string assertions поведінковими тестами; почати з likes, audio player, auth form і tabs.
 4. Structural source checks лишати тільки там, де сам текст/конфіг є контрактом.
 
-#### VITEST-3 — Important: unit/test TypeScript не перевіряється статично
+#### VITEST-3 - Important: unit/test TypeScript не перевіряється статично
 
 Vitest успішно транспілює 39 unit files, але не type-checks їх. `vitest.config.ts` не має typecheck project, а CI не має окремого test tsconfig. Це той самий coverage gap, що описаний у TS-1.
 
 Рекомендація: додати окремий `tsconfig.tests.json` і `typecheck:tests` у CI. Не змішувати Vitest globals/types із production Nuxt configs.
 
-#### VITEST-4 — Moderate: немає coverage provider, report або threshold
+#### VITEST-4 - Moderate: немає coverage provider, report або threshold
 
 Не встановлено `@vitest/coverage-v8`/`@vitest/coverage-istanbul`; у config і CI немає coverage report чи thresholds. Число 161 не показує, які production branches реально виконуються. WEB-1 демонструє цю проблему: для helper `isPublicEntity` тести є, але critical integration branch має неправильний contract.
 
@@ -316,7 +316,7 @@ Vitest успішно транспілює 39 unit files, але не type-check
 3. Додати branch thresholds для security/data-visibility, likes, cache policy та sync transformations.
 4. Не використовувати високий aggregate percentage як заміну risk-based tests.
 
-#### VITEST-5 — Moderate: handler tests залежать від ручних global auto-import mocks
+#### VITEST-5 - Moderate: handler tests залежать від ручних global auto-import mocks
 
 Дев’ять test files встановлюють Nuxt/Nitro auto-imports безпосередньо на `globalThis` і часто роблять `vi.resetModules()` перед dynamic import. Поточний cleanup якісний, а shuffled/async-leak прогін зелений, але цей pattern:
 
@@ -327,7 +327,7 @@ Vitest успішно транспілює 39 unit files, але не type-check
 
 Рекомендація: для чистих handlers поступово вводити явні dependency seams/factories; для справді Nuxt-specific behavior використовувати Nuxt test utilities. До міграції тримати список globals централізованим і зберігати `afterEach` cleanup.
 
-#### VITEST-6 — Minor: mock reset policy не задана централізовано
+#### VITEST-6 - Minor: mock reset policy не задана централізовано
 
 У config немає `restoreMocks`, `clearMocks` або `mockReset`. Поточні spy/global-heavy файли очищаються явно, і аудит не виявив leakage, тому це не поточний дефект. Ризик виникне при додаванні нових mocks.
 

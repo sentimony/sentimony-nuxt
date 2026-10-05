@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Прибрати повний SSR з шляху відвідувача там, де його можна не робити: увімкнути Netlify Durable Cache для публічних відповідей і перестати варіювати cache key HTML за query-параметрами, які застосунок не читає. Час самого origin не оптимізуємо — зменшуємо кількість звернень до нього.
+**Goal:** Прибрати повний SSR з шляху відвідувача там, де його можна не робити: увімкнути Netlify Durable Cache для публічних відповідей і перестати варіювати cache key HTML за query-параметрами, які застосунок не читає. Час самого origin не оптимізуємо - зменшуємо кількість звернень до нього.
 
 **Architecture:** Обидві зміни живуть у двох уже наявних чистих утилітах політики заголовків (`server/utils/cachePolicy.ts` для `routeRules` API, `server/utils/htmlCachePolicy.ts` для server middleware), тож обидві повністю покриваються unit-тестами без деплою. Netlify-специфічна директива `durable` додається лише у `Netlify-CDN-Cache-Control`; стандартний `CDN-Cache-Control` лишається переносимим, і саме цю асиметрію фіксує оновлений mirror-тест.
 
@@ -13,16 +13,16 @@
 ## Global Constraints
 
 - Гілка `main`, без git worktrees; нових npm-залежностей не додавати.
-- Жодних змін у рендерингу, роутингу чи вигляді — тільки response headers.
+- Жодних змін у рендерингу, роутингу чи вигляді - тільки response headers.
 - `private, no-store` маршрути (likes, profile, `track-plays`) лишаються недоторканими.
 - Базлайн тестів зелений до і після: `npm run test:unit`, `npm run typecheck`, `npm run docs:check`.
-- Коментарі в коді — англійською, лише для зовнішніх обмежень (граматика заголовків Netlify).
+- Коментарі в коді - англійською, лише для зовнішніх обмежень (граматика заголовків Netlify).
 
 ---
 
 ### Task 1: Baseline замірів origin
 
-**Files:** — (артефакти не комітяться)
+**Files:** - (артефакти не комітяться)
 
 - [ ] **Step 1: Зафіксувати поточні заголовки**
 
@@ -31,8 +31,8 @@ Expected: `"Netlify Durable"; fwd=bypass`, `netlify-vary: query`.
 
 - [ ] **Step 2: Зафіксувати час origin**
 
-Run для `/`, `/releases`, `/artists`, `/release/va-fantazma`, `/api/releases` з `?x=$(date +%s%N)`, метрика `time_starttransfer − time_appconnect`.
-Expected: діапазон 0.4–0.8 с (значення зі спеки).
+Run для `/`, `/releases`, `/artists`, `/release/va-fantazma`, `/api/releases` з `?x=$(date +%s%N)`, метрика `time_starttransfer - time_appconnect`.
+Expected: діапазон 0.4-0.8 с (значення зі спеки).
 
 ---
 
@@ -69,7 +69,7 @@ Expected: pass.
 
 - [ ] **Step 1: Додати durable і Netlify-Vary**
 
-`query=_` — allowlist з імені, якого застосунок не вживає: усі реальні URL стають «не-збігами» і діляться одним cache-об'єктом. Коментар англійською пояснює, чому не порожній `query=`.
+`query=_` - allowlist з імені, якого застосунок не вживає: усі реальні URL стають «не-збігами» і діляться одним cache-об'єктом. Коментар англійською пояснює, чому не порожній `query=`.
 
 - [ ] **Step 2: Тест на нечутливість до query**
 
@@ -84,7 +84,7 @@ Expected: pass.
 
 ### Task 4: Верифікація
 
-**Files:** —
+**Files:** -
 
 - [ ] **Step 1: Повний прогін**
 
@@ -107,6 +107,6 @@ Expected: `server-response-time` лишається pass із більшим з�
 
 Якщо заміри після деплою покажуть, що origin усе ще на критичному шляху
 (наприклад, `cache-status` часто `fwd=miss` через короткий TTL), розглянути
-перенесення Nitro cache storage на Netlify Blobs — окрема ініціатива з новою
+перенесення Nitro cache storage на Netlify Blobs - окрема ініціатива з новою
 залежністю `@netlify/blobs`, детально описана в розділі «Чого свідомо не
 робимо» спеки.

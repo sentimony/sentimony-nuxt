@@ -14,7 +14,7 @@
 
 - Гілка `json-to-yml`, без git worktrees; без нових залежностей.
 - Happy-path контракти незмінні: `POST` лайка → `{ ok, count }`; existing 400 «Missing like identity»/«Missing slug» зберігаються.
-- Rate limiter — in-memory per-instance (чесно задокументовано в коді одним коментарем).
+- Rate limiter - in-memory per-instance (чесно задокументовано в коді одним коментарем).
 - Юніт-тести мокають auto-imported утиліти через `globalThis` (зразок: `tests/unit/likeCountersHandler.test.ts`).
 
 ---
@@ -26,7 +26,7 @@
 - Test: `tests/unit/slugValidation.test.ts`
 
 **Interfaces:**
-- Produces: `normalizeSlug(input: unknown): string | null` — trim; 1–200 символів; `^[a-z0-9][a-z0-9-]*$`; інакше `null`.
+- Produces: `normalizeSlug(input: unknown): string | null` - trim; 1-200 символів; `^[a-z0-9][a-z0-9-]*$`; інакше `null`.
 
 - [ ] **Step 1: Падаючий тест**
 
@@ -96,11 +96,11 @@ git commit -m "feat(server): shared normalizeSlug validator"
 
 **Interfaces:**
 - Consumes: `normalizeSlug` (Task 1), `supabaseAdmin`.
-- Produces: у `likesAddHandler(table, slugCol)` — після читання body: `normalizeSlug` → 400 `Invalid slug`; далі existence-check у content-таблиці за мапою `ENTITY_TABLES` → 404 `Not found`. `likesDeleteHandler` — лише `normalizeSlug` (видалення неіснуючого — no-op як зараз).
+- Produces: у `likesAddHandler(table, slugCol)` - після читання body: `normalizeSlug` → 400 `Invalid slug`; далі existence-check у content-таблиці за мапою `ENTITY_TABLES` → 404 `Not found`. `likesDeleteHandler` - лише `normalizeSlug` (видалення неіснуючого - no-op як зараз).
 
 - [ ] **Step 1: Падаючий тест**
 
-`tests/unit/likesHandlers.test.ts` (мок-glabals за зразком `likeCountersHandler.test.ts`; точні імена глобалів звірити з `server/utils/likes.ts` при імплементації — очікувано `serverSupabaseUser`, `getCookie`, `readBody`, `createError`, `supabaseAdmin`):
+`tests/unit/likesHandlers.test.ts` (мок-glabals за зразком `likeCountersHandler.test.ts`; точні імена глобалів звірити з `server/utils/likes.ts` при імплементації - очікувано `serverSupabaseUser`, `getCookie`, `readBody`, `createError`, `supabaseAdmin`):
 
 ```ts
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -178,7 +178,7 @@ describe('likesAddHandler hardening', () => {
 ```
 
 Run: `npx vitest run tests/unit/likesHandlers.test.ts` → FAIL (перші два кейси).
-Примітка: якщо `likes.ts` імпортує щось явно (не через auto-import) — адаптувати моки під фактичні залежності; форму RPC-виклику happy path звірити з реальним кодом і за потреби поправити `adminMock`.
+Примітка: якщо `likes.ts` імпортує щось явно (не через auto-import) - адаптувати моки під фактичні залежності; форму RPC-виклику happy path звірити з реальним кодом і за потреби поправити `adminMock`.
 
 - [ ] **Step 2: Оновити `likes.ts`**
 
@@ -210,7 +210,7 @@ const ENTITY_TABLES: Record<string, string> = {
     if (!entity) throw createError({ statusCode: 404, statusMessage: 'Not found' })
 ```
 
-(далі — наявний RPC-виклик з `slug` замість сирого body-значення). У `likesDeleteHandler` замінити `!slug` перевірку на `normalizeSlug(getRouterParam(event, 'slug'))` → 400 при `null`. У `track-plays.post.ts` замінити локальні trim/length-перевірки на `normalizeSlug`.
+(далі - наявний RPC-виклик з `slug` замість сирого body-значення). У `likesDeleteHandler` замінити `!slug` перевірку на `normalizeSlug(getRouterParam(event, 'slug'))` → 400 при `null`. У `track-plays.post.ts` замінити локальні trim/length-перевірки на `normalizeSlug`.
 
 - [ ] **Step 3: Тести**
 
@@ -233,7 +233,7 @@ git commit -m "feat(likes): validate slugs and verify entity existence before mu
 - Test: `tests/unit/rateLimit.test.ts`
 
 **Interfaces:**
-- Produces: `assertWithinRateLimit(key: string, options: { limit: number, windowMs: number }): void` — кидає `createError({ statusCode: 429 })` при перевищенні; вікно ковзне спрощене (fixed window). Виклики: likes `assertWithinRateLimit(\`likes:${userId}\`, { limit: 30, windowMs: 60_000 })`, plays — `plays:${userId}` 60/хв.
+- Produces: `assertWithinRateLimit(key: string, options: { limit: number, windowMs: number }): void` - кидає `createError({ statusCode: 429 })` при перевищенні; вікно ковзне спрощене (fixed window). Виклики: likes `assertWithinRateLimit(\`likes:${userId}\`, { limit: 30, windowMs: 60_000 })`, plays - `plays:${userId}` 60/хв.
 
 - [ ] **Step 1: Падаючий тест**
 
@@ -323,10 +323,10 @@ git commit -m "feat(server): per-instance rate limiting for like/play mutations"
 
 **Files:**
 - Modify: `server/utils/logger.ts` (`logRequest`)
-- Test: `tests/unit/loggerRedaction.test.ts` (новий; якщо `logger.ts` нетестабельний без h3-event — тест на чисту функцію redaction, винесену з `logRequest`)
+- Test: `tests/unit/loggerRedaction.test.ts` (новий; якщо `logger.ts` нетестабельний без h3-event - тест на чисту функцію redaction, винесену з `logRequest`)
 
 **Interfaces:**
-- Produces: чиста функція `redactForProduction(parts: { ip?: string, url?: string, referer?: string }): { ip?: string, url?: string, referer?: string }` — IP до /24 (`1.2.3.x`; IPv6 — перші 4 групи + `::x`), URL — лише pathname (query відкидається), referer — лише hostname. `logRequest` застосовує її, коли НЕ dev і `process.env.LOG_VERBOSE !== '1'`.
+- Produces: чиста функція `redactForProduction(parts: { ip?: string, url?: string, referer?: string }): { ip?: string, url?: string, referer?: string }` - IP до /24 (`1.2.3.x`; IPv6 - перші 4 групи + `::x`), URL - лише pathname (query відкидається), referer - лише hostname. `logRequest` застосовує її, коли НЕ dev і `process.env.LOG_VERBOSE !== '1'`.
 
 - [ ] **Step 1: Падаючий тест**
 

@@ -4,7 +4,7 @@
 
 **Goal:** Рендерити виконавця та назву релізу окремими рядками, виводячи їх із наявного `release.title` (`Виконавець «Назва» [EP|Single]`) чистою утилітою, без змін API/БД/export.
 
-**Architecture:** Чиста функція `splitReleaseTitle()` в `app/utils/releaseTitle.ts` (auto-import) → застосування у трьох точках рендеру (`Item.vue`, `RelativeItem.vue`, `release/[id].vue`). `title` лишається канонічним; SEO, alt-атрибути, DTO — без змін. Fallback: рядок без гільметів рендериться як зараз.
+**Architecture:** Чиста функція `splitReleaseTitle()` в `app/utils/releaseTitle.ts` (auto-import) → застосування у трьох точках рендеру (`Item.vue`, `RelativeItem.vue`, `release/[id].vue`). `title` лишається канонічним; SEO, alt-атрибути, DTO - без змін. Fallback: рядок без гільметів рендериться як зараз.
 
 **Tech Stack:** Nuxt 4, Vue 3, Tailwind v4, Vitest.
 
@@ -13,8 +13,8 @@
 ## Global Constraints
 
 - Гілка `json-to-yml`, без git worktrees (AGENTS.md).
-- Стиль: 2 пробіли, один trailing newline, без trailing whitespace; коментарі в коді — англійською й лише для неочевидного.
-- Базлайн тестів до змін: `npm run test:unit` → 39 files / 161 tests. Typecheck: `npx nuxi typecheck` (локальні Supabase env warnings — норма).
+- Стиль: 2 пробіли, один trailing newline, без trailing whitespace; коментарі в коді - англійською й лише для неочевидного.
+- Базлайн тестів до змін: `npm run test:unit` → 39 files / 161 tests. Typecheck: `npx nuxi typecheck` (локальні Supabase env warnings - норма).
 - Не запускати `sync:*`; нових npm-залежностей не додавати.
 - SEO (`useSeoMeta`) і alt-атрибути продовжують використовувати повний `item.title`.
 
@@ -94,7 +94,7 @@ describe('splitReleaseTitle', () => {
 - [ ] **Step 2: Переконатися, що тест падає**
 
 Run: `npx vitest run tests/unit/releaseTitle.test.ts`
-Expected: FAIL — `Cannot find module '../../app/utils/releaseTitle'`.
+Expected: FAIL - `Cannot find module '../../app/utils/releaseTitle'`.
 
 - [ ] **Step 3: Реалізувати утиліту**
 
@@ -177,7 +177,7 @@ const titleParts = computed(() =>
 - [ ] **Step 3: Typecheck**
 
 Run: `npx nuxi typecheck`
-Expected: без помилок (Supabase env warnings — ок).
+Expected: без помилок (Supabase env warnings - ок).
 
 - [ ] **Step 4: Live smoke списку релізів**
 
@@ -188,7 +188,7 @@ curl -s http://localhost:3000/releases | grep -o 'Sphingida' | head -1
 curl -s http://localhost:3000/releases | grep -c '«'
 ```
 
-Expected: `Sphingida` присутній; кількість `«` у SSR-розмітці сторінки релізів — 0 (гільмети більше не рендеряться в картках; заголовок сторінки/меню їх не містять). Артисти/відео/події виглядають без змін (`/artists` рендерить однорядкові заголовки).
+Expected: `Sphingida` присутній; кількість `«` у SSR-розмітці сторінки релізів - 0 (гільмети більше не рендеряться в картках; заголовок сторінки/меню їх не містять). Артисти/відео/події виглядають без змін (`/artists` рендерить однорядкові заголовки).
 
 - [ ] **Step 5: Commit**
 
@@ -240,7 +240,7 @@ const titleParts = computed(() =>
 
 Run: `npx nuxi typecheck`
 Expected: без помилок.
-Smoke: `curl -s http://localhost:3000/release/va-fantazma | grep -c '«'` → 0 у секції related (допустимі входження з `information`-HTML самого релізу, якщо там є гільмети — перевірити очима на сторінці, related-картки мають бути дворядковими).
+Smoke: `curl -s http://localhost:3000/release/va-fantazma | grep -c '«'` → 0 у секції related (допустимі входження з `information`-HTML самого релізу, якщо там є гільмети - перевірити очима на сторінці, related-картки мають бути дворядковими).
 
 - [ ] **Step 4: Commit**
 
@@ -258,7 +258,7 @@ git commit -m "feat(releases): split artist and name in related release items"
 
 **Interfaces:**
 - Consumes: `splitReleaseTitle`.
-- Незмінне: `useSeoMeta` (рядки 118–129), `PageDescription`, alt-атрибути, `:title` iframe-ів — усі на повному `item.title`.
+- Незмінне: `useSeoMeta` (рядки 118-129), `PageDescription`, alt-атрибути, `:title` iframe-ів - усі на повному `item.title`.
 
 - [ ] **Step 1: Додати обчислення частин**
 
@@ -309,7 +309,7 @@ git commit -m "feat(releases): split artist line above release name in detail h1
 
 ### Task 5: Повна верифікація
 
-**Files:** —
+**Files:** -
 
 - [ ] **Step 1: Повна сюїта**
 

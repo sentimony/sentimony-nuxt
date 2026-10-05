@@ -12,11 +12,11 @@
 
 - Spec: `docs/superpowers/specs/2026-07-07-global-audio-player-design.md`
 - No new dependencies (no Pinia).
-- Comments in code: English only; avoid comments — self-documenting names.
+- Comments in code: English only; avoid comments - self-documenting names.
 - No `@apply` in `<style scoped>`; styles go in `class=""`.
 - Icons: `<Icon name="lucide:…" />`; `font-mono` for durations; buttons get `v-wave`.
 - `$fetch` calls with dynamic URLs must pass an explicit generic (`$fetch<T>`).
-- Unit tests live in `tests/unit/*.test.ts`, node environment, no Vue mounting — pure functions tested directly, components asserted via source strings (see `tests/unit/audioTrackPlaylist.test.ts`).
+- Unit tests live in `tests/unit/*.test.ts`, node environment, no Vue mounting - pure functions tested directly, components asserted via source strings (see `tests/unit/audioTrackPlaylist.test.ts`).
 - Verification baseline: `npm run test:unit` currently 27 files / 107 tests; `npx nuxi typecheck` passes (Supabase env warnings are expected locally).
 - Branch: work stays on current branch `hot-fix`; commit per task.
 
@@ -101,7 +101,7 @@ git commit -m "feat: add pure audio queue index helpers"
 
 **Interfaces:**
 - Consumes: `QueueItem`, `nextQueueIndex`, `prevQueueIndex` from `~/utils/audioQueue` (Task 1).
-- Produces (used by Tasks 3–6):
+- Produces (used by Tasks 3-6):
 
 ```ts
 interface PlayerItem {
@@ -583,7 +583,7 @@ function onVolumeChange(event: Event) {
 </template>
 ```
 
-Modify `app/components/Header.vue`: the mini player must be a sibling row *below* the main `h-18.75` row but inside the sticky/backdrop wrapper. Insert after the closing `</div>` of `<div class="relative flex justify-between items-center h-18.75 px-2">` block's parent container — concretely, change the bottom of the template from:
+Modify `app/components/Header.vue`: the mini player must be a sibling row *below* the main `h-18.75` row but inside the sticky/backdrop wrapper. Insert after the closing `</div>` of `<div class="relative flex justify-between items-center h-18.75 px-2">` block's parent container - concretely, change the bottom of the template from:
 
 ```vue
         </div>
@@ -625,7 +625,7 @@ git commit -m "feat: add persistent header mini player"
 - Test: `tests/unit/audioMixPlayer.test.ts` (create; there is no existing test for this component)
 
 **Interfaces:**
-- Consumes: `useAudioPlayer()` (Task 2). Props stay `{ src, title?, tracklist? }` — no change needed in `app/pages/artist/[id].vue`.
+- Consumes: `useAudioPlayer()` (Task 2). Props stay `{ src, title?, tracklist? }` - no change needed in `app/pages/artist/[id].vue`.
 - Behaviour: when `isCurrent(src)` the component mirrors global state (progress, volume, pause); otherwise it shows an idle play button that calls `play({ kind: 'mix', src, title: title || 'Mix', link: route.path })`.
 
 - [ ] **Step 1: Write the failing test**
@@ -774,7 +774,7 @@ git commit -m "refactor: AudioMixPlayer drives global audio player"
 - Modify: `tests/unit/audioTrackPlaylist.test.ts` (update assertions to the new controller shape)
 
 **Interfaces:**
-- Consumes: `useAudioPlayer()` (Task 2), `QueueItem` (Task 1). Props stay `{ tracks: { title: string; url: string; slug?: string }[] }`; `defineExpose({ playTrack })` is kept — `app/pages/release/[id].vue` calls it.
+- Consumes: `useAudioPlayer()` (Task 2), `QueueItem` (Task 1). Props stay `{ tracks: { title: string; url: string; slug?: string }[] }`; `defineExpose({ playTrack })` is kept - `app/pages/release/[id].vue` calls it.
 - Behaviour: `playTrack(index)` builds `queue` from all tracks with a non-empty `url` and calls `play({ kind: 'track', ..., queue, queueIndex, link: route.path })`. Play-count registration (`/api/track-plays` POST, session-deduped) moves off the removed `@play` audio event: register inside `playTrack` and in a watcher that fires when the global player auto-advances to another track of this queue. Prev/next buttons call global `prev()`/`next()` when this playlist is active. The active row highlight keys off the globally playing src, not a local index.
 
 - [ ] **Step 1: Update the test (write failing assertions)**
@@ -919,7 +919,7 @@ git commit -m "refactor: AudioTrackPlaylist drives global player with queue"
 - [ ] **Step 1: Run the whole unit suite**
 
 Run: `npm run test:unit`
-Expected: PASS — 31 files (27 baseline + audioQueue, useAudioPlayer, audioBridge, headerMiniPlayer, audioMixPlayer), no failures.
+Expected: PASS - 31 files (27 baseline + audioQueue, useAudioPlayer, audioBridge, headerMiniPlayer, audioMixPlayer), no failures.
 
 - [ ] **Step 2: Typecheck**
 
@@ -929,12 +929,12 @@ Expected: PASS (local Supabase env warnings are fine).
 - [ ] **Step 3: Manual smoke test in dev**
 
 Run: `npm run dev`, then in the browser:
-1. Open an artist page with `mix_audio_url` (e.g. one that shows the Mix tab), press play — mini player row appears in the header, audio plays.
-2. Navigate to `/releases`, `/artists`, home — audio keeps playing, mini player persists, seek/volume/pause work from the header.
-3. Open a release page with playable tracks — start a track: it replaces the mix in the global player; track auto-advances on end (seek near the end to check); prev/next work.
-4. Press ✕ in the mini player — playback stops, row disappears.
-5. Reload — volume choice persisted.
-6. Check mobile width (devtools) — volume control hidden, row fits without horizontal scroll; check both themes.
+1. Open an artist page with `mix_audio_url` (e.g. one that shows the Mix tab), press play - mini player row appears in the header, audio plays.
+2. Navigate to `/releases`, `/artists`, home - audio keeps playing, mini player persists, seek/volume/pause work from the header.
+3. Open a release page with playable tracks - start a track: it replaces the mix in the global player; track auto-advances on end (seek near the end to check); prev/next work.
+4. Press ✕ in the mini player - playback stops, row disappears.
+5. Reload - volume choice persisted.
+6. Check mobile width (devtools) - volume control hidden, row fits without horizontal scroll; check both themes.
 
 - [ ] **Step 4: Commit any fixups**
 

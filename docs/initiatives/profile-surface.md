@@ -12,10 +12,10 @@
 і `track_number`, які дропнула міграція `20260707_tracks_first_class.sql`
 (перевірено проти живої бази). `usePaginatedLikes` ковтає помилку в порожній
 масив, а `ProfileCollectionStatus` не має стану помилки, тому збій виглядає як
-«Nothing saved here yet» — саме це й ховало баг, поки таб над сторінкою показував
+«Nothing saved here yet» - саме це й ховало баг, поки таб над сторінкою показував
 реальний лічильник.
 
-Крім того, profile — остання поверхня сайту, яка не пройшла міграцію focus і
+Крім того, profile - остання поверхня сайту, яка не пройшла міграцію focus і
 контрасту: п'ять call-sites із `outline-none` + `focus-visible:ring-ring/50` (ті
 самі, що [аудит 2026-07-25](../audits/2026-07-25-auth-theme-contrast-audit.md)
 виніс у follow-up), 21 входження `text-foreground/N` нижче `muted-foreground`,
@@ -31,7 +31,7 @@ auth.
 
 - `entitySelect` лайкнутих треків на канонічні колонки; розділення типів
   `Track` / `ReleaseTrack`; посилання треку на `/track/<slug>`.
-- `error` + `retry` у `usePaginatedLikes` і `ProfileCollectionStatus` — закриває
+- `error` + `retry` у `usePaginatedLikes` і `ProfileCollectionStatus` - закриває
   клас багів для всіх шести колекцій.
 - Зняття `outline-none` / `focus-visible:ring-*`, явні transition-списки без
   `outline-color`.

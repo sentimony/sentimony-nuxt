@@ -4,7 +4,7 @@
 
 **Goal:** Перегенерувати PWA-іконки з master SVG так, щоб логотип «випирав» на `any`-варіантах, посилити `verify:pwa`, додати README-бейджі.
 
-**Architecture:** Master SVG у `assets/brand/` → генераційний скрипт → PNG у `public/` (імена/manifest незмінні) → розширений verify. README — рядок shields.io-бейджів.
+**Architecture:** Master SVG у `assets/brand/` → генераційний скрипт → PNG у `public/` (імена/manifest незмінні) → розширений verify. README - рядок shields.io-бейджів.
 
 **Tech Stack:** SVG/sharp (через npx, без нової залежності), Node (PNG IHDR parsing), shields.io.
 
@@ -14,7 +14,7 @@
 
 - Гілка `json-to-yml`; залежності в `package.json` не додаються (генерація через `npx --yes`).
 - Імена файлів іконок і `site.webmanifest` НЕ змінюються (кеш встановлених PWA).
-- `theme_color`/`background_color` `#111111` — незмінні (їх асертить verify-pwa).
+- `theme_color`/`background_color` `#111111` - незмінні (їх асертить verify-pwa).
 
 ---
 
@@ -53,12 +53,12 @@ for (const [src, out, size] of jobs) {
 }
 ```
 
-(Точний CLI-синтаксис `sharp-cli` звірити на місці — `npx --yes sharp-cli --help`; якщо output-опція вимагає директорію, генерувати в tmp і переміщувати. Якщо `sharp-cli` не рендерить конкретний SVG коректно — зафіксувати в PR альтернативу: `npx --yes svgexport` з тими самими парами вхід/вихід/розмір.)
+(Точний CLI-синтаксис `sharp-cli` звірити на місці - `npx --yes sharp-cli --help`; якщо output-опція вимагає директорію, генерувати в tmp і переміщувати. Якщо `sharp-cli` не рендерить конкретний SVG коректно - зафіксувати в PR альтернативу: `npx --yes svgexport` з тими самими парами вхід/вихід/розмір.)
 
 - [ ] **Step 3: Згенерувати і подивитись**
 
 Run: `node scripts/generate-pwa-icons.mjs`
-Відкрити всі 5 PNG (Read tool/preview): any — логотип до країв; maskable/apple — логотип у центрі на `#111111`.
+Відкрити всі 5 PNG (Read tool/preview): any - логотип до країв; maskable/apple - логотип у центрі на `#111111`.
 
 - [ ] **Step 4: Commit**
 
@@ -99,7 +99,7 @@ for (const icon of manifest.icons) {
 }
 ```
 
-(Змінну `manifest` звірити з фактичним кодом скрипта — він уже читає webmanifest.)
+(Змінну `manifest` звірити з фактичним кодом скрипта - він уже читає webmanifest.)
 
 - [ ] **Step 2: Верифікація**
 
@@ -136,7 +136,7 @@ git commit -m "feat(pwa): verify icon files and dimensions in verify:pwa"
 
 - [ ] **Step 2: Верифікація + commit**
 
-Прев'ю markdown (GitHub/IDE) — бейджі рендеряться, лінк CI веде на workflow.
+Прев'ю markdown (GitHub/IDE) - бейджі рендеряться, лінк CI веде на workflow.
 
 ```bash
 git add README.md
@@ -149,5 +149,5 @@ git commit -m "docs(readme): CI/node/nuxt badges row"
 
 - [ ] **Step 1: macOS/Android перевірка**
 
-Run: `npm run deploy:stage`; на stage: Chrome → Install app (macOS dock — логотип «випирає»), DevTools → Application → Manifest (maskable preview обрізається коректно), iOS Safari (якщо доступно) → Add to Home Screen.
-Результат зафіксувати скріншотами в PR. Якщо any-варіант виглядає гірше за очікування — правити `icon-master.svg` (кадрування), не PNG вручну.
+Run: `npm run deploy:stage`; на stage: Chrome → Install app (macOS dock - логотип «випирає»), DevTools → Application → Manifest (maskable preview обрізається коректно), iOS Safari (якщо доступно) → Add to Home Screen.
+Результат зафіксувати скріншотами в PR. Якщо any-варіант виглядає гірше за очікування - правити `icon-master.svg` (кадрування), не PNG вручну.

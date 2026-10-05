@@ -6,19 +6,19 @@
 
 **Architecture:** A cached Nitro endpoint returns a flat lightweight index (`type/slug/title/subtitle`) built from the active catalog source (Firebase or Supabase). The client lazily fetches it on first palette open and filters locally with pure substring matching (diacritics-stripped). UI is a reka-ui `DialogRoot` + `ListboxRoot` dialog mounted once in `app.vue`.
 
-**Tech Stack:** Nuxt 4 / Nitro, reka-ui (`^2.10.1`, auto-imported via `reka-ui/nuxt` — no shadcn-vue), Tailwind v4, vue-sonner, Vitest.
+**Tech Stack:** Nuxt 4 / Nitro, reka-ui (`^2.10.1`, auto-imported via `reka-ui/nuxt` - no shadcn-vue), Tailwind v4, vue-sonner, Vitest.
 
 **Spec:** `docs/superpowers/specs/2026-07-21-site-search-design.md`
 
 ## Global Constraints
 
 - No new dependencies. No fuzzy-search libraries.
-- reka-ui components are auto-imported (`DialogRoot`, `ListboxRoot`, …) — no `~/components/ui` imports for new code.
+- reka-ui components are auto-imported (`DialogRoot`, `ListboxRoot`, …) - no `~/components/ui` imports for new code.
 - Comments in code: English only, and only where non-obvious. Files end with a single trailing newline, 2-space indent.
 - Detail routes are `/release/[id]`, `/artist/[id]`, `/track/[id]`, `/video/[id]`, `/event/[id]`, `/playlist/[id]`.
 - Verification baseline: `npm run test:unit` (39 files / 161 tests before this work) and `npx nuxi typecheck` (passes with local Supabase env warnings).
 - Do not run `npm run sync:*`.
-- Nitro auto-imports (`useSupabase`, `fetchFirebaseCollection`, `pickListFields`, `isSupabaseCatalogSource`, `catalogCacheOptions`, `defineCachedEventHandler`, `createError`, `fetchFirebaseCatalogTracks`) are NOT imported in server files — they resolve at build time. Unit tests must shim them on `globalThis` with `vi.resetModules()` + dynamic import (pattern: `tests/unit/likeCountersHandler.test.ts`); prefer testing pure functions that need no shims.
+- Nitro auto-imports (`useSupabase`, `fetchFirebaseCollection`, `pickListFields`, `isSupabaseCatalogSource`, `catalogCacheOptions`, `defineCachedEventHandler`, `createError`, `fetchFirebaseCatalogTracks`) are NOT imported in server files - they resolve at build time. Unit tests must shim them on `globalThis` with `vi.resetModules()` + dynamic import (pattern: `tests/unit/likeCountersHandler.test.ts`); prefer testing pure functions that need no shims.
 
 ---
 
@@ -31,7 +31,7 @@
 
 **Interfaces:**
 - Consumes: nothing.
-- Produces (used by Tasks 2–4):
+- Produces (used by Tasks 2-4):
   - types `SearchEntityType`, `SearchIndexEntry`, `SearchResultGroup` exported from `app/types/index.ts`
   - `normalizeSearchText(value: string): string`
   - `filterSearchIndex(entries: SearchIndexEntry[], query: string, perGroupLimit?: number): SearchResultGroup[]`
@@ -70,7 +70,7 @@ const entry = (type: SearchIndexEntry['type'], slug: string, title: string, subt
 
 describe('normalizeSearchText', () => {
   it('lowercases and strips diacritics', () => {
-    expect(normalizeSearchText('Ott — Fairchildren')).toBe('ott — fairchildren')
+    expect(normalizeSearchText('Ott - Fairchildren')).toBe('ott - fairchildren')
     expect(normalizeSearchText('Café Müller')).toBe('cafe muller')
   })
 })
@@ -111,7 +111,7 @@ describe('filterSearchIndex', () => {
 - [ ] **Step 3: Run test to verify it fails**
 
 Run: `npx vitest run tests/unit/searchFilter.test.ts`
-Expected: FAIL — cannot resolve `app/utils/searchFilter`.
+Expected: FAIL - cannot resolve `app/utils/searchFilter`.
 
 - [ ] **Step 4: Write the implementation**
 
@@ -173,14 +173,14 @@ git commit -m "feat: search filter utility with normalized substring matching"
 - Test: `tests/unit/searchIndex.test.ts`
 
 **Interfaces:**
-- Consumes: nothing from earlier tasks (server has its own local entry type — do NOT import from `app/`).
+- Consumes: nothing from earlier tasks (server has its own local entry type - do NOT import from `app/`).
 - Produces:
-  - `GET /api/search-index` → `SearchIndexEntry[]`-shaped JSON (`{ type, slug, title, subtitle? }[]`) — consumed by Task 3 via `$fetch`.
+  - `GET /api/search-index` → `SearchIndexEntry[]`-shaped JSON (`{ type, slug, title, subtitle? }[]`) - consumed by Task 3 via `$fetch`.
   - `buildSearchIndexEntries(input: SearchIndexInput): SearchIndexEntry[]` (pure, exported from `server/utils/searchIndex.ts`).
 
 - [ ] **Step 1: Write the failing test for the pure builder**
 
-Create `tests/unit/searchIndex.test.ts` (pure function — no Nitro shims needed):
+Create `tests/unit/searchIndex.test.ts` (pure function - no Nitro shims needed):
 
 ```ts
 import { describe, expect, it } from 'vitest'
@@ -225,7 +225,7 @@ describe('buildSearchIndexEntries', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run tests/unit/searchIndex.test.ts`
-Expected: FAIL — cannot resolve `server/utils/searchIndex`.
+Expected: FAIL - cannot resolve `server/utils/searchIndex`.
 
 - [ ] **Step 3: Implement `server/utils/searchIndex.ts`**
 
@@ -334,7 +334,7 @@ export default defineCachedEventHandler(
 )
 ```
 
-Note: `tracks` has no `visible` column in either backend — the whole table is public catalog data. If `pickListFields` returns a differently-typed array, cast to `Rows` the same way as shown.
+Note: `tracks` has no `visible` column in either backend - the whole table is public catalog data. If `pickListFields` returns a differently-typed array, cast to `Rows` the same way as shown.
 
 - [ ] **Step 6: Add the CDN cache rule**
 
@@ -572,7 +572,7 @@ Run: `npm run dev`, then in the browser:
 - Header search icon opens the palette; ⌘K (or Ctrl+K) toggles it; Esc closes and clears the query.
 - Typing `iruk` shows grouped results (Artists before Tracks); arrow keys highlight; Enter navigates to the detail page and closes the dialog.
 - Empty query shows "Type to search the catalog", not the whole catalog.
-- Kill the dev server's network to Supabase (or temporarily point `SUPABASE_URL` wrong) only if convenient — otherwise trust the `catch` path from Task 3.
+- Kill the dev server's network to Supabase (or temporarily point `SUPABASE_URL` wrong) only if convenient - otherwise trust the `catch` path from Task 3.
 
 If a browser is needed for verification, use the web-debug skill.
 

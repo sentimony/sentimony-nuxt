@@ -4,16 +4,16 @@
 
 **Goal:** Зробити треки first-class сутністю: секція `tracks` у `server/data/sentimony-db-export.json` (single source of truth, як releases/artists), канонічні slug виду `boggy-elf-dream-of-ashvattha-in`, many-to-many з релізами через впорядкований `release.tracklist: string[]`, поле `audio_url` (R2), синк у Firebase та Supabase тими самими `sync:*` скриптами.
 
-**Architecture:** Export JSON отримує top-level `tracks` (об'єкт, ключ = канонічний slug) без `release_slug`/`track_number`; кожен реліз отримує `tracklist` — впорядкований масив track-slug'ів (позиція в масиві = номер треку в цьому релізі). Sync-скрипти більше не парсять `tracklistCompact` — вони дзеркалять export. Серверні ендпоінти «гідрують» slug'и з `release.tracklist` рядками з `tracks` і деривують `track_number = index + 1`. Лайки/прослуховування (тільки Supabase) ремапляться зі старих slug (`<release>-<n>`) на нові одним згенерованим SQL.
+**Architecture:** Export JSON отримує top-level `tracks` (об'єкт, ключ = канонічний slug) без `release_slug`/`track_number`; кожен реліз отримує `tracklist` - впорядкований масив track-slug'ів (позиція в масиві = номер треку в цьому релізі). Sync-скрипти більше не парсять `tracklistCompact` - вони дзеркалять export. Серверні ендпоінти «гідрують» slug'и з `release.tracklist` рядками з `tracks` і деривують `track_number = index + 1`. Лайки/прослуховування (тільки Supabase) ремапляться зі старих slug (`<release>-<n>`) на нові одним згенерованим SQL.
 
 **Tech Stack:** Nuxt 4 / Nitro, Supabase (Postgres + CLI workaround через `/tmp/sb`), Firebase RTDB REST, Vitest.
 
 ## Global Constraints
 
-- Канонічний slug: `slugifyTrack(\`${artist_name} ${title}\`)` — та сама функція, що вже є в `server/utils/releaseTracklist.ts:13` (NFKD-нормалізація, non-alnum → `-`).
+- Канонічний slug: `slugifyTrack(\`${artist_name} ${title}\`)` - та сама функція, що вже є в `server/utils/releaseTracklist.ts:13` (NFKD-нормалізація, non-alnum → `-`).
 - Лайки та play counts живуть ТІЛЬКИ в Supabase; у Firebase `tracks` пишемо лише каталожні поля (`slug`, `title`, `artist_name`, `artist_slug`, `bpm`, `audio_url`).
 - `sync:firebase` / `sync:supabase` НЕ запускати без явного підтвердження користувача (пишуть у remote).
-- `tracklistCompact` у релізах не чіпаємо — лишається як legacy/display джерело (прапорці 🇺🇦 тощо).
+- `tracklistCompact` у релізах не чіпаємо - лишається як legacy/display джерело (прапорці 🇺🇦 тощо).
 - Supabase CLI: тільки через `/tmp/sb` workaround з AGENTS.md (`db query --linked --file`), не `db push`.
 - Один трек може бути в кількох релізах: однаковий `artist_name + title` на різних релізах = ТОЙ САМИЙ трек (один slug, один запис).
 - Верифікаційний базлайн: `npm run test:unit` (зараз 25 files / 96 tests) і `npx nuxi typecheck` мають проходити після кожного таска.
@@ -143,7 +143,7 @@ scripts/out/
 - [ ] **Step 3: Запустити і перевірити**
 
 Run: `node scripts/migrate-tracks-export.mjs`
-Expected: `tracks: ~740-770, mapping entries: ~770+`, список conflicts (переглянути вручну: однакові artist+title на різних релізах — це ОЧІКУВАНО і не conflict; conflict лише коли метадані розходяться).
+Expected: `tracks: ~740-770, mapping entries: ~770+`, список conflicts (переглянути вручну: однакові artist+title на різних релізах - це ОЧІКУВАНО і не conflict; conflict лише коли метадані розходяться).
 
 Run: `node -e "const d=require('./server/data/sentimony-db-export.json'); console.log(d.tracks['boggy-elf-dream-of-ashvattha-in']); console.log(Object.values(d.releases).find(r=>r.slug==='va-tempo-syndicate').tracklist.slice(0,3))"`
 Expected: трек з `audio_url` на `pub-38745….r2.dev` і `tracklist` = `['boggy-elf-dream-of-ashvattha-in', 'shizolizer-gin-kinder-pingui', 'hypnotriod-the-sleep-detector']`.
@@ -157,7 +157,7 @@ git commit -m "feat: promote tracks to first-class export entity with canonical 
 
 ---
 
-### Task 2: Supabase — схема + remap лайків/прослуховувань
+### Task 2: Supabase - схема + remap лайків/прослуховувань
 
 **Files:**
 - Create: `supabase/migrations/20260707_tracks_first_class.sql`
@@ -250,13 +250,13 @@ git commit -m "feat: supabase schema + likes/plays remap for canonical track slu
 
 - [ ] **Step 1: sync-supabase.mjs**
 
-Замінити весь блок parseTrack/seenTracks (рядки ~30–74) на:
+Замінити весь блок parseTrack/seenTracks (рядки ~30-74) на:
 
 ```js
 const tracks = Object.values(data.tracks)
 ```
 
-`releases`-маппінг лишити як є — `tracklist` тепер рядковий масив і йде в jsonb колонку без змін. Перед `await sync('tracks', tracks)` додати очищення legacy-рядків:
+`releases`-маппінг лишити як є - `tracklist` тепер рядковий масив і йде в jsonb колонку без змін. Перед `await sync('tracks', tracks)` додати очищення legacy-рядків:
 
 ```js
 const { error: cleanupError } = await supabase
@@ -266,7 +266,7 @@ const { error: cleanupError } = await supabase
 if (cleanupError) { console.error('tracks cleanup error:', cleanupError.message); process.exit(1) }
 ```
 
-(Якщо `.not('slug','in',…)` впирається в ліміт довжини URL — замість цього `delete().gte('slug','')` перед upsert'ом: таблиця повністю переливається з export.)
+(Якщо `.not('slug','in',…)` впирається в ліміт довжини URL - замість цього `delete().gte('slug','')` перед upsert'ом: таблиця повністю переливається з export.)
 
 - [ ] **Step 2: sync-firebase.mjs**
 
@@ -285,7 +285,7 @@ const tracks = Object.fromEntries(
 )
 ```
 
-Лайки/plays у Firebase не пишемо (constraint). REST `PUT` на `tracks` замінює вузол цілком — legacy-ключі зникнуть автоматично.
+Лайки/plays у Firebase не пишемо (constraint). REST `PUT` на `tracks` замінює вузол цілком - legacy-ключі зникнуть автоматично.
 
 - [ ] **Step 3: Видалити migrate-tracks.mjs**
 
@@ -317,8 +317,8 @@ git commit -m "feat: sync scripts mirror first-class tracks from export"
 **Interfaces:**
 - Produces:
   - `type CatalogTrack = { slug: string; title: string; artist_name: string; artist_slug: string; bpm: number | null; audio_url: string | null }`
-  - `hydrateReleaseTracklist(release, tracksBySlug: Map<string, CatalogTrack>): ReleaseTracklistEntry[]` — повертає `{ track_number, slug, artist, title, bpm, url }[]` (той самий shape, що вже споживають release-сторінка та `AudioTrackPlaylist`), `track_number = index + 1`, `url = audio_url ?? ''`.
-  - `parseCompactTracklist(release, artistByTitle): CatalogTrack-подібні фолбек-рядки` — лишити для Firebase remote, який ще не синкнутий (переїздить логіка з `parseTrackParagraph`).
+  - `hydrateReleaseTracklist(release, tracksBySlug: Map<string, CatalogTrack>): ReleaseTracklistEntry[]` - повертає `{ track_number, slug, artist, title, bpm, url }[]` (той самий shape, що вже споживають release-сторінка та `AudioTrackPlaylist`), `track_number = index + 1`, `url = audio_url ?? ''`.
+  - `parseCompactTracklist(release, artistByTitle): CatalogTrack-подібні фолбек-рядки` - лишити для Firebase remote, який ще не синкнутий (переїздить логіка з `parseTrackParagraph`).
 
 - [ ] **Step 1: Failing test**
 
@@ -399,7 +399,7 @@ export function hydrateReleaseTracklist(
 
 ---
 
-### Task 5: firebaseCatalog.ts — читання first-class tracks
+### Task 5: firebaseCatalog.ts - читання first-class tracks
 
 **Files:**
 - Modify: `server/utils/firebaseCatalog.ts`
@@ -408,10 +408,10 @@ export function hydrateReleaseTracklist(
 **Interfaces:**
 - Consumes: Firebase вузли `tracks/<slug>` (без `release_slug`/`track_number`) і `releases/<slug>/tracklist` (string[]).
 - Produces:
-  - `fetchFirebaseCatalogTracks(): Promise<Map<string, CatalogTrack>>` — всі stored tracks.
-  - `fetchFirebaseTracksForRelease(releaseSlug)` — тепер: реліз → `hydrateReleaseTracklist` → повертає `ReleaseTracklistEntry[]`-сумісні рядки, розширені `artist_slug` та `release_slug` (щоб API-shape не зламався): `{ slug, title, artist_name, artist_slug, bpm, audio_url, release_slug, track_number }`.
-  - `fetchAllFirebaseTracks()` — ітерує публічні релізи в порядку їх `tracklist`, той самий розширений shape (трек у 2 релізах = 2 рядки з різними `release_slug`).
-  - Фолбек: якщо в релізу немає `tracklist`-масиву (remote ще не синкнутий) — стара гілка `parseTrackParagraph` по `tracklistCompact` лишається, але slug рахувати канонічно: `slugifyFirebaseTrackPart(\`${artistName} ${title}\`)`.
+  - `fetchFirebaseCatalogTracks(): Promise<Map<string, CatalogTrack>>` - всі stored tracks.
+  - `fetchFirebaseTracksForRelease(releaseSlug)` - тепер: реліз → `hydrateReleaseTracklist` → повертає `ReleaseTracklistEntry[]`-сумісні рядки, розширені `artist_slug` та `release_slug` (щоб API-shape не зламався): `{ slug, title, artist_name, artist_slug, bpm, audio_url, release_slug, track_number }`.
+  - `fetchAllFirebaseTracks()` - ітерує публічні релізи в порядку їх `tracklist`, той самий розширений shape (трек у 2 релізах = 2 рядки з різними `release_slug`).
+  - Фолбек: якщо в релізу немає `tracklist`-масиву (remote ще не синкнутий) - стара гілка `parseTrackParagraph` по `tracklistCompact` лишається, але slug рахувати канонічно: `slugifyFirebaseTrackPart(\`${artistName} ${title}\`)`.
 
 - [ ] **Step 1:** Оновити `toStoredTrack` (без release_slug/track_number, з `audio_url`), додати `fetchFirebaseCatalogTracks`, переписати обидві fetch-функції через `hydrateReleaseTracklist`. У `parseTrackParagraph` замінити `slug: \`${releaseSlug}-${trackNumber}\`` на канонічний artist-title slug.
 - [ ] **Step 2:** `npm run test:unit` → полагодити тести, що очікували старі slug'и.
@@ -431,12 +431,12 @@ export function hydrateReleaseTracklist(
 **Interfaces:**
 - Consumes: `hydrateReleaseTracklist` (Task 4), `fetchFirebaseCatalogTracks`/`fetchAllFirebaseTracks` (Task 5).
 - Produces (shape для фронтенду):
-  - `GET /api/tracks` → `{ slug, title, artist_name, artist_slug, bpm, audio_url, release_slug, track_number }[]` — розгортка по релізах (трек у N релізах = N рядків); порядок: релізи за датою desc, всередині — порядок `tracklist`.
+  - `GET /api/tracks` → `{ slug, title, artist_name, artist_slug, bpm, audio_url, release_slug, track_number }[]` - розгортка по релізах (трек у N релізах = N рядків); порядок: релізи за датою desc, всередині - порядок `tracklist`.
   - `GET /api/tracks/[release_slug]` → те саме для одного релізу.
-  - `GET /api/track/[slug]` → `{ track, release, releases, artists, releaseTracks, similarTracks, likeCount }`, де `releases` — усі релізи, що містять трек; `release` — основний (найраніший за датою); legacy slug `<release>-<n>` → 301 на канонічний URL.
+  - `GET /api/track/[slug]` → `{ track, release, releases, artists, releaseTracks, similarTracks, likeCount }`, де `releases` - усі релізи, що містять трек; `release` - основний (найраніший за датою); legacy slug `<release>-<n>` → 301 на канонічний URL.
   - `GET /api/release/[id]` → реліз з гідрованим `tracklist: ReleaseTracklistEntry[]` (сумісно з поточними `AudioTrackPlaylist` і темплейтом сторінки релізу).
 
-- [ ] **Step 1: /api/release/[id]** — замінити `normalizeReleaseTracklist(release)` на гідрацію:
+- [ ] **Step 1: /api/release/[id]** - замінити `normalizeReleaseTracklist(release)` на гідрацію:
 
 ```ts
 const tracksBySlug = await fetchCatalogTracksBySlug() // supabase: select * from tracks; firebase: fetchFirebaseCatalogTracks()
@@ -445,9 +445,9 @@ return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), 
 
 У Supabase-гілці досить `.in('slug', release.tracklist)` замість повного каталогу.
 
-- [ ] **Step 2: /api/tracks (index) + /api/tracks/[release_slug]** — обидва будуються з релізів: отримати публічні релізи (з `tracklist`), гідрувати, розгорнути в плоскі рядки з `release_slug` і `track_number = index + 1`. Supabase-гілка: `releases.select('slug, date, tracklist').eq('visible', true)` + `tracks.select('*')`, join у пам'яті (773 рядки — дешево, кешується `catalogCacheOptions()`).
+- [ ] **Step 2: /api/tracks (index) + /api/tracks/[release_slug]** - обидва будуються з релізів: отримати публічні релізи (з `tracklist`), гідрувати, розгорнути в плоскі рядки з `release_slug` і `track_number = index + 1`. Supabase-гілка: `releases.select('slug, date, tracklist').eq('visible', true)` + `tracks.select('*')`, join у пам'яті (773 рядки - дешево, кешується `catalogCacheOptions()`).
 
-- [ ] **Step 3: /api/track/[id] + legacy 301** — `findTrack`:
+- [ ] **Step 3: /api/track/[id] + legacy 301** - `findTrack`:
 
 ```ts
 // 1) пряме влучання по канонічному slug у tracks
@@ -457,17 +457,17 @@ return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), 
 //    а app/pages/track/[id].vue виконує navigateTo(`/track/${redirect}`, { redirectCode: 301, replace: true })
 ```
 
-`releases` = релізи, чий `tracklist` містить slug (Supabase: `.contains('tracklist', JSON.stringify([slug]))` на jsonb; Firebase: фільтр у пам'яті). `similarTracks` — за `artist_slug` по всіх треках, як зараз.
+`releases` = релізи, чий `tracklist` містить slug (Supabase: `.contains('tracklist', JSON.stringify([slug]))` на jsonb; Firebase: фільтр у пам'яті). `similarTracks` - за `artist_slug` по всіх треках, як зараз.
 
 - [ ] **Step 4:** `npm run test:unit` і `npx nuxi typecheck` → PASS; полагодити зачеплене.
 - [ ] **Step 5: Commit** `git commit -am "feat: track APIs serve canonical slugs with release-ordered tracklists"`
 
 ---
 
-### Task 7: Фронтенд — сторінки release/tracks/track
+### Task 7: Фронтенд - сторінки release/tracks/track
 
 **Files:**
-- Modify: `app/pages/release/[id].vue` (прибрати `canonicalTrackSlug()`, рядки 35–46, 383–392 — використовувати `t.slug` напряму)
+- Modify: `app/pages/release/[id].vue` (прибрати `canonicalTrackSlug()`, рядки 35-46, 383-392 - використовувати `t.slug` напряму)
 - Modify: `app/pages/tracks.vue` (тип рядка + лінк на `audio_url`)
 - Modify: `app/pages/track/[id].vue` (обробити `redirect` з API + показ `audio_url`, список релізів треку)
 - Modify: `app/types/index.ts`, `app/types/database.types.ts` (TrackRow: `audio_url: string | null`, без обов'язкових `release_slug`/`track_number`)
@@ -475,8 +475,8 @@ return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), 
 **Interfaces:**
 - Consumes: API-shape з Task 6.
 
-- [ ] **Step 1: release/[id].vue** — `playerTracks` тепер `item.tracklist` як є (там уже `slug`/`url`); усі `canonicalTrackSlug(t.track_number)` → `t.slug`; функцію видалити.
-- [ ] **Step 2: tracks.vue** — до рядка треку додати іконку-лінк на аудіо:
+- [ ] **Step 1: release/[id].vue** - `playerTracks` тепер `item.tracklist` як є (там уже `slug`/`url`); усі `canonicalTrackSlug(t.track_number)` → `t.slug`; функцію видалити.
+- [ ] **Step 2: tracks.vue** - до рядка треку додати іконку-лінк на аудіо:
 
 ```html
 <a v-if="t.audio_url" :href="t.audio_url" target="_blank" rel="noopener" class="text-foreground/40 hover:text-foreground/70">
@@ -484,7 +484,7 @@ return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), 
 </a>
 ```
 
-- [ ] **Step 3: track/[id].vue** — на початку setup: `if (data.value?.redirect) await navigateTo(\`/track/${data.value.redirect}\`, { redirectCode: 301, replace: true })`; блок «Releases» зі списком усіх релізів треку (`data.releases`); плеєр/лінк для `track.audio_url`, якщо є.
+- [ ] **Step 3: track/[id].vue** - на початку setup: `if (data.value?.redirect) await navigateTo(\`/track/${data.value.redirect}\`, { redirectCode: 301, replace: true })`; блок «Releases» зі списком усіх релізів треку (`data.releases`); плеєр/лінк для `track.audio_url`, якщо є.
 - [ ] **Step 4:** `npx nuxi typecheck`, `npm run test:unit` (включно з `tests/unit/audioTrackPlaylist.test.ts`) → PASS.
 - [ ] **Step 5: Commit** `git commit -am "feat: pages consume canonical track slugs and audio links"`
 
@@ -493,9 +493,9 @@ return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), 
 ### Task 8: Sitemap + лайк-ендпоінти
 
 **Files:**
-- Modify: `server/utils/sitemapUrls.ts` (`buildSitemapUrls()` — track-URL'и тепер із `data.tracks` ключів, не з `parseTrackParagraph`)
+- Modify: `server/utils/sitemapUrls.ts` (`buildSitemapUrls()` - track-URL'и тепер із `data.tracks` ключів, не з `parseTrackParagraph`)
 - Modify: тести sitemap (`grep -rl sitemap tests/unit/`)
-- Check (без змін очікувано): `server/api/track-likes*`, `server/api/track-plays*` — приймають slug як opaque string, ремап уже зроблено в Task 2.
+- Check (без змін очікувано): `server/api/track-likes*`, `server/api/track-plays*` - приймають slug як opaque string, ремап уже зроблено в Task 2.
 
 - [ ] **Step 1:** Оновити тест sitemap: очікувати `/track/boggy-elf-dream-of-ashvattha-in` замість `/track/va-tempo-syndicate-1`; run → FAIL.
 - [ ] **Step 2:** `buildSitemapUrls()`: `Object.keys(data.tracks ?? {}).map(slug => ({ loc: \`/track/${slug}\` }))`; run → PASS.
@@ -514,7 +514,7 @@ return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug), 
 
 ## Відкриті рішення (зафіксовані в цьому плані)
 
-1. **Many-to-many без join-таблиці:** зв'язок зберігається як `release.tracklist: string[]` (однаково працює у Firebase і Supabase jsonb); `track_number` — похідне від позиції. Окремої таблиці `release_tracks` не заводимо (YAGNI).
+1. **Many-to-many без join-таблиці:** зв'язок зберігається як `release.tracklist: string[]` (однаково працює у Firebase і Supabase jsonb); `track_number` - похідне від позиції. Окремої таблиці `release_tracks` не заводимо (YAGNI).
 2. **Дедуплікація треку:** однаковий канонічний slug на різних релізах = один трек; його bpm/audio_url беруться з першого джерела, конфлікти метаданих скрипт логуватиме для ручного розбору.
-3. **`audio_url` на треку, не на зв'язку:** один канонічний файл на трек; якщо колись з'являться різні версії на різних релізах — тоді й з'явиться привід для join-таблиці.
+3. **`audio_url` на треку, не на зв'язку:** один канонічний файл на трек; якщо колись з'являться різні версії на різних релізах - тоді й з'явиться привід для join-таблиці.
 4. **Legacy slug'и:** 301-редірект на сторінці `/track/[id]`; лайки/plays ремапляться SQL-ом один раз; згенерований remap SQL не комітиться (gitignored artifact), комітиться лише генератор.

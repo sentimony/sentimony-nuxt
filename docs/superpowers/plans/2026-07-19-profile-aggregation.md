@@ -13,25 +13,25 @@
 ## Global Constraints
 
 - Гілка `json-to-yml`, без git worktrees; без нових залежностей.
-- `/api/profile/**` лишається private/no-store (route rules уже покривають — не чіпати).
-- `likedItemsHandler`-пагінація (0-based `page`, clamp 1–100) не змінюється.
+- `/api/profile/**` лишається private/no-store (route rules уже покривають - не чіпати).
+- `likedItemsHandler`-пагінація (0-based `page`, clamp 1-100) не змінюється.
 - `profile/tracks.vue` поза скоупом.
 - Юніт-тести серверних handlers мокають auto-imported утиліти через `globalThis` (зразок: `tests/unit/likeCountersHandler.test.ts`).
 
 ---
 
-### Task 1: `LIKED_COLLECTIONS` — спільні опції
+### Task 1: `LIKED_COLLECTIONS` - спільні опції
 
 **Files:**
 - Create: `server/utils/likedCollections.ts`
 - Modify: `server/api/likes/releases.get.ts`, `server/api/artist-likes/artists.get.ts`, `server/api/track-likes/tracks.get.ts`, `server/api/video-likes/videos.get.ts`, `server/api/playlist-likes/playlists.get.ts`, `server/api/event-likes/events.get.ts`
 
 **Interfaces:**
-- Produces: `LIKED_COLLECTIONS: Record<ProfileSectionKey, LikedItemsOptions>` де `ProfileSectionKey = 'releases' | 'tracks' | 'artists' | 'videos' | 'playlists' | 'events'`; `LikedItemsOptions` — наявний тип із `server/utils/likes.ts`.
+- Produces: `LIKED_COLLECTIONS: Record<ProfileSectionKey, LikedItemsOptions>` де `ProfileSectionKey = 'releases' | 'tracks' | 'artists' | 'videos' | 'playlists' | 'events'`; `LikedItemsOptions` - наявний тип із `server/utils/likes.ts`.
 
 - [ ] **Step 1: Створити util**
 
-`server/utils/likedCollections.ts` — зібрати **точні** поточні опції з шести endpoint-файлів (переносити 1:1, включно з `entitySelect` і `visibleOnly`; значення нижче — приклад форми за `likes/releases.get.ts`, решту п'ять скопіювати з їхніх файлів при переносі):
+`server/utils/likedCollections.ts` - зібрати **точні** поточні опції з шести endpoint-файлів (переносити 1:1, включно з `entitySelect` і `visibleOnly`; значення нижче - приклад форми за `likes/releases.get.ts`, решту п'ять скопіювати з їхніх файлів при переносі):
 
 ```ts
 export type ProfileSectionKey = 'releases' | 'tracks' | 'artists' | 'videos' | 'playlists' | 'events'
@@ -44,7 +44,7 @@ export const LIKED_COLLECTIONS: Record<ProfileSectionKey, LikedItemsOptions> = {
     entitySelect: 'slug, title, cover_xl, date',
     visibleOnly: true,
   },
-  // tracks, artists, videos, playlists, events — перенести 1:1 із відповідних файлів
+  // tracks, artists, videos, playlists, events - перенести 1:1 із відповідних файлів
 }
 ```
 
@@ -59,7 +59,7 @@ export default likedItemsHandler(LIKED_COLLECTIONS.releases)
 - [ ] **Step 3: Тести + typecheck**
 
 Run: `npm run test:unit && npx nuxi typecheck`
-Expected: зелено (поведінка endpoints ідентична — перенос конфігурації).
+Expected: зелено (поведінка endpoints ідентична - перенос конфігурації).
 
 - [ ] **Step 4: Commit**
 
@@ -144,7 +144,7 @@ describe('/api/profile/overview', () => {
 ```
 
 Run: `npx vitest run tests/unit/profileOverview.test.ts`
-Expected: FAIL — module not found.
+Expected: FAIL - module not found.
 
 - [ ] **Step 2: Реалізувати handler**
 
@@ -181,7 +181,7 @@ export default defineEventHandler(async (event) => {
 })
 ```
 
-(Сигнатуру `fetchLikedItems(event, opts, userIdOverride, pagination)` звірити з `server/utils/likes.ts` при імплементації; якщо `userIdOverride` не третій аргумент — підлаштувати виклик, тест мока — теж.)
+(Сигнатуру `fetchLikedItems(event, opts, userIdOverride, pagination)` звірити з `server/utils/likes.ts` при імплементації; якщо `userIdOverride` не третій аргумент - підлаштувати виклик, тест мока - теж.)
 
 - [ ] **Step 3: Прогнати тест**
 
@@ -197,7 +197,7 @@ git commit -m "feat(profile): overview endpoint with counts and first collection
 
 ---
 
-### Task 3: Клієнт — `useProfileOverview` + seed `usePaginatedLikes`
+### Task 3: Клієнт - `useProfileOverview` + seed `usePaginatedLikes`
 
 **Files:**
 - Create: `app/composables/useProfileOverview.ts`
@@ -207,7 +207,7 @@ git commit -m "feat(profile): overview endpoint with counts and first collection
 
 **Interfaces:**
 - Produces: `useProfileOverview()` → `useFetch<ProfileOverview>('/api/profile/overview', { key: 'profile-overview' })`, `ProfileOverview = { counts: Record<ProfileSectionKey, number>, collections: Partial<Record<ProfileSectionKey, { data: ItemEntity[], total: number }>> }`.
-- `usePaginatedLikes<T>(url, limit, initialTotal = 0, initialItems?: T[])` — з `initialItems`: `items` стартує з них, `page = 1`, `loaded = true`.
+- `usePaginatedLikes<T>(url, limit, initialTotal = 0, initialItems?: T[])` - з `initialItems`: `items` стартує з них, `page = 1`, `loaded = true`.
 - `ProfileCollectionPage` отримує новий проп `initialItems?: ItemEntity[]`.
 
 - [ ] **Step 1: Композабл**
@@ -228,7 +228,7 @@ export function useProfileOverview() {
 }
 ```
 
-(Якщо тип `ProfileSummary` має іншу форму ключів — звірити з `~/utils/profileSections` і використати його ключі.)
+(Якщо тип `ProfileSummary` має іншу форму ключів - звірити з `~/utils/profileSections` і використати його ключі.)
 
 - [ ] **Step 2: `usePaginatedLikes` seed**
 
@@ -241,7 +241,7 @@ export function usePaginatedLikes<T extends object>(url: string, limit: number, 
   const page = ref(initialItems ? 1 : 0)
   const loading = ref(false)
   const loaded = ref(Boolean(initialItems))
-  // решта — без змін
+  // решта - без змін
 ```
 
 - [ ] **Step 3: `ProfileCollectionPage` + сторінки**
@@ -270,7 +270,7 @@ const { data: overview } = await useProfileOverview()
 
 - [ ] **Step 4: Юніт на seed**
 
-Додати до наявного тестового покриття (або новий `tests/unit/usePaginatedLikes.test.ts`, якщо композабл тестабельний без Nuxt-рантайму — він використовує лише `ref`/`computed`/`$fetch`; `$fetch` мокнути через `globalThis.$fetch`):
+Додати до наявного тестового покриття (або новий `tests/unit/usePaginatedLikes.test.ts`, якщо композабл тестабельний без Nuxt-рантайму - він використовує лише `ref`/`computed`/`$fetch`; `$fetch` мокнути через `globalThis.$fetch`):
 
 ```ts
 import { afterEach, describe, expect, it, vi } from 'vitest'
@@ -294,7 +294,7 @@ describe('usePaginatedLikes seeded with initial items', () => {
 })
 ```
 
-(Якщо `ref`/`computed` недоступні поза Nuxt — додати `import { ref, computed } from 'vue'` у композабл або мокнути auto-imports через `globalThis`, за зразком інших тестів.)
+(Якщо `ref`/`computed` недоступні поза Nuxt - додати `import { ref, computed } from 'vue'` у композабл або мокнути auto-imports через `globalThis`, за зразком інших тестів.)
 
 - [ ] **Step 5: Тести + typecheck + live**
 
@@ -315,7 +315,7 @@ git commit -m "feat(profile): hydrate collections from single overview request"
 - [ ] **Step 1: Перевірити споживачів**
 
 Run: `grep -rn "profile/summary\|useProfileSummary" app/ server/ tests/`
-Якщо споживачів не лишилось — видалити `server/api/profile/summary.get.ts` і `app/composables/useProfileSummary.ts`; якщо лишились (наприклад, `profile/tracks.vue`) — залишити обидва і зафіксувати в PR, що видалення відбудеться разом із міграцією tracks-сторінки.
+Якщо споживачів не лишилось - видалити `server/api/profile/summary.get.ts` і `app/composables/useProfileSummary.ts`; якщо лишились (наприклад, `profile/tracks.vue`) - залишити обидва і зафіксувати в PR, що видалення відбудеться разом із міграцією tracks-сторінки.
 
 - [ ] **Step 2: Тести + commit**
 

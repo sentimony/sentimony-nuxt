@@ -44,7 +44,7 @@
 - Release related дані винесено в `/api/release/[id]/related`.
 - Sitemap/indexing закрито: dynamic URLs генеруються з
   `server/data/sentimony-db-export.json` через `/api/__sitemap__/urls`, auth/profile
-  routes мають noindex route rules, public pages — canonical.
+  routes мають noindex route rules, public pages - canonical.
 - Like composables/API узагальнено через `createLikes` і `server/utils/likes.ts`.
 - Profile summary endpoint додано.
 - `/tracks` споживає first-class `/api/tracks` contract із
@@ -55,12 +55,12 @@
   індекс, Firebase має CSV fallback.
 - Artist sorting винесено в `app/utils/artists.ts` і покрито тестами.
 - Відомі TS-помилки track/likes mapping закрито typed `mapReleaseFromSupabase`.
-- A11y `link-name` виправлено для social і signin links; зафіксований Accessibility score — 100.
+- A11y `link-name` виправлено для social і signin links; зафіксований Accessibility score - 100.
 - Catalog source production і stage переведено на Supabase, що відновило актуальне аудіо.
 
 ## Закрито у 2026-07 після аудиту документації
 
-- Кнопки уніфіковано: `ui/button` `buttonVariants` — єдине джерело стилів, а
+- Кнопки уніфіковано: `ui/button` `buttonVariants` - єдине джерело стилів, а
   `PrimaryButton`/`DefaultButton`/`LikeButton` лише його обгортають.
 - `@nuxt/image` прибрано; рендер медіа використовує статичні `_th` варіанти через
   auto-imported `thumb()`, повний `_xl` відкриває лише `OpenImage`.
@@ -74,7 +74,7 @@
 ## Уточнення
 
 - Visible filtering працює для list endpoints і sitemap. Detail endpoints
-  артиста й релізу навмисно віддають hidden записи за прямим URL — див.
+  артиста й релізу навмисно віддають hidden записи за прямим URL - див.
   [catalog visibility security](initiatives/catalog-visibility-security.md), знято з обсягу.
 - Footer SVG із WEB-2 виправлений у поточному коді без окремої implementation spec.
 - Custom audio player foundation існує, але Hagen mix activation не завершена:

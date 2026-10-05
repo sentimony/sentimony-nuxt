@@ -1,7 +1,7 @@
 # Catalog visibility security
 
 - Status: Descoped
-- Priority: —
+- Priority: -
 - Ініційовано: 2026-07-19
 - Last reviewed: 2026-07-25
 - Related: [quality audit](../audits/2026-07-19-quality-audit.md), [status audit](../audits/2026-07-25-implementation-status-audit.md)
@@ -14,7 +14,7 @@ WEB-1 і VITEST-1 трактували повернення hidden artist як �
 й релізу відкривають їх за прямим URL.
 
 Публічними межами лишаються list endpoints (`/api/artists`, `/api/releases`,
-`/api/events`) і sitemap — `server/utils/sitemapUrls.ts` фільтрує
+`/api/events`) і sitemap - `server/utils/sitemapUrls.ts` фільтрує
 `visible === true`. Тобто `visible` є прапорцем «не показувати в каталозі й
 пошуку», а не access control.
 

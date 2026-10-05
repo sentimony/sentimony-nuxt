@@ -8,13 +8,13 @@
 
 ## Навіщо
 
-VITEST-2 і VITEST-4–VITEST-6 показали, що component behavior переважно
+VITEST-2 і VITEST-4-VITEST-6 показали, що component behavior переважно
 перевіряється читанням `.vue` source, coverage не вимірюється, Nitro globals
 мокаються вручну, а central cleanup policy не визначена.
 
 ## Очікуваний результат
 
-High-risk UI має поведінкові Nuxt/Vue tests, security/data branches — видимий
+High-risk UI має поведінкові Nuxt/Vue tests, security/data branches - видимий
 coverage signal, а mock lifecycle є однаковим і задокументованим.
 
 ## Обсяг
@@ -38,4 +38,4 @@ coverage signal, а mock lifecycle є однаковим і задокумент
 
 ## Наступний крок
 
-Harness і coverage провайдер потребують нових залежностей (`chore(deps)` власника); після них — pilot одного high-risk source assertion у `tests/nuxt/`.
+Harness і coverage провайдер потребують нових залежностей (`chore(deps)` власника); після них - pilot одного high-risk source assertion у `tests/nuxt/`.

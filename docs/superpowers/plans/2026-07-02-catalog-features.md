@@ -4,34 +4,34 @@
 
 **Goal:** Add designer portfolio gallery, organized-events section on artist pages, `/artists/all` text list with country flags, artist Swiper category dividers, and `/releases/psytrance` + `/releases/psychill` genre filter pages.
 
-**Architecture:** Five independent slices, minimum file surface each. Tasks 3 and 5 rename existing page files to `index.vue` to allow sibling sub-pages without Nuxt 4 nested-route conflicts (same base name = parent–child in Vue Router; `index.vue` in a directory = sibling). Pure utility logic (`locationToIso2`, genre filtering) is unit-tested; Vue components are verified manually.
+**Architecture:** Five independent slices, minimum file surface each. Tasks 3 and 5 rename existing page files to `index.vue` to allow sibling sub-pages without Nuxt 4 nested-route conflicts (same base name = parent-child in Vue Router; `index.vue` in a directory = sibling). Pure utility logic (`locationToIso2`, genre filtering) is unit-tested; Vue components are verified manually.
 
 **Tech Stack:** Nuxt 4, Vue 3 `<script setup>`, Tailwind v4, Swiper 11, Vitest 4, `flag-icons` npm package (new).
 
 ## Global Constraints
 
 - `npm run test:unit` must pass after every commit.
-- No `@apply` inside `<style scoped>` — use `class=""` or add `@reference "tailwindcss"` as the first scoped line.
+- No `@apply` inside `<style scoped>` - use `class=""` or add `@reference "tailwindcss"` as the first scoped line.
 - No inline code comments unless the WHY is non-obvious.
 - `$fetch` with a dynamic/variable URL must carry an explicit generic: `$fetch<T>(url)`.
 - Use `<NuxtImg>` not `<img>` for content images.
-- `organizer` has already been written to all 5 events in `server/data/sentimony-db-export.json` — do not touch that file.
+- `organizer` has already been written to all 5 events in `server/data/sentimony-db-export.json` - do not touch that file.
 - Run `npx nuxi typecheck` after each task; Supabase env-var warnings are expected and not failures.
 
 ---
 
-### Task 1: Foundation — Event type, countryFlag utility, flag-icons
+### Task 1: Foundation - Event type, countryFlag utility, flag-icons
 
 **Files:**
-- Modify: `app/types/index.ts` — extend `Event` with `organizer`
+- Modify: `app/types/index.ts` - extend `Event` with `organizer`
 - Create: `app/utils/countryFlag.ts`
 - Create: `tests/unit/countryFlag.test.ts`
-- Modify: `nuxt.config.ts` — add flag-icons to `css` array
+- Modify: `nuxt.config.ts` - add flag-icons to `css` array
 - Install: `flag-icons` npm package
 
 **Interfaces:**
-- Produces: `locationToIso2(location: string): string | null` — consumed by Task 3
-- Produces: `Event.organizer?: string[]` — consumed by Task 2
+- Produces: `locationToIso2(location: string): string | null` - consumed by Task 3
+- Produces: `Event.organizer?: string[]` - consumed by Task 2
 
 - [ ] **Step 1: Write failing test**
 
@@ -78,7 +78,7 @@ describe('locationToIso2', () => {
 npm run test:unit -- countryFlag
 ```
 
-Expected: FAIL — `Cannot find module '../../app/utils/countryFlag'`
+Expected: FAIL - `Cannot find module '../../app/utils/countryFlag'`
 
 - [ ] **Step 3: Create `app/utils/countryFlag.ts`**
 
@@ -190,7 +190,7 @@ git commit -m "feat: Event.organizer type, countryFlag utility, flag-icons dep"
 
 ---
 
-### Task 2: Artist page — Designer portfolio + Organized Events
+### Task 2: Artist page - Designer portfolio + Organized Events
 
 **Files:**
 - Modify: `app/pages/artist/[id].vue` (script + template)
@@ -198,11 +198,11 @@ git commit -m "feat: Event.organizer type, countryFlag utility, flag-icons dep"
 **Interfaces:**
 - Consumes: `Event.organizer?: string[]` (Task 1)
 - Consumes: `useEvents()` from `app/composables/useEvents.ts`
-- Consumes: `useReleases()`, `toArray<T>()`, `visibleByDate()` — already in scope
+- Consumes: `useReleases()`, `toArray<T>()`, `visibleByDate()` - already in scope
 
 - [ ] **Step 1: Replace the `<script setup>` block**
 
-Full replacement of lines 1–46 in `app/pages/artist/[id].vue`:
+Full replacement of lines 1-46 in `app/pages/artist/[id].vue`:
 
 ```vue
 <script setup lang="ts">
@@ -346,10 +346,10 @@ Expected: no new errors (Supabase env warnings OK).
 npm run dev
 ```
 
-- `/artist/hagen` — "Organized Events" section shows all 5 events.
-- `/artist/iorlovskyi` — same 5 events.
-- `/artist/matik` — "Portfolio" grid shows 35+ cover images, no organized-events section.
-- `/artist/irukanji` — musician; neither new section appears.
+- `/artist/hagen` - "Organized Events" section shows all 5 events.
+- `/artist/iorlovskyi` - same 5 events.
+- `/artist/matik` - "Portfolio" grid shows 35+ cover images, no organized-events section.
+- `/artist/irukanji` - musician; neither new section appears.
 
 - [ ] **Step 5: Commit**
 
@@ -365,7 +365,7 @@ git commit -m "feat: designer portfolio gallery and organized events on artist p
 **Files:**
 - Rename: `app/pages/artists.vue` → `app/pages/artists/index.vue`
 - Create: `app/pages/artists/all.vue`
-- Modify: `app/pages/artists/index.vue` — add link to `/artists/all`
+- Modify: `app/pages/artists/index.vue` - add link to `/artists/all`
 
 **Interfaces:**
 - Consumes: `locationToIso2()` from `app/utils/countryFlag.ts` (Task 1)
@@ -378,7 +378,7 @@ mkdir -p app/pages/artists
 mv app/pages/artists.vue app/pages/artists/index.vue
 ```
 
-`/artists` URL is unchanged — Nuxt maps `pages/artists/index.vue` → `/artists`.
+`/artists` URL is unchanged - Nuxt maps `pages/artists/index.vue` → `/artists`.
 
 - [ ] **Step 2: Add link in `app/pages/artists/index.vue`**
 
@@ -499,8 +499,8 @@ Expected: all pass.
 npm run dev
 ```
 
-- `/artists` — renders as before, "View all (text list)" link in top-right.
-- `/artists/all` — 4 category sections; flags appear for artists with known countries; artists without a location get an empty spacer keeping columns aligned; every name is a link to the artist detail page.
+- `/artists` - renders as before, "View all (text list)" link in top-right.
+- `/artists/all` - 4 category sections; flags appear for artists with known countries; artists without a location get an empty spacer keeping columns aligned; every name is a link to the artist detail page.
 
 - [ ] **Step 6: Commit**
 
@@ -511,7 +511,7 @@ git commit -m "feat: /artists/all text list page with country flags"
 
 ---
 
-### Task 4: Artist Swiper — category dividers
+### Task 4: Artist Swiper - category dividers
 
 **Files:**
 - Modify: `app/components/Swiper.vue`
@@ -522,7 +522,7 @@ git commit -m "feat: /artists/all text list page with country flags"
 
 - [ ] **Step 1: Replace the `<script setup>` block in `Swiper.vue`**
 
-Full replacement of lines 1–55 in `app/components/Swiper.vue`:
+Full replacement of lines 1-55 in `app/components/Swiper.vue`:
 
 ```vue
 <script setup lang="ts">
@@ -642,7 +642,7 @@ Inside the `<Swiper>` component (after the existing `:keyboard` prop and before 
 
 - [ ] **Step 3: Add `artistSections` computed to `default.vue`**
 
-In `app/layouts/default.vue`, after the `artistsSortedByCategoryId` computed (line 59–61), add:
+In `app/layouts/default.vue`, after the `artistsSortedByCategoryId` computed (line 59-61), add:
 
 ```ts
 const artistSections = computed(() => {
@@ -663,7 +663,7 @@ const artistSections = computed(() => {
 
 - [ ] **Step 4: Switch artist Swiper to use `sections` in `default.vue` template**
 
-Replace the artist `<LazySwiper>` block (lines 120–130):
+Replace the artist `<LazySwiper>` block (lines 120-130):
 
 ```html
 <LazySwiper
@@ -696,10 +696,10 @@ Expected: all pass.
 npm run dev
 ```
 
-- Visit any `/artist/[id]` page — Swiper shows thin vertical dividers with rotated labels ("Producers", "DJs", "Mastering", "Designers") between sections.
+- Visit any `/artist/[id]` page - Swiper shows thin vertical dividers with rotated labels ("Producers", "DJs", "Mastering", "Designers") between sections.
 - Clicking a divider does nothing (pointer-events-none).
 - The currently-viewed artist is centered in the Swiper on load; verify across artists from different categories (e.g., open `/artist/matik` for a designer, swiper should scroll to the Designers section).
-- All other Swipers (releases, events, videos, playlists) are unaffected — they still use `list`.
+- All other Swipers (releases, events, videos, playlists) are unaffected - they still use `list`.
 
 - [ ] **Step 7: Commit**
 
@@ -710,19 +710,19 @@ git commit -m "feat: category dividers between sections in artist Swiper"
 
 ---
 
-### Task 5: Genre filter pages — Psytrance & Psychill
+### Task 5: Genre filter pages - Psytrance & Psychill
 
 **Files:**
 - Rename: `app/pages/releases.vue` → `app/pages/releases/index.vue`
 - Create: `app/components/ReleasesFiltered.vue`
 - Create: `app/pages/releases/psytrance.vue`
 - Create: `app/pages/releases/psychill.vue`
-- Modify: `app/pages/releases/index.vue` — add genre tabs
+- Modify: `app/pages/releases/index.vue` - add genre tabs
 
 **Interfaces:**
 - `ReleasesFiltered` props: `{ keyword: string; title: string; description: string }`
 
-**Why the rename:** `releases.vue` + `releases/` at the same level makes Vue Router treat `releases.vue` as the parent layout of genre pages (child routes render inside `<NuxtPage>`). Moving to `releases/index.vue` makes all files siblings under one directory — no nesting, same URL.
+**Why the rename:** `releases.vue` + `releases/` at the same level makes Vue Router treat `releases.vue` as the parent layout of genre pages (child routes render inside `<NuxtPage>`). Moving to `releases/index.vue` makes all files siblings under one directory - no nesting, same URL.
 
 - [ ] **Step 1: Rename releases.vue**
 
@@ -731,7 +731,7 @@ mkdir -p app/pages/releases
 mv app/pages/releases.vue app/pages/releases/index.vue
 ```
 
-`/releases` URL unchanged — Nuxt maps `releases/index.vue` → `/releases`.
+`/releases` URL unchanged - Nuxt maps `releases/index.vue` → `/releases`.
 
 - [ ] **Step 2: Create `app/components/ReleasesFiltered.vue`**
 
@@ -905,9 +905,9 @@ Expected: all pass.
 npm run dev
 ```
 
-- `/releases` — all releases visible, three tabs at top with "All" active.
-- `/releases/psytrance` — ~40 releases filtered by "psytrance" in style; "Psytrance" tab active; count shown.
-- `/releases/psychill` — ~30 releases filtered by "psychill"; "Psychill" tab active.
+- `/releases` - all releases visible, three tabs at top with "All" active.
+- `/releases/psytrance` - ~40 releases filtered by "psytrance" in style; "Psytrance" tab active; count shown.
+- `/releases/psychill` - ~30 releases filtered by "psychill"; "Psychill" tab active.
 - Clicking tabs navigates correctly between the three pages.
 - Releases with both psytrance and psychill in style (none currently) would appear on both pages.
 

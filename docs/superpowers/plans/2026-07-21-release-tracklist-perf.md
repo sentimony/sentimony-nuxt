@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Прискорити сторінки релізів з великим tracklist (напр. `/release/va-futured-vol-7`), прибравши дубльовану блокуючу гідратацію треків, зайві мережеві запити й повторну важку обробку назв на кожен трек — без змін у вигляді чи поведінці.
+**Goal:** Прискорити сторінки релізів з великим tracklist (напр. `/release/va-futured-vol-7`), прибравши дубльовану блокуючу гідратацію треків, зайві мережеві запити й повторну важку обробку назв на кожен трек - без змін у вигляді чи поведінці.
 
 **Architecture:** Вимірювально-кероване виконання: baseline (кількість запитів + тайминг) → чотири незалежні оптимізації, кожна з власною верифікацією й окремим комітом → контрольний замір. Дані для `artist_slug` уже є на сервері в `CatalogTrack`, тож другий фетч треків усувається без нової логіки; related і track-plays виносяться з критичного шляху; обробка назв мемоізується на рівні util без зміни контракту компонентів.
 
@@ -13,17 +13,17 @@
 ## Global Constraints
 
 - Гілка `main`, **без git worktrees** (заборонено в цьому репо); нових npm-залежностей не додавати.
-- Жодних змін у вигляді чи поведінці tracklist — тільки усунення зайвої роботи.
-- Базлайн тестів зелений до і після кожної таски: `npm run test:unit` (39 файлів / 161 тест) і `npx nuxi typecheck` (локально можливі warnings про відсутні Supabase env — це ок).
-- Коментарі в коді — англійською; код самодокументований, коментарі лише за потреби.
-- Кожна оптимізація — окремий коміт; за бажанням користувача їх можна зсквошити перед мержем.
+- Жодних змін у вигляді чи поведінці tracklist - тільки усунення зайвої роботи.
+- Базлайн тестів зелений до і після кожної таски: `npm run test:unit` (39 файлів / 161 тест) і `npx nuxi typecheck` (локально можливі warnings про відсутні Supabase env - це ок).
+- Коментарі в коді - англійською; код самодокументований, коментарі лише за потреби.
+- Кожна оптимізація - окремий коміт; за бажанням користувача їх можна зсквошити перед мержем.
 - Візуальна перевірка tracklist після кожної зміни на VA-релізі (`/release/va-futured-vol-7`) і звичайному (`/release/zymosis-an-endless-sense-of-the-past`).
 
 ---
 
 ### Task 1: Baseline вимірювання
 
-**Files:** — (лише артефакти вимірювань, у git не комітяться)
+**Files:** - (лише артефакти вимірювань, у git не комітяться)
 
 **Interfaces:**
 - Produces: зафіксовані числа baseline для порівняння в Task 7 (кількість XHR-запитів, час до інтерактивності/TBT на двох повільних і двох швидких релізах).
@@ -47,7 +47,7 @@ Expected: сервер на `http://localhost:3000` без помилок.
 - `/release/zymosis-an-endless-sense-of-the-past`
 - `/release/mirror-me-azure-skies-and-golden-valleys`
 
-Зберегти всі числа для опису PR — вони визначають, чи кожен крок дав вимірний зсув.
+Зберегти всі числа для опису PR - вони визначають, чи кожен крок дав вимірний зсув.
 
 ---
 
@@ -79,10 +79,10 @@ Expected: сервер на `http://localhost:3000` без помилок.
     }])
 ```
 
-- [ ] **Step 2: Запустити тест — має впасти**
+- [ ] **Step 2: Запустити тест - має впасти**
 
 Run: `npx vitest run tests/unit/releaseTracklist.test.ts`
-Expected: FAIL — отриманий об'єкт не має `artist_slug`.
+Expected: FAIL - отриманий об'єкт не має `artist_slug`.
 
 - [ ] **Step 3: Додати `artist_slug` у гідратацію**
 
@@ -114,7 +114,7 @@ export type ReleaseTracklistEntry = {
       }
 ```
 
-- [ ] **Step 4: Запустити тест — має пройти**
+- [ ] **Step 4: Запустити тест - має пройти**
 
 Run: `npx vitest run tests/unit/releaseTracklist.test.ts`
 Expected: PASS (усі 3 тести).
@@ -139,7 +139,7 @@ export interface ReleaseTrack {
 
 У `app/pages/release/[id].vue`:
 
-Видалити локальний тип `Track` (рядок 11) — він більше не потрібен.
+Видалити локальний тип `Track` (рядок 11) - він більше не потрібен.
 
 Прибрати другий елемент `Promise.all` і `tracksAsync`/`tracks`:
 
@@ -188,12 +188,12 @@ const playerTracks = computed(() =>
 - [ ] **Step 7: Тести + typecheck**
 
 Run: `npm run test:unit && npx nuxi typecheck`
-Expected: unit зелені; typecheck без помилок (Supabase env warnings — ок). Якщо typecheck скаржиться на невикористаний `Track`/`tracksAsync` — прибрати залишки.
+Expected: unit зелені; typecheck без помилок (Supabase env warnings - ок). Якщо typecheck скаржиться на невикористаний `Track`/`tracksAsync` - прибрати залишки.
 
 - [ ] **Step 8: Візуальна перевірка**
 
 Run: `npm run dev`, відкрити `/release/va-futured-vol-7`.
-Expected: у DevTools → Network **немає** запиту `/api/tracks/va-futured-vol-7`; tracklist рендериться ідентично (номери, посилання на артистів клікабельні й ведуть на правильні `/artist/*`, назви з розбиттям артистів, BPM). Перевірити `/release/zymosis-an-endless-sense-of-the-past` — без регресій.
+Expected: у DevTools → Network **немає** запиту `/api/tracks/va-futured-vol-7`; tracklist рендериться ідентично (номери, посилання на артистів клікабельні й ведуть на правильні `/artist/*`, назви з розбиттям артистів, BPM). Перевірити `/release/zymosis-an-endless-sense-of-the-past` - без регресій.
 
 - [ ] **Step 9: Commit**
 
@@ -254,7 +254,7 @@ git commit -m "perf(release): load related block lazily, unblock first paint"
 
 **Interfaces:**
 - Consumes: `playCounts` computed/ref сторінки релізу (`Record<string, number>`).
-- Produces: `AudioTrackPlaylist` приймає опційний проп `playCounts?: Record<string, number>`; якщо переданий — компонент **не** робить власний `/api/track-plays` GET, а синхронізує лічильники з пропа за семантикою `Math.max` (як лайки). Артист-сторінка (`<AudioTrackPlaylist :tracks="…">` без пропа) поводиться як раніше — фетчить сама.
+- Produces: `AudioTrackPlaylist` приймає опційний проп `playCounts?: Record<string, number>`; якщо переданий - компонент **не** робить власний `/api/track-plays` GET, а синхронізує лічильники з пропа за семантикою `Math.max` (як лайки). Артист-сторінка (`<AudioTrackPlaylist :tracks="…">` без пропа) поводиться як раніше - фетчить сама.
 
 - [ ] **Step 1: Додати опційний проп і прибрати дубль-фетч у компоненті**
 
@@ -307,7 +307,7 @@ onMounted(async () => {
 })
 ```
 
-(Оптимістичний інкремент на play — `playCounts.value[slug] = (…) + 1` рядок ~70 — лишається без змін; `watch` з `Math.max` не занижує локальний інкремент.)
+(Оптимістичний інкремент на play - `playCounts.value[slug] = (…) + 1` рядок ~70 - лишається без змін; `watch` з `Math.max` не занижує локальний інкремент.)
 
 - [ ] **Step 2: Передати `playCounts` зі сторінки релізу**
 
@@ -326,7 +326,7 @@ onMounted(async () => {
 - [ ] **Step 3: Тести + typecheck**
 
 Run: `npm run test:unit && npx nuxi typecheck`
-Expected: зелено. Особливо `tests/unit/audioTrackPlaylist.test.ts` — переконатися, що не зламано (за потреби оновити, якщо тест мокав `/api/track-plays` без пропа — там проп не передається, тож поведінка та сама).
+Expected: зелено. Особливо `tests/unit/audioTrackPlaylist.test.ts` - переконатися, що не зламано (за потреби оновити, якщо тест мокав `/api/track-plays` без пропа - там проп не передається, тож поведінка та сама).
 
 - [ ] **Step 4: Візуальна перевірка**
 
@@ -353,7 +353,7 @@ git commit -m "perf(release): dedupe track-plays fetch via playCounts prop"
 **Interfaces:**
 - Produces: `splitTitleByArtists(title, artists)` кешує похідний `{ known, pattern }` у `WeakMap`, keyed за посиланням на масив `artists`, тож дорога побудова regex з повного списку артистів відбувається один раз на рендер-прохід, а не на кожен виклик (сторінка релізу викликає її ~4× на трек). Сигнатура і повертане значення незмінні.
 
-- [ ] **Step 1: Написати тест на незмінність результату (failing на перфі не перевіряємо — фіксуємо контракт)**
+- [ ] **Step 1: Написати тест на незмінність результату (failing на перфі не перевіряємо - фіксуємо контракт)**
 
 У `tests/unit/tracks.test.ts` додати:
 
@@ -373,9 +373,9 @@ it('returns identical segments across repeated calls with the same artists list'
 })
 ```
 
-(Якщо у файлі немає імпорту — додати `import { splitTitleByArtists } from '../../app/utils/tracks'` у стилі наявних тестів.)
+(Якщо у файлі немає імпорту - додати `import { splitTitleByArtists } from '../../app/utils/tracks'` у стилі наявних тестів.)
 
-- [ ] **Step 2: Запустити тест — має пройти на поточній реалізації**
+- [ ] **Step 2: Запустити тест - має пройти на поточній реалізації**
 
 Run: `npx vitest run tests/unit/tracks.test.ts`
 Expected: PASS (тест фіксує очікуваний вихід перед рефактором; він захищає від регресії).
@@ -430,17 +430,17 @@ export function splitTitleByArtists(title: string, artists: { slug: string, titl
 }
 ```
 
-Примітка: `pattern` має прапор `g`, тож `lastIndex` міг би текти між викликами — але `String.prototype.matchAll` створює власний ітератор і не залежить від `pattern.lastIndex`, тож кешований regex безпечний для повторного використання. **Не** використовувати кешований regex з `pattern.exec()`/`test()` у циклі.
+Примітка: `pattern` має прапор `g`, тож `lastIndex` міг би текти між викликами - але `String.prototype.matchAll` створює власний ітератор і не залежить від `pattern.lastIndex`, тож кешований regex безпечний для повторного використання. **Не** використовувати кешований regex з `pattern.exec()`/`test()` у циклі.
 
 - [ ] **Step 4: Тести + typecheck**
 
 Run: `npm run test:unit && npx nuxi typecheck`
-Expected: зелено — зокрема наявні тести `tracks.test.ts` і новий тест мемоізації.
+Expected: зелено - зокрема наявні тести `tracks.test.ts` і новий тест мемоізації.
 
 - [ ] **Step 5: Візуальна перевірка + замір**
 
 Run: dev, `/release/va-futured-vol-7`, DevTools → Performance запис першого рендеру.
-Expected: назви треків з розбиттям артистів ідентичні; Scripting time при рендері tracklist нижчий за baseline (Task 1). Якщо зсуву немає — крок усе одно коректний і безпечний, лишити.
+Expected: назви треків з розбиттям артистів ідентичні; Scripting time при рендері tracklist нижчий за baseline (Task 1). Якщо зсуву немає - крок усе одно коректний і безпечний, лишити.
 
 - [ ] **Step 6: Commit**
 
@@ -457,11 +457,11 @@ git commit -m "perf(tracks): memoize splitTitleByArtists regex per artists list"
 - Modify: `app/pages/release/[id].vue` (блок tracklist, рядки 387-444)
 
 **Interfaces:**
-- Produces: замість двох `TooltipProvider` на кожен рядок tracklist — один спільний `TooltipProvider`, що огортає весь список; тултипи Play/Plays працюють як раніше.
+- Produces: замість двох `TooltipProvider` на кожен рядок tracklist - один спільний `TooltipProvider`, що огортає весь список; тултипи Play/Plays працюють як раніше.
 
 - [ ] **Step 1: Перевірити доцільність за Task 1/Task 5 замірами**
 
-Якщо після Task 2-5 Scripting/рендер уже в межах швидких релізів — цей крок опційний; виконувати лише якщо кількість `TooltipProvider` (2 × N треків) усе ще помітна у Performance-профілі (багато однакових Radix-інстансів). Рішення зафіксувати в коміт-повідомленні або пропустити таск.
+Якщо після Task 2-5 Scripting/рендер уже в межах швидких релізів - цей крок опційний; виконувати лише якщо кількість `TooltipProvider` (2 × N треків) усе ще помітна у Performance-профілі (багато однакових Radix-інстансів). Рішення зафіксувати в коміт-повідомленні або пропустити таск.
 
 - [ ] **Step 2: Огорнути tracklist одним провайдером**
 
@@ -511,7 +511,7 @@ git commit -m "perf(tracks): memoize splitTitleByArtists regex per artists list"
           </TooltipProvider>
 ```
 
-(Зберегти весь внутрішній вміст `<span>` — like-кнопку, класи — точно як у наявному коді; змінюється лише обгортка провайдера.)
+(Зберегти весь внутрішній вміст `<span>` - like-кнопку, класи - точно як у наявному коді; змінюється лише обгортка провайдера.)
 
 - [ ] **Step 3: Тести + typecheck**
 
@@ -521,7 +521,7 @@ Expected: зелено.
 - [ ] **Step 4: Візуальна перевірка**
 
 Run: dev, `/release/va-futured-vol-7`.
-Expected: тултипи «Play» і «Plays» показуються при наведенні на кожен рядок; hover/фокус працюють. Якщо тултипи ламаються — відкотити цей таск (`git revert`/`git reset`), він опційний.
+Expected: тултипи «Play» і «Plays» показуються при наведенні на кожен рядок; hover/фокус працюють. Якщо тултипи ламаються - відкотити цей таск (`git revert`/`git reset`), він опційний.
 
 - [ ] **Step 5: Commit**
 
@@ -535,7 +535,7 @@ git commit -m "perf(release): single TooltipProvider for tracklist rows"
 ### Task 7: Контрольний замір і фіксація
 
 **Files:**
-- Modify: `docs/superpowers/specs/2026-07-21-release-tracklist-perf-design.md` (за потреби — відмітка результатів)
+- Modify: `docs/superpowers/specs/2026-07-21-release-tracklist-perf-design.md` (за потреби - відмітка результатів)
 
 - [ ] **Step 1: Повна верифікація**
 

@@ -49,7 +49,7 @@ GET /rest/v1/tracks?select=slug,title,artist_name,bpm&limit=1
 Отже в Supabase-режимі (`NUXT_CATALOG_SOURCE=supabase` у всіх Netlify-контекстах
 станом на 2026-07) гілка `isSupabaseCatalogSource()` у
 `server/utils/likes.ts:129-132` кидає `createError({ statusCode: 500 })` на
-кожен запит лайкнутих треків. Канонічний набір колонок треку —
+кожен запит лайкнутих треків. Канонічний набір колонок треку -
 `slug, title, artist_name, artist_slug, bpm, audio_url`
 (`server/utils/catalogTracks.ts:5`).
 
@@ -67,7 +67,7 @@ GET /rest/v1/tracks?select=slug,title,artist_name,bpm&limit=1
 
 ### 3. Посилання треку веде на неіснуючий маршрут
 
-`app/pages/profile/tracks.vue:24` — `:to="'/release/' + track.release_slug"`. За
+`app/pages/profile/tracks.vue:24` - `:to="'/release/' + track.release_slug"`. За
 моделлю first-class треків `release_slug` не існує ні в схемі, ні в даних, тож
 навіть після виправлення пункту 1 посилання дало б `/release/undefined`. У треку
 є власна сторінка `/track/[slug]`.
@@ -81,7 +81,7 @@ GET /rest/v1/tracks?select=slug,title,artist_name,bpm&limit=1
 
 ## Знахідки: дизайн-контракт проєкту
 
-### 5. Focus-стани — регресія проти щойно закритої ініціативи
+### 5. Focus-стани - регресія проти щойно закритої ініціативи
 
 `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50` у
 п'яти місцях: `profile.vue:52`, `profile/index.vue:129`, `profile/index.vue:256`,
@@ -97,7 +97,7 @@ GET /rest/v1/tracks?select=slug,title,artist_name,bpm&limit=1
   `outline-none` **скасовує** глобальне правило `a:focus-visible`
   (`app/assets/css/tailwind.css:107-110`), яке дає повний `--ring`, і підміняє
   його кільцем на 50% токена. Аудит 2026-07-25 виміряв `ring-ring/50` як
-  1.60 (light) / 2.28 (dark) проти потрібних 3.0 — і це до того, як `--ring` було
+  1.60 (light) / 2.28 (dark) проти потрібних 3.0 - і це до того, як `--ring` було
   переретюнено; після ретюну половина токена все одно лишається неперевіреною.
 
 ### 6. Третій текстовий тир, якого в системі немає
@@ -115,7 +115,7 @@ GET /rest/v1/tracks?select=slug,title,artist_name,bpm&limit=1
 (2.58-3.94). Тут дно опускається до `/20` (лічильники на картках секцій,
 `index.vue:262,279`) і `/25` (порожній стан і підказка про формат аватара,
 `index.vue:211,287`). `tests/unit/interactionStates.test.ts` уже стереже це
-правило, але лише для `AUTH_FILES`; profile — найбільша немігрована поверхня
+правило, але лише для `AUTH_FILES`; profile - найбільша немігрована поверхня
 сайту.
 
 ### 7. Парні `black/white` дублікати
@@ -127,12 +127,12 @@ Auth-поверхня вже перейшла на одинарні `foreground/
 
 ### 8. Кольори повз токени
 
-- `index.vue:145` — інпут імені: `focus:border-blue-500 focus:ring-1
+- `index.vue:145` - інпут імені: `focus:border-blue-500 focus:ring-1
   focus:ring-blue-500`. Синій акцент не існує більше ніде в проєкті (порушення
   єдиного акценту), а сам інпут рукописний: `border-white/20 bg-black/20
   dark:bg-black/40` замість `ui/input`, який після ретюну має перевірений
   outline і `bg-foreground/8`.
-- `index.vue:148` — текст помилки `text-red-400`, запечений під темну тему. Це та
+- `index.vue:148` - текст помилки `text-red-400`, запечений під темну тему. Це та
   сама причина, через яку `interactionStates.test.ts` забороняє `text-green-400`;
   токен `--destructive` існує.
 
@@ -142,22 +142,22 @@ Auth-поверхня вже перейшла на одинарні `foreground/
 (`index.vue:150-157`), Cancel (`index.vue:158-165`), Upload
 (`index.vue:191-199`), Remove avatar (`index.vue:200-209`), Sign out
 (`index.vue:225-232`), «Show more» (`ProfileCollectionStatus.vue:28-36`).
-`AGENTS.md`: `ui/button` — єдиний авторитет стилю; варіанти `submit` і `default`
+`AGENTS.md`: `ui/button` - єдиний авторитет стилю; варіанти `submit` і `default`
 покривають усі шість.
 
 ### 10. Навігація profile дублює наявний компонент
 
-`profile.vue:48-62` — рукописні піл-таби з іконкою, лейблом і лічильником. Це
+`profile.vue:48-62` - рукописні піл-таби з іконкою, лейблом і лічильником. Це
 буквально патерн `<GenreTabs>`: `<DefaultButton small outline :count>`, який уже
 рендерить `· N` у `font-mono` і тримає активний стан через `exactActiveClass`
-(`DefaultButton.vue:35,47`). Неактивний стан у profile — `text-foreground/40`,
+(`DefaultButton.vue:35,47`). Неактивний стан у profile - `text-foreground/40`,
 тобто та сама проблема з пункту 6.
 
 ## Знахідки: композиція і UX
 
 ### 11. Em-dash як контент
 
-`index.vue:137` — `{{ user?.user_metadata?.full_name || '—' }}`. Em-dash у
+`index.vue:137` - `{{ user?.user_metadata?.full_name || '—' }}`. Em-dash у
 видимому тексті заборонений; порожнє ім'я має бути словом.
 
 ### 12. Перевантаження мікро-лейблами
@@ -169,15 +169,15 @@ collection». Сім `text-[9px]` і сім `text-[10px]` на одну стор
 
 ### 13. Нечитний типографічний низ
 
-`text-[9px]` у парі з `/25`-`/30` — підказка «JPG, PNG, WebP · max 2 MB»
+`text-[9px]` у парі з `/25`-`/30` - підказка «JPG, PNG, WebP · max 2 MB»
 (`index.vue:211`) фактично невидима навіть у темній темі. 9px не має бути в
-системі взагалі; мінімальний технічний розмір на сайті — 10px.
+системі взагалі; мінімальний технічний розмір на сайті - 10px.
 
 ### 14. Розсинхрон ширин
 
-`profile.vue:42` — контейнер `max-w-[112rem]`; навігація і `/profile` —
-`max-w-5xl`; `ProfileCollectionPage.vue:29` — `flex flex-wrap justify-center` на
-всі 112rem. Таби центровані по одній сітці, ґрід карток під ними — по іншій.
+`profile.vue:42` - контейнер `max-w-[112rem]`; навігація і `/profile` -
+`max-w-5xl`; `ProfileCollectionPage.vue:29` - `flex flex-wrap justify-center` на
+всі 112rem. Таби центровані по одній сітці, ґрід карток під ними - по іншій.
 
 ### 15. Чотири шкали радіусів без правила
 
@@ -191,18 +191,18 @@ collection». Сім `text-[9px]` і сім `text-[10px]` на одну стор
 
 ### 17. Навігація змінює форму під користувачем
 
-`profile.vue:18-20` — `visibleSections` ховає секції з нулем. Якщо зняти
+`profile.vue:18-20` - `visibleSections` ховає секції з нулем. Якщо зняти
 останній лайк, перебуваючи на сторінці цієї секції, таб зникає з-під користувача,
 а сторінка лишається відкритою. `GenreTabs` показує всі таби, включно з
 нульовими; патерн проєкту протилежний.
 
 ### 18. Видалення аватара без підтвердження
 
-`index.vue:200-209` — незворотна дія в один клік, без діалогу і без undo.
+`index.vue:200-209` - незворотна дія в один клік, без діалогу і без undo.
 
 ## Follow-up поза обсягом правок
 
-- Site-wide `text-foreground/50` — 43 входження поза profile; це
+- Site-wide `text-foreground/50` - 43 входження поза profile; це
   [design system](../initiatives/design-system.md).
 - `ThemeToggle.vue:9`, `Header.vue:130,139`, `OpenSidebar.vue:66`,
   `OpenImage.vue:89` лишаються останніми `outline-none` після цих правок і
@@ -210,7 +210,7 @@ collection». Сім `text-[9px]` і сім `text-[10px]` на одну стор
 - `usePaginatedLikes` ковтає помилки для **всіх** шести колекцій, не лише
   треків; після додавання error-стану решта п'яти отримують його безкоштовно, але
   окремих замірів їхніх ендпоінтів цей аудит не робив.
-- Плеєр для лайкнутих треків (`<PagePlayer>` + наявний `audio_url`) — окрема
+- Плеєр для лайкнутих треків (`<PagePlayer>` + наявний `audio_url`) - окрема
   продуктова зміна, не борг.
 - `docs/initiatives/profile-aggregation.md` (один overview-запит замість N)
   лишається чинним і незалежним: ці правки не змінюють кількість запитів.

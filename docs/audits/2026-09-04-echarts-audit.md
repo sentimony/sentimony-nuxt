@@ -8,7 +8,7 @@
 ## Висновок
 
 У проєкті **немає Apache ECharts і немає жодної діаграми**. Повний чекліст
-`references/audit.md` (§1–§8: state inventory, registration matrix, lifecycle,
+`references/audit.md` (§1-§8: state inventory, registration matrix, lifecycle,
 interactive-state ownership, HTML tooltip trust, cardinality, zero-size gate,
 browser evidence) не має об'єкта застосування, і жоден із його пунктів не
 виконувався. Це не «аудит із нульовими знахідками», а перевірка, що аудит
@@ -23,7 +23,7 @@ browser evidence) не має об'єкта застосування, і жод�
 | `import … from 'echarts'` / `echarts/core` у `app/`, `server/`, `scripts/`, `netlify/`, `tests/` | 0 |
 | `<VChart>` / `echarts.init` / `registerTheme` / `setOption` | 0 |
 | `<canvas>` у `app/` | 0 |
-| Згадки `echarts` у репозиторії поза `node_modules` | лише `skills-lock.json` і `scripts/skills.sh` — реєстрація самого скіла |
+| Згадки `echarts` у репозиторії поза `node_modules` | лише `skills-lock.json` і `scripts/skills.sh` - реєстрація самого скіла |
 
 ## Де в проєкті живе візуалізація даних
 
@@ -31,7 +31,7 @@ browser evidence) не має об'єкта застосування, і жод�
   (`app/pages/tracks.vue:96-105`, шість карток «Tracks / Releases / Artists /
   Playlists / Videos / Events» у `font-mono`), лічильники лайків і
   прослуховувань у плеєрі, лічильники на табах жанрів (`GenreTabs.vue`).
-  Для чисел такого масштабу (6 значень, 4 значення) таблиця чи картка —
+  Для чисел такого масштабу (6 значень, 4 значення) таблиця чи картка -
   правильний носій; діаграма тут була б структурою без інформації.
 - **Вимірювання продуктивності** (`scripts/perf-baseline.mjs`,
   `scripts/lighthouse-baseline.mjs`) пишуть Markdown-таблиці й JSON у
@@ -44,10 +44,10 @@ browser evidence) не має об'єкта застосування, і жод�
   choosing chart types or for other charting libraries», тож він тут не
   застосовний і в майбутньому. Якби waveform колись будувався на ECharts
   (bar-серія з тисячами стовпчиків), §6 «cardinality and measurement» став би
-  першим релевантним пунктом — але це рішення поза цим аудитом.
+  першим релевантним пунктом - але це рішення поза цим аудитом.
 
 ## Що це означає для наступних аудитів
 
 Повторювати цей аудит не потрібно, доки в `package.json` не з'явиться
 `echarts`. Достатньо одного рядка в наступному quality-аудиті: «`echarts` у
-lockfile — 0».
+lockfile - 0».

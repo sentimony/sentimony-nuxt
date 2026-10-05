@@ -53,7 +53,7 @@ function decodeEntities(value: string): string {
 }
 
 // Resolve the value the way a browser would (decode entities, drop control
-// chars and whitespace) before deciding whether the URL scheme is safe — a
+// chars and whitespace) before deciding whether the URL scheme is safe - a
 // denylist over the raw text is trivially bypassed by `java&#x09;script:`.
 function hasSafeUrlScheme(value: string): boolean {
   const normalized = decodeEntities(value).replace(/[\u0000-\u0020]+/g, '').toLowerCase()
@@ -79,7 +79,7 @@ function sanitizeAttributes(raw: string): string {
 // Server-side fallback: DOMPurify needs a browser DOM, which we no longer ship
 // (jsdom pulled an ESM-only transitive that crashes Netlify's CJS lambda). The
 // catalog HTML is our own trusted export with a narrow tag allowlist, so an
-// allowlist filter is sufficient here — this path only runs during SSR and must
+// allowlist filter is sufficient here - this path only runs during SSR and must
 // not be pointed at user-controlled input.
 function sanitizeOnServer(value: string): string {
   return value.replace(strippedContentPattern, '').replace(tagPattern, (full, tagName: string, attrs: string) => {

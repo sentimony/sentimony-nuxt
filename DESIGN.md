@@ -1,6 +1,6 @@
 ---
 name: Sentimony Records
-description: JAMstack portfolio for a psychedelic music label — a nocturnal forest séance in green-black monochrome.
+description: JAMstack portfolio for a psychedelic music label - a nocturnal forest séance in green-black monochrome.
 colors:
   forest-night: "oklch(0.16 0.02 155)"
   morning-mist: "oklch(0.97 0.01 155)"
@@ -96,7 +96,7 @@ A green-tinted monochrome built on a single hue (155), where saturation is ratio
 ### Neutral
 - **Morning Mist** (`oklch(0.97 0.01 155)`): The light theme canvas. A pale green-tinted off-white, never a warm cream. On the homepage it is used as a translucent atmospheric veil over the original forest photograph, not as a flat replacement for imagery.
 - **Forest Ink** (`oklch(0.18 0.02 155)`): Near-black green. Body text and active icons in the light theme; the primary surface fill in light mode.
-- **Tonal overlays** (`oklch(1 0 0 / 5–30%)` in dark, `oklch(0 0 0 / 5–30%)` in light): The workhorses. Cards, hovers, active states, borders, and frosted panels are all built from white-or-black alpha at low percentages, tinted by the theme's own ink.
+- **Tonal overlays** (`oklch(1 0 0 / 5-30%)` in dark, `oklch(0 0 0 / 5-30%)` in light): The workhorses. Cards, hovers, active states, borders, and frosted panels are all built from white-or-black alpha at low percentages, tinted by the theme's own ink.
 
 ### Tertiary (status only)
 - **Coming Soon Green** (`#16a34a`): The "Coming Soon" release badge.
@@ -104,7 +104,7 @@ A green-tinted monochrome built on a single hue (155), where saturation is ratio
 - **Signal Red** (`oklch(0.6 0.2 22)` light / `oklch(0.7 0.19 22)` dark): Destructive actions and form errors only.
 
 ### Named Rules
-**The Green Monochrome Rule.** Every neutral carries hue 155 at low chroma (0.01–0.02). There are no true grays in this system. A neutral that reads as cool-blue or warm-cream is wrong; tint it back toward forest green.
+**The Green Monochrome Rule.** Every neutral carries hue 155 at low chroma (0.01-0.02). There are no true grays in this system. A neutral that reads as cool-blue or warm-cream is wrong; tint it back toward forest green.
 
 **The Oxblood Rule.** Oxblood (`#8a0202`) is the only saturated hue permitted to touch chrome, and only on hover-revealed micro-surfaces. It is forbidden on buttons, headings, backgrounds, and anything visible at rest. Its rarity is the point.
 
@@ -115,49 +115,49 @@ A green-tinted monochrome built on a single hue (155), where saturation is ratio
 **Display Font:** Julius Sans One (with `sans-serif` fallback)
 **Body Font:** Montserrat (with `sans-serif` fallback)
 
-**Character:** Thin inscriptional capitals paired with a clean geometric-humanist sans. Julius Sans One is all-caps by nature — classical, airy, ceremonial; Montserrat is modern, neutral, and legible. The contrast axis is classical-display against utilitarian-body, never two competing sans.
+**Character:** Thin inscriptional capitals paired with a clean geometric-humanist sans. Julius Sans One is all-caps by nature - classical, airy, ceremonial; Montserrat is modern, neutral, and legible. The contrast axis is classical-display against utilitarian-body, never two competing sans.
 
 ### Hierarchy
 - **Display** (400, `clamp(40px, 6vw, 100px)`, line-height 1.4, uppercase): The hero wordmark "SENTIMONY RECORDS" only. Letter-spacing scales with size, from ~2px at the smallest to 14px at full size.
-- **Headline** (400, `text-2xl → text-4xl`, ~24–36px): Page titles (`<h1>` on list pages). Set in Montserrat, sentence case.
-- **Body** (400, `clamp(12px, 1.2vw, 16px)`, line-height ~1.5): All reading copy, navigation, and UI labels. Center-aligned by default (`body { text-align: center }`). Cap reading measure at 65–75ch.
-- **Label** (400, ~8–12px, letter-spacing 0.2em+, uppercase): Micro labels — social-icon hover captions, status badges. Reserved for ≤4-word strings.
+- **Headline** (400, `text-2xl → text-4xl`, ~24-36px): Page titles (`<h1>` on list pages). Set in Montserrat, sentence case.
+- **Body** (400, `clamp(12px, 1.2vw, 16px)`, line-height ~1.5): All reading copy, navigation, and UI labels. Center-aligned by default (`body { text-align: center }`). Cap reading measure at 65-75ch.
+- **Label** (400, ~8-12px, letter-spacing 0.2em+, uppercase): Micro labels - social-icon hover captions, status badges. Reserved for ≤4-word strings.
 
 ### Named Rules
-**The Single-Weight Rule.** Only Regular (400) is loaded for both families. Do not reach for bold, semibold, or medium; build all hierarchy from scale, letter-spacing, and case. Synthetic (faux) bold is forbidden — if a step needs more emphasis, make it larger or wider, not heavier.
+**The Single-Weight Rule.** Only Regular (400) is loaded for both families. Do not reach for bold, semibold, or medium; build all hierarchy from scale, letter-spacing, and case. Synthetic (faux) bold is forbidden - if a step needs more emphasis, make it larger or wider, not heavier.
 
-**The Breathing Caps Rule.** Display capitals widen their tracking as they grow (≈0.05em at 40px up to 0.14em at 100px). Tight display type is forbidden; large capitals must breathe like a slow chant. Reserve uppercase for display and ≤4-word labels — never for body sentences.
+**The Breathing Caps Rule.** Display capitals widen their tracking as they grow (≈0.05em at 40px up to 0.14em at 100px). Tight display type is forbidden; large capitals must breathe like a slow chant. Reserve uppercase for display and ≤4-word labels - never for body sentences.
 
 ## 4. Elevation
 
-The system is flat by default and separates surfaces with tonal layering, not shadow. UI depth is built from translucent overlays (white alpha in dark mode, black alpha in light mode, 5–30%) stacked over the theme canvas. In dark mode the true depth is photographic: a fixed forest image sits at the back, and frosted `backdrop-blur` panels float above it. Only one literal drop-shadow exists in the whole system.
+The system is flat by default and separates surfaces with tonal layering, not shadow. UI depth is built from translucent overlays (white alpha in dark mode, black alpha in light mode, 5-30%) stacked over the theme canvas. In dark mode the true depth is photographic: a fixed forest image sits at the back, and frosted `backdrop-blur` panels float above it. Only one literal drop-shadow exists in the whole system.
 
 ### Shadow Vocabulary
 - **Cover lift** (`box-shadow: 0 2px 10px 0 rgba(0,0,0,0.5)`): The single sanctioned shadow. Applied under floating cover art / thumbnails and the small status badges, to lift them off the canvas. Soft, low, dark.
 - **Frosted header** (`backdrop-filter: blur(4px)` over a 5% alpha fill): The sticky header is a translucent frosted bar, not an opaque surface; it reads the forest behind it.
 
 ### Named Rules
-**The Tonal Layering Rule.** Surfaces separate by alpha tint, never by raised shadow. Black/white overlays at 5–30% build the entire hierarchy. The only drop-shadow permitted is the soft `0 2px 10px rgba(0,0,0,0.5)` under cover art and badges — anything darker or larger reads as 2014 skeuomorphism and is forbidden.
+**The Tonal Layering Rule.** Surfaces separate by alpha tint, never by raised shadow. Black/white overlays at 5-30% build the entire hierarchy. The only drop-shadow permitted is the soft `0 2px 10px rgba(0,0,0,0.5)` under cover art and badges - anything darker or larger reads as 2014 skeuomorphism and is forbidden.
 
 **The Photographic Depth Rule.** Each homepage theme owns its photograph, shown plain - no filters, no overlays on the image itself. Dark mode keeps the legacy green-black nocturnal canopy `trees-dark_v1.jpg` exactly as the rest of the dark site renders it; light mode uses the purpose-made pale canopy `trees-light_v1.jpg`. Read-surface contrast comes from translucent background veils on content strips, never from grading the photo. The testimonial strip is the one strip that carries its own photograph - the original `trees-origin_v1.jpg` canopy beneath the mandala SVG, identical in both themes.
 
 ## 5. Components
 
-Built on the local `app/components/ui/*` primitives over reka-ui, themed with the green-monochrome tokens. Every interactive element carries a `v-wave` ripple and an `ease-in-out` transition (200–300ms).
+Built on the local `app/components/ui/*` primitives over reka-ui, themed with the green-monochrome tokens. Every interactive element carries a `v-wave` ripple and an `ease-in-out` transition (200-300ms).
 
 ### Buttons
 - **Shape:** Gently rounded (`rounded-md`, 6px). Default height 36px (`h-9`), sm 32px, lg 40px.
-- **Primary:** Inverted ink — `bg-primary text-primary-foreground` (white fill + dark text in dark mode; dark fill + white text in light mode), padding `8px 16px`.
+- **Primary:** Inverted ink - `bg-primary text-primary-foreground` (white fill + dark text in dark mode; dark fill + white text in light mode), padding `8px 16px`.
 - **Hover / Focus:** Primary lightens to `primary/90`. Focus shows a 3px `ring-ring/50` halo, no hard outline.
 - **Outline / Secondary / Ghost / Link:** Outline is a bare border on a translucent fill (`border bg-background`, `dark:bg-input/30`); ghost is fill-on-hover only (`hover:bg-accent`); link is the primary color with an underline on hover. All token-driven, all theme-aware.
 
 ### Cards / Containers
 - **Thumbnail card (signature `Item`):** The universal card across every list page. A fixed-width tile (80px mobile / 180px desktop) holding a cover framed in `bg-black/50` with the Cover-lift shadow, `rounded-sm` corners. The frame's aspect ratio is category-driven: `aspect-square` for releases/artists, `aspect-video` for videos, `aspect-[440/620]` for event flyers. Hover raises a translucent backdrop behind the cover; title sits below in a 2-line clamp.
-- **Status badges:** Tiny corner tags — "Coming Soon" on green-600, "Out Now" on red-600 — `rounded-tr-sm rounded-bl-sm`, with the Cover-lift shadow.
+- **Status badges:** Tiny corner tags - "Coming Soon" on green-600, "Out Now" on red-600 - `rounded-tr-sm rounded-bl-sm`, with the Cover-lift shadow.
 - **Auth cards (`ui/card`):** `bg-card` over an explicit `border-white/20` (no global border base layer exists, so borders are set per instance).
 
 ### Inputs / Fields
-- **Style:** `ui/input` — single border (`border-input`), translucent fill, `rounded-md`. The shared `PasswordInput` adds a show/hide toggle.
+- **Style:** `ui/input` - single border (`border-input`), translucent fill, `rounded-md`. The shared `PasswordInput` adds a show/hide toggle.
 - **Focus:** 3px `ring-ring/50` halo plus border shift to `ring`. No glow.
 - **Autofill:** Overridden globally so Chrome's autofill text uses `var(--foreground)` and stays on-theme in both modes.
 - **Error:** `aria-invalid` paints the border and ring Signal Red; server errors surface in an inline `Alert`.
@@ -175,13 +175,13 @@ A sun/moon glyph that switches themes with a View Transitions circular-reveal: a
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** keep every neutral on hue 155 at low chroma (0.01–0.02). Tint toward forest green, never toward cool-blue or warm-cream.
-- **Do** build hierarchy from scale, letter-spacing, and case. Only Regular (400) exists — go larger or wider, never heavier.
+- **Do** keep every neutral on hue 155 at low chroma (0.01-0.02). Tint toward forest green, never toward cool-blue or warm-cream.
+- **Do** build hierarchy from scale, letter-spacing, and case. Only Regular (400) exists - go larger or wider, never heavier.
 - **Do** widen display tracking as type grows (up to 0.14em at 100px). Large capitals must breathe.
-- **Do** separate surfaces with alpha overlays (5–30%), tinted by the theme's ink (`white/X` in dark, `black/X` in light). Use the `dark:` variant pattern so the dark theme stays pixel-identical when you touch the light one.
+- **Do** separate surfaces with alpha overlays (5-30%), tinted by the theme's ink (`white/X` in dark, `black/X` in light). Use the `dark:` variant pattern so the dark theme stays pixel-identical when you touch the light one.
 - **Do** let release covers, artist photos, and flyers be the only saturated objects on screen.
 - **Do** keep the dark theme's forest photograph visible; float frosted, blurred panels over it.
-- **Do** set borders per instance (e.g. `border-white/20`) — there is no global `border-border` base layer, and bare `border` utilities fall back to `currentColor`.
+- **Do** set borders per instance (e.g. `border-white/20`) - there is no global `border-border` base layer, and bare `border` utilities fall back to `currentColor`.
 
 ### Don't:
 - **Don't** introduce a cream / sand / beige background. The light theme is pale green Mist (`oklch(0.97 0.01 155)`), never warm paper.
@@ -190,5 +190,5 @@ A sun/moon glyph that switches themes with a View Transitions circular-reveal: a
 - **Don't** ship generic SaaS / AI-dashboard scaffolding: no cream hero, no tiny uppercase eyebrow above every section, no numbered `01 / 02` section markers, no identical icon-heading-text card grids.
 - **Don't** use 2014 skeuomorphism: no deep shadows, no bevels, no gradient or embossed buttons. The only shadow allowed is `0 2px 10px rgba(0,0,0,0.5)` under cover art and badges.
 - **Don't** use Oxblood (`#8a0202`) anywhere it's visible at rest. It is hover-only, micro-surface-only.
-- **Don't** reach for bold or synthetic-bold weights, and never set body sentences in all-caps — uppercase is for display and ≤4-word labels only.
+- **Don't** reach for bold or synthetic-bold weights, and never set body sentences in all-caps - uppercase is for display and ≤4-word labels only.
 - **Don't** use `border-left`/`border-right` greater than 1px as a colored accent stripe on cards, callouts, or list items.

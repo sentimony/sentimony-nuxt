@@ -112,9 +112,9 @@ Create `docs/audits/README.md` with this content:
 
 ## Індекс
 
-- [2026-07-19 — аудит якості](2026-07-19-quality-audit.md): TypeScript,
+- [2026-07-19 - аудит якості](2026-07-19-quality-audit.md): TypeScript,
   browser/web-debug і Vitest.
-- [2026-07-22 — статус документації та реалізації](2026-07-22-documentation-status-audit.md):
+- [2026-07-22 - статус документації та реалізації](2026-07-22-documentation-status-audit.md):
   спеки, implementation plans, покриття аудиту та актуальність roadmap.
 ```
 
@@ -151,7 +151,7 @@ Expected: only the audit move and index are committed; the user's staged compone
 
 **Interfaces:**
 - Consumes: all files under `docs/superpowers/specs/`, `docs/superpowers/plans/`, current source/config/tests, git history, and the archived 2026-07-19 audit.
-- Produces: the evidence source used to assign roadmap status in Tasks 3–5.
+- Produces: the evidence source used to assign roadmap status in Tasks 3-5.
 
 - [ ] **Step 1: Write the audit header and methodology**
 
@@ -173,10 +173,10 @@ Start the file with:
 
 Статуси:
 
-- **Реалізовано** — основний результат спеки/плану присутній і має перевірний доказ.
-- **Частково** — фундамент або частина задач є, але заявлений користувацький чи
+- **Реалізовано** - основний результат спеки/плану присутній і має перевірний доказ.
+- **Частково** - фундамент або частина задач є, але заявлений користувацький чи
   технічний результат не завершений.
-- **Не реалізовано** — цільові файли/контракти відсутні або код лишився у стані до плану.
+- **Не реалізовано** - цільові файли/контракти відсутні або код лишився у стані до плану.
 ```
 
 - [ ] **Step 2: Add the specification matrix**
@@ -217,24 +217,24 @@ Use these exact status groups, with one evidence sentence per item:
 ```markdown
 ## Статус implementation plans
 
-### Реалізовано — 9
+### Реалізовано - 9
 
 1. `2026-06-06-homepage-light-theme.md`.
 2. `2026-07-02-catalog-features.md`.
 3. `2026-07-02-review-fixes.md`.
 4. `2026-07-06-tracks-first-class-migration.md`.
-5. `2026-07-07-global-audio-player.md` — із подальшою заміною header mini-player на bottom player.
+5. `2026-07-07-global-audio-player.md` - із подальшою заміною header mini-player на bottom player.
 6. `2026-07-13-lighthouse-lcp.md`.
 7. `2026-07-16-lazy-media-tabs.md`.
 8. `2026-07-18-export-sync-roadmap-2-4-7.md`.
 9. `2026-07-21-release-tracklist-perf.md`.
 
-### Частково — 2
+### Частково - 2
 
-1. `2026-06-25-project-hardening.md` — profile aggregation і частина security/test-depth лишилися відкритими.
-2. `2026-07-02-custom-audio-player.md` — Task 1–3 присутні, але Hagen data/infrastructure activation не завершена.
+1. `2026-06-25-project-hardening.md` - profile aggregation і частина security/test-depth лишилися відкритими.
+2. `2026-07-02-custom-audio-player.md` - Task 1-3 присутні, але Hagen data/infrastructure activation не завершена.
 
-### Не реалізовано — 11
+### Не реалізовано - 11
 
 1. `2026-06-27-sentimony-ui-refactor.md`.
 2. `2026-07-19-api-list-envelope.md`.
@@ -459,8 +459,8 @@ Use `Status: Planned`, `Last reviewed: 2026-07-22`, a `Related` link to
 | File | Priority | Findings | Scope and completion criteria |
 | --- | --- | --- | --- |
 | `catalog-visibility-security.md` | P0 | WEB-1, VITEST-1 | Apply one public-entity guard to artist detail for Firebase/Supabase; replace the hidden-success unit contract with dual-backend 404 tests; security E2E passes in both catalog modes. |
-| `typescript-hardening.md` | P1 | TS-1–TS-5, VITEST-3 | Add test typecheck, wire green Nuxt strictness flags, clean unused declarations, stage exact-optional migration, reduce assertions and add lint guardrails. Each compiler/lint command is green in CI. |
-| `component-testing-and-coverage.md` | P1 | VITEST-2, VITEST-4–VITEST-6 | Add a Nuxt/Vue component-test project, coverage baseline, risk-based branch thresholds and a documented mock cleanup policy; migrate likes/audio/auth/tabs away from source-string-only assertions. |
+| `typescript-hardening.md` | P1 | TS-1-TS-5, VITEST-3 | Add test typecheck, wire green Nuxt strictness flags, clean unused declarations, stage exact-optional migration, reduce assertions and add lint guardrails. Each compiler/lint command is green in CI. |
+| `component-testing-and-coverage.md` | P1 | VITEST-2, VITEST-4-VITEST-6 | Add a Nuxt/Vue component-test project, coverage baseline, risk-based branch thresholds and a documented mock cleanup policy; migrate likes/audio/auth/tabs away from source-string-only assertions. |
 | `e2e-reliability.md` | P1 | WEB-3, WEB-5, WEB-6 | Stabilize first-paint timing, cover track/auth routes and run functional browser tests in CI for both catalog modes; repeated CI runs are stable. |
 | `accessibility-structure.md` | P2 | WEB-4 | Add a public `<main>` landmark and one meaningful homepage `<h1>` without visual regressions; browser assertions and Accessibility 100 pass. |
 
@@ -569,7 +569,7 @@ git commit --only docs/roadmap/cloudflare-domain.md docs/roadmap/sentry-observab
 - Modify: `docs/audits/2026-07-19-quality-audit.md` only if needed to turn a broken root-path reference into a valid relative link without changing its conclusion.
 
 **Interfaces:**
-- Consumes: every roadmap file created in Tasks 3–5 and the completed list from root `ROADMAP.md`.
+- Consumes: every roadmap file created in Tasks 3-5 and the completed list from root `ROADMAP.md`.
 - Produces: the only current roadmap entry point and zero broken root-document references.
 
 - [ ] **Step 1: Create `completed.md`**
@@ -623,29 +623,29 @@ Create `docs/roadmap/README.md` with:
 актуальною точкою входу; детальний дизайн і implementation steps зберігаються у
 `docs/superpowers/specs` та `docs/superpowers/plans`.
 
-Статуси: `Planned` — є визначений результат або готові spec/plan; `Idea` — потрібен
-окремий discovery/design; `Implemented` — результат перевірено в коді.
+Статуси: `Planned` - є визначений результат або готові spec/plan; `Idea` - потрібен
+окремий discovery/design; `Implemented` - результат перевірено в коді.
 
 ## P0
 
-- [Catalog visibility security](catalog-visibility-security.md) — закрити hidden artist exposure для обох catalog backends.
-- [Mobile performance](mobile-performance.md) — досягти Lighthouse mobile Performance ≥80.
-- [CI quality gate](ci-quality-gate.md) — додати Playwright і Netlify-preset required checks.
+- [Catalog visibility security](catalog-visibility-security.md) - закрити hidden artist exposure для обох catalog backends.
+- [Mobile performance](mobile-performance.md) - досягти Lighthouse mobile Performance ≥80.
+- [CI quality gate](ci-quality-gate.md) - додати Playwright і Netlify-preset required checks.
 
 ## P1
 
-- [TypeScript hardening](typescript-hardening.md) — test typecheck, Nuxt strictness і lint guardrails.
-- [Component testing and coverage](component-testing-and-coverage.md) — поведінкові component tests та risk-based coverage.
-- [E2E reliability](e2e-reliability.md) — стабільний first-paint test і ширше browser coverage.
-- [Auth bundle](auth-bundle.md) — зменшити public-route auth/Supabase JS.
-- [API list envelope](api-list-envelope.md) — уніфікувати list responses як `{ info, results }`.
+- [TypeScript hardening](typescript-hardening.md) - test typecheck, Nuxt strictness і lint guardrails.
+- [Component testing and coverage](component-testing-and-coverage.md) - поведінкові component tests та risk-based coverage.
+- [E2E reliability](e2e-reliability.md) - стабільний first-paint test і ширше browser coverage.
+- [Auth bundle](auth-bundle.md) - зменшити public-route auth/Supabase JS.
+- [API list envelope](api-list-envelope.md) - уніфікувати list responses як `{ info, results }`.
 
 ## P2
 
-- [Profile aggregation](profile-aggregation.md) — один overview request із початковими колекціями.
-- [Production request logging](request-logging.md) — sampling і privacy redaction.
-- [Mutation hardening](mutation-hardening.md) — validation, existence checks і rate limiting.
-- [Accessibility structure](accessibility-structure.md) — `<main>` і homepage `<h1>`.
+- [Profile aggregation](profile-aggregation.md) - один overview request із початковими колекціями.
+- [Production request logging](request-logging.md) - sampling і privacy redaction.
+- [Mutation hardening](mutation-hardening.md) - validation, existence checks і rate limiting.
+- [Accessibility structure](accessibility-structure.md) - `<main>` і homepage `<h1>`.
 
 ## P3
 
@@ -806,7 +806,7 @@ node - <<'NODE'
 const fs = require('node:fs')
 const audit = fs.readFileSync('docs/audits/2026-07-22-documentation-status-audit.md', 'utf8')
 const specRows = [...audit.matchAll(/^\| `2026-.*-design\.md` \|/gm)].length
-const implemented = [...audit.matchAll(/^\d+\. `2026-.*\.md`(?: —.*)?\.$/gm)]
+const implemented = [...audit.matchAll(/^\d+\. `2026-.*\.md`(?: - .*)?\.$/gm)]
 if (specRows !== 22) throw new Error(`Expected 22 spec rows, got ${specRows}`)
 if (implemented.length !== 22) throw new Error(`Expected 22 plan items, got ${implemented.length}`)
 console.log({ specRows, planItems: implemented.length })
@@ -876,7 +876,7 @@ No additional commit is needed when all checks pass and Task 6 already committed
 
 ## Self-Review
 
-- **Spec coverage:** Audit archive → Tasks 1–2; current roadmap split → Task 3;
+- **Spec coverage:** Audit archive → Tasks 1-2; current roadmap split → Task 3;
   uncovered audit findings → Task 4; six approved future ideas → Task 5;
   completed history/root removal/cross-links → Task 6; filesystem, counts, links
   and isolation verification → Task 7.

@@ -32,7 +32,7 @@ const DATED_NAME = /^\d{4}-\d{2}-\d{2}-/
 const problems = []
 
 const fail = (file, message, line) => {
-  problems.push(`${file}${line ? `:${line}` : ''} — ${message}`)
+  problems.push(`${file}${line ? `:${line}` : ''} - ${message}`)
 }
 
 const read = path => readFileSync(path, 'utf8')

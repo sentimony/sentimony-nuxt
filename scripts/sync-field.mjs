@@ -3,8 +3,8 @@
  * Point-syncs individual fields of individual rows to Supabase, without the
  * wholesale writes of sync-supabase.mjs.
  *
- * Use it for narrow, automated edits — e.g. flipping a release's `visible`,
- * setting a track's `audio_url`, fixing one artist field — where a full catalog
+ * Use it for narrow, automated edits - e.g. flipping a release's `visible`,
+ * setting a track's `audio_url`, fixing one artist field - where a full catalog
  * sync would be overkill. For broad edits, edit server/data/sentimony-db.yml
  * and run `npm run sync:supabase` (it upserts every row by slug).
  *
@@ -106,7 +106,7 @@ for (const table of Object.keys(edits)) {
 }
 
 const editCount = Object.values(edits).reduce((n, rows) => n + Object.keys(rows).length, 0)
-console.log(`${isDryRun ? 'DRY RUN — ' : ''}field updates for ${editCount} row(s):`)
+console.log(`${isDryRun ? 'DRY RUN - ' : ''}field updates for ${editCount} row(s):`)
 for (const [table, rows] of Object.entries(edits)) {
   for (const [slug, fields] of Object.entries(rows)) {
     console.log(`  ${table}/${slug}: ${Object.entries(fields).map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(', ')}`)
@@ -166,7 +166,7 @@ for (const [table, rows] of Object.entries(edits)) {
 }
 
 if (isDryRun) {
-  console.log('\nDry run — no Supabase writes performed.')
+  console.log('\nDry run - no Supabase writes performed.')
   process.exit(0)
 }
 

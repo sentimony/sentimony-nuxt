@@ -2,9 +2,9 @@
 
 > **For agentic workers:** Use subagent-driven-development (recommended) or executing-plans to execute the plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Додати проєкту базовий рівень доступності — лендмарки, скіп-лінку, видимий фокус на всіх інтерактивних елементах, доступні імена й спроєктовані стани списків — не змінюючи композицію й візуальну мову.
+**Goal:** Додати проєкту базовий рівень доступності - лендмарки, скіп-лінку, видимий фокус на всіх інтерактивних елементах, доступні імена й спроєктовані стани списків - не змінюючи композицію й візуальну мову.
 
-**Architecture:** Усі зміни — семантичні (теги, атрибути, класи) плюс один новий компонент `CollectionStatus`, узагальнений з наявного `ProfileCollectionStatus`. Глобальне focus-правило лишається **поза `@layer`**, тому перебиває утиліти Tailwind незалежно від специфічності. Кожна зміна закріплюється юніт-тестом, який читає джерело як рядок — патерн `tests/unit/interactionStates.test.ts`.
+**Architecture:** Усі зміни - семантичні (теги, атрибути, класи) плюс один новий компонент `CollectionStatus`, узагальнений з наявного `ProfileCollectionStatus`. Глобальне focus-правило лишається **поза `@layer`**, тому перебиває утиліти Tailwind незалежно від специфічності. Кожна зміна закріплюється юніт-тестом, який читає джерело як рядок - патерн `tests/unit/interactionStates.test.ts`.
 
 **Tech Stack:** Nuxt 4, Vue 3 SFC, Tailwind v4 (`@tailwindcss/vite`, без конфігів), reka-ui, Vitest (`environment: node`, тести читають файли з диска).
 
@@ -13,25 +13,25 @@
 
 ## Global Constraints
 
-- **Мова:** коментарі в коді — англійською; commit-меседжі, заголовок і опис PR — англійською; спілкування — українською.
+- **Мова:** коментарі в коді - англійською; commit-меседжі, заголовок і опис PR - англійською; спілкування - українською.
 - **Коду не додавати понад перелічене.** Композиція, сітка, кольори поза списком V2 не міняються.
-- **Tailwind v4:** немає `tailwind.config` і `postcss.config`. Токени — в `@theme` / `@theme inline` у `app/assets/css/tailwind.css`.
-- **`@apply` заборонений у `<style scoped>`.** У `Swiper.vue` блок `<style>` не scoped і має `@reference "../assets/css/tailwind.css"` — там `@apply` працює.
+- **Tailwind v4:** немає `tailwind.config` і `postcss.config`. Токени - в `@theme` / `@theme inline` у `app/assets/css/tailwind.css`.
+- **`@apply` заборонений у `<style scoped>`.** У `Swiper.vue` блок `<style>` не scoped і має `@reference "../assets/css/tailwind.css"` - там `@apply` працює.
 - **Два текстові рівні:** `text-foreground` і `text-muted-foreground`. Рівнів `/25`, `/40`, `/50` не додавати.
 - **Focus:** використовувати `outline-*`, не `ring-*`. Ніколи не додавати безумовний `outline-none`.
-- **Файли закінчуються одним переносом рядка, без trailing whitespace, відступ — 2 пробіли.**
+- **Файли закінчуються одним переносом рядка, без trailing whitespace, відступ - 2 пробіли.**
 - **Перевірка після кожної задачі:** `npm run test:unit && npm run typecheck && npm run docs:check`.
 - **Git:** `git add` лише з явним переліком файлів; **`git add -A` і `git add .` заборонені**.
 
 ## Контекст для виконавця
 
-- **Робоче дерево брудне і це навмисно.** `package.json`, `package-lock.json`, `scripts/skills.sh` мають незв'язані зміни — вони **лишаються незастейдженими до кінця роботи**. Не комітити їх, не робити amend у чужі коміти.
+- **Робоче дерево брудне і це навмисно.** `package.json`, `package-lock.json`, `scripts/skills.sh` мають незв'язані зміни - вони **лишаються незастейдженими до кінця роботи**. Не комітити їх, не робити amend у чужі коміти.
 - **Перед кожним `git commit` звіряти індекс:** `git diff --cached --name-only` має дорівнювати allowlist задачі. `git add <paths>` не рятує від того, що в індексі вже лежить чуже, застейджене раніше.
-- **Гілка:** `a11y-baseline` від `main`. Коміт на задачу, у кінці — один squash-merge PR. Задача 8 (`CollectionStatus`) за спекою може їхати окремим PR.
-- **Швидкий прогін одного тесту:** `npx vitest run tests/unit/<file>.test.ts` — обходить хук `pretest:unit` (`convert:yml`); JSON-експорт уже на диску. Повний `npm run test:unit` — перед комітом.
-- **Не запускати `sync:*`** — вони пишуть у бойові Firebase/Supabase.
-- **Не зупиняти чужі dev-сервери** на портах 3000–3002. Свій — на `--port 3100`.
-- **Номери рядків у спеці подекуди застарілі** (вона писалась до кількох правок). Цей план містить перевірені номери; при розбіжності вірити плану, а перед правкою — перечитати файл.
+- **Гілка:** `a11y-baseline` від `main`. Коміт на задачу, у кінці - один squash-merge PR. Задача 8 (`CollectionStatus`) за спекою може їхати окремим PR.
+- **Швидкий прогін одного тесту:** `npx vitest run tests/unit/<file>.test.ts` - обходить хук `pretest:unit` (`convert:yml`); JSON-експорт уже на диску. Повний `npm run test:unit` - перед комітом.
+- **Не запускати `sync:*`** - вони пишуть у бойові Firebase/Supabase.
+- **Не зупиняти чужі dev-сервери** на портах 3000-3002. Свій - на `--port 3100`.
+- **Номери рядків у спеці подекуди застарілі** (вона писалась до кількох правок). Цей план містить перевірені номери; при розбіжності вірити плану, а перед правкою - перечитати файл.
 - **Відхилення від спеки, свідоме:** спека кладе всі нові перевірки в `interactionStates.test.ts`; план заводить `landmarks.test.ts`, `accessibleNames.test.ts` і `collectionStatus.test.ts`, а `interactionStates` розширює лише для фокуса й текстових рівнів. Файл уже на 240+ рядках і тримає інваріанти стилів, а не структури; три тематичні файли легше читати й запускати поодинці. AGENTS.md у задачі 9 називає саме ці три файли.
 
 ---
@@ -41,7 +41,7 @@
 **Files:**
 - Commit: `docs/audits/2026-09-01-frontend-crafting-audit.md`, `docs/audits/README.md`, `docs/specs/2026-09-01-accessibility-baseline-design.md`, `docs/initiatives/accessibility-structure.md`, `docs/roadmap.md`, `docs/plans/2026-09-01-accessibility-baseline.md`
 
-Аудит і спека — untracked, а `roadmap.md`, `accessibility-structure.md` і `audits/README.md` мають незакомічені зміни з тієї ж сесії (перенесення P2 → P1). Якщо їх не зафіксувати зараз, останній крок плану (`Status: Implemented`) застейджить їх разом зі своєю зміною і змішає дві не пов'язані правки в одному коміті.
+Аудит і спека - untracked, а `roadmap.md`, `accessibility-structure.md` і `audits/README.md` мають незакомічені зміни з тієї ж сесії (перенесення P2 → P1). Якщо їх не зафіксувати зараз, останній крок плану (`Status: Implemented`) застейджить їх разом зі своєю зміною і змішає дві не пов'язані правки в одному коміті.
 
 - [x] **Step 1: Перевірити, що в індексі порожньо**
 
@@ -49,7 +49,7 @@
 git diff --cached --name-only
 ```
 
-Очікування: порожній вивід. Якщо ні — `git reset` (без `--hard`), він лише спорожнює індекс і не чіпає файли.
+Очікування: порожній вивід. Якщо ні - `git reset` (без `--hard`), він лише спорожнює індекс і не чіпає файли.
 
 - [x] **Step 2: Створити гілку**
 
@@ -91,9 +91,9 @@ git commit -m "docs: add frontend audit, accessibility spec and implementation p
 - Test: `tests/unit/landmarks.test.ts` (create)
 
 **Interfaces:**
-- Produces: `<main id="main" tabindex="-1">` у `app/layouts/default.vue` — ціль скіп-лінки із задачі 2. Три `<nav>` з іменами `Main`, `Footer`, `Mobile`.
+- Produces: `<main id="main" tabindex="-1">` у `app/layouts/default.vue` - ціль скіп-лінки із задачі 2. Три `<nav>` з іменами `Main`, `Footer`, `Mobile`.
 
-**Контекст:** у проєкті **немає жодного `<nav>`** — грепом `<nav` по `app/` знаходиться тільки `app/pages/profile.vue:34` (`aria-label="Profile collection"`). Єдиний `<main>` — `app/pages/profile.vue:32`; він **віддає свій**, інакше на `/profile` буде два. Хелпер `tagClasses()` у наявних тестах шукає тег через `lastIndexOf('<', …)`, тому заміна `div` → `header`/`footer` його не ламає; `layout-loading.spec.ts` і `interactionStates.test.ts` тримаються за `data-testid`, який зберігається.
+**Контекст:** у проєкті **немає жодного `<nav>`** - грепом `<nav` по `app/` знаходиться тільки `app/pages/profile.vue:34` (`aria-label="Profile collection"`). Єдиний `<main>` - `app/pages/profile.vue:32`; він **віддає свій**, інакше на `/profile` буде два. Хелпер `tagClasses()` у наявних тестах шукає тег через `lastIndexOf('<', …)`, тому заміна `div` → `header`/`footer` його не ламає; `layout-loading.spec.ts` і `interactionStates.test.ts` тримаються за `data-testid`, який зберігається.
 
 - [x] **Step 1: Написати падаючий тест**
 
@@ -140,15 +140,15 @@ describe('document landmarks', () => {
 })
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/landmarks.test.ts
 ```
 
-Очікування: FAIL. Перший тест дає `['app/pages/profile.vue']` замість очікуваного масиву; решта — на відсутніх рядках (у четвертому `it` рядок `aria-label="Profile collection"` уже є, падають три інші `expect`).
+Очікування: FAIL. Перший тест дає `['app/pages/profile.vue']` замість очікуваного масиву; решта - на відсутніх рядках (у четвертому `it` рядок `aria-label="Profile collection"` уже є, падають три інші `expect`).
 
-- [x] **Step 3: `default.vue` — обгорнути `<slot/>` у `<main>`**
+- [x] **Step 3: `default.vue` - обгорнути `<slot/>` у `<main>`**
 
 У `app/layouts/default.vue` замінити блок на рядках 182-184:
 
@@ -166,23 +166,23 @@ npx vitest run tests/unit/landmarks.test.ts
         </main>
 ```
 
-- [x] **Step 4: `Header.vue` — `<header>` і `<nav>`**
+- [x] **Step 4: `Header.vue` - `<header>` і `<nav>`**
 
-Рядок 34: `<div data-testid="site-header" class="sticky top-0 …">` → `<header data-testid="site-header" class="sticky top-0 …">` (класи без змін). Корінь закривається **останнім** `</div>` перед `</template>` — рядок 168, відступ два пробіли → `</header>`. Проміжні закривні теги на рядках 163-167 не чіпати.
+Рядок 34: `<div data-testid="site-header" class="sticky top-0 …">` → `<header data-testid="site-header" class="sticky top-0 …">` (класи без змін). Корінь закривається **останнім** `</div>` перед `</template>` - рядок 168, відступ два пробіли → `</header>`. Проміжні закривні теги на рядках 163-167 не чіпати.
 
 Рядок 57: `<div class="hidden sm:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">` → `<nav aria-label="Main" class="hidden sm:flex gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">`; парний `</div>` на рядку 70 → `</nav>`.
 
-- [x] **Step 5: `Footer.vue` — `<footer>` і `<nav>`**
+- [x] **Step 5: `Footer.vue` - `<footer>` і `<nav>`**
 
 Рядок 13: `<div data-testid="site-footer" class="relative z-100 …">` → `<footer data-testid="site-footer" class="relative z-100 …">`; корінь закривається на рядку 91 (останній `</div>` перед `</template>`, відступ два пробіли) → `</footer>`.
 
 Рядок 17: `<div class="flex justify-center flex-wrap overflow-hidden rounded-sm border border-white/10 ">` → `<nav aria-label="Footer" class="flex justify-center flex-wrap overflow-hidden rounded-sm border border-white/10 ">`; парний `</div>` на рядку 28 (з відступом вісім пробілів) → `</nav>`. Рядок 29 закриває зовнішню обгортку `mb-10 text-sm` і лишається `</div>`.
 
-- [x] **Step 6: `OpenSidebar.vue` — `<nav>` у шухляді**
+- [x] **Step 6: `OpenSidebar.vue` - `<nav>` у шухляді**
 
-Рядок 74: `<div class="flex flex-col items-center gap-1 px-2 py-2">` (перший з двох однакових — той, що містить `v-for="i in getNav()"`) → `<nav aria-label="Mobile" class="flex flex-col items-center gap-1 px-2 py-2">`; його закривний `</div>` на рядку 86 → `</nav>`. **Другий** блок із тими самими класами (рядок 90, з кнопкою теми і Profile) не чіпати.
+Рядок 74: `<div class="flex flex-col items-center gap-1 px-2 py-2">` (перший з двох однакових - той, що містить `v-for="i in getNav()"`) → `<nav aria-label="Mobile" class="flex flex-col items-center gap-1 px-2 py-2">`; його закривний `</div>` на рядку 86 → `</nav>`. **Другий** блок із тими самими класами (рядок 90, з кнопкою теми і Profile) не чіпати.
 
-- [x] **Step 7: `profile.vue` — віддати `<main>`**
+- [x] **Step 7: `profile.vue` - віддати `<main>`**
 
 Рядок 32: `<main class="px-4 py-10 sm:py-12">` → `<div class="px-4 py-10 sm:py-12">`; рядок 52 `</main>` → `</div>`.
 
@@ -218,7 +218,7 @@ git commit -m "feat(a11y): add header, footer, nav and main landmarks"
 **Interfaces:**
 - Consumes: `<main id="main" tabindex="-1">` із задачі 1.
 
-**Контекст:** дві пастки. Перша — `not-sr-only` виставляє `position: static`, і селектор `.focus\:not-sr-only:focus` (0,2,0) переб'є голий `fixed` (0,1,0); тому позиціювання теж має бути під варіантом `focus:`. Друга — після переходу браузер намалює власне обведення навколо всього `<main>`; глушимо його точково через `#main:focus { outline: none }` (це не порушує правило «не додавати безумовний `outline-none`»: елемент не інтерактивний, фокус на ньому — суто програмний). Значення `scroll-padding`: хедер `h-18` = 4.5rem + 1px бордюр → 5rem зверху; `GlobalPlayer` `min-h-[71px]` → 5rem знизу.
+**Контекст:** дві пастки. Перша - `not-sr-only` виставляє `position: static`, і селектор `.focus\:not-sr-only:focus` (0,2,0) переб'є голий `fixed` (0,1,0); тому позиціювання теж має бути під варіантом `focus:`. Друга - після переходу браузер намалює власне обведення навколо всього `<main>`; глушимо його точково через `#main:focus { outline: none }` (це не порушує правило «не додавати безумовний `outline-none`»: елемент не інтерактивний, фокус на ньому - суто програмний). Значення `scroll-padding`: хедер `h-18` = 4.5rem + 1px бордюр → 5rem зверху; `GlobalPlayer` `min-h-[71px]` → 5rem знизу.
 
 - [x] **Step 1: Дописати падаючі перевірки**
 
@@ -254,7 +254,7 @@ describe('skip link', () => {
 })
 ```
 
-Хелпер `cssBlock` у цьому файлі ще не визначений — додати його одразу після `readProjectFile` на початку файлу (копія робочої версії з `interactionStates.test.ts:8-13`):
+Хелпер `cssBlock` у цьому файлі ще не визначений - додати його одразу після `readProjectFile` на початку файлу (копія робочої версії з `interactionStates.test.ts:8-13`):
 
 ```ts
 const cssBlock = (source: string, opener: string) => {
@@ -265,13 +265,13 @@ const cssBlock = (source: string, opener: string) => {
 }
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/landmarks.test.ts
 ```
 
-Очікування: FAIL на трьох нових перевірках; чотири з задачі 1 — PASS.
+Очікування: FAIL на трьох нових перевірках; чотири з задачі 1 - PASS.
 
 - [x] **Step 3: Додати скіп-лінку першим вузлом шаблону**
 
@@ -284,7 +284,7 @@ npx vitest run tests/unit/landmarks.test.ts
   >Skip to content</a>
 ```
 
-Звичайний `<a>`, не `NuxtLink`: ціль — якір у поточному документі, роутер тут не потрібен.
+Звичайний `<a>`, не `NuxtLink`: ціль - якір у поточному документі, роутер тут не потрібен.
 
 - [x] **Step 4: Додати `scroll-padding` і погасити обведення цілі**
 
@@ -326,13 +326,13 @@ npx vitest run tests/unit/landmarks.test.ts tests/unit/interactionStates.test.ts
 
 - [x] **Step 6: Перевірити скіп-лінку живцем (руками, не тестом)**
 
-Юніт-тест бачить лише класи; чи справді `focus:fixed` перебиває `position: static` із `not-sr-only`, показує тільки браузер. Перевіряти тут, а не в задачі 9, — інакше помилка в порядку утиліт проїде ще сім комітів.
+Юніт-тест бачить лише класи; чи справді `focus:fixed` перебиває `position: static` із `not-sr-only`, показує тільки браузер. Перевіряти тут, а не в задачі 9, - інакше помилка в порядку утиліт проїде ще сім комітів.
 
 ```bash
 npm run dev -- --port 3100
 ```
 
-На `http://localhost:3100/`: натиснути `Tab` одразу після завантаження — першим має з'явитися видиме «Skip to content» у верхньому лівому куті (бургер сидить праворуч, `top-0 right-0`, тож перетину немає); `Enter` має перенести фокус на контент **під** липким хедером, без обведення навколо `<main>`. Зупинити **тільки цей** сервер. Порядок утиліт підтверджено компіляцією через `@tailwindcss/node` з репозиторію: `.focus\:not-sr-only:focus` виходить раніше за `.focus\:fixed:focus` і `.focus\:px-4:focus`, тож `fixed` і відступи виграють. Живцем перевіряється те, чого компіляція не покаже: відсутність обведення на `<main>` і приземлення під хедером завдяки `scroll-padding-top`. Якщо щось не так — зафіксувати спостереження й спитати, не вигадувати стилі на місці.
+На `http://localhost:3100/`: натиснути `Tab` одразу після завантаження - першим має з'явитися видиме «Skip to content» у верхньому лівому куті (бургер сидить праворуч, `top-0 right-0`, тож перетину немає); `Enter` має перенести фокус на контент **під** липким хедером, без обведення навколо `<main>`. Зупинити **тільки цей** сервер. Порядок утиліт підтверджено компіляцією через `@tailwindcss/node` з репозиторію: `.focus\:not-sr-only:focus` виходить раніше за `.focus\:fixed:focus` і `.focus\:px-4:focus`, тож `fixed` і відступи виграють. Живцем перевіряється те, чого компіляція не покаже: відсутність обведення на `<main>` і приземлення під хедером завдяки `scroll-padding-top`. Якщо щось не так - зафіксувати спостереження й спитати, не вигадувати стилі на місці.
 
 - [x] **Step 7: Повна перевірка й коміт**
 
@@ -352,15 +352,15 @@ git commit -m "feat(a11y): add skip link and scroll padding for sticky bars"
 - Modify: `app/error.vue:15-29`
 - Test: `tests/unit/landmarks.test.ts` (доповнити)
 
-**Контекст:** `error.vue` рендериться **поза** `NuxtLayout`, тому не отримує ні `<main>` із задачі 1, ні скіп-лінки. `lang` у нього є — оголошений у `nuxt.config.ts:24`, не в `app.vue`.
+**Контекст:** `error.vue` рендериться **поза** `NuxtLayout`, тому не отримує ні `<main>` із задачі 1, ні скіп-лінки. `lang` у нього є - оголошений у `nuxt.config.ts:24`, не в `app.vue`.
 
-**Пастка навігації:** клієнтський перехід зі сторінки помилки **не скидає** саму помилку — `<NuxtLink to="/releases">` лишить користувача на тій самій сторінці помилки. Тому кожна кнопка викликає `clearError({ redirect })`. `PrimaryButton` для цього не годиться: він рендерить `<Button as-child>` навколо посилання й не має `@click`-обробника (`app/components/buttons/PrimaryButton.vue:26-33`) — беремо `DefaultButton`, який приймає `@click`.
+**Пастка навігації:** клієнтський перехід зі сторінки помилки **не скидає** саму помилку - `<NuxtLink to="/releases">` лишить користувача на тій самій сторінці помилки. Тому кожна кнопка викликає `clearError({ redirect })`. `PrimaryButton` для цього не годиться: він рендерить `<Button as-child>` навколо посилання й не має `@click`-обробника (`app/components/buttons/PrimaryButton.vue:26-33`) - беремо `DefaultButton`, який приймає `@click`.
 
 - [x] **Step 1: Дописати падаючі перевірки**
 
 У `tests/unit/landmarks.test.ts`, у кінець файлу:
 
-Спершу оновити масив у тесті задачі 1 — `error.vue` тепер теж володіє лендмарком:
+Спершу оновити масив у тесті задачі 1 - `error.vue` тепер теж володіє лендмарком:
 
 ```ts
     expect(owners.sort()).toEqual(['app/error.vue', 'app/layouts/default.vue'])
@@ -393,7 +393,7 @@ describe('page title elements', () => {
 })
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/landmarks.test.ts
@@ -401,7 +401,7 @@ npx vitest run tests/unit/landmarks.test.ts
 
 Очікування: FAIL на трьох нових.
 
-- [x] **Step 3: `Hero.vue` — підвищити рядок 27**
+- [x] **Step 3: `Hero.vue` - підвищити рядок 27**
 
 Замінити:
 
@@ -415,11 +415,11 @@ npx vitest run tests/unit/landmarks.test.ts
         <h1 v-html="heroTitle"/>
 ```
 
-Більше нічого в цьому файлі не чіпати. Preflight Tailwind скидає `font-size`, `font-weight` і `margin` у `h1`, тож візуально нічого не рухається — снапшот `homepage-theme.spec.ts` лишається валідним.
+Більше нічого в цьому файлі не чіпати. Preflight Tailwind скидає `font-size`, `font-weight` і `margin` у `h1`, тож візуально нічого не рухається - снапшот `homepage-theme.spec.ts` лишається валідним.
 
-`heroTitle` дорівнює `'Sentimony<br>'`, тож доступне ім'я `<h1>` — «Sentimony», без «Records» (воно сидить у сусідньому `div` із `heroSubTitle`, розбите на літери). Спека свідомо обрала мінімальну правку «навколо наявного `heroTitle`, класи не змінюються»; тут це рішення виконується як є. Варіант із `<h1>` на зовнішній обгортці (внутрішні `div` → `span class="block"`) записаний у розділі «Що лишилось поза планом».
+`heroTitle` дорівнює `'Sentimony<br>'`, тож доступне ім'я `<h1>` - «Sentimony», без «Records» (воно сидить у сусідньому `div` із `heroSubTitle`, розбите на літери). Спека свідомо обрала мінімальну правку «навколо наявного `heroTitle`, класи не змінюються»; тут це рішення виконується як є. Варіант із `<h1>` на зовнішній обгортці (внутрішні `div` → `span class="block"`) записаний у розділі «Що лишилось поза планом».
 
-- [x] **Step 4: `error.vue` — переписати шаблон**
+- [x] **Step 4: `error.vue` - переписати шаблон**
 
 Замінити шаблон цілком (рядки 15-30, від `<template>` до `</template>` включно):
 
@@ -479,15 +479,15 @@ git commit -m "feat(a11y): add h1 to homepage hero and rebuild the error page"
 - Modify: `tests/e2e/homepage-theme.spec.ts:185`
 - Test: `tests/unit/interactionStates.test.ts:97-110`
 
-**E2E-пастка:** `tests/e2e/homepage-theme.spec.ts:185` перевіряє `await expect(themeToggle).toHaveClass(/focus-visible:ring-2/)` — саме той клас, який крок 4 видаляє. Без правки задача 9 впаде на e2e, попри те що юніт-тести зелені. Playwright не в CI, тож локально це ніхто не помітить до ручного прогону.
+**E2E-пастка:** `tests/e2e/homepage-theme.spec.ts:185` перевіряє `await expect(themeToggle).toHaveClass(/focus-visible:ring-2/)` - саме той клас, який крок 4 видаляє. Без правки задача 9 впаде на e2e, попри те що юніт-тести зелені. Playwright не в CI, тож локально це ніхто не помітить до ручного прогону.
 
-**Контекст (важливо):** правило написане **поза `@layer`**, а всі утиліти Tailwind v4 лежать у `@layer utilities`. Нешарова декларація виграє в шарової **незалежно від специфічності** — тому після розширення селектора жоден компонент не зможе вбити фокус локальним `outline-none`. Це і є мета. Наслідок: два місця дадуть подвійну індикацію й чистяться руками. `ThemeToggle.vue:9` — єдине місце з `focus-visible:ring-*` у всьому `app/`; профільний тест (`interactionStates.test.ts:210`) такі класи вже забороняє, тож приводимо до спільного правила. `Header.vue:129,138` — мертвий `outline-none`, який правило вже сьогодні перебиває на `<a>`.
+**Контекст (важливо):** правило написане **поза `@layer`**, а всі утиліти Tailwind v4 лежать у `@layer utilities`. Нешарова декларація виграє в шарової **незалежно від специфічності** - тому після розширення селектора жоден компонент не зможе вбити фокус локальним `outline-none`. Це і є мета. Наслідок: два місця дадуть подвійну індикацію й чистяться руками. `ThemeToggle.vue:9` - єдине місце з `focus-visible:ring-*` у всьому `app/`; профільний тест (`interactionStates.test.ts:210`) такі класи вже забороняє, тож приводимо до спільного правила. `Header.vue:129,138` - мертвий `outline-none`, який правило вже сьогодні перебиває на `<a>`.
 
-`focus:outline-none` у `OpenImage.vue:89` і `OpenSidebar.vue:66` **не чіпати** — це `DialogContent` reka-ui, програмний фокус на контейнері діалогу, не інтерактивний елемент.
+`focus:outline-none` у `OpenImage.vue:89` і `OpenSidebar.vue:66` **не чіпати** - це `DialogContent` reka-ui, програмний фокус на контейнері діалогу, не інтерактивний елемент.
 
 - [x] **Step 1: Оновити тест під новий селектор**
 
-У `tests/unit/interactionStates.test.ts` у першому `it` блоку `non-primitive focus` замінити **тільки рядки 98-104** (до порожнього рядка перед `passwordToggleFocusRule`; рядки 105-110 з перевірками `button.password-toggle` і закривним `})` лишаються як є — вони в тому самому `it`, не в окремому):
+У `tests/unit/interactionStates.test.ts` у першому `it` блоку `non-primitive focus` замінити **тільки рядки 98-104** (до порожнього рядка перед `passwordToggleFocusRule`; рядки 105-110 з перевірками `button.password-toggle` і закривним `})` лишаються як є - вони в тому самому `it`, не в окремому):
 
 ```ts
   it('replaces browser-default focus colours with the semantic ring token', () => {
@@ -516,7 +516,7 @@ git commit -m "feat(a11y): add h1 to homepage hero and rebuild the error page"
     expect(enclosingLayer, 'the rule must stay unlayered').toBe(-1)
 ```
 
-Після заміни `it` виглядає так: новий блок вище, порожній рядок, чотири незмінені `expect(passwordToggleFocusRule…)`, `})`. Перевірка на `@layer` навмисно груба (спрацює й на закритий `@layer` вище по файлу) — у `tailwind.css` його нема взагалі, і це прийнятна ціна за простоту.
+Після заміни `it` виглядає так: новий блок вище, порожній рядок, чотири незмінені `expect(passwordToggleFocusRule…)`, `})`. Перевірка на `@layer` навмисно груба (спрацює й на закритий `@layer` вище по файлу) - у `tailwind.css` його нема взагалі, і це прийнятна ціна за простоту.
 
 І додати новий `it` у той самий `describe`:
 
@@ -530,13 +530,13 @@ git commit -m "feat(a11y): add h1 to homepage hero and rebuild the error page"
   })
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/interactionStates.test.ts
 ```
 
-Очікування: FAIL — блок за новим опенером не знайдено, і `ThemeToggle` містить `outline-none`.
+Очікування: FAIL - блок за новим опенером не знайдено, і `ThemeToggle` містить `outline-none`.
 
 - [x] **Step 3: Розширити селектор**
 
@@ -562,7 +562,7 @@ a:focus-visible {
 
 - [x] **Step 4: Прибрати ring із `ThemeToggle`**
 
-`app/components/ThemeToggle.vue:9` — з `class` видалити чотири класи: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`. Результат:
+`app/components/ThemeToggle.vue:9` - з `class` видалити чотири класи: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`. Результат:
 
 ```vue
     class="flex items-center justify-center transition-[background-color] ease-in-out duration-300 hover:bg-white/30 size-9 rounded-md"
@@ -570,8 +570,8 @@ a:focus-visible {
 
 - [x] **Step 5: Прибрати мертвий `outline-none` у `Header`**
 
-`app/components/Header.vue:129` — видалити ` outline-none` з рядка класів (лишається `… hover:bg-black/10 dark:hover:bg-white/10 data-[highlighted]:bg-black/10 …`).
-`app/components/Header.vue:138` — так само видалити ` outline-none`.
+`app/components/Header.vue:129` - видалити ` outline-none` з рядка класів (лишається `… hover:bg-black/10 dark:hover:bg-white/10 data-[highlighted]:bg-black/10 …`).
+`app/components/Header.vue:138` - так само видалити ` outline-none`.
 
 - [x] **Step 6: Оновити e2e-перевірку фокуса на перемикачі теми**
 
@@ -618,7 +618,7 @@ git commit -m "feat(a11y): extend the focus rule to buttons, ranges and summarie
 npm run dev -- --port 3100
 ```
 
-Відкрити `http://localhost:3100/releases/`, `Tab`-ом дійти до повзунка гучності в нижньому плеєрі, перевірити вигляд обведення у **світлій і темній** темі (перемикач у хедері). Зупинити **тільки цей** сервер (Ctrl+C у його вікні). Якщо обведення виглядає прийнятно — далі за планом; якщо ні — зафіксувати спостереження і винести окремим питанням, **не** вигадуючи стилі на місці.
+Відкрити `http://localhost:3100/releases/`, `Tab`-ом дійти до повзунка гучності в нижньому плеєрі, перевірити вигляд обведення у **світлій і темній** темі (перемикач у хедері). Зупинити **тільки цей** сервер (Ctrl+C у його вікні). Якщо обведення виглядає прийнятно - далі за планом; якщо ні - зафіксувати спостереження і винести окремим питанням, **не** вигадуючи стилі на місці.
 
 ---
 
@@ -630,11 +630,11 @@ npm run dev -- --port 3100
 - Modify: `app/components/Swiper.vue:78-84,167-175`
 - Test: `tests/unit/accessibleNames.test.ts` (create)
 
-**Контекст:** три P0/P1 з аудиту в одній задачі, бо всі три — «елемент без імені або без ролі».
+**Контекст:** три P0/P1 з аудиту в одній задачі, бо всі три - «елемент без імені або без ролі».
 
-- **T3 `OpenImage`:** прев'ю — це `<div @click>` (рядок 62), тобто з клавіатури повноекранне зображення не відкрити взагалі. Всередині кнопки **не можна** лишати `<div>` — контентна модель `<button>` забороняє блокові нащадки; обидва внутрішні `div` стають `<span class="block …">`. Логіку `if (props.image_xl)` з `open()` переносимо в `:disabled`. Після цього `isOpen`/`open` не потрібні — стан веде `DialogRoot` через `DialogTrigger`. `openImage.test.ts` тримається за `thumb(props.image_th)`, `v-if="previewImage"` і `:src="previewImage"` — усе зберігається.
-- **T4 `Tabs`:** при п'яти й більше табах (`hideTitles`) підпис ховається і тригер лишається чистою іконкою без імені; на `release/[id].vue` табів рівно п'ять — дефект живий у продакшені.
-- **T10 `Swiper`:** кнопки стрілок без `type` і без імені. Заодно свайпер отримує `<section :aria-label="title">` — за рішенням 3 спеки заголовок **лишається `<div>`** (підвищення до `<h2>` дало б `h2` перед `<h1>` сторінки).
+- **T3 `OpenImage`:** прев'ю - це `<div @click>` (рядок 62), тобто з клавіатури повноекранне зображення не відкрити взагалі. Всередині кнопки **не можна** лишати `<div>` - контентна модель `<button>` забороняє блокові нащадки; обидва внутрішні `div` стають `<span class="block …">`. Логіку `if (props.image_xl)` з `open()` переносимо в `:disabled`. Після цього `isOpen`/`open` не потрібні - стан веде `DialogRoot` через `DialogTrigger`. `openImage.test.ts` тримається за `thumb(props.image_th)`, `v-if="previewImage"` і `:src="previewImage"` - усе зберігається.
+- **T4 `Tabs`:** при п'яти й більше табах (`hideTitles`) підпис ховається і тригер лишається чистою іконкою без імені; на `release/[id].vue` табів рівно п'ять - дефект живий у продакшені.
+- **T10 `Swiper`:** кнопки стрілок без `type` і без імені. Заодно свайпер отримує `<section :aria-label="title">` - за рішенням 3 спеки заголовок **лишається `<div>`** (підвищення до `<h2>` дало б `h2` перед `<h1>` сторінки).
 
 - [x] **Step 1: Написати падаючий тест**
 
@@ -701,7 +701,7 @@ describe('swiper controls', () => {
 })
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/accessibleNames.test.ts
@@ -709,7 +709,7 @@ npx vitest run tests/unit/accessibleNames.test.ts
 
 Очікування: FAIL на всіх блоках.
 
-- [x] **Step 3: `OpenImage.vue` — тригер стає кнопкою**
+- [x] **Step 3: `OpenImage.vue` - тригер стає кнопкою**
 
 У `<script setup>` видалити рядки 12-13:
 
@@ -718,7 +718,7 @@ const isOpen = ref(false)
 const open = () => { if (props.image_xl) isOpen.value = true }
 ```
 
-і прибрати `ref` з імпорту на рядку 2 (`import { computed } from 'vue'`) — `ref` більше ніде у файлі не використовується.
+і прибрати `ref` з імпорту на рядку 2 (`import { computed } from 'vue'`) - `ref` більше ніде у файлі не використовується.
 
 У шаблоні замінити рядки 60-82:
 
@@ -780,15 +780,15 @@ const open = () => { if (props.image_xl) isOpen.value = true }
     </DialogTrigger>
 ```
 
-`comingImage` (рядок 24) теж містить `<div>` — замінити його на `<span class="block …">`:
+`comingImage` (рядок 24) теж містить `<div>` - замінити його на `<span class="block …">`:
 
 ```ts
 const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">Image is<br>coming ⛄</span>'
 ```
 
-(заодно закриває один пункт V2 — `text-white/50` тут був третім текстовим рівнем.)
+(заодно закриває один пункт V2 - `text-white/50` тут був третім текстовим рівнем.)
 
-- [x] **Step 4: `Tabs.vue` — ім'я для іконкового тригера**
+- [x] **Step 4: `Tabs.vue` - ім'я для іконкового тригера**
 
 У `app/components/Tabs.vue` на `<TabsTrigger>` (рядок 25) додати атрибут одразу після `:value="tab.id"`:
 
@@ -796,9 +796,9 @@ const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">I
                 :aria-label="hideTitles ? plainTitle(tab.info.title) : undefined"
 ```
 
-- [x] **Step 5: `Swiper.vue` — секція і назви стрілок**
+- [x] **Step 5: `Swiper.vue` - секція і назви стрілок**
 
-Рядок 78-80 — корінь стає `<section>`:
+Рядок 78-80 - корінь стає `<section>`:
 
 ```vue
   <section
@@ -807,9 +807,9 @@ const comingImage = '<span class="block p-4 text-[12px] text-muted-foreground">I
   >
 ```
 
-(дублікат `class="overflow-hidden"` на рядку 78 прибирається — той самий клас уже є в масиві.) Закривний `</div>` на рядку 179 → `</section>`.
+(дублікат `class="overflow-hidden"` на рядку 78 прибирається - той самий клас уже є в масиві.) Закривний `</div>` на рядку 179 → `</section>`.
 
-Рядки 167-175 — кнопки:
+Рядки 167-175 - кнопки:
 
 ```vue
         <button
@@ -877,7 +877,7 @@ git commit -m "feat(a11y): give the image trigger, icon tabs and swiper arrows a
   })
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/audioBottomPlayer.test.ts
@@ -913,7 +913,7 @@ const nowPlayingLabel = computed(() => {
     <p class="sr-only" aria-live="polite" aria-atomic="true">{{ nowPlayingLabel }}</p>
 ```
 
-(закривний тег на рядку 214 лишається без змін — новий `<p>` самозакривається всередині.)
+(закривний тег на рядку 214 лишається без змін - новий `<p>` самозакривається всередині.)
 
 - [x] **Step 5: Прогнати тести**
 
@@ -942,15 +942,15 @@ git commit -m "feat(a11y): announce the current track in a live region"
 - Modify: `app/components/ui/button/index.ts:20`
 - Test: `tests/unit/interactionStates.test.ts:183-234` (розширити список файлів)
 
-**Контекст:** AGENTS.md фіксує два семантичні рівні тексту й прямо каже, що `/40` і `/50` не проходять WCAG AA у світлій темі. Правило вже захищене тестом — але тільки для auth і profile, тому рівень і повернувся в каталог.
+**Контекст:** AGENTS.md фіксує два семантичні рівні тексту й прямо каже, що `/40` і `/50` не проходять WCAG AA у світлій темі. Правило вже захищене тестом - але тільки для auth і profile, тому рівень і повернувся в каталог.
 
 **Чого не чіпати:**
-- `app/pages/ui.vue` — внутрішній UI-kit, поза публічним скоупом (9 входжень).
-- `text-foreground/60` і `/70` — проходять поріг аудиту 2026-07-25 і лишаються.
+- `app/pages/ui.vue` - внутрішній UI-kit, поза публічним скоупом (9 входжень).
+- `text-foreground/60` і `/70` - проходять поріг аудиту 2026-07-25 і лишаються.
 
-**Явне рішення по `ui/button/index.ts:20`:** це варіант `soft`, на якому побудований `<LikeButton>` малого розміру, тобто зміна видно на **кожній картці каталогу**. Замінюємо `text-foreground/40` → `text-muted-foreground` (з 40% до 62% альфи — контрастніше, не тьмяніше), `hover:border-foreground/40` лишається як бордюр, не текст.
+**Явне рішення по `ui/button/index.ts:20`:** це варіант `soft`, на якому побудований `<LikeButton>` малого розміру, тобто зміна видно на **кожній картці каталогу**. Замінюємо `text-foreground/40` → `text-muted-foreground` (з 40% до 62% альфи - контрастніше, не тьмяніше), `hover:border-foreground/40` лишається як бордюр, не текст.
 
-**У візуальний чек-лист:** `Swiper.vue:141` — розділювач секцій артистів іде з `/25` на 62%; його `bg-current` лінії потемнішають разом із текстом. Перевірити разом із повзунком із задачі 4.
+**У візуальний чек-лист:** `Swiper.vue:141` - розділювач секцій артистів іде з `/25` на 62%; його `bg-current` лінії потемнішають разом із текстом. Перевірити разом із повзунком із задачі 4.
 
 - [x] **Step 1: Розширити тест на каталог**
 
@@ -981,7 +981,7 @@ describe('catalog surface', () => {
 })
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/interactionStates.test.ts
@@ -1002,7 +1002,7 @@ done
 git diff --stat
 ```
 
-`perl -pi -e` замість `sed -i` — на macOS BSD `sed` вимагає аргумент до `-i` і мовчки створює бекапи.
+`perl -pi -e` замість `sed -i` - на macOS BSD `sed` вимагає аргумент до `-i` і мовчки створює бекапи.
 
 - [x] **Step 4: Перевірити, що `hover:` не постраждав**
 
@@ -1010,7 +1010,7 @@ git diff --stat
 grep -rn "hover:text-foreground/\|group-hover:text-foreground/" app/pages/news.vue app/components/Swiper.vue
 ```
 
-Очікування: `news.vue:102` зберігає `group-hover:text-foreground/70`, `Swiper.vue:191` — `hover:text-foreground/80`. Регекс має `\b` і не чіпає `/70`, `/80`; префікси `hover:`/`group-hover:` теж мали б лишитись, бо мінялася тільки частина `text-foreground/NN`. Якщо десь вийшло `hover:text-muted-foreground` — це коректно (був `/40` чи `/50`), але звірити візуально в diff.
+Очікування: `news.vue:102` зберігає `group-hover:text-foreground/70`, `Swiper.vue:191` - `hover:text-foreground/80`. Регекс має `\b` і не чіпає `/70`, `/80`; префікси `hover:`/`group-hover:` теж мали б лишитись, бо мінялася тільки частина `text-foreground/NN`. Якщо десь вийшло `hover:text-muted-foreground` - це коректно (був `/40` чи `/50`), але звірити візуально в diff.
 
 - [x] **Step 5: Прогнати тести**
 
@@ -1018,7 +1018,7 @@ grep -rn "hover:text-foreground/\|group-hover:text-foreground/" app/pages/news.v
 npx vitest run tests/unit/interactionStates.test.ts tests/unit/likeButtons.test.ts
 ```
 
-Очікування: PASS обидва. `likeButtons.test.ts` не згадує `text-foreground/40` (перевірено грепом), тож зміна варіанта `soft` його не зачіпає — прогін тут як регресійна страховка, бо `<LikeButton>` побудований саме на цьому варіанті.
+Очікування: PASS обидва. `likeButtons.test.ts` не згадує `text-foreground/40` (перевірено грепом), тож зміна варіанта `soft` його не зачіпає - прогін тут як регресійна страховка, бо `<LikeButton>` побудований саме на цьому варіанті.
 
 - [x] **Step 6: Повна перевірка й коміт**
 
@@ -1047,13 +1047,13 @@ git commit -m "feat(a11y): keep catalog metadata on the two semantic text tiers"
 
 **Interfaces:**
 - Produces: `<CollectionStatus>` з пропсами `loading: boolean`, `loaded: boolean`, `hasMore?: boolean`, `remaining?: number`, `empty?: boolean`, `error?: boolean`, `emptyText?: string`; емітить `loadMore` і `retry`.
-- Consumes: нічого з попередніх задач — може їхати окремим PR.
+- Consumes: нічого з попередніх задач - може їхати окремим PR.
 
-**Контекст:** це **єдина поведінкова зміна** плану; решта — семантика й стилі. `ProfileCollectionStatus` уже вміє три стани (error з `role="alert"` і кнопкою повтору, loading, empty) — узагальнюємо його, а не пишемо новий. Компонент використовується у 10+ місцях, тож правило «no new abstractions unless used in 2+ places» виконано.
+**Контекст:** це **єдина поведінкова зміна** плану; решта - семантика й стилі. `ProfileCollectionStatus` уже вміє три стани (error з `role="alert"` і кнопкою повтору, loading, empty) - узагальнюємо його, а не пишемо новий. Компонент використовується у 10+ місцях, тож правило «no new abstractions unless used in 2+ places» виконано.
 
-Композабли віддають повний результат `useAsyncData` (перевірено на `useReleases` — `app/composables/useReleases.ts` повертає його напряму), тож `status` і `error` доступні без змін API. Прив'язка на сторінках списку: `loading = status === 'pending'`, `loaded = status === 'success'`, `error = !!error`, `empty = loaded && list.length === 0`, `@retry="refresh()"`. `hasMore`/`remaining` для них не потрібні — пагінації немає, тому пропси опційні.
+Композабли віддають повний результат `useAsyncData` (перевірено на `useReleases` - `app/composables/useReleases.ts` повертає його напряму), тож `status` і `error` доступні без змін API. Прив'язка на сторінках списку: `loading = status === 'pending'`, `loaded = status === 'success'`, `error = !!error`, `empty = loaded && list.length === 0`, `@retry="refresh()"`. `hasMore`/`remaining` для них не потрібні - пагінації немає, тому пропси опційні.
 
-`emptyText` потрібен, бо «Nothing saved here yet» — профільна копія; для `/releases/ungrouped` порожній результат штатний і має свій рядок.
+`emptyText` потрібен, бо «Nothing saved here yet» - профільна копія; для `/releases/ungrouped` порожній результат штатний і має свій рядок.
 
 - [x] **Step 1: Написати падаючий тест**
 
@@ -1125,13 +1125,13 @@ describe('list pages report their state', () => {
 })
 ```
 
-- [x] **Step 2: Прогнати — має впасти**
+- [x] **Step 2: Прогнати - має впасти**
 
 ```bash
 npx vitest run tests/unit/collectionStatus.test.ts
 ```
 
-Очікування: FAIL — `app/components/CollectionStatus.vue` не існує (`ENOENT`).
+Очікування: FAIL - `app/components/CollectionStatus.vue` не існує (`ENOENT`).
 
 - [x] **Step 3: Створити `CollectionStatus.vue`**
 
@@ -1215,19 +1215,19 @@ perl -pi -e 's/ProfileCollectionStatus/CollectionStatus/g' \
 git rm app/components/ProfileCollectionStatus.vue
 ```
 
-`interactionStates.test.ts:186` мав `'app/components/ProfileCollectionStatus.vue'` у `PROFILE_FILES` — після заміни там `'app/components/CollectionStatus.vue'`, шлях валідний. `profileCollectionStatus.test.ts` після заміни читає новий файл; його три перевірки дублюють нові — це нормально, лишаємо обидва (профільний перевіряє інтеграцію зі сторінками profile).
+`interactionStates.test.ts:186` мав `'app/components/ProfileCollectionStatus.vue'` у `PROFILE_FILES` - після заміни там `'app/components/CollectionStatus.vue'`, шлях валідний. `profileCollectionStatus.test.ts` після заміни читає новий файл; його три перевірки дублюють нові - це нормально, лишаємо обидва (профільний перевіряє інтеграцію зі сторінками profile).
 
-- [x] **Step 5: Прогнати — profile має лишитись зеленим**
+- [x] **Step 5: Прогнати - profile має лишитись зеленим**
 
 ```bash
 npx vitest run tests/unit/collectionStatus.test.ts tests/unit/profileCollectionStatus.test.ts tests/unit/interactionStates.test.ts tests/unit/profilePages.test.ts
 ```
 
-Очікування: `collectionStatus.test.ts` — перший `describe` PASS, другий (`list pages`) FAIL; решта файлів PASS.
+Очікування: `collectionStatus.test.ts` - перший `describe` PASS, другий (`list pages`) FAIL; решта файлів PASS.
 
 - [x] **Step 6: Підключити до простих списків**
 
-Патерн однаковий для `releases/index.vue`, `videos.vue`, `events.vue`, `playlists.vue`. Приклад для `app/pages/releases/index.vue` — у `<script setup>` замінити рядок 4:
+Патерн однаковий для `releases/index.vue`, `videos.vue`, `events.vue`, `playlists.vue`. Приклад для `app/pages/releases/index.vue` - у `<script setup>` замінити рядок 4:
 
 ```ts
 const { data: releasesRaw } = await useReleases()
@@ -1252,11 +1252,11 @@ const { data: releasesRaw, status, error, refresh } = await useReleases()
     />
 ```
 
-Для решти — те саме з відповідними іменами: `videos.vue` (`useVideos`, `videosSortedByDate`, «No videos published yet»), `events.vue` (`useEvents`, `eventsSortedByDate`, «No events announced yet»), `playlists.vue` (`usePlaylists`, `playlistsSortedByDate`, «No playlists published yet»), `friends.vue` (`useFriends`, `friendsSortedByDate`, «No friends listed yet»).
+Для решти - те саме з відповідними іменами: `videos.vue` (`useVideos`, `videosSortedByDate`, «No videos published yet»), `events.vue` (`useEvents`, `eventsSortedByDate`, «No events announced yet»), `playlists.vue` (`usePlaylists`, `playlistsSortedByDate`, «No playlists published yet»), `friends.vue` (`useFriends`, `friendsSortedByDate`, «No friends listed yet»).
 
 - [x] **Step 7: Підключити до складених списків**
 
-`app/components/ReleasesFiltered.vue` — рядок 10 → `const { data: releasesRaw, status, error, refresh } = await useReleases()`; у шаблоні після сітки (рядок 33):
+`app/components/ReleasesFiltered.vue` - рядок 10 → `const { data: releasesRaw, status, error, refresh } = await useReleases()`; у шаблоні після сітки (рядок 33):
 
 ```vue
     <CollectionStatus
@@ -1269,7 +1269,7 @@ const { data: releasesRaw, status, error, refresh } = await useReleases()
     />
 ```
 
-`app/pages/artists/index.vue` — чотири `<h2>`-секції при порожньому результаті лишаються заголовками без вмісту, тому статус іде **перед** ними, а самі секції ховаються. Порожнечу міряти по `artistsSortedForCatalog`, не по `artists`: `sortArtistsForCatalog()` (`app/utils/artists.ts:22`) відкидає `visible: false`, тож каталог із самими прихованими артистами інакше показав би чотири порожні секції замість стану.
+`app/pages/artists/index.vue` - чотири `<h2>`-секції при порожньому результаті лишаються заголовками без вмісту, тому статус іде **перед** ними, а самі секції ховаються. Порожнечу міряти по `artistsSortedForCatalog`, не по `artists`: `sortArtistsForCatalog()` (`app/utils/artists.ts:22`) відкидає `visible: false`, тож каталог із самими прихованими артистами інакше показав би чотири порожні секції замість стану.
 
 Рядок 5 → `const { data: artistsRaw, status, error, refresh } = await useArtists()`.
 
@@ -1294,11 +1294,11 @@ const { data: releasesRaw, status, error, refresh } = await useReleases()
     </template>
 ```
 
-`artistsPage.test.ts` тримається за порядок `v-for="i in artistsSortedByCategoryId…"` і рядок `sortArtistsForCatalog(artists.value)` — обгортка їх не рухає.
+`artistsPage.test.ts` тримається за порядок `v-for="i in artistsSortedByCategoryId…"` і рядок `sortArtistsForCatalog(artists.value)` - обгортка їх не рухає.
 
-Кнопки `All Releases` / `All Artists` (рядки 82-85) лишаються **поза** цим `v-if` — вони працюють і при порожньому каталозі.
+Кнопки `All Releases` / `All Artists` (рядки 82-85) лишаються **поза** цим `v-if` - вони працюють і при порожньому каталозі.
 
-`app/pages/news.vue` — три джерела (`useReleases`, `useEvents`, `useVideos`). Деструктуризувати всі три з аліасами й звести:
+`app/pages/news.vue` - три джерела (`useReleases`, `useEvents`, `useVideos`). Деструктуризувати всі три з аліасами й звести:
 
 ```ts
 const { data: releasesRaw, status: releasesStatus, error: releasesError, refresh: refreshReleases } = await useReleases()
@@ -1316,7 +1316,7 @@ const error = computed(() => releasesError.value || eventsError.value || videosE
 const refresh = () => Promise.all([refreshReleases(), refreshEvents(), refreshVideos()])
 ```
 
-і в шаблоні після закривного `</div>` списку `divide-y` (`news.vue:106`), перед `</div>` контейнера — рядки нижче дослівно, бо `collectionStatus.test.ts` шукає `status === 'pending'` і `@retry="refresh()"` як текст:
+і в шаблоні після закривного `</div>` списку `divide-y` (`news.vue:106`), перед `</div>` контейнера - рядки нижче дослівно, бо `collectionStatus.test.ts` шукає `status === 'pending'` і `@retry="refresh()"` як текст:
 
 ```vue
     <CollectionStatus
@@ -1329,7 +1329,7 @@ const refresh = () => Promise.all([refreshReleases(), refreshEvents(), refreshVi
     />
 ```
 
-Сторінки списків роблять `await useXxx()`, тож на SSR `status` уже `success` і гілка `loading` видима лише при клієнтській навігації — це очікувано, не «відсутній стан на першому рендері».
+Сторінки списків роблять `await useXxx()`, тож на SSR `status` уже `success` і гілка `loading` видима лише при клієнтській навігації - це очікувано, не «відсутній стан на першому рендері».
 
 - [x] **Step 8: Прогнати всі релевантні тести**
 
@@ -1356,7 +1356,7 @@ git commit -m "feat(a11y): design empty and error states for every list surface"
 
 Очікування: в індексі 14 шляхів із `git add` плюс рядок `D app/components/ProfileCollectionStatus.vue`.
 
-`ProfileCollectionStatus.vue` **не** перелічувати в `git add`: після `git rm` шляху немає ні в дереві, ні в робочій копії, і `git add` впаде з `fatal: pathspec … did not match any files`, обірвавши всю команду. Видалення вже застейджене самим `git rm` — воно має з'явитися в `git diff --cached --name-only` як `D`.
+`ProfileCollectionStatus.vue` **не** перелічувати в `git add`: після `git rm` шляху немає ні в дереві, ні в робочій копії, і `git add` впаде з `fatal: pathspec … did not match any files`, обірвавши всю команду. Видалення вже застейджене самим `git rm` - воно має з'явитися в `git diff --cached --name-only` як `D`.
 
 ---
 
@@ -1370,7 +1370,7 @@ git commit -m "feat(a11y): design empty and error states for every list surface"
 
 **Контекст:** Playwright не в CI, тому e2e ганяються руками. Очікування, яке треба підтвердити: снапшоти `homepage-theme.spec.ts` **не зсуваються**, бо скіп-лінка `sr-only` до фокуса, а класи `Hero` не змінювались (preflight скидає стилі `h1`); перевірка фокуса на перемикачі теми вже переписана в задачі 4. `layout-loading.spec.ts` тримається за `data-testid`, який зберігся при заміні `div` → `header`/`footer`.
 
-`AGENTS.md` зараз не згадує ні лендмарків, ні скіп-лінки, а абзац на рядку 150 описує старий стан («кнопки — через утиліти `focus-visible:outline-*`, auth-лінки й кнопка пароля — окреме правило в `tailwind.css`»). Після задачі 4 це неправда, а інваріант «правило має лишатися поза `@layer`» — саме той тип пастки, для якого AGENTS.md існує.
+`AGENTS.md` зараз не згадує ні лендмарків, ні скіп-лінки, а абзац на рядку 150 описує старий стан («кнопки - через утиліти `focus-visible:outline-*`, auth-лінки й кнопка пароля - окреме правило в `tailwind.css`»). Після задачі 4 це неправда, а інваріант «правило має лишатися поза `@layer`» - саме той тип пастки, для якого AGENTS.md існує.
 
 - [x] **Step 1: Прогнати e2e**
 
@@ -1378,7 +1378,7 @@ git commit -m "feat(a11y): design empty and error states for every list surface"
 npm run test:e2e
 ```
 
-Очікування: PASS. Якщо снапшот усе ж зсунувся — **не оновлювати наосліп**: подивитися diff, і лише переконавшись, що зміна очікувана, зробити `npm run test:e2e:update`.
+Очікування: PASS. Якщо снапшот усе ж зсунувся - **не оновлювати наосліп**: подивитися diff, і лише переконавшись, що зміна очікувана, зробити `npm run test:e2e:update`.
 
 - [x] **Step 2: Перевірити скіп-лінку живцем і зняти Lighthouse Accessibility**
 
@@ -1386,9 +1386,9 @@ npm run test:e2e
 npm run dev -- --port 3100
 ```
 
-На `http://localhost:3100/`: натиснути `Tab` одразу після завантаження — першим має з'явитися видиме «Skip to content» у верхньому лівому куті; `Enter` має перенести фокус на контент **під** липким хедером (не під нього). Це повтор перевірки із задачі 2 — регресія після решти правок.
+На `http://localhost:3100/`: натиснути `Tab` одразу після завантаження - першим має з'явитися видиме «Skip to content» у верхньому лівому куті; `Enter` має перенести фокус на контент **під** липким хедером (не під нього). Це повтор перевірки із задачі 2 - регресія після решти правок.
 
-Критерій завершення ініціативи — «Lighthouse Accessibility 100», а `npm run perf:lighthouse` збирає тільки `performance` (`scripts/lighthouse-baseline.mjs:45`), тож категорію доступності знімаємо окремо. **Не** на dev-сервері: `nuxt dev` домальовує Nuxt DevTools, чиї вузли Lighthouse може позначити й дати хибний результат нижче 100. Зупинити dev, зібрати й підняти preview на тому ж порту:
+Критерій завершення ініціативи - «Lighthouse Accessibility 100», а `npm run perf:lighthouse` збирає тільки `performance` (`scripts/lighthouse-baseline.mjs:45`), тож категорію доступності знімаємо окремо. **Не** на dev-сервері: `nuxt dev` домальовує Nuxt DevTools, чиї вузли Lighthouse може позначити й дати хибний результат нижче 100. Зупинити dev, зібрати й підняти preview на тому ж порту:
 
 ```bash
 npm run build && PORT=3100 npm run preview
@@ -1402,23 +1402,23 @@ for p in / /releases/ /release/va-fantazma/ /artists/; do
 done
 ```
 
-(`va-fantazma` — перший видимий реліз в експорті; підійде будь-який наявний slug.) Очікування: `100` на кожній адресі. Якщо менше — у виводі перелік аудитів зі `score 0`; зафіксувати їх у PR-описі й **не** латати наосліп поза скоупом плану. Зупинити **тільки цей** сервер.
+(`va-fantazma` - перший видимий реліз в експорті; підійде будь-який наявний slug.) Очікування: `100` на кожній адресі. Якщо менше - у виводі перелік аудитів зі `score 0`; зафіксувати їх у PR-описі й **не** латати наосліп поза скоупом плану. Зупинити **тільки цей** сервер.
 
 - [x] **Step 3: Оновити AGENTS.md**
 
 У `AGENTS.md` рядок 150, у реченні «Focus-стан кнопок та інпутів використовує `outline` (…); auth-лінки й кнопка видимості пароля отримують еквівалентне правило в `tailwind.css`.» замінити другу частину на опис нового стану:
 
 ```markdown
-Focus-стан усіх інтерактивних елементів (`a`, `button`, `[role="button"]`, `input[type="range"]`, `summary`) задає **одне нешарове** правило `:is(…):focus-visible` у `tailwind.css`: воно поза `@layer`, тому перебиває будь-який локальний `outline-none` чи `focus-visible:ring-*` незалежно від специфічності — **не** загортати його в `@layer` і не додавати компонентам власні focus-класи (буде подвійна індикація).
+Focus-стан усіх інтерактивних елементів (`a`, `button`, `[role="button"]`, `input[type="range"]`, `summary`) задає **одне нешарове** правило `:is(…):focus-visible` у `tailwind.css`: воно поза `@layer`, тому перебиває будь-який локальний `outline-none` чи `focus-visible:ring-*` незалежно від специфічності - **не** загортати його в `@layer` і не додавати компонентам власні focus-класи (буде подвійна індикація).
 ```
 
 Решту абзацу (про `outline-none`, `ring-*` на інпуті, `--card`) лишити. Далі додати новий абзац одразу після нього:
 
 ```markdown
-**Landmarks.** `<main id="main" tabindex="-1">` живе в `app/layouts/default.vue` навколо `<slot/>` — сторінки **не** додають власний `<main>` (виняток — `app/error.vue`, який рендериться поза `NuxtLayout` і має свій `<main>` + `<h1>`). Скіп-лінка — перший вузол шаблону layout, ціль `#main`; `scroll-padding-top/bottom: 5rem` у `html` компенсує липкий хедер і нижній плеєр. Три `<nav>` мають імена `Main` (Header), `Footer`, `Mobile` (шухляда); свайпери — `<section :aria-label="title">` без власного `<h2>`, бо рендеряться до `<h1>` сторінки. Списки показують loading/empty/error через `<CollectionStatus>` (колишній `ProfileCollectionStatus`). Guarded by `tests/unit/landmarks.test.ts`, `accessibleNames.test.ts`, `collectionStatus.test.ts`.
+**Landmarks.** `<main id="main" tabindex="-1">` живе в `app/layouts/default.vue` навколо `<slot/>` - сторінки **не** додають власний `<main>` (виняток - `app/error.vue`, який рендериться поза `NuxtLayout` і має свій `<main>` + `<h1>`). Скіп-лінка - перший вузол шаблону layout, ціль `#main`; `scroll-padding-top/bottom: 5rem` у `html` компенсує липкий хедер і нижній плеєр. Три `<nav>` мають імена `Main` (Header), `Footer`, `Mobile` (шухляда); свайпери - `<section :aria-label="title">` без власного `<h2>`, бо рендеряться до `<h1>` сторінки. Списки показують loading/empty/error через `<CollectionStatus>` (колишній `ProfileCollectionStatus`). Guarded by `tests/unit/landmarks.test.ts`, `accessibleNames.test.ts`, `collectionStatus.test.ts`.
 ```
 
-І оновити `- Last reviewed:` на дату виконання. Файл має лишитися під ~250 рядків — перевірити `wc -l AGENTS.md`.
+І оновити `- Last reviewed:` на дату виконання. Файл має лишитися під ~250 рядків - перевірити `wc -l AGENTS.md`.
 
 - [x] **Step 4: Оновити статус ініціативи**
 
@@ -1446,7 +1446,7 @@ Focus-стан усіх інтерактивних елементів (`a`, `but
 npm run docs:check
 ```
 
-Очікування: `docs-check: ok (…)`. Скрипт звіряє `Priority:`/`Status:` у файлі ініціативи з рядком roadmap — розбіжність упаде саме тут.
+Очікування: `docs-check: ok (…)`. Скрипт звіряє `Priority:`/`Status:` у файлі ініціативи з рядком roadmap - розбіжність упаде саме тут.
 
 - [x] **Step 7: Фінальна перевірка й коміт**
 
@@ -1466,23 +1466,23 @@ git commit -m "docs: mark the accessibility baseline initiative implemented"
 git status --short
 ```
 
-Очікування: у виводі лишилися **тільки** `M package.json`, `M package-lock.json`, `M scripts/skills.sh` — незв'язані зміни, які були тут до початку роботи.
+Очікування: у виводі лишилися **тільки** `M package.json`, `M package-lock.json`, `M scripts/skills.sh` - незв'язані зміни, які були тут до початку роботи.
 
 ---
 
 ## Що лишилось поза планом
 
-Свідомо не входить (з причинами — у розділі «Скоуп» спеки):
+Свідомо не входить (з причинами - у розділі «Скоуп» спеки):
 
-- **CTA на головній** (друга половина V1) — продуктове рішення, окрема ініціатива.
-- **V4** (метадані на картці каталогу) — потребує візуальної перевірки сітки й свайпера.
-- **V5** (розмір і роль розділювачів свайпера) — з нього взято лише колір, у складі задачі 7.
-- **T7** (контраст футера) — спершу реальний замір, потім рішення.
-- **T8** (токени кольорів), **T11** (`height` прев'ю) — не доступність.
-- **`app/layouts/empty.vue`** — мертвий файл (нуль сторінок із `layout: 'empty'`); видаляти чи ні — окреме рішення.
-- **`app/pages/ui.vue`** — внутрішній UI-kit, `text-foreground/50` там лишається (текстовий рівень у ньому знімається в задачі 7 лише там, де файл і так у списку).
-- **`app/pages/tracks.vue` у складі V3** — попри те, що аудит згадує його серед прочитаних, це не сторінка одного списку, а зведення з **семи** джерел (`useReleases`, `useFetch('/api/tracks')`, `useArtists`, `useVideos`, `usePlaylists`, `useEvents`, `useFriends`) зі статистикою. Один `CollectionStatus` не описує його стан коректно, а сім — це вже інша задача. Текстовий рівень (V2) у ньому виправляється, стани списку — ні.
-- **`<h1>` «Sentimony Records» замість «Sentimony»** — після задачі 3 ім'я заголовка головної обривається на `heroTitle`. Повна версія: `<h1>` на зовнішній обгортці (`uppercase mb-[0.2em] text-[40px] …`), внутрішні `div` → `span class="block"` / `span class="tracking-normal flex …"`, бо `h1` приймає лише phrasing content. Візуально нічого не рухається, але це змінює рішення спеки («навколо наявного `heroTitle`») — окремим комітом після візуальної звірки снапшота.
-- **`button.password-toggle:focus-visible` у `tailwind.css`** — після задачі 4 дублює глобальне правило (`button` тепер у селекторі). Прибрати разом із перевіркою в `interactionStates.test.ts` і згадкою в AGENTS.md — окремою дрібною правкою, щоб не змішувати з розширенням селектора.
+- **CTA на головній** (друга половина V1) - продуктове рішення, окрема ініціатива.
+- **V4** (метадані на картці каталогу) - потребує візуальної перевірки сітки й свайпера.
+- **V5** (розмір і роль розділювачів свайпера) - з нього взято лише колір, у складі задачі 7.
+- **T7** (контраст футера) - спершу реальний замір, потім рішення.
+- **T8** (токени кольорів), **T11** (`height` прев'ю) - не доступність.
+- **`app/layouts/empty.vue`** - мертвий файл (нуль сторінок із `layout: 'empty'`); видаляти чи ні - окреме рішення.
+- **`app/pages/ui.vue`** - внутрішній UI-kit, `text-foreground/50` там лишається (текстовий рівень у ньому знімається в задачі 7 лише там, де файл і так у списку).
+- **`app/pages/tracks.vue` у складі V3** - попри те, що аудит згадує його серед прочитаних, це не сторінка одного списку, а зведення з **семи** джерел (`useReleases`, `useFetch('/api/tracks')`, `useArtists`, `useVideos`, `usePlaylists`, `useEvents`, `useFriends`) зі статистикою. Один `CollectionStatus` не описує його стан коректно, а сім - це вже інша задача. Текстовий рівень (V2) у ньому виправляється, стани списку - ні.
+- **`<h1>` «Sentimony Records» замість «Sentimony»** - після задачі 3 ім'я заголовка головної обривається на `heroTitle`. Повна версія: `<h1>` на зовнішній обгортці (`uppercase mb-[0.2em] text-[40px] …`), внутрішні `div` → `span class="block"` / `span class="tracking-normal flex …"`, бо `h1` приймає лише phrasing content. Візуально нічого не рухається, але це змінює рішення спеки («навколо наявного `heroTitle`») - окремим комітом після візуальної звірки снапшота.
+- **`button.password-toggle:focus-visible` у `tailwind.css`** - після задачі 4 дублює глобальне правило (`button` тепер у селекторі). Прибрати разом із перевіркою в `interactionStates.test.ts` і згадкою в AGENTS.md - окремою дрібною правкою, щоб не змішувати з розширенням селектора.
 
 Три пункти перевіряються оком, а не тестом: скіп-лінка після фокуса (задача 2, крок 6), вигляд дефолтного обведення на `.player-range` (задача 4, крок 9) і потемніння розділювачів свайпера після переходу з `/25` на `text-muted-foreground` (задача 7).

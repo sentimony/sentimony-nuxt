@@ -18,9 +18,9 @@
 
 Використовувати стабільні тематичні файли та індекси:
 
-- `docs/audits/` — append-only архів датованих аудитів;
-- `docs/roadmap/` — живий product/engineering backlog, один файл на ініціативу;
-- `docs/superpowers/specs/` і `docs/superpowers/plans/` — незмінне місце для
+- `docs/audits/` - append-only архів датованих аудитів;
+- `docs/roadmap/` - живий product/engineering backlog, один файл на ініціативу;
+- `docs/superpowers/specs/` і `docs/superpowers/plans/` - незмінне місце для
   детального дизайну й покрокових implementation plans.
 
 Кореневі `AUDIT.md` і `ROADMAP.md` переносяться повністю. Файли-вказівники в
@@ -104,7 +104,7 @@ docs/
 ### `docs/roadmap/README.md`
 
 Індекс є єдиною точкою входу в актуальний backlog. Ініціативи групуються за
-статусом, а всередині групи — за пріоритетом:
+статусом, а всередині групи - за пріоритетом:
 
 1. `In progress`;
 2. `Planned`;
@@ -203,7 +203,7 @@ spacing і component contracts, потім UI-компоненти мігрую�
 - Roadmap-файли посилаються на них відносними Markdown-посиланнями.
 - `PRODUCT.md` та інші згадки кореневого `ROADMAP.md` оновлюються на
   `docs/roadmap/README.md` або конкретну ініціативу.
-- Майбутній roadmap item отримує spec лише перед дизайном реалізації, а plan —
+- Майбутній roadmap item отримує spec лише перед дизайном реалізації, а plan -
   після погодження spec. Наявність roadmap-файла сама по собі не означає дозвіл
   на реалізацію.
 

@@ -8,7 +8,7 @@
 
 ## Навіщо
 
-Останній зафіксований Lighthouse mobile Performance — 68. Основні втрати дають
+Останній зафіксований Lighthouse mobile Performance - 68. Основні втрати дають
 TBT, великий початковий DOM Swiper, зайвий JavaScript, non-passive listeners і
 замалі tap targets у футері.
 
