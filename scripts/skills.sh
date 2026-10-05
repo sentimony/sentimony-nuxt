@@ -18,29 +18,36 @@ echo "npx -y skillio rm . -y" && npx -y skillio rm . -y
 # All at once
 # npx skills add sentimony/skills -a codex claude-code -y
 # Or each separately
+# a "\ " prefix disables a skill on purpose: the leading space makes the name match nothing
 run npx skills add https://github.com/sentimony/skills -s \
-  web-debug \
-  vitest \
-  typescript \
-  echarts \
   scope-triage \
+  \ scope-check \
   plan-crafting \
-  dashfix \
-  negafix \
-  commit-all \
-  maintaining-agent-context \
-  frontend-crafting \
+  inline-plan-dev \
+  subagent-plan-dev \
+  git-worktree-isolation \
+  parallel-agents \
   tdd \
-  debugging \
   cross-review \
   review-request \
   review-resolution \
+  debugging \
+  web-debug \
+  \ webapp-debugger \
   verification-gate \
-  git-worktree-isolation \
-  parallel-agents \
-  inline-plan-dev \
-  subagent-plan-dev \
   branch-finish \
+  commit-all \
+  \ gh-switch \
+  frontend-crafting \
+  vitest \
+  typescript \
+  echarts \
+  \ prose-crafting \
+  dashfix \
+  negafix \
+  maintaining-agent-context \
+  \ secret-hygiene \
+  \ skill-crafting \
   -a codex claude-code -y
 
 # MATTPOCOCK SKILLS
