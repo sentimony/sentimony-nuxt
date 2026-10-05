@@ -71,7 +71,7 @@
     "@vueuse/core": "^14.4.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "dompurify": "^3.4.15",
+    "dompurify": "^3.4.16",
     "flag-icons": "^7.5.0",
     "nuxt": "^4.5.2",
     "reka-ui": "^2.10.4",
