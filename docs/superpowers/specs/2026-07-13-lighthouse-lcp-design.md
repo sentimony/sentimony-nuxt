@@ -1,4 +1,4 @@
-# Lighthouse LCP Optimization — Design Spec
+# Lighthouse LCP Optimization - Design Spec
 
 **Date:** 2026-07-13
 **Branch:** `lighthouse-improve`
@@ -11,7 +11,7 @@ Clean production baseline (`NITRO_PRESET=node-server` build, served via
 
 | Metric | Value | Score |
 | --- | --- | --- |
-| Performance | **68** | — |
+| Performance | **68** | - |
 | First Contentful Paint | 1.7 s | 0.43 |
 | Largest Contentful Paint | **5.7 s** | **0.05** |
 | Total Blocking Time | 0 ms | 1.0 |
@@ -20,10 +20,10 @@ Clean production baseline (`NITRO_PRESET=node-server` build, served via
 
 JS execution (TBT=0) and layout stability (CLS≈0) are already excellent. The **only**
 serious problem is LCP 5.7 s, of which **98 % is Render Delay (5591 ms)**. The LCP
-element is the text "SENTIMONY" (`div.font-julius`), not an image — so the fix is
+element is the text "SENTIMONY" (`div.font-julius`), not an image - so the fix is
 unblocking first render, not image loading of the LCP node itself.
 
-> Measurement note: an earlier baseline of 50 was invalid — a stale `nuxt dev` server
+> Measurement note: an earlier baseline of 50 was invalid - a stale `nuxt dev` server
 > was listening on the same port and Lighthouse hit it (`@fs/` paths, source maps, no
 > compression). All numbers here are from a verified prod build with 0 dev artifacts.
 > `uses-text-compression` savings reported locally are an artifact of the local
@@ -35,15 +35,15 @@ unblocking first render, not image loading of the LCP node itself.
 1. **`flag-icons` CSS bloats the render-blocking entry.** `entry.css` is **447 KB**,
    containing **542 `.fi-xx` country classes** (data-URI SVG flags for every country).
    It is registered **globally** in `nuxt.config.ts` (`css: [...]`, line 61) but used
-   on exactly **one** page — `app/pages/artists/all.vue`. It render-blocks first paint
+   on exactly **one** page - `app/pages/artists/all.vue`. It render-blocks first paint
    by ~1.2 s on every route.
 
-2. **`trees-origin_v1.jpg` (382 KB waste) — global forest background.** Set via CSS
+2. **`trees-origin_v1.jpg` (382 KB waste) - global forest background.** Set via CSS
    `background-image: url(...)` in `app/assets/css/tailwind.css:118` (also referenced in
    `app/components/HomepageAtmosphere.vue:24`). Served as JPG, not a modern format;
    `<NuxtImg>` never touches it because it is a CSS background.
 
-3. **`irukanji-01_xl.jpg` (510 KB waste) — homepage image flagged by
+3. **`irukanji-01_xl.jpg` (510 KB waste) - homepage image flagged by
    `uses-responsive-images` and `modern-image-formats`.** Note: `HomepageAtmosphere.vue`
    itself uses the same `trees-origin_v1.jpg` as (2); this `irukanji` asset comes from a
    different homepage element. The plan must locate its exact source (a `<NuxtImg>` in
@@ -81,7 +81,7 @@ flag-icons is gone).
 
 **Effect:** 447 KB of CSS leaves `entry.css` on every route except `/artists/all`.
 Render-blocking entry CSS drops from ~448 KB to ~1 KB → homepage LCP expected 5.7 s →
-~1.5–2 s. `/artists/all` loads the flag CSS as its own chunk, where flags are needed.
+~1.5-2 s. `/artists/all` loads the flag CSS as its own chunk, where flags are needed.
 
 **Risk:** minimal. Verify: flags still render on `/artists/all`.
 
@@ -107,12 +107,12 @@ through Netlify's on-the-fly image transform.
 
 **Dev fallback (required):** `/.netlify/images` exists only on Netlify. Under
 `npm run dev` (the `ipx` provider) it 404s. The plan must choose one clean mechanism so
-local dev still shows the backgrounds — either an `import.meta.dev` conditional that
+local dev still shows the backgrounds - either an `import.meta.dev` conditional that
 falls back to the original URL, or routing through Nuxt Image's `$img()` helper so the
 active provider is selected automatically. Backgrounds must render in **both** dev and
 prod.
 
-**Risk:** medium — a wrong CDN URL or missing dev fallback makes the background vanish
+**Risk:** medium - a wrong CDN URL or missing dev fallback makes the background vanish
 locally. Verified in both prod build and `npm run dev`.
 
 ## Verification

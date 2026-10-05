@@ -226,7 +226,7 @@ WCAG 1.4.11 вимагає 3:1 лише для меж, які **єдино** і�
 
 Implementation review глобального `a:focus-visible` виявив регресію: у світлій
 темі `--ring` чорний, але `Footer.vue` навмисно лишається майже чорним. Контраст
-outline на footer links падає до 1.12–1.38.
+outline на footer links падає до 1.12-1.38.
 
 Корінь футера отримує локальний
 `[--ring:oklch(1_0_0_/_65%)]`. Перевизначення успадковується всіма
@@ -240,7 +240,7 @@ outline на footer links падає до 1.12–1.38.
 інтерполюється від `currentColor` до `--ring`. Глобальне
 `transition-property: none` у `a:focus-visible` не додається: воно вимкнуло б
 інші корисні переходи всіх посилань сайту. Основна навігація Header уже
-використовує явний список без `outline-color`, social links футера — також.
+використовує явний список без `outline-color`, social links футера - також.
 
 `interactionStates.test.ts` охороняє локальний токен футера: дістає `--ring` із
 `.dark`, нормалізує underscore-синтаксис arbitrary property і порівнює

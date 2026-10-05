@@ -13,7 +13,7 @@
 `isSupabaseCatalogSource`, `useSupabase`, `supabaseAdmin`, `fetchFirebase*`,
 `useRuntimeConfig`, …) на `globalThis` кожен по-своєму, з власним списком
 ключів у `afterEach`. Cleanup працює (shuffle чистий), але кожен новий тест
-копіює 15–25 рядків, а мок `defineEventHandler` повертає функцію з
+копіює 15-25 рядків, а мок `defineEventHandler` повертає функцію з
 сигнатурою, яку тести не дотримують (TS-6). Політика reset моків живе в
 дев'яти ручних `vi.restoreAllMocks()`, а не в конфізі. `include` не бачить
 `tests/nuxt/**`, яку `.nuxt/tsconfig.app.json` уже типізує.
@@ -61,7 +61,7 @@ export const fakeEvent = () => ({}) as unknown as H3Event
 - Файл живе поруч із `nitro-globals.ts`, а не в `setupFiles`: глобали
   ставляться тільки в тестах, які їх просять, і знімаються їхнім `restore()`.
 - `overrides` приймає той самий словник, що тести ставили руками, тож
-  міграція — заміна блоку `beforeEach` на
+  міграція - заміна блоку `beforeEach` на
   `restore = installNitroGlobals({ isSupabaseCatalogSource: () => false, … })`
   і `afterEach(() => restore())`. `vi.resetModules()` лишається там, де був.
 - `fakeEvent()` закриває TS2554 у `releasesApi.test.ts` (спека TypeScript).
@@ -69,7 +69,7 @@ export const fakeEvent = () => ({}) as unknown as H3Event
 ### 2. `restoreMocks: true`
 
 `vitest.config.ts` отримує `test.restoreMocks: true`; дев'ять ручних
-`vi.restoreAllMocks()` видаляються. Глобали це не чіпає — їх знімає
+`vi.restoreAllMocks()` видаляються. Глобали це не чіпає - їх знімає
 `restore()` хелпера. Доказ: звичайний прогін + shuffle із тим самим seed
 `20260904`, обидва зелені.
 
@@ -84,9 +84,9 @@ glob нешкідливий, а перший компонентний тест �
 
 ## Не входить
 
-- `@nuxt/test-utils`, `happy-dom`, `@vitest/coverage-v8` — нові залежності,
+- `@nuxt/test-utils`, `happy-dom`, `@vitest/coverage-v8` - нові залежності,
   заблоковані до `chore(deps)` власника (VITEST-7).
-- Порада Vitest 5 про `isolate: false` — не застосовується: файли мутують
+- Порада Vitest 5 про `isolate: false` - не застосовується: файли мутують
   `globalThis`.
 
 ## Перевірка

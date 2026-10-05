@@ -1,6 +1,6 @@
 # Unified Auth + Modal Sign-In Implementation Plan
 
-> **For agentic workers:** Steps use checkbox (`- [ ]`) syntax for tracking. Виконувати задачі послідовно — Task 2 залежить від міграції з Task 1, Task 5 від компонентів Task 3-4.
+> **For agentic workers:** Steps use checkbox (`- [ ]`) syntax for tracking. Виконувати задачі послідовно - Task 2 залежить від міграції з Task 1, Task 5 від компонентів Task 3-4.
 
 **Goal:** Вхід і реєстрація живуть в одній two-step формі на `/auth`, доступній також як модальне вікно з будь-якої сторінки; серверний email-lookup захищений Postgres-backed rate limit'ом.
 
@@ -14,15 +14,15 @@
 
 - Гілка `feature/unified-auth` від `main`, squash merge наприкінці; без git worktrees.
 - Нових npm-залежностей не додавати.
-- Коментарі в коді — англійською; уникати коментарів там, де назви самодокументовані.
+- Коментарі в коді - англійською; уникати коментарів там, де назви самодокументовані.
 - `reset-password.vue` і `confirm.vue` не чіпати.
 - Не запускати `sync:firebase` / `sync:supabase`.
-- Свій dev-сервер — тільки на порту 3100 (`with_server.py`); чужі 3000-3002 не чіпати.
-- Міграції застосовувати через `db query --linked --file` workaround (див. AGENTS.md), бо `.env` — директорія.
+- Свій dev-сервер - тільки на порту 3100 (`with_server.py`); чужі 3000-3002 не чіпати.
+- Міграції застосовувати через `db query --linked --file` workaround (див. AGENTS.md), бо `.env` - директорія.
 
 ---
 
-### Task 1: Міграція — rate limit і email-lookup RPC
+### Task 1: Міграція - rate limit і email-lookup RPC
 
 **Files:**
 - Create: `supabase/migrations/20260726_auth_rate_limit.sql`
@@ -122,10 +122,10 @@ cd /tmp/sb && SUPABASE_ACCESS_TOKEN="$TOKEN" npx supabase db query --linked \
 
 - [ ] **Step 1: `server/utils/rateLimit.ts`**
 
-- `clientIp(event)` — `getRequestIP(event, { xForwardedFor: true }) ?? 'unknown'`.
-- `hashSubject(value)` — `createHash('sha256').update(value.trim().toLowerCase()).digest('hex')`.
-- `consumeRateLimit(subject, rule)` — `admin.rpc('consume_rate_limit', { p_bucket, p_subject, p_limit, p_window_seconds })`; RPC повертає масив із одного рядка. При `error` або порожній відповіді — `logger`-warning і `{ allowed: true, retryAfter: 0 }` (fail-open, як у `trackArtists.ts`).
-- `enforceRateLimit(event, subject, rule)` — при `!allowed`: `setResponseHeader(event, 'Retry-After', String(retryAfter))` і `throw createError({ statusCode: 429, statusMessage: 'Too many attempts' })`.
+- `clientIp(event)` - `getRequestIP(event, { xForwardedFor: true }) ?? 'unknown'`.
+- `hashSubject(value)` - `createHash('sha256').update(value.trim().toLowerCase()).digest('hex')`.
+- `consumeRateLimit(subject, rule)` - `admin.rpc('consume_rate_limit', { p_bucket, p_subject, p_limit, p_window_seconds })`; RPC повертає масив із одного рядка. При `error` або порожній відповіді - `logger`-warning і `{ allowed: true, retryAfter: 0 }` (fail-open, як у `trackArtists.ts`).
+- `enforceRateLimit(event, subject, rule)` - при `!allowed`: `setResponseHeader(event, 'Retry-After', String(retryAfter))` і `throw createError({ statusCode: 429, statusMessage: 'Too many attempts' })`.
 
 - [ ] **Step 2: `authEmail.ts` на RPC**
 
@@ -175,7 +175,7 @@ git commit -m "feat(auth): rate-limit email lookup with postgres-backed limiter"
 
 - [ ] **Step 1: `AuthCard.vue`**
 
-Додати проп `variant` (default `'page'`). У `page` — розмітка 1:1 як зараз. У `dialog` — без `min-h-[70vh] flex items-center justify-center px-4 py-16`, без `<h1>` (замість нього `<slot name="title" />`), `Card` і слоти без змін. `reset-password.vue` продовжує використовувати дефолт — його не чіпати.
+Додати проп `variant` (default `'page'`). У `page` - розмітка 1:1 як зараз. У `dialog` - без `min-h-[70vh] flex items-center justify-center px-4 py-16`, без `<h1>` (замість нього `<slot name="title" />`), `Card` і слоти без змін. `reset-password.vue` продовжує використовувати дефолт - його не чіпати.
 
 - [ ] **Step 2: Крокова машина в `AuthForm.vue`**
 
@@ -184,13 +184,13 @@ const step = ref<'email' | 'password' | 'forgot' | 'sent'>('email')
 const mode = ref<'signin' | 'signup'>('signin')
 ```
 
-- Валідаційна схема (функціональна, **не** zod): `email` — як зараз; `password` валідується тільки коли `step === 'password'`, з `min(6)` лише за `mode === 'signup'`.
+- Валідаційна схема (функціональна, **не** zod): `email` - як зараз; `password` валідується тільки коли `step === 'password'`, з `min(6)` лише за `mode === 'signup'`.
 - `step === 'email'`: сабміт → `$fetch('/api/auth/email-exists')` → `mode = exists ? 'signin' : 'signup'`, `step = 'password'`. Помилка 429 (`err.statusCode === 429`) → `error.value = 'Too many attempts. Please try again later.'`.
 - `step === 'password'` + `mode === 'signin'`: `signInWithPassword` → помилка в `error`; успіх → `onAuthenticated()`.
 - `step === 'password'` + `mode === 'signup'`: `signUp({ emailRedirectTo: \`${window.location.origin}/confirm\` })`; якщо `data.user?.identities?.length === 0` → `error.value = signupExistsMessage`; інакше `step = 'sent'`, `message` = 'Check your email to confirm your account.'
 - `step === 'forgot'`: `resetPasswordForEmail` → `step = 'sent'`, message як зараз.
 - `onAuthenticated()`: `variant === 'dialog'` → `closeAuthDialog()`; `variant === 'page'` → `navigateTo(props.redirectTo || '/profile')`.
-- `watchEffect` авторедіректу залогіненого — тільки при `variant === 'page' && step.value !== 'forgot'`.
+- `watchEffect` авторедіректу залогіненого - тільки при `variant === 'page' && step.value !== 'forgot'`.
 - `useSeoMeta` викликати **тільки** при `variant === 'page'` (у діалозі він перетирав би title сторінки).
 
 - [ ] **Step 3: Шаблон**
@@ -198,9 +198,9 @@ const mode = ref<'signin' | 'signup'>('signin')
 - `step === 'email'`: Input email + кнопка `Continue` (іконка `lucide:arrow-right`).
 - `step === 'password'`: рядок з обраним email + кнопка-лінк `Use a different email` (повертає на `step='email'`, чистить пароль); `PasswordInput` з `:autocomplete="mode === 'signin' ? 'current-password' : 'new-password'"`; кнопка `Sign In` / `Create Account`; лінк `Forgot password?` (→ `step='forgot'`) лише при `mode === 'signin'`.
 - `step === 'sent'`: тільки `<Alert variant="success">` (він уже рендериться `AuthCard`) + кнопка `Back` на `step='email'`; поля приховані.
-- Футер зі старими «Don't have an account? / Sign Up» видаляється — режим більше не обирає користувач.
-- Заголовок: `Sign In` (email/forgot-перехід — `Reset Password`), `Sign In` / `Create Account` на кроці пароля, `Check Your Email` на `sent`.
-- `aria-live="polite"` на контейнері помилки/повідомлення не додавати окремо — `Alert` уже має `role`; перевірити фактичну розмітку `ui/alert` і за потреби додати `role="alert"`.
+- Футер зі старими «Don't have an account? / Sign Up» видаляється - режим більше не обирає користувач.
+- Заголовок: `Sign In` (email/forgot-перехід - `Reset Password`), `Sign In` / `Create Account` на кроці пароля, `Check Your Email` на `sent`.
+- `aria-live="polite"` на контейнері помилки/повідомлення не додавати окремо - `Alert` уже має `role`; перевірити фактичну розмітку `ui/alert` і за потреби додати `role="alert"`.
 
 - [ ] **Step 4: Верифікація**
 
@@ -247,7 +247,7 @@ git commit -m "feat(auth): merge sign-in and sign-up into a two-step form"
 </DialogRoot>
 ```
 
-`.reka-fade` keyframes перенести в глобальний CSS **тільки якщо** вони не доступні з `OpenImage.vue` (там `<style>` без `scoped`, тобто вже глобальні) — не дублювати. Заголовок брати з `AuthForm` через слот або дублювати мінімально; уникнути двох `<h1>` на сторінці.
+`.reka-fade` keyframes перенести в глобальний CSS **тільки якщо** вони не доступні з `OpenImage.vue` (там `<style>` без `scoped`, тобто вже глобальні) - не дублювати. Заголовок брати з `AuthForm` через слот або дублювати мінімально; уникнути двох `<h1>` на сторінці.
 
 - [ ] **Step 3: Монтаж у layout**
 
@@ -286,9 +286,9 @@ const redirectTo = computed(() => (typeof route.query.redirect === 'string' ? ro
 </template>
 ```
 
-`initialMode` — опційний проп `AuthForm` (лише `'forgot'`), який стартує на кроці `forgot`. Якщо на Task 3 він не був доданий — додати зараз.
+`initialMode` - опційний проп `AuthForm` (лише `'forgot'`), який стартує на кроці `forgot`. Якщо на Task 3 він не був доданий - додати зараз.
 
-Валідація `redirect`: приймати тільки шляхи, що починаються з `/` і не з `//` — інакше open redirect. Реалізувати у `AuthForm.onAuthenticated()`.
+Валідація `redirect`: приймати тільки шляхи, що починаються з `/` і не з `//` - інакше open redirect. Реалізувати у `AuthForm.onAuthenticated()`.
 
 - [ ] **Step 2: Редіректи + noindex**
 
@@ -300,7 +300,7 @@ const redirectTo = computed(() => (typeof route.query.redirect === 'string' ? ro
 '/forgot-password': { redirect: { to: '/auth?mode=forgot', statusCode: 302 } },
 ```
 
-`redirectOptions.login` → `'/auth'`. У `robotsPolicy.ts` додати `/auth` до `noindexRoutes` (старі шляхи лишити — правило нешкідливе).
+`redirectOptions.login` → `'/auth'`. У `robotsPolicy.ts` додати `/auth` до `noindexRoutes` (старі шляхи лишити - правило нешкідливе).
 
 - [ ] **Step 3: Видалити старі сторінки**
 
@@ -308,7 +308,7 @@ const redirectTo = computed(() => (typeof route.query.redirect === 'string' ? ro
 
 - [ ] **Step 4: Тригери**
 
-`nav.ts:33`: ключ `/signin` → `/auth`, список аліасів — `['/auth', '/signin', '/signup', '/forgot-password', '/reset-password']`.
+`nav.ts:33`: ключ `/signin` → `/auth`, список аліасів - `['/auth', '/signin', '/signup', '/forgot-password', '/reset-password']`.
 
 `Header.vue` і `OpenSidebar.vue`: посилання лишається `to="/auth"`, додається
 
@@ -320,7 +320,7 @@ function onAuthClick(event: MouseEvent) {
 }
 ```
 
-**Перевірити**, що нативний `@click` доходить крізь `DefaultButton` до внутрішнього `NuxtLink` (inheritAttrs). Якщо ні — замінити тригер на власний `<NuxtLink>` з тими самими класами або додати `emit('click', event)` у `DefaultButton`. У сайдбарі перед відкриттям діалогу закрити сайдбар.
+**Перевірити**, що нативний `@click` доходить крізь `DefaultButton` до внутрішнього `NuxtLink` (inheritAttrs). Якщо ні - замінити тригер на власний `<NuxtLink>` з тими самими класами або додати `emit('click', event)` у `DefaultButton`. У сайдбарі перед відкриттям діалогу закрити сайдбар.
 
 `Header.vue:30`: `signOut()` → `navigateTo('/auth')`.
 `middleware/auth.ts`: `navigateTo(\`/auth?redirect=${encodeURIComponent(to.fullPath)}\`)` (додати параметр `to`).
@@ -354,11 +354,11 @@ git commit -m "feat(auth): serve sign-in and sign-up from a single /auth route"
 - `layouts/default.vue` монтує `<AuthDialog />`;
 - `AuthForm.vue` зберігає `signupExistsMessage`.
 
-`robotsPolicy.test.ts` — `/auth` у результаті `buildNoindexRouteRules()`.
+`robotsPolicy.test.ts` - `/auth` у результаті `buildNoindexRouteRules()`.
 
 - [ ] **Step 2: E2E**
 
-`tests/e2e/auth-dialog.spec.ts`: з `/` клік по signin у header → діалог видимий, має accessible name; Esc закриває; `/signin` редіректить на `/auth`. (Playwright поки не в CI — тест пишемо, але gate лишається на `test:unit`.)
+`tests/e2e/auth-dialog.spec.ts`: з `/` клік по signin у header → діалог видимий, має accessible name; Esc закриває; `/signin` редіректить на `/auth`. (Playwright поки не в CI - тест пишемо, але gate лишається на `test:unit`.)
 
 - [ ] **Step 3: Прогін**
 
@@ -367,7 +367,7 @@ npm run test:unit && npm run typecheck && npm run typecheck:ts7
 npm run test:e2e -- auth-dialog
 ```
 
-Очікуваний baseline після змін: 42 файли (був 41) — звірити фактичне число і зафіксувати в AGENTS.md на Task 7.
+Очікуваний baseline після змін: 42 файли (був 41) - звірити фактичне число і зафіксувати в AGENTS.md на Task 7.
 
 - [ ] **Step 4: commit**
 

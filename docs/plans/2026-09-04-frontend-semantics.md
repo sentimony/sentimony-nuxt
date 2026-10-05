@@ -2,7 +2,7 @@
 
 > **For agentic workers:** Use subagent-driven-development or executing-plans to execute the plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Read-шар каталогу отримує списочну семантику, чисті доступні імена, стани для кожного списку, розміри зображень, `color-scheme`, токени замість хардкоду і контраст без накладеної прозорості — без зміни композиції; кожна правка закріплена юніт-тестом по джерелу.
+**Goal:** Read-шар каталогу отримує списочну семантику, чисті доступні імена, стани для кожного списку, розміри зображень, `color-scheme`, токени замість хардкоду і контраст без накладеної прозорості - без зміни композиції; кожна правка закріплена юніт-тестом по джерелу.
 
 **Architecture:** Правки локальні в `app/pages`, `app/components`, `app/assets/css/tailwind.css`, `nuxt.config.ts`. Нові інваріанти йдуть у наявні source-reading тести (`accessibleNames`, `interactionStates`, `landmarks`) або в новий `catalogSemantics.test.ts`. Снапшоти e2e оновлюються лише за протоколом спеки (п. 5).
 
@@ -17,15 +17,15 @@
 - Ті самі, що в плані TypeScript; гейт після кожної задачі:
   `npm run test:unit && npm run typecheck && npm run typecheck:tests && npm run docs:check`.
 - Не міняти композицію, розміри, кольори (крім явно зазначених контрастних правок).
-- Не запускати `test:e2e` між задачами — один прогін у задачі 12. Playwright сам піднімає dev на порту 3100; зупиняти лише цей інстанс.
+- Не запускати `test:e2e` між задачами - один прогін у задачі 12. Playwright сам піднімає dev на порту 3100; зупиняти лише цей інстанс.
 - Клас-рядки не переносити з `<p>` частково: всі класи `<p>` переходять на `<li>` цілком плюс `mb-2`.
 
 ## Контекст для виконавця
 
 - Виконується після планів TypeScript і Vitest; `typecheck:tests` уже є в гейті.
-- Робоче дерево брудне навмисно (`package.json`, `package-lock.json`, `public/_redirects`, `server/data/sentimony-db.yml`, `.nuxtrc`) — не стейджити.
-- Глобальне `p { @apply mb-2 }` у `tailwind.css` — джерело ритму, який `<li class="mb-2">` відтворює.
-- `.Content svg path { fill }` у `tailwind.css` уже перебиває fill `SvgTriangle` — обидва місця переходять на токен.
+- Робоче дерево брудне навмисно (`package.json`, `package-lock.json`, `public/_redirects`, `server/data/sentimony-db.yml`, `.nuxtrc`) - не стейджити.
+- Глобальне `p { @apply mb-2 }` у `tailwind.css` - джерело ритму, який `<li class="mb-2">` відтворює.
+- `.Content svg path { fill }` у `tailwind.css` уже перебиває fill `SvgTriangle` - обидва місця переходять на токен.
 
 ---
 
@@ -39,11 +39,11 @@
 
 **Files:** `app/pages/release/[id].vue`, `app/pages/track/[id].vue`, `app/pages/artist/[id].vue`, `app/pages/event/[id].vue`, `app/pages/tracks.vue`, `app/pages/playlist/[id].vue`, `app/components/player/PagePlayer.vue`; test `tests/unit/catalogSemantics.test.ts` (create)
 
-- [x] **Step 1:** тест: для кожного з семи файлів — жоден `v-for` не стоїть на `<p`; треклісти/лайнапи/списки зв'язків рендеряться як `<ol`/`<ul` з `<li`; у `playlist/[id].vue` немає `<ol>` → `<div>` → `<li>` (перевірка: після `<ol` перший дочірній тег — `<li`).
-- [x] **Step 2:** `release/[id].vue` — два треклісти і два списки зв'язків → `<ol class="list-none">` / `<ul class="list-none">` + `<li class="mb-2 …">`.
-- [x] **Step 3:** `track/[id].vue`, `artist/[id].vue`, `event/[id].vue`, `tracks.vue` — те саме.
-- [x] **Step 4:** `playlist/[id].vue` — реліз стає `<li>` з вкладеним `<ol>` треків.
-- [x] **Step 5:** `PagePlayer.vue` — рядки треків → `<ol>` + `<li>`; класи рядка на `<li>`.
+- [x] **Step 1:** тест: для кожного з семи файлів - жоден `v-for` не стоїть на `<p`; треклісти/лайнапи/списки зв'язків рендеряться як `<ol`/`<ul` з `<li`; у `playlist/[id].vue` немає `<ol>` → `<div>` → `<li>` (перевірка: після `<ol` перший дочірній тег - `<li`).
+- [x] **Step 2:** `release/[id].vue` - два треклісти і два списки зв'язків → `<ol class="list-none">` / `<ul class="list-none">` + `<li class="mb-2 …">`.
+- [x] **Step 3:** `track/[id].vue`, `artist/[id].vue`, `event/[id].vue`, `tracks.vue` - те саме.
+- [x] **Step 4:** `playlist/[id].vue` - реліз стає `<li>` з вкладеним `<ol>` треків.
+- [x] **Step 5:** `PagePlayer.vue` - рядки треків → `<ol>` + `<li>`; класи рядка на `<li>`.
 - [x] **Step 6:** гейт; commit `fix(a11y): render tracklists and related links as lists`.
 
 ---
@@ -53,7 +53,7 @@
 **Files:** `app/components/Item.vue`, `app/components/RelativeItem.vue`, `app/pages/news.vue`, `app/components/Header.vue`, `app/components/buttons/PrimaryButton.vue`, `app/components/buttons/DefaultButton.vue`; test `tests/unit/accessibleNames.test.ts`
 
 - [x] **Step 1:** тест: у шести файлах немає `:alt="` з `' Thumbnail'` / `' icon'` / `+ ' Icon'`; `<img` усередині цих компонентів має `alt=""`.
-- [x] **Step 2:** правки: `alt=""` на зображеннях у посиланнях із текстом; кнопки — `alt=""`, назва в `title`/тексті.
+- [x] **Step 2:** правки: `alt=""` на зображеннях у посиланнях із текстом; кнопки - `alt=""`, назва в `title`/тексті.
 - [x] **Step 3:** гейт; commit `fix(a11y): mark images inside labelled links as decorative`.
 
 ---
@@ -102,7 +102,7 @@
 
 **Files:** `nuxt.config.ts`, `app/assets/css/tailwind.css`; test `interactionStates.test.ts`
 
-- [x] **Step 1:** тест: `nuxt.config.ts` містить `color-scheme` meta; `tailwind.css` — `color-scheme: light` у `:root` і `color-scheme: dark` у `.dark`.
+- [x] **Step 1:** тест: `nuxt.config.ts` містить `color-scheme` meta; `tailwind.css` - `color-scheme: light` у `:root` і `color-scheme: dark` у `.dark`.
 - [x] **Step 2:** правки.
 - [x] **Step 3:** гейт; commit `fix(ui): declare color-scheme for both themes`.
 
@@ -134,8 +134,8 @@
 
 - [x] **Step 1:** тест: немає `Relative Releases`/`Relative Artists`, немає кириличної `Сredits`; `Hero.vue` має один `<h1` і він містить `Psychedelic Music Label`; `artist/[id].vue` рендерить секцію релізів під `v-if` з довжиною.
 - [x] **Step 2:** «Related …» ×3, `Credits`, `Coming soon` ×3.
-- [x] **Step 3:** `Hero.vue` — `<h1>` як обгортка обох рядків, внутрішні `span class="block"`.
-- [x] **Step 4:** `artist/[id].vue` — `artistReleases` computed, секція під `v-if="artistReleases.length"`.
+- [x] **Step 3:** `Hero.vue` - `<h1>` як обгортка обох рядків, внутрішні `span class="block"`.
+- [x] **Step 4:** `artist/[id].vue` - `artistReleases` computed, секція під `v-if="artistReleases.length"`.
 - [x] **Step 5:** гейт; commit `fix(ui): correct catalog copy, hero heading and empty artist sections`.
 
 ---
@@ -154,8 +154,8 @@
 
 **Files:** `tests/e2e/__screenshots__/**` (тільки за протоколом), `AGENTS.md`, `docs/initiatives/catalog-semantics.md`, `docs/roadmap.md`, `docs/completed.md`
 
-- [x] **Step 1:** `npm run test:e2e` один раз. Якщо снапшоти падають — відкрити diff-зображення; оновлювати (`test:e2e:update`) лише якщо змінені області — підпис хедера й текст футера. Інший diff — знайти задачу, що зрушила пікселі, і виправити.
+- [x] **Step 1:** `npm run test:e2e` один раз. Якщо снапшоти падають - відкрити diff-зображення; оновлювати (`test:e2e:update`) лише якщо змінені області - підпис хедера й текст футера. Інший diff - знайти задачу, що зрушила пікселі, і виправити.
   _2026-09-05: еталон застарів наступного дня після зняття (`44efa83`: uppercase-навігація, інші іконки хедера) плюс Chromium 1228 → 1234; зсуву макета немає, еталони перезнято без DevTools, `test:e2e` зелений._
-- [x] **Step 2:** AGENTS.md — нові інваріанти (треклісти `<ol>`, `alt=""` у посиланнях із текстом, без `opacity-*` на тексті в напівпрозорому батьку, `--color-moss`, `title` на кожному iframe); `Last reviewed: 2026-09-04`; під 250 рядків.
+- [x] **Step 2:** AGENTS.md - нові інваріанти (треклісти `<ol>`, `alt=""` у посиланнях із текстом, без `opacity-*` на тексті в напівпрозорому батьку, `--color-moss`, `title` на кожному iframe); `Last reviewed: 2026-09-04`; під 250 рядків.
 - [x] **Step 3:** ініціатива → `Implemented`, roadmap синхронно, запис у `docs/completed.md`.
 - [x] **Step 4:** `npm run docs:check`; commit `docs: record the catalog semantics invariants and close the initiative`.

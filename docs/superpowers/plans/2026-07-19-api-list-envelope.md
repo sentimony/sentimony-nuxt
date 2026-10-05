@@ -4,7 +4,7 @@
 
 **Goal:** Уніфікувати 8 публічних list-ендпоінтів на envelope `{ info: { count, pages, next, prev }, results: [] }` (стиль rickandmortyapi.com) з опційною пагінацією `page`/`limit`.
 
-**Architecture:** Чиста фабрика `buildListEnvelope()` у `server/utils/listEnvelope.ts` загортає масив рядків (Supabase — як є; Firebase — `Object.values(pickListFields(...))`). Клієнтський `toArray()` вчиться розгортати `results` — усі ~25 колсайтів сторінок лишаються незмінними; правляться лише типи та три прямі споживачі (`tracks.vue`, `release/[id].vue`, `web-debug.mjs`).
+**Architecture:** Чиста фабрика `buildListEnvelope()` у `server/utils/listEnvelope.ts` загортає масив рядків (Supabase - як є; Firebase - `Object.values(pickListFields(...))`). Клієнтський `toArray()` вчиться розгортати `results` - усі ~25 колсайтів сторінок лишаються незмінними; правляться лише типи та три прямі споживачі (`tracks.vue`, `release/[id].vue`, `web-debug.mjs`).
 
 **Tech Stack:** Nuxt 4 / Nitro, Vitest, Supabase/Firebase dual catalog source.
 
@@ -13,12 +13,12 @@
 ## Global Constraints
 
 - Гілка `json-to-yml`, без git worktrees (AGENTS.md).
-- Стиль: 2 пробіли, один trailing newline, без trailing whitespace; коментарі — англійською, лише для неочевидного.
+- Стиль: 2 пробіли, один trailing newline, без trailing whitespace; коментарі - англійською, лише для неочевидного.
 - Базлайн: `npm run test:unit` → 39 files / 161 tests (плюс файли з плану release-title split, якщо він виконаний раніше). Typecheck: `npx nuxi typecheck`.
 - Не запускати `sync:*`; нових npm-залежностей не додавати.
 - Скоуп: тільки `/api/releases`, `/api/artists`, `/api/artists-all`, `/api/videos`, `/api/events`, `/api/playlists`, `/api/friends`, `/api/tracks`. Detail-, композитні- та likes-ендпоінти не чіпати.
-- `limit` clamp 1–100 (як у likes-пагінатора); без `limit` — повна колекція, `pages: 1`.
-- `next`/`prev` — відносні URL (`/api/releases?page=2&limit=20`).
+- `limit` clamp 1-100 (як у likes-пагінатора); без `limit` - повна колекція, `pages: 1`.
+- `next`/`prev` - відносні URL (`/api/releases?page=2&limit=20`).
 
 ---
 
@@ -29,7 +29,7 @@
 - Test: `tests/unit/listEnvelope.test.ts`
 
 **Interfaces:**
-- Produces (Nitro auto-import для handlers; чистий модуль без глобалів, у тестах — прямий імпорт):
+- Produces (Nitro auto-import для handlers; чистий модуль без глобалів, у тестах - прямий імпорт):
   - `interface ListInfo { count: number, pages: number, next: string | null, prev: string | null }`
   - `interface ListEnvelope<T> { info: ListInfo, results: T[] }`
   - `buildListEnvelope<T>(rows: T[], options: { path: string, page?: unknown, limit?: unknown }): ListEnvelope<T>`
@@ -97,7 +97,7 @@ describe('buildListEnvelope', () => {
 - [ ] **Step 2: Переконатися, що тест падає**
 
 Run: `npx vitest run tests/unit/listEnvelope.test.ts`
-Expected: FAIL — `Cannot find module '../../server/utils/listEnvelope'`.
+Expected: FAIL - `Cannot find module '../../server/utils/listEnvelope'`.
 
 - [ ] **Step 3: Реалізувати фабрику**
 
@@ -178,7 +178,7 @@ git commit -m "feat(api): buildListEnvelope factory for info/results list respon
 - Test: `tests/unit/toArray.test.ts` (новий)
 
 **Interfaces:**
-- Produces: `toArray<T>(raw: unknown, key?: string): T[]` — сигнатура незмінна; додається розгортання `{ results: [] }` перед наявною логікою Record/масив. Зворотно сумісний з обома старими формами (перехідне вікно CDN-кешу).
+- Produces: `toArray<T>(raw: unknown, key?: string): T[]` - сигнатура незмінна; додається розгортання `{ results: [] }` перед наявною логікою Record/масив. Зворотно сумісний з обома старими формами (перехідне вікно CDN-кешу).
 
 - [ ] **Step 1: Написати падаючий тест**
 
@@ -218,11 +218,11 @@ describe('toArray', () => {
 - [ ] **Step 2: Переконатися, що тест падає**
 
 Run: `npx vitest run tests/unit/toArray.test.ts`
-Expected: FAIL — перший тест повертає `[info, results]` (`Object.values` по envelope).
+Expected: FAIL - перший тест повертає `[info, results]` (`Object.values` по envelope).
 
 - [ ] **Step 3: Оновити `toArray`**
 
-`app/composables/toArray.ts` — повний новий вміст:
+`app/composables/toArray.ts` - повний новий вміст:
 
 ```ts
 export function toArray<T>(raw: unknown, key?: string): T[] {
@@ -366,7 +366,7 @@ describe('releases API', () => {
 ```
 
 Run: `npx vitest run tests/unit/releasesApi.test.ts`
-Expected: FAIL — handler ще повертає Record/масив без envelope.
+Expected: FAIL - handler ще повертає Record/масив без envelope.
 
 - [ ] **Step 2: Оновити handler**
 
@@ -429,7 +429,7 @@ git commit -m "feat(api): wrap /api/releases into info/results envelope"
 
 - [ ] **Step 1: Оновити всі 7 handlers**
 
-`server/api/artists.get.ts` — повний новий вміст:
+`server/api/artists.get.ts` - повний новий вміст:
 
 ```ts
 export default defineCachedEventHandler(
@@ -455,7 +455,7 @@ export default defineCachedEventHandler(
 )
 ```
 
-`server/api/artists-all.get.ts` — повний новий вміст:
+`server/api/artists-all.get.ts` - повний новий вміст:
 
 ```ts
 export default defineCachedEventHandler(
@@ -480,7 +480,7 @@ export default defineCachedEventHandler(
 )
 ```
 
-`server/api/videos.get.ts` — повний новий вміст:
+`server/api/videos.get.ts` - повний новий вміст:
 
 ```ts
 export default defineCachedEventHandler(
@@ -506,7 +506,7 @@ export default defineCachedEventHandler(
 )
 ```
 
-`server/api/events.get.ts` — повний новий вміст:
+`server/api/events.get.ts` - повний новий вміст:
 
 ```ts
 export default defineCachedEventHandler(
@@ -532,7 +532,7 @@ export default defineCachedEventHandler(
 )
 ```
 
-`server/api/playlists.get.ts` — повний новий вміст:
+`server/api/playlists.get.ts` - повний новий вміст:
 
 ```ts
 export default defineCachedEventHandler(
@@ -558,7 +558,7 @@ export default defineCachedEventHandler(
 )
 ```
 
-`server/api/friends.get.ts` — повний новий вміст:
+`server/api/friends.get.ts` - повний новий вміст:
 
 ```ts
 export default defineCachedEventHandler(
@@ -583,7 +583,7 @@ export default defineCachedEventHandler(
 )
 ```
 
-`server/api/tracks/index.get.ts` — повний новий вміст:
+`server/api/tracks/index.get.ts` - повний новий вміст:
 
 ```ts
 export default defineCachedEventHandler(async (event) => {
@@ -595,7 +595,7 @@ export default defineCachedEventHandler(async (event) => {
 - [ ] **Step 2: Прогнати дотичні тести**
 
 Run: `npx vitest run tests/unit/releasesApi.test.ts tests/unit/pickListFields.test.ts tests/unit/catalogTracks.test.ts`
-Expected: PASS — `pickListFields`/`fetchAllCatalogTrackRows` не змінювалися, envelope додається поверх.
+Expected: PASS - `pickListFields`/`fetchAllCatalogTrackRows` не змінювалися, envelope додається поверх.
 
 - [ ] **Step 3: Commit**
 
@@ -614,7 +614,7 @@ git commit -m "feat(api): info/results envelope for remaining catalog list endpo
 - Modify: `app/pages/release/[id].vue:93`
 
 **Interfaces:**
-- Produces: `ListInfo`, `ApiListResponse<T> = { info: ListInfo, results: T[] }` у `app/types/index.ts`; усі `XxxResponse` стають аліасами `ApiListResponse<Xxx>` (імена збережено — композабли `useReleases`/`useArtists`/… та сторінки не змінюються, крім двох файлів нижче).
+- Produces: `ListInfo`, `ApiListResponse<T> = { info: ListInfo, results: T[] }` у `app/types/index.ts`; усі `XxxResponse` стають аліасами `ApiListResponse<Xxx>` (імена збережено - композабли `useReleases`/`useArtists`/… та сторінки не змінюються, крім двох файлів нижче).
 
 - [ ] **Step 1: Оновити типи**
 
@@ -648,9 +648,9 @@ export interface ReleasesResponse {
 export type ReleasesResponse = ApiListResponse<Release>
 ```
 
-Аналогічно: `ArtistsResponse = ApiListResponse<Artist>`, `VideosResponse = ApiListResponse<Video>`, `EventsResponse = ApiListResponse<Event>`, `PlaylistsResponse = ApiListResponse<Playlist>`, `FriendsResponse = ApiListResponse<Friend>` (точний поточний вміст кожного блока — за grep `Response` у файлі; форма в усіх шести однакова).
+Аналогічно: `ArtistsResponse = ApiListResponse<Artist>`, `VideosResponse = ApiListResponse<Video>`, `EventsResponse = ApiListResponse<Event>`, `PlaylistsResponse = ApiListResponse<Playlist>`, `FriendsResponse = ApiListResponse<Friend>` (точний поточний вміст кожного блока - за grep `Response` у файлі; форма в усіх шести однакова).
 
-- [ ] **Step 2: `app/pages/tracks.vue` — обгорнути `/api/tracks`**
+- [ ] **Step 2: `app/pages/tracks.vue` - обгорнути `/api/tracks`**
 
 Замінити:
 
@@ -667,7 +667,7 @@ const allTracks = computed(() => toArray<TrackListItem>(allTracksRaw.value))
 
 і додати `ApiListResponse` до import типів з `~/types`. Наявні використання `allTracks.value ?? []` та `allTracks.value?.length ?? 0` лишаються валідними (computed завжди повертає масив).
 
-- [ ] **Step 3: `app/pages/release/[id].vue` — тип artists-all**
+- [ ] **Step 3: `app/pages/release/[id].vue` - тип artists-all**
 
 Замінити:
 
@@ -686,7 +686,7 @@ const allArtistsAsync = useFetch<ArtistsResponse>('/api/artists-all', { server: 
 - [ ] **Step 4: Typecheck**
 
 Run: `npx nuxi typecheck`
-Expected: без помилок. Якщо падають місця, що читали старі union-форми (`Record | []`) напряму — виправляти саме колсайт через `toArray`, не повертати union.
+Expected: без помилок. Якщо падають місця, що читали старі union-форми (`Record | []`) напряму - виправляти саме колсайт через `toArray`, не повертати union.
 
 - [ ] **Step 5: Commit**
 
@@ -728,7 +728,7 @@ function firstSlug(payload) {
 - [ ] **Step 2: Повна сюїта + typecheck**
 
 Run: `npm run test:unit`
-Expected: PASS — базлайн + `listEnvelope` (5) + `toArray` (4); `releasesApi` лишається 2.
+Expected: PASS - базлайн + `listEnvelope` (5) + `toArray` (4); `releasesApi` лишається 2.
 Run: `npx nuxi typecheck`
 Expected: без помилок.
 
@@ -742,7 +742,7 @@ curl -s 'http://localhost:3000/api/releases?page=2&limit=20' | node -e "let s=''
 node scripts/web-debug.mjs
 ```
 
-Expected: перший — `{ count: ~102, pages: 1, next: null, prev: null } true 102`; другий — `pages: 6`, `next: '/api/releases?page=3&limit=20'`, 20 елементів; web-debug — усі маршрути 2xx/3xx.
+Expected: перший - `{ count: ~102, pages: 1, next: null, prev: null } true 102`; другий - `pages: 6`, `next: '/api/releases?page=3&limit=20'`, 20 елементів; web-debug - усі маршрути 2xx/3xx.
 
 Потім перезапустити dev у Firebase-режимі й повторити перший curl + web-debug:
 
@@ -750,7 +750,7 @@ Expected: перший — `{ count: ~102, pages: 1, next: null, prev: null } tr
 CATALOG_SOURCE=firebase npm run dev
 ```
 
-Expected: та сама envelope-форма (`results` — масив, не Record). Зупинити dev-сервер.
+Expected: та сама envelope-форма (`results` - масив, не Record). Зупинити dev-сервер.
 
 - [ ] **Step 4: Commit**
 

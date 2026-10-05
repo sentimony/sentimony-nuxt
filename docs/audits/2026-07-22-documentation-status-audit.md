@@ -13,10 +13,10 @@
 
 Статуси:
 
-- **Реалізовано** — основний результат спеки/плану присутній і має перевірний доказ.
-- **Частково** — фундамент або частина задач є, але заявлений користувацький чи
+- **Реалізовано** - основний результат спеки/плану присутній і має перевірний доказ.
+- **Частково** - фундамент або частина задач є, але заявлений користувацький чи
   технічний результат не завершений.
-- **Не реалізовано** — цільові файли/контракти відсутні або код лишився у стані до плану.
+- **Не реалізовано** - цільові файли/контракти відсутні або код лишився у стані до плану.
 
 ## Статус специфікацій
 
@@ -24,7 +24,7 @@
 | --- | --- | --- |
 | `2026-06-01-theme-toggle-design.md` | Реалізовано | `useTheme.ts`, `ThemeToggle.vue`, pre-paint script і theme tokens існують. |
 | `2026-06-06-homepage-light-theme-design.md` | Реалізовано | `HomepageAtmosphere.vue` і чотири Playwright baselines існують; спека позначена як implemented. |
-| `2026-06-25-project-hardening-design.md` | Частково | Cache policy, sanitizer, private export і test infrastructure існують; aggregated profile loading і повне visibility hardening — ні. |
+| `2026-06-25-project-hardening-design.md` | Частково | Cache policy, sanitizer, private export і test infrastructure існують; aggregated profile loading і повне visibility hardening - ні. |
 | `2026-06-27-sentimony-ui-refactor-design.md` | Не реалізовано | Немає `app/components/sr/` або `Sr*` компонентів; поточна owned-UI робота має інший напрям. |
 | `2026-07-01-sitemap-indexing-design.md` | Реалізовано | Sitemap endpoint, pure builder, route-rule noindex і тести існують. |
 | `2026-07-02-catalog-features-design.md` | Реалізовано | Portfolio, organized events, `/artists/all`, category dividers і genre pages існують. |
@@ -49,24 +49,24 @@
 
 ## Статус implementation plans
 
-### Реалізовано — 9
+### Реалізовано - 9
 
 1. `2026-06-06-homepage-light-theme.md`.
 2. `2026-07-02-catalog-features.md`.
 3. `2026-07-02-review-fixes.md`.
 4. `2026-07-06-tracks-first-class-migration.md`.
-5. `2026-07-07-global-audio-player.md` — із подальшою заміною header mini-player на bottom player.
+5. `2026-07-07-global-audio-player.md` - із подальшою заміною header mini-player на bottom player.
 6. `2026-07-13-lighthouse-lcp.md`.
 7. `2026-07-16-lazy-media-tabs.md`.
 8. `2026-07-18-export-sync-roadmap-2-4-7.md`.
 9. `2026-07-21-release-tracklist-perf.md`.
 
-### Частково — 2
+### Частково - 2
 
-1. `2026-06-25-project-hardening.md` — profile aggregation і частина security/test-depth лишилися відкритими.
-2. `2026-07-02-custom-audio-player.md` — Task 1–3 присутні, але Hagen data/infrastructure activation не завершена.
+1. `2026-06-25-project-hardening.md` - profile aggregation і частина security/test-depth лишилися відкритими.
+2. `2026-07-02-custom-audio-player.md` - Task 1-3 присутні, але Hagen data/infrastructure activation не завершена.
 
-### Не реалізовано — 11
+### Не реалізовано - 11
 
 1. `2026-06-27-sentimony-ui-refactor.md`.
 2. `2026-07-19-api-list-envelope.md`.
@@ -117,7 +117,7 @@
 ## Поточна перевірка unit suite
 
 Локальний прогін 2026-07-22 дав **40 test files / 168 tests**, з яких чотири
-тести у `likeButtons.test.ts` впали. Причина — поточний незакомічений UI refactor
+тести у `likeButtons.test.ts` впали. Причина - поточний незакомічений UI refactor
 переніс icon contract у `LikeButton`, тоді як source-based assertions і далі
 шукають `lucide:thumbs-up` безпосередньо у сторінках.
 
@@ -127,6 +127,6 @@
 ## Висновок
 
 Старі планові checkbox-и не придатні для обліку прогресу. Актуальний статус має
-жити в `docs/roadmap/README.md`, а детальний доказ — у датованих аудитах.
+жити в `docs/roadmap/README.md`, а детальний доказ - у датованих аудитах.
 Найтерміновіші відкриті напрями: catalog visibility security, mobile performance
 і повний CI quality gate.

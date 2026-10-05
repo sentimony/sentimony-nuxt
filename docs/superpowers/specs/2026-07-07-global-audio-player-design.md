@@ -1,4 +1,4 @@
-# Global Audio Player — Design
+# Global Audio Player - Design
 
 Date: 2026-07-07
 Status: approved (approach A)
@@ -23,17 +23,17 @@ State:
   - `QueueItem = { src: string; title: string; link?: string }`
 - `isPlaying: boolean`
 - `currentTime: number`, `duration: number`
-- `volume: number` — persisted in `localStorage['player-volume']`
+- `volume: number` - persisted in `localStorage['player-volume']`
 
 API:
 
-- `play(item: PlayerItem)` — replaces current source and starts playback
-- `toggle()` — play/pause current
+- `play(item: PlayerItem)` - replaces current source and starts playback
+- `toggle()` - play/pause current
 - `seek(seconds: number)`
 - `setVolume(v: number)`
-- `close()` — stop, clear `current` (mini player row disappears)
-- `next()` / `prev()` — move within `queue` when `kind === 'track'`; no-op otherwise
-- `isCurrent(src: string): boolean` — helper for page-level players
+- `close()` - stop, clear `current` (mini player row disappears)
+- `next()` / `prev()` - move within `queue` when `kind === 'track'`; no-op otherwise
+- `isCurrent(src: string): boolean` - helper for page-level players
 
 ### 2. `app/components/AudioBridge.vue`
 
@@ -74,7 +74,7 @@ Wherever a track with non-null `audio_url` is rendered (track page, release trac
 
 ## Testing
 
-- Unit (Vitest): `useAudioPlayer` — play replaces source, toggle, close clears state, queue next/prev bounds, volume persistence
+- Unit (Vitest): `useAudioPlayer` - play replaces source, toggle, close clears state, queue next/prev bounds, volume persistence
 - Manual: start mix on artist page → navigate site-wide → audio continues, mini player controls it; theme toggle, mobile layout
 
 ## Out of scope

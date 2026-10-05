@@ -13,21 +13,21 @@
 `20260707_tracks_first_class.sql` ці колонки дропнула. Перевірено проти живої
 бази: `column tracks.release_slug does not exist`. Хендлер кидає 500,
 `usePaginatedLikes` ковтає помилку в порожній масив, `ProfileCollectionStatus`
-не має стану помилки — і сторінка малює «Nothing saved here yet», поки таб над
+не має стану помилки - і сторінка малює «Nothing saved here yet», поки таб над
 нею показує реальний лічильник із `track_likes`. Тобто ~рік роботи фічі
 приховувався тим, що збій і порожнеча виглядають однаково.
 
-**2. Profile — остання поверхня, яка не пройшла міграцію focus/контрасту.**
+**2. Profile - остання поверхня, яка не пройшла міграцію focus/контрасту.**
 [Аудит 2026-07-25](../../audits/2026-07-25-auth-theme-contrast-audit.md) виніс
 рівно ці п'ять call-sites у follow-up: `profile.vue:52`, `profile/index.vue:129`,
 `profile/index.vue:256`, `profile/tracks.vue:25`,
 `ProfileCollectionStatus.vue:32`. Усі п'ять поєднують безумовний `outline-none`
-із `focus-visible:ring-ring/50`. На трьох із них ціль — `NuxtLink`, тому
+із `focus-visible:ring-ring/50`. На трьох із них ціль - `NuxtLink`, тому
 `outline-none` скасовує глобальне `a:focus-visible` і замінює повний `--ring`
 половиною токена (виміряно 1.60 light / 2.28 dark проти потрібних 3.0).
 
 **3. Дизайн-контракт не застосований.** 21 входження `text-foreground/N` нижче
-`muted-foreground` (дно — `/20` і `/25`), 60 парних `black/N dark:white/N`,
+`muted-foreground` (дно - `/20` і `/25`), 60 парних `black/N dark:white/N`,
 синій `blue-500` як акцент інпута, `text-red-400` замість `--destructive`, шість
 рукописних кнопок повз `ui/button`, рукописна копія `<GenreTabs>`.
 
@@ -35,7 +35,7 @@
 самих чотирьох файлах** (`profile.vue`, `profile/index.vue`, `profile/tracks.vue`,
 `ProfileCollectionStatus.vue`), тому розводити їх на два заходи означає двічі
 переписати ті самі рядки. Пункт 1 натомість повністю серверний і не перетинається
-ні з чим — він іде першим і окремо, щоб продовий фікс не чекав на косметику.
+ні з чим - він іде першим і окремо, щоб продовий фікс не чекав на косметику.
 
 ## Рішення
 
@@ -102,12 +102,12 @@ export interface ReleaseTrack extends Track {
 П'ять call-sites прибирають `focus-visible:outline-none
 focus-visible:ring-2 focus-visible:ring-ring/50`. Далі два різні шляхи:
 
-- **посилання** (`profile.vue` таби, картки секцій в `index.vue`, рядки треків) —
+- **посилання** (`profile.vue` таби, картки секцій в `index.vue`, рядки треків) -
   не отримують нічого замість. Глобальне `a:focus-visible`
   (`tailwind.css:107-110`) уже дає `outline: 2px solid var(--ring)` з
   `outline-offset: 2px`; локальні класи були єдиною причиною, чому воно не
   працювало;
-- **кнопки** — переходять на `ui/button`, база `buttonVariants` уже містить
+- **кнопки** - переходять на `ui/button`, база `buttonVariants` уже містить
   `focus-visible:outline-solid outline-2 outline-offset-2 outline-ring`.
 
 **Пастка Tailwind v4, яку треба закрити разом із цим:** `transition-colors`
@@ -115,7 +115,7 @@ focus-visible:ring-2 focus-visible:ring-ring/50`. Далі два різні ш�
 `--ring` протягом 300ms. Це вже виправляли у `Footer.vue`. Усі елементи
 profile, які поєднують `transition-colors` із focus-обведенням, переходять на
 явний список без `outline-color` (`transition-[color,background-color]`,
-`transition-[color,background-color,border-color]`). Приймальна перевірка —
+`transition-[color,background-color,border-color]`). Приймальна перевірка -
 колір обведення однаковий одразу після `Tab` і після завершення переходу.
 
 ### 4. Текстові тири і токени
@@ -157,7 +157,7 @@ profile, які поєднують `transition-colors` із focus-обведен
 avatar виражається токеном:
 `hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30`.
 
-Таби переходять на `DefaultButton`, бо `<GenreTabs>` — це вже той самий
+Таби переходять на `DefaultButton`, бо `<GenreTabs>` - це вже той самий
 компонент із тією ж семантикою (лейбл + лічильник + активний таб). `DefaultButton`
 рендерить `· N` у `font-mono` і тримає активний стан через `exactActiveClass`,
 тобто `isSectionActive()` у `profile.vue` зникає разом із рукописною розміткою.
@@ -165,7 +165,7 @@ avatar виражається токеном:
 **Свідоме рішення: усі шість секцій завжди у навігації.** Зараз
 `visibleSections` ховає секції з нулем, тому таб зникає з-під користувача, коли
 той знімає останній лайк, перебуваючи на сторінці секції. `GenreTabs` показує
-всі таби, включно з нульовими, — patterns сайту протилежний поточному. Стабільна
+всі таби, включно з нульовими, - patterns сайту протилежний поточному. Стабільна
 навігація також знімає стрибок лейауту після кожного лайка.
 
 ### 6. Композиція
@@ -173,14 +173,14 @@ avatar виражається токеном:
 - **Одна ширина.** Уся поверхня profile переходить на `max-w-5xl`, включно з
   ґрідами колекцій. Зараз таби й overview центровані на 5xl, а ґрід під ними
   розтягнутий на 112rem, тому таби висять без опори. Каталожна ширина тут не
-  потрібна: `<Item>` має 160px у максимумі, особиста колекція — десятки, не сотні
+  потрібна: `<Item>` має 160px у максимумі, особиста колекція - десятки, не сотні
   позицій, і 5xl дає ~9 карток у ряд. Це не змінює `/releases/all` та інші
   каталожні сторінки.
-- **Одна шкала радіусів.** `rounded-lg` — картки й контейнери; `rounded-md` —
-  контроли (приходить із `buttonVariants` та `Input`); `rounded-full` — аватар і
+- **Одна шкала радіусів.** `rounded-lg` - картки й контейнери; `rounded-md` -
+  контроли (приходить із `buttonVariants` та `Input`); `rounded-full` - аватар і
   кружок іконки секції. Голий `rounded` зникає (3 входження).
 - **Мінус мікро-лейбли.** Прибираються eyebrow «Collection overview» над `<h1>`
-  і шість рядків-філерів «Open collection» на картках секцій — стрілка вже
+  і шість рядків-філерів «Open collection» на картках секцій - стрілка вже
   комунікує перехід. Лейбли карток акаунта (Name/Email/Avatar/Account)
   лишаються: вони називають поле, а не декорують секцію.
 - **Em-dash зникає.** `full_name || '—'` → `full_name || 'Not set'`.
@@ -196,7 +196,7 @@ avatar виражається токеном:
 
 ### 8. Верифікація
 
-Розширення `tests/unit/interactionStates.test.ts` — новий блок `profile surface`
+Розширення `tests/unit/interactionStates.test.ts` - новий блок `profile surface`
 зі списком `PROFILE_FILES` (`app/pages/profile.vue`, `app/pages/profile/index.vue`,
 `app/pages/profile/tracks.vue`, `app/components/ProfileCollectionPage.vue`,
 `app/components/ProfileCollectionStatus.vue`), дзеркально до наявного
@@ -231,14 +231,14 @@ avatar виражається токеном:
 
 ## Поза скоупом
 
-- Site-wide `text-foreground/50` (43 входження поза profile) —
+- Site-wide `text-foreground/50` (43 входження поза profile) -
   [design system](../../initiatives/design-system.md).
 - Останні `outline-none` у `ThemeToggle.vue`, `Header.vue`, `OpenSidebar.vue`,
-  `OpenImage.vue` — [accessibility structure](../../initiatives/accessibility-structure.md).
-- Один overview-запит замість шести — [profile aggregation](../../initiatives/profile-aggregation.md);
+  `OpenImage.vue` - [accessibility structure](../../initiatives/accessibility-structure.md).
+- Один overview-запит замість шести - [profile aggregation](../../initiatives/profile-aggregation.md);
   ці правки не змінюють кількість запитів.
 - `<PagePlayer>` для лайкнутих треків: `audio_url` після фікса стає доступним на
-  сторінці, але програвання колекції — продуктова фіча, не борг.
+  сторінці, але програвання колекції - продуктова фіча, не борг.
 - `size`-вимір у `buttonVariants` і `variant="soft"` із `text-foreground/40`.
 - Редизайн overview як такий: ґріди 4 і 6 колонок лишаються, змінюються лише
   ширина, радіуси, тири і зайві підписи.
@@ -253,6 +253,6 @@ avatar виражається токеном:
   profile у двох темах, без анімації кольору.
 - У `PROFILE_FILES` нема `text-foreground/N`, парних `black/white`, `red-400`,
   `blue-500`, `text-[9px]`, `outline-none`.
-- Кожен контрол — це `ui/button`, `Input` або `DefaultButton`.
+- Кожен контрол - це `ui/button`, `Input` або `DefaultButton`.
 - `npm run test:unit` і `npm run typecheck` зелені; нові асерти падають, якщо
   повернути будь-яку зі знятих проблем.

@@ -151,7 +151,7 @@ Expected: only the audit move and index are committed; the user's staged compone
 
 **Interfaces:**
 - Consumes: all files under `docs/superpowers/specs/`, `docs/superpowers/plans/`, current source/config/tests, git history, and the archived 2026-07-19 audit.
-- Produces: the evidence source used to assign roadmap status in Tasks 3–5.
+- Produces: the evidence source used to assign roadmap status in Tasks 3-5.
 
 - [ ] **Step 1: Write the audit header and methodology**
 
@@ -459,8 +459,8 @@ Use `Status: Planned`, `Last reviewed: 2026-07-22`, a `Related` link to
 | File | Priority | Findings | Scope and completion criteria |
 | --- | --- | --- | --- |
 | `catalog-visibility-security.md` | P0 | WEB-1, VITEST-1 | Apply one public-entity guard to artist detail for Firebase/Supabase; replace the hidden-success unit contract with dual-backend 404 tests; security E2E passes in both catalog modes. |
-| `typescript-hardening.md` | P1 | TS-1–TS-5, VITEST-3 | Add test typecheck, wire green Nuxt strictness flags, clean unused declarations, stage exact-optional migration, reduce assertions and add lint guardrails. Each compiler/lint command is green in CI. |
-| `component-testing-and-coverage.md` | P1 | VITEST-2, VITEST-4–VITEST-6 | Add a Nuxt/Vue component-test project, coverage baseline, risk-based branch thresholds and a documented mock cleanup policy; migrate likes/audio/auth/tabs away from source-string-only assertions. |
+| `typescript-hardening.md` | P1 | TS-1-TS-5, VITEST-3 | Add test typecheck, wire green Nuxt strictness flags, clean unused declarations, stage exact-optional migration, reduce assertions and add lint guardrails. Each compiler/lint command is green in CI. |
+| `component-testing-and-coverage.md` | P1 | VITEST-2, VITEST-4-VITEST-6 | Add a Nuxt/Vue component-test project, coverage baseline, risk-based branch thresholds and a documented mock cleanup policy; migrate likes/audio/auth/tabs away from source-string-only assertions. |
 | `e2e-reliability.md` | P1 | WEB-3, WEB-5, WEB-6 | Stabilize first-paint timing, cover track/auth routes and run functional browser tests in CI for both catalog modes; repeated CI runs are stable. |
 | `accessibility-structure.md` | P2 | WEB-4 | Add a public `<main>` landmark and one meaningful homepage `<h1>` without visual regressions; browser assertions and Accessibility 100 pass. |
 
@@ -569,7 +569,7 @@ git commit --only docs/roadmap/cloudflare-domain.md docs/roadmap/sentry-observab
 - Modify: `docs/audits/2026-07-19-quality-audit.md` only if needed to turn a broken root-path reference into a valid relative link without changing its conclusion.
 
 **Interfaces:**
-- Consumes: every roadmap file created in Tasks 3–5 and the completed list from root `ROADMAP.md`.
+- Consumes: every roadmap file created in Tasks 3-5 and the completed list from root `ROADMAP.md`.
 - Produces: the only current roadmap entry point and zero broken root-document references.
 
 - [ ] **Step 1: Create `completed.md`**
@@ -876,7 +876,7 @@ No additional commit is needed when all checks pass and Task 6 already committed
 
 ## Self-Review
 
-- **Spec coverage:** Audit archive → Tasks 1–2; current roadmap split → Task 3;
+- **Spec coverage:** Audit archive → Tasks 1-2; current roadmap split → Task 3;
   uncovered audit findings → Task 4; six approved future ideas → Task 5;
   completed history/root removal/cross-links → Task 6; filesystem, counts, links
   and isolation verification → Task 7.

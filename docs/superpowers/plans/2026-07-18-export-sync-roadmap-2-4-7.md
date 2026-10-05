@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Адаптувати сінк-скрипти до нової (масивної) структури `server/data/sentimony-db-export.json` і закрити ROADMAP пункти 2 (`/tracks` contract — верифікація), 7 (`track_artists` нормалізація) та 4 (`like_counters` замість `like_count` у кешованих DTO).
+**Goal:** Адаптувати сінк-скрипти до нової (масивної) структури `server/data/sentimony-db-export.json` і закрити ROADMAP пункти 2 (`/tracks` contract - верифікація), 7 (`track_artists` нормалізація) та 4 (`like_counters` замість `like_count` у кешованих DTO).
 
-**Architecture:** Канонічний export: `artists`/`tracks`/`videos`/`events`/`friends` — масиви, `releases`/`playlists` — об'єкти за slug. Firebase зберігає об'єкти за slug (конвертація на межі сінку), Supabase — рядки таблиць. Нові Supabase-таблиці: `track_artists` (похідна від CSV `artist_slug`, наповнюється сінком) і `like_counters` (агрегат, підтримується RPC `increment_like`). Firebase read paths не змінюються (рішення: minimal support).
+**Architecture:** Канонічний export: `artists`/`tracks`/`videos`/`events`/`friends` - масиви, `releases`/`playlists` - об'єкти за slug. Firebase зберігає об'єкти за slug (конвертація на межі сінку), Supabase - рядки таблиць. Нові Supabase-таблиці: `track_artists` (похідна від CSV `artist_slug`, наповнюється сінком) і `like_counters` (агрегат, підтримується RPC `increment_like`). Firebase read paths не змінюються (рішення: minimal support).
 
 **Tech Stack:** Nuxt 4 / Nitro, Supabase (supabase-js v2, plpgsql міграції), Firebase RTDB REST, Vitest.
 
@@ -13,23 +13,23 @@
 ## Global Constraints
 
 - Гілка: працювати в `json-to-yml`, без worktrees (заборонено AGENTS.md).
-- НЕ запускати `npm run sync:supabase` / `npm run sync:firebase` без явного дозволу користувача — вони пишуть у remote. `--dry-run`-режими та read-only перевірки дозволені.
-- Міграції НЕ застосовувати до remote Supabase в рамках тасок — тільки створити файли; застосування в секції Rollout (робить користувач або агент із дозволу).
-- Стиль: 2 пробіли, один trailing newline, без trailing whitespace; коментарі в коді — англійською і лише для неочевидного.
-- Тести: `npx vitest run tests/unit/<file>` для одного файлу, `npm run test:unit` для всієї сюїти (базлайн до змін: 34 files / 146 tests). Typecheck: `npx nuxi typecheck` (локальні warnings про відсутні Supabase env — норма).
+- НЕ запускати `npm run sync:supabase` / `npm run sync:firebase` без явного дозволу користувача - вони пишуть у remote. `--dry-run`-режими та read-only перевірки дозволені.
+- Міграції НЕ застосовувати до remote Supabase в рамках тасок - тільки створити файли; застосування в секції Rollout (робить користувач або агент із дозволу).
+- Стиль: 2 пробіли, один trailing newline, без trailing whitespace; коментарі в коді - англійською і лише для неочевидного.
+- Тести: `npx vitest run tests/unit/<file>` для одного файлу, `npm run test:unit` для всієї сюїти (базлайн до змін: 34 files / 146 tests). Typecheck: `npx nuxi typecheck` (локальні warnings про відсутні Supabase env - норма).
 - Юніт-тести серверних handlers мокають auto-imported утиліти через `globalThis` (зразок: `tests/unit/releasesApi.test.ts`).
 - Не додавати нових npm-залежностей.
 
 ---
 
-### Task 1: `sync-firebase.mjs` — об'єкти за slug + `--dry-run`
+### Task 1: `sync-firebase.mjs` - об'єкти за slug + `--dry-run`
 
 **Files:**
 - Modify: `scripts/sync-firebase.mjs` (повна заміна вмісту)
 
 **Interfaces:**
 - Consumes: `server/data/sentimony-db-export.json` (нова структура: масиви + об'єкти).
-- Produces: Firebase-колекції `releases`, `artists`, `tracks`, `videos`, `playlists`, `events`, `friends` — усі об'єкти за slug. `--dry-run` друкує к-ть ключів і зразки без мережі й без секрету.
+- Produces: Firebase-колекції `releases`, `artists`, `tracks`, `videos`, `playlists`, `events`, `friends` - усі об'єкти за slug. `--dry-run` друкує к-ть ключів і зразки без мережі й без секрету.
 
 - [ ] **Step 1: Переписати скрипт**
 
@@ -103,7 +103,7 @@ for (const [name, rows] of Object.entries(collections)) {
 - [ ] **Step 2: Перевірити dry-run**
 
 Run: `node scripts/sync-firebase.mjs --dry-run`
-Expected: 7 рядків; серед них `artists: 242 keys, sample: irukanji, harax, sphingida` і `tracks: 770 keys, sample: 01-space-organ-occult-melodies, …` — ключі є slug-ами, НЕ числами (`0, 1, 2`). Exit code 0, жодного мережевого запиту, секрет не потрібен.
+Expected: 7 рядків; серед них `artists: 242 keys, sample: irukanji, harax, sphingida` і `tracks: 770 keys, sample: 01-space-organ-occult-melodies, …` - ключі є slug-ами, НЕ числами (`0, 1, 2`). Exit code 0, жодного мережевого запиту, секрет не потрібен.
 
 - [ ] **Step 3: Commit**
 
@@ -114,7 +114,7 @@ git commit -m "fix(sync): key firebase collections by slug for array-shaped expo
 
 ---
 
-### Task 2: `sync-field.mjs` — локальне дзеркало для масивних колекцій
+### Task 2: `sync-field.mjs` - локальне дзеркало для масивних колекцій
 
 **Files:**
 - Modify: `scripts/sync-field.mjs:118`
@@ -143,7 +143,7 @@ git commit -m "fix(sync): key firebase collections by slug for array-shaped expo
 - [ ] **Step 2: Перевірити dry-run на масивній таблиці**
 
 Run: `npm run sync:field -- --dry-run tracks 36-a-final-thought bpm=119`
-Expected: вивід містить `tracks/36-a-final-thought: bpm=119` і НЕ містить `! not in local export`. Якщо Supabase env присутні — завершується `Dry run — no Supabase writes performed.`; якщо відсутні — помилка `Missing Supabase env` ПІСЛЯ рядків локального дзеркала (це очікувано, перевіряємо саме дзеркало).
+Expected: вивід містить `tracks/36-a-final-thought: bpm=119` і НЕ містить `! not in local export`. Якщо Supabase env присутні - завершується `Dry run — no Supabase writes performed.`; якщо відсутні - помилка `Missing Supabase env` ПІСЛЯ рядків локального дзеркала (це очікувано, перевіряємо саме дзеркало).
 
 - [ ] **Step 3: Перевірити dry-run на об'єктній таблиці (регресія)**
 
@@ -178,7 +178,7 @@ git commit -m "chore(scripts): drop one-shot tracks migration that regenerates o
 
 ---
 
-### Task 4: `sitemapUrls.ts` — масивні типи + фікстура
+### Task 4: `sitemapUrls.ts` - масивні типи + фікстура
 
 **Files:**
 - Modify: `server/utils/sitemapUrls.ts`
@@ -186,11 +186,11 @@ git commit -m "chore(scripts): drop one-shot tracks migration that regenerates o
 - Test: `tests/unit/sitemapUrls.test.ts`
 
 **Interfaces:**
-- Produces: `SitemapCatalogExport` — `artists`/`tracks`/`videos`/`events`/`friends` як масиви, `releases`/`playlists` як `Record`. Сигнатура `buildSitemapUrls(catalog: SitemapCatalogExport): SitemapUrlEntry[]` не змінюється.
+- Produces: `SitemapCatalogExport` - `artists`/`tracks`/`videos`/`events`/`friends` як масиви, `releases`/`playlists` як `Record`. Сигнатура `buildSitemapUrls(catalog: SitemapCatalogExport): SitemapUrlEntry[]` не змінюється.
 
 - [ ] **Step 1: Оновити фікстуру тесту на масивну форму**
 
-У `tests/unit/sitemapUrls.test.ts` замінити блоки `tracks`, `artists`, `videos`, `events`, `friends` фікстури (рядки 19–42) на:
+У `tests/unit/sitemapUrls.test.ts` замінити блоки `tracks`, `artists`, `videos`, `events`, `friends` фікстури (рядки 19-42) на:
 
 ```ts
   tracks: [
@@ -220,11 +220,11 @@ git commit -m "chore(scripts): drop one-shot tracks migration that regenerates o
 - [ ] **Step 2: Переконатися, що тест падає (тип не збігається)**
 
 Run: `npx vitest run tests/unit/sitemapUrls.test.ts`
-Expected: FAIL / TS-помилка — фікстура більше не відповідає `Record<string, …>`.
+Expected: FAIL / TS-помилка - фікстура більше не відповідає `Record<string, …>`.
 
 - [ ] **Step 3: Оновити `server/utils/sitemapUrls.ts`**
 
-Замінити типи й хелпери (рядки 18–83) на:
+Замінити типи й хелпери (рядки 18-83) на:
 
 ```ts
 export interface SitemapCatalogExport {
@@ -238,7 +238,7 @@ export interface SitemapCatalogExport {
 }
 ```
 
-(`SitemapUrlEntry`, `CatalogEntity`, `CatalogRelease`, `STATIC_PAGE_URLS` — без змін.)
+(`SitemapUrlEntry`, `CatalogEntity`, `CatalogRelease`, `STATIC_PAGE_URLS` - без змін.)
 
 ```ts
 function entitiesOf<T extends CatalogEntity>(collection: Record<string, T> | T[] | undefined): T[] {
@@ -287,7 +287,7 @@ function buildTrackUrls(
 }
 ```
 
-`buildSitemapUrls` — без змін (сигнатури хелперів сумісні).
+`buildSitemapUrls` - без змін (сигнатури хелперів сумісні).
 
 - [ ] **Step 4: Спростити каст у endpoint**
 
@@ -303,14 +303,14 @@ function buildTrackUrls(
   return buildSitemapUrls(catalogExport as SitemapCatalogExport)
 ```
 
-Якщо `npx nuxi typecheck` на цьому рядку видасть помилку недостатнього перекриття типів (JSON literal types) — повернути `as unknown as` і зафіксувати це в коміт-повідомленні; тип фікстури все одно лишається жорстким.
+Якщо `npx nuxi typecheck` на цьому рядку видасть помилку недостатнього перекриття типів (JSON literal types) - повернути `as unknown as` і зафіксувати це в коміт-повідомленні; тип фікстури все одно лишається жорстким.
 
 - [ ] **Step 5: Прогнати тести й typecheck**
 
 Run: `npx vitest run tests/unit/sitemapUrls.test.ts tests/unit/sitemapEndpoint.test.ts`
 Expected: PASS (обидва).
 Run: `npx nuxi typecheck`
-Expected: без помилок (Supabase env warnings — ок).
+Expected: без помилок (Supabase env warnings - ок).
 
 - [ ] **Step 6: Commit**
 
@@ -392,7 +392,7 @@ describe('fetchAllCatalogTrackRows (tracks page data contract)', () => {
 - [ ] **Step 2: Прогнати тест**
 
 Run: `npx vitest run tests/unit/catalogTracks.test.ts`
-Expected: PASS (контракт уже виконується — це верифікаційний тест, не fix).
+Expected: PASS (контракт уже виконується - це верифікаційний тест, не fix).
 
 - [ ] **Step 3: Закрити пункт 2 у ROADMAP**
 
@@ -424,7 +424,7 @@ git commit -m "test(tracks): cover /api/tracks data contract, close roadmap item
 - Create: `supabase/migrations/20260718_track_artists.sql`
 
 **Interfaces:**
-- Produces: таблиця `public.track_artists(track_slug, artist_slug, position)` з PK `(track_slug, artist_slug)`, індексом за `artist_slug`, каскадом від `tracks`, public-read RLS. Застосування — у секції Rollout, НЕ в цій тасці.
+- Produces: таблиця `public.track_artists(track_slug, artist_slug, position)` з PK `(track_slug, artist_slug)`, індексом за `artist_slug`, каскадом від `tracks`, public-read RLS. Застосування - у секції Rollout, НЕ в цій тасці.
 
 - [ ] **Step 1: Створити міграцію**
 
@@ -472,7 +472,7 @@ git commit -m "feat(db): track_artists join table for normalized track-artist li
 - Test: `tests/unit/trackArtistRows.test.ts`
 
 **Interfaces:**
-- Produces: `buildTrackArtistRows(tracks: Array<{ slug: string, artist_slug?: string | null }>): Array<{ track_slug: string, artist_slug: string, position: number }>` — чиста функція, спліт CSV, trim, dedup, пропуск порожніх.
+- Produces: `buildTrackArtistRows(tracks: Array<{ slug: string, artist_slug?: string | null }>): Array<{ track_slug: string, artist_slug: string, position: number }>` - чиста функція, спліт CSV, trim, dedup, пропуск порожніх.
 
 - [ ] **Step 1: Написати падаючий тест**
 
@@ -513,7 +513,7 @@ describe('buildTrackArtistRows', () => {
 - [ ] **Step 2: Переконатися, що тест падає**
 
 Run: `npx vitest run tests/unit/trackArtistRows.test.ts`
-Expected: FAIL — module not found.
+Expected: FAIL - module not found.
 
 - [ ] **Step 3: Реалізувати хелпер**
 
@@ -614,11 +614,11 @@ git commit -m "feat(sync): populate track_artists from CSV artist_slug"
 
 **Interfaces:**
 - Produces (auto-imported Nitro server utils):
-  - `fetchTrackArtistSlugs(trackSlug: string): Promise<string[]>` — artist slugs трека з `track_artists`, впорядковані за `position`;
-  - `fetchCoArtistTrackSlugs(artistSlugs: string[]): Promise<Set<string>>` — slug-и всіх треків цих артистів;
-  - `fetchArtistTrackSlugs(artistSlug: string): Promise<Set<string>>` — для Task 9.
+  - `fetchTrackArtistSlugs(trackSlug: string): Promise<string[]>` - artist slugs трека з `track_artists`, впорядковані за `position`;
+  - `fetchCoArtistTrackSlugs(artistSlugs: string[]): Promise<Set<string>>` - slug-и всіх треків цих артистів;
+  - `fetchArtistTrackSlugs(artistSlug: string): Promise<Set<string>>` - для Task 9.
 - Consumes: глобальні `supabaseAdmin`, `createError`.
-- Поведінковий контракт: у Supabase-режимі при порожній `track_artists` (до першого сінку) — fallback на CSV; Firebase-режим — CSV без запитів до Supabase. Форма відповіді endpoint не змінюється.
+- Поведінковий контракт: у Supabase-режимі при порожній `track_artists` (до першого сінку) - fallback на CSV; Firebase-режим - CSV без запитів до Supabase. Форма відповіді endpoint не змінюється.
 
 - [ ] **Step 1: Написати падаючий тест**
 
@@ -722,7 +722,7 @@ describe('track detail similar tracks', () => {
 - [ ] **Step 2: Переконатися, що тест падає**
 
 Run: `npx vitest run tests/unit/trackApiSimilar.test.ts`
-Expected: FAIL — перші два тести (alias-track не потрапляє в similar, бо handler ще парсить CSV).
+Expected: FAIL - перші два тести (alias-track не потрапляє в similar, бо handler ще парсить CSV).
 
 - [ ] **Step 3: Створити `server/utils/trackArtists.ts`**
 
@@ -763,7 +763,7 @@ export async function fetchArtistTrackSlugs(artistSlug: string): Promise<Set<str
 
 - [ ] **Step 4: Переписати блок artist/similar у `server/api/track/[id].get.ts`**
 
-Замінити рядки 32–35 (обчислення `artistSlugs`):
+Замінити рядки 32-35 (обчислення `artistSlugs`):
 
 ```ts
     const csvArtistSlugs = (track.artist_slug || '')
@@ -777,7 +777,7 @@ export async function fetchArtistTrackSlugs(artistSlug: string): Promise<Set<str
     const artistSlugs = indexedArtistSlugs.length ? indexedArtistSlugs : csvArtistSlugs
 ```
 
-Замінити блок similar tracks (рядки 50–59):
+Замінити блок similar tracks (рядки 50-59):
 
 ```ts
     const coArtistTrackSlugs = isSupabaseCatalogSource() && indexedArtistSlugs.length
@@ -798,7 +798,7 @@ export async function fetchArtistTrackSlugs(artistSlug: string): Promise<Set<str
     }
 ```
 
-Решта handler (occurrences, releases, `Promise.all` з `fetchArtists`/`fetchLikeCount`, сортування артистів, відповідь) — без змін.
+Решта handler (occurrences, releases, `Promise.all` з `fetchArtists`/`fetchLikeCount`, сортування артистів, відповідь) - без змін.
 
 - [ ] **Step 5: Прогнати тести**
 
@@ -824,7 +824,7 @@ git commit -m "feat(tracks): resolve track artists and similar tracks via track_
 
 **Interfaces:**
 - Consumes: `fetchArtistTrackSlugs(artistSlug): Promise<Set<string>>` з Task 8.
-- Поведінка: Supabase-режим із непорожньою `track_artists` — членство в set замість CSV-спліту; порожня таблиця або Firebase-режим — поточна CSV-логіка. `titleMentionsArtist`-fallback і `RELEASE_FALLBACK` зберігаються.
+- Поведінка: Supabase-режим із непорожньою `track_artists` - членство в set замість CSV-спліту; порожня таблиця або Firebase-режим - поточна CSV-логіка. `titleMentionsArtist`-fallback і `RELEASE_FALLBACK` зберігаються.
 
 - [ ] **Step 1: Написати падаючий тест**
 
@@ -895,12 +895,12 @@ describe('artist tracks endpoint with track_artists index', () => {
 })
 ```
 
-Примітка: у першому тесті slug `e-r-s` НЕ збігається з CSV `ers`, тож проходження можливе лише через index; у другому — навпаки.
+Примітка: у першому тесті slug `e-r-s` НЕ збігається з CSV `ers`, тож проходження можливе лише через index; у другому - навпаки.
 
 - [ ] **Step 2: Переконатися, що тест падає**
 
 Run: `npx vitest run tests/unit/artistTracksIndexed.test.ts`
-Expected: FAIL — перший тест (CSV-логіка не знаходить `e-r-s`).
+Expected: FAIL - перший тест (CSV-логіка не знаходить `e-r-s`).
 
 - [ ] **Step 3: Оновити handler**
 
@@ -912,7 +912,7 @@ Expected: FAIL — перший тест (CSV-логіка не знаходит
     : null
 ```
 
-і замінити фільтр (рядки 19–23):
+і замінити фільтр (рядки 19-23):
 
 ```ts
   let artistRows = allRows.filter((row) => {
@@ -945,7 +945,7 @@ git commit -m "feat(artist): filter artist tracks via track_artists index"
 - Create: `supabase/migrations/20260718_like_counters.sql`
 
 **Interfaces:**
-- Produces: таблиця `public.like_counters(entity, slug, total)`; RPC `increment_like` додатково інкрементує агрегат у тій самій транзакції; backfill з `SUM(count)` шести `*_likes` таблиць. Застосування — у Rollout.
+- Produces: таблиця `public.like_counters(entity, slug, total)`; RPC `increment_like` додатково інкрементує агрегат у тій самій транзакції; backfill з `SUM(count)` шести `*_likes` таблиць. Застосування - у Rollout.
 
 - [ ] **Step 1: Створити міграцію**
 
@@ -1169,7 +1169,7 @@ describe('likeCountersHandler', () => {
 ```
 
 Run: `npx vitest run tests/unit/likeCountersHandler.test.ts`
-Expected: FAIL — module not found.
+Expected: FAIL - module not found.
 
 - [ ] **Step 4: Реалізувати фабрику й endpoints**
 
@@ -1193,7 +1193,7 @@ export function likeCountersHandler(entity: 'release' | 'artist' | 'track' | 'vi
 }
 ```
 
-Шість endpoint-файлів, кожен — один рядок:
+Шість endpoint-файлів, кожен - один рядок:
 
 `server/api/likes/count/releases.get.ts`:
 ```ts
@@ -1243,11 +1243,11 @@ git commit -m "feat(likes): public like counter endpoints backed by like_counter
 - Delete: `server/utils/likeCounts.ts`, `tests/unit/likeCounts.test.ts`
 
 **Interfaces:**
-- Produces: catalog detail/list відповіді БЕЗ `like_count`/`likeCount`; лічильники доступні тільки через count endpoints (Task 11). `fetchLikeCount`/`fetchLikeCounts`/`fetchPagedRows` видаляються (єдиний споживач `fetchPagedRows` — сам `likeCounts.ts`).
+- Produces: catalog detail/list відповіді БЕЗ `like_count`/`likeCount`; лічильники доступні тільки через count endpoints (Task 11). `fetchLikeCount`/`fetchLikeCounts`/`fetchPagedRows` видаляються (єдиний споживач `fetchPagedRows` - сам `likeCounts.ts`).
 
 - [ ] **Step 1: Почистити detail endpoints**
 
-`server/api/release/[id].get.ts` — замінити рядки 27–33 на:
+`server/api/release/[id].get.ts` - замінити рядки 27-33 на:
 
 ```ts
     const slugs = releaseTracklistSlugs(release)
@@ -1256,9 +1256,9 @@ git commit -m "feat(likes): public like counter endpoints backed by like_counter
     return { ...release, tracklist: hydrateReleaseTracklist(release, tracksBySlug) }
 ```
 
-У `artist/[id].get.ts`, `video/[id].get.ts`, `event/[id].get.ts`, `playlist/[id].get.ts` — видалити рядок `const count = await fetchLikeCount(…)` і замінити `return { ...artist, like_count: count }` (аналогічно для `video`/`eventEntity`/`playlist`) на повернення самої змінної: `return artist`, `return video`, `return eventEntity`, `return playlist`.
+У `artist/[id].get.ts`, `video/[id].get.ts`, `event/[id].get.ts`, `playlist/[id].get.ts` - видалити рядок `const count = await fetchLikeCount(…)` і замінити `return { ...artist, like_count: count }` (аналогічно для `video`/`eventEntity`/`playlist`) на повернення самої змінної: `return artist`, `return video`, `return eventEntity`, `return playlist`.
 
-`server/api/track/[id].get.ts` — прибрати `fetchLikeCount` з `Promise.all` (лишити тільки `fetchArtists`):
+`server/api/track/[id].get.ts` - прибрати `fetchLikeCount` з `Promise.all` (лишити тільки `fetchArtists`):
 
 ```ts
     const artists = await fetchArtists(artistSlugs)
@@ -1268,13 +1268,13 @@ git commit -m "feat(likes): public like counter endpoints backed by like_counter
 
 - [ ] **Step 2: Почистити track list endpoints**
 
-`server/api/tracks/[release_slug].get.ts` — замінити рядки 28–32 на:
+`server/api/tracks/[release_slug].get.ts` - замінити рядки 28-32 на:
 
 ```ts
   return releaseTracks
 ```
 
-`server/api/artist/[id]/tracks.get.ts` — видалити рядки 48–50 (`countMap` + мапінг) і повернути `tracks` напряму:
+`server/api/artist/[id]/tracks.get.ts` - видалити рядки 48-50 (`countMap` + мапінг) і повернути `tracks` напряму:
 
 ```ts
   return tracks
@@ -1286,7 +1286,7 @@ git commit -m "feat(likes): public like counter endpoints backed by like_counter
 git rm server/utils/likeCounts.ts tests/unit/likeCounts.test.ts
 ```
 
-Прибрати тепер зайві моки з тестів Task 8/9: у `tests/unit/trackApiSimilar.test.ts` видалити рядок `g.fetchLikeCount = async () => 0` і елемент `'fetchLikeCount'` зі списку `GLOBALS`; у `tests/unit/artistTracksIndexed.test.ts` — рядок `g.fetchLikeCounts = async () => ({})` і елемент `'fetchLikeCounts'`.
+Прибрати тепер зайві моки з тестів Task 8/9: у `tests/unit/trackApiSimilar.test.ts` видалити рядок `g.fetchLikeCount = async () => 0` і елемент `'fetchLikeCount'` зі списку `GLOBALS`; у `tests/unit/artistTracksIndexed.test.ts` - рядок `g.fetchLikeCounts = async () => ({})` і елемент `'fetchLikeCounts'`.
 
 Перевірити відсутність згадок: `grep -rn "fetchLikeCount\|fetchLikeCounts\|fetchPagedRows" server/ app/ tests/`
 Expected: порожній вивід.
@@ -1296,7 +1296,7 @@ Expected: порожній вивід.
 Run: `npm run test:unit`
 Expected: PASS (без `likeCounts.test.ts`; тести Task 8/9 оновлені).
 Run: `npx nuxi typecheck`
-Expected: помилки можливі в `app/` (сторінки досі читають `like_count`) — це очікувано і лагодиться в Task 13; серверна частина без помилок. Якщо typecheck падає лише на app-файлах зі списку Task 13 — продовжити.
+Expected: помилки можливі в `app/` (сторінки досі читають `like_count`) - це очікувано і лагодиться в Task 13; серверна частина без помилок. Якщо typecheck падає лише на app-файлах зі списку Task 13 - продовжити.
 
 - [ ] **Step 5: Commit**
 
@@ -1307,7 +1307,7 @@ git commit -m "refactor(likes): drop like_count from cached catalog DTOs"
 
 ---
 
-### Task 13: Клієнт — гідрація лічильників із count endpoints
+### Task 13: Клієнт - гідрація лічильників із count endpoints
 
 **Files:**
 - Modify: `app/composables/createLikes.ts`
@@ -1316,7 +1316,7 @@ git commit -m "refactor(likes): drop like_count from cached catalog DTOs"
 - Modify: `app/types/index.ts`
 
 **Interfaces:**
-- Produces: `createLikes(key: string, apiBase: string, countsUrl?: string): LikesApi` — API незмінний (`isLiked`, `likeCount`, `toggleLike`, `setCount`); за наявності `countsUrl` composable сам вантажить публічні totals `{ slug, total }[]` в `onMounted` і мержить через наявний `setCount` (`Math.max`).
+- Produces: `createLikes(key: string, apiBase: string, countsUrl?: string): LikesApi` - API незмінний (`isLiked`, `likeCount`, `toggleLike`, `setCount`); за наявності `countsUrl` composable сам вантажить публічні totals `{ slug, total }[]` в `onMounted` і мержить через наявний `setCount` (`Math.max`).
 
 - [ ] **Step 1: Розширити `createLikes`**
 
@@ -1386,7 +1386,7 @@ export function usePlaylistLikes() {
   return createLikes('playlist', '/api/playlist-likes', '/api/playlist-likes/count/playlists')
 }
 ```
-У `app/composables/useTrackLikes.ts` — перший рядок тіла:
+У `app/composables/useTrackLikes.ts` - перший рядок тіла:
 
 ```ts
   const { isLiked, likeCount, toggleLike, setCount } = createLikes('track', '/api/track-likes', '/api/track-likes/count/tracks')
@@ -1399,14 +1399,14 @@ export function usePlaylistLikes() {
   if (item.value) setCount(item.value.slug, item.value.like_count ?? 0)
   tracks.value?.forEach(t => setTrackCount(t.slug, t.like_count))
   ```
-  У локальному типі `Track` (рядок 11) прибрати `, like_count: number`. Якщо `setCount`/`setTrackCount` більше не використовуються в файлі — прибрати їх із деструктуризацій `useLikes()`/`useTrackLikes()`.
+  У локальному типі `Track` (рядок 11) прибрати `, like_count: number`. Якщо `setCount`/`setTrackCount` більше не використовуються в файлі - прибрати їх із деструктуризацій `useLikes()`/`useTrackLikes()`.
 - `app/pages/artist/[id].vue`: видалити рядок `setCount(item.value!.slug, item.value!.like_count ?? 0)`; прибрати `setCount` з деструктуризації, якщо не використовується.
 - `app/pages/video/[id].vue`, `app/pages/event/[id].vue`, `app/pages/playlist/[id].vue`: те саме (по одному рядку `setCount(item.value!.slug, item.value!.like_count ?? 0)`).
 - `app/pages/track/[id].vue`: видалити рядок `setTrackCount(track.value.slug, data.value!.likeCount ?? 0)`; прибрати `setTrackCount` з деструктуризації `useTrackLikes()`, якщо не використовується.
 
 - [ ] **Step 4: Почистити типи**
 
-У `app/types/index.ts` видалити рядки `like_count?: number` (6 шт.: Release ~54, ReleaseTrack ~100, Track ~116, Video ~140, Event ~167, Playlist ~191) і `likeCount?: number` у `TrackResponse` (~126). Номери рядків орієнтовні — шукати за вмістом.
+У `app/types/index.ts` видалити рядки `like_count?: number` (6 шт.: Release ~54, ReleaseTrack ~100, Track ~116, Video ~140, Event ~167, Playlist ~191) і `likeCount?: number` у `TrackResponse` (~126). Номери рядків орієнтовні - шукати за вмістом.
 
 - [ ] **Step 5: Повна перевірка**
 
@@ -1467,9 +1467,9 @@ git commit -m "feat(likes): hydrate public like counters from count endpoints"
 Run: `npm run test:unit` → Expected: PASS, зафіксувати нову кількість files/tests.
 Run: `npx nuxi typecheck` → Expected: без помилок.
 Run: `npm run build` → Expected: успішний production build.
-Smoke (dev, обидва режими; лічильники будуть 0/помилки табл. `track_artists`/`like_counters` до застосування міграцій — перевіряємо, що сторінки рендеряться, а `.catch` шляхи тихі):
+Smoke (dev, обидва режими; лічильники будуть 0/помилки табл. `track_artists`/`like_counters` до застосування міграцій - перевіряємо, що сторінки рендеряться, а `.catch` шляхи тихі):
 - `CATALOG_SOURCE=supabase npm run dev` → відкрити `/`, `/tracks`, `/artists`, `/release/va-fantazma`, `/track/36-a-final-thought`, `/artist/irukanji`
-- `CATALOG_SOURCE=firebase npm run dev` → ті самі сторінки (аудіо здебільшого відсутнє — відомий stale-стан Firebase)
+- `CATALOG_SOURCE=firebase npm run dev` → ті самі сторінки (аудіо здебільшого відсутнє - відомий stale-стан Firebase)
 
 - [ ] **Step 4: Commit**
 
@@ -1480,7 +1480,7 @@ git commit -m "docs: reflect array export, track_artists and like_counters"
 
 ---
 
-### Task 15: Review follow-up — порожній co-artist index fallback + baseline
+### Task 15: Review follow-up - порожній co-artist index fallback + baseline
 
 **Files:**
 - Modify: `server/api/track/[id].get.ts`
@@ -1515,7 +1515,7 @@ git commit -m "docs: reflect array export, track_artists and like_counters"
 
 Run: `npx vitest run tests/unit/trackApiSimilar.test.ts`
 
-Expected: FAIL у новому тесті — отримано `[]` замість `['csv-track']`, бо порожній `Set` є truthy.
+Expected: FAIL у новому тесті - отримано `[]` замість `['csv-track']`, бо порожній `Set` є truthy.
 
 - [ ] **Step 3: Реалізувати мінімальний fallback**
 
@@ -1601,7 +1601,7 @@ git commit -m "fix(tracks): fall back to CSV when co-artist index is empty"
 
 ## Rollout (після мержа; виконує користувач або агент із явного дозволу)
 
-Порядок критичний: **міграції → deploy → сінки** (інакше count endpoints віддаватимуть помилку/порожньо, а `track_artists` буде порожньою — read paths мають CSV fallback, тож це деградація, не падіння).
+Порядок критичний: **міграції → deploy → сінки** (інакше count endpoints віддаватимуть помилку/порожньо, а `track_artists` буде порожньою - read paths мають CSV fallback, тож це деградація, не падіння).
 
 1. Застосувати міграції через задокументований у AGENTS.md workaround (`db push` зламаний через `.env`-директорію):
    ```bash
@@ -1612,11 +1612,11 @@ git commit -m "fix(tracks): fall back to CSV when co-artist index is empty"
    ```
 2. Звірити backfill: `select entity, count(*), sum(total) from like_counters group by entity;` проти `select sum(count) from release_likes;` тощо (через `db query`).
 3. Deploy: `npm run deploy:stage`, smoke на stage, потім `npm run deploy:prod`.
-4. `npm run sync:supabase` — наповнить `track_artists` (перевірити лог `Synced N track_artists`).
-5. `node scripts/sync-firebase.mjs --dry-run` — очний контроль ключів, потім `npm run sync:firebase`.
+4. `npm run sync:supabase` - наповнить `track_artists` (перевірити лог `Synced N track_artists`).
+5. `node scripts/sync-firebase.mjs --dry-run` - очний контроль ключів, потім `npm run sync:firebase`.
 6. Smoke на проді: лічильники лайків на detail-сторінках, similar tracks на `/track/[id]`, треки артиста на `/artist/[id]`.
 
 ## Верифікація плану проти спеки (self-review)
 
-- Фаза 1 → Tasks 1–4; Фаза 2 → Task 5; Фаза 3 → Tasks 6–9; Фаза 4 → Tasks 10–13; верифікація/доки → Task 14; review follow-up → Task 15; порядок розгортання → Rollout. Покриття повне.
+- Фаза 1 → Tasks 1-4; Фаза 2 → Task 5; Фаза 3 → Tasks 6-9; Фаза 4 → Tasks 10-13; верифікація/доки → Task 14; review follow-up → Task 15; порядок розгортання → Rollout. Покриття повне.
 - Ризик зі спеки «між deploy і міграцією лічильники нульові» знято порядком Rollout (міграції першими).

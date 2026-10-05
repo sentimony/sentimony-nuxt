@@ -15,14 +15,14 @@
 - `npx nuxi typecheck` must pass; Supabase env-var warnings are expected and NOT failures.
 - No `@apply` inside `<style scoped>` (Tailwind v4); no code comments unless the WHY is non-obvious.
 - `$fetch` with a dynamic URL must carry an explicit generic: `$fetch<T>(url)`.
-- Do NOT run `npm run sync:firebase` / `npm run sync:supabase` — they write to remote stores; the user runs them.
+- Do NOT run `npm run sync:firebase` / `npm run sync:supabase` - they write to remote stores; the user runs them.
 - Quote paths containing `[id]` in shell commands (zsh globbing): `'app/pages/release/[id].vue'`.
 
 ## User-run deployment prerequisites (NOT plan tasks)
 
 These are required for features from the previous branch to work in production; the user executes them:
-1. `npm run sync:firebase` — pushes `organizer` field to live Firebase (Organized Events section stays empty until then).
-2. Apply `supabase/migrations/20260702_add_organizer_to_events.sql` via the `db query --linked --file` workaround documented in CLAUDE.md — required before the next `sync:supabase` run.
+1. `npm run sync:firebase` - pushes `organizer` field to live Firebase (Organized Events section stays empty until then).
+2. Apply `supabase/migrations/20260702_add_organizer_to_events.sql` via the `db query --linked --file` workaround documented in CLAUDE.md - required before the next `sync:supabase` run.
 
 ---
 
@@ -36,7 +36,7 @@ The custom regex sanitizer (introduced in commit "hot-fix") leaks inner text of 
 - Modify: `package.json` (dependency via npm install)
 
 **Interfaces:**
-- Produces: `sanitizeHtml(value: unknown): string` — same signature as today; 7 existing callers (`BtnPrimary.vue`, `tracks.vue`, `playlist/[id].vue`, `video/[id].vue`, `release/[id].vue`, `event/[id].vue`, `artist/[id].vue`) need no changes.
+- Produces: `sanitizeHtml(value: unknown): string` - same signature as today; 7 existing callers (`BtnPrimary.vue`, `tracks.vue`, `playlist/[id].vue`, `video/[id].vue`, `release/[id].vue`, `event/[id].vue`, `artist/[id].vue`) need no changes.
 
 - [ ] **Step 1: Add the failing tests**
 
@@ -115,7 +115,7 @@ DOMPurify strips `javascript:` hrefs and event handlers by default, so the remov
 - [ ] **Step 5: Run the sanitizer tests**
 
 Run: `npm run test:unit -- sanitizeHtml`
-Expected: 6/6 pass. If the byte-identity test (`preserves catalog formatting tags`) fails on serialization details (e.g. attribute reordering), inspect the actual output; adjust that one assertion to `toContain` checks for each tag only if the output is semantically identical — do not weaken the other tests.
+Expected: 6/6 pass. If the byte-identity test (`preserves catalog formatting tags`) fails on serialization details (e.g. attribute reordering), inspect the actual output; adjust that one assertion to `toContain` checks for each tag only if the output is semantically identical - do not weaken the other tests.
 
 - [ ] **Step 6: Full suite + typecheck**
 
@@ -143,7 +143,7 @@ Commit "huge upd" replaced `<NuxtLink :to="/track/...">` with a plain `<span>` i
 
 - [ ] **Step 1: Replace the span with a NuxtLink**
 
-In `app/pages/release/[id].vue`, find (currently ~lines 321–323):
+In `app/pages/release/[id].vue`, find (currently ~lines 321-323):
 
 ```html
               <span>
@@ -178,7 +178,7 @@ git commit -m "fix: restore track links in release tracklist"
 
 ---
 
-### Task 3: Track endpoint hardening — hidden-release 404 + targeted queries
+### Task 3: Track endpoint hardening - hidden-release 404 + targeted queries
 
 `GET /api/track/[id]` currently (a) returns track metadata with `release: null` for tracks of hidden releases instead of 404, and (b) full-scans the whole `tracks` table on every cache miss (`fetchAllSupabaseTracks` has no filter).
 
@@ -271,9 +271,9 @@ async function findTrack(id: string): Promise<TrackRow | undefined> {
 }
 ```
 
-(`fetchAllFirebaseTracks` stays — in Firebase mode tracks are derived from the releases collection and there is no per-slug lookup; this matches the documented architecture.)
+(`fetchAllFirebaseTracks` stays - in Firebase mode tracks are derived from the releases collection and there is no per-slug lookup; this matches the documented architecture.)
 
-- [ ] **Step 3: Update the handler — 404 guard + similar tracks from the targeted query**
+- [ ] **Step 3: Update the handler - 404 guard + similar tracks from the targeted query**
 
 In the handler body, replace:
 
@@ -346,7 +346,7 @@ git commit -m "fix: 404 for hidden-release tracks, replace tracks full scan with
 Two bugs in `server/utils/firebaseCatalog.ts` (`parseTrackParagraph`): a BPM range `(130-160bpm)` stores the upper bound (160) instead of the nominal lower bound, and a BPM marker not wrapped in `<small>` survives into the track title.
 
 **Files:**
-- Modify: `server/utils/firebaseCatalog.ts` (~lines 73–80)
+- Modify: `server/utils/firebaseCatalog.ts` (~lines 73-80)
 - Test: `tests/unit/firebaseCatalog.test.ts`
 
 **Interfaces:**
@@ -384,7 +384,7 @@ In `tests/unit/firebaseCatalog.test.ts`, inside the existing describe for `parse
 - [ ] **Step 2: Run to verify both fail**
 
 Run: `npm run test:unit -- firebaseCatalog`
-Expected: FAIL — `bpm` is 160; `title` is `'Bare Track (140bpm)'`.
+Expected: FAIL - `bpm` is 160; `title` is `'Bare Track (140bpm)'`.
 
 - [ ] **Step 3: Fix the implementation**
 
@@ -473,7 +473,7 @@ describe('fetchPagedRows', () => {
 - [ ] **Step 2: Run to verify it fails**
 
 Run: `npm run test:unit -- likeCounts`
-Expected: FAIL — `fetchPagedRows` is not exported.
+Expected: FAIL - `fetchPagedRows` is not exported.
 
 - [ ] **Step 3: Implement the helper and use it**
 
@@ -528,7 +528,7 @@ with:
     for (const like of data) {
 ```
 
-`.range()` pagination requires the stable `.order()` above — without it PostgREST may return overlapping or missing rows across pages.
+`.range()` pagination requires the stable `.order()` above - without it PostgREST may return overlapping or missing rows across pages.
 
 - [ ] **Step 4: Run tests**
 
@@ -577,7 +577,7 @@ git commit -m "fix: restore category_id ordering in artists API"
 
 ### Task 7: Extract shared GenreTabs component
 
-The three-pill genre tab block (`All` / `Psytrance` / `Psychill`) is duplicated verbatim in `app/pages/releases/index.vue` (~lines 31–53) and `app/components/ReleasesFiltered.vue` (~lines 22–44).
+The three-pill genre tab block (`All` / `Psytrance` / `Psychill`) is duplicated verbatim in `app/pages/releases/index.vue` (~lines 31-53) and `app/components/ReleasesFiltered.vue` (~lines 22-44).
 
 **Files:**
 - Create: `app/components/GenreTabs.vue`
@@ -585,7 +585,7 @@ The three-pill genre tab block (`All` / `Psytrance` / `Psychill`) is duplicated 
 - Modify: `app/components/ReleasesFiltered.vue`
 
 **Interfaces:**
-- Produces: `<GenreTabs />` — no props; auto-imported by filename.
+- Produces: `<GenreTabs />` - no props; auto-imported by filename.
 
 - [ ] **Step 1: Create `app/components/GenreTabs.vue`**
 
@@ -624,7 +624,7 @@ In `app/pages/releases/index.vue` and `app/components/ReleasesFiltered.vue`, del
 - [ ] **Step 3: Typecheck + manual test**
 
 Run: `npx nuxi typecheck`
-Manual: `/releases`, `/releases/psytrance`, `/releases/psychill` — tabs render identically on all three, active pill follows the current route exactly.
+Manual: `/releases`, `/releases/psytrance`, `/releases/psychill` - tabs render identically on all three, active pill follows the current route exactly.
 
 - [ ] **Step 4: Commit**
 
@@ -646,7 +646,7 @@ git commit -m "refactor: extract shared GenreTabs component"
 - Test: `tests/unit/artistSorting.test.ts`
 
 **Interfaces:**
-- Produces: `groupArtistsByCategory(artists: Artist[]): { category: ArtistCategory; list: Artist[] }[]` exported from `app/utils/artists.ts` — ordered musician → dj → mastering → designer, empty groups removed.
+- Produces: `groupArtistsByCategory(artists: Artist[]): { category: ArtistCategory; list: Artist[] }[]` exported from `app/utils/artists.ts` - ordered musician → dj → mastering → designer, empty groups removed.
 
 - [ ] **Step 1: Add failing test**
 
@@ -674,7 +674,7 @@ describe('groupArtistsByCategory', () => {
 - [ ] **Step 2: Run to verify it fails**
 
 Run: `npm run test:unit -- artistSorting`
-Expected: FAIL — `groupArtistsByCategory` is not exported.
+Expected: FAIL - `groupArtistsByCategory` is not exported.
 
 - [ ] **Step 3: Implement in `app/utils/artists.ts`**
 
@@ -688,7 +688,7 @@ export function groupArtistsByCategory(artists: Artist[]): { category: ArtistCat
 
 - [ ] **Step 4: Switch both consumers**
 
-`app/layouts/default.vue` — replace the `artistSections` computed body with:
+`app/layouts/default.vue` - replace the `artistSections` computed body with:
 
 ```ts
 const artistSectionLabels: Record<ArtistCategory, string> = {
@@ -707,7 +707,7 @@ const artistSections = computed(() =>
 
 Add `groupArtistsByCategory` to the existing import from `~/utils/artists` and `ArtistCategory` to the type import from `~/types`.
 
-`app/pages/artists/all.vue` — replace the `sections` array + `sectionedArtists` computed with:
+`app/pages/artists/all.vue` - replace the `sections` array + `sectionedArtists` computed with:
 
 ```ts
 const sectionLabels: Record<ArtistCategory, string> = {
@@ -724,7 +724,7 @@ const sectionedArtists = computed(() =>
 )
 ```
 
-Template: iterate `section in sectionedArtists`, render `section.label` and `section.list` (the `v-if="section.artists.length > 0"` guard becomes unnecessary — empty groups are already dropped; rename `section.artists` to `section.list`).
+Template: iterate `section in sectionedArtists`, render `section.label` and `section.list` (the `v-if="section.artists.length > 0"` guard becomes unnecessary - empty groups are already dropped; rename `section.artists` to `section.list`).
 
 - [ ] **Step 5: Run tests + typecheck + manual**
 
@@ -751,7 +751,7 @@ Three leftover items flagged by reviewers.
 
 - [ ] **Step 1: Remove stale HTML comments from `app/components/Swiper.vue`**
 
-Inside the `<ClientOnly>` block there are leftover comments `<!-- </div> -->` and `<!-- <div class="text-[18px] md:text-[32px] my-[.5em] mb-4">{{ title }}</div> -->` — delete both lines.
+Inside the `<ClientOnly>` block there are leftover comments `<!-- </div> -->` and `<!-- <div class="text-[18px] md:text-[32px] my-[.5em] mb-4">{{ title }}</div> -->` - delete both lines.
 
 - [ ] **Step 2: Fix heading in `app/pages/artists/index.vue`**
 
@@ -759,12 +759,12 @@ Change `<h2 class="">Djs</h2>` to `<h2 class="">DJs</h2>` (matches "DJs" used on
 
 - [ ] **Step 3: Deduplicate `.gitignore`**
 
-`.gitignore` contains `/.superpowers/` twice in adjacent lines — remove one.
+`.gitignore` contains `/.superpowers/` twice in adjacent lines - remove one.
 
 - [ ] **Step 4: Suite + commit**
 
 Run: `npm run test:unit`
-Expected: all pass (`artistsPage.test.ts` references `artists/index.vue` — if it asserts the literal heading text `Djs`, update the assertion to `DJs`).
+Expected: all pass (`artistsPage.test.ts` references `artists/index.vue` - if it asserts the literal heading text `Djs`, update the assertion to `DJs`).
 
 ```bash
 git add app/components/Swiper.vue app/pages/artists/index.vue .gitignore

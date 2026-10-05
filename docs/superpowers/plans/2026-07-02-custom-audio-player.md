@@ -6,22 +6,22 @@
 
 **Architecture:** A pure `formatDuration()` utility formats elapsed/total time; a new `AudioMixPlayer.vue` component wraps a native `<audio>` element with custom Tailwind controls; the artist detail page gains a new gated `<Tab>` wired to three new optional `Artist` fields (`mix_audio_url`, `mix_title`, `mix_release_slug`).
 
-**Tech Stack:** Nuxt 4 / Vue 3 `<script setup>`, native HTML5 `<audio>`, Tailwind v4, `@nuxt/icon` (lucide set), Vitest (`environment: 'node'`, no DOM/mount tooling — tests are pure-function or file-content assertions, matching this repo's existing convention, e.g. `tests/unit/likeButtons.test.ts`).
+**Tech Stack:** Nuxt 4 / Vue 3 `<script setup>`, native HTML5 `<audio>`, Tailwind v4, `@nuxt/icon` (lucide set), Vitest (`environment: 'node'`, no DOM/mount tooling - tests are pure-function or file-content assertions, matching this repo's existing convention, e.g. `tests/unit/likeButtons.test.ts`).
 
 ## Global Constraints
 
-- No new npm dependencies — no audio library (Howler/wavesurfer/Plyr), no `@vue/test-utils`/jsdom. Matches the spec's "no new dependency" decision and the repo's existing `environment: 'node'` Vitest setup (`vitest.config.ts`).
+- No new npm dependencies - no audio library (Howler/wavesurfer/Plyr), no `@vue/test-utils`/jsdom. Matches the spec's "no new dependency" decision and the repo's existing `environment: 'node'` Vitest setup (`vitest.config.ts`).
 - `font-mono` must be applied to elapsed/duration time text (project convention for technical/time data, `CLAUDE.md`).
-- Do not modify the existing YouTube/SoundCloud `<Tab>` blocks in `app/pages/artist/[id].vue` — three other artists still have `soundcloud_track_id` populated and rely on that iframe.
-- Do not run `npm run sync:firebase` / `npm run sync:supabase` as part of this plan — both are explicitly opt-in per `CLAUDE.md`. This plan only edits the local `sentimony-db-export.json`.
-- No Supabase `artists` table migration in this pass — `CATALOG_SOURCE` defaults to `firebase` (`nuxt.config.ts:9`), which is schemaless. A Supabase migration for the new fields is an explicit follow-up, out of scope here.
-- Code comments: English only, and only where the WHY isn't obvious (project convention) — none of the code below needs one.
+- Do not modify the existing YouTube/SoundCloud `<Tab>` blocks in `app/pages/artist/[id].vue` - three other artists still have `soundcloud_track_id` populated and rely on that iframe.
+- Do not run `npm run sync:firebase` / `npm run sync:supabase` as part of this plan - both are explicitly opt-in per `CLAUDE.md`. This plan only edits the local `sentimony-db-export.json`.
+- No Supabase `artists` table migration in this pass - `CATALOG_SOURCE` defaults to `firebase` (`nuxt.config.ts:9`), which is schemaless. A Supabase migration for the new fields is an explicit follow-up, out of scope here.
+- Code comments: English only, and only where the WHY isn't obvious (project convention) - none of the code below needs one.
 
 ---
 
-## Prerequisite (manual — not part of automated task execution)
+## Prerequisite (manual - not part of automated task execution)
 
-The Cloudflare R2 bucket, custom domain, and the actual mix audio file must exist before Task 4 can safely go live. This requires Cloudflare account access an agent doesn't have, so it is **not** one of the numbered tasks below. Tasks 1–3 don't depend on it and are fully testable without it.
+The Cloudflare R2 bucket, custom domain, and the actual mix audio file must exist before Task 4 can safely go live. This requires Cloudflare account access an agent doesn't have, so it is **not** one of the numbered tasks below. Tasks 1-3 don't depend on it and are fully testable without it.
 
 1. In the Cloudflare dashboard, create an R2 bucket (e.g. `sentimony-audio`).
 2. Enable public access on the bucket and connect a custom domain (e.g. `audio.sentimony.com`).
@@ -39,7 +39,7 @@ Task 4 assumes the file ends up live at exactly `https://audio.sentimony.com/mix
 - Test: `tests/unit/formatDuration.test.ts`
 
 **Interfaces:**
-- Produces: `formatDuration(totalSeconds: number): string` — returns `"m:ss"` under an hour, `"h:mm:ss"` at/above an hour; non-finite or negative input returns `"0:00"`. Consumed by Task 2 (`AudioMixPlayer.vue`).
+- Produces: `formatDuration(totalSeconds: number): string` - returns `"m:ss"` under an hour, `"h:mm:ss"` at/above an hour; non-finite or negative input returns `"0:00"`. Consumed by Task 2 (`AudioMixPlayer.vue`).
 
 - [ ] **Step 1: Write the failing test**
 
@@ -83,7 +83,7 @@ describe('formatDuration', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run tests/unit/formatDuration.test.ts`
-Expected: FAIL — `Cannot find module '../../app/utils/formatDuration'`
+Expected: FAIL - `Cannot find module '../../app/utils/formatDuration'`
 
 - [ ] **Step 3: Write minimal implementation**
 
@@ -110,7 +110,7 @@ export function formatDuration(totalSeconds: number): string {
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run tests/unit/formatDuration.test.ts`
-Expected: PASS — 7 tests passed
+Expected: PASS - 7 tests passed
 
 - [ ] **Step 5: Commit**
 
@@ -128,7 +128,7 @@ git commit -m "feat: add formatDuration utility for audio player time display"
 - Test: `tests/unit/audioMixPlayer.test.ts`
 
 **Interfaces:**
-- Consumes: `formatDuration(totalSeconds: number): string` from Task 1 (auto-imported inside the `.vue` file — matches the `app/utils` auto-import convention already used by `sanitizeHtml`/`toArray` elsewhere in this repo, no explicit import statement needed).
+- Consumes: `formatDuration(totalSeconds: number): string` from Task 1 (auto-imported inside the `.vue` file - matches the `app/utils` auto-import convention already used by `sanitizeHtml`/`toArray` elsewhere in this repo, no explicit import statement needed).
 - Consumes: `CompactParagraph` type (`{ p: string }`) from `~/types` (already defined, used by `Release.tracklistCompact`).
 - Produces: component `AudioMixPlayer` with props `{ src: string, title?: string, tracklist?: CompactParagraph[] }`, auto-imported by filename (flat `app/components/*.vue` convention). Consumed by Task 3 (`app/pages/artist/[id].vue`).
 
@@ -177,7 +177,7 @@ describe('AudioMixPlayer.vue', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run tests/unit/audioMixPlayer.test.ts`
-Expected: FAIL — `ENOENT: no such file or directory, open '.../app/components/AudioMixPlayer.vue'`
+Expected: FAIL - `ENOENT: no such file or directory, open '.../app/components/AudioMixPlayer.vue'`
 
 - [ ] **Step 3: Write minimal implementation**
 
@@ -297,7 +297,7 @@ function onVolumeChange(event: Event) {
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run tests/unit/audioMixPlayer.test.ts`
-Expected: PASS — 5 tests passed
+Expected: PASS - 5 tests passed
 
 - [ ] **Step 5: Typecheck**
 
@@ -317,13 +317,13 @@ git commit -m "feat: add AudioMixPlayer component with native audio controls"
 
 **Files:**
 - Modify: `app/types/index.ts:63-87` (the `Artist` interface)
-- Modify: `app/pages/artist/[id].vue:26` (script — add `mixRelease` computed) and `app/pages/artist/[id].vue:179-197` (template — add the `<Tab>`)
+- Modify: `app/pages/artist/[id].vue:26` (script - add `mixRelease` computed) and `app/pages/artist/[id].vue:179-197` (template - add the `<Tab>`)
 - Test: `tests/unit/audioMixPlayer.test.ts` (extend from Task 2 with page-wiring assertions)
 
 **Interfaces:**
 - Consumes: `AudioMixPlayer` component from Task 2 (props `src`, `title`, `tracklist`).
 - Consumes: `Release.tracklistCompact` (existing, `CompactParagraph[]`).
-- Produces: `Artist.mix_audio_url?: string`, `Artist.mix_title?: string`, `Artist.mix_release_slug?: string` — consumed by Task 4 (data population).
+- Produces: `Artist.mix_audio_url?: string`, `Artist.mix_title?: string`, `Artist.mix_release_slug?: string` - consumed by Task 4 (data population).
 
 - [ ] **Step 1: Write the failing test**
 
@@ -355,7 +355,7 @@ describe('artist page mix tab', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run tests/unit/audioMixPlayer.test.ts`
-Expected: FAIL — the 3 new assertions in `artist page mix tab` fail (strings not found yet)
+Expected: FAIL - the 3 new assertions in `artist page mix tab` fail (strings not found yet)
 
 - [ ] **Step 3: Extend the `Artist` interface**
 
@@ -430,12 +430,12 @@ In `app/pages/artist/[id].vue`, inside the existing `<Tabs>` block, add the new 
               >
 ```
 
-Leave the rest of the `<Tabs>` block (YouTube and SoundCloud tabs) exactly as-is — do not reorder or modify them.
+Leave the rest of the `<Tabs>` block (YouTube and SoundCloud tabs) exactly as-is - do not reorder or modify them.
 
 - [ ] **Step 6: Run test to verify it passes**
 
 Run: `npx vitest run tests/unit/audioMixPlayer.test.ts`
-Expected: PASS — all 8 tests passed (5 from Task 2 + 3 new)
+Expected: PASS - all 8 tests passed (5 from Task 2 + 3 new)
 
 - [ ] **Step 7: Run the full unit suite and typecheck**
 
@@ -468,7 +468,7 @@ git commit -m "feat: wire AudioMixPlayer into artist page behind mix_audio_url"
 Run: `curl -I https://audio.sentimony.com/mixes/hagen-tempo-syndicate.mp3`
 Expected: `HTTP/2 200` (or `206` for a ranged request) with a `content-type` matching the uploaded audio format
 
-If this doesn't return 200/206, stop here — do not proceed to Step 2 until the Prerequisite section (R2 bucket + upload) is actually done. Populating `mix_audio_url` before the file exists ships a broken player to `/artist/hagen`.
+If this doesn't return 200/206, stop here - do not proceed to Step 2 until the Prerequisite section (R2 bucket + upload) is actually done. Populating `mix_audio_url` before the file exists ships a broken player to `/artist/hagen`.
 
 - [ ] **Step 2: Edit the hagen entry**
 
@@ -533,7 +533,7 @@ Run: `npm run dev`, open `http://localhost:3000/artist/hagen`, confirm:
 - dragging the seek bar near the end of the ~80-minute file loads and plays without buffering the whole file first (confirms Range requests work against R2, not just the initial chunk)
 - elapsed/duration show as `mm:ss` (or `h:mm:ss`) in monospace
 - the Tempo Syndicate tracklist renders below the controls
-- open an artist with `soundcloud_track_id` populated (e.g. check `server/data/sentimony-db-export.json` for one of the 3 artists that still has it) and confirm the SoundCloud iframe tab still renders correctly — no regression
+- open an artist with `soundcloud_track_id` populated (e.g. check `server/data/sentimony-db-export.json` for one of the 3 artists that still has it) and confirm the SoundCloud iframe tab still renders correctly - no regression
 
 - [ ] **Step 6: Commit**
 
@@ -542,4 +542,4 @@ git add server/data/sentimony-db-export.json
 git commit -m "feat: point hagen's artist page at the Tempo Syndicate mix on R2"
 ```
 
-**Note:** this commit only updates the local export. It does not reach production until `npm run sync:firebase` is run — per `CLAUDE.md`, that script writes to the remote Firebase DB and must only be run when explicitly requested, not automatically as part of this plan.
+**Note:** this commit only updates the local export. It does not reach production until `npm run sync:firebase` is run - per `CLAUDE.md`, that script writes to the remote Firebase DB and must only be run when explicitly requested, not automatically as part of this plan.

@@ -13,16 +13,16 @@
 
 ## Global Constraints
 
-- Гілка `main`, кожна таска — свій коміт. Не робити amend у попередні коміти: у дереві є незв'язані незакомічені зміни (`AGENTS.md`, `PRODUCT.md`, `app/pages/event/[id].vue`, `app/types/index.ts`, переміщення `docs/`), тому кожен `git add` перелічує файли явно, ніякого `git add -A`.
+- Гілка `main`, кожна таска - свій коміт. Не робити amend у попередні коміти: у дереві є незв'язані незакомічені зміни (`AGENTS.md`, `PRODUCT.md`, `app/pages/event/[id].vue`, `app/types/index.ts`, переміщення `docs/`), тому кожен `git add` перелічує файли явно, ніякого `git add -A`.
 - Нових залежностей не додавати. Нових варіантів у `buttonVariants` не додавати.
 - Dev-сервер піднімати **тільки** на порті 3100 через `python .agents/skills/web-debug/scripts/with_server.py`. Порти 3000-3002 належать користувачу; ніколи не запускати `pkill -f "nuxt dev"`.
 - `sync:firebase` / `sync:supabase` не запускати: схема вже правильна, ламається саме код.
 - Рівнів тексту рівно два: `text-foreground` і `text-muted-foreground`. Будь-яке `text-foreground/<число>` у файлах profile заборонене.
 - Парні дублі `X-black/N dark:X-white/N` заборонені; замість них одинарне `X-foreground/N`.
-- Безумовний `outline-none` і `focus-visible:ring-*` заборонені. Посилання покриває глобальне `a:focus-visible`, кнопки — база `buttonVariants`.
+- Безумовний `outline-none` і `focus-visible:ring-*` заборонені. Посилання покриває глобальне `a:focus-visible`, кнопки - база `buttonVariants`.
 - Пастка Tailwind v4: `transition-colors` включає `outline-color`. Кожен елемент із focus-обведенням отримує явний список без `outline-color`.
 - `@apply` у `<style scoped>` не використовувати.
-- Коментарів у коді не додавати; якщо коментар неминучий — англійською.
+- Коментарів у коді не додавати; якщо коментар неминучий - англійською.
 - Канонічні колонки треку (звірено з `server/utils/catalogTracks.ts:5` і живою базою): `slug, title, artist_name, artist_slug, bpm, audio_url`.
 
 ---
@@ -76,11 +76,11 @@ describe('liked tracks endpoint', () => {
 - [ ] **Step 2: Запустити тест і переконатися, що він падає**
 
 Run: `npx vitest run tests/unit/likedTracksColumns.test.ts`
-Expected: FAIL — обидва тести, `release_slug` присутній і в хендлері, і на сторінці.
+Expected: FAIL - обидва тести, `release_slug` присутній і в хендлері, і на сторінці.
 
 - [ ] **Step 3: Виправити `entitySelect`**
 
-`server/api/track-likes/tracks.get.ts` — один рядок:
+`server/api/track-likes/tracks.get.ts` - один рядок:
 
 ```ts
 export default likedItemsHandler({ table: 'track_likes', slugCol: 'track_slug', entityTable: 'tracks', entitySelect: 'slug, title, artist_name, artist_slug, bpm, audio_url', defaultLimit: 20 })
@@ -88,7 +88,7 @@ export default likedItemsHandler({ table: 'track_likes', slugCol: 'track_slug', 
 
 - [ ] **Step 4: Розділити типи**
 
-`app/types/index.ts` — `Track` втрачає два поля, додається `ReleaseTrack`:
+`app/types/index.ts` - `Track` втрачає два поля, додається `ReleaseTrack`:
 
 ```ts
 export interface Track {
@@ -110,18 +110,18 @@ export interface ReleaseTrack extends Track {
 
 - [ ] **Step 5: Виправити посилання на сторінці треків**
 
-`app/pages/profile/tracks.vue` — `:to="`/release/${track.release_slug}`"` стає `:to="`/track/${track.slug}`"`.
+`app/pages/profile/tracks.vue` - `:to="`/release/${track.release_slug}`"` стає `:to="`/track/${track.slug}`"`.
 
 - [ ] **Step 6: Прогнати typecheck і полагодити фолаут**
 
 Run: `npm run typecheck`
 
-Очікувано зачеплені call-sites: `app/pages/track/[id].vue:141,179` (`track.track_number`), `app/pages/release/[id].vue:257` (`t.track_number`). Локальні типи в `playlist/[id].vue:33-36`, `tracks.vue:31-34`, `artist/[id].vue:15` оголошують поля самі й мають лишитися незмінними. Якщо десь бракує полів — правильна дія це замінити `Track` на `ReleaseTrack` у місці споживання, **не** повертати поля в `Track`.
+Очікувано зачеплені call-sites: `app/pages/track/[id].vue:141,179` (`track.track_number`), `app/pages/release/[id].vue:257` (`t.track_number`). Локальні типи в `playlist/[id].vue:33-36`, `tracks.vue:31-34`, `artist/[id].vue:15` оголошують поля самі й мають лишитися незмінними. Якщо десь бракує полів - правильна дія це замінити `Track` на `ReleaseTrack` у місці споживання, **не** повертати поля в `Track`.
 
 - [ ] **Step 7: Перевірити зеленим**
 
 Run: `npx vitest run tests/unit/likedTracksColumns.test.ts && npm run test:unit && npm run typecheck`
-Expected: PASS. Базова лінія `test:unit` — 41 файл / 185 тестів плюс новий файл.
+Expected: PASS. Базова лінія `test:unit` - 41 файл / 185 тестів плюс новий файл.
 
 - [ ] **Step 8: Коміт**
 
@@ -148,7 +148,7 @@ git commit -m "fix(profile): select existing track columns for liked tracks"
 
 - [ ] **Step 1: Написати падаючий тест композабла**
 
-Створити `tests/unit/usePaginatedLikes.test.ts`. Композабл спирається на Vue auto-imports (`ref`, `computed`) і на `$fetch`, тому тест мокає їх через `globalThis` + `vi.resetModules()` з динамічним імпортом — референсний патерн у `tests/unit/likeCountersHandler.test.ts`:
+Створити `tests/unit/usePaginatedLikes.test.ts`. Композабл спирається на Vue auto-imports (`ref`, `computed`) і на `$fetch`, тому тест мокає їх через `globalThis` + `vi.resetModules()` з динамічним імпортом - референсний патерн у `tests/unit/likeCountersHandler.test.ts`:
 
 ```ts
 import { computed, ref } from 'vue'
@@ -198,13 +198,13 @@ describe('usePaginatedLikes', () => {
 - [ ] **Step 2: Запустити тест і переконатися, що він падає**
 
 Run: `npx vitest run tests/unit/usePaginatedLikes.test.ts`
-Expected: FAIL — `collection.error` не існує.
+Expected: FAIL - `collection.error` не існує.
 
-Якщо падіння інше (наприклад, `ref is not defined` уже на імпорті) — це сигнал, що набір `globalThis`-стабів неповний; дописати відсутні auto-imports, не змінюючи логіку тесту.
+Якщо падіння інше (наприклад, `ref is not defined` уже на імпорті) - це сигнал, що набір `globalThis`-стабів неповний; дописати відсутні auto-imports, не змінюючи логіку тесту.
 
 - [ ] **Step 3: Додати стан помилки в композабл**
 
-У `app/composables/usePaginatedLikes.ts` додати `const error = ref(false)`, у `load()` виставляти `error.value = false` на старті й `error.value = true` у `catch`, у разі помилки **не** інкрементувати `page` і не приписувати порожній `res.data`. `retry` — тонка обгортка, яка викликає `load()` повторно для тієї самої сторінки. Повернути `error` і `retry` з композабла.
+У `app/composables/usePaginatedLikes.ts` додати `const error = ref(false)`, у `load()` виставляти `error.value = false` на старті й `error.value = true` у `catch`, у разі помилки **не** інкрементувати `page` і не приписувати порожній `res.data`. `retry` - тонка обгортка, яка викликає `load()` повторно для тієї самої сторінки. Повернути `error` і `retry` з композабла.
 
 Ключова умова: після помилки `total` лишається попереднім (лічильник у навігації приходить з іншого джерела й лишається валідним).
 
@@ -212,7 +212,7 @@ Expected: FAIL — `collection.error` не існує.
 
 Пропси: додається `error?: boolean`. Емiти: додається `retry: []`. Порядок гілок у шаблоні строго `loading` → `error` → `empty` → `hasMore`, інакше при непорожньому `total` покажуться і помилка, і «Show more».
 
-Розмітка гілки помилки: контейнер із `role="alert"`, текст «Could not load this collection» і кнопка `Try again`. Кнопка на цьому кроці лишається тим самим рукописним `<button>`, що й «Show more» — обидві переїжджають на `ui/button` у Task 3, щоб класова міграція жила в одному комiтi.
+Розмітка гілки помилки: контейнер із `role="alert"`, текст «Could not load this collection» і кнопка `Try again`. Кнопка на цьому кроці лишається тим самим рукописним `<button>`, що й «Show more» - обидві переїжджають на `ui/button` у Task 3, щоб класова міграція жила в одному комiтi.
 
 - [ ] **Step 5: Прокинути пропси з обох call-sites**
 
@@ -295,13 +295,13 @@ describe('profile surface', () => {
 - [ ] **Step 2: Запустити і переконатися, що падає**
 
 Run: `npx vitest run tests/unit/interactionStates.test.ts`
-Expected: FAIL на тирах (`ProfileCollectionStatus` має `/25`, `/30`, `/35`; `tracks.vue` — `/25` двічі) і на focus (`outline-none` в обох файлах).
+Expected: FAIL на тирах (`ProfileCollectionStatus` має `/25`, `/30`, `/35`; `tracks.vue` - `/25` двічі) і на focus (`outline-none` в обох файлах).
 
 - [ ] **Step 3: Мігрувати `ProfileCollectionStatus.vue`**
 
 - `text-foreground/30`, `/25`, `/35` → `text-muted-foreground`;
 - `hover:bg-black/5 dark:hover:bg-white/5` → `hover:bg-foreground/5`;
-- «Show more» і `Try again` стають `<Button variant="default">` — `focus-visible` приходить із бази cva, тому локальні focus-класи, `rounded` і `transition-colors` знімаються повністю;
+- «Show more» і `Try again` стають `<Button variant="default">` - `focus-visible` приходить із бази cva, тому локальні focus-класи, `rounded` і `transition-colors` знімаються повністю;
 - `text-[10px] uppercase tracking-widest` лишається як мова технічних лейблів сайту.
 
 - [ ] **Step 4: Мігрувати `profile/tracks.vue`**
@@ -342,7 +342,7 @@ git commit -m "refactor(profile): move shared collection views onto semantic tok
 Додати `'app/pages/profile.vue'` у `PROFILE_FILES`.
 
 Run: `npx vitest run tests/unit/interactionStates.test.ts`
-Expected: FAIL — `text-foreground/40` і `outline-none` у рядках 52-55.
+Expected: FAIL - `text-foreground/40` і `outline-none` у рядках 52-55.
 
 - [ ] **Step 2: Замінити рукописні таби**
 
@@ -365,7 +365,7 @@ Expected: FAIL — `text-foreground/40` і `outline-none` у рядках 52-55.
 
 - [ ] **Step 3: Показувати всі шість секцій**
 
-`visibleSections` прибирається; `profileNavItems` будується з повного `profileSections`. Причина в спеці: зараз таб зникає з-під користувача, коли той знімає останній лайк, перебуваючи на сторінці секції, і навігація стрибає після кожного лайка. `GenreTabs` показує нульові таби — це патерн сайту.
+`visibleSections` прибирається; `profileNavItems` будується з повного `profileSections`. Причина в спеці: зараз таб зникає з-під користувача, коли той знімає останній лайк, перебуваючи на сторінці секції, і навігація стрибає після кожного лайка. `GenreTabs` показує нульові таби - це патерн сайту.
 
 `v-if="profileNavItems.length"` на `<nav>` стає зайвим і знімається.
 
@@ -377,7 +377,7 @@ Expected: FAIL — `text-foreground/40` і `outline-none` у рядках 52-55.
 
 Run: `npm run test:unit && npm run typecheck`
 
-Dev-сервер на 3100: таби в обох темах, активний стан читається, обведення по `Tab` видно; 390px — таби переносяться і не ріжуться; ґрід колекції на `/profile/releases` не виглядає порожнім на новій ширині.
+Dev-сервер на 3100: таби в обох темах, активний стан читається, обведення по `Tab` видно; 390px - таби переносяться і не ріжуться; ґрід колекції на `/profile/releases` не виглядає порожнім на новій ширині.
 
 - [ ] **Step 6: Коміт**
 
@@ -445,7 +445,7 @@ Expected: FAIL по всіх п'яти асертах блоку.
 - `hover:bg-black/6 dark:hover:bg-white/6` і `hover:border-black/20 dark:hover:border-white/20` на картках секцій → одинарні `foreground`;
 - сім `text-[9px]` → `text-[10px]`.
 
-Картки секцій — це `NuxtLink`, тому їхні `focus-visible:outline-none focus-visible:ring-*` знімаються без заміни. Їхній `transition-[background-color,border-color,transform]` уже явний і `outline-color` не включає — лишити як є.
+Картки секцій - це `NuxtLink`, тому їхні `focus-visible:outline-none focus-visible:ring-*` знімаються без заміни. Їхній `transition-[background-color,border-color,transform]` уже явний і `outline-color` не включає - лишити як є.
 
 - [ ] **Step 5: Композиція**
 
@@ -453,7 +453,7 @@ Expected: FAIL по всіх п'яти асертах блоку.
 - шість рядків «Open collection» (`index.vue:272-274`) прибираються;
 - `full_name || '—'` → `full_name || 'Not set'`;
 - картка Name отримує `min-h-[…]`, що дорівнює висоті режиму редагування, щоб ряд ґріда не переверстувався на кліку по олівцю. Значення зняти з живої сторінки, не вгадувати;
-- голий `rounded` не лишається: картки `rounded-lg`, контроли беруть `rounded-md` із primitives, аватар і кружок іконки — `rounded-full`.
+- голий `rounded` не лишається: картки `rounded-lg`, контроли беруть `rounded-md` із primitives, аватар і кружок іконки - `rounded-full`.
 
 - [ ] **Step 6: Перевірити зеленим і живцем**
 
@@ -509,9 +509,9 @@ Dev-сервер на 3100, залогінений акаунт, обидві т
 
 - `/profile/tracks` показує лайкнуті треки; кожне посилання відкриває `/track/<slug>`;
 - тимчасово зламати `entitySelect` (локально, без коміту) і переконатися, що сторінка показує «Could not load this collection» із `Try again`, а не порожній стан; після повернення select `Try again` завантажує колекцію;
-- прохід `Tab` по `/profile` і одній сторінці колекції: обведення видно на кожному табі, картці секції, кнопці й рядку треку; колір знятий одразу після `Tab` і після 300ms — однаковий;
+- прохід `Tab` по `/profile` і одній сторінці колекції: обведення видно на кожному табі, картці секції, кнопці й рядку треку; колір знятий одразу після `Tab` і після 300ms - однаковий;
 - 390px: таби переносяться, картки акаунта в одну колонку, ґрід колекції не ріже картки;
-- решта сайту не зачеплена: `/`, `/releases`, одна detail-сторінка — `DefaultButton` і `Input` спільні, тому короткий обхід обов'язковий.
+- решта сайту не зачеплена: `/`, `/releases`, одна detail-сторінка - `DefaultButton` і `Input` спільні, тому короткий обхід обов'язковий.
 
 - [ ] **Step 3: Оновити документацію**
 
@@ -526,12 +526,12 @@ git add docs/initiatives/profile-surface.md docs/roadmap.md AGENTS.md
 git commit -m "docs: record profile surface implementation"
 ```
 
-`AGENTS.md` уже має незакомічені зміни в дереві — перед `git add` переглянути `git diff AGENTS.md` і за потреби використати `git add -p`.
+`AGENTS.md` уже має незакомічені зміни в дереві - перед `git add` переглянути `git diff AGENTS.md` і за потреби використати `git add -p`.
 
 ---
 
 ## Порядок і залежності
 
-Task 1 і Task 2 незалежні одна від одної та від решти — обидві можна робити першими. Tasks 3-5 йдуть строго послідовно: кожна розширює `PROFILE_FILES` і мусить лишити тест зеленим. Task 6 залежить від Task 5 (працює з уже мігрованою розміткою). Task 7 остання.
+Task 1 і Task 2 незалежні одна від одної та від решти - обидві можна робити першими. Tasks 3-5 йдуть строго послідовно: кожна розширює `PROFILE_FILES` і мусить лишити тест зеленим. Task 6 залежить від Task 5 (працює з уже мігрованою розміткою). Task 7 остання.
 
 Мінімальний зріз, який можна віддати окремо, якщо решта відкладається: **Task 1 + Task 2**. Це продовий фікс плюс те, що не дасть такому бага знову сховатися.
