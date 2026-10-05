@@ -32,6 +32,7 @@ run npx skills add https://github.com/sentimony/skills -s \
   frontend-crafting \
   tdd \
   debugging \
+  cross-review \
   review-request \
   review-resolution \
   verification-gate \
