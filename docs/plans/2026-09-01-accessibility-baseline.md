@@ -1409,13 +1409,13 @@ done
 У `AGENTS.md` рядок 150, у реченні «Focus-стан кнопок та інпутів використовує `outline` (…); auth-лінки й кнопка видимості пароля отримують еквівалентне правило в `tailwind.css`.» замінити другу частину на опис нового стану:
 
 ```markdown
-Focus-стан усіх інтерактивних елементів (`a`, `button`, `[role="button"]`, `input[type="range"]`, `summary`) задає **одне нешарове** правило `:is(…):focus-visible` у `tailwind.css`: воно поза `@layer`, тому перебиває будь-який локальний `outline-none` чи `focus-visible:ring-*` незалежно від специфічності — **не** загортати його в `@layer` і не додавати компонентам власні focus-класи (буде подвійна індикація).
+Focus-стан усіх інтерактивних елементів (`a`, `button`, `[role="button"]`, `input[type="range"]`, `summary`) задає **одне нешарове** правило `:is(…):focus-visible` у `tailwind.css`: воно поза `@layer`, тому перебиває будь-який локальний `outline-none` чи `focus-visible:ring-*` незалежно від специфічності - **не** загортати його в `@layer` і не додавати компонентам власні focus-класи (буде подвійна індикація).
 ```
 
 Решту абзацу (про `outline-none`, `ring-*` на інпуті, `--card`) лишити. Далі додати новий абзац одразу після нього:
 
 ```markdown
-**Landmarks.** `<main id="main" tabindex="-1">` живе в `app/layouts/default.vue` навколо `<slot/>` — сторінки **не** додають власний `<main>` (виняток — `app/error.vue`, який рендериться поза `NuxtLayout` і має свій `<main>` + `<h1>`). Скіп-лінка — перший вузол шаблону layout, ціль `#main`; `scroll-padding-top/bottom: 5rem` у `html` компенсує липкий хедер і нижній плеєр. Три `<nav>` мають імена `Main` (Header), `Footer`, `Mobile` (шухляда); свайпери — `<section :aria-label="title">` без власного `<h2>`, бо рендеряться до `<h1>` сторінки. Списки показують loading/empty/error через `<CollectionStatus>` (колишній `ProfileCollectionStatus`). Guarded by `tests/unit/landmarks.test.ts`, `accessibleNames.test.ts`, `collectionStatus.test.ts`.
+**Landmarks.** `<main id="main" tabindex="-1">` живе в `app/layouts/default.vue` навколо `<slot/>` - сторінки **не** додають власний `<main>` (виняток - `app/error.vue`, який рендериться поза `NuxtLayout` і має свій `<main>` + `<h1>`). Скіп-лінка - перший вузол шаблону layout, ціль `#main`; `scroll-padding-top/bottom: 5rem` у `html` компенсує липкий хедер і нижній плеєр. Три `<nav>` мають імена `Main` (Header), `Footer`, `Mobile` (шухляда); свайпери - `<section :aria-label="title">` без власного `<h2>`, бо рендеряться до `<h1>` сторінки. Списки показують loading/empty/error через `<CollectionStatus>` (колишній `ProfileCollectionStatus`). Guarded by `tests/unit/landmarks.test.ts`, `accessibleNames.test.ts`, `collectionStatus.test.ts`.
 ```
 
 І оновити `- Last reviewed:` на дату виконання. Файл має лишитися під ~250 рядків - перевірити `wc -l AGENTS.md`.

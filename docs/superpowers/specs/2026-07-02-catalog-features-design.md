@@ -110,7 +110,7 @@ Static map covers: Ukraine, Russian Federation, USA, United States, Germany, Ita
 ### Layout
 - Page title: "All Artists"
 - Four sections: Producers & Musicians / DJs / Sound Engineers & Mastering / Visual Artists & Designers
-- Each row: `<NuxtLink>` → `[flag-span] Artist Title — location text`
+- Each row: `<NuxtLink>` → `[flag-span] Artist Title - location text`
 - Flag span: `<span class="fi fi-{code} mr-2 rounded-sm" />` (inline, 1em height)
 - If no parseable country: no flag, just name.
 - On `/artists` page: add a small "View all (text)" link pointing to `/artists/all`.

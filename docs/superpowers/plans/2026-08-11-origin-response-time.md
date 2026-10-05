@@ -31,7 +31,7 @@ Expected: `"Netlify Durable"; fwd=bypass`, `netlify-vary: query`.
 
 - [ ] **Step 2: Зафіксувати час origin**
 
-Run для `/`, `/releases`, `/artists`, `/release/va-fantazma`, `/api/releases` з `?x=$(date +%s%N)`, метрика `time_starttransfer − time_appconnect`.
+Run для `/`, `/releases`, `/artists`, `/release/va-fantazma`, `/api/releases` з `?x=$(date +%s%N)`, метрика `time_starttransfer - time_appconnect`.
 Expected: діапазон 0.4-0.8 с (значення зі спеки).
 
 ---

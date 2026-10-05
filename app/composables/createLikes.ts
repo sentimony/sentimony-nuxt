@@ -45,7 +45,7 @@ export function createLikes(key: string, apiBase: string, countsUrl?: string): L
     const data = await $fetch<{ slug: string, count: number }[]>(apiBase).catch(() => [])
     likedSlugs.value = data.map(entry => entry.slug)
     // Keep whichever is larger: the public total from SSR or this client's own
-    // accumulated clicks — so a reload never drops the user's contribution even
+    // accumulated clicks - so a reload never drops the user's contribution even
     // while the cached public total is still catching up.
     for (const { slug, count } of data) {
       likeCounts.value[slug] = Math.max(likeCounts.value[slug] ?? 0, count)

@@ -72,7 +72,7 @@ useSeoMeta({
         <div class="flex flex-col gap-1.5 max-w-md">
           <Label for="demo-input" class="text-xs text-foreground/50 tracking-widest uppercase">Email</Label>
           <Input id="demo-input" v-model="inputValue" placeholder="your@email.com" />
-          <p class="text-sm text-foreground/50">Value: {{ inputValue || '—' }}</p>
+          <p class="text-sm text-foreground/50">Value: {{ inputValue || '-' }}</p>
           <Input placeholder="Disabled input" disabled class="mt-2" />
         </div>
       </section>

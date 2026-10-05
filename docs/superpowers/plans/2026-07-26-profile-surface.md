@@ -451,7 +451,7 @@ Expected: FAIL по всіх п'яти асертах блоку.
 
 - eyebrow «Collection overview» (`index.vue:237-239`) прибирається;
 - шість рядків «Open collection» (`index.vue:272-274`) прибираються;
-- `full_name || '—'` → `full_name || 'Not set'`;
+- `full_name || '-'` → `full_name || 'Not set'`;
 - картка Name отримує `min-h-[…]`, що дорівнює висоті режиму редагування, щоб ряд ґріда не переверстувався на кліку по олівцю. Значення зняти з живої сторінки, не вгадувати;
 - голий `rounded` не лишається: картки `rounded-lg`, контроли беруть `rounded-md` із primitives, аватар і кружок іконки - `rounded-full`.
 

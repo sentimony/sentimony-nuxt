@@ -28,7 +28,7 @@ Lighthouse 12, headless Chrome, локальний запуск.
 лишає запас лише 170 мс.
 
 Тепер той самий origin без кешу. `curl`, cache-busting query, час сервера
-рахується як `time_starttransfer − time_appconnect` (тобто без DNS/TCP/TLS):
+рахується як `time_starttransfer - time_appconnect` (тобто без DNS/TCP/TLS):
 
 | Ресурс | Час origin |
 | --- | --- |

@@ -26,7 +26,7 @@ Sitemap читає локальний export (не API), RSS немає, e2e п�
     "next": null,      // "/api/releases?page=2&limit=20" або null
     "prev": null       // відносний URL або null
   },
-  "results": [ /* T[] — той самий DTO, що зараз */ ]
+  "results": [ /* T[] - той самий DTO, що зараз */ ]
 }
 ```
 

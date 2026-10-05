@@ -44,7 +44,7 @@ export const LIKED_COLLECTIONS: Record<ProfileSectionKey, LikedItemsOptions> = {
     entitySelect: 'slug, title, cover_xl, date',
     visibleOnly: true,
   },
-  // tracks, artists, videos, playlists, events — перенести 1:1 із відповідних файлів
+  // tracks, artists, videos, playlists, events - перенести 1:1 із відповідних файлів
 }
 ```
 
@@ -241,7 +241,7 @@ export function usePaginatedLikes<T extends object>(url: string, limit: number, 
   const page = ref(initialItems ? 1 : 0)
   const loading = ref(false)
   const loaded = ref(Boolean(initialItems))
-  // решта — без змін
+  // решта - без змін
 ```
 
 - [ ] **Step 3: `ProfileCollectionPage` + сторінки**

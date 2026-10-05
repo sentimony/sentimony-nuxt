@@ -143,7 +143,7 @@ git commit -m "fix(sync): key firebase collections by slug for array-shaped expo
 - [ ] **Step 2: Перевірити dry-run на масивній таблиці**
 
 Run: `npm run sync:field -- --dry-run tracks 36-a-final-thought bpm=119`
-Expected: вивід містить `tracks/36-a-final-thought: bpm=119` і НЕ містить `! not in local export`. Якщо Supabase env присутні - завершується `Dry run — no Supabase writes performed.`; якщо відсутні - помилка `Missing Supabase env` ПІСЛЯ рядків локального дзеркала (це очікувано, перевіряємо саме дзеркало).
+Expected: вивід містить `tracks/36-a-final-thought: bpm=119` і НЕ містить `! not in local export`. Якщо Supabase env присутні - завершується `Dry run - no Supabase writes performed.`; якщо відсутні - помилка `Missing Supabase env` ПІСЛЯ рядків локального дзеркала (це очікувано, перевіряємо саме дзеркало).
 
 - [ ] **Step 3: Перевірити dry-run на об'єктній таблиці (регресія)**
 

@@ -70,7 +70,7 @@ const entry = (type: SearchIndexEntry['type'], slug: string, title: string, subt
 
 describe('normalizeSearchText', () => {
   it('lowercases and strips diacritics', () => {
-    expect(normalizeSearchText('Ott — Fairchildren')).toBe('ott — fairchildren')
+    expect(normalizeSearchText('Ott - Fairchildren')).toBe('ott - fairchildren')
     expect(normalizeSearchText('Café Müller')).toBe('cafe muller')
   })
 })
