@@ -27,22 +27,30 @@ run npx --prefer-online -y skl-x rm . -y
 #   review-request \
 #   review-resolution \
 #   debugging \
-#   web-debug \
-#   \ webapp-debugger \
 #   verification-gate \
 #   branch-finish \
+#   -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x i sentimony/skills -s \
+#   prose-crafting \
+#   dashfix \
+#   negafix \
+#   -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x i sentimony/skills -s \
+#   \ skill-crafting \
+#   -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x i sentimony/skills -s \
+#   \ echarts \
+#   -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x i sentimony/skills -s \
+#   web-debug \
+#   \ webapp-debugger \
 #   commit-all \
 #   gh-switch \
 #   frontend-crafting \
 #   vitest \
 #   typescript \
-#   \ echarts \
-#   prose-crafting \
-#   dashfix \
-#   negafix \
 #   maintaining-agent-context \
 #   secret-hygiene \
-#   \ skill-crafting \
 #   -a codex claude-code -y -m s
 
 # Each one individually, using separate commands
@@ -75,6 +83,10 @@ run npx --prefer-online -y skl-x i sentimony/skills -s maintaining-agent-context
 run npx --prefer-online -y skl-x i sentimony/skills -s secret-hygiene -a codex claude-code -y -m s
 # run npx --prefer-online -y skl-x i sentimony/skills -s skill-crafting -a codex claude-code -y -m s
 
+# SHADCN UI https://github.com/shadcn/ui
+# run npx --prefer-online -y skl-x i shadcn/ui -s migrate-radix-to-base -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x i shadcn/ui -s shadcn -a codex claude-code -y -m s
+
 # LOCAL & OTHER INTERESTING SKILLS
 skills_local="$(dirname "$0")/skills.local.sh"
 if [ -f "$skills_local" ]; then
@@ -88,5 +100,4 @@ if [ -n "${CI:-}" ]; then exit 0; fi
 run npx --prefer-online -y skl-x ls -g
 run npx --prefer-online -y skl-x ls
 run npx --prefer-online -y skl-x cst
-run npx --prefer-online -y skl-x usg -p 2d -g
 run npx --prefer-online -y skl-x usg -p 2d
