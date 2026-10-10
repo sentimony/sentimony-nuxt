@@ -11,10 +11,10 @@ run npx --prefer-online -y skl-x rm . -y
 
 # SENTIMONY SKILLS https://github.com/sentimony/skills
 # All at once
-# run npx --prefer-online -y skl-x i sentimony/skills -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x add sentimony/skills -a codex claude-code -y -m s
 
 # Each one individually, using one command, the prefix " \ " intentionally disables the skill
-# run npx --prefer-online -y skl-x i sentimony/skills -s \
+# run npx --prefer-online -y skl-x add sentimony/skills -s \
 #   scope-triage \
 #   \ scope-check \
 #   plan-crafting \
@@ -30,18 +30,18 @@ run npx --prefer-online -y skl-x rm . -y
 #   verification-gate \
 #   branch-finish \
 #   -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s \
+# run npx --prefer-online -y skl-x add sentimony/skills -s \
 #   prose-crafting \
 #   dashfix \
 #   negafix \
 #   -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s \
+# run npx --prefer-online -y skl-x add sentimony/skills -s \
 #   \ skill-crafting \
 #   -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s \
+# run npx --prefer-online -y skl-x add sentimony/skills -s \
 #   \ echarts \
 #   -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s \
+# run npx --prefer-online -y skl-x add sentimony/skills -s \
 #   web-debug \
 #   \ webapp-debugger \
 #   commit-all \
@@ -54,38 +54,38 @@ run npx --prefer-online -y skl-x rm . -y
 #   -a codex claude-code -y -m s
 
 # Each one individually, using separate commands
-run npx --prefer-online -y skl-x i sentimony/skills -s scope-triage -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s scope-check -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s plan-crafting -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s inline-plan-dev -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s subagent-plan-dev -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s git-worktree-isolation -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s parallel-agents -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s tdd -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s cross-review -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s review-request -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s review-resolution -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s debugging -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s web-debug -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s webapp-debugger -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s verification-gate -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s branch-finish -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s commit-all -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s gh-switch -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s frontend-crafting -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s vitest -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s typescript -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s echarts -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s prose-crafting -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s dashfix -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s negafix -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s maintaining-agent-context -a codex claude-code -y -m s
-run npx --prefer-online -y skl-x i sentimony/skills -s secret-hygiene -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i sentimony/skills -s skill-crafting -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s scope-triage -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x add sentimony/skills -s scope-check -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s plan-crafting -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s inline-plan-dev -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s subagent-plan-dev -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s git-worktree-isolation -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s parallel-agents -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s tdd -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s cross-review -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s review-request -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s review-resolution -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s debugging -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s web-debug -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x add sentimony/skills -s webapp-debugger -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s verification-gate -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s branch-finish -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s commit-all -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s gh-switch -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s frontend-crafting -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s vitest -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s typescript -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x add sentimony/skills -s echarts -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s prose-crafting -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s dashfix -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s negafix -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s maintaining-agent-context -a codex claude-code -y -m s
+run npx --prefer-online -y skl-x add sentimony/skills -s secret-hygiene -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x add sentimony/skills -s skill-crafting -a codex claude-code -y -m s
 
 # SHADCN UI https://github.com/shadcn/ui
-# run npx --prefer-online -y skl-x i shadcn/ui -s migrate-radix-to-base -a codex claude-code -y -m s
-# run npx --prefer-online -y skl-x i shadcn/ui -s shadcn -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x add shadcn/ui -s migrate-radix-to-base -a codex claude-code -y -m s
+# run npx --prefer-online -y skl-x add shadcn/ui -s shadcn -a codex claude-code -y -m s
 
 # LOCAL & OTHER INTERESTING SKILLS
 skills_local="$(dirname "$0")/skills.local.sh"
