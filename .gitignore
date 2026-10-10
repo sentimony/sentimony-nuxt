@@ -3,6 +3,8 @@ Thumbs.db
 .idea/
 __pycache__/
 
+*.local*
+
 node_modules/
 *.log
 .nuxt/
@@ -27,6 +29,7 @@ supabase/*
 .claude/
 .opencode/
 skills-lock.json
+repositories/
 .superpowers/
 .worktrees/
 
