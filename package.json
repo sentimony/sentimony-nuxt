@@ -7,7 +7,7 @@
     "setup": "sh scripts/setup.sh",
     "skills": "sh scripts/skills.sh",
     "preinstall": "npm run setup",
-    "postinstall": "npm run skills",
+    "postinstall": "[ -n \"$CI\" ] || npm run skills",
     "dev": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt dev",
     "build": "TMPDIR=/tmp node --env-file-if-exists=.env/.env --env-file-if-exists=.env/.env.local node_modules/.bin/nuxt build",
     "build:cf": "NITRO_PRESET=cloudflare_module npm run build",
