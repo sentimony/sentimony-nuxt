@@ -1,3 +1,5 @@
+import { getCatalogSource } from './catalogSource'
+import { fetchLocalCatalogNode } from './localCatalog'
 import { expandReleaseTracks, type CatalogTrack, type ReleaseTrackRow } from './releaseTracklist'
 
 type FirebaseNode = Record<string, unknown>
@@ -24,6 +26,8 @@ export function slugifyFirebaseTrackPart(value: string) {
 }
 
 export async function fetchFirebaseNode<T = FirebaseNode>(path: string): Promise<T | null> {
+  // `local` serves the Firebase-shaped catalog from the YAML export on disk.
+  if (getCatalogSource() === 'local') return fetchLocalCatalogNode<T>(path)
   return await $fetch<T | null>(firebaseUrl(path)).catch(() => null) as T | null
 }
 
@@ -107,7 +111,8 @@ function toCatalogTrack(node: FirebaseNode): CatalogTrack | null {
   }
 }
 
-const firebaseCatalogCache = { maxAge: isDev ? 0 : 60 * 60, swr: !isDev }
+// `shouldBypassCache`: Nitro treats `maxAge: 0` as "never expires".
+const firebaseCatalogCache = { maxAge: isDev ? 0 : 60 * 60, swr: !isDev, shouldBypassCache: () => isDev }
 
 // Wrap heavy whole-collection reads in Nitro's cached-function layer so repeated
 // requests on a warm serverless instance reuse one Firebase download instead of

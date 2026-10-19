@@ -52,10 +52,10 @@ if [ -f "$skills_local" ]; then
   sh "$skills_local"
 fi
 
-# # VERCEL-LABS AGENT-BROWSER https://github.com/vercel-labs/agent-browser
-# npx -y --prefer-online skl-x add vercel-labs/agent-browser -s \
-#   agent-browser \
-#   -a codex claude-code -y -m sm
+# VERCEL-LABS AGENT-BROWSER https://github.com/vercel-labs/agent-browser
+npx -y --prefer-online skl-x add vercel-labs/agent-browser -s \
+  agent-browser \
+  -a codex claude-code -y -m sm
 
 # # MATTPOCOCK SKILLS https://github.com/mattpocock/skills
 # npx -y --prefer-online skl-x add mattpocock/skills -s \

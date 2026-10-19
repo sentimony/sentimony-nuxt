@@ -1,7 +1,8 @@
-export type CatalogSource = 'firebase' | 'supabase'
+export type CatalogSource = 'firebase' | 'supabase' | 'local'
 
 export function getCatalogSource(): CatalogSource {
-  return useRuntimeConfig().catalogSource === 'supabase' ? 'supabase' : 'firebase'
+  const source = useRuntimeConfig().catalogSource
+  return source === 'supabase' || source === 'local' ? source : 'firebase'
 }
 
 export function isSupabaseCatalogSource() {
