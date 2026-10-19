@@ -26,7 +26,7 @@ export function slugifyFirebaseTrackPart(value: string) {
 }
 
 export async function fetchFirebaseNode<T = FirebaseNode>(path: string): Promise<T | null> {
-  // `local` serves the Firebase-shaped catalog from the YAML export on disk.
+  // `local` serves the Firebase-shaped catalog from the YAML on disk.
   if (getCatalogSource() === 'local') return fetchLocalCatalogNode<T>(path)
   return await $fetch<T | null>(firebaseUrl(path)).catch(() => null) as T | null
 }

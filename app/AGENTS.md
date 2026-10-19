@@ -4,7 +4,7 @@ Client-side context: the Nuxt app directory. Loaded on demand when working under
 `app/`; universal guardrails, commands and the deploy path stay in the root
 `AGENTS.md`.
 
-- Last reviewed: 2026-09-15
+- Last reviewed: 2026-10-19
 
 ## Architecture (client)
 
@@ -26,11 +26,12 @@ Client-side context: the Nuxt app directory. Loaded on demand when working under
 - No global `border-border` base layer (many bare `border` utilities rely on `currentColor`) - set borders per instance (auth Cards use `border-white/20`).
 - **`font-mono` = Azeret Mono** for technical data: BPM, catalog numbers (`SR-042`), track duration (`4:32`), total release duration. Apply `font-mono` to any element rendering these values.
 **Text tiers and focus states.** Тексту два семантичні рівні: `text-foreground` (основний) і `text-muted-foreground` (secondary: лейбли, placeholder, допоміжні лінки). Третього, тусклішого рівня немає - `text-foreground/40` і `/50` не проходять WCAG AA у світлій темі (2.58-3.94), і **не** можна класти `opacity-*` на текст усередині напівпрозорого батька (лічильники, підписи) - це той самий третій тир через задні двері. Focus-стан інтерактивних елементів із переліку `a`, `button`, `[role="button"]`, `input[type="range"]`, `summary` (текстові інпути в нього не входять: `ui/input` тримає власний рецепт `focus-visible:outline-*`) задає **одне нешарове** правило `:is(…):focus-visible` у `tailwind.css`: воно поза `@layer`, тому перебиває будь-який локальний `outline-none` чи `focus-visible:ring-*` незалежно від специфічності - **не** загортати його в `@layer` і не додавати компонентам власні focus-класи (буде подвійна індикація). **Не** додавати безумовний `outline-none`. Тому на елементах, які підпадають під глобальний селектор, `outline-none` і `focus-visible:ring-*` мертві (подвійна індикація або просто шум), а на решті - тихо вбивають фокус. Розширювати треба сам селектор, не додавати локальні правила. Не замінювати outline інпута на `ring-*` без живої перевірки: разом із `shadow-xs` ring-слот лишався прозорим. Заливка `--card` навмисно інвертується між темами (світла - біла 55%, темна - чорна 25%), бо на світлому фоні затемнення картки погіршує контраст чорного тексту. Guarded by `tests/unit/interactionStates.test.ts`.
-**Landmarks.** Один `<main id="main" tabindex="-1">` живе в `app/layouts/default.vue`; `app/error.vue` - єдиний виняток. Скіп-лінка цілиться в `#main`. **Списки й імена:** треклісти, лайнапи і списки зв'язків - `<ol>`/`<ul class="list-none">` + `<li class="mb-2">` (ритм абзацу відтворюється явно), не повторювані `<p>`; зображення всередині посилання/кнопки з видимим текстом або `aria-label` - `alt=""`; кожен `<iframe>` має `title` з назвою плеєра; кожна list-сторінка має `<CollectionStatus>`. Guarded by `tests/unit/catalogSemantics.test.ts`, `accessibleNames.test.ts`, `collectionStatus.test.ts`. Для повних правил landmarks, focus-поверхонь, edge-функцій, SEO, порядку артистів і структури docs читай [`docs/agent-context/frontend-and-docs.md`](../docs/agent-context/frontend-and-docs.md) перед роботою у відповідній області.
+**Landmarks.** Один `<main id="main" tabindex="-1">` живе в `app/layouts/default.vue`; `app/error.vue` - єдиний виняток. Скіп-лінка цілиться в `#main`. **Списки й імена:** треклісти, лайнапи і списки зв'язків - `<ol>`/`<ul class="list-none">` + `<li class="mb-2">` (ритм абзацу відтворюється явно), не повторювані `<p>`; зображення всередині посилання/кнопки з видимим текстом або `aria-label` - `alt=""`; кожен `<iframe>` має `title` з назвою плеєра; кожна list-сторінка має `<CollectionStatus>`. Guarded by `tests/unit/catalogSemantics.test.ts`, `accessibleNames.test.ts`, `collectionStatus.test.ts`.
 
 **Likes (client).** The `createLikes(key, apiBase, countsUrl)` factory, the anonymous
 device-id cookie and the accumulate/clap model are documented once in
 [`server/AGENTS.md`](../server/AGENTS.md) - client and server share one contract.
 
-For landmarks, focus surfaces, scoped CSS, SEO and artist ordering in depth, read
+For landmarks, focus surfaces, scoped CSS, Edge Functions, SEO, artist ordering and
+the docs tree in depth, read
 [`docs/agent-context/frontend-and-docs.md`](../docs/agent-context/frontend-and-docs.md).

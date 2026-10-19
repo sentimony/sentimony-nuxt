@@ -2,12 +2,12 @@
 
 Guidance for coding agents working in this repository.
 
-- Last reviewed: 2026-09-15
+- Last reviewed: 2026-10-19
 
 ## Conventions
 
 - **Instruction files:** the canonical file at every level is `AGENTS.md`; the `CLAUDE.md` beside it holds the single line `@AGENTS.md`. Claude Code does not read `AGENTS.md` natively, so a nested `AGENTS.md` without its shim is invisible to it. Write rules in `AGENTS.md` and touch `CLAUDE.md` only when the import scheme changes. Do not symlink them.
-- **Instruction size:** the governing unit is bytes on the deepest root-to-cwd chain, capped at 32 KiB by Codex `project_doc_max_bytes`; Codex fixes that chain at session start and stops adding files once the cap is reached. This root file is ~11 KB, `app/AGENTS.md` ~14 KB and `server/AGENTS.md` ~11 KB, so any single chain fits. Claude Code separately targets under 200 lines per file. A topic longer than ~800 characters becomes sub-bullets. Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas. Detail that only concerns one directory belongs in that directory's `AGENTS.md`; cross-cutting reference material that agents need only on demand lives in `docs/agent-context/` and is linked from here.
+- **Instruction size:** the governing unit is bytes on the deepest root-to-cwd chain, capped at 32 KiB by Codex `project_doc_max_bytes`; Codex fixes that chain at session start and stops adding files once the cap is reached. This root file is ~13 KB, `app/AGENTS.md` ~14 KB and `server/AGENTS.md` ~11 KB, so the deepest chain (root + `app/`, ~27 KB) fits. Claude Code separately targets under 200 lines per file. A topic longer than ~800 characters becomes sub-bullets. Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas. Detail that only concerns one directory belongs in that directory's `AGENTS.md`; cross-cutting reference material that agents need only on demand lives in `docs/agent-context/` and is linked from here.
 - **Language:** Ukrainian in conversation. **Exception — artifacts that live in GitHub: PR title and description, issue text and commit messages are English**, because the team reads them and they stay in the repo history.
 - **Code comments are English**, and only where the name cannot carry the meaning: an external constraint, a deliberate workaround, a non-obvious invariant. A comment restating the code is not wanted.
 - **No git worktrees.** Do not create them (`git worktree add`, the `git-worktree-isolation` skill, `isolation: worktree`); work directly in the main checkout.

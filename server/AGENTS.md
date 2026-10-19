@@ -4,7 +4,7 @@ Server-side context: Nitro handlers, catalog sources, caching and auth. Loaded o
 demand when working under `server/`; universal guardrails, commands and the deploy
 path stay in the root `AGENTS.md`.
 
-- Last reviewed: 2026-09-15
+- Last reviewed: 2026-10-19
 
 ## Architecture (server)
 

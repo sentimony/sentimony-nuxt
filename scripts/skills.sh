@@ -14,7 +14,7 @@ npx -y --prefer-online skl-x add sentimony/skills -s \
   plan-crafting \
   inline-plan-dev \
   subagent-plan-dev \
-  git-worktree-isolation \
+  \ git-worktree-isolation \
   \ parallel-agents \
   tdd \
   cross-review \
