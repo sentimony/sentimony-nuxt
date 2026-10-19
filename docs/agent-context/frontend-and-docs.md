@@ -113,7 +113,7 @@ linkable and provides `photo_xl` to `<RelativeItem>` thumbnails. Categories rend
 ascending numeric `category_id`.
 
 For `category_id` numbering, follow [`docs/artist-numbering.md`](../artist-numbering.md).
-The root `AGENTS.md` contains the daily rule for adding an artist; the linked
+`server/AGENTS.md` contains the daily rule for adding an artist; the linked
 document contains aliases, historical ordering, and parking-range exceptions.
 
 ## Documentation organization

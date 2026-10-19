@@ -7,11 +7,19 @@ PROJECT_ROOT=$(dirname "$SCRIPT_DIR")
 mkdir -p \
   "$PROJECT_ROOT/.agents/skills" \
   "$PROJECT_ROOT/.claude/skills" \
-  "$PROJECT_ROOT/.env"
+  "$PROJECT_ROOT/.env" \
+  "$PROJECT_ROOT/repositories"
 
 touch \
   "$PROJECT_ROOT/.env/.env" \
   "$PROJECT_ROOT/.env/.env.local"
+
+# Links ../label-skills when it is cloned next to this repo and not linked yet
+if [ -d "$PROJECT_ROOT/../label-skills" ] \
+  && [ ! -e "$PROJECT_ROOT/repositories/label-skills" ] \
+  && [ ! -L "$PROJECT_ROOT/repositories/label-skills" ]; then
+  ln -s ../../label-skills "$PROJECT_ROOT/repositories/label-skills"
+fi
 
 SETTINGS="$PROJECT_ROOT/.claude/settings.json"
 if [ ! -f "$SETTINGS" ]; then

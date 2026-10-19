@@ -34,6 +34,19 @@ onMounted(async () => {
   }
 })
 
+// Browsers put a blank line between copied <p> blocks; keep one line break per paragraph.
+function onInformationCopy(event: ClipboardEvent) {
+  const selection = window.getSelection()
+  const text = selection?.toString()
+  if (!selection?.rangeCount || !text || !event.clipboardData) return
+
+  const html = document.createElement('div')
+  html.appendChild(selection.getRangeAt(0).cloneContents())
+  event.clipboardData.setData('text/plain', text.replace(/\n{2,}/g, '\n'))
+  event.clipboardData.setData('text/html', html.innerHTML)
+  event.preventDefault()
+}
+
 const route = useRoute()
 const releaseCover = computed(() => item.value?.cover_th || item.value?.cover_xl)
 
@@ -235,7 +248,7 @@ useSeoMeta({
 
     <ItemContent v-if="item">
 
-        <div v-if="item.information" class="indent-5" v-html="sanitizeHtml(item.information)" />
+        <div v-if="item.information" class="indent-5" @copy="onInformationCopy" v-html="sanitizeHtml(item.information)" />
 
         <div v-if="item.tracklist?.length || item.tracklistCompact" class="Tracklist">
           <hr class="my-4 border-black/30">
@@ -256,11 +269,10 @@ useSeoMeta({
               :key="t.slug"
               class="mb-2"
             >
-              <small class="font-mono inline-flex w-6 justify-end">{{ Number(t.track_number) }}</small><small class="font-mono">.</small>
-              <TrackArtists :name="t.artist" :slug="t.artist_slug" />
+              <small class="font-mono inline-flex w-6 justify-end mr-1">{{ Number(t.track_number) }}</small>{{ ' ' }}<TrackArtists :name="t.artist" :slug="t.artist_slug" />
               -
               <TrackTitle :title="t.title" :artists="titleArtists" />
-              <small v-if="t.bpm" class="font-mono"> ({{ t.bpm }}bpm)</small>
+              <small v-if="t.bpm" class="font-mono"> · {{ t.bpm }}bpm</small>
             </li>
           </ol>
         </div>

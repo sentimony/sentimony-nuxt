@@ -6,7 +6,7 @@ import { isSitemapEnabled } from './server/utils/sitemapPolicy'
 const supabaseUrl = process.env.NUXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
 const supabaseKey = process.env.NUXT_PUBLIC_SUPABASE_KEY || process.env.SUPABASE_KEY || ''
 const supabaseSecretKey = process.env.NUXT_SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET_KEY || ''
-const CATALOG_SOURCE: 'firebase' | 'supabase' = 'supabase'
+const CATALOG_SOURCE: 'firebase' | 'supabase' | 'local' = 'supabase'
 const catalogSource = process.env.NUXT_CATALOG_SOURCE || process.env.CATALOG_SOURCE || CATALOG_SOURCE
 
 export default defineNuxtConfig({

@@ -2,13 +2,19 @@
 
 Guidance for coding agents working in this repository.
 
-- Last reviewed: 2026-09-15
+- Last reviewed: 2026-10-19
 
 ## Conventions
 
 - **Instruction files:** the canonical file at every level is `AGENTS.md`; the `CLAUDE.md` beside it holds the single line `@AGENTS.md`. Claude Code does not read `AGENTS.md` natively, so a nested `AGENTS.md` without its shim is invisible to it. Write rules in `AGENTS.md` and touch `CLAUDE.md` only when the import scheme changes. Do not symlink them.
-- **Instruction size:** the governing unit is bytes on the deepest root-to-cwd chain, capped at 32 KiB by Codex `project_doc_max_bytes`; Codex fixes that chain at session start and stops adding files once the cap is reached. This root file is ~11 KB, `app/AGENTS.md` ~14 KB and `server/AGENTS.md` ~11 KB, so any single chain fits. Claude Code separately targets under 200 lines per file. A topic longer than ~800 characters becomes sub-bullets. Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas. Detail that only concerns one directory belongs in that directory's `AGENTS.md`; cross-cutting reference material that agents need only on demand lives in `docs/agent-context/` and is linked from here.
-- **Language:** Ukrainian in conversation. **Exception — artifacts that live in GitHub: PR title and description, issue text and commit messages are English**, because the team reads them and they stay in the repo history.
+- **Instruction size:** the governing unit is bytes on the deepest root-to-cwd chain, capped by Codex `project_doc_max_bytes`; this is a personal repository, so the limit is the value in `~/.codex/config.toml` (32 KiB when unset).
+  - Codex fixes that chain at session start; the file that crosses the cap is cut mid-text, later files are skipped, and only the Codex log warns.
+  - This root file is ~13 KB, `app/AGENTS.md` ~14 KB and `server/AGENTS.md` ~11 KB, so the deepest chain (root + `app/`, ~27 KB) fits.
+  - Claude Code separately targets under 200 lines per file.
+  - A topic longer than ~800 characters becomes sub-bullets.
+  - Compress what is here before adding a section: drop what is obvious from the code and per-component visual detail that changes weekly, keep invariants and gotchas.
+  - Detail that only concerns one directory belongs in that directory's `AGENTS.md`; cross-cutting reference material that agents need only on demand lives in `docs/agent-context/` and is linked from here.
+- **Language:** Ukrainian in conversation. **Exception — artifacts that live in GitHub: PR title and description, issue text and commit messages are English**, because they are public on GitHub and stay in the repo history.
 - **Code comments are English**, and only where the name cannot carry the meaning: an external constraint, a deliberate workaround, a non-obvious invariant. A comment restating the code is not wanted.
 - **No git worktrees.** Do not create them (`git worktree add`, the `git-worktree-isolation` skill, `isolation: worktree`); work directly in the main checkout.
 
@@ -16,7 +22,7 @@ Guidance for coding agents working in this repository.
 
 > Source of truth for skill names is `ls .claude/skills/` — do not invoke invented ones. Code review and security review are built-in slash commands (`/code-review`, `/security-review`), not skills.
 
-- **New feature:** `scope-triage` → `plan-crafting` → `inline-plan-dev` (independent parallel tasks — `subagent-plan-dev`). Along the way as needed: `typescript` · `vitest`. Finish with `review-request` → `verification-gate` → **check**.
+- **New feature:** `scope-triage` → `plan-crafting` → `inline-plan-dev` (independent parallel tasks - `subagent-plan-dev`). Along the way as needed: `typescript` · `vitest`. Finish with `review-request` → `verification-gate` → **check**.
 - **Bug / regression:** `debugging` → `tdd` → `verification-gate` → **check**.
 - **UI work:** `web-debug` · `frontend-crafting` → **check**.
 - **Prose (docs, README, UI copy):** `dashfix` · `negafix`.
@@ -41,12 +47,26 @@ remain the source of truth for routine dev, build, test, sync, and deploy comman
 
 **Performance baselines.** Use `PERF_LABEL=... npm run perf:baseline` and `LH_LABEL=... npm run perf:lighthouse`; do not hand-roll `curl`. For methodology, cache behavior, host comparison, and Cloudflare evaluation details, read [`docs/agent-context/frontend-and-docs.md`](docs/agent-context/frontend-and-docs.md).
 
-Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores. **The exception is deploying:** `predeploy:stage` / `predeploy:prod` run `sync:supabase && sync:firebase` before every `deploy:stage` / `deploy:prod`; those npm scripts are the only path to prod and stage (the CLI uploads a local build, so the `netlify.toml` build commands do not run there). Netlify deploy previews are built from a PR push (the site is linked to `sentimony/sentimony-nuxt`) and run `sync:supabase:preview && npm run build` (`[context.deploy-preview]` in `netlify.toml`), because previews read the same Supabase catalog and would otherwise show the content of the last manual deploy. `scripts/sync-supabase-preview.mjs` runs the sync only when the branch contains `origin/main` **and** its catalog inputs (the YAML, the convert, sync and guard scripts, `package.json`, the lockfile and `.nvmrc`) are identical to it, so a preview writes what a prod deploy of `main` would; this covers accidental drift, not a hostile PR, which only credential isolation would stop; a branch with catalog edits builds without syncing, because the store is shared by prod, stage and every preview and an unmerged catalog would otherwise rewrite or delete prod rows. This is what keeps `sentimony-db.yml` from silently diverging from the store prod reads. Two consequences: a manual deploy needs both `SUPABASE_SECRET_KEY` and `FIREBASE_DB_SECRET` present locally or it aborts before uploading, and `sync-supabase.mjs` deletes stale `tracks` / `track_artists` rows, so a bad YAML edit propagates deletions at deploy time.
+Do not run `sync:*` unless explicitly asked; these scripts write to remote Firebase/Supabase stores.
+
+- **The exception is deploying:** `predeploy:stage` / `predeploy:prod` run `sync:supabase && sync:firebase` before every `deploy:stage` / `deploy:prod`; those npm scripts are the only path to prod and stage (the CLI uploads a local build, so the `netlify.toml` build commands do not run there).
+- Netlify deploy previews are built from a PR push (the site is linked to `sentimony/sentimony-nuxt`) and run `sync:supabase:preview && npm run build` (`[context.deploy-preview]` in `netlify.toml`), because previews read the same Supabase catalog and would otherwise show the content of the last manual deploy.
+- `scripts/sync-supabase-preview.mjs` runs the sync only when the branch contains `origin/main` **and** its catalog inputs (the YAML, the convert, sync and guard scripts, `package.json`, the lockfile and `.nvmrc`) are identical to it, so a preview writes what a prod deploy of `main` would; this covers accidental drift, not a hostile PR, which only credential isolation would stop; a branch with catalog edits builds without syncing, because the store is shared by prod, stage and every preview and an unmerged catalog would otherwise rewrite or delete prod rows. This is what keeps `sentimony-db.yml` from silently diverging from the store prod reads.
+- Two consequences: a manual deploy needs both `SUPABASE_SECRET_KEY` and `FIREBASE_DB_SECRET` present locally or it aborts before uploading, and `sync-supabase.mjs` deletes stale `tracks` / `track_artists` rows, so a bad YAML edit propagates deletions at deploy time.
+
 CI (`.github/workflows/ci.yml`) runs `docs:check`, `typecheck`, `typecheck:ts7`, `typecheck:tests`, `test:unit`, a `node-server` build and `web-debug` on push/PR — Playwright and the Netlify preset build are **not** in CI yet. **CI runs on Linux, so file-path casing matters** even though macOS hides mismatches locally.
 
-`npm install` is not inert: `preinstall` → `scripts/setup.sh` (creates `.env/`, `.claude/skills/`, seeds `.claude/settings.json` attribution flags) and `postinstall` → `scripts/skills.sh` (re-installs the pinned agent skills via `npx skills add`, network required). `npm run clean` wipes `node_modules`, `package-lock.json`, `.nuxt` and the installed skills — do not run it casually.
+`npm install` is not inert: `preinstall` → `scripts/setup.sh` (creates `.env/`, `.claude/skills/`, links `repositories/label-skills` to a sibling `../label-skills` checkout, seeds `.claude/settings.json` attribution flags) and `postinstall` → `scripts/skills.sh` (skipped when `CI` is set; removes every project skill with `skl-x rm .`, then installs the pinned ones, network required; a gitignored `scripts/skills.local.sh`, if present, then symlinks `sc-manage` from `repositories/label-skills`). `npm run clean` wipes `node_modules`, `package-lock.json`, `.nuxt` and the installed skills - do not run it casually.
 
-**Dev servers:** respect the user's already-running dev environments. Ports 3000–3002 (and any other running `nuxt dev`) are likely the user's — never stop them. Never run a broad `pkill -f "nuxt dev"`; it kills the user's servers too. If you need your own server for verification, start it on a distinct free port (e.g. `--port 3100`) via `.agents/skills/web-debug/scripts/with_server.py`, and stop only that instance once your work is done.
+After a dependency bump, check that `node_modules/vue-router` exists at the top level: when npm nests it under `nuxt/node_modules`, `typecheck:tests` still exits 0 but prints `Resolve plugin path failed: vue-router/volar/sfc-route-blocks` and drops the route-block plugin. `npm dedupe` does not fix it; regenerate the lockfile (remove `node_modules` and `package-lock.json`, then `npm install`).
+
+**Dev servers:** respect the user's already-running dev environments.
+
+- Ports 3000–3002 (and any other running `nuxt dev`) are likely the user's — never stop them.
+- Never run a broad `pkill -f "nuxt dev"`; it kills the user's servers too.
+- If you need your own server for verification, start it on a distinct free port (e.g. `--port 3100`) via `.agents/skills/web-debug/scripts/with_server.py`, and stop only that instance once your work is done.
+- A second `nuxt dev` in the same checkout refuses to start (`Another Nuxt dev server is already running`) while the user's server runs; do not bypass it with `NUXT_IGNORE_LOCK=1` (both would write `.nuxt/`) - verify against `NITRO_PRESET=node-server npm run build` served by `with_server.py` as `PORT=3100 node .output/server/index.mjs`, with runtime overrides such as `NUXT_CATALOG_SOURCE=local` in the same env.
+
 `npm run typecheck` passes locally with Supabase env warnings when the secrets are absent — that warning is not a failure.
 Unit tests mock Nitro auto-imported utils (`supabaseAdmin`, `defineEventHandler`, `fetch*` helpers) through `installNitroGlobals(overrides)` from `tests/setup/nitroMocks.ts` (returns a `restore()` for `afterEach`; `fakeEvent()` for handler calls) with `vi.resetModules()` + dynamic import — see `tests/unit/likeCountersHandler.test.ts`. `restoreMocks: true` in `vitest.config.ts` restores spies, so no manual `vi.restoreAllMocks()`. Do not enable Vitest's suggested `isolate: false`: files mutate `globalThis`.
 
@@ -55,7 +75,7 @@ Unit tests mock Nitro auto-imported utils (`supabaseAdmin`, `defineEventHandler`
 **Env.** `.env/.env` (team defaults, gitignored) then `.env/.env.local` (personal) - both auto-loaded by the npm scripts. `.env` is a **directory**; a stray `.env.local` at the repo root is **not** loaded by anything.
 
 - **Supabase:** define `SUPABASE_URL`, `SUPABASE_KEY`, `SUPABASE_SECRET_KEY` (canonical `NUXT_PUBLIC_SUPABASE_URL` / `NUXT_PUBLIC_SUPABASE_KEY` / `NUXT_SUPABASE_SECRET_KEY` also work).
-- **Catalog source:** `CATALOG_SOURCE=firebase|supabase` chooses the content source at process start; `NUXT_CATALOG_SOURCE` can override it in deployed Nuxt/Nitro runtime. As of 2026-07, all Netlify contexts (prod + stage) run `NUXT_CATALOG_SOURCE=supabase`. Track `audio_url` (R2 links from `sentimony-audio-manager`) is synced to Supabase only - Firebase stays stale on audio, so under `firebase` mode most tracks show no audio. Change the source with `npx netlify env:set NUXT_CATALOG_SOURCE <val> --context <ctx>` + redeploy.
+- **Catalog source:** `CATALOG_SOURCE=firebase|supabase|local` chooses the content source at process start (`local` - for dev only - serves `server/data/sentimony-db.yml` from disk, see `server/AGENTS.md`); `NUXT_CATALOG_SOURCE` can override it in deployed Nuxt/Nitro runtime. As of 2026-07, all Netlify contexts (prod + stage) run `NUXT_CATALOG_SOURCE=supabase`. Track `audio_url` (R2 links from `sentimony-audio-manager`) is synced to Supabase only - Firebase stays stale on audio, so under `firebase` mode most tracks show no audio. Change the source with `npx netlify env:set NUXT_CATALOG_SOURCE <val> --context <ctx>` + redeploy.
 - **`NETLIFY_AUTH_TOKEN`** in `.env/.env.local` (personal access token of the site-owning Netlify account) makes `deploy:stage`/`deploy:prod` independent of the active `netlify switch` account, and is required by `env:set` — the active `netlify` CLI account has read-only rights → writes fail with `JSONHTTPError: Not Found`.
 - **`FIREBASE_DB_SECRET`** in `.env/.env.local` (Firebase Console → Project Settings → Service Accounts → Database secrets) is required by `sync:firebase`, which writes via a REST `PUT` (`scripts/sync-firebase.mjs`) instead of the `firebase-tools` CLI.
 
@@ -65,7 +85,7 @@ The nuxt scripts (`dev`/`build`/`generate`/`preview`/`postinstall`) are prefixed
 
 Detailed architecture lives in two nested instruction files, loaded on demand when
 you work in that directory. A Codex session started at the repository root does not
-load them automatically — open the relevant one before touching that subtree.
+load them automatically - open the relevant one before touching that subtree.
 
 | Directory | File | Contains |
 | --- | --- | --- |

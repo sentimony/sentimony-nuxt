@@ -3,14 +3,16 @@ Thumbs.db
 .idea/
 __pycache__/
 
+*.local*
+*.env*
+
 node_modules/
 *.log
 .nuxt/
 .output/
 dist/
 
-# .env
-.env.local
+!.env/
 .env/*
 !.env/.env.example
 !.env/.env.test.example
@@ -27,6 +29,7 @@ supabase/*
 .claude/
 .opencode/
 skills-lock.json
+repositories/
 .superpowers/
 .worktrees/
 
