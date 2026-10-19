@@ -120,7 +120,9 @@ fi
 #   -a codex claude-code -y -m sm
 
 # # BLADER HUMANIZER https://github.com/blader/humanizer
-# npx -y --prefer-online skl-x add blader/humanizer -a codex claude-code -y -m sm
+# npx -y --prefer-online skl-x add blader/humanizer -s \
+#   humanizer \
+#   -a codex claude-code -y -m sm
 
 # # OBRA THE-ELEMENTS-OF-STYLE https://github.com/obra/the-elements-of-style
 # npx -y --prefer-online skl-x add obra/the-elements-of-style -s \
