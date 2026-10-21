@@ -22,7 +22,7 @@ npx -y --prefer-online skl-x add sentimony/skills -s \
   review-resolution \
   debugging \
   web-debug \
-  \ webapp-debugger \
+  webapp-debugger \
   verification-gate \
   branch-finish \
   commit-all \
