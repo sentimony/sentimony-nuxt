@@ -6549,7 +6549,11 @@ artists:
     photo_og: https://content.sentimony.com/assets/img/artists/spacecraft-01_og.jpg
     photo_th: https://content.sentimony.com/assets/img/artists/spacecraft-01_th.jpg
     photo_xl: https://content.sentimony.com/assets/img/artists/spacecraft-01_xl.jpg
-    information: ""
+    information:
+      <p>Spacecraft is a Dark Progressive project created by Eduardo De la Paz from Mexico.</p>
+      <p>He is inspired by the wonders of the universe and complex phenomenon, which he expertly translates into sounds.</p>
+      <p>His music features heavy rolling basslines and far away sinister atmospherics with a psychedelic twist - an embodiment of raw primordial energy.</p>
+      <p>Spacecraft invites you on an obscure journey.</p>
     info_sc: <p>Eduardo De La Paz builds psytrance from Guerrero, Mexico as SpaceCraft — dark, glitch-inflected, with tight basslines and atmospheres that feel deliberately outside this reality.</p>
     soundcloud_url: https://soundcloud.com/spacecraft2
     soundcloud_label_playlist_id: ""
@@ -6558,13 +6562,13 @@ artists:
     youtube_artist_playlist_id: ""
     youtube_playlist_id: PLp2GaPnw5O3NmYLrF-TLHaJnPVoTKyJ71
     spotify: https://open.spotify.com/artist/290EpY0xFhWAlRjRdHjCns
-    apple_music: ""
+    apple_music: "https://music.apple.com/us/artist/spacecraft/1642569891"
     discogs: ""
     facebook: https://www.facebook.com/SpaceCraftmusik
     facebook_personal: https://www.facebook.com/eduardo.sc.735
     instagram: ""
     instagram_personal: ""
-    bandcamp_url: ""
+    bandcamp_url: https://spacecraft1.bandcamp.com/follow_me
     youtube_url: ""
     youtubemusic_url: ""
     website: ""
@@ -13638,7 +13642,7 @@ releases:
     title: "VORG «Cyber Soul: Chill»"
     cat_no: SENCD0101
     visible: true
-    date: 2026-10-16T12:00:00.000Z
+    date: 2026-11-16T12:00:00.000Z
     coming_soon: true
     new: false
     cover_og: https://content.sentimony.com/assets/img/releases/vorg-cyber-soul-chill_og.jpg

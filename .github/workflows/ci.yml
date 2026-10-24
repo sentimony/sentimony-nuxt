@@ -27,11 +27,11 @@ jobs:
           cache: npm
       - name: Install probe skills
         run: |
-          npx -y --prefer-online skl-x add sentimony/skills -s cross-review -a codex claude-code -y -m sm
-          npx -y --prefer-online skl-x add sentimony/agentic-workflow -s cr-request cr-received session-learnings -a codex claude-code -y -m sm
+          npx -y --prefer-online skl-x add sentimony/skills -s scope-triage scope-check plan-crafting inline-plan-dev subagent-plan-dev git-worktree-isolation parallel-agents tdd review-request cross-review review-resolution debugging web-debug webapp-debugger verification-gate branch-finish commit-all gh-switch frontend-crafting vitest typescript echarts prose-crafting dashfix negafix maintaining-agent-context secret-hygiene skill-crafting -a codex claude-code -y -m sm
+          npx -y --prefer-online skl-x add sentimony/agentic-workflow -s specify plan-craft implement verify cr-request cr-received finalize session-learnings -a codex claude-code -y -m sm
       - name: Check probe skills
         run: |
-          for skill in cross-review cr-request cr-received session-learnings; do
+          for skill in scope-triage scope-check plan-crafting inline-plan-dev subagent-plan-dev git-worktree-isolation parallel-agents tdd review-request cross-review review-resolution debugging web-debug webapp-debugger verification-gate branch-finish commit-all gh-switch frontend-crafting vitest typescript echarts prose-crafting dashfix negafix maintaining-agent-context secret-hygiene skill-crafting specify plan-craft implement verify cr-request cr-received finalize session-learnings; do
             for dir in .claude/skills .agents/skills; do
               if [ ! -f "$dir/$skill/SKILL.md" ]; then
                 echo "$dir/$skill/SKILL.md is missing"
@@ -40,11 +40,11 @@ jobs:
             done
           done
       - name: Remove probe skills
-        run: npx -y --prefer-online skl-x rm cross-review cr-request cr-received session-learnings -y -m sm
+        run: npx -y --prefer-online skl-x rm scope-triage scope-check plan-crafting inline-plan-dev subagent-plan-dev git-worktree-isolation parallel-agents tdd review-request cross-review review-resolution debugging web-debug webapp-debugger verification-gate branch-finish commit-all gh-switch frontend-crafting vitest typescript echarts prose-crafting dashfix negafix maintaining-agent-context secret-hygiene skill-crafting specify plan-craft implement verify cr-request cr-received finalize session-learnings -y -m sm
       # -L catches a dangling symlink that -e misses
       - name: Check probe skills removal
         run: |
-          for skill in cross-review cr-request cr-received session-learnings; do
+          for skill in scope-triage scope-check plan-crafting inline-plan-dev subagent-plan-dev git-worktree-isolation parallel-agents tdd review-request cross-review review-resolution debugging web-debug webapp-debugger verification-gate branch-finish commit-all gh-switch frontend-crafting vitest typescript echarts prose-crafting dashfix negafix maintaining-agent-context secret-hygiene skill-crafting specify plan-craft implement verify cr-request cr-received finalize session-learnings; do
             for dir in .claude/skills .agents/skills; do
               if [ -e "$dir/$skill" ] || [ -L "$dir/$skill" ]; then
                 echo "$dir/$skill still exists"
