@@ -1,8 +1,9 @@
 name: CI
 
 on:
+  # All branches: the Auto Reviewer gate reads the CI run of a push event on the PR head.
   push:
-    branches: [main]
+    branches: ['**']
   pull_request:
   workflow_dispatch:
 
@@ -142,3 +143,20 @@ jobs:
       - name: Stop server
         if: always()
         run: kill "$SERVER_PID" 2>/dev/null || true
+
+  # Single job id for the Auto Reviewer gate (`required-ci-job: ci`): it accepts
+  # one job name and the other job names contain spaces. Succeeds only when
+  # every job above succeeded.
+  ci:
+    needs: [docs-check, typecheck, unit, smoke]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Require all jobs to succeed
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          for result in $RESULTS; do
+            [ "$result" = success ] || { echo "a required job finished as $result"; exit 1; }
+          done
