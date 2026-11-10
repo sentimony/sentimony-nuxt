@@ -97,3 +97,7 @@ load them automatically - open the relevant one before touching that subtree.
 ## Docs
 
 `docs/roadmap.md` і поле `- Status:` у кожному initiative-файлі мають залишатися синхронними; після змін у документах запускай `npm run docs:check`. Деталі про naming, архівні каталоги, індекси аудитів і dated snapshots описані в [`docs/agent-context/frontend-and-docs.md`](docs/agent-context/frontend-and-docs.md).
+
+## ADR
+
+1. Перед архітектурною зміною прочитай релевантні чинні рішення (`docs/adr`), [політику ADR](docs/agent-context/adr-adoption/policy.md) і [шаблон](docs/agent-context/adr-adoption/templates/adr.md); за суперечності покажи її власнику, а важливі погоджені рішення записуй за політикою.
