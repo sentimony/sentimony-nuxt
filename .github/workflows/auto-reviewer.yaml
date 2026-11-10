@@ -1,0 +1,30 @@
+name: Auto Reviewer
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+  pull_request:
+    types: [opened, reopened, ready_for_review, review_requested, closed]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: PR number
+        required: false
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+  issues: read
+  statuses: write
+
+jobs:
+  auto_review:
+    uses: sentimony/github-workflows/.github/workflows/auto-reviewer-shared.yaml@v0.0.5
+    with:
+      required-ci-job: ci
+      pr: ${{ inputs.pr || '' }}
+    secrets:
+      AUTO_REVIEWER_YNGWALD: ${{ secrets.AUTO_REVIEWER_YNGWALD }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
