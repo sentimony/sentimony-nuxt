@@ -2,29 +2,43 @@
 set -e
 
 npx -y --prefer-online skl-x -v
+npx -y --prefer-online skl-x update
 # npx -y skills -v
 npx -y --prefer-online skl-x rm . -y -m sm
 
 # A "\ name" line disables that skill on purpose: skl-x gets " name" and skips it
 
+# SENTIMONY AGENTIC WORKFLOW https://github.com/sentimony/agentic-workflow
+npx -y --prefer-online skl-x add sentimony/agentic-workflow -s \
+  specify \
+  plan-craft \
+  implement \
+  verify \
+  cr-request \
+  \ cross-cr \
+  cr-received \
+  finalize \
+  session-learnings \
+  -a codex claude-code -y -m sm
+
 # SENTIMONY SKILLS https://github.com/sentimony/skills
 npx -y --prefer-online skl-x add sentimony/skills -s \
-  scope-triage \
+  \ scope-triage \
   scope-check \
-  plan-crafting \
-  inline-plan-dev \
-  subagent-plan-dev \
+  \ plan-crafting \
+  \ inline-plan-dev \
+  \ subagent-plan-dev \
   \ git-worktree-isolation \
   \ parallel-agents \
   tdd \
-  cross-review \
-  review-request \
-  review-resolution \
+  \ review-request \
+  \ cross-review \
+  \ review-resolution \
   debugging \
   web-debug \
-  \ webapp-debugger \
-  verification-gate \
-  branch-finish \
+  webapp-debugger \
+  \ verification-gate \
+  \ branch-finish \
   commit-all \
   gh-switch \
   frontend-crafting \
@@ -37,13 +51,6 @@ npx -y --prefer-online skl-x add sentimony/skills -s \
   maintaining-agent-context \
   secret-hygiene \
   \ skill-crafting \
-  -a codex claude-code -y -m sm
-
-# SENTIMONY AGENTIC WORKFLOW https://github.com/sentimony/agentic-workflow
-npx -y --prefer-online skl-x add sentimony/agentic-workflow -s \
-  cr-request \
-  cr-received \
-  session-learnings \
   -a codex claude-code -y -m sm
 
 # LOCAL SKILLS
@@ -145,7 +152,7 @@ npx -y --prefer-online skl-x add vercel-labs/agent-browser -s \
 #   -a codex claude-code -y -m sm
 
 # npx -y --prefer-online skl-x -v
-# npx -y --prefer-online skl-x ls -g
-# npx -y --prefer-online skl-x ls
+npx -y --prefer-online skl-x ls -g -m sm
+npx -y --prefer-online skl-x ls -m sm
 # npx -y --prefer-online skl-x cst
 # npx -y --prefer-online skl-x usg -p 2d
