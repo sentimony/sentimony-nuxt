@@ -28,8 +28,8 @@ jobs:
           cache: npm
       - name: Install probe skills
         run: |
-          npx -y --prefer-online skl-x add sentimony/skills -s cross-review -a codex claude-code -y -m sm
-          npx -y --prefer-online skl-x add sentimony/agentic-workflow -s cr-request cr-received session-learnings -a codex claude-code -y -m sm
+          npx -y --prefer-online skl-x add sentimony/skills -s cross-review session-learnings -a codex claude-code -y -m sm
+          npx -y --prefer-online skl-x add sentimony/agentic-workflow -s cr-request cr-received -a codex claude-code -y -m sm
       - name: Check probe skills
         run: |
           for skill in cross-review cr-request cr-received session-learnings; do
