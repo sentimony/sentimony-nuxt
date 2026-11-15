@@ -21,7 +21,10 @@ permissions:
 
 jobs:
   auto_review:
-    uses: sentimony/github-workflows/.github/workflows/auto-reviewer-shared.yaml@d431253a764823c2414bf51e496b8a8c65adef78 # v0.0.13
+    # The moving `stable` branch is the owner's accepted trade-off, not a defect for review:
+    # sentimony/github-workflows protects it with rulesets (updates only by its admins,
+    # maintainers and the promotion deploy key) and moves it only to released commits.
+    uses: sentimony/github-workflows/.github/workflows/auto-reviewer-shared.yaml@stable
     with:
       required-ci-job: ci
       pr: ${{ inputs.pr || '' }}
