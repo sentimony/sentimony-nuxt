@@ -16,17 +16,16 @@ Guidance for coding agents working in this repository.
   - Detail that only concerns one directory belongs in that directory's `AGENTS.md`; cross-cutting reference material that agents need only on demand lives in `docs/agent-context/` and is linked from here.
 - **Language:** Ukrainian in conversation. **Exception — artifacts that live in GitHub: PR title and description, issue text and commit messages are English**, because they are public on GitHub and stay in the repo history.
 - **Code comments are English**, and only where the name cannot carry the meaning: an external constraint, a deliberate workaround, a non-obvious invariant. A comment restating the code is not wanted.
-- **No git worktrees.** Do not create them (`git worktree add`, the `git-worktree-isolation` skill, `isolation: worktree`); work directly in the main checkout.
 
 ## Workflow
 
 > Source of truth for skill names is `ls .claude/skills/` — do not invoke invented ones. Code review and security review are built-in slash commands (`/code-review`, `/security-review`), not skills.
 
-- **New feature:** `scope-triage` → `plan-crafting` → `inline-plan-dev` (independent parallel tasks - `subagent-plan-dev`). Along the way as needed: `typescript` · `vitest`. Finish with `review-request` → `verification-gate` → **check**.
-- **Bug / regression:** `debugging` → `tdd` → `verification-gate` → **check**.
-- **UI work:** `web-debug` · `frontend-crafting` → **check**.
+- **New feature:** `scope-triage` → `plan-craft` → `implement` (independent parallel tasks - `subagents-implement`). Along the way as needed: `typescript` · `vitest`. Finish with `request-review` → `verify-gate` → **check**.
+- **Bug / regression:** `debug` → `tdd` → `verify-gate` → **check**.
+- **UI work:** `playwright-debug` · `frontend-craft` → **check**.
 - **Prose (docs, README, UI copy):** `dashfix` · `negafix`.
-- **Received review feedback:** `review-resolution` → fixes → `verification-gate` → **check**.
+- **Received review feedback:** `received-review` → fixes → `verify-gate` → **check**.
 
 > **check** = `npm run test:unit && npm run typecheck && npm run typecheck:tests && npm run docs:check` — green before any task is called done. Playwright (`test:e2e`) and the Netlify preset build are not in CI, so run them by hand when the change touches rendering or the deploy path.
 
@@ -64,7 +63,7 @@ After a dependency bump, check that `node_modules/vue-router` exists at the top 
 
 - Ports 3000–3002 (and any other running `nuxt dev`) are likely the user's — never stop them.
 - Never run a broad `pkill -f "nuxt dev"`; it kills the user's servers too.
-- If you need your own server for verification, start it on a distinct free port (e.g. `--port 3100`) via `.agents/skills/web-debug/scripts/with_server.py`, and stop only that instance once your work is done.
+- If you need your own server for verification, start it on a distinct free port (e.g. `--port 3100`) via `.agents/skills/playwright-debug/scripts/with_server.py`, and stop only that instance once your work is done.
 - A second `nuxt dev` in the same checkout refuses to start (`Another Nuxt dev server is already running`) while the user's server runs; do not bypass it with `NUXT_IGNORE_LOCK=1` (both would write `.nuxt/`) - verify against `NITRO_PRESET=node-server npm run build` served by `with_server.py` as `PORT=3100 node .output/server/index.mjs`, with runtime overrides such as `NUXT_CATALOG_SOURCE=local` in the same env.
 
 `npm run typecheck` passes locally with Supabase env warnings when the secrets are absent — that warning is not a failure.
