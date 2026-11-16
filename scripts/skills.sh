@@ -1,50 +1,63 @@
 #!/usr/bin/env sh
 set -e
 
-npx -y --prefer-online skl-x -v
+# npx -y --prefer-online skl-x -v
+npx -y --prefer-online skl-x update
 # npx -y skills -v
 npx -y --prefer-online skl-x rm . -y -m sm
 
 # A "\ name" line disables that skill on purpose: skl-x gets " name" and skips it
 
-# SENTIMONY SKILLS https://github.com/sentimony/skills
-npx -y --prefer-online skl-x add sentimony/skills -s \
-  scope-triage \
-  scope-check \
-  plan-crafting \
-  inline-plan-dev \
-  subagent-plan-dev \
-  \ git-worktree-isolation \
-  \ parallel-agents \
-  tdd \
-  cross-review \
-  review-request \
-  review-resolution \
-  debugging \
-  web-debug \
-  \ webapp-debugger \
-  verification-gate \
-  branch-finish \
-  commit-all \
-  gh-switch \
-  frontend-crafting \
-  vitest \
-  typescript \
-  \ echarts \
-  prose-crafting \
-  dashfix \
-  negafix \
-  maintaining-agent-context \
-  secret-hygiene \
-  \ skill-crafting \
-  -a codex claude-code -y -m sm
+# # SENTIMONY CROSS-AGENT https://github.com/sentimony/cross-agent
+# npx -y --prefer-online skl-x add sentimony/cross-agent -s \
+#   cross-agent \
+#   -a codex claude-code -y -m md
 
 # SENTIMONY AGENTIC WORKFLOW https://github.com/sentimony/agentic-workflow
 npx -y --prefer-online skl-x add sentimony/agentic-workflow -s \
+  \ specify \
+  \ plan-craft \
+  \ implement \
+  \ verify \
   cr-request \
   cr-received \
+  \ finalize \
+  \ resolve-issue \
+  -a codex claude-code -y -m md
+
+# SENTIMONY SKILLS https://github.com/sentimony/skills
+npx -y --prefer-online skl-x add sentimony/skills -s \
+  scope-triage \
+  md-preview \
+  plan-craft \
+  implement \
+  subagents-implement \
+  \ worktree-isolation \
+  \ parallel-agents \
+  tdd \
+  request-review \
+  cross-review \
+  received-review \
+  debug \
+  playwright-debug \
+  \ agent-browser-debug \
+  verify-gate \
+  finalize \
+  commit-all \
+  gh-switch \
+  frontend-craft \
+  vitest \
+  typescript \
+  \ echarts \
+  prose-craft \
+  dashfix \
+  negafix \
+  maintain-agents-md \
+  secret-hygiene \
+  \ skill-crafting \
   session-learnings \
-  -a codex claude-code -y -m sm
+  transfer-context \
+  -a codex claude-code -y -m md
 
 # LOCAL SKILLS
 skills_local="$(dirname "$0")/skills.local.sh"
@@ -145,7 +158,7 @@ npx -y --prefer-online skl-x add vercel-labs/agent-browser -s \
 #   -a codex claude-code -y -m sm
 
 # npx -y --prefer-online skl-x -v
-# npx -y --prefer-online skl-x ls -g
-# npx -y --prefer-online skl-x ls
+npx -y --prefer-online skl-x ls -g -m sm
+npx -y --prefer-online skl-x ls -m sm
 # npx -y --prefer-online skl-x cst
 # npx -y --prefer-online skl-x usg -p 2d
